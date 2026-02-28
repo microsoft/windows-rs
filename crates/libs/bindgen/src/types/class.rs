@@ -87,7 +87,7 @@ impl Class {
                 if interface.def.methods().next().is_none() {
                     None
                 } else {
-                        let method_name = to_ident(interface.def.name());
+                        let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
 
                         let cfg = if config.package {

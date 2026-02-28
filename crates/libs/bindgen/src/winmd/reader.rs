@@ -2,7 +2,7 @@ use super::*;
 
 // Thread-local pointer to the active Reader. Set in Reader::new and cleared in Reader::drop.
 std::thread_local! {
-    static CURRENT_READER: std::cell::Cell<*const Reader> = std::cell::Cell::new(std::ptr::null());
+    static CURRENT_READER: std::cell::Cell<*const Reader> = const { std::cell::Cell::new(std::ptr::null()) };
 }
 
 /// Returns the current Reader from the thread-local. Panics if not set.
@@ -60,12 +60,21 @@ impl Reader {
             index: index_ptr,
         });
 
-        // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>
+        // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>, including recursively
+        // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
         let mut nested: HashMap<TypeDef, Vec<TypeDef>> = HashMap::new();
-        for (_, _, def) in index_ref.iter() {
-            for inner in index_ref.nested(def) {
+        fn collect_nested(
+            index: &'static windows_metadata::reader::TypeIndex,
+            def: TypeDef,
+            nested: &mut HashMap<TypeDef, Vec<TypeDef>>,
+        ) {
+            for inner in index.nested(def) {
                 nested.entry(def).or_default().push(inner);
+                collect_nested(index, inner, nested);
             }
+        }
+        for (_, _, def) in index_ref.iter() {
+            collect_nested(index_ref, def, &mut nested);
         }
 
         for (namespace, name, def) in index_ref.iter() {
@@ -214,7 +223,9 @@ impl Reader {
     }
 
     /// Gets all types matching the given namespace and name.
+    /// Trims any generic arity suffix (e.g. "`1") so callers may pass raw metadata names.
     pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Type> + '_ {
+        let name = windows_metadata::trim_tick(name);
         self.map
             .get(namespace)
             .and_then(|types| types.get(name))

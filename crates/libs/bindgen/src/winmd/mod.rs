@@ -1,6 +1,8 @@
 use super::*;
 
+mod bindings;
 mod reader;
+pub use bindings::*;
 pub use reader::*;
 
 // Type aliases using 'static lifetime.
@@ -80,38 +82,6 @@ impl std::ops::Not for MethodCallAttributes {
         Self(!self.0)
     }
 }
-
-// ELEMENT_TYPE constants (matching the values in ECMA-335 / metadata spec).
-// These cannot be imported from windows-metadata (they are pub(crate) there),
-// so we define them here. They are identical to those in metadata's bindings.rs.
-pub type CorElementType = u8;
-pub const ELEMENT_TYPE_VOID: CorElementType = 1u8;
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = 2u8;
-pub const ELEMENT_TYPE_CHAR: CorElementType = 3u8;
-pub const ELEMENT_TYPE_I1: CorElementType = 4u8;
-pub const ELEMENT_TYPE_U1: CorElementType = 5u8;
-pub const ELEMENT_TYPE_I2: CorElementType = 6u8;
-pub const ELEMENT_TYPE_U2: CorElementType = 7u8;
-pub const ELEMENT_TYPE_I4: CorElementType = 8u8;
-pub const ELEMENT_TYPE_U4: CorElementType = 9u8;
-pub const ELEMENT_TYPE_I8: CorElementType = 10u8;
-pub const ELEMENT_TYPE_U8: CorElementType = 11u8;
-pub const ELEMENT_TYPE_R4: CorElementType = 12u8;
-pub const ELEMENT_TYPE_R8: CorElementType = 13u8;
-pub const ELEMENT_TYPE_STRING: CorElementType = 14u8;
-pub const ELEMENT_TYPE_PTR: CorElementType = 15u8;
-pub const ELEMENT_TYPE_BYREF: CorElementType = 16u8;
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = 17u8;
-pub const ELEMENT_TYPE_CLASS: CorElementType = 18u8;
-pub const ELEMENT_TYPE_VAR: CorElementType = 19u8;
-pub const ELEMENT_TYPE_ARRAY: CorElementType = 20u8;
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = 21u8;
-pub const ELEMENT_TYPE_I: CorElementType = 24u8;
-pub const ELEMENT_TYPE_U: CorElementType = 25u8;
-pub const ELEMENT_TYPE_OBJECT: CorElementType = 28u8;
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = 29u8;
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = 31u8;
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = 32u8;
 
 // Extension trait for Blob: adds bindgen-specific read helpers.
 pub trait BlobExt {

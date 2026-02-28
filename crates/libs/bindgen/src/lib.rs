@@ -1,7 +1,9 @@
 #![doc = include_str!("../readme.md")]
 #![expect(
     non_upper_case_globals,
+    non_camel_case_types,
     dead_code,
+    non_snake_case,
     clippy::enum_variant_names,
     clippy::upper_case_acronyms
 )]

@@ -17,9 +17,7 @@ impl TypeDefExt for TypeDef {
     }
 
     fn generics(&self) -> Vec<Type> {
-        self.generic_params()
-            .map(|generic| Type::Generic(generic))
-            .collect()
+        self.generic_params().map(Type::Generic).collect()
     }
 
     fn nested(&self) -> Option<NestedClass> {
