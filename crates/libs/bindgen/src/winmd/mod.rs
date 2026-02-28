@@ -42,47 +42,7 @@ pub use windows_metadata::{
     FieldAttributes, MethodAttributes, PInvokeAttributes, ParamAttributes, TypeAttributes,
 };
 
-// MethodCallAttributes: we define our own version with a public inner field so that
-// we can construct it from raw bytes read out of method signature blobs.
-// The constant values match those in windows-metadata.
-#[derive(Default, Copy, Clone, PartialEq, Eq, Debug, Ord, PartialOrd)]
-pub struct MethodCallAttributes(pub u8);
-impl MethodCallAttributes {
-    pub fn contains(&self, contains: Self) -> bool {
-        (*self & contains) == contains
-    }
-    pub const HASTHIS: Self = Self(0x20);
-    pub const VARARG: Self = Self(0x05);
-}
-impl std::ops::BitOr for MethodCallAttributes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl std::ops::BitAnd for MethodCallAttributes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl std::ops::BitOrAssign for MethodCallAttributes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0 |= other.0;
-    }
-}
-impl std::ops::BitAndAssign for MethodCallAttributes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0 &= other.0;
-    }
-}
-impl std::ops::Not for MethodCallAttributes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(!self.0)
-    }
-}
-
+pub use windows_metadata::MethodCallAttributes;
 // Extension trait for Blob: adds bindgen-specific read helpers.
 pub trait BlobExt {
     /// Read a compressed integer (same as read_compressed but named for compat).
