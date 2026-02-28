@@ -9,9 +9,7 @@ pub trait MethodDefExt {
 impl MethodDefExt for MethodDef {
     fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
-            // Safety: map is ImplMap<'static>. import_name() returns &str with lifetime
-            // elided to &self, but the string data lives in the heap-pinned 'static TypeIndex.
-            let import_name: &'static str = unsafe { std::mem::transmute(map.import_name()) };
+            let import_name = map.import_name();
             if self.name() != import_name {
                 Some(import_name)
             } else {
@@ -34,12 +32,7 @@ impl MethodDefExt for MethodDef {
             "combase.dll".to_string()
         } else {
             self.impl_map()
-                .map_or("", |map| {
-                    // Safety: import_scope() returns ModuleRef<'static>. name() returns &str
-                    // with lifetime elided to &self (the temporary), but the string data
-                    // lives in the heap-pinned 'static TypeIndex.
-                    unsafe { std::mem::transmute::<&str, &'static str>(map.import_scope().name()) }
-                })
+                .map_or("", |map| map.import_scope().name())
                 .to_lowercase()
         }
     }
