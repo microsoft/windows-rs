@@ -308,10 +308,18 @@ impl Type {
                 .unwrap_or(&Self::Void)
                 .clone(),
             ELEMENT_TYPE_ARRAY => {
+                // See ECMA-335 §II.23.2.13 ArrayShape
                 let kind = Self::from_blob(blob, enclosing, generics);
                 let _rank = blob.read_usize();
-                let _count = blob.read_usize();
-                let bounds = blob.read_usize();
+                let num_sizes = blob.read_usize();
+                let bounds = if num_sizes > 0 { blob.read_usize() } else { 0 };
+                for _ in 1..num_sizes {
+                    blob.read_usize();
+                }
+                let num_lo_bounds = blob.read_usize();
+                for _ in 0..num_lo_bounds {
+                    blob.read_usize();
+                }
                 Self::ArrayFixed(Box::new(kind), bounds)
             }
             ELEMENT_TYPE_GENERICINST => {
