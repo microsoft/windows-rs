@@ -64,7 +64,7 @@ impl MethodDefExt for MethodDef {
                     ty = ty.to_const_ptr();
 
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
-                        if let Some((_, Value::Utf8(name))) = attribute.args().first() {
+                        if let Some((_, Value::Utf8(name))) = attribute.value().first() {
                             let overload = current_reader().unwrap_full_name(namespace, name);
 
                             ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));

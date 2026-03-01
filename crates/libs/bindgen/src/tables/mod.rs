@@ -1,6 +1,5 @@
 use super::*;
 
-mod attribute;
 mod class_layout;
 mod constant;
 mod field;
@@ -16,7 +15,6 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 
-pub use attribute::*;
 pub use constant::*;
 pub use field::*;
 pub use interface_impl::*;

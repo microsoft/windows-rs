@@ -169,7 +169,7 @@ impl<T: windows_metadata::HasAttributes<'static>> GuidAttributeExt for T {
                 }
             }
 
-            let args = attribute.args();
+            let args = attribute.value();
 
             GUID(
                 unwrap_u32(&args[0].1),

@@ -37,7 +37,7 @@ impl TypeDefExt for TypeDef {
         let mut values = Vec::new();
         for attribute in self.attributes() {
             if attribute.name() == "InvalidHandleValueAttribute" {
-                if let Some((_, Value::I64(value))) = attribute.args().first() {
+                if let Some((_, Value::I64(value))) = attribute.value().first() {
                     values.push(*value);
                 }
             }
@@ -47,7 +47,7 @@ impl TypeDefExt for TypeDef {
 
     fn free_function(&self) -> Option<CppFn> {
         if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
-            if let Some((_, Value::Utf8(name))) = attribute.args().first() {
+            if let Some((_, Value::Utf8(name))) = attribute.value().first() {
                 if let Some(Type::CppFn(ty)) = current_reader()
                     .with_full_name(self.namespace(), name)
                     .next()
@@ -64,7 +64,7 @@ impl TypeDefExt for TypeDef {
             match attribute.name() {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::I32(2))) = attribute.args().first() {
+                    if let Some((_, Value::I32(2))) = attribute.value().first() {
                         return true;
                     }
                 }

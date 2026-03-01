@@ -314,7 +314,7 @@ impl Class {
                 _ => continue,
             };
 
-            for (_, arg) in attribute.args() {
+            for (_, arg) in attribute.value() {
                 if let Value::Utf8(s) = arg {
                     let dot = s
                         .rfind('.')
@@ -345,7 +345,7 @@ impl Class {
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
                 !attribute
-                    .args()
+                    .value()
                     .iter()
                     .any(|arg| matches!(arg.1, Value::Utf8(_)))
             })
