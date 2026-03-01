@@ -39,12 +39,11 @@ impl MethodDefExt for MethodDef {
 
     #[track_caller]
     fn method_signature(&self, namespace: &str, generics: &[Type]) -> Signature {
-        let mut blob = self.blob(4);
-        let call_flags = MethodCallAttributes(blob.read_u8());
-        let _param_count = blob.read_usize();
-        let mut return_type = Type::from_blob(&mut blob, None, generics);
-
+        let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
+        let call_flags = meta_sig.flags;
+        let mut return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics);
         let mut params = vec![];
+        let mut meta_types = meta_sig.types.iter();
 
         for param in self.params() {
             if param.sequence() == 0 {
@@ -52,9 +51,10 @@ impl MethodDefExt for MethodDef {
                     return_type = return_type.to_const_type();
                 }
             } else {
+                let meta_ty = meta_types.next().expect("param count mismatch");
                 let param_is_const = param.has_attribute("ConstAttribute");
                 let param_is_input = !param.flags().contains(ParamAttributes::Out);
-                let mut ty = Type::from_blob(&mut blob, None, generics);
+                let mut ty = Type::from_metadata_type(meta_ty, None, generics);
 
                 if param_is_const || param_is_input {
                     ty = ty.to_const_type();
@@ -64,7 +64,7 @@ impl MethodDefExt for MethodDef {
                     ty = ty.to_const_ptr();
 
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
-                        if let Some((_, Value::Str(name))) = attribute.args().first() {
+                        if let Some((_, Value::Utf8(name))) = attribute.args().first() {
                             let overload = current_reader().unwrap_full_name(namespace, name);
 
                             ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));

@@ -47,7 +47,7 @@ impl TypeDefExt for TypeDef {
 
     fn free_function(&self) -> Option<CppFn> {
         if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
-            if let Some((_, Value::Str(name))) = attribute.args().first() {
+            if let Some((_, Value::Utf8(name))) = attribute.args().first() {
                 if let Some(Type::CppFn(ty)) = current_reader()
                     .with_full_name(self.namespace(), name)
                     .next()

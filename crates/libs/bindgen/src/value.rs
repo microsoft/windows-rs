@@ -1,25 +1,13 @@
 use super::*;
 
-#[derive(Debug)]
-pub enum Value {
-    Bool(bool),
-    U8(u8),
-    I8(i8),
-    U16(u16),
-    I16(i16),
-    U32(u32),
-    I32(i32),
-    U64(u64),
-    I64(i64),
-    F32(f32),
-    F64(f64),
-    Str(&'static str),
-    String(String),
-    TypeName(TypeName),
+pub use windows_metadata::Value;
+
+pub trait ValueExt {
+    fn write(&self) -> TokenStream;
 }
 
-impl Value {
-    pub fn write(&self) -> TokenStream {
+impl ValueExt for Value {
+    fn write(&self) -> TokenStream {
         match self {
             Self::Bool(value) => quote! { #value },
             Self::U8(value) => quote! { #value },
@@ -32,7 +20,7 @@ impl Value {
             Self::I64(value) => quote! { #value },
             Self::F32(value) => quote! { #value },
             Self::F64(value) => quote! { #value },
-            Self::String(value) => {
+            Self::Utf16(value) => {
                 let mut tokens = "\"".to_string();
 
                 for u in value.chars() {

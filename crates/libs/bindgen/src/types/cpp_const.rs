@@ -109,9 +109,10 @@ impl CppConst {
             }
         } else if let Some(attribute) = self.field.find_attribute("ConstantAttribute") {
             let args = attribute.args();
-            let Some(&(_, Value::Str(mut input))) = args.first() else {
+            let Some((_, Value::Utf8(input_str))) = args.first() else {
                 panic!()
             };
+            let mut input = input_str.as_str();
 
             let Type::CppStruct(ty) = &field_ty else {
                 panic!()
@@ -147,7 +148,7 @@ impl Dependencies for CppConst {
 }
 
 fn is_ansi_encoding(row: Field) -> bool {
-    row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.args().first(), Some((_, Value::Str(encoding))) if *encoding == "ansi"))
+    row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.args().first(), Some((_, Value::Utf8(encoding))) if encoding.as_str() == "ansi"))
 }
 
 fn is_signed_error(ty: &Type) -> bool {

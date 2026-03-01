@@ -37,7 +37,7 @@ fn method_def_special_name(row: MethodDef) -> String {
     } else {
         if let Some(attribute) = row.find_attribute("OverloadAttribute") {
             for (_, arg) in attribute.args() {
-                if let Value::Str(overload) = arg {
+                if let Value::Utf8(overload) = arg {
                     // Detect generated overload and revert back to original name.
                     if let Some(suffix) = overload.strip_prefix(name) {
                         if suffix.parse::<u32>().is_ok() {

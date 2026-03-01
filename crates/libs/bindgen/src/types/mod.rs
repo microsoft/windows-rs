@@ -223,11 +223,18 @@ impl Type {
         }
     }
 
+    pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
+        (0..count)
+            .map(|i| windows_metadata::Type::Generic(String::new(), i as u16))
+            .collect()
+    }
+
     #[track_caller]
     pub fn from_ref(code: TypeDefOrRef, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
-            return Self::from_blob_impl(&mut blob, None, generics);
+            let metadata_type = blob.read_type_code(&Self::generic_placeholders(generics.len()));
+            return Self::from_metadata_type(&metadata_type, None, generics);
         }
 
         let mut code_name = code.type_name();
@@ -252,100 +259,126 @@ impl Type {
 
     #[track_caller]
     pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
-        // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
-        let is_const = blob.read_modifiers().iter().any(|def| {
-            let type_name = def.type_name();
-            type_name == TypeName::IsConst
-        });
-
-        // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
-        // it is only used to distinguish between slices and heap-allocated arrays.
-        let is_ref = blob.try_read(ELEMENT_TYPE_BYREF as usize);
-
-        if blob.try_read(ELEMENT_TYPE_VOID as usize) {
-            return Self::Void;
-        }
-
-        let is_array = blob.try_read(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
-
-        let mut pointers = 0;
-
-        while blob.try_read(ELEMENT_TYPE_PTR as usize) {
-            pointers += 1;
-        }
-
-        let kind = Self::from_blob_impl(blob, enclosing, generics);
-
-        if pointers > 0 {
-            Self::PtrMut(Box::new(kind), pointers)
-        } else if is_const {
-            Self::ConstRef(Box::new(kind))
-        } else if is_array {
-            if is_ref {
-                Self::ArrayRef(Box::new(kind))
-            } else {
-                Self::Array(Box::new(kind))
-            }
-        } else {
-            kind
-        }
+        let metadata_type = blob.read_type_signature(&Self::generic_placeholders(generics.len()));
+        Self::from_metadata_type(&metadata_type, enclosing, generics)
     }
 
     #[track_caller]
-    fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
-        let code = blob.read_u8();
-
-        if let Some(code) = Self::from_element_type(code as usize) {
-            return code;
-        }
-
-        match code {
-            ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => {
-                Self::from_ref(blob.decode(), enclosing, generics)
-            }
-            ELEMENT_TYPE_VAR => generics
-                .get(blob.read_usize())
-                .unwrap_or(&Self::Void)
-                .clone(),
-            ELEMENT_TYPE_ARRAY => {
-                // See ECMA-335 §II.23.2.13 ArrayShape
-                let kind = Self::from_blob(blob, enclosing, generics);
-                let _rank = blob.read_usize();
-                let num_sizes = blob.read_usize();
-                let bounds = if num_sizes > 0 { blob.read_usize() } else { 0 };
-                for _ in 1..num_sizes {
-                    blob.read_usize();
+    pub fn from_metadata_type(
+        ty: &windows_metadata::Type,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+    ) -> Self {
+        match ty {
+            windows_metadata::Type::Void => Self::Void,
+            windows_metadata::Type::Bool => Self::Bool,
+            windows_metadata::Type::Char => Self::Char,
+            windows_metadata::Type::I8 => Self::I8,
+            windows_metadata::Type::U8 => Self::U8,
+            windows_metadata::Type::I16 => Self::I16,
+            windows_metadata::Type::U16 => Self::U16,
+            windows_metadata::Type::I32 => Self::I32,
+            windows_metadata::Type::U32 => Self::U32,
+            windows_metadata::Type::I64 => Self::I64,
+            windows_metadata::Type::U64 => Self::U64,
+            windows_metadata::Type::F32 => Self::F32,
+            windows_metadata::Type::F64 => Self::F64,
+            windows_metadata::Type::ISize => Self::ISize,
+            windows_metadata::Type::USize => Self::USize,
+            windows_metadata::Type::String => Self::String,
+            windows_metadata::Type::Object => Self::Object,
+            windows_metadata::Type::Name(tn) => {
+                let ns: &str = &tn.namespace;
+                let n: &str = &tn.name;
+                // Apply type remaps (same logic as Type::remap but for &str)
+                let remap = match (ns, n) {
+                    ("System", "Guid") => Some(Self::GUID),
+                    ("Windows.Win32.Foundation", "PSTR") => Some(Self::PSTR),
+                    ("Windows.Win32.Foundation", "PWSTR") => Some(Self::PWSTR),
+                    ("Windows.Win32.System.WinRT", "HSTRING") => Some(Self::String),
+                    ("Windows.Win32.Foundation", "BSTR") => Some(Self::BSTR),
+                    ("Windows.Win32.System.WinRT", "IInspectable") => Some(Self::Object),
+                    ("Windows.Win32.Foundation", "CHAR") => Some(Self::I8),
+                    ("Windows.Win32.Foundation", "BOOLEAN") => Some(Self::Bool),
+                    ("Windows.Win32.Foundation", "BOOL") => Some(Self::BOOL),
+                    ("Windows.Win32.System.Com", "IUnknown") => Some(Self::IUnknown),
+                    ("System", "Type") => Some(Self::Type),
+                    ("Windows.Foundation", "HResult") | ("Windows.Win32.Foundation", "HRESULT") => {
+                        Some(Self::HRESULT)
+                    }
+                    ("Windows.Foundation", "EventRegistrationToken")
+                    | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Some(Self::I64),
+                    _ => None,
+                };
+                if let Some(ty) = remap {
+                    return ty;
                 }
-                let num_lo_bounds = blob.read_usize();
-                for _ in 0..num_lo_bounds {
-                    blob.read_usize();
+                // Apply name remaps
+                let (ns, n) = match (ns, n) {
+                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
+                        ("Windows.Foundation.Numerics", "Matrix3x2")
+                    }
+                    ("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
+                    | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
+                        ("Windows.Foundation.Numerics", "Matrix4x4")
+                    }
+                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
+                    | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
+                        ("Windows.Foundation.Numerics", "Vector2")
+                    }
+                    ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
+                        ("Windows.Foundation.Numerics", "Vector4")
+                    }
+                    _ => (ns, n),
+                };
+                // Handle nested type lookup via enclosing struct
+                if let Some(outer) = enclosing {
+                    if ns.is_empty() {
+                        return Self::CppStruct(outer.nested[n].clone());
+                    }
                 }
-                Self::ArrayFixed(Box::new(kind), bounds)
-            }
-            ELEMENT_TYPE_GENERICINST => {
-                let type_code = blob.read_u8();
-
-                debug_assert!(matches!(
-                    type_code,
-                    ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS
-                ));
-
-                let code = blob.decode::<TypeDefOrRef>();
-                let code_name = code.type_name();
-
-                let mut ty = blob
-                    .reader()
-                    .unwrap_full_name(code_name.namespace(), code_name.name());
-
-                let mut item_generics = vec![];
-
-                for _ in 0..blob.read_usize() {
-                    item_generics.push(Self::from_blob_impl(blob, enclosing, generics));
+                let mut bindgen_ty = current_reader().unwrap_full_name(ns, n);
+                if !tn.generics.is_empty() {
+                    let item_generics: Vec<Self> = tn
+                        .generics
+                        .iter()
+                        .map(|g| Self::from_metadata_type(g, None, generics))
+                        .collect();
+                    bindgen_ty.set_generics(item_generics);
                 }
-
-                ty.set_generics(item_generics);
-                ty
+                bindgen_ty
             }
+            // Generic type parameter (ELEMENT_TYPE_VAR)
+            windows_metadata::Type::Generic(_, index) => {
+                generics.get(*index as usize).cloned().unwrap_or(Self::Void)
+            }
+            windows_metadata::Type::Array(inner) => Self::Array(Box::new(
+                Self::from_metadata_type(inner, enclosing, generics),
+            )),
+            windows_metadata::Type::ArrayFixed(inner, size) => Self::ArrayFixed(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                *size,
+            ),
+            windows_metadata::Type::PtrMut(inner, pointers) => Self::PtrMut(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                *pointers,
+            ),
+            windows_metadata::Type::PtrConst(inner, pointers) => Self::PtrConst(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                *pointers,
+            ),
+            // IsConst modifier (ELEMENT_TYPE_CMOD_REQD IsConst)
+            windows_metadata::Type::RefConst(inner) => Self::ConstRef(Box::new(
+                Self::from_metadata_type(inner, enclosing, generics),
+            )),
+            // ELEMENT_TYPE_BYREF - strip wrapper; byref is tracked by param flags.
+            // BYREF + SZARRAY = ArrayRef.
+            windows_metadata::Type::RefMut(inner) => match inner.as_ref() {
+                windows_metadata::Type::Array(arr_inner) => Self::ArrayRef(Box::new(
+                    Self::from_metadata_type(arr_inner, enclosing, generics),
+                )),
+                _ => Self::from_metadata_type(inner, enclosing, generics),
+            },
             rest => panic!("{rest:?}"),
         }
     }

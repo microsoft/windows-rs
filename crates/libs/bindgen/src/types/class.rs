@@ -315,13 +315,16 @@ impl Class {
             };
 
             for (_, arg) in attribute.args() {
-                if let Value::TypeName(tn) = arg {
-                    let Type::Interface(mut interface) = self
-                        .def
-                        .reader()
-                        .unwrap_full_name(tn.namespace(), tn.name())
+                if let Value::Utf8(s) = arg {
+                    let dot = s
+                        .rfind('.')
+                        .unwrap_or_else(|| panic!("expected namespace.name format, got: {s}"));
+                    let namespace = &s[..dot];
+                    let name = &s[dot + 1..];
+                    let Type::Interface(mut interface) =
+                        current_reader().unwrap_full_name(namespace, name)
                     else {
-                        panic!("type not found: {tn}");
+                        panic!("type not found: {s}");
                     };
 
                     interface.kind = kind;
@@ -344,7 +347,7 @@ impl Class {
                 !attribute
                     .args()
                     .iter()
-                    .any(|arg| matches!(arg.1, Value::TypeName(_)))
+                    .any(|arg| matches!(arg.1, Value::Utf8(_)))
             })
     }
 }
