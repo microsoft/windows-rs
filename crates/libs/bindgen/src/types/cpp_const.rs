@@ -51,7 +51,7 @@ impl CppConst {
             if field_ty == constant_ty {
                 if field_ty == Type::String {
                     let crate_name = config.write_strings();
-                    let value = constant.constant_value().write();
+                    let value = constant.value().write();
 
                     // TODO: if config.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
@@ -67,7 +67,7 @@ impl CppConst {
                     }
                 } else {
                     let ty = field_ty.write_name(config);
-                    let value = constant.constant_value().write();
+                    let value = constant.value().write();
 
                     quote! {
                         #cfg
@@ -77,16 +77,16 @@ impl CppConst {
             } else {
                 let underlying_ty = field_ty.underlying_type();
                 let ty = field_ty.write_name(config);
-                let mut value = constant.constant_value().write();
+                let mut value = constant.value().write();
 
                 if underlying_ty == constant_ty {
                     if is_signed_error(&field_ty) {
-                        if let Value::I32(signed) = constant.constant_value() {
+                        if let Value::I32(signed) = constant.value() {
                             value = format!("0x{signed:X}_u32 as _").into();
                         }
                     }
                 } else if field_ty == Type::Bool {
-                    value = match constant.constant_value() {
+                    value = match constant.value() {
                         Value::U8(1) => quote! { true },
                         Value::U8(0) => quote! { false },
                         _ => panic!(),

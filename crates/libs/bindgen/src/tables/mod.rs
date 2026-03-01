@@ -4,7 +4,6 @@ mod class_layout;
 mod constant;
 mod field;
 mod generic_param;
-mod impl_map;
 mod interface_impl;
 mod member_ref;
 mod method_def;

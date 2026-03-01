@@ -197,7 +197,7 @@ impl CppStruct {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
                         let ty = constant.constant_type().write_name(config);
-                        let value = constant.constant_value().write();
+                        let value = constant.value().write();
 
                         return Some(quote! {
                             pub const #name: #ty = #value;
