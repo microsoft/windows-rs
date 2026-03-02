@@ -5,25 +5,30 @@ RDL provides a Rust-like syntax for defining Windows types and APIs. It serves a
 ## Quick Start
 
 ```rust
-// Define an interface
-interface ISprocket {
-    fn GetStatus(&self) -> SprocketStatus;
-    fn Spin(&self, speed: f32);
-}
+#[winrt]
+mod Contoso {
+    mod Sprockets {
+        // Define an interface
+        interface ISprocket {
+            fn GetStatus(&self) -> SprocketStatus;
+            fn Spin(&self, speed: f32);
+        }
 
-// Define a struct
-struct Sprocket {
-    TeethCount: u32,
-    Diameter: f32,
-}
+        // Define a struct
+        struct Sprocket {
+            TeethCount: u32,
+            Diameter: f32,
+        }
 
-// Define an enum with explicit discriminants
-#[repr(i32)]
-enum SprocketStatus {
-    Idle = 0,
-    Spinning = 1,
-    Locked = 2,
-    Malfunctioning = 3,
+        // Define an enum with explicit discriminants
+        #[repr(i32)]
+        enum SprocketStatus {
+            Idle = 0,
+            Spinning = 1,
+            Locked = 2,
+            Malfunctioning = 3,
+        }
+    }
 }
 ```
 
@@ -115,6 +120,7 @@ Modules may be nested.
 **Example:**
 
 ```rust
+#[winrt]
 mod Contoso {
     mod Sprockets {
         struct Sprocket {
@@ -294,6 +300,7 @@ mod Contoso {
     }
 }
 ```
+
 ---
 
 #### Delegates
@@ -309,6 +316,7 @@ delegate fn DelegateName(Parameter: Type) -> ReturnType;
 **Example:**
 
 ```rust
+#[winrt]
 mod Contoso {
     mod Sprockets {
         delegate fn SprocketStatusChanged(status: SprocketStatus);
@@ -332,7 +340,106 @@ delegate fn DelegateName<Type1, ...>(Parameter: Type1, ...) -> ReturnType;
 #[winrt]
 mod Contoso {
     mod Sprockets {
-        delegate fn SprocketEventHandler<T>(sender: IObject, event: T);
+        delegate fn SprocketEventHandler<T>(sender: Object, event: T);
+    }
+}
+```
+
+---
+
+#### Classes
+
+Classes define concrete WinRT types that implement one or more interfaces.
+
+**Syntax:**
+
+```rust
+class ClassName {
+    InterfaceName,
+}
+```
+
+Classes may optionally extend a base class and mark a default interface.
+
+**Example:**
+
+```rust
+#[winrt]
+mod Contoso {
+    mod Sprockets {
+        class Sprocket {
+            #[default]
+            ISprocket,
+        }
+
+        #[activatable(1)]
+        class ActivatableSprocket: Sprocket {
+            #[default]
+            ISprocket,
+            #[activatable(1)]
+            ISprocketFactory,
+            #[statics(1)]
+            ISprocketStatics,
+        }
+
+        interface ISprocket {}
+        interface ISprocketFactory {}
+        interface ISprocketStatics {}
+    }
+}
+```
+
+The `#[activatable(1)]` attribute on the class enables default construction. The `#[default]` attribute on an interface marks it as the default interface. The `#[activatable(1)]` and `#[statics(1)]` attributes on interfaces mark them as factory and statics interfaces, respectively.
+
+---
+
+#### Attributes
+
+Attributes define custom metadata annotations. Each constructor is defined with the `fn` keyword and a parameter list.
+
+**Syntax:**
+
+```rust
+attribute AttributeName {
+    fn(Parameter: Type, ...);
+}
+```
+
+**Example:**
+
+```rust
+#[winrt]
+mod Contoso {
+    mod Sprockets {
+        attribute SprocketAttribute {
+            fn(version: u32);
+            fn(version: u32, name: String);
+        }
+    }
+}
+```
+
+---
+
+#### Constants
+
+Constants define named values of a primitive type or `GUID`.
+
+**Syntax:**
+
+```rust
+const NAME: Type = value;
+```
+
+**Example:**
+
+```rust
+#[win32]
+mod Contoso {
+    mod Sprockets {
+        const MAX_TEETH: u32 = 256;
+        const MIN_TEETH: i32 = -1;
+        const SPROCKET_ID: GUID = 0xe436ebb1_524f_11ce_9f53_0020af0ba770;
     }
 }
 ```
@@ -355,15 +462,14 @@ The `#[link(name = "...")]` attribute specifies the library that provides the AP
 **Example:**
 
 ```rust
+#[win32]
 mod Contoso {
     mod Sprockets {
-        mod Platform {
-            #[link(name = "sprockets.dll", abi = "system")]
-            fn InitializeSprocketFactory();
-            
-            #[link(name = "sprockets.dll", abi = "C")]
-            fn GetSprocketCount() -> u32;
-        }
+        #[link(name = "sprockets.dll", abi = "system")]
+        fn InitializeSprocketFactory();
+
+        #[link(name = "sprockets.dll", abi = "C")]
+        fn GetSprocketCount() -> u32;
     }
 }
 ```
@@ -437,20 +543,26 @@ WinRT does not support fixed arrays.
 
 ### Built-in Types
 
-| RDL Type | Description             |
-|----------|-------------------------|
-| `i8`     | 8-bit signed integer    |
-| `u8`     | 8-bit unsigned integer  |
-| `i16`    | 16-bit signed integer   |
-| `u16`    | 16-bit unsigned integer |
-| `i32`    | 32-bit signed integer   |
-| `u32`    | 32-bit unsigned integer |
-| `i64`    | 64-bit signed integer   |
-| `u64`    | 64-bit unsigned integer |
-| `f32`    | 32-bit float            |
-| `f64`    | 64-bit float            |
-| `bool`   | Boolean                 |
-| `String` | String type             |
+| RDL Type   | Description                        |
+|------------|------------------------------------|
+| `i8`       | 8-bit signed integer               |
+| `u8`       | 8-bit unsigned integer             |
+| `i16`      | 16-bit signed integer              |
+| `u16`      | 16-bit unsigned integer            |
+| `i32`      | 32-bit signed integer              |
+| `u32`      | 32-bit unsigned integer            |
+| `i64`      | 64-bit signed integer              |
+| `u64`      | 64-bit unsigned integer            |
+| `f32`      | 32-bit float                       |
+| `f64`      | 64-bit float                       |
+| `isize`    | Pointer-sized signed integer       |
+| `usize`    | Pointer-sized unsigned integer     |
+| `bool`     | Boolean                            |
+| `String`   | String (HSTRING)                   |
+| `Object`   | WinRT object reference             |
+| `Type`     | System type reference              |
+| `GUID`     | Globally unique identifier         |
+| `HRESULT`  | Windows error code                 |
 
 ---
 
