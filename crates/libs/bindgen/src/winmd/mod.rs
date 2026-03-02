@@ -4,6 +4,8 @@ mod bindings;
 mod reader;
 pub use bindings::*;
 pub use reader::*;
+#[cfg(windows)]
+pub(crate) use reader::{reader_ptr, set_reader_ptr};
 
 // Type aliases using 'static lifetime.
 // Safety: the TypeIndex backing these types is heap-allocated (via Box::into_raw in Reader::new),
