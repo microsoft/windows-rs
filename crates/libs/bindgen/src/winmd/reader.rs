@@ -1,35 +1,15 @@
 use super::*;
 
-// Thread-local pointer to the active Reader. Set in Reader::new and cleared in Reader::drop.
-// On Windows, `for_each` dispatches work to thread-pool threads that do not inherit
-// thread-locals; the `for_each` wrapper in config/mod.rs propagates this pointer to each
-// worker thread via `reader_ptr` / `set_reader_ptr` before invoking user closures.
-std::thread_local! {
-    static CURRENT_READER: std::cell::Cell<*const Reader> = const { std::cell::Cell::new(std::ptr::null()) };
-}
+// The Reader is leaked (`Box::leak`) so it has a genuine `'static` lifetime and the global
+// pointer is never cleared. All threads, including Windows thread-pool workers, read this
+// directly without needing thread-local propagation.
+static CURRENT_READER: std::sync::atomic::AtomicPtr<Reader> =
+    std::sync::atomic::AtomicPtr::new(std::ptr::null_mut());
 
-/// Returns the current Reader from the thread-local. Panics if not set.
 pub fn current_reader() -> &'static Reader {
-    CURRENT_READER.with(|r| {
-        let ptr = r.get();
-        assert!(!ptr.is_null(), "Reader thread-local not set");
-        unsafe { &*ptr }
-    })
-}
-
-/// Returns the raw reader pointer for the calling thread (may be null).
-/// Used by the `for_each` wrapper to propagate the reader to worker threads.
-pub(crate) fn reader_ptr() -> *const Reader {
-    CURRENT_READER.with(|r| r.get())
-}
-
-/// Sets the reader pointer on the calling thread.
-///
-/// # Safety
-/// `ptr` must point to a valid `Reader` that outlives all subsequent calls to
-/// `current_reader()` on this thread.
-pub(crate) unsafe fn set_reader_ptr(ptr: *const Reader) {
-    CURRENT_READER.with(|r| r.set(ptr));
+    // Safety: the pointer is set by Reader::new before any parallel work begins and is
+    // never cleared (the Reader is leaked).
+    unsafe { &*CURRENT_READER.load(std::sync::atomic::Ordering::Relaxed) }
 }
 
 fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
@@ -38,12 +18,8 @@ fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: 
 
 pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
-    index: *mut windows_metadata::reader::TypeIndex,
 }
 
-// Safety: The `index` raw pointer is owned exclusively by this Reader (created via
-// Box::into_raw and freed in Drop). The `map` contains only 'static data derived from
-// the heap-pinned TypeIndex. There is no shared mutable state.
 unsafe impl Send for Reader {}
 unsafe impl Sync for Reader {}
 
@@ -55,28 +31,13 @@ impl std::ops::Deref for Reader {
     }
 }
 
-impl Drop for Reader {
-    fn drop(&mut self) {
-        CURRENT_READER.with(|r| r.set(std::ptr::null()));
-        unsafe {
-            _ = Box::from_raw(self.index);
-        }
-    }
-}
-
 impl Reader {
-    pub fn new(files: Vec<File>) -> Box<Self> {
-        let index = Box::new(windows_metadata::reader::TypeIndex::new(files));
-        let index_ptr: *mut windows_metadata::reader::TypeIndex = Box::into_raw(index);
+    pub fn new(files: Vec<File>) -> &'static Reader {
+        // Leak the TypeIndex so all TypeDef<'static>, Field<'static>, etc. remain valid forever.
+        let index: &'static windows_metadata::reader::TypeIndex =
+            Box::leak(Box::new(windows_metadata::reader::TypeIndex::new(files)));
 
-        // Safety: TypeIndex is heap-allocated and never moved. We extend its lifetime to 'static
-        // so that TypeDef<'static>, Field<'static>, etc. can be stored in the map.
-        let index_ref: &'static windows_metadata::reader::TypeIndex = unsafe { &*index_ptr };
-
-        let mut reader = Box::new(Self {
-            map: HashMap::new(),
-            index: index_ptr,
-        });
+        let mut reader = Box::new(Self { map: HashMap::new() });
 
         // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>, including recursively
         // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
@@ -91,11 +52,11 @@ impl Reader {
                 collect_nested(index, inner, nested);
             }
         }
-        for (_, _, def) in index_ref.iter() {
-            collect_nested(index_ref, def, &mut nested);
+        for (_, _, def) in index.iter() {
+            collect_nested(index, def, &mut nested);
         }
 
-        for (namespace, name, def) in index_ref.iter() {
+        for (namespace, name, def) in index.iter() {
             let flags = def.flags();
 
             let type_name = TypeName(namespace, name);
@@ -224,10 +185,10 @@ impl Reader {
             }
         }
 
-        // Set the thread-local after the map is fully built.
-        let reader_ptr: *const Reader = &*reader;
-        CURRENT_READER.with(|r| r.set(reader_ptr));
-
+        // Leak the Reader so the 'static reference is valid forever, then store it globally
+        // so that all threads (including Windows thread-pool workers) can call current_reader().
+        let reader: &'static Reader = Box::leak(reader);
+        CURRENT_READER.store(reader as *const _ as *mut _, std::sync::atomic::Ordering::Relaxed);
         reader
     }
 

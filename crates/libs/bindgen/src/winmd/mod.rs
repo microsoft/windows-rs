@@ -4,12 +4,10 @@ mod bindings;
 mod reader;
 pub use bindings::*;
 pub use reader::*;
-#[cfg(windows)]
-pub(crate) use reader::{reader_ptr, set_reader_ptr};
 
 // Type aliases using 'static lifetime.
-// Safety: the TypeIndex backing these types is heap-allocated (via Box::into_raw in Reader::new),
-// never moved, and lives as long as the Reader, which is guaranteed to outlive all uses.
+// Safety: the TypeIndex is leaked in Reader::new (Box::leak), so TypeDef<'static>, etc.
+// truly live forever.
 pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
 pub type Field = windows_metadata::reader::Field<'static>;
 pub type MethodDef = windows_metadata::reader::MethodDef<'static>;

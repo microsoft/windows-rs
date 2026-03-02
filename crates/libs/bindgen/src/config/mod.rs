@@ -162,22 +162,7 @@ where
     T: Send,
 {
     #[cfg(windows)]
-    {
-        // Thread-pool workers do not inherit thread-locals from the spawning thread.
-        // Capture the reader pointer here and re-install it on each worker thread.
-        struct ReaderPtr(*const crate::winmd::Reader);
-        // Safety: Reader is Send + Sync; the pointer is valid for the duration of the
-        // enclosing for_each call, which blocks until all workers have finished.
-        unsafe impl Send for ReaderPtr {}
-        unsafe impl Sync for ReaderPtr {}
-
-        let ptr = ReaderPtr(crate::winmd::reader_ptr());
-        windows_threading::for_each(i, |item| {
-            // Safety: the Reader lives for the entire duration of the enclosing bindgen call.
-            unsafe { crate::winmd::set_reader_ptr(ptr.0) };
-            f(item);
-        });
-    }
+    windows_threading::for_each(i, f);
 
     #[cfg(not(windows))]
     for item in i {
