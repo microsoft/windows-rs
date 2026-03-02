@@ -24,21 +24,11 @@ pub fn encode_enum(encoder: &mut Encoder, item: &syntax::Enum) -> Result<(), Err
         return encoder.err(item.token, "`repr` attribute not found");
     };
 
-    let Ok(ty) = attribute.parse_args::<syn::Ident>() else {
+    let Ok(ty) = attribute.parse_args::<syn::Path>() else {
         return encoder.err(attribute, "`repr` integer type attribute not found");
     };
 
-    let ty = ty.to_string();
-
-    let ty = match ty.as_str() {
-        "u32" => metadata::Type::U32,
-        "u64" => metadata::Type::U64,
-        "i32" => metadata::Type::I32,
-        "i64" => metadata::Type::I64,
-        _ => {
-            return encoder.err(attribute, "`repr` integer type not supported");
-        }
-    };
+    let ty = encode_path(encoder, &ty)?;
 
     encoder.output.Field(
         "value__",
