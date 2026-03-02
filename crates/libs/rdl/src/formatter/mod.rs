@@ -32,6 +32,9 @@ enum Token<'a> {
     #[token("const")]
     Const,
 
+    #[token(".")]
+    Dot,
+
     #[token("enum")]
     Enum,
 
@@ -159,6 +162,10 @@ pub fn format(input: &str) -> String {
             }
             Token::Const => {
                 output.push_str("const ");
+            }
+            Token::Dot => {
+                output.trim_space();
+                output.push('.');
             }
             Token::Enum => {
                 output.push_str("enum ");
