@@ -34,5 +34,8 @@ features = [
 [dependencies.windows-core]
 workspace = true
 
+[dependencies.windows-metadata]
+workspace = true
+
 [lints]
 workspace = true
