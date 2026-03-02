@@ -7,4 +7,11 @@ mod Test {
         Error = 3,
         Started = 0,
     }
+    #[repr(i16)]
+    enum I16 {
+        A = -1,
+        B = 0,
+        C = 1,
+        D = 2,
+    }
 }
