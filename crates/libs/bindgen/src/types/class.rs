@@ -316,20 +316,17 @@ impl Class {
 
             for (_, arg) in attribute.value() {
                 if let Value::Utf8(s) = arg {
-                    let dot = s
-                        .rfind('.')
-                        .unwrap_or_else(|| panic!("expected namespace.name format, got: {s}"));
-                    let namespace = &s[..dot];
-                    let name = &s[dot + 1..];
-                    let Type::Interface(mut interface) =
-                        current_reader().unwrap_full_name(namespace, name)
-                    else {
-                        panic!("type not found: {s}");
-                    };
-
-                    interface.kind = kind;
-                    set.push(interface);
-                    break;
+                    if let Some(dot) = s.rfind('.') {
+                        let namespace = &s[..dot];
+                        let name = &s[dot + 1..];
+                        if let Some(Type::Interface(mut interface)) =
+                            current_reader().with_full_name(namespace, name).next()
+                        {
+                            interface.kind = kind;
+                            set.push(interface);
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -344,10 +341,19 @@ impl Class {
             .attributes()
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
-                !attribute
-                    .value()
-                    .iter()
-                    .any(|arg| matches!(arg.1, Value::Utf8(_)))
+                !attribute.value().iter().any(|(_, arg)| {
+                    if let Value::Utf8(s) = arg {
+                        if let Some(dot) = s.rfind('.') {
+                            let namespace = &s[..dot];
+                            let name = &s[dot + 1..];
+                            return matches!(
+                                current_reader().with_full_name(namespace, name).next(),
+                                Some(Type::Interface(_))
+                            );
+                        }
+                    }
+                    false
+                })
             })
     }
 }
