@@ -1,3 +1,4 @@
+mod attribute;
 mod class;
 mod r#const;
 mod delegate;
@@ -11,6 +12,7 @@ mod module;
 mod r#struct;
 mod union;
 
+pub use attribute::*;
 pub use class::*;
 pub use delegate::*;
 pub use file::*;

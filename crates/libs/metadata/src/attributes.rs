@@ -64,6 +64,7 @@ impl MethodAttributes {
     pub const SpecialName: Self = Self(0x800);
     pub const Virtual: Self = Self(0x40);
     pub const PInvokeImpl: Self = Self(0x2000);
+    pub const RTSpecialName: Self = Self(0x1000);
 }
 
 flags!(MethodImplAttributes, u16);
