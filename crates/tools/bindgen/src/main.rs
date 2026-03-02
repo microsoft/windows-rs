@@ -182,6 +182,11 @@ fn main() {
     // Tests for rustfmt
     bindgen("--out rustfmt_25.rs --rustfmt max_width=25,newline_style=Unix --filter POINT --flat --no-comment --no-allow".split_whitespace()).unwrap();
 
+    // Tests for deprecated attributes
+    test("--out deprecated_class.rs --filter KnownContactField");
+    test("--out deprecated_enum.rs --filter PlayToConnectionState");
+    test("--out deprecated_struct.rs --filter PlayToSourceSelectedEventArgs");
+
     write_lib();
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

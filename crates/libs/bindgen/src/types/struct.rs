@@ -42,6 +42,13 @@ impl Struct {
             quote! { pub #name: #ty, }
         });
 
+        let deprecated = write_deprecated(&self.def);
+        let allow_deprecated = if deprecated.is_empty() {
+            quote! {}
+        } else {
+            quote! { #[allow(deprecated)] }
+        };
+
         let win_traits = if config.sys {
             quote! {}
         } else {
@@ -54,16 +61,16 @@ impl Struct {
             let signature = Literal::byte_string(&self.runtime_signature());
 
             quote! {
+                #allow_deprecated
                 impl windows_core::TypeKind for #name {
                     type TypeKind = windows_core::#type_kind;
                 }
+                #allow_deprecated
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
                 }
             }
         };
-
-        let deprecated = write_deprecated(&self.def);
 
         quote! {
             #[repr(C)]
