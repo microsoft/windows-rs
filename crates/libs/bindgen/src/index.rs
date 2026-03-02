@@ -110,18 +110,18 @@ pub fn write(types: &TypeMap, output: &str) {
         let methods = match ty {
             Type::CppInterface(ty) => {
                 let interface_name = ty.def.name();
-                Some((ty.def.methods(), interface_name))
+                Some((ty.def.methods(), interface_name, vec![]))
             }
             Type::Interface(ty) => {
                 let interface_name = ty.def.name();
-                Some((ty.def.methods(), interface_name))
+                Some((ty.def.methods(), interface_name, ty.generics.clone()))
             }
             _ => None,
         };
 
-        if let Some((methods, interface_name)) = methods {
+        if let Some((methods, interface_name, generics)) = methods {
             for method in methods {
-                let method_deps = method.method_signature(namespace, &[]).dependencies();
+                let method_deps = method.method_signature(namespace, &generics).dependencies();
                 let method_features: BTreeSet<String> = method_deps
                     .keys()
                     .filter(|tn| !EXCLUDED_NAMESPACES.contains(&tn.namespace()))
