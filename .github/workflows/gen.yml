@@ -26,7 +26,7 @@ jobs:
     strategy:
       matrix:
         tool: [bindgen, bindings, yml, license, standalone, workspace]
-        os: [ubuntu-22.04, windows-latest]
+        os: [ubuntu-22.04, windows-2025]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
