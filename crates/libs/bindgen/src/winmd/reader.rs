@@ -1,17 +1,16 @@
 use super::*;
 
-// Thread-local pointer to the active Reader. Set in Reader::new and cleared in Reader::drop.
-std::thread_local! {
-    static CURRENT_READER: std::cell::Cell<*const Reader> = const { std::cell::Cell::new(std::ptr::null()) };
-}
+// Global pointer to the active Reader. Set in Reader::new and cleared in Reader::drop.
+// A global (rather than thread-local) is required because `for_each` dispatches work to
+// Windows thread-pool threads that would not inherit a thread-local value.
+static CURRENT_READER: std::sync::atomic::AtomicPtr<Reader> =
+    std::sync::atomic::AtomicPtr::new(std::ptr::null_mut());
 
-/// Returns the current Reader from the thread-local. Panics if not set.
+/// Returns the current Reader from the global. Panics if not set.
 pub fn current_reader() -> &'static Reader {
-    CURRENT_READER.with(|r| {
-        let ptr = r.get();
-        assert!(!ptr.is_null(), "Reader thread-local not set");
-        unsafe { &*ptr }
-    })
+    let ptr = CURRENT_READER.load(std::sync::atomic::Ordering::Acquire);
+    assert!(!ptr.is_null(), "Reader not initialized");
+    unsafe { &*ptr }
 }
 
 fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
@@ -39,7 +38,7 @@ impl std::ops::Deref for Reader {
 
 impl Drop for Reader {
     fn drop(&mut self) {
-        CURRENT_READER.with(|r| r.set(std::ptr::null()));
+        CURRENT_READER.store(std::ptr::null_mut(), std::sync::atomic::Ordering::Release);
         unsafe {
             _ = Box::from_raw(self.index);
         }
@@ -206,9 +205,11 @@ impl Reader {
             }
         }
 
-        // Set the thread-local after the map is fully built.
-        let reader_ptr: *const Reader = &*reader;
-        CURRENT_READER.with(|r| r.set(reader_ptr));
+        // Set the global after the map is fully built.
+        // Safety: addr_of_mut! creates a raw pointer without an intermediate mutable reference,
+        // avoiding aliasing concerns. The heap allocation is stable for the lifetime of the Box.
+        let reader_ptr: *mut Reader = std::ptr::addr_of_mut!(*reader);
+        CURRENT_READER.store(reader_ptr, std::sync::atomic::Ordering::Release);
 
         reader
     }

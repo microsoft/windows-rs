@@ -21,11 +21,12 @@ on:
 
 jobs:
   gen:
-    name: tool_${{ matrix.tool }}
-    runs-on: ubuntu-22.04
+    name: tool_${{ matrix.tool }} (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         tool: [bindgen, bindings, yml, license, standalone, workspace]
+        os: [ubuntu-22.04, windows-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v6

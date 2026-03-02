@@ -70,7 +70,7 @@ impl MemberRefParentExt for MemberRefParent {
 ///
 /// # Panics
 /// Panics if called before `Reader::new()` has completed or after the `Reader` is dropped,
-/// since this accesses the thread-local `CURRENT_READER` pointer.
+/// since this accesses the global `CURRENT_READER` pointer.
 pub trait HasReader {
     fn reader(&self) -> &'static Reader {
         current_reader()
