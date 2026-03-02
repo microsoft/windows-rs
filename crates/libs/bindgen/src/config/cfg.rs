@@ -1,10 +1,10 @@
 use super::*;
 
-pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
+pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
     let mut tokens = quote! {};
 
     if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
-        if let Some((_, Value::I32(value))) = attribute.args().first() {
+        if let Some((_, Value::I32(value))) = attribute.value().first() {
             let mut arches = BTreeSet::new();
 
             if value & 1 == 1 {

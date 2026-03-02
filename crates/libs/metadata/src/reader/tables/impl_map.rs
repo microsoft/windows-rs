@@ -11,7 +11,7 @@ impl<'a> ImplMap<'a> {
         PInvokeAttributes(self.usize(0).try_into().unwrap())
     }
 
-    pub fn import_name(&self) -> &str {
+    pub fn import_name(&self) -> &'a str {
         self.str(2)
     }
 

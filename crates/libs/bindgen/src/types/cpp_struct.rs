@@ -50,7 +50,7 @@ impl CppStruct {
             return false;
         };
 
-        if field.name() != "Value" || !field.ty(Some(self)).is_primitive() {
+        if field.name() != "Value" || !field.field_type(Some(self)).is_primitive() {
             return false;
         }
 
@@ -92,7 +92,7 @@ impl CppStruct {
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.ty(Some(self))))
+            .map(|field| (field.name(), field.field_type(Some(self))))
             .collect();
 
         let is_copyable = self.is_copyable();
@@ -185,7 +185,7 @@ impl CppStruct {
         };
 
         let repr = if let Some(layout) = self.def.class_layout() {
-            let packing = Literal::usize_unsuffixed(layout.packing_size());
+            let packing = Literal::usize_unsuffixed(layout.packing_size() as usize);
             quote! { #[repr(C, packed(#packing))] }
         } else {
             quote! { #[repr(C)] }
@@ -196,7 +196,7 @@ impl CppStruct {
                 if f.flags().contains(FieldAttributes::Literal) {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
-                        let ty = constant.ty().write_name(config);
+                        let ty = constant.constant_type().write_name(config);
                         let value = constant.value().write();
 
                         return Some(quote! {
@@ -243,7 +243,7 @@ impl CppStruct {
     fn can_derive_default(&self, config: &Config) -> bool {
         !self.has_explicit_layout()
             && !self.def.fields().any(|field| {
-                let ty = field.ty(Some(self));
+                let ty = field.field_type(Some(self));
 
                 if config.sys {
                     if let Type::CppStruct(ty) = &ty {
@@ -280,7 +280,7 @@ impl CppStruct {
 
     pub fn has_cpp_delegate(&self) -> bool {
         self.def.fields().any(|field| {
-            let ty = field.ty(Some(self));
+            let ty = field.field_type(Some(self));
             ty.has_cpp_delegate()
         })
     }
@@ -295,7 +295,7 @@ impl CppStruct {
 
         self.def
             .fields()
-            .all(|field| field.ty(Some(self)).is_copyable())
+            .all(|field| field.field_type(Some(self)).is_copyable())
     }
 
     pub fn has_explicit_layout(&self) -> bool {
@@ -315,7 +315,7 @@ impl CppStruct {
     fn multi_struct_fields(&self) -> impl Iterator<Item = Self> + '_ {
         self.def
             .fields()
-            .map(|field| field.ty(Some(self)))
+            .map(|field| field.field_type(Some(self)))
             .filter_map(|ty| match ty {
                 Type::CppStruct(ty) => Some(ty),
                 Type::ArrayFixed(ty, _) => {
@@ -346,13 +346,13 @@ impl CppStruct {
         if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
-                .map(|field| field.ty(Some(self)).size())
+                .map(|field| field.field_type(Some(self)).size())
                 .max()
                 .unwrap_or(1)
         } else {
             let mut sum = 0;
             for field in self.def.fields() {
-                let ty = field.ty(Some(self));
+                let ty = field.field_type(Some(self));
                 let size = ty.size();
                 let align = ty.align();
                 sum = (sum + (align - 1)) & !(align - 1);
@@ -365,7 +365,7 @@ impl CppStruct {
     pub fn align(&self) -> usize {
         self.def
             .fields()
-            .map(|field| field.ty(Some(self)).align())
+            .map(|field| field.field_type(Some(self)).align())
             .max()
             .unwrap_or(1)
     }
@@ -374,11 +374,11 @@ impl CppStruct {
 impl Dependencies for CppStruct {
     fn combine(&self, dependencies: &mut TypeMap) {
         for field in self.def.fields() {
-            field.ty(Some(self)).combine(dependencies);
+            field.field_type(Some(self)).combine(dependencies);
         }
 
         if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
-            if let Some((_, Value::Str(type_name))) = attribute.args().first() {
+            if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
                 self.def
                     .reader()
                     .unwrap_full_name(self.def.namespace(), type_name)

@@ -64,7 +64,7 @@ impl Config<'_> {
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature = function.method.signature(def.namespace(), &[]);
+                    let signature = function.method.method_signature(def.namespace(), &[]);
 
                     // BCryptCloseAlgorithmProvider has an unused trailing parameter.
                     let tail = if signature.params.len() > 1 {
@@ -99,7 +99,7 @@ impl Config<'_> {
             };
 
             if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
-                if let Some((_, Value::Str(type_name))) = attribute.args().first() {
+                if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
                     let ty = def.reader().unwrap_full_name(def.namespace(), type_name);
 
                     let ty = ty.write_name(self);

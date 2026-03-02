@@ -6,8 +6,8 @@ impl std::fmt::Debug for ModuleRef<'_> {
     }
 }
 
-impl ModuleRef<'_> {
-    pub fn name(&self) -> &str {
+impl<'a> ModuleRef<'a> {
+    pub fn name(&self) -> &'a str {
         self.str(0)
     }
 }

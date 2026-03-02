@@ -152,7 +152,7 @@ impl Interface {
 
             if !config.package {
                 if let Some(guid) = self.def.guid_attribute() {
-                    let name: TokenStream = format!("IID_{}", self.def.name()).into();
+                    let name: TokenStream = format!("IID_{}", trim_tick(self.def.name())).into();
                     result.combine(config.write_cpp_const_guid(name, &guid));
                 }
 
@@ -336,7 +336,7 @@ impl Interface {
             }
 
             if config.implement || !is_exclusive {
-                let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
+                let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name())).into();
 
                 let generics: Vec<_> = self
                     .generics
@@ -516,7 +516,7 @@ impl Interface {
     }
 
     fn write_vtbl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name())).into();
 
         if self.generics.is_empty() {
             name
@@ -527,7 +527,7 @@ impl Interface {
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Impl", self.def.name()).into();
+        let name: TokenStream = format!("{}_Impl", trim_tick(self.def.name())).into();
         let namespace = config.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {
@@ -589,7 +589,7 @@ impl Dependencies for Interface {
 
         for method in self.def.methods() {
             for ty in method
-                .signature(self.def.namespace(), &self.generics)
+                .method_signature(self.def.namespace(), &self.generics)
                 .types()
             {
                 if is_iterable || ty.is_core() {

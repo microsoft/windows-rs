@@ -87,7 +87,7 @@ impl Class {
                 if interface.def.methods().next().is_none() {
                     None
                 } else {
-                        let method_name = to_ident(interface.def.name());
+                        let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
 
                         let cfg = if config.package {
@@ -256,13 +256,13 @@ impl Class {
         loop {
             let extends = def.extends().unwrap();
 
-            if extends == TypeName::Object {
+            if extends == (TypeName::Object.0, TypeName::Object.1) {
                 break;
             }
 
             let Type::Class(base) = reader.unwrap_full_name(extends.namespace(), extends.name())
             else {
-                panic!("type not found: {extends}");
+                panic!("type not found: {extends:?}");
             };
 
             def = base.def;
@@ -314,19 +314,19 @@ impl Class {
                 _ => continue,
             };
 
-            for (_, arg) in attribute.args() {
-                if let Value::TypeName(tn) = arg {
-                    let Type::Interface(mut interface) = self
-                        .def
-                        .reader()
-                        .unwrap_full_name(tn.namespace(), tn.name())
-                    else {
-                        panic!("type not found: {tn}");
-                    };
-
-                    interface.kind = kind;
-                    set.push(interface);
-                    break;
+            for (_, arg) in attribute.value() {
+                if let Value::Utf8(s) = arg {
+                    if let Some(dot) = s.rfind('.') {
+                        let namespace = &s[..dot];
+                        let name = &s[dot + 1..];
+                        if let Some(Type::Interface(mut interface)) =
+                            current_reader().with_full_name(namespace, name).next()
+                        {
+                            interface.kind = kind;
+                            set.push(interface);
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -341,10 +341,19 @@ impl Class {
             .attributes()
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
-                !attribute
-                    .args()
-                    .iter()
-                    .any(|arg| matches!(arg.1, Value::TypeName(_)))
+                !attribute.value().iter().any(|(_, arg)| {
+                    if let Value::Utf8(s) = arg {
+                        if let Some(dot) = s.rfind('.') {
+                            let namespace = &s[..dot];
+                            let name = &s[dot + 1..];
+                            return matches!(
+                                current_reader().with_full_name(namespace, name).next(),
+                                Some(Type::Interface(_))
+                            );
+                        }
+                    }
+                    false
+                })
             })
     }
 }

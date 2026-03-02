@@ -10,7 +10,7 @@ pub struct Method {
 
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type]) -> Self {
-        let signature = def.signature("", generics);
+        let signature = def.method_signature("", generics);
         let dependencies = signature.dependencies();
 
         Self {
@@ -538,7 +538,7 @@ impl Method {
                 }
             }
             InterfaceKind::Static | InterfaceKind::Composable => {
-                let interface_name = to_ident(interface.unwrap().def.name());
+                let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {

@@ -31,7 +31,7 @@ impl Config<'_> {
     pub fn field_initializer<'a>(&self, field: Field, input: &'a str) -> (TokenStream, &'a str) {
         let name = to_ident(field.name());
 
-        match field.ty(None) {
+        match field.field_type(None) {
             Type::GUID => {
                 let (literals, rest) = read_literal_array(input, 11);
                 let value = self.write_guid_u128(&GUID(

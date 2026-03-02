@@ -39,7 +39,7 @@ impl From<&Param> for ParamHint {
         for attribute in param.def.attributes() {
             match attribute.name() {
                 "NativeArrayInfoAttribute" => {
-                    for (_, value) in attribute.args() {
+                    for (_, value) in attribute.value() {
                         match value {
                             Value::I16(value) => return Self::ArrayRelativeLen(value as usize),
                             Value::I32(value) => return Self::ArrayFixed(value as usize),
@@ -48,7 +48,7 @@ impl From<&Param> for ParamHint {
                     }
                 }
                 "MemorySizeAttribute" => {
-                    for (_, value) in attribute.args() {
+                    for (_, value) in attribute.value() {
                         if let Value::I16(value) = value {
                             return Self::ArrayRelativeByteLen(value as usize);
                         }
@@ -75,7 +75,7 @@ impl ParamHint {
 
 impl CppMethod {
     pub fn new(def: MethodDef, namespace: &'static str) -> Self {
-        let signature = def.signature(namespace, &[]);
+        let signature = def.method_signature(namespace, &[]);
         let dependencies = signature.dependencies();
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
