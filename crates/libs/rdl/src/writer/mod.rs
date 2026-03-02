@@ -317,11 +317,11 @@ fn write_value(value: &metadata::Value) -> TokenStream {
         metadata::Value::F32(value) => {
             let literal = Literal::f32_unsuffixed(*value);
             quote! { #literal }
-        },
+        }
         metadata::Value::F64(value) => {
             let literal = Literal::f64_unsuffixed(*value);
             quote! { #literal }
-        },
+        }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
         metadata::Value::AttributeEnum(..) => todo!(),
