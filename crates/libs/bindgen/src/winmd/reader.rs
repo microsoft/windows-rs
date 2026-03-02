@@ -37,7 +37,9 @@ impl Reader {
         let index: &'static windows_metadata::reader::TypeIndex =
             Box::leak(Box::new(windows_metadata::reader::TypeIndex::new(files)));
 
-        let mut reader = Box::new(Self { map: HashMap::new() });
+        let mut reader = Box::new(Self {
+            map: HashMap::new(),
+        });
 
         // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>, including recursively
         // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
@@ -188,7 +190,10 @@ impl Reader {
         // Leak the Reader so the 'static reference is valid forever, then store it globally
         // so that all threads (including Windows thread-pool workers) can call current_reader().
         let reader: &'static Reader = Box::leak(reader);
-        CURRENT_READER.store(reader as *const _ as *mut _, std::sync::atomic::Ordering::Relaxed);
+        CURRENT_READER.store(
+            reader as *const _ as *mut _,
+            std::sync::atomic::Ordering::Relaxed,
+        );
         reader
     }
 
