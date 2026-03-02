@@ -200,29 +200,6 @@ impl Type {
         }
     }
 
-    pub fn from_element_type(code: usize) -> Option<Self> {
-        match code as u8 {
-            ELEMENT_TYPE_VOID => Some(Self::Void),
-            ELEMENT_TYPE_BOOLEAN => Some(Self::Bool),
-            ELEMENT_TYPE_CHAR => Some(Self::Char),
-            ELEMENT_TYPE_I1 => Some(Self::I8),
-            ELEMENT_TYPE_U1 => Some(Self::U8),
-            ELEMENT_TYPE_I2 => Some(Self::I16),
-            ELEMENT_TYPE_U2 => Some(Self::U16),
-            ELEMENT_TYPE_I4 => Some(Self::I32),
-            ELEMENT_TYPE_U4 => Some(Self::U32),
-            ELEMENT_TYPE_I8 => Some(Self::I64),
-            ELEMENT_TYPE_U8 => Some(Self::U64),
-            ELEMENT_TYPE_R4 => Some(Self::F32),
-            ELEMENT_TYPE_R8 => Some(Self::F64),
-            ELEMENT_TYPE_I => Some(Self::ISize),
-            ELEMENT_TYPE_U => Some(Self::USize),
-            ELEMENT_TYPE_STRING => Some(Self::String),
-            ELEMENT_TYPE_OBJECT => Some(Self::Object),
-            _ => None,
-        }
-    }
-
     pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
         (0..count)
             .map(|i| windows_metadata::Type::Generic(String::new(), i as u16))

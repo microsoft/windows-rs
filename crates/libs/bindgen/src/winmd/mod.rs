@@ -1,8 +1,6 @@
 use super::*;
 
-mod bindings;
 mod reader;
-pub use bindings::*;
 pub use reader::*;
 
 // Type aliases using 'static lifetime.
