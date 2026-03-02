@@ -401,6 +401,8 @@ fn encode_value(
         metadata::Type::U32 => metadata::Value::U32(encode_lit_int::<u32>(encoder, value)?),
         metadata::Type::I64 => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
         metadata::Type::U64 => metadata::Value::U64(encode_lit_int::<u64>(encoder, value)?),
+        metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
+        metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         rest => todo!("{rest:?}"),
     };
 
@@ -445,6 +447,33 @@ where
             ..
         }) => int.base10_parse().ok(),
 
+        _ => None,
+    };
+
+    value.ok_or_else(|| encoder.error(expr, "value not valid"))
+}
+
+fn encode_neg_lit_float<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
+where
+    T: std::str::FromStr + std::ops::Neg<Output = T>,
+    T::Err: std::fmt::Display,
+{
+    let value = match expr {
+        syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Float(float),
+            ..
+        }) => float.base10_parse().ok(),
+        syn::Expr::Unary(syn::ExprUnary {
+            op: syn::UnOp::Neg(_),
+            expr,
+            ..
+        }) => match expr.as_ref() {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Float(float),
+                ..
+            }) => float.base10_parse().ok().map(|value: T| -value),
+            _ => None,
+        },
         _ => None,
     };
 
