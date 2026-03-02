@@ -31,6 +31,10 @@ pub use r#struct::*;
 pub fn write_deprecated<'a>(def: &impl windows_metadata::HasAttributes<'a>) -> TokenStream {
     if let Some(attr) = def.find_attribute("DeprecatedAttribute") {
         let values = attr.value();
+        // Don't emit #[deprecated] for removed APIs (DeprecationType.Remove == 1)
+        if is_removed_attr(&values) {
+            return quote! {};
+        }
         if let Some((_, Value::Utf8(msg))) = values.first() {
             quote! { #[deprecated(note = #msg)] }
         } else {
@@ -39,6 +43,27 @@ pub fn write_deprecated<'a>(def: &impl windows_metadata::HasAttributes<'a>) -> T
     } else {
         quote! {}
     }
+}
+
+pub fn is_removed<'a>(def: &impl windows_metadata::HasAttributes<'a>) -> bool {
+    if let Some(attr) = def.find_attribute("DeprecatedAttribute") {
+        is_removed_attr(&attr.value())
+    } else {
+        false
+    }
+}
+
+fn is_removed_attr(values: &[(String, Value)]) -> bool {
+    // DeprecatedAttribute args: [0] = message (Utf8), [1] = DeprecationType (AttributeEnum, 0=Deprecate, 1=Remove)
+    if values.len() >= 2 {
+        if let (_, Value::AttributeEnum(_, val)) = &values[1] {
+            return *val == 1;
+        }
+        if let (_, Value::I32(val)) = &values[1] {
+            return *val == 1;
+        }
+    }
+    false
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]

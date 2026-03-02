@@ -294,6 +294,10 @@ impl Method {
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let params = if kind == InterfaceKind::Composable {
             &self.signature.params[..self.signature.params.len() - 2]
         } else {

@@ -20,6 +20,10 @@ impl Delegate {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let name = self.write_name(config);
         let vtbl_name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name())).into();
         let boxed: TokenStream = format!("{}Box", trim_tick(self.def.name())).into();

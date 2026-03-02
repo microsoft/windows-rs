@@ -15,6 +15,10 @@ impl Enum {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type();
 
@@ -29,6 +33,7 @@ impl Enum {
             .def
             .fields()
             .filter(|field| field.flags().contains(FieldAttributes::Literal))
+            .filter(|field| !is_removed(field))
             .map(|field| {
                 let name = to_ident(field.name());
                 let value = field.constant().unwrap().value().write();

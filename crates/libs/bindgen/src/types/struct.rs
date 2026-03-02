@@ -15,6 +15,10 @@ impl Struct {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let name = to_ident(self.def.name());
 
         let fields: Vec<_> = self

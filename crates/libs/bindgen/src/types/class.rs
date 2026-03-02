@@ -21,6 +21,10 @@ impl Class {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let required_interfaces = self.required_interfaces();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());

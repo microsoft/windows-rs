@@ -81,6 +81,10 @@ impl Interface {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if is_removed(&self.def) {
+            return quote! {};
+        }
+
         let type_name = self.def.type_name();
         let methods = self.get_methods(config);
 
