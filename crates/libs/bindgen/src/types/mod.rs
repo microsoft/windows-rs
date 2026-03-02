@@ -28,6 +28,19 @@ pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 
+pub fn write_deprecated<'a>(def: &impl windows_metadata::HasAttributes<'a>) -> TokenStream {
+    if let Some(attr) = def.find_attribute("DeprecatedAttribute") {
+        let values = attr.value();
+        if let Some((_, Value::Utf8(msg))) = values.first() {
+            quote! { #[deprecated(note = #msg)] }
+        } else {
+            quote! { #[deprecated] }
+        }
+    } else {
+        quote! {}
+    }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),

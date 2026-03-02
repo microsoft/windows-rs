@@ -96,9 +96,12 @@ impl Enum {
             }
         };
 
+        let deprecated = write_deprecated(&self.def);
+
         quote! {
             #[repr(transparent)]
             #derive
+            #deprecated
             pub struct #name(pub #underlying_type);
             impl #name {
                 #(#fields)*

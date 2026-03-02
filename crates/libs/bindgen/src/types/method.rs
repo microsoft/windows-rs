@@ -436,6 +436,7 @@ impl Method {
         };
 
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
+        let deprecated = write_deprecated(&self.def);
 
         let return_type = if noexcept {
             if self.signature.return_type.is_interface() {
@@ -512,6 +513,7 @@ impl Method {
 
         match kind {
             InterfaceKind::Default => quote! {
+                #deprecated
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                     let this = self;
                     unsafe {
@@ -529,6 +531,7 @@ impl Method {
                 let interface_name = interface.unwrap().write_name(config);
 
                 quote! {
+                    #deprecated
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                         unsafe {
@@ -541,6 +544,7 @@ impl Method {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 quote! {
+                    #deprecated
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
                     }

@@ -63,9 +63,12 @@ impl Struct {
             }
         };
 
+        let deprecated = write_deprecated(&self.def);
+
         quote! {
             #[repr(C)]
             #derive
+            #deprecated
             pub struct #name {
                 #(#fields)*
             }
