@@ -471,10 +471,10 @@ where
         }
     }
 
-    let filter = Filter::new(&reader, &include, &exclude);
-    let references = References::new(&reader, references);
-    let types = TypeMap::filter(&reader, &filter, &references);
-    let derive = Derive::new(&reader, &types, &derive);
+    let filter = Filter::new(reader, &include, &exclude);
+    let references = References::new(reader, references);
+    let types = TypeMap::filter(reader, &filter, &references);
+    let derive = Derive::new(reader, &types, &derive);
     let warnings = WarningBuilder::default();
 
     let config = Config {
