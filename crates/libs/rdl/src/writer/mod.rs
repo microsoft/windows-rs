@@ -338,7 +338,6 @@ fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> Tok
 fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
     use metadata::Type::*;
     match item {
-        Void => quote! { core::ffi::c_void },
         Bool => quote! { bool },
         Char => quote! { u16 },
         I8 => quote! { i8 },
@@ -353,8 +352,14 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         F64 => quote! { f64 },
         ISize => quote! { isize },
         USize => quote! { usize },
-        String => quote! { String },
-        Object => quote! { Object },
+
+        Void => quote! { void },
+        String => quote! { HSTRING },
+        Object => quote! { IInspectable },
+        Name(tn) if tn == ("System", "Type") => quote! { Type },
+        Name(tn) if tn == ("System", "Guid") => quote! { GUID },
+        Name(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },
+
         Array(ty) => {
             let ty = write_type(namespace, ty);
             quote! { [#ty] }
@@ -390,9 +395,6 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
-        Name(tn) if tn == ("System", "Type") => quote! { Type },
-        Name(tn) if tn == ("System", "Guid") => quote! { GUID },
-        Name(tn) if tn == ("Windows.Metadata", "HRESULT") => quote! { HRESULT },
         Name(type_name) => {
             let name = write_ident(&type_name.name);
 
