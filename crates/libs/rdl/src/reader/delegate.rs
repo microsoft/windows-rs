@@ -28,8 +28,6 @@ impl syn::parse::Parse for Delegate {
 
 impl Delegate {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        self.validate(encoder)?;
-
         let extends = encoder.output.TypeRef("System", "MulticastDelegate");
 
         let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
@@ -81,10 +79,24 @@ impl Delegate {
             | metadata::MethodAttributes::Virtual;
 
         let mut params = vec![];
+        let mut param_names = HashSet::new();
 
         for arg in &self.sig.inputs {
-            if let syn::FnArg::Typed(pt) = arg {
-                params.push(param(encoder, pt)?);
+            match arg {
+                syn::FnArg::Receiver(receiver) => {
+                    return encoder.err(receiver, "unexpected `self` parameter");
+                }
+                syn::FnArg::Typed(pt) => {
+                    let syn::Pat::Ident(ref name) = *pt.pat else {
+                        return encoder.err(pt, "param name not found");
+                    };
+
+                    if !param_names.insert(name.ident.to_string()) {
+                        return encoder.err(&name.ident, "param names must be unique");
+                    }
+
+                    params.push(param(encoder, pt)?);
+                }
             }
         }
 
@@ -106,29 +118,6 @@ impl Delegate {
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
-        }
-
-        Ok(())
-    }
-
-    fn validate(&self, encoder: &Encoder) -> Result<(), Error> {
-        let mut param_names = HashSet::new();
-
-        for arg in &self.sig.inputs {
-            match arg {
-                syn::FnArg::Receiver(receiver) => {
-                    return encoder.err(receiver, "unexpected `self` parameter");
-                }
-                syn::FnArg::Typed(pt) => {
-                    let syn::Pat::Ident(ref name) = *pt.pat else {
-                        return encoder.err(pt, "param name not found");
-                    };
-
-                    if !param_names.insert(name.ident.to_string()) {
-                        return encoder.err(&name.ident, "param names must be unique");
-                    }
-                }
-            }
         }
 
         Ok(())
