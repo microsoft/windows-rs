@@ -35,7 +35,7 @@ jobs:
       - name: Install rustfmt
         run: rustup component add rustfmt
       - name: Run
-        run: cargo run -p tool_${{ matrix.tool }} --release
+        run: cargo run -p tool_${{ matrix.tool }}
       - name: Check
         shell: bash
         run: |
