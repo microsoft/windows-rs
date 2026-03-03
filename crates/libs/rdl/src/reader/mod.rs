@@ -27,6 +27,7 @@ use windows_metadata as metadata;
 #[derive(Default)]
 pub struct Reader {
     input: Vec<String>,
+    input_str: Vec<String>,
     reference: Vec<String>,
     output: String,
 }
@@ -38,6 +39,11 @@ impl Reader {
 
     pub fn input(&mut self, input: &str) -> &mut Self {
         self.input.push(input.to_string());
+        self
+    }
+
+    pub fn input_str(&mut self, input: &str) -> &mut Self {
+        self.input_str.push(input.to_string());
         self
     }
 
@@ -57,7 +63,7 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let mut input = expand_input(&self.input)?;
+        let mut input = expand_input(&self.input, &self.input_str)?;
 
         let mut index = Index::new();
 
@@ -85,7 +91,7 @@ impl Reader {
     }
 }
 
-fn expand_input(input: &[String]) -> Result<Vec<syntax::File>, Error> {
+fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::File>, Error> {
     #[track_caller]
     fn expand_input(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
         let path = std::path::Path::new(input);
@@ -142,12 +148,23 @@ fn expand_input(input: &[String]) -> Result<Vec<syntax::File>, Error> {
         })?;
 
         file.source = path.to_string();
-
-        for item in &mut file.items {
-            resolve_winrt(item, path, None)?;
-        }
-
         input.push(file);
+    }
+
+    for contents in input_str {
+        let mut file = syn::parse_str::<syntax::File>(contents).map_err(|error| {
+            let start = error.span().start();
+            Error::new(&error.to_string(), ".rdl", start.line, start.column)
+        })?;
+
+        file.source = ".rdl".to_string();
+        input.push(file);
+    }
+
+    for file in &mut input {
+        for item in &mut file.items {
+            resolve_winrt(item, &file.source, None)?;
+        }
     }
 
     Ok(input)
