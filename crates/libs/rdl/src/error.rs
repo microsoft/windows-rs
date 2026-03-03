@@ -21,6 +21,13 @@ impl std::error::Error for Error {}
 
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        self.message.fmt(f)
+        write!(
+            f,
+            "error: {}\n  --> {}:{}:{}",
+            &self.message,
+            &self.file_name,
+            self.line,
+            self.column + 1
+        )
     }
 }
