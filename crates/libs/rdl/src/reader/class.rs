@@ -1,54 +1,112 @@
 use super::*;
 
-pub fn encode_class(encoder: &mut Encoder, item: &syntax::Class) -> Result<(), Error> {
-    let extends = if let Some(path) = &item.extends {
-        let extends = encode_path(encoder, path)?;
-        if let metadata::Type::Name(extends) = extends {
-            encoder.output.TypeRef(&extends.namespace, &extends.name)
+syn::custom_keyword!(class);
+
+#[derive(Debug)]
+pub struct Class {
+    pub attrs: Vec<syn::Attribute>,
+    pub token: class,
+    pub name: syn::Ident,
+    pub extends: Option<syn::Path>,
+    pub interfaces: Vec<ClassInterface>,
+}
+
+impl syn::parse::Parse for Class {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        let token = input.parse()?;
+        let name = input.parse()?;
+
+        let extends = if input.parse::<syn::Token![:]>().is_ok() {
+            Some(input.parse()?)
         } else {
-            return encoder.err(&item.extends, "invalid base type");
-        }
-    } else {
-        encoder.output.TypeRef("System", "Object")
-    };
+            None
+        };
 
-    let flags = metadata::TypeAttributes::Public
-        | metadata::TypeAttributes::Sealed
-        | metadata::TypeAttributes::WindowsRuntime;
+        let content;
+        syn::braced!(content in input);
 
-    let class = encoder.output.TypeDef(
-        encoder.namespace,
-        encoder.name,
-        metadata::writer::TypeDefOrRef::TypeRef(extends),
-        flags,
-    );
+        let interfaces = content
+            .parse_terminated(ClassInterface::parse, syn::Token![,])?
+            .into_iter()
+            .collect();
 
-    if item
-        .attrs
-        .iter()
-        .any(|attribute| attribute.path().is_ident("activatable"))
-    {
-        encode_activatable(encoder, class)?;
+        Ok(Self {
+            attrs,
+            token,
+            name,
+            extends,
+            interfaces,
+        })
     }
+}
 
-    for interface in &item.interfaces {
-        if interface.attrs.iter().any(|attr| {
-            let path = attr.path();
-            path.is_ident("statics") || path.is_ident("activatable")
-        }) {
-            encode_factory(encoder, class, interface)?;
+#[derive(Debug)]
+pub struct ClassInterface {
+    pub attrs: Vec<syn::Attribute>,
+    pub ty: syn::Path,
+}
+
+impl syn::parse::Parse for ClassInterface {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        let ty = input.parse()?;
+
+        Ok(Self { attrs, ty })
+    }
+}
+
+impl Class {
+    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+        let extends = if let Some(path) = &self.extends {
+            let extends = encode_path(encoder, path)?;
+            if let metadata::Type::Name(extends) = extends {
+                encoder.output.TypeRef(&extends.namespace, &extends.name)
+            } else {
+                return encoder.err(&self.extends, "invalid base type");
+            }
         } else {
-            encode_implement(encoder, class, interface)?;
-        }
-    }
+            encoder.output.TypeRef("System", "Object")
+        };
 
-    Ok(())
+        let flags = metadata::TypeAttributes::Public
+            | metadata::TypeAttributes::Sealed
+            | metadata::TypeAttributes::WindowsRuntime;
+
+        let class = encoder.output.TypeDef(
+            encoder.namespace,
+            encoder.name,
+            metadata::writer::TypeDefOrRef::TypeRef(extends),
+            flags,
+        );
+
+        if self
+            .attrs
+            .iter()
+            .any(|attribute| attribute.path().is_ident("activatable"))
+        {
+            encode_activatable(encoder, class)?;
+        }
+
+        for interface in &self.interfaces {
+            if interface.attrs.iter().any(|attr| {
+                let path = attr.path();
+                path.is_ident("statics") || path.is_ident("activatable")
+            }) {
+                encode_factory(encoder, class, interface)?;
+            } else {
+                encode_implement(encoder, class, interface)?;
+            }
+        }
+
+        Ok(())
+    }
 }
 
 fn encode_implement(
     encoder: &mut Encoder,
     class: metadata::writer::TypeDef,
-    interface: &syntax::ClassInterface,
+    interface: &ClassInterface,
 ) -> Result<(), Error> {
     let ty = encode_path(encoder, &interface.ty)?;
 
@@ -87,7 +145,7 @@ fn encode_implement(
 fn encode_factory(
     encoder: &mut Encoder,
     class: metadata::writer::TypeDef,
-    interface: &syntax::ClassInterface,
+    interface: &ClassInterface,
 ) -> Result<(), Error> {
     for attr in &interface.attrs {
         let path = attr.path();

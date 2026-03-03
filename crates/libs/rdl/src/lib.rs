@@ -4,10 +4,9 @@
 mod error;
 mod formatter;
 mod reader;
-mod syntax;
 mod writer;
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashSet};
 use syn::spanned::Spanned;
 
 pub use error::Error;

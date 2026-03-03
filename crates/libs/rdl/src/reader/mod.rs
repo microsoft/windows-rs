@@ -3,9 +3,13 @@ mod class;
 mod r#const;
 mod delegate;
 mod r#enum;
+mod file;
 mod r#fn;
 mod index;
 mod interface;
+mod item;
+mod method;
+mod module;
 mod param;
 mod r#struct;
 mod union;
@@ -14,8 +18,12 @@ use super::*;
 use attribute::*;
 use class::*;
 use delegate::*;
+use file::*;
 use index::*;
 use interface::*;
+use item::*;
+use method::*;
+use module::*;
 use param::*;
 use r#const::*;
 use r#enum::*;
@@ -83,6 +91,7 @@ impl Reader {
         }
 
         let reference = metadata::reader::TypeIndex::new(reference);
+        index.validate(&reference)?;
 
         let output = encode(index, &reference)?;
 
@@ -91,7 +100,7 @@ impl Reader {
     }
 }
 
-fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::File>, Error> {
+fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     #[track_caller]
     fn expand_input(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
         let path = std::path::Path::new(input);
@@ -142,7 +151,7 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };
 
-        let mut file = syn::parse_str::<syntax::File>(&contents).map_err(|error| {
+        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), path, start.line, start.column)
         })?;
@@ -152,7 +161,7 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
     }
 
     for contents in input_str {
-        let mut file = syn::parse_str::<syntax::File>(contents).map_err(|error| {
+        let mut file = syn::parse_str::<File>(contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), ".rdl", start.line, start.column)
         })?;
@@ -170,28 +179,24 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
     Ok(input)
 }
 
-fn resolve_winrt(
-    item: &mut syntax::Item,
-    source_file: &str,
-    parent: Option<bool>,
-) -> Result<(), Error> {
+fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Result<(), Error> {
     match item {
-        syntax::Item::Enum(item) => {
+        Item::Enum(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Interface(item) => {
+        Item::Interface(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Struct(item) => {
+        Item::Struct(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Delegate(item) => {
+        Item::Delegate(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Attribute(item) => {
+        Item::Attribute(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Module(item) => {
+        Item::Module(item) => {
             let parent = read_winrt(source_file, &item.token, &item.attrs, parent)?;
 
             for child in &mut item.items {
@@ -325,6 +330,16 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
     Ok(output.into_stream())
 }
 
+fn err<T, S: syn::spanned::Spanned>(
+    spanned: S,
+    source_file: &str,
+    message: &str,
+) -> Result<T, Error> {
+    let start = spanned.span().start();
+
+    Err(Error::new(message, source_file, start.line, start.column))
+}
+
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
@@ -354,7 +369,7 @@ fn encode_item(
     source_file: &str,
     namespace: &str,
     name: &str,
-    item: &syntax::Item,
+    item: &Item,
 ) -> Result<(), Error> {
     let encoder = &mut Encoder {
         output,
@@ -367,15 +382,15 @@ fn encode_item(
     };
 
     match item {
-        syntax::Item::Struct(ty) => encode_struct(encoder, ty),
-        syntax::Item::Enum(ty) => encode_enum(encoder, ty),
-        syntax::Item::Interface(ty) => encode_interface(encoder, ty),
-        syntax::Item::Union(ty) => encode_union(encoder, ty),
-        syntax::Item::Fn(ty) => encode_fn(encoder, ty),
-        syntax::Item::Const(ty) => encode_const(encoder, ty),
-        syntax::Item::Class(ty) => encode_class(encoder, ty),
-        syntax::Item::Delegate(ty) => encode_delegate(encoder, ty),
-        syntax::Item::Attribute(ty) => encode_attribute(encoder, ty),
+        Item::Struct(ty) => ty.encode(encoder),
+        Item::Enum(ty) => ty.encode(encoder),
+        Item::Interface(ty) => ty.encode(encoder),
+        Item::Union(ty) => ty.encode(encoder),
+        Item::Fn(ty) => ty.encode(encoder),
+        Item::Const(ty) => ty.encode(encoder),
+        Item::Class(ty) => ty.encode(encoder),
+        Item::Delegate(ty) => ty.encode(encoder),
+        Item::Attribute(ty) => ty.encode(encoder),
         rest => todo!("{rest:?}"),
     }
 }

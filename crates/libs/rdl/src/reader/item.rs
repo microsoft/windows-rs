@@ -32,6 +32,21 @@ impl Item {
             | Self::Union(Union { attrs, .. }) => std::mem::replace(attrs, new),
         }
     }
+
+    pub fn validate(
+        &self,
+        source_file: &str,
+        index: &Index,
+        reference: &metadata::reader::TypeIndex,
+    ) -> Result<(), Error> {
+        match self {
+            Self::Delegate(item) => item.validate(source_file, index, reference)?,
+            Self::Fn(item) => item.validate(source_file, index, reference)?,
+            _ => {}
+        }
+
+        Ok(())
+    }
 }
 
 impl std::fmt::Display for Item {
