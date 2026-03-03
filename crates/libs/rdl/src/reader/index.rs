@@ -59,20 +59,4 @@ impl<'a> Index<'a> {
             .and_then(|namespace| namespace.types.get(name))
             .is_some()
     }
-
-    pub fn validate(&self, reference: &metadata::reader::TypeIndex) -> Result<(), Error> {
-        for namespace in self.namespaces.values() {
-            let items = namespace
-                .types
-                .values()
-                .chain(namespace.functions.values())
-                .chain(namespace.constants.values());
-
-            for (source_file, item) in items {
-                item.validate(source_file, self, reference)?;
-            }
-        }
-
-        Ok(())
-    }
 }

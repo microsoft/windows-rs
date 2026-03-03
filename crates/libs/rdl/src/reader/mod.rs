@@ -91,8 +91,6 @@ impl Reader {
         }
 
         let reference = metadata::reader::TypeIndex::new(reference);
-        index.validate(&reference)?;
-
         let output = encode(index, &reference)?;
 
         std::fs::write(&self.output, output)

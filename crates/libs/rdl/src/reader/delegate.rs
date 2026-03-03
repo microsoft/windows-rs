@@ -28,6 +28,8 @@ impl syn::parse::Parse for Delegate {
 
 impl Delegate {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+        self.validate(encoder)?;
+
         let extends = encoder.output.TypeRef("System", "MulticastDelegate");
 
         let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
@@ -109,26 +111,21 @@ impl Delegate {
         Ok(())
     }
 
-    pub fn validate(
-        &self,
-        source_file: &str,
-        _index: &Index,
-        _reference: &metadata::reader::TypeIndex,
-    ) -> Result<(), Error> {
+    fn validate(&self, encoder: &Encoder) -> Result<(), Error> {
         let mut param_names = HashSet::new();
 
         for arg in &self.sig.inputs {
             match arg {
                 syn::FnArg::Receiver(receiver) => {
-                    return err(receiver, source_file, "unexpected `self` parameter");
+                    return encoder.err(receiver, "unexpected `self` parameter");
                 }
                 syn::FnArg::Typed(pt) => {
                     let syn::Pat::Ident(ref name) = *pt.pat else {
-                        return err(pt, source_file, "param name not found");
+                        return encoder.err(pt, "param name not found");
                     };
 
                     if !param_names.insert(name.ident.to_string()) {
-                        return err(&name.ident, source_file, "param names must be unique");
+                        return encoder.err(&name.ident, "param names must be unique");
                     }
                 }
             }
