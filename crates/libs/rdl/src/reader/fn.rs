@@ -149,3 +149,41 @@ fn library(attr: &syn::Attribute) -> syn::Result<(String, String)> {
 
     Ok((name, abi))
 }
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "unexpected `self` parameter", file_name: ".rdl", line: 4, column: 9 }"#
+)]
+fn unexpected_self() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    fn F(&self);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "param names must be unique", file_name: ".rdl", line: 4, column: 17 }"#
+)]
+fn param_name_unique() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    fn F(a: i32, a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
