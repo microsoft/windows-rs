@@ -3,9 +3,13 @@ mod class;
 mod r#const;
 mod delegate;
 mod r#enum;
+mod file;
 mod r#fn;
 mod index;
 mod interface;
+mod item;
+mod method;
+mod module;
 mod param;
 mod r#struct;
 mod union;
@@ -14,8 +18,12 @@ use super::*;
 use attribute::*;
 use class::*;
 use delegate::*;
+use file::*;
 use index::*;
 use interface::*;
+use item::*;
+use method::*;
+use module::*;
 use param::*;
 use r#const::*;
 use r#enum::*;
@@ -83,7 +91,6 @@ impl Reader {
         }
 
         let reference = metadata::reader::TypeIndex::new(reference);
-
         let output = encode(index, &reference)?;
 
         std::fs::write(&self.output, output)
@@ -91,7 +98,7 @@ impl Reader {
     }
 }
 
-fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::File>, Error> {
+fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
     #[track_caller]
     fn expand_input(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
         let path = std::path::Path::new(input);
@@ -142,7 +149,7 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
             return Err(Error::new("failed to read binary file", path, 0, 0));
         };
 
-        let mut file = syn::parse_str::<syntax::File>(&contents).map_err(|error| {
+        let mut file = syn::parse_str::<File>(&contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), path, start.line, start.column)
         })?;
@@ -152,7 +159,7 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
     }
 
     for contents in input_str {
-        let mut file = syn::parse_str::<syntax::File>(contents).map_err(|error| {
+        let mut file = syn::parse_str::<File>(contents).map_err(|error| {
             let start = error.span().start();
             Error::new(&error.to_string(), ".rdl", start.line, start.column)
         })?;
@@ -170,28 +177,24 @@ fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<syntax::Fi
     Ok(input)
 }
 
-fn resolve_winrt(
-    item: &mut syntax::Item,
-    source_file: &str,
-    parent: Option<bool>,
-) -> Result<(), Error> {
+fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Result<(), Error> {
     match item {
-        syntax::Item::Enum(item) => {
+        Item::Enum(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Interface(item) => {
+        Item::Interface(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Struct(item) => {
+        Item::Struct(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Delegate(item) => {
+        Item::Delegate(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Attribute(item) => {
+        Item::Attribute(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
-        syntax::Item::Module(item) => {
+        Item::Module(item) => {
             let parent = read_winrt(source_file, &item.token, &item.attrs, parent)?;
 
             for child in &mut item.items {
@@ -275,15 +278,7 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
 
     for (namespace, members) in &index.namespaces {
         for (name, (source, item)) in &members.types {
-            encode_item(
-                &mut output,
-                &index,
-                reference,
-                source,
-                namespace,
-                name,
-                item,
-            )?;
+            item.encode(&mut output, &index, reference, source, namespace, name)?;
         }
 
         if !members.functions.is_empty() || !members.constants.is_empty() {
@@ -297,32 +292,26 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
             );
 
             for (name, (source, item)) in &members.functions {
-                encode_item(
-                    &mut output,
-                    &index,
-                    reference,
-                    source,
-                    namespace,
-                    name,
-                    item,
-                )?;
+                item.encode(&mut output, &index, reference, source, namespace, name)?;
             }
 
             for (name, (source, item)) in &members.constants {
-                encode_item(
-                    &mut output,
-                    &index,
-                    reference,
-                    source,
-                    namespace,
-                    name,
-                    item,
-                )?;
+                item.encode(&mut output, &index, reference, source, namespace, name)?;
             }
         }
     }
 
     Ok(output.into_stream())
+}
+
+fn err<T, S: syn::spanned::Spanned>(
+    spanned: S,
+    source_file: &str,
+    message: &str,
+) -> Result<T, Error> {
+    let start = spanned.span().start();
+
+    Err(Error::new(message, source_file, start.line, start.column))
 }
 
 struct Encoder<'a> {
@@ -344,39 +333,6 @@ impl Encoder<'_> {
 
     fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
         Err(self.error(spanned, message))
-    }
-}
-
-fn encode_item(
-    output: &mut metadata::writer::File,
-    index: &Index,
-    reference: &metadata::reader::TypeIndex,
-    source_file: &str,
-    namespace: &str,
-    name: &str,
-    item: &syntax::Item,
-) -> Result<(), Error> {
-    let encoder = &mut Encoder {
-        output,
-        index,
-        reference,
-        source_file,
-        namespace,
-        name,
-        generics: vec![],
-    };
-
-    match item {
-        syntax::Item::Struct(ty) => encode_struct(encoder, ty),
-        syntax::Item::Enum(ty) => encode_enum(encoder, ty),
-        syntax::Item::Interface(ty) => encode_interface(encoder, ty),
-        syntax::Item::Union(ty) => encode_union(encoder, ty),
-        syntax::Item::Fn(ty) => encode_fn(encoder, ty),
-        syntax::Item::Const(ty) => encode_const(encoder, ty),
-        syntax::Item::Class(ty) => encode_class(encoder, ty),
-        syntax::Item::Delegate(ty) => encode_delegate(encoder, ty),
-        syntax::Item::Attribute(ty) => encode_attribute(encoder, ty),
-        rest => todo!("{rest:?}"),
     }
 }
 

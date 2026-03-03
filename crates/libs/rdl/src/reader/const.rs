@@ -1,23 +1,55 @@
 use super::*;
 
-pub fn encode_const(encoder: &mut Encoder, item: &syntax::Const) -> Result<(), Error> {
-    let name = item.name.to_string();
-    let ty = encode_type(encoder, &item.ty)?;
+#[derive(Debug)]
+pub struct Const {
+    pub attrs: Vec<syn::Attribute>,
+    pub token: syn::Token![const],
+    pub name: syn::Ident,
+    pub ty: syn::Type,
+    pub expr: syn::Expr,
+}
 
-    match &ty {
-        windows_metadata::Type::Name(tn) if tn == ("System", "Guid") => {
-            encode_const_guid(encoder, &ty, item, &name)?;
-        }
-        _ => encode_const_value(encoder, &ty, item, &name)?,
+impl syn::parse::Parse for Const {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
+        let token = input.parse()?;
+        let name = input.parse()?;
+        input.parse::<syn::Token![:]>()?;
+        let ty = input.parse()?;
+        input.parse::<syn::Token![=]>()?;
+        let expr = input.parse()?;
+        input.parse::<syn::Token![;]>()?;
+
+        Ok(Self {
+            attrs,
+            token,
+            name,
+            ty,
+            expr,
+        })
     }
+}
 
-    Ok(())
+impl Const {
+    pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
+        let name = self.name.to_string();
+        let ty = encode_type(encoder, &self.ty)?;
+
+        match &ty {
+            windows_metadata::Type::Name(tn) if tn == ("System", "Guid") => {
+                encode_const_guid(encoder, &ty, self, &name)?;
+            }
+            _ => encode_const_value(encoder, &ty, self, &name)?,
+        }
+
+        Ok(())
+    }
 }
 
 fn encode_const_value(
     encoder: &mut Encoder,
     ty: &windows_metadata::Type,
-    item: &syntax::Const,
+    item: &Const,
     name: &str,
 ) -> Result<(), Error> {
     let value = encode_value(encoder, ty, &item.expr)?;
@@ -40,7 +72,7 @@ fn encode_const_value(
 fn encode_const_guid(
     encoder: &mut Encoder,
     ty: &windows_metadata::Type,
-    item: &syntax::Const,
+    item: &Const,
     name: &str,
 ) -> Result<(), Error> {
     let value: u128 = encode_lit_int(encoder, &item.expr)?;
