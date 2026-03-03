@@ -280,15 +280,7 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
 
     for (namespace, members) in &index.namespaces {
         for (name, (source, item)) in &members.types {
-            encode_item(
-                &mut output,
-                &index,
-                reference,
-                source,
-                namespace,
-                name,
-                item,
-            )?;
+            item.encode(&mut output, &index, reference, source, namespace, name)?;
         }
 
         if !members.functions.is_empty() || !members.constants.is_empty() {
@@ -302,27 +294,11 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
             );
 
             for (name, (source, item)) in &members.functions {
-                encode_item(
-                    &mut output,
-                    &index,
-                    reference,
-                    source,
-                    namespace,
-                    name,
-                    item,
-                )?;
+                item.encode(&mut output, &index, reference, source, namespace, name)?;
             }
 
             for (name, (source, item)) in &members.constants {
-                encode_item(
-                    &mut output,
-                    &index,
-                    reference,
-                    source,
-                    namespace,
-                    name,
-                    item,
-                )?;
+                item.encode(&mut output, &index, reference, source, namespace, name)?;
             }
         }
     }
@@ -359,39 +335,6 @@ impl Encoder<'_> {
 
     fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
         Err(self.error(spanned, message))
-    }
-}
-
-fn encode_item(
-    output: &mut metadata::writer::File,
-    index: &Index,
-    reference: &metadata::reader::TypeIndex,
-    source_file: &str,
-    namespace: &str,
-    name: &str,
-    item: &Item,
-) -> Result<(), Error> {
-    let encoder = &mut Encoder {
-        output,
-        index,
-        reference,
-        source_file,
-        namespace,
-        name,
-        generics: vec![],
-    };
-
-    match item {
-        Item::Struct(ty) => ty.encode(encoder),
-        Item::Enum(ty) => ty.encode(encoder),
-        Item::Interface(ty) => ty.encode(encoder),
-        Item::Union(ty) => ty.encode(encoder),
-        Item::Fn(ty) => ty.encode(encoder),
-        Item::Const(ty) => ty.encode(encoder),
-        Item::Class(ty) => ty.encode(encoder),
-        Item::Delegate(ty) => ty.encode(encoder),
-        Item::Attribute(ty) => ty.encode(encoder),
-        rest => todo!("{rest:?}"),
     }
 }
 

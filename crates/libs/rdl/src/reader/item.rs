@@ -33,6 +33,39 @@ impl Item {
         }
     }
 
+    pub fn encode(
+        &self,
+        output: &mut metadata::writer::File,
+        index: &Index,
+        reference: &metadata::reader::TypeIndex,
+        source_file: &str,
+        namespace: &str,
+        name: &str,
+    ) -> Result<(), Error> {
+        let encoder = &mut Encoder {
+            output,
+            index,
+            reference,
+            source_file,
+            namespace,
+            name,
+            generics: vec![],
+        };
+
+        match self {
+            Self::Struct(ty) => ty.encode(encoder),
+            Self::Enum(ty) => ty.encode(encoder),
+            Self::Interface(ty) => ty.encode(encoder),
+            Self::Union(ty) => ty.encode(encoder),
+            Self::Fn(ty) => ty.encode(encoder),
+            Self::Const(ty) => ty.encode(encoder),
+            Self::Class(ty) => ty.encode(encoder),
+            Self::Delegate(ty) => ty.encode(encoder),
+            Self::Attribute(ty) => ty.encode(encoder),
+            rest => todo!("{rest:?}"),
+        }
+    }
+
     pub fn validate(
         &self,
         source_file: &str,
