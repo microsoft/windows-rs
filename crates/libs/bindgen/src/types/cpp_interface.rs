@@ -428,7 +428,11 @@ impl CppInterface {
         let mut bases = vec![];
         let mut def = self.def;
 
-        while let Some(base) = def.interface_impls().map(move |imp| imp.ty(&[], reader)).next() {
+        while let Some(base) = def
+            .interface_impls()
+            .map(move |imp| imp.ty(&[], reader))
+            .next()
+        {
             match base {
                 Type::CppInterface(ref ty) => {
                     def = ty.def;
@@ -460,7 +464,10 @@ impl Dependencies for CppInterface {
         }
 
         for method in self.def.methods() {
-            for ty in method.method_signature(self.def.namespace(), &[], reader).types() {
+            for ty in method
+                .method_signature(self.def.namespace(), &[], reader)
+                .types()
+            {
                 if ty.is_core() {
                     ty.combine(dependencies, reader);
                 }

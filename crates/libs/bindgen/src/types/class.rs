@@ -137,7 +137,11 @@ impl Class {
                     .map(|ty| ty.write_name(config))
                     .collect();
 
-                interfaces.extend(self.bases(config.reader).iter().map(|ty| ty.write_name(config)));
+                interfaces.extend(
+                    self.bases(config.reader)
+                        .iter()
+                        .map(|ty| ty.write_name(config)),
+                );
 
                 if interfaces.is_empty() {
                     quote! {}
@@ -244,7 +248,9 @@ impl Class {
         format!(
             "rc({};{})",
             self.type_name(),
-            self.default_interface(reader).unwrap().runtime_signature(reader)
+            self.default_interface(reader)
+                .unwrap()
+                .runtime_signature(reader)
         )
     }
 
@@ -272,7 +278,13 @@ impl Class {
     }
 
     pub fn required_interfaces(&self, reader: &Reader) -> Vec<Interface> {
-        fn walk(def: TypeDef, generics: &[Type], is_base: bool, set: &mut Vec<Interface>, reader: &Reader) {
+        fn walk(
+            def: TypeDef,
+            generics: &[Type],
+            is_base: bool,
+            set: &mut Vec<Interface>,
+            reader: &Reader,
+        ) {
             for imp in def.interface_impls() {
                 let Type::Interface(mut interface) = imp.ty(generics, reader) else {
                     panic!();

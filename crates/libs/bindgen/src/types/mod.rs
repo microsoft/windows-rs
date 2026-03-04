@@ -207,7 +207,12 @@ impl Type {
     }
 
     #[track_caller]
-    pub fn from_ref(code: TypeDefOrRef, enclosing: Option<&CppStruct>, generics: &[Self], reader: &Reader) -> Self {
+    pub fn from_ref(
+        code: TypeDefOrRef,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
             let metadata_type = blob.read_type_code(&Self::generic_placeholders(generics.len()));
@@ -230,12 +235,16 @@ impl Type {
             }
         }
 
-        reader
-            .unwrap_full_name(code_name.namespace(), code_name.name())
+        reader.unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
     #[track_caller]
-    pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self], reader: &Reader) -> Self {
+    pub fn from_blob(
+        blob: &mut Blob,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
         let metadata_type = blob.read_type_signature(&Self::generic_placeholders(generics.len()));
         Self::from_metadata_type(&metadata_type, enclosing, generics, reader)
     }
@@ -631,13 +640,11 @@ impl Type {
     pub fn split_generic(&self, reader: &Reader) -> (Self, Vec<Self>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = reader
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader.unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             Self::Delegate(ty) if !ty.generics.is_empty() => {
-                let base = reader
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader.unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -987,12 +994,8 @@ impl Dependencies for Type {
         }
 
         if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(
-                reader.with_full_name(ty.def.namespace(), ty.def.name()),
-            ),
-            Self::CppFn(ty) => Some(
-                reader.with_full_name(ty.namespace, ty.method.name()),
-            ),
+            Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
             _ => None,
         } {
             multi.for_each(|multi| {

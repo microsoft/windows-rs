@@ -247,7 +247,9 @@ impl CppStruct {
 
                 if config.sys {
                     if let Type::CppStruct(ty) = &ty {
-                        if ty.is_handle(config.reader) && ty.def.underlying_type(config.reader).is_pointer() {
+                        if ty.is_handle(config.reader)
+                            && ty.def.underlying_type(config.reader).is_pointer()
+                        {
                             return true;
                         }
                     }
@@ -306,7 +308,10 @@ impl CppStruct {
     }
 
     pub fn has_packing(&self, reader: &Reader) -> bool {
-        self.def.class_layout().is_some() || self.multi_struct_fields(reader).any(|ty| ty.has_packing(reader))
+        self.def.class_layout().is_some()
+            || self
+                .multi_struct_fields(reader)
+                .any(|ty| ty.has_packing(reader))
     }
 
     // Returns all possible struct field types including arch-specific overloads.
@@ -327,10 +332,7 @@ impl CppStruct {
                 }
                 _ => None,
             })
-            .flat_map(|ty| {
-                reader
-                    .with_full_name(ty.def.namespace(), ty.def.name())
-            })
+            .flat_map(|ty| reader.with_full_name(ty.def.namespace(), ty.def.name()))
             .filter_map(|ty| {
                 if let Type::CppStruct(ty) = ty {
                     Some(ty)
@@ -373,7 +375,9 @@ impl CppStruct {
 impl Dependencies for CppStruct {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         for field in self.def.fields() {
-            field.field_type(Some(self), reader).combine(dependencies, reader);
+            field
+                .field_type(Some(self), reader)
+                .combine(dependencies, reader);
         }
 
         if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {

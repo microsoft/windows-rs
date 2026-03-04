@@ -41,7 +41,8 @@ impl MethodDefExt for MethodDef {
     fn method_signature(&self, namespace: &str, generics: &[Type], reader: &Reader) -> Signature {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
-        let mut return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
+        let mut return_type =
+            Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
         let mut params = vec![];
         let mut meta_types = meta_sig.types.iter();
 

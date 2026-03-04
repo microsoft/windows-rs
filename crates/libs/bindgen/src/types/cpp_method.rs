@@ -186,7 +186,9 @@ impl CppMethod {
                 }
                 Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::CppStruct(ty) if !ty.is_handle(reader) => return_hint = ReturnHint::ReturnStruct,
+                Type::CppStruct(ty) if !ty.is_handle(reader) => {
+                    return_hint = ReturnHint::ReturnStruct
+                }
                 _ => {}
             };
         }
@@ -370,7 +372,12 @@ impl CppMethod {
         }
     }
 
-    pub fn write_upcall(&self, parent_impl: &TokenStream, name: &TokenStream, reader: &Reader) -> TokenStream {
+    pub fn write_upcall(
+        &self,
+        parent_impl: &TokenStream,
+        name: &TokenStream,
+        reader: &Reader,
+    ) -> TokenStream {
         match self.return_hint {
             ReturnHint::ResultValue => {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
@@ -391,21 +398,33 @@ impl CppMethod {
                 }
             }
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
-                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*).into()
                 }
             }
             ReturnHint::ReturnStruct => {
-                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
                 }
             }
             _ => {
-                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
+                let invoke_args = self
+                    .signature
+                    .params
+                    .iter()
+                    .map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*)

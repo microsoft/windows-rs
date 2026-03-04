@@ -64,7 +64,10 @@ impl Config<'_> {
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature = function.method.method_signature(def.namespace(), &[], self.reader);
+                    let signature =
+                        function
+                            .method
+                            .method_signature(def.namespace(), &[], self.reader);
 
                     // BCryptCloseAlgorithmProvider has an unused trailing parameter.
                     let tail = if signature.params.len() > 1 {
