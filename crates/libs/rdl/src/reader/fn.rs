@@ -174,6 +174,25 @@ mod Test {
 
 #[test]
 #[should_panic(
+    expected = r#"{ message: "`link` attribute not found", file_name: ".rdl", line: 4, column: 4 }"#
+)]
+fn link_not_found() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    fn F();
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
     expected = r#"{ message: "`link` attribute missing name/abi arguments", file_name: ".rdl", line: 4, column: 4 }"#
 )]
 fn link_missing_name() {
