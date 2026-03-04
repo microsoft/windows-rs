@@ -171,3 +171,63 @@ mod Test {
         .write()
         .unwrap();
 }
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`link` attribute missing name/abi arguments", file_name: ".rdl", line: 4, column: 4 }"#
+)]
+fn link_missing_name() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    #[link(abi = "system")]
+    fn F();
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`link` attribute missing name/abi arguments", file_name: ".rdl", line: 4, column: 4 }"#
+)]
+fn link_missing_abi() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    #[link(name = "a.dll")]
+    fn F();
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`link` abi not supported", file_name: ".rdl", line: 4, column: 4 }"#
+)]
+fn link_abi_not_supported() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    #[link(name = "a.dll", abi = "invalid")]
+    fn F();
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
