@@ -207,11 +207,16 @@ impl Type {
     }
 
     #[track_caller]
-    pub fn from_ref(code: TypeDefOrRef, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
+    pub fn from_ref(
+        code: TypeDefOrRef,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
             let metadata_type = blob.read_type_code(&Self::generic_placeholders(generics.len()));
-            return Self::from_metadata_type(&metadata_type, None, generics);
+            return Self::from_metadata_type(&metadata_type, None, generics, reader);
         }
 
         let mut code_name = code.type_name();
@@ -230,14 +235,18 @@ impl Type {
             }
         }
 
-        code.reader()
-            .unwrap_full_name(code_name.namespace(), code_name.name())
+        reader.unwrap_full_name(code_name.namespace(), code_name.name())
     }
 
     #[track_caller]
-    pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
+    pub fn from_blob(
+        blob: &mut Blob,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
         let metadata_type = blob.read_type_signature(&Self::generic_placeholders(generics.len()));
-        Self::from_metadata_type(&metadata_type, enclosing, generics)
+        Self::from_metadata_type(&metadata_type, enclosing, generics, reader)
     }
 
     #[track_caller]
@@ -245,6 +254,7 @@ impl Type {
         ty: &windows_metadata::Type,
         enclosing: Option<&CppStruct>,
         generics: &[Self],
+        reader: &Reader,
     ) -> Self {
         match ty {
             windows_metadata::Type::Void => Self::Void,
@@ -314,12 +324,12 @@ impl Type {
                         return Self::CppStruct(outer.nested[n].clone());
                     }
                 }
-                let mut bindgen_ty = current_reader().unwrap_full_name(ns, n);
+                let mut bindgen_ty = reader.unwrap_full_name(ns, n);
                 if !tn.generics.is_empty() {
                     let item_generics: Vec<Self> = tn
                         .generics
                         .iter()
-                        .map(|g| Self::from_metadata_type(g, None, generics))
+                        .map(|g| Self::from_metadata_type(g, None, generics, reader))
                         .collect();
                     bindgen_ty.set_generics(item_generics);
                 }
@@ -330,31 +340,31 @@ impl Type {
                 generics.get(*index as usize).cloned().unwrap_or(Self::Void)
             }
             windows_metadata::Type::Array(inner) => Self::Array(Box::new(
-                Self::from_metadata_type(inner, enclosing, generics),
+                Self::from_metadata_type(inner, enclosing, generics, reader),
             )),
             windows_metadata::Type::ArrayFixed(inner, size) => Self::ArrayFixed(
-                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *size,
             ),
             windows_metadata::Type::PtrMut(inner, pointers) => Self::PtrMut(
-                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *pointers,
             ),
             windows_metadata::Type::PtrConst(inner, pointers) => Self::PtrConst(
-                Box::new(Self::from_metadata_type(inner, enclosing, generics)),
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *pointers,
             ),
             // IsConst modifier (ELEMENT_TYPE_CMOD_REQD IsConst)
             windows_metadata::Type::RefConst(inner) => Self::ConstRef(Box::new(
-                Self::from_metadata_type(inner, enclosing, generics),
+                Self::from_metadata_type(inner, enclosing, generics, reader),
             )),
             // ELEMENT_TYPE_BYREF - strip wrapper; byref is tracked by param flags.
             // BYREF + SZARRAY = ArrayRef.
             windows_metadata::Type::RefMut(inner) => match inner.as_ref() {
                 windows_metadata::Type::Array(arr_inner) => Self::ArrayRef(Box::new(
-                    Self::from_metadata_type(arr_inner, enclosing, generics),
+                    Self::from_metadata_type(arr_inner, enclosing, generics, reader),
                 )),
-                _ => Self::from_metadata_type(inner, enclosing, generics),
+                _ => Self::from_metadata_type(inner, enclosing, generics, reader),
             },
             rest => panic!("{rest:?}"),
         }
@@ -394,10 +404,10 @@ impl Type {
         }
     }
 
-    pub fn has_cpp_delegate(&self) -> bool {
+    pub fn has_cpp_delegate(&self, reader: &Reader) -> bool {
         match self {
             Self::CppDelegate(..) => true,
-            Self::CppStruct(ty) => ty.has_cpp_delegate(),
+            Self::CppStruct(ty) => ty.has_cpp_delegate(reader),
             _ => false,
         }
     }
@@ -577,7 +587,7 @@ impl Type {
             }
             Self::Struct(ty) => {
                 let name = self.write_name(config);
-                if ty.is_copyable() {
+                if ty.is_copyable(config.reader) {
                     name
                 } else {
                     quote! { core::mem::MaybeUninit<#name> }
@@ -598,7 +608,7 @@ impl Type {
         }
     }
 
-    pub fn runtime_signature(&self) -> String {
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
         match self {
             Self::Bool => "b1".to_string(),
             Self::Char => "c2".to_string(),
@@ -618,29 +628,23 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Class(ty) => ty.runtime_signature(),
-            Self::Delegate(ty) => ty.runtime_signature(),
-            Self::Enum(ty) => ty.runtime_signature(),
-            Self::Interface(ty) => ty.runtime_signature(),
-            Self::Struct(ty) => ty.runtime_signature(),
+            Self::Class(ty) => ty.runtime_signature(reader),
+            Self::Delegate(ty) => ty.runtime_signature(reader),
+            Self::Enum(ty) => ty.runtime_signature(reader),
+            Self::Interface(ty) => ty.runtime_signature(reader),
+            Self::Struct(ty) => ty.runtime_signature(reader),
             rest => panic!("{rest:?}"),
         }
     }
 
-    pub fn split_generic(&self) -> (Self, Vec<Self>) {
+    pub fn split_generic(&self, reader: &Reader) -> (Self, Vec<Self>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
-                let base = ty
-                    .def
-                    .reader()
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader.unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             Self::Delegate(ty) if !ty.generics.is_empty() => {
-                let base = ty
-                    .def
-                    .reader()
-                    .unwrap_full_name(ty.def.namespace(), ty.def.name());
+                let base = reader.unwrap_full_name(ty.def.namespace(), ty.def.name());
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
@@ -682,10 +686,10 @@ impl Type {
         }
     }
 
-    pub fn is_copyable(&self) -> bool {
+    pub fn is_copyable(&self, reader: &Reader) -> bool {
         match self {
-            Self::Struct(ty) => ty.is_copyable(),
-            Self::CppStruct(ty) => ty.is_copyable(),
+            Self::Struct(ty) => ty.is_copyable(reader),
+            Self::CppStruct(ty) => ty.is_copyable(reader),
             Self::Enum(_) => true,
             Self::CppEnum(_) => true,
             Self::CppDelegate(_) => true,
@@ -695,18 +699,18 @@ impl Type {
             }
 
             Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Generic(_) => false,
-            Self::ArrayFixed(ty, _) => ty.is_copyable(),
-            Self::Array(ty) => ty.is_copyable(),
+            Self::ArrayFixed(ty, _) => ty.is_copyable(reader),
+            Self::Array(ty) => ty.is_copyable(reader),
             _ => true,
         }
     }
 
-    pub fn is_dropped(&self) -> bool {
+    pub fn is_dropped(&self, reader: &Reader) -> bool {
         match self {
-            Self::Struct(ty) => !ty.is_copyable(),
+            Self::Struct(ty) => !ty.is_copyable(reader),
             Self::CppInterface(..) => true,
             Self::String | Self::BSTR | Self::Object | Self::IUnknown => true,
-            Self::ArrayFixed(ty, _) => ty.is_dropped(),
+            Self::ArrayFixed(ty, _) => ty.is_dropped(reader),
             _ => false,
         }
     }
@@ -730,10 +734,10 @@ impl Type {
         matches!(self, Self::ConstRef(_))
     }
 
-    pub fn is_primitive(&self) -> bool {
+    pub fn is_primitive(&self, reader: &Reader) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
-            Self::CppStruct(ty) => ty.is_handle(),
+            Self::CppStruct(ty) => ty.is_handle(reader),
             Self::Bool
             | Self::Char
             | Self::I8
@@ -783,40 +787,40 @@ impl Type {
         }
     }
 
-    pub fn size(&self) -> usize {
+    pub fn size(&self, reader: &Reader) -> usize {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
             Self::I64 | Self::U64 | Self::F64 => 8,
             Self::GUID => 16,
-            Self::ArrayFixed(ty, len) => ty.size() * len,
-            Self::PrimitiveOrEnum(ty, _) => ty.size(),
-            Self::CppStruct(ty) => ty.size(),
-            Self::Struct(ty) => ty.size(),
-            Self::CppEnum(ty) => ty.size(),
+            Self::ArrayFixed(ty, len) => ty.size(reader) * len,
+            Self::PrimitiveOrEnum(ty, _) => ty.size(reader),
+            Self::CppStruct(ty) => ty.size(reader),
+            Self::Struct(ty) => ty.size(reader),
+            Self::CppEnum(ty) => ty.size(reader),
             _ => 4,
         }
     }
 
-    pub fn align(&self) -> usize {
+    pub fn align(&self, reader: &Reader) -> usize {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
             Self::I64 | Self::U64 | Self::F64 => 8,
-            Self::ArrayFixed(ty, len) => ty.align() * len,
-            Self::CppStruct(ty) => ty.align(),
-            Self::Struct(ty) => ty.align(),
-            Self::CppEnum(ty) => ty.align(),
+            Self::ArrayFixed(ty, len) => ty.align(reader) * len,
+            Self::CppStruct(ty) => ty.align(reader),
+            Self::Struct(ty) => ty.align(reader),
+            Self::CppEnum(ty) => ty.align(reader),
             _ => 4,
         }
     }
 
-    pub fn underlying_type(&self) -> Self {
+    pub fn underlying_type(&self, reader: &Reader) -> Self {
         match self {
-            Self::Struct(ty) => ty.def.underlying_type(),
-            Self::CppEnum(ty) => ty.def.underlying_type(),
-            Self::Enum(ty) => ty.def.underlying_type(),
-            Self::CppStruct(ty) => ty.def.underlying_type(),
+            Self::Struct(ty) => ty.def.underlying_type(reader),
+            Self::CppEnum(ty) => ty.def.underlying_type(reader),
+            Self::Enum(ty) => ty.def.underlying_type(reader),
+            Self::CppStruct(ty) => ty.def.underlying_type(reader),
             Self::HRESULT => Self::I32,
             Self::BOOL => Self::I32,
             _ => self.clone(),
@@ -952,8 +956,8 @@ impl Type {
         )
     }
 
-    pub fn write_result_map(&self) -> TokenStream {
-        if self.is_copyable() {
+    pub fn write_result_map(&self, reader: &Reader) -> TokenStream {
+        if self.is_copyable(reader) {
             quote! { map(|| result__) }
         } else if self.is_convertible() {
             quote! { and_then(||windows_core::Type::from_abi(result__)) }
@@ -964,7 +968,7 @@ impl Type {
 }
 
 impl Dependencies for Type {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         let ty = self.decay();
 
         if ty.is_intrinsic() {
@@ -979,10 +983,10 @@ impl Dependencies for Type {
             }
         }
 
-        let (ty, generics) = ty.split_generic();
+        let (ty, generics) = ty.split_generic(reader);
 
         for ty in generics {
-            ty.combine(dependencies);
+            ty.combine(dependencies, reader);
         }
 
         if !nested && !dependencies.insert(ty.clone()) {
@@ -990,45 +994,37 @@ impl Dependencies for Type {
         }
 
         if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(
-                ty.def
-                    .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name()),
-            ),
-            Self::CppFn(ty) => Some(
-                ty.method
-                    .reader()
-                    .with_full_name(ty.namespace, ty.method.name()),
-            ),
+            Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
+            Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
             _ => None,
         } {
             multi.for_each(|multi| {
                 if ty != multi {
-                    multi.combine(dependencies)
+                    multi.combine(dependencies, reader)
                 }
             });
         }
 
         match &ty {
-            Self::Class(ty) => ty.combine(dependencies),
-            Self::Delegate(ty) => ty.combine(dependencies),
+            Self::Class(ty) => ty.combine(dependencies, reader),
+            Self::Delegate(ty) => ty.combine(dependencies, reader),
             Self::Enum(..) => {}
-            Self::Interface(ty) => ty.combine(dependencies),
-            Self::Struct(ty) => ty.combine(dependencies),
-            Self::CppConst(ty) => ty.combine(dependencies),
-            Self::CppDelegate(ty) => ty.combine(dependencies),
-            Self::CppFn(ty) => ty.combine(dependencies),
-            Self::CppInterface(ty) => ty.combine(dependencies),
-            Self::CppStruct(ty) => ty.combine(dependencies),
-            Self::CppEnum(ty) => ty.combine(dependencies),
+            Self::Interface(ty) => ty.combine(dependencies, reader),
+            Self::Struct(ty) => ty.combine(dependencies, reader),
+            Self::CppConst(ty) => ty.combine(dependencies, reader),
+            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
+            Self::CppFn(ty) => ty.combine(dependencies, reader),
+            Self::CppInterface(ty) => ty.combine(dependencies, reader),
+            Self::CppStruct(ty) => ty.combine(dependencies, reader),
+            Self::CppEnum(ty) => ty.combine(dependencies, reader),
 
             Self::IUnknown => {
-                Self::GUID.combine(dependencies);
-                Self::HRESULT.combine(dependencies);
+                Self::GUID.combine(dependencies, reader);
+                Self::HRESULT.combine(dependencies, reader);
             }
 
             Self::Object => {
-                Self::IUnknown.combine(dependencies);
+                Self::IUnknown.combine(dependencies, reader);
             }
 
             _ => {}
@@ -1036,7 +1032,7 @@ impl Dependencies for Type {
     }
 }
 
-pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
+pub fn interface_signature(def: TypeDef, generics: &[Type], reader: &Reader) -> String {
     if generics.is_empty() {
         let guid = def.guid_attribute().unwrap();
         format!("{{{guid}}}")
@@ -1046,7 +1042,7 @@ pub fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
 
         for generic in generics {
             signature.push(';');
-            signature.push_str(&generic.runtime_signature())
+            signature.push_str(&generic.runtime_signature(reader))
         }
 
         signature.push(')');

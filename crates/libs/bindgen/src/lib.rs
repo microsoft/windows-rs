@@ -469,13 +469,14 @@ where
         }
     }
 
-    let filter = Filter::new(reader, &include, &exclude);
-    let references = References::new(reader, references);
-    let types = TypeMap::filter(reader, &filter, &references);
-    let derive = Derive::new(reader, &types, &derive);
+    let filter = Filter::new(&reader, &include, &exclude);
+    let references = References::new(&reader, references);
+    let types = TypeMap::filter(&reader, &filter, &references);
+    let derive = Derive::new(&reader, &types, &derive);
     let warnings = WarningBuilder::default();
 
     let config = Config {
+        reader: &reader,
         types: &types,
         flat,
         references: &references,
@@ -502,7 +503,7 @@ where
     config.write(tree);
 
     if index {
-        index::write(&types, &format!("{output}/features.json"));
+        index::write(&types, &format!("{output}/features.json"), &reader);
     }
 
     warnings.build()

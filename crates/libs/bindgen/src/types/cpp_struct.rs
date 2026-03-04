@@ -43,14 +43,14 @@ impl CppStruct {
     }
 
     // A "handle" type is any struct with a single field called "Value" of some primitive type.
-    pub fn is_handle(&self) -> bool {
+    pub fn is_handle(&self, reader: &Reader) -> bool {
         let mut fields = self.def.fields();
 
         let Some(field) = fields.next() else {
             return false;
         };
 
-        if field.name() != "Value" || !field.field_type(Some(self)).is_primitive() {
+        if field.name() != "Value" || !field.field_type(Some(self), reader).is_primitive(reader) {
             return false;
         }
 
@@ -62,11 +62,11 @@ impl CppStruct {
             return quote! {};
         }
 
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
-        if self.is_handle() {
+        if self.is_handle(config.reader) {
             return config.write_cpp_handle(self.def);
         }
 
@@ -85,26 +85,26 @@ impl CppStruct {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
-        let has_explicit_layout = self.has_explicit_layout();
-        let has_packing = self.has_packing();
+        let has_explicit_layout = self.has_explicit_layout(config.reader);
+        let has_packing = self.has_packing(config.reader);
 
         let fields: Vec<_> = self
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.field_type(Some(self))))
+            .map(|field| (field.name(), field.field_type(Some(self), config.reader)))
             .collect();
 
-        let is_copyable = self.is_copyable();
+        let is_copyable = self.is_copyable(config.reader);
 
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
 
-                let ty = if !config.sys && is_union && !ty.is_copyable() {
+                let ty = if !config.sys && is_union && !ty.is_copyable(config.reader) {
                     let ty = ty.write_default(config);
                     quote! { core::mem::ManuallyDrop<#ty> }
-                } else if !config.sys && ty.is_dropped() {
+                } else if !config.sys && ty.is_dropped(config.reader) {
                     if let Type::ArrayFixed(ty, len) = ty {
                         let ty = ty.write_default(config);
                         let len = Literal::usize_unsuffixed(*len);
@@ -159,7 +159,7 @@ impl CppStruct {
         if !config.sys && !has_explicit_layout && !has_packing {
             derive.extend(["Debug"]);
 
-            if !self.has_cpp_delegate() {
+            if !self.has_cpp_delegate(config.reader) {
                 derive.extend(["PartialEq"]);
             }
         }
@@ -196,7 +196,7 @@ impl CppStruct {
                 if f.flags().contains(FieldAttributes::Literal) {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
-                        let ty = constant.constant_type().write_name(config);
+                        let ty = constant.constant_type(config.reader).write_name(config);
                         let value = constant.value().write();
 
                         return Some(quote! {
@@ -241,13 +241,15 @@ impl CppStruct {
     }
 
     fn can_derive_default(&self, config: &Config) -> bool {
-        !self.has_explicit_layout()
+        !self.has_explicit_layout(config.reader)
             && !self.def.fields().any(|field| {
-                let ty = field.field_type(Some(self));
+                let ty = field.field_type(Some(self), config.reader);
 
                 if config.sys {
                     if let Type::CppStruct(ty) = &ty {
-                        if ty.is_handle() && ty.def.underlying_type().is_pointer() {
+                        if ty.is_handle(config.reader)
+                            && ty.def.underlying_type(config.reader).is_pointer()
+                        {
                             return true;
                         }
                     }
@@ -278,14 +280,14 @@ impl CppStruct {
             })
     }
 
-    pub fn has_cpp_delegate(&self) -> bool {
+    pub fn has_cpp_delegate(&self, reader: &Reader) -> bool {
         self.def.fields().any(|field| {
-            let ty = field.field_type(Some(self));
-            ty.has_cpp_delegate()
+            let ty = field.field_type(Some(self), reader);
+            ty.has_cpp_delegate(reader)
         })
     }
 
-    pub fn is_copyable(&self) -> bool {
+    pub fn is_copyable(&self, reader: &Reader) -> bool {
         if matches!(
             self.def.type_name(),
             TypeName::VARIANT | TypeName::PROPVARIANT
@@ -295,27 +297,30 @@ impl CppStruct {
 
         self.def
             .fields()
-            .all(|field| field.field_type(Some(self)).is_copyable())
+            .all(|field| field.field_type(Some(self), reader).is_copyable(reader))
     }
 
-    pub fn has_explicit_layout(&self) -> bool {
+    pub fn has_explicit_layout(&self, reader: &Reader) -> bool {
         self.def.flags().contains(TypeAttributes::ExplicitLayout)
             || self
-                .multi_struct_fields()
-                .any(|ty| ty.has_explicit_layout())
+                .multi_struct_fields(reader)
+                .any(|ty| ty.has_explicit_layout(reader))
     }
 
-    pub fn has_packing(&self) -> bool {
-        self.def.class_layout().is_some() || self.multi_struct_fields().any(|ty| ty.has_packing())
+    pub fn has_packing(&self, reader: &Reader) -> bool {
+        self.def.class_layout().is_some()
+            || self
+                .multi_struct_fields(reader)
+                .any(|ty| ty.has_packing(reader))
     }
 
     // Returns all possible struct field types including arch-specific overloads.
     // This avoids skipping arch-specific definitions of structs that may have
     // different layout or packing requirements.
-    fn multi_struct_fields(&self) -> impl Iterator<Item = Self> + '_ {
+    fn multi_struct_fields<'a>(&'a self, reader: &'a Reader) -> impl Iterator<Item = Self> + 'a {
         self.def
             .fields()
-            .map(|field| field.field_type(Some(self)))
+            .map(move |field| field.field_type(Some(self), reader))
             .filter_map(|ty| match ty {
                 Type::CppStruct(ty) => Some(ty),
                 Type::ArrayFixed(ty, _) => {
@@ -327,11 +332,7 @@ impl CppStruct {
                 }
                 _ => None,
             })
-            .flat_map(|ty| {
-                ty.def
-                    .reader()
-                    .with_full_name(ty.def.namespace(), ty.def.name())
-            })
+            .flat_map(|ty| reader.with_full_name(ty.def.namespace(), ty.def.name()))
             .filter_map(|ty| {
                 if let Type::CppStruct(ty) = ty {
                     Some(ty)
@@ -342,19 +343,19 @@ impl CppStruct {
             .chain(self.nested.values().cloned())
     }
 
-    pub fn size(&self) -> usize {
+    pub fn size(&self, reader: &Reader) -> usize {
         if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
             self.def
                 .fields()
-                .map(|field| field.field_type(Some(self)).size())
+                .map(|field| field.field_type(Some(self), reader).size(reader))
                 .max()
                 .unwrap_or(1)
         } else {
             let mut sum = 0;
             for field in self.def.fields() {
-                let ty = field.field_type(Some(self));
-                let size = ty.size();
-                let align = ty.align();
+                let ty = field.field_type(Some(self), reader);
+                let size = ty.size(reader);
+                let align = ty.align(reader);
                 sum = (sum + (align - 1)) & !(align - 1);
                 sum += size;
             }
@@ -362,27 +363,28 @@ impl CppStruct {
         }
     }
 
-    pub fn align(&self) -> usize {
+    pub fn align(&self, reader: &Reader) -> usize {
         self.def
             .fields()
-            .map(|field| field.field_type(Some(self)).align())
+            .map(|field| field.field_type(Some(self), reader).align(reader))
             .max()
             .unwrap_or(1)
     }
 }
 
 impl Dependencies for CppStruct {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         for field in self.def.fields() {
-            field.field_type(Some(self)).combine(dependencies);
+            field
+                .field_type(Some(self), reader)
+                .combine(dependencies, reader);
         }
 
         if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
             if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
-                self.def
-                    .reader()
+                reader
                     .unwrap_full_name(self.def.namespace(), type_name)
-                    .combine(dependencies);
+                    .combine(dependencies, reader);
             }
         }
     }

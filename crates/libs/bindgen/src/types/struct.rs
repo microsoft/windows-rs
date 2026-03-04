@@ -20,10 +20,10 @@ impl Struct {
         let fields: Vec<_> = self
             .def
             .fields()
-            .map(|field| (field.name(), field.field_type(None)))
+            .map(|field| (field.name(), field.field_type(None, config.reader)))
             .collect();
 
-        let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
+        let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable(config.reader));
 
         let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Clone"]);
@@ -51,7 +51,7 @@ impl Struct {
                 quote! { CloneType }
             };
 
-            let signature = Literal::byte_string(&self.runtime_signature());
+            let signature = Literal::byte_string(&self.runtime_signature(config.reader));
 
             quote! {
                 impl windows_core::TypeKind for #name {
@@ -73,47 +73,47 @@ impl Struct {
         }
     }
 
-    pub fn runtime_signature(&self) -> String {
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
         let mut signature = format!("struct({}", self.def.type_name());
         for field in self.def.fields() {
             signature.push(';');
-            signature.push_str(&field.field_type(None).runtime_signature());
+            signature.push_str(&field.field_type(None, reader).runtime_signature(reader));
         }
         signature.push(')');
         signature
     }
 
-    pub fn is_copyable(&self) -> bool {
+    pub fn is_copyable(&self, reader: &Reader) -> bool {
         self.def
             .fields()
-            .all(|field| field.field_type(None).is_copyable())
+            .all(|field| field.field_type(None, reader).is_copyable(reader))
     }
 
-    pub fn size(&self) -> usize {
+    pub fn size(&self, reader: &Reader) -> usize {
         let mut sum = 0;
         for field in self.def.fields() {
-            let ty = field.field_type(None);
-            let size = ty.size();
-            let align = ty.align();
+            let ty = field.field_type(None, reader);
+            let size = ty.size(reader);
+            let align = ty.align(reader);
             sum = (sum + (align - 1)) & !(align - 1);
             sum += size;
         }
         sum
     }
 
-    pub fn align(&self) -> usize {
+    pub fn align(&self, reader: &Reader) -> usize {
         self.def
             .fields()
-            .map(|field| field.field_type(None).align())
+            .map(|field| field.field_type(None, reader).align(reader))
             .max()
             .unwrap_or(1)
     }
 }
 
 impl Dependencies for Struct {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         for field in self.def.fields() {
-            field.field_type(None).combine(dependencies);
+            field.field_type(None, reader).combine(dependencies, reader);
         }
     }
 }

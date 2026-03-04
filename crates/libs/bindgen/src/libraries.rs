@@ -12,7 +12,7 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let mut libraries = BTreeMap::new();
 
     let reader = Reader::new(expand_input(&["default"]));
-    combine_libraries(reader, &mut libraries);
+    combine_libraries(&reader, &mut libraries);
     libraries
 }
 
@@ -34,7 +34,9 @@ fn combine_libraries(
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 let arches = ty.method.arches();
                 let params = if (arches == 0) || (arches & 1 == 1) {
-                    ty.method.method_signature(ty.namespace, &[]).size()
+                    ty.method
+                        .method_signature(ty.namespace, &[], reader)
+                        .size(reader)
                 } else {
                     0
                 };

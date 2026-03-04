@@ -57,7 +57,7 @@ impl Interface {
         self.def
             .methods()
             .map(|def| {
-                let method = Method::new(def, &self.generics);
+                let method = Method::new(def, &self.generics, config.reader);
                 if method.dependencies.included(config) {
                     MethodOrName::Method(method)
                 } else {
@@ -75,7 +75,7 @@ impl Interface {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(&self.dependencies(), config);
+        let cfg = Cfg::new(&self.dependencies(config.reader), config);
         let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
@@ -84,7 +84,7 @@ impl Interface {
         let type_name = self.def.type_name();
         let methods = self.get_methods(config);
 
-        let required_interfaces = self.required_interfaces();
+        let required_interfaces = self.required_interfaces(config.reader);
         let name = self.write_name(config);
 
         let vtbl_name = self.write_vtbl_name(config);
@@ -355,7 +355,7 @@ impl Interface {
                         }
                     }
 
-                    let mut dependencies = self.dependencies();
+                    let mut dependencies = self.dependencies(config.reader);
                     combine(self, &mut dependencies, config);
 
                     required_interfaces
@@ -397,7 +397,7 @@ impl Interface {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
                     let call = quote! { #impl_name::#name };
-                    let upcall = method.write_upcall(call, true);
+                    let upcall = method.write_upcall(call, true, config.reader);
 
                     quote! {
                         unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
@@ -542,29 +542,29 @@ impl Interface {
         self.def.has_attribute("ExclusiveToAttribute")
     }
 
-    pub fn runtime_signature(&self) -> String {
-        interface_signature(self.def, &self.generics)
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
+        interface_signature(self.def, &self.generics, reader)
     }
 
-    pub fn required_interfaces(&self) -> Vec<Self> {
-        fn walk(interface: &Interface, set: &mut Vec<Interface>) {
+    pub fn required_interfaces(&self, reader: &Reader) -> Vec<Self> {
+        fn walk(interface: &Interface, set: &mut Vec<Interface>, reader: &Reader) {
             for ty in interface
                 .def
                 .interface_impls()
-                .map(|imp| imp.ty(&interface.generics))
+                .map(|imp| imp.ty(&interface.generics, reader))
             {
                 let Type::Interface(interface) = ty else {
                     panic!();
                 };
 
                 if !set.iter().any(|existing| existing.def == interface.def) {
-                    walk(&interface, set);
+                    walk(&interface, set, reader);
                     set.push(interface);
                 }
             }
         }
         let mut set = vec![];
-        walk(self, &mut set);
+        walk(self, &mut set, reader);
 
         set.sort();
         set.dedup();
@@ -573,27 +573,27 @@ impl Interface {
 }
 
 impl Dependencies for Interface {
-    fn combine(&self, dependencies: &mut TypeMap) {
-        Type::Object.combine(dependencies);
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        Type::Object.combine(dependencies, reader);
 
-        for interface in self.required_interfaces() {
-            Type::Interface(interface).combine(dependencies);
+        for interface in self.required_interfaces(reader) {
+            Type::Interface(interface).combine(dependencies, reader);
         }
 
         // Different specializations of Interface may have different generics...
         for ty in &self.generics {
-            ty.combine(dependencies);
+            ty.combine(dependencies, reader);
         }
 
         let is_iterable = self.type_name() == TypeName::IIterable;
 
         for method in self.def.methods() {
             for ty in method
-                .method_signature(self.def.namespace(), &self.generics)
+                .method_signature(self.def.namespace(), &self.generics, reader)
                 .types()
             {
                 if is_iterable || ty.is_core() {
-                    ty.combine(dependencies);
+                    ty.combine(dependencies, reader);
                 }
             }
         }

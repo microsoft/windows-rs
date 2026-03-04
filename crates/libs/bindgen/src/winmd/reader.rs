@@ -1,17 +1,5 @@
 use super::*;
 
-// The Reader is leaked (`Box::leak`) so it has a genuine `'static` lifetime and the global
-// pointer is never cleared. All threads, including Windows thread-pool workers, read this
-// directly without needing thread-local propagation.
-static CURRENT_READER: std::sync::atomic::AtomicPtr<Reader> =
-    std::sync::atomic::AtomicPtr::new(std::ptr::null_mut());
-
-pub fn current_reader() -> &'static Reader {
-    // Safety: the pointer is set by Reader::new before any parallel work begins and is
-    // never cleared (the Reader is leaked).
-    unsafe { &*CURRENT_READER.load(std::sync::atomic::Ordering::Relaxed) }
-}
-
 fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
     types.entry(name).or_default().push(ty);
 }
@@ -20,6 +8,8 @@ pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
 }
 
+// Safety: all Type values stored in the map reference data from a 'static TypeIndex (Box::leaked),
+// so they remain valid for the lifetime of the Reader, and Reader can be sent/shared across threads.
 unsafe impl Send for Reader {}
 unsafe impl Sync for Reader {}
 
@@ -32,14 +22,14 @@ impl std::ops::Deref for Reader {
 }
 
 impl Reader {
-    pub fn new(files: Vec<File>) -> &'static Reader {
+    pub fn new(files: Vec<File>) -> Reader {
         // Leak the TypeIndex so all TypeDef<'static>, Field<'static>, etc. remain valid forever.
         let index: &'static windows_metadata::reader::TypeIndex =
             Box::leak(Box::new(windows_metadata::reader::TypeIndex::new(files)));
 
-        let mut reader = Box::new(Self {
+        let mut reader = Self {
             map: HashMap::new(),
-        });
+        };
 
         // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>, including recursively
         // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
@@ -187,13 +177,6 @@ impl Reader {
             }
         }
 
-        // Leak the Reader so the 'static reference is valid forever, then store it globally
-        // so that all threads (including Windows thread-pool workers) can call current_reader().
-        let reader: &'static Reader = Box::leak(reader);
-        CURRENT_READER.store(
-            reader as *const _ as *mut _,
-            std::sync::atomic::Ordering::Relaxed,
-        );
         reader
     }
 

@@ -3,7 +3,7 @@ use super::*;
 impl Config<'_> {
     pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
         let name = to_ident(def.name());
-        let ty = def.underlying_type();
+        let ty = def.underlying_type(self.reader);
         let ty_name = ty.write_name(self);
 
         if self.sys {
@@ -57,14 +57,17 @@ impl Config<'_> {
                 }
             };
 
-            let free = if let Some(function) = def.free_function() {
+            let free = if let Some(function) = def.free_function(self.reader) {
                 if is_invalid.is_empty() {
                     // TODO: https://github.com/microsoft/win32metadata/issues/1891
                     quote! {}
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature = function.method.method_signature(def.namespace(), &[]);
+                    let signature =
+                        function
+                            .method
+                            .method_signature(def.namespace(), &[], self.reader);
 
                     // BCryptCloseAlgorithmProvider has an unused trailing parameter.
                     let tail = if signature.params.len() > 1 {
@@ -100,7 +103,7 @@ impl Config<'_> {
 
             if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
                 if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
-                    let ty = def.reader().unwrap_full_name(def.namespace(), type_name);
+                    let ty = self.reader.unwrap_full_name(def.namespace(), type_name);
 
                     let ty = ty.write_name(self);
 

@@ -9,9 +9,9 @@ pub struct Method {
 }
 
 impl Method {
-    pub fn new(def: MethodDef, generics: &[Type]) -> Self {
-        let signature = def.method_signature("", generics);
-        let dependencies = signature.dependencies();
+    pub fn new(def: MethodDef, generics: &[Type], reader: &Reader) -> Self {
+        let signature = def.method_signature("", generics, reader);
+        let dependencies = signature.dependencies(reader);
 
         Self {
             def,
@@ -30,7 +30,7 @@ impl Method {
             .write(config, not)
     }
 
-    pub fn write_upcall(&self, inner: TokenStream, this: bool) -> TokenStream {
+    pub fn write_upcall(&self, inner: TokenStream, this: bool, reader: &Reader) -> TokenStream {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
         let invoke_args = self.signature
@@ -43,7 +43,7 @@ impl Method {
             if param.is_input() {
                 if param.is_winrt_array() {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
-                } else if param.is_primitive() {
+                } else if param.is_primitive(reader) {
                     quote! { #name }
                 } else if param.is_const_ref() || param.is_interface() || matches!(&param.ty, Type::Generic(_))  {
                     quote! { core::mem::transmute_copy(&#name) }
@@ -103,7 +103,7 @@ impl Method {
                 }
             }
             _ => {
-                let forget = if self.signature.return_type.is_copyable() {
+                let forget = if self.signature.return_type.is_copyable(reader) {
                     quote! {}
                 } else {
                     quote! { core::mem::forget(ok__); }
@@ -148,7 +148,7 @@ impl Method {
             let sig = if p.is_input() {
                 if p.is_winrt_array() {
                     quote! { &[#default_type] }
-                } else if p.is_primitive() {
+                } else if p.is_primitive(config.reader) {
                     quote! { #default_type }
                 } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.write_name(config);
@@ -312,14 +312,14 @@ impl Method {
 
                 if param.is_input() {
                     if param.is_winrt_array() {
-                        if param.is_copyable() {
+                        if param.is_copyable(config.reader) {
                             quote! { #name.len().try_into().unwrap(), #name.as_ptr() }
                         } else {
                             quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                         }
                     } else if param.is_convertible() {
                         quote! { #name.param().abi() }
-                    } else if param.is_copyable() {
+                    } else if param.is_copyable(config.reader) {
                         if param.is_const_ref() {
                             quote! { &#name }
                         } else {
@@ -329,14 +329,14 @@ impl Method {
                         quote! { core::mem::transmute_copy(#name) }
                     }
                 } else if param.is_winrt_array() {
-                    if param.is_copyable() {
+                    if param.is_copyable(config.reader) {
                         quote! { #name.len().try_into().unwrap(), #name.as_mut_ptr() }
                     } else {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute_copy(&#name) }
                     }
                 } else if param.is_winrt_array_ref() {
                     quote! { #name.set_abi_len(), #name as *mut _ as _ }
-                } else if param.is_copyable() {
+                } else if param.is_copyable(config.reader) {
                     quote! { #name }
                 } else {
                     quote! { #name as *mut _ as _ }
@@ -409,7 +409,7 @@ impl Method {
                 } else if param.is_convertible() {
                     let kind: TokenStream = format!("P{position}").into();
                     quote! { #name: #kind, }
-                } else if param.is_copyable() {
+                } else if param.is_copyable(config.reader) {
                     quote! { #name: #kind, }
                 } else {
                     quote! { #name: &#kind, }
@@ -484,7 +484,7 @@ impl Method {
             }
             _ => {
                 if noexcept {
-                    if self.signature.return_type.is_copyable() {
+                    if self.signature.return_type.is_copyable(config.reader) {
                         quote! {
                             let mut result__ = core::mem::zeroed();
                             let hresult__ = #vcall;
@@ -500,7 +500,7 @@ impl Method {
                         }
                     }
                 } else {
-                    let map = self.signature.return_type.write_result_map();
+                    let map = self.signature.return_type.write_result_map(config.reader);
 
                     quote! {
                         let mut result__ = core::mem::zeroed();
