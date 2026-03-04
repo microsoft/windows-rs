@@ -28,12 +28,12 @@ impl CppFn {
     }
 
     fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
-        let signature = self.method.method_signature(self.namespace, &[]);
+        let signature = self.method.method_signature(self.namespace, &[], config.reader);
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
             let ty = if underlying_types {
-                param.underlying_type().write_abi(config)
+                param.underlying_type(config.reader).write_abi(config)
             } else {
                 param.write_abi(config)
             };
@@ -90,12 +90,12 @@ impl CppFn {
             return quote! {};
         }
 
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
-        let signature = self.method.method_signature(self.namespace, &[]);
+        let signature = self.method.method_signature(self.namespace, &[], config.reader);
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
@@ -123,7 +123,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, self.namespace);
+        let method = CppMethod::new(self.method, self.namespace, config.reader);
         let args = method.write_args();
         let params = method.write_params(config);
         let generics = method.write_generics();
@@ -159,7 +159,7 @@ impl CppFn {
             ReturnHint::ResultValue => {
                 let where_clause = method.write_where(config, false);
                 let return_type = signature.params[signature.params.len() - 1].deref();
-                let map = return_type.write_result_map();
+                let map = return_type.write_result_map(config.reader);
                 let return_type = return_type.write_name(config);
 
                 quote! {
@@ -208,7 +208,7 @@ impl CppFn {
                         }
                     }
                 } else {
-                    let map = if return_type.is_copyable() {
+                    let map = if return_type.is_copyable(config.reader) {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }
@@ -234,7 +234,7 @@ impl CppFn {
             ReturnHint::ReturnStruct | ReturnHint::None => {
                 let where_clause = method.write_where(config, false);
 
-                if method.handle_last_error() {
+                if method.handle_last_error(config.reader) {
                     let return_type = signature.return_type.write_name(config);
 
                     quote! {
@@ -289,10 +289,10 @@ impl CppFn {
 }
 
 impl Dependencies for CppFn {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method
-            .method_signature(self.namespace, &[])
-            .combine(dependencies);
+            .method_signature(self.namespace, &[], reader)
+            .combine(dependencies, reader);
 
         let dependency = match self.method.name() {
             "GetWindowLongPtrA" => Some("GetWindowLongA"),
@@ -303,10 +303,9 @@ impl Dependencies for CppFn {
         };
 
         if let Some(dependency) = dependency {
-            self.method
-                .reader()
+            reader
                 .unwrap_full_name(self.namespace, dependency)
-                .combine(dependencies);
+                .combine(dependencies, reader);
         }
     }
 }
@@ -328,7 +327,7 @@ impl Config<'_> {
             }
             ty => {
                 let ty = if underlying_types {
-                    ty.underlying_type().write_default(self)
+                    ty.underlying_type(self.reader).write_default(self)
                 } else {
                     ty.write_default(self)
                 };

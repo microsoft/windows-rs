@@ -79,7 +79,7 @@ impl Index {
 const EXCLUDED_NAMESPACES: &[&str] = &["Windows.Foundation", "Windows.Win32.Foundation"];
 
 #[doc(hidden)]
-pub fn write(types: &TypeMap, output: &str) {
+pub fn write(types: &TypeMap, output: &str, reader: &Reader) {
     let mut feature_index = Index::new();
     let mut all_types: Vec<_> = types.values().flatten().collect();
 
@@ -90,7 +90,7 @@ pub fn write(types: &TypeMap, output: &str) {
     });
 
     for ty in all_types {
-        let type_deps = ty.dependencies();
+        let type_deps = ty.dependencies(reader);
         let type_name = ty.type_name();
 
         let namespace = type_name.namespace();
@@ -121,7 +121,7 @@ pub fn write(types: &TypeMap, output: &str) {
 
         if let Some((methods, interface_name, generics)) = methods {
             for method in methods {
-                let method_deps = method.method_signature(namespace, &generics).dependencies();
+                let method_deps = method.method_signature(namespace, &generics, reader).dependencies(reader);
                 let method_features: BTreeSet<String> = method_deps
                     .keys()
                     .filter(|tn| !EXCLUDED_NAMESPACES.contains(&tn.namespace()))

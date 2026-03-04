@@ -74,9 +74,9 @@ impl ParamHint {
 }
 
 impl CppMethod {
-    pub fn new(def: MethodDef, namespace: &'static str) -> Self {
-        let signature = def.method_signature(namespace, &[]);
-        let dependencies = signature.dependencies();
+    pub fn new(def: MethodDef, namespace: &'static str, reader: &Reader) -> Self {
+        let signature = def.method_signature(namespace, &[], reader);
+        let dependencies = signature.dependencies(reader);
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, param) in signature.params.iter().enumerate() {
@@ -141,21 +141,21 @@ impl CppMethod {
 
                 if param.is_convertible() && !hint.is_array() {
                     *hint = ParamHint::IntoParam;
-                } else if param.is_copyable() && param.is_optional() {
+                } else if param.is_copyable(reader) && param.is_optional() {
                     *hint = ParamHint::Optional;
                 } else if param.is_input() && param.ty == Type::BOOL {
                     *hint = ParamHint::Bool;
-                } else if param.is_primitive()
-                    && (!param.is_pointer() || param.deref().is_copyable())
+                } else if param.is_primitive(reader)
+                    && (!param.is_pointer() || param.deref().is_copyable(reader))
                 {
                     *hint = ParamHint::ValueType;
-                } else if param.is_copyable() {
+                } else if param.is_copyable(reader) {
                     *hint = ParamHint::Blittable;
                 }
             }
         }
 
-        let is_retval = signature.is_retval();
+        let is_retval = signature.is_retval(reader);
         let mut return_hint = ReturnHint::None;
 
         let last_error = if let Some(map) = def.impl_map() {
@@ -186,7 +186,7 @@ impl CppMethod {
                 }
                 Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::CppStruct(ty) if !ty.is_handle() => return_hint = ReturnHint::ReturnStruct,
+                Type::CppStruct(ty) if !ty.is_handle(reader) => return_hint = ReturnHint::ReturnStruct,
                 _ => {}
             };
         }
@@ -285,7 +285,7 @@ impl CppMethod {
 
                 let return_type = self.signature.params[self.signature.params.len() - 1].deref();
 
-                let map = return_type.write_result_map();
+                let map = return_type.write_result_map(config.reader);
                 let return_type = return_type.write_name(config);
 
                 quote! {
@@ -324,7 +324,7 @@ impl CppMethod {
                         }
                     }
                 } else {
-                    let map = if return_type.is_copyable() {
+                    let map = if return_type.is_copyable(config.reader) {
                         quote! { result__ }
                     } else {
                         quote! { core::mem::transmute(result__) }
@@ -370,12 +370,12 @@ impl CppMethod {
         }
     }
 
-    pub fn write_upcall(&self, parent_impl: &TokenStream, name: &TokenStream) -> TokenStream {
+    pub fn write_upcall(&self, parent_impl: &TokenStream, name: &TokenStream, reader: &Reader) -> TokenStream {
         match self.return_hint {
             ReturnHint::ResultValue => {
                 let invoke_args = self.signature.params[..self.signature.params.len() - 1]
                     .iter()
-                    .map(write_invoke_arg);
+                    .map(|p| write_invoke_arg(p, reader));
 
                 let result = self.signature.params[self.signature.params.len() - 1].write_ident();
 
@@ -391,21 +391,21 @@ impl CppMethod {
                 }
             }
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
-                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
+                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*).into()
                 }
             }
             ReturnHint::ReturnStruct => {
-                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
+                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
                 }
             }
             _ => {
-                let invoke_args = self.signature.params.iter().map(write_invoke_arg);
+                let invoke_args = self.signature.params.iter().map(|p| write_invoke_arg(p, reader));
 
                 quote! {
                     #parent_impl::#name(this, #(#invoke_args,)*)
@@ -685,16 +685,16 @@ impl CppMethod {
         }
     }
 
-    pub fn handle_last_error(&self) -> bool {
+    pub fn handle_last_error(&self, reader: &Reader) -> bool {
         if let Some(map) = self.def.impl_map() {
             if map.flags().contains(PInvokeAttributes::SupportsLastError) {
                 if let Type::CppStruct(ty) = &self.signature.return_type {
-                    if ty.is_handle() {
+                    if ty.is_handle(reader) {
                         // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
                         if self.def.name() == "LocalFree" {
                             return false;
                         }
-                        if ty.def.underlying_type().is_pointer() {
+                        if ty.def.underlying_type(reader).is_pointer() {
                             return true;
                         }
                         if !ty.def.invalid_values().is_empty() {
@@ -719,7 +719,7 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
         let type_name = param.deref().write_name(config);
         quote! { #name: windows_core::OutRef<#type_name>, }
     } else if param.is_input() {
-        if param.is_primitive() {
+        if param.is_primitive(config.reader) {
             quote! { #name: #kind, }
         } else {
             quote! { #name: &#kind, }
@@ -729,13 +729,13 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
     }
 }
 
-fn write_invoke_arg(param: &Param) -> TokenStream {
+fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
     let name = param.write_ident();
 
     if param.is_input() && param.is_interface() {
         quote! { core::mem::transmute_copy(&#name) }
     } else if (!param.is_pointer() && param.is_interface())
-        || (param.is_input() && !param.is_primitive())
+        || (param.is_input() && !param.is_primitive(reader))
     {
         quote! { core::mem::transmute(&#name) }
     } else {

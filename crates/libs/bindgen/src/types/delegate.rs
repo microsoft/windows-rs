@@ -16,7 +16,7 @@ impl Delegate {
             return quote! {};
         }
 
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -28,7 +28,7 @@ impl Delegate {
 
         let constraints = config.write_generic_constraints(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
-        let method = self.method();
+        let method = self.method(config.reader);
         let cfg = self.write_cfg(config);
 
         let invoke = method.write(
@@ -88,7 +88,7 @@ impl Delegate {
             quote! { F: Fn #signature + Send + 'static }
         };
 
-        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false);
+        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false, config.reader);
 
         quote! {
             #definition
@@ -183,22 +183,23 @@ impl Delegate {
         }
     }
 
-    pub fn method(&self) -> Method {
+    pub fn method(&self, reader: &Reader) -> Method {
         Method::new(
             self.def
                 .methods()
                 .find(|method| method.name() == "Invoke")
                 .unwrap(),
             &self.generics,
+            reader,
         )
     }
 
-    pub fn runtime_signature(&self) -> String {
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
         if self.generics.is_empty() {
             let guid = self.def.guid_attribute().unwrap();
             format!("delegate({{{guid}}})")
         } else {
-            interface_signature(self.def, &self.generics)
+            interface_signature(self.def, &self.generics, reader)
         }
     }
 
@@ -208,11 +209,11 @@ impl Delegate {
 }
 
 impl Dependencies for Delegate {
-    fn combine(&self, dependencies: &mut TypeMap) {
-        dependencies.combine(&self.method().dependencies);
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        dependencies.combine(&self.method(reader).dependencies);
 
         for ty in &self.generics {
-            ty.combine(dependencies);
+            ty.combine(dependencies, reader);
         }
     }
 }

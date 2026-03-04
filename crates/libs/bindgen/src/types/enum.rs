@@ -16,7 +16,7 @@ impl Enum {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.def.name());
-        let underlying_type = self.def.underlying_type();
+        let underlying_type = self.def.underlying_type(config.reader);
 
         let mut derive = DeriveWriter::new(config, self.type_name());
         derive.extend(["Copy", "Clone"]);
@@ -84,7 +84,7 @@ impl Enum {
         let win_traits = if config.sys {
             quote! {}
         } else {
-            let signature = Literal::byte_string(&self.runtime_signature());
+            let signature = Literal::byte_string(&self.runtime_signature(config.reader));
 
             quote! {
                 impl windows_core::TypeKind for #name {
@@ -108,11 +108,11 @@ impl Enum {
         }
     }
 
-    pub fn runtime_signature(&self) -> String {
+    pub fn runtime_signature(&self, reader: &Reader) -> String {
         format!(
             "enum({};{})",
             self.def.type_name(),
-            self.def.underlying_type().runtime_signature()
+            self.def.underlying_type(reader).runtime_signature(reader)
         )
     }
 }

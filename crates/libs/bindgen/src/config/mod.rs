@@ -9,6 +9,7 @@ pub use cfg::*;
 
 #[derive(Clone)]
 pub struct Config<'a> {
+    pub reader: &'a Reader,
     pub types: &'a TypeMap,
     pub references: &'a References,
     pub output: &'a str,

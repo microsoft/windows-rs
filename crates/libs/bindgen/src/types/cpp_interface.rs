@@ -34,7 +34,7 @@ impl CppInterface {
         self.def
             .methods()
             .map(|def| {
-                let method = CppMethod::new(def, namespace);
+                let method = CppMethod::new(def, namespace, config.reader);
                 if method.dependencies.included(config) {
                     CppMethodOrName::Method(method)
                 } else {
@@ -52,7 +52,7 @@ impl CppInterface {
             return (Cfg::default(), quote! {});
         }
 
-        let cfg = Cfg::new(&self.dependencies(), config);
+        let cfg = Cfg::new(&self.dependencies(config.reader), config);
         let tokens = cfg.write(config, false);
         (cfg, tokens)
     }
@@ -60,7 +60,7 @@ impl CppInterface {
     pub fn write(&self, config: &Config) -> TokenStream {
         let methods = self.get_methods(config);
 
-        let base_interfaces = self.base_interfaces();
+        let base_interfaces = self.base_interfaces(config.reader);
         let has_unknown_base = matches!(base_interfaces.first(), Some(Type::IUnknown));
         let (class_cfg, cfg) = self.write_cfg(config);
         let vtbl_name = self.write_vtbl_name(config);
@@ -239,7 +239,7 @@ impl CppInterface {
                     }
                 }
 
-                let mut dependencies = self.dependencies();
+                let mut dependencies = self.dependencies(config.reader);
                 combine(self, &mut dependencies, config);
 
                 base_interfaces.iter().for_each(|interface| {
@@ -279,7 +279,7 @@ impl CppInterface {
                 CppMethodOrName::Method(method) => {
                     let name = names.add(method.def);
                     let signature = method.write_abi(config, true);
-                    let upcall = method.write_upcall(&impl_name, &name);
+                    let upcall = method.write_upcall(&impl_name, &name, config.reader);
 
                     if has_unknown_base {
                     quote! {
@@ -424,11 +424,11 @@ impl CppInterface {
         quote! { #namespace #name }
     }
 
-    pub fn base_interfaces(&self) -> Vec<Type> {
+    pub fn base_interfaces(&self, reader: &Reader) -> Vec<Type> {
         let mut bases = vec![];
         let mut def = self.def;
 
-        while let Some(base) = def.interface_impls().map(move |imp| imp.ty(&[])).next() {
+        while let Some(base) = def.interface_impls().map(move |imp| imp.ty(&[], reader)).next() {
             match base {
                 Type::CppInterface(ref ty) => {
                     def = ty.def;
@@ -452,17 +452,17 @@ impl CppInterface {
 }
 
 impl Dependencies for CppInterface {
-    fn combine(&self, dependencies: &mut TypeMap) {
-        let base_interfaces = self.base_interfaces();
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        let base_interfaces = self.base_interfaces(reader);
 
         for interface in &base_interfaces {
-            interface.combine(dependencies);
+            interface.combine(dependencies, reader);
         }
 
         for method in self.def.methods() {
-            for ty in method.method_signature(self.def.namespace(), &[]).types() {
+            for ty in method.method_signature(self.def.namespace(), &[], reader).types() {
                 if ty.is_core() {
-                    ty.combine(dependencies);
+                    ty.combine(dependencies, reader);
                 }
             }
         }

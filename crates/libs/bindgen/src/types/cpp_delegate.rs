@@ -38,14 +38,14 @@ impl CppDelegate {
             return quote! {};
         }
 
-        Cfg::new(&self.dependencies(), config).write(config, false)
+        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let method = self.method();
-        let signature = method.method_signature(type_name.namespace(), &[]);
+        let signature = method.method_signature(type_name.namespace(), &[], config.reader);
 
         let mut params = quote! {};
 
@@ -66,10 +66,10 @@ impl CppDelegate {
 }
 
 impl Dependencies for CppDelegate {
-    fn combine(&self, dependencies: &mut TypeMap) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method()
-            .method_signature(self.def.namespace(), &[])
-            .combine(dependencies);
+            .method_signature(self.def.namespace(), &[], reader)
+            .combine(dependencies, reader);
     }
 }
 
@@ -82,7 +82,7 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
     }
 
     if param.is_input() {
-        if param.is_copyable() {
+        if param.is_copyable(config.reader) {
             return quote! { #name: #type_name, };
         } else {
             return quote! { #name: windows_core::Ref<#type_name>, };

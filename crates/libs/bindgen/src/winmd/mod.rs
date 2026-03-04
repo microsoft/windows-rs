@@ -64,34 +64,6 @@ impl MemberRefParentExt for MemberRefParent {
     }
 }
 
-/// Extension trait providing `reader()` access on all table row types.
-///
-/// # Panics
-/// Panics if called before `Reader::new()` has completed or after the `Reader` is dropped,
-/// since this accesses the global `CURRENT_READER` pointer.
-pub trait HasReader {
-    fn reader(&self) -> &'static Reader {
-        current_reader()
-    }
-}
-
-impl HasReader for TypeDef {}
-impl HasReader for Field {}
-impl HasReader for MethodDef {}
-impl HasReader for MethodParam {}
-impl HasReader for Attribute {}
-impl HasReader for GenericParam {}
-impl HasReader for InterfaceImpl {}
-impl HasReader for ClassLayout {}
-impl HasReader for Constant {}
-impl HasReader for ImplMap {}
-impl HasReader for MemberRef {}
-impl HasReader for ModuleRef {}
-impl HasReader for NestedClass {}
-impl HasReader for TypeRef {}
-impl HasReader for TypeSpec {}
-impl HasReader for TypeDefOrRef {}
-
 // Extension trait for guid_attribute(), which uses our Value type rather than metadata's.
 pub trait GuidAttributeExt {
     fn guid_attribute(&self) -> Option<GUID>;

@@ -8,10 +8,10 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn size(&self) -> usize {
+    pub fn size(&self, reader: &Reader) -> usize {
         self.params
             .iter()
-            .fold(0, |sum, param| sum + std::cmp::max(4, param.size()))
+            .fold(0, |sum, param| sum + std::cmp::max(4, param.size(reader)))
     }
 
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
@@ -20,7 +20,7 @@ impl Signature {
             .map(|ty| ty.decay())
     }
 
-    pub fn is_retval(&self) -> bool {
+    pub fn is_retval(&self, reader: &Reader) -> bool {
         // First we check whether there's an explicit retval parameter.
         if let Some(param) = self.params.last() {
             if param.def.has_attribute("RetValAttribute") {
@@ -30,7 +30,7 @@ impl Signature {
 
         // Otherwise we check for heuristically for additional candidates.
         if let Some(param) = self.params.last() {
-            if param.is_retval() {
+            if param.is_retval(reader) {
                 return self.params[..self.params.len() - 1]
                     .iter()
                     .all(|param| param.is_input());
@@ -42,7 +42,7 @@ impl Signature {
 }
 
 impl Dependencies for Signature {
-    fn combine(&self, dependencies: &mut TypeMap) {
-        self.types().for_each(|ty| ty.combine(dependencies));
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        self.types().for_each(|ty| ty.combine(dependencies, reader));
     }
 }
