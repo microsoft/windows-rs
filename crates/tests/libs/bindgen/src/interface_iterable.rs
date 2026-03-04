@@ -626,7 +626,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
                 match IVector_Impl::IndexOf(
                     this,
                     core::mem::transmute_copy(&value),
-                    core::mem::transmute(&index),
+                    core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

@@ -55,7 +55,7 @@ impl Method {
             } else if param.is_winrt_array_ref() {
                 quote! { &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&#name), #abi_size_name) }
             } else {
-                quote! { core::mem::transmute(&#name) }
+                quote! { core::mem::transmute_copy(&#name) }
             }
         });
 
