@@ -38,7 +38,11 @@ pub struct IKnownContactFieldStatics_Vtbl {
     ConvertNameToType: usize,
     ConvertTypeToName: usize,
 }
+#[deprecated(
+    note = "KnownContactField may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail."
+)]
 pub struct KnownContactField;
+#[allow(deprecated)]
 impl KnownContactField {
     #[deprecated(
         note = "IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail."
@@ -105,6 +109,7 @@ impl KnownContactField {
         SHARED.call(callback)
     }
 }
+#[allow(deprecated)]
 impl windows_core::RuntimeName for KnownContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
 }

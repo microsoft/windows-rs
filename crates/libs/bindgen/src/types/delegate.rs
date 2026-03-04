@@ -35,6 +35,13 @@ impl Delegate {
         let method = self.method();
         let cfg = self.write_cfg(config);
 
+        let deprecated = write_deprecated(&self.def);
+        let allow_deprecated = if deprecated.is_empty() {
+            quote! {}
+        } else {
+            quote! { #[allow(deprecated)] }
+        };
+
         let invoke = method.write(
             config,
             None,
@@ -52,6 +59,7 @@ impl Delegate {
                 #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #cfg
+                #allow_deprecated
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
                 }
@@ -73,13 +81,16 @@ impl Delegate {
                 #cfg
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
+                #deprecated
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 #cfg
+                #allow_deprecated
                 unsafe impl<#constraints> windows_core::Interface for #name {
                     type Vtable = #vtbl_name<#generic_names>;
                     const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
                 }
                 #cfg
+                #allow_deprecated
                 impl<#constraints> windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
                 }
@@ -97,6 +108,7 @@ impl Delegate {
         quote! {
             #definition
             #cfg
+            #allow_deprecated
             impl<#constraints> #name {
                 pub fn new<#fn_constraint>(invoke: F) -> Self {
                     let com = #boxed {

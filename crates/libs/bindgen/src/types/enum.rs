@@ -35,10 +35,12 @@ impl Enum {
             .filter(|field| field.flags().contains(FieldAttributes::Literal))
             .filter(|field| !is_removed(field))
             .map(|field| {
+                let field_deprecated = write_deprecated(&field);
                 let name = to_ident(field.name());
                 let value = field.constant().unwrap().value().write();
 
                 quote! {
+                    #field_deprecated
                     pub const #name: Self = Self(#value);
                 }
             });

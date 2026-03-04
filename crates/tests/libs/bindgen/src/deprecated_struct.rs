@@ -33,12 +33,16 @@ pub struct IPlayToSourceSelectedEventArgs_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+#[deprecated(
+    note = "PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10."
+)]
 pub struct PlayToSourceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     PlayToSourceSelectedEventArgs,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+#[allow(deprecated)]
 impl PlayToSourceSelectedEventArgs {
     #[deprecated(
         note = "PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10."
@@ -97,17 +101,22 @@ impl PlayToSourceSelectedEventArgs {
         }
     }
 }
+#[allow(deprecated)]
 impl windows_core::RuntimeType for PlayToSourceSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IPlayToSourceSelectedEventArgs>();
 }
+#[allow(deprecated)]
 unsafe impl windows_core::Interface for PlayToSourceSelectedEventArgs {
     type Vtable = <IPlayToSourceSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID =
         <IPlayToSourceSelectedEventArgs as windows_core::Interface>::IID;
 }
+#[allow(deprecated)]
 impl windows_core::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
 }
+#[allow(deprecated)]
 unsafe impl Send for PlayToSourceSelectedEventArgs {}
+#[allow(deprecated)]
 unsafe impl Sync for PlayToSourceSelectedEventArgs {}

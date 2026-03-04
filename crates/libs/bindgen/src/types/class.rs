@@ -31,8 +31,16 @@ impl Class {
         let (class_cfg, cfg) = self.write_cfg(config);
         let runtime_name = format!("{type_name}");
 
+        let deprecated = write_deprecated(&self.def);
+        let allow_deprecated = if deprecated.is_empty() {
+            quote! {}
+        } else {
+            quote! { #[allow(deprecated)] }
+        };
+
         let runtime_name = quote! {
             #cfg
+            #allow_deprecated
             impl windows_core::RuntimeName for #name {
                 const NAME: &'static str = #runtime_name;
             }
@@ -156,8 +164,10 @@ impl Class {
             let agile = self.def.is_agile().then(|| {
                 quote! {
                     #cfg
+                    #allow_deprecated
                     unsafe impl Send for #name {}
                     #cfg
+                    #allow_deprecated
                     unsafe impl Sync for #name {}
                 }
             });
@@ -171,6 +181,7 @@ impl Class {
 
                     quote! {
                         #cfg
+                        #allow_deprecated
                         impl IntoIterator for #name {
                             type Item = #ty;
                             type IntoIter = #namespace IIterator<Self::Item>;
@@ -180,6 +191,7 @@ impl Class {
                             }
                         }
                         #cfg
+                        #allow_deprecated
                         impl IntoIterator for &#name {
                             type Item = #ty;
                             type IntoIter = #namespace IIterator<Self::Item>;
@@ -196,21 +208,25 @@ impl Class {
                 #cfg
                 #[repr(transparent)]
                 #[derive(Clone, Debug, Eq, PartialEq)]
+                #deprecated
                 pub struct #name(windows_core::IUnknown);
                 #cfg
                 #interface_hierarchy
                 #required_hierarchy
                 #cfg
+                #allow_deprecated
                 impl #name {
                     #new
                     #methods
                     #(#factories)*
                 }
                 #cfg
+                #allow_deprecated
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();
                 }
                 #cfg
+                #allow_deprecated
                 unsafe impl windows_core::Interface for #name {
                     type Vtable = <#default_interface as windows_core::Interface>::Vtable;
                     const IID: windows_core::GUID = <#default_interface as windows_core::Interface>::IID;
@@ -222,8 +238,10 @@ impl Class {
         } else {
             quote! {
                 #cfg
+                #deprecated
                 pub struct #name;
                 #cfg
+                #allow_deprecated
                 impl #name {
                     #methods
                     #(#factories)*

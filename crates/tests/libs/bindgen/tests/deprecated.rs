@@ -37,3 +37,15 @@ fn deprecated_struct_has_methods() {
         let _ = obj.SupportsAudio();
     }
 }
+
+#[test]
+fn deprecated_class_type_is_annotated() {
+    // Verify that using a deprecated class without #[allow(deprecated)] would generate
+    // a warning. We prove the annotation works by verifying the type compiles with the allow.
+    #[allow(deprecated)]
+    fn _use_class() -> windows_core::Result<windows_core::HSTRING> {
+        KnownContactField::Email()
+    }
+    #[allow(deprecated)]
+    fn _use_struct(_obj: PlayToSourceSelectedEventArgs) {}
+}
