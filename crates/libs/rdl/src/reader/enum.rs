@@ -64,6 +64,20 @@ impl Enum {
 
         let ty = encode_path(encoder, &ty)?;
 
+        if !matches!(
+            ty,
+            metadata::Type::I8
+                | metadata::Type::U8
+                | metadata::Type::I16
+                | metadata::Type::U16
+                | metadata::Type::I32
+                | metadata::Type::U32
+                | metadata::Type::I64
+                | metadata::Type::U64
+        ) {
+            return encoder.err(attribute, "`repr` must be an integer type");
+        }
+
         encoder.output.Field(
             "value__",
             &ty,
@@ -98,4 +112,26 @@ impl Enum {
 
         Ok(())
     }
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`repr` must be an integer type", file_name: ".rdl", line: 4, column: 4 }"#
+)]
+fn repr_must_be_integer() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    #[repr(bool)]
+    enum AsyncStatus {
+        Started = 0,
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }
