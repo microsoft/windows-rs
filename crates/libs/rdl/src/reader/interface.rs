@@ -93,6 +93,10 @@ impl Interface {
         for method in &self.methods {
             let mut params = vec![];
 
+            if method.sig.inputs.is_empty() {
+                return encoder.err(&method.sig.ident, "`&self` parameter not found");
+            }
+
             for (sequence, arg) in method.sig.inputs.iter().enumerate() {
                 match arg {
                     syn::FnArg::Receiver(receiver) => {
@@ -137,4 +141,67 @@ impl Interface {
 
         Ok(())
     }
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 18 }"#
+)]
+fn missing_self_typed_first_param() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method(a: i32);
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 18 }"#
+)]
+fn missing_self_wrong_receiver() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method(&mut self);
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 11 }"#
+)]
+fn missing_self_no_params() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method();
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }
