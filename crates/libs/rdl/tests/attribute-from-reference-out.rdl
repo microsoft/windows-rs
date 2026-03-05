@@ -1,0 +1,5 @@
+#[winrt]
+mod Test {
+    #[activatable(1)]
+    class Foo {}
+}
