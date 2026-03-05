@@ -16,11 +16,7 @@ fn find_attribute_type(
     path: &syn::Path,
 ) -> Option<(metadata::TypeName, Vec<Vec<metadata::Type>>)> {
     // Convert Rust-style `A::B::C` path to metadata-style `A.B.C` namespace + name.
-    let mut segments: Vec<String> = path
-        .segments
-        .iter()
-        .map(|s| s.ident.to_string())
-        .collect();
+    let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
 
     let name = segments.pop()?;
     let attr_name = format!("{}Attribute", name);
@@ -128,7 +124,12 @@ fn match_constructor_args(
             )
             .map_err(|e| {
                 let start = e.span().start();
-                Error::new(&e.to_string(), encoder.source_file, start.line, start.column)
+                Error::new(
+                    &e.to_string(),
+                    encoder.source_file,
+                    start.line,
+                    start.column,
+                )
             })?
             .into_iter()
             .collect(),
