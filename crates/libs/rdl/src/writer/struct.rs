@@ -20,7 +20,10 @@ pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { struct }
     };
 
+    let custom_attrs = write_custom_attributes(item, &[]);
+
     quote! {
+        #(#custom_attrs)*
         #keyword #name {
             #(#fields)*
         }

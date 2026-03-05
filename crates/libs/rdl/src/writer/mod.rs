@@ -268,6 +268,43 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
     }
 }
 
+/// Emit `#[Name(args...)]` tokens for any attribute on `item` that is not handled
+/// by the specialised writer logic (e.g. ActivatableAttribute / StaticAttribute on
+/// classes are already emitted as `#[activatable]` / `#[statics]`).
+///
+/// Attributes that live in well-known Windows / CLR metadata namespaces are skipped
+/// so that only user-defined custom attributes appear in the output.
+fn write_custom_attributes(item: &metadata::reader::TypeDef, skip: &[&str]) -> Vec<TokenStream> {
+    item.attributes()
+        .filter(|attr| {
+            let ns = attr.ctor().parent().namespace();
+            // Skip well-known system/Windows metadata namespaces.
+            if ns.starts_with("System") || ns.starts_with("Windows.Foundation.Metadata") {
+                return false;
+            }
+            // Skip built-ins that the caller already handles.
+            !skip.contains(&attr.name())
+        })
+        .map(|attr| {
+            let name = attr
+                .name()
+                .strip_suffix("Attribute")
+                .unwrap_or_else(|| attr.name());
+            let name_ts = write_ident(name);
+            let args: Vec<_> = attr
+                .value()
+                .into_iter()
+                .map(|(_, v)| write_value(&v))
+                .collect();
+            if args.is_empty() {
+                quote! { #[#name_ts] }
+            } else {
+                quote! { #[#name_ts(#(#args),*)] }
+            }
+        })
+        .collect()
+}
+
 fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
     match item.category() {
         metadata::reader::TypeCategory::Struct => write_struct(item),
