@@ -43,7 +43,7 @@ impl Enum {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        encoder.output.TypeDef(
+        let enum_type = encoder.output.TypeDef(
             encoder.namespace,
             encoder.name,
             metadata::writer::TypeDefOrRef::TypeRef(value_type),
@@ -77,6 +77,14 @@ impl Enum {
         ) {
             return encoder.err(attribute, "`repr` must be an integer type");
         }
+
+        // Emit any Named attributes (defined in metadata or RDL) attached to this enum.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(enum_type),
+            &self.attrs,
+            &["repr"],
+        )?;
 
         encoder.output.Field(
             "value__",

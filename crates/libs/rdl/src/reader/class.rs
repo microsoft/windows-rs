@@ -88,6 +88,14 @@ impl Class {
             encode_activatable(encoder, class)?;
         }
 
+        // Emit any Named attributes (defined in metadata or RDL) attached to this class.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(class),
+            &self.attrs,
+            &["activatable"],
+        )?;
+
         for interface in &self.interfaces {
             if interface.attrs.iter().any(|attr| {
                 let path = attr.path();

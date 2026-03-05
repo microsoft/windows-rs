@@ -63,6 +63,14 @@ impl Delegate {
             flags,
         );
 
+        // Emit any Named attributes (defined in metadata or RDL) attached to this delegate.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(delegate),
+            &self.attrs,
+            &[],
+        )?;
+
         for (number, name) in encoder.generics.iter().enumerate() {
             encoder.output.GenericParam(
                 name,

@@ -1,0 +1,9 @@
+#[winrt]
+mod Test {
+    attribute FooAttribute {
+        fn(value: u32);
+        fn(name: HSTRING);
+    }
+    #[Foo("hello")]
+    class MyClass {}
+}

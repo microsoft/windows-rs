@@ -18,6 +18,8 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! {}
     };
 
+    let custom_attrs = write_custom_attributes(item, &["ActivatableAttribute", "StaticAttribute"]);
+
     let interfaces = item
         .interface_impls()
         .map(|imp| write_interface(namespace, &imp));
@@ -26,6 +28,7 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
         .filter_map(|attribute| write_factory(namespace, &attribute));
 
     quote! {
+        #(#custom_attrs)*
         #activatable
         class #name #extends {
             #(#interfaces)*

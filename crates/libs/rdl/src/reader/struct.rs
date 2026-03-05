@@ -101,6 +101,16 @@ fn encode_struct_inner(
 
     fields(encoder, item, &nested)?;
 
+    // Emit any Named attributes (defined in metadata or RDL) attached to this struct.
+    if outer.is_none() {
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(ty),
+            &item.attrs,
+            &[],
+        )?;
+    }
+
     if let Some(outer) = outer {
         encoder.output.NestedClass(ty, outer);
     }
