@@ -84,6 +84,14 @@ impl Interface {
             );
         }
 
+        // Emit any Named attributes (defined in metadata or RDL) attached to this interface.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(interface),
+            &self.attrs,
+            &[],
+        )?;
+
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
             | metadata::MethodAttributes::Abstract

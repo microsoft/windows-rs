@@ -1,4 +1,5 @@
 mod attribute;
+mod attribute_ref;
 mod class;
 mod r#const;
 mod delegate;
@@ -16,6 +17,7 @@ mod union;
 
 use super::*;
 use attribute::*;
+use attribute_ref::*;
 use class::*;
 use delegate::*;
 use file::*;

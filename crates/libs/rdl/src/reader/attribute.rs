@@ -46,12 +46,20 @@ impl Attribute {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        encoder.output.TypeDef(
+        let attr_type = encoder.output.TypeDef(
             encoder.namespace,
             encoder.name,
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
+
+        // Emit any Named attributes (defined in metadata or RDL) attached to this attribute definition.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(attr_type),
+            &self.attrs,
+            &[],
+        )?;
 
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig

@@ -89,6 +89,14 @@ impl Fn {
 
         encoder.output.ImplMap(method_def, flags, &name, &library);
 
+        // Emit any Named attributes (defined in metadata or RDL) attached to this function.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::MethodDef(method_def),
+            &self.attrs,
+            &["link"],
+        )?;
+
         Ok(())
     }
 }
