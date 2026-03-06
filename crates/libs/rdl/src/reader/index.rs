@@ -35,19 +35,13 @@ impl<'a> Index<'a> {
 
             match item {
                 Item::Fn(..) => {
-                    namespace
-                        .functions
-                        .insert(item.to_string(), (file, item));
+                    namespace.functions.insert(item.to_string(), (file, item));
                 }
                 Item::Const(..) => {
-                    namespace
-                        .constants
-                        .insert(item.to_string(), (file, item));
+                    namespace.constants.insert(item.to_string(), (file, item));
                 }
                 _ => {
-                    namespace
-                        .types
-                        .insert(item.to_string(), (file, item));
+                    namespace.types.insert(item.to_string(), (file, item));
                 }
             }
         }
