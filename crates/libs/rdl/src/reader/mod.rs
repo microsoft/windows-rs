@@ -93,6 +93,7 @@ impl Reader {
         }
 
         let reference = metadata::reader::TypeIndex::new(reference);
+        validate_use_declarations(&input, &index, &reference)?;
         let output = encode(index, &reference)?;
 
         std::fs::write(&self.output, output)
@@ -273,6 +274,29 @@ fn read_winrt<S: syn::spanned::Spanned>(
     } else {
         Ok(None)
     }
+}
+
+fn validate_use_declarations(
+    input: &[File],
+    index: &Index,
+    reference: &metadata::reader::TypeIndex,
+) -> Result<(), Error> {
+    for file in input {
+        for use_item in &file.uses {
+            if let Some(ns) = glob_use_namespace(use_item) {
+                if !index.namespaces.contains_key(&ns) && !reference.contains_namespace(&ns) {
+                    let start = use_item.span().start();
+                    return Err(Error::new(
+                        "use namespace not found",
+                        &file.source,
+                        start.line,
+                        start.column,
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
 }
 
 fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
@@ -644,19 +668,47 @@ impl IdentMethods for syn::Ident {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "type not found", file_name: ".rdl", line: 7, column: 11 }"#
+    expected = r#"{ message: "use namespace not found", file_name: ".rdl", line: 2, column: 0 }"#
 )]
-fn use_glob_unresolved_type() {
+fn use_glob_invalid_path() {
     Reader::new()
         .input_str(
             r#"
-use Unknown::*;
+use NonExistent::*;
 
 #[winrt]
 mod Test {
     struct Thing {
         a: NoSuchType,
     }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "type not found", file_name: ".rdl", line: 7, column: 11 }"#
+)]
+fn use_glob_unresolved_type() {
+    Reader::new()
+        .input_str(
+            r#"
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: NoSuchType,
+    }
+}
+
+#[winrt]
+mod Other {
+    struct ExistingThing {}
 }
         "#,
         )
