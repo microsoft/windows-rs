@@ -28,7 +28,7 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Test windows-rdl
-        run:  cargo test -p windows-rdl --target ${{ matrix.target }}
+        run:  cargo test -p windows-rdl
       - name: Check diff
         shell: bash
         run: |
