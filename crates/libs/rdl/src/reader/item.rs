@@ -38,7 +38,7 @@ impl Item {
         output: &mut metadata::writer::File,
         index: &Index,
         reference: &metadata::reader::TypeIndex,
-        source_file: &str,
+        file: &File,
         namespace: &str,
         name: &str,
     ) -> Result<(), Error> {
@@ -46,7 +46,7 @@ impl Item {
             output,
             index,
             reference,
-            source_file,
+            file,
             namespace,
             name,
             generics: vec![],

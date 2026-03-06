@@ -83,6 +83,10 @@ impl TypeIndex {
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
     }
 
+    pub fn contains_namespace(&self, namespace: &str) -> bool {
+        self.types.contains_key(namespace)
+    }
+
     pub fn contains(&self, namespace: &str, name: &str) -> bool {
         self.types
             .get(namespace)

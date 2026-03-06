@@ -73,13 +73,13 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let mut input = expand_input(&self.input, &self.input_str)?;
+        let input = expand_input(&self.input, &self.input_str)?;
 
         let mut index = Index::new();
 
-        for file in input.iter_mut() {
-            while let Some(item) = file.items.pop() {
-                index.insert(&file.source, "", item);
+        for file in &input {
+            for item in &file.items {
+                index.insert(file, "", item);
             }
         }
 
@@ -93,6 +93,7 @@ impl Reader {
         }
 
         let reference = metadata::reader::TypeIndex::new(reference);
+        validate_use_declarations(&input, &index, &reference)?;
         let output = encode(index, &reference)?;
 
         std::fs::write(&self.output, output)
@@ -275,12 +276,35 @@ fn read_winrt<S: syn::spanned::Spanned>(
     }
 }
 
+fn validate_use_declarations(
+    input: &[File],
+    index: &Index,
+    reference: &metadata::reader::TypeIndex,
+) -> Result<(), Error> {
+    for file in input {
+        for use_item in &file.uses {
+            if let Some(ns) = glob_use_namespace(use_item) {
+                if !index.namespaces.contains_key(&ns) && !reference.contains_namespace(&ns) {
+                    let start = use_item.span().start();
+                    return Err(Error::new(
+                        "use namespace not found",
+                        &file.source,
+                        start.line,
+                        start.column,
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
+}
+
 fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
     let mut output = metadata::writer::File::new("");
 
     for (namespace, members) in &index.namespaces {
-        for (name, (source, item)) in &members.types {
-            item.encode(&mut output, &index, reference, source, namespace, name)?;
+        for (name, (file, item)) in &members.types {
+            item.encode(&mut output, &index, reference, file, namespace, name)?;
         }
 
         if !members.functions.is_empty() || !members.constants.is_empty() {
@@ -293,12 +317,12 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                 metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
             );
 
-            for (name, (source, item)) in &members.functions {
-                item.encode(&mut output, &index, reference, source, namespace, name)?;
+            for (name, (file, item)) in &members.functions {
+                item.encode(&mut output, &index, reference, file, namespace, name)?;
             }
 
-            for (name, (source, item)) in &members.constants {
-                item.encode(&mut output, &index, reference, source, namespace, name)?;
+            for (name, (file, item)) in &members.constants {
+                item.encode(&mut output, &index, reference, file, namespace, name)?;
             }
         }
     }
@@ -320,7 +344,7 @@ struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
     reference: &'a metadata::reader::TypeIndex,
-    source_file: &'a str,
+    file: &'a File,
     namespace: &'a str,
     name: &'a str,
     generics: Vec<String>,
@@ -330,7 +354,7 @@ impl Encoder<'_> {
     fn error<S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Error {
         let start = spanned.span().start();
 
-        Error::new(message, self.source_file, start.line, start.column)
+        Error::new(message, &self.file.source, start.line, start.column)
     }
 
     fn err<T, S: syn::spanned::Spanned>(&self, spanned: S, message: &str) -> Result<T, Error> {
@@ -490,6 +514,25 @@ fn encode_type_ptr(encoder: &Encoder, ty: &syn::TypePtr) -> Result<metadata::Typ
     Ok(ty)
 }
 
+fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {
+    fn extract(tree: &syn::UseTree, parts: &mut Vec<String>) -> bool {
+        match tree {
+            syn::UseTree::Path(p) => {
+                parts.push(p.ident.to_string());
+                extract(&p.tree, parts)
+            }
+            syn::UseTree::Glob(_) => true,
+            _ => false,
+        }
+    }
+    let mut parts = vec![];
+    if extract(&use_item.tree, &mut parts) && !parts.is_empty() {
+        Some(parts.join("."))
+    } else {
+        None
+    }
+}
+
 fn encode_type_path(encoder: &Encoder, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
     encode_path(encoder, &ty.path)
 }
@@ -589,7 +632,20 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
 
     let namespace = format!("{}.{}", encoder.namespace, namespace);
 
-    contains(&namespace).ok_or_else(|| encoder.error(ty, "type not found"))
+    if let Some(ty) = contains(&namespace) {
+        return Ok(ty);
+    }
+
+    // Last resort: try glob use declarations
+    for use_item in &encoder.file.uses {
+        if let Some(ns) = glob_use_namespace(use_item) {
+            if let Some(ty) = contains(&ns) {
+                return Ok(ty);
+            }
+        }
+    }
+
+    Err(encoder.error(ty, "type not found"))
 }
 
 fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
@@ -608,4 +664,85 @@ impl IdentMethods for syn::Ident {
         use syn::ext::IdentExt;
         self.unraw().to_string()
     }
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "use namespace not found", file_name: ".rdl", line: 2, column: 0 }"#
+)]
+fn use_glob_invalid_path() {
+    Reader::new()
+        .input_str(
+            r#"
+use NonExistent::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: NoSuchType,
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "type not found", file_name: ".rdl", line: 7, column: 11 }"#
+)]
+fn use_glob_unresolved_type() {
+    Reader::new()
+        .input_str(
+            r#"
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: NoSuchType,
+    }
+}
+
+#[winrt]
+mod Other {
+    struct ExistingThing {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+fn use_glob_resolves_type() {
+    let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
+
+    Reader::new()
+        .input_str(
+            r#"
+use Other::*;
+
+#[winrt]
+mod Test {
+    struct Thing {
+        a: Point,
+    }
+}
+
+#[winrt]
+mod Other {
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+}
+        "#,
+        )
+        .output(&output.to_string_lossy())
+        .write()
+        .unwrap();
 }
