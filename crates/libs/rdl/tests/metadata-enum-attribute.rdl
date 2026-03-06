@@ -1,0 +1,6 @@
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::MarshalingBehavior(MarshalingType::Agile)]
+    #[Windows::Foundation::Metadata::Threading(ThreadingModel::Both)]
+    class MyClass {}
+}
