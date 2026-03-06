@@ -80,31 +80,16 @@ impl Class {
             flags,
         );
 
-        if self
-            .attrs
-            .iter()
-            .any(|attribute| attribute.path().is_ident("activatable"))
-        {
-            encode_activatable(encoder, class)?;
-        }
-
         // Emit any Named attributes (defined in metadata or RDL) attached to this class.
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(class),
             &self.attrs,
-            &["activatable"],
+            &[],
         )?;
 
         for interface in &self.interfaces {
-            if interface.attrs.iter().any(|attr| {
-                let path = attr.path();
-                path.is_ident("statics") || path.is_ident("activatable")
-            }) {
-                encode_factory(encoder, class, interface)?;
-            } else {
-                encode_implement(encoder, class, interface)?;
-            }
+            encode_implement(encoder, class, interface)?;
         }
 
         Ok(())
@@ -146,93 +131,6 @@ fn encode_implement(
             );
         }
     }
-
-    Ok(())
-}
-
-fn encode_factory(
-    encoder: &mut Encoder,
-    class: metadata::writer::TypeDef,
-    interface: &ClassInterface,
-) -> Result<(), Error> {
-    for attr in &interface.attrs {
-        let path = attr.path();
-        let interface = encode_path(encoder, &interface.ty)?;
-
-        let interface = if let metadata::Type::Name(interface) = interface {
-            format!("{}.{}", interface.namespace, interface.name) // TODO: impl Display for TypeName
-        } else {
-            return encoder.err(attr, "invalid type name");
-        };
-
-        let activatable = if path.is_ident("activatable") {
-            true
-        } else if path.is_ident("statics") {
-            false
-        } else {
-            return encoder.err(attr, "invalid class factory attribute");
-        };
-
-        let attribute = if activatable {
-            encoder
-                .output
-                .TypeRef("Windows.Foundation.Metadata", "ActivatableAttribute")
-        } else {
-            encoder
-                .output
-                .TypeRef("Windows.Foundation.Metadata", "StaticAttribute")
-        };
-
-        let signature = metadata::Signature {
-            flags: metadata::MethodCallAttributes::HASTHIS,
-            return_type: metadata::Type::Void,
-            types: vec![metadata::Type::named("System", "Type"), metadata::Type::U32],
-        };
-
-        let ctor = encoder.output.MemberRef(
-            ".ctor",
-            &signature,
-            metadata::writer::MemberRefParent::TypeRef(attribute),
-        );
-
-        encoder.output.Attribute(
-            metadata::writer::HasAttribute::TypeDef(class),
-            metadata::writer::AttributeType::MemberRef(ctor),
-            &[
-                (String::new(), metadata::Value::Utf8(interface)),
-                (String::new(), metadata::Value::U32(1)),
-            ],
-        );
-    }
-
-    Ok(())
-}
-
-fn encode_activatable(
-    encoder: &mut Encoder,
-    class: metadata::writer::TypeDef,
-) -> Result<(), Error> {
-    let attribute = encoder
-        .output
-        .TypeRef("Windows.Foundation.Metadata", "ActivatableAttribute");
-
-    let signature = metadata::Signature {
-        flags: metadata::MethodCallAttributes::HASTHIS,
-        return_type: metadata::Type::Void,
-        types: vec![metadata::Type::U32],
-    };
-
-    let ctor = encoder.output.MemberRef(
-        ".ctor",
-        &signature,
-        metadata::writer::MemberRefParent::TypeRef(attribute),
-    );
-
-    encoder.output.Attribute(
-        metadata::writer::HasAttribute::TypeDef(class),
-        metadata::writer::AttributeType::MemberRef(ctor),
-        &[(String::new(), metadata::Value::U32(1))],
-    );
 
     Ok(())
 }

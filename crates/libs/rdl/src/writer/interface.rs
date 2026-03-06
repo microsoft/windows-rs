@@ -20,7 +20,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let custom_attrs = write_custom_attributes(item, &[]);
+    let custom_attrs = write_custom_attributes(item);
 
     quote! {
         #(#custom_attrs)*

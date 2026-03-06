@@ -268,27 +268,9 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
     }
 }
 
-/// Emit `#[Name(args...)]` tokens for any attribute on `item` that is not handled
-/// by the specialised writer logic (e.g. ActivatableAttribute / StaticAttribute on
-/// classes are already emitted as `#[activatable]` / `#[statics]`).
-///
-/// Attributes that live in well-known CLR metadata namespaces (`System.*`) are
-/// skipped.  Attributes from other external namespaces (e.g. `Windows.Foundation.
-/// Metadata`) are emitted with a fully-qualified path so the reader can locate
-/// them.  `System.Type` constructor arguments are emitted as type paths rather
-/// than string literals so that definitions roundtrip cleanly.
-fn write_custom_attributes(item: &metadata::reader::TypeDef, skip: &[&str]) -> Vec<TokenStream> {
+fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream> {
     let item_namespace = item.namespace();
     item.attributes()
-        .filter(|attr| {
-            let ns = attr.ctor().parent().namespace();
-            // Skip CLR metadata namespaces – these are never user-authored.
-            if ns.starts_with("System") {
-                return false;
-            }
-            // Skip built-ins that the caller already handles.
-            !skip.contains(&attr.name())
-        })
         .map(|attr| {
             let attr_ns = attr.ctor().parent().namespace();
             let attr_short = attr

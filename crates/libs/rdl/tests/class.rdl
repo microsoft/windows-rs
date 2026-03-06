@@ -4,7 +4,11 @@ mod Test {
         #[default]
         IBase,
     }
-    #[activatable(1)]
+    #[Windows::Foundation::Metadata::Activatable(1)]
+    #[Windows::Foundation::Metadata::Activatable(IDerivedFactory, 1)]
+    #[Windows::Foundation::Metadata::Activatable(IDerivedFactory2, 2)]
+    #[Windows::Foundation::Metadata::Static(IDerivedStatics, 1)]
+    #[Windows::Foundation::Metadata::Static(IDerivedStatics2, 2)]
     class Derived: Base {
         #[default]
         IDerived,

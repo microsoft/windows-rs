@@ -2,7 +2,7 @@ use super::*;
 
 /// A parsed and validated reference to a custom attribute defined in metadata or RDL.
 ///
-/// Built-in RDL attributes (`win32`, `winrt`, `repr`, `link`, `activatable`, etc.) are
+/// Built-in RDL attributes (`win32`, `winrt`, `repr`, `link`, etc.) are
 /// handled separately by the individual encode functions and are never represented here.
 pub struct AttributeRef {
     pub type_name: metadata::TypeName,
