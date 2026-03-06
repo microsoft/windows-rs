@@ -19,7 +19,6 @@ pub enum Type {
     USize,
     String,
     Object,
-    AttributeEnum, // 0x55 is an unnamed ELEMENT_TYPE used by attributes to specify an enum
     Name(TypeName),
     Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
     Generic(String, u16),         // ELEMENT_TYPE_VAR
@@ -49,7 +48,6 @@ impl Type {
             Self::F32 => ELEMENT_TYPE_R4,
             Self::F64 => ELEMENT_TYPE_R8,
             Self::String => ELEMENT_TYPE_STRING,
-            Self::AttributeEnum => 0x55,
             rest => panic!("{rest:?}"),
         }
     }

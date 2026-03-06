@@ -428,7 +428,6 @@ impl File {
             }
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
-            Type::AttributeEnum => buffer.push(0x55),
         }
     }
 
@@ -506,11 +505,6 @@ impl File {
         for (name, value) in &values[count..] {
             buffer.push(0x53); // field=0x53 property=0x54
             buffer.push(value.ty().code());
-
-            if let Value::AttributeEnum(type_name, _) = value {
-                buffer.write_compressed(type_name.len());
-                buffer.extend_from_slice(type_name.as_bytes());
-            }
 
             buffer.write_compressed(name.len());
             buffer.extend_from_slice(name.as_bytes());

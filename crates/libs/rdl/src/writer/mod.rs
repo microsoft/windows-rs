@@ -364,7 +364,6 @@ fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
         metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
-        metadata::Value::AttributeEnum(..) => todo!(),
     }
 }
 
@@ -484,7 +483,6 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
             let name = write_ident(name);
             quote! { #name }
         }
-        rest => todo!("{rest:?}"),
     }
 }
 
