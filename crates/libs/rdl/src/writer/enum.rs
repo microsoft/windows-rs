@@ -16,7 +16,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
     let fields = item.fields().filter_map(|field| {
         field.constant().map(|constant| {
             let name = write_ident(field.name());
-            let value = write_value(&constant.value());
+            let value = write_value(namespace, &constant.value());
             quote! { #name = #value, }
         })
     });

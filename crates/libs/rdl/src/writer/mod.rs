@@ -189,7 +189,7 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
     let name = write_ident(item.name());
     let constant = item.constant().expect("field missing constant");
     let ty = write_type(namespace, &item.ty());
-    let value = write_value(&constant.value());
+    let value = write_value(namespace, &constant.value());
     quote! { const #name: #ty = #value; }
 }
 
@@ -309,30 +309,11 @@ fn write_custom_attributes(item: &metadata::reader::TypeDef, skip: &[&str]) -> V
                 quote! { #tokens #short }
             };
 
-            // Obtain the constructor parameter types so we can render
-            // `System.Type` values as type paths rather than string literals.
-            let ctor_types = attr.ctor().signature(&[]).types;
+            // Build the args token stream.
             let args: Vec<_> = attr
                 .value()
                 .into_iter()
-                .enumerate()
-                .map(|(i, (_, v))| {
-                    if let (
-                        Some(metadata::Type::Name(tn)),
-                        metadata::Value::Utf8(s),
-                    ) = (ctor_types.get(i), &v)
-                    {
-                        if tn.namespace == "System" && tn.name == "Type" {
-                            if let Some(dot) = s.rfind('.') {
-                                return write_type(
-                                    item_namespace,
-                                    &metadata::Type::named(&s[..dot], &s[dot + 1..]),
-                                );
-                            }
-                        }
-                    }
-                    write_value(&v)
-                })
+                .map(|(_, v)| write_value(item_namespace, &v))
                 .collect();
 
             if args.is_empty() {
@@ -355,7 +336,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
     }
 }
 
-fn write_value(value: &metadata::Value) -> TokenStream {
+fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
     match value {
         metadata::Value::Bool(value) => quote! { #value },
         metadata::Value::U8(value) => {
@@ -400,6 +381,7 @@ fn write_value(value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
+        metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
         metadata::Value::AttributeEnum(..) => todo!(),
     }
 }

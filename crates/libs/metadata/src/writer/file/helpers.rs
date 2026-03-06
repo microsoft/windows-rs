@@ -106,6 +106,11 @@ impl Write for Vec<u8> {
                 self.write_compressed(value.len());
                 self.extend_from_slice(value.as_bytes());
             }
+            Value::TypeName(tn) => {
+                let value = format!("{}.{}", tn.namespace, tn.name);
+                self.write_compressed(value.len());
+                self.extend_from_slice(value.as_bytes());
+            }
             Value::Utf16(value) => {
                 self.extend(value.encode_utf16().flat_map(|value| value.to_le_bytes()));
             }

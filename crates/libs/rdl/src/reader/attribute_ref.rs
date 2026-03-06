@@ -6,9 +6,6 @@ use super::*;
 /// handled separately by the individual encode functions and are never represented here.
 pub struct AttributeRef {
     pub type_name: metadata::TypeName,
-    /// The matched constructor's parameter types, used to build the correct
-    /// MemberRef signature (e.g. `System.Type` rather than `String`).
-    pub types: Vec<metadata::Type>,
     pub args: Vec<(String, metadata::Value)>,
 }
 
@@ -112,13 +109,12 @@ fn find_in_index(
 }
 
 /// Tries to match the attribute's arguments against the provided constructor
-/// type lists and returns the matched types alongside the validated argument
-/// values on success.
+/// type lists and returns the validated argument values on success.
 fn match_constructor_args(
     encoder: &Encoder,
     attr: &syn::Attribute,
     constructors: &[Vec<metadata::Type>],
-) -> Result<(Vec<metadata::Type>, Vec<(String, metadata::Value)>), Error> {
+) -> Result<Vec<(String, metadata::Value)>, Error> {
     // Parse the argument expressions.
     let args: Vec<syn::Expr> = match &attr.meta {
         syn::Meta::Path(_) => vec![],
@@ -162,7 +158,7 @@ fn match_constructor_args(
         }
 
         if matched {
-            return Ok((types.clone(), values));
+            return Ok(values);
         }
     }
 
@@ -188,9 +184,7 @@ fn encode_attr_value(
         metadata::Type::Name(tn) if tn == ("System", "Type") => match value {
             syn::Expr::Path(syn::ExprPath { path, .. }) => {
                 match encode_path(encoder, path)? {
-                    metadata::Type::Name(tn) => {
-                        Ok(metadata::Value::Utf8(format!("{}.{}", tn.namespace, tn.name)))
-                    }
+                    metadata::Type::Name(tn) => Ok(metadata::Value::TypeName(tn)),
                     _ => encoder.err(value, "expected type name"),
                 }
             }
@@ -213,9 +207,9 @@ pub fn resolve_attribute_ref(
     let (type_name, constructors) = find_attribute_type(encoder, path)
         .ok_or_else(|| encoder.error(attr, "attribute type not found"))?;
 
-    let (types, args) = match_constructor_args(encoder, attr, &constructors)?;
+    let args = match_constructor_args(encoder, attr, &constructors)?;
 
-    Ok(AttributeRef { type_name, types, args })
+    Ok(AttributeRef { type_name, args })
 }
 
 /// Emits a custom attribute onto `has_attribute` in the metadata output.
@@ -231,7 +225,7 @@ pub fn encode_named_attribute(
     let signature = metadata::Signature {
         flags: metadata::MethodCallAttributes::HASTHIS,
         return_type: metadata::Type::Void,
-        types: attr_ref.types.clone(),
+        types: attr_ref.args.iter().map(|(_, v)| v.ty()).collect(),
     };
 
     let ctor = encoder.output.MemberRef(
