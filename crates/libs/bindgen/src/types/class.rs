@@ -326,18 +326,23 @@ impl Class {
             };
 
             for (_, arg) in attribute.value() {
-                if let Value::Utf8(s) = arg {
-                    if let Some(dot) = s.rfind('.') {
-                        let namespace = &s[..dot];
-                        let name = &s[dot + 1..];
-                        if let Some(Type::Interface(mut interface)) =
-                            reader.with_full_name(namespace, name).next()
-                        {
-                            interface.kind = kind;
-                            set.push(interface);
-                            break;
+                let (namespace, name) = match &arg {
+                    Value::TypeName(tn) => (tn.namespace.as_str(), tn.name.as_str()),
+                    Value::Utf8(s) => {
+                        if let Some(dot) = s.rfind('.') {
+                            (&s[..dot], &s[dot + 1..])
+                        } else {
+                            continue;
                         }
                     }
+                    _ => continue,
+                };
+                if let Some(Type::Interface(mut interface)) =
+                    reader.with_full_name(namespace, name).next()
+                {
+                    interface.kind = kind;
+                    set.push(interface);
+                    break;
                 }
             }
         }
@@ -353,17 +358,21 @@ impl Class {
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
                 !attribute.value().iter().any(|(_, arg)| {
-                    if let Value::Utf8(s) = arg {
-                        if let Some(dot) = s.rfind('.') {
-                            let namespace = &s[..dot];
-                            let name = &s[dot + 1..];
-                            return matches!(
-                                reader.with_full_name(namespace, name).next(),
-                                Some(Type::Interface(_))
-                            );
+                    let (namespace, name) = match arg {
+                        Value::TypeName(tn) => (tn.namespace.as_str(), tn.name.as_str()),
+                        Value::Utf8(s) => {
+                            if let Some(dot) = s.rfind('.') {
+                                (&s[..dot], &s[dot + 1..])
+                            } else {
+                                return false;
+                            }
                         }
-                    }
-                    false
+                        _ => return false,
+                    };
+                    matches!(
+                        reader.with_full_name(namespace, name).next(),
+                        Some(Type::Interface(_))
+                    )
                 })
             })
     }
