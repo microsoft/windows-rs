@@ -35,10 +35,19 @@ fn find_attribute_type(
         // Unqualified: search the current namespace and every parent up to the root,
         // mirroring the behaviour of encode_path.
         let parts: Vec<&str> = encoder.namespace.split('.').collect();
-        (1..=parts.len())
+        let mut nss: Vec<String> = (1..=parts.len())
             .rev()
             .map(|len| parts[..len].join("."))
-            .collect()
+            .collect();
+        // Also search glob use declaration namespaces as a last resort.
+        for use_item in &encoder.file.uses {
+            if let Some(ns) = glob_use_namespace(use_item) {
+                if !nss.contains(&ns) {
+                    nss.push(ns);
+                }
+            }
+        }
+        nss
     };
 
     for ns in &namespaces {
@@ -84,7 +93,7 @@ fn find_in_index(
     namespace: &str,
     attr_name: &str,
 ) -> Option<Vec<Vec<metadata::Type>>> {
-    let (_, item) = encoder
+    let (_, item) = *encoder
         .index
         .namespaces
         .get(namespace)?
@@ -126,7 +135,7 @@ fn match_constructor_args(
                 let start = e.span().start();
                 Error::new(
                     &e.to_string(),
-                    encoder.source_file,
+                    &encoder.file.source,
                     start.line,
                     start.column,
                 )
