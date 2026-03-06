@@ -326,23 +326,15 @@ impl Class {
             };
 
             for (_, arg) in attribute.value() {
-                let (namespace, name) = match &arg {
-                    Value::TypeName(tn) => (tn.namespace.as_str(), tn.name.as_str()),
-                    Value::Utf8(s) => {
-                        if let Some(dot) = s.rfind('.') {
-                            (&s[..dot], &s[dot + 1..])
-                        } else {
-                            continue;
-                        }
+                if let Value::TypeName(tn) = arg {
+                    if let Some(Type::Interface(mut interface)) = reader
+                        .with_full_name(tn.namespace.as_str(), tn.name.as_str())
+                        .next()
+                    {
+                        interface.kind = kind;
+                        set.push(interface);
+                        break;
                     }
-                    _ => continue,
-                };
-                if let Some(Type::Interface(mut interface)) =
-                    reader.with_full_name(namespace, name).next()
-                {
-                    interface.kind = kind;
-                    set.push(interface);
-                    break;
                 }
             }
         }
@@ -358,21 +350,16 @@ impl Class {
             .filter(|attribute| attribute.name() == "ActivatableAttribute")
             .any(|attribute| {
                 !attribute.value().iter().any(|(_, arg)| {
-                    let (namespace, name) = match arg {
-                        Value::TypeName(tn) => (tn.namespace.as_str(), tn.name.as_str()),
-                        Value::Utf8(s) => {
-                            if let Some(dot) = s.rfind('.') {
-                                (&s[..dot], &s[dot + 1..])
-                            } else {
-                                return false;
-                            }
-                        }
-                        _ => return false,
-                    };
-                    matches!(
-                        reader.with_full_name(namespace, name).next(),
-                        Some(Type::Interface(_))
-                    )
+                    if let Value::TypeName(tn) = arg {
+                        matches!(
+                            reader
+                                .with_full_name(tn.namespace.as_str(), tn.name.as_str())
+                                .next(),
+                            Some(Type::Interface(_))
+                        )
+                    } else {
+                        false
+                    }
                 })
             })
     }
