@@ -138,36 +138,43 @@ fn match_constructor_args(
         }
     };
 
-    // Try each constructor overload in order.
+    // Try each constructor overload in order, remembering the last type-level
+    // error from an overload whose argument count matched.  That error is more
+    // specific than the generic "no matching constructor" message and gives the
+    // caller a better diagnostic when only one overload was eligible.
+    let mut last_type_error: Option<Error> = None;
+
     for types in constructors {
         if types.len() != args.len() {
             continue;
         }
 
         let mut values = vec![];
-        let mut matched = true;
+        let mut type_error: Option<Error> = None;
 
         for (ty, arg) in types.iter().zip(args.iter()) {
             match encode_attr_value(encoder, ty, arg) {
                 Ok(v) => values.push((String::new(), v)),
-                Err(_) => {
-                    matched = false;
+                Err(e) => {
+                    type_error = Some(e);
                     break;
                 }
             }
         }
 
-        if matched {
-            return Ok(values);
+        match type_error {
+            None => return Ok(values),
+            Some(e) => last_type_error = Some(e),
         }
     }
 
-    encoder.err(attr, "no matching attribute constructor found")
+    Err(last_type_error.unwrap_or_else(|| encoder.error(attr, "no matching attribute constructor found")))
 }
 
 /// Converts a `syn::Expr` to a `metadata::Value` for the given constructor
 /// parameter type.  Extends the basic `encode_value` helper with support for
-/// string literals and `System.Type` (which is serialised as a UTF-8 string).
+/// string literals, `System.Type` (serialised as a UTF-8 string), and enum
+/// types (accepting an unqualified variant-name identifier).
 fn encode_attr_value(
     encoder: &Encoder,
     ty: &metadata::Type,
@@ -188,8 +195,64 @@ fn encode_attr_value(
             },
             _ => encoder.err(value, "expected type path"),
         },
+        metadata::Type::Name(tn) => {
+            // Enum type: accept an unqualified variant name identifier.
+            match value {
+                syn::Expr::Path(syn::ExprPath { path, .. })
+                    if path.leading_colon.is_none() && path.segments.len() == 1 =>
+                {
+                    let variant_name = path.segments[0].ident.to_string();
+                    let inner = find_enum_variant_value(encoder, tn, &variant_name, value)?;
+                    Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)))
+                }
+                _ => encoder.err(value, "expected enum variant name"),
+            }
+        }
         _ => encode_value(encoder, ty, value),
     }
+}
+
+/// Looks up the integer value of an enum variant by name, searching first the
+/// metadata reference (external winmd files) then the RDL index.
+fn find_enum_variant_value(
+    encoder: &Encoder,
+    tn: &metadata::TypeName,
+    variant_name: &str,
+    spanned: &syn::Expr,
+) -> Result<metadata::Value, Error> {
+    // Search in the metadata reference (external winmd files).
+    for typedef in encoder.reference.get(&tn.namespace, &tn.name) {
+        if typedef.category() == metadata::reader::TypeCategory::Enum {
+            for field in typedef.fields() {
+                if field.flags().contains(metadata::FieldAttributes::Literal)
+                    && field.name() == variant_name
+                {
+                    if let Some(constant) = field.constant() {
+                        return Ok(match constant.value() {
+                            metadata::Value::I32(v) => metadata::Value::I32(v),
+                            metadata::Value::U32(v) => metadata::Value::I32(v as i32),
+                            other => other,
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    // Search in the RDL index (types defined in current input files).
+    if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
+        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
+            for variant in &enum_item.variants {
+                if variant.ident == variant_name {
+                    if let Some((_, discriminant)) = &variant.discriminant {
+                        return encode_value(encoder, &metadata::Type::I32, discriminant);
+                    }
+                }
+            }
+        }
+    }
+
+    encoder.err(spanned, "enum variant not found")
 }
 
 /// Resolves a single `syn::Attribute` into a validated `AttributeRef`.
@@ -293,7 +356,7 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "no matching attribute constructor found", file_name: ".rdl", line: 6, column: 4 }"#
+    expected = r#"{ message: "value not valid", file_name: ".rdl", line: 6, column: 10 }"#
 )]
 fn wrong_arg_type_errors() {
     Reader::new()
@@ -315,17 +378,43 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "no matching attribute constructor found", file_name: ".rdl", line: 6, column: 4 }"#
+    expected = r#"{ message: "expected enum variant name", file_name: ".rdl", line: 8, column: 14 }"#
 )]
-fn wrong_arg_count_errors() {
+fn enum_arg_requires_variant_name() {
     Reader::new()
         .input_str(
             r#"
 #[winrt]
 mod Test {
-    attribute FooAttribute { fn(value: u32); }
+    #[repr(i32)]
+    enum Color { Red = 0, Green = 1, Blue = 2, }
+    attribute PaletteAttribute { fn(value: Color); }
 
-    #[Foo(1, 2)]
+    #[Palette(1)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "enum variant not found", file_name: ".rdl", line: 8, column: 14 }"#
+)]
+fn enum_arg_unknown_variant_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Color { Red = 0, Green = 1, Blue = 2, }
+    attribute PaletteAttribute { fn(value: Color); }
+
+    #[Palette(Purple)]
     class MyClass {}
 }
         "#,

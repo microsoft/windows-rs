@@ -12,6 +12,7 @@ use class::*;
 use delegate::*;
 use interface::*;
 use layout::*;
+use metadata::AsRow;
 use metadata::HasAttributes;
 use proc_macro2::*;
 use quote::*;
@@ -269,6 +270,7 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 }
 
 fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream> {
+    let index = item.index();
     let item_namespace = item.namespace();
     item.attributes()
         .map(|attr| {
@@ -295,7 +297,12 @@ fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream>
             let args: Vec<_> = attr
                 .value()
                 .into_iter()
-                .map(|(_, v)| write_value(item_namespace, &v))
+                .map(|(_, v)| match &v {
+                    metadata::Value::EnumValue(tn, inner) => {
+                        write_enum_value(item_namespace, tn, inner, index)
+                    }
+                    _ => write_value(item_namespace, &v),
+                })
                 .collect();
 
             if args.is_empty() {
@@ -305,6 +312,41 @@ fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream>
             }
         })
         .collect()
+}
+
+/// Writes an enum attribute argument as its variant name by looking up the integer
+/// value in the TypeIndex.  Falls back to the raw inner value if no match is found.
+fn write_enum_value(
+    namespace: &str,
+    tn: &metadata::TypeName,
+    inner: &metadata::Value,
+    index: &metadata::reader::TypeIndex,
+) -> TokenStream {
+    let inner_i32 = match inner {
+        metadata::Value::I32(n) => *n,
+        _ => return write_value(namespace, inner),
+    };
+
+    for typedef in index.get(&tn.namespace, &tn.name) {
+        if typedef.category() == metadata::reader::TypeCategory::Enum {
+            for field in typedef.fields() {
+                if field.flags().contains(metadata::FieldAttributes::Literal) {
+                    if let Some(constant) = field.constant() {
+                        let matches = match constant.value() {
+                            metadata::Value::I32(v) => v == inner_i32,
+                            metadata::Value::U32(v) => inner_i32 >= 0 && v == inner_i32 as u32,
+                            _ => false,
+                        };
+                        if matches {
+                            return write_ident(field.name());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    write_value(namespace, inner)
 }
 
 fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
@@ -364,6 +406,7 @@ fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
         metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
+        metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
     }
 }
 

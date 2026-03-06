@@ -16,6 +16,7 @@ pub enum Value {
     Utf8(String),
     Utf16(String),
     TypeName(TypeName),
+    EnumValue(TypeName, Box<Value>),
 }
 
 impl Value {
@@ -35,6 +36,7 @@ impl Value {
             Self::Utf8(..) => Type::String,
             Self::Utf16(..) => Type::String,
             Self::TypeName(..) => Type::Name(TypeName::named("System", "Type")),
+            Self::EnumValue(tn, _) => Type::Name(tn.clone()),
         }
     }
 }

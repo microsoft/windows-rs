@@ -113,6 +113,7 @@ impl Write for Vec<u8> {
             Value::Utf16(value) => {
                 self.extend(value.encode_utf16().flat_map(|value| value.to_le_bytes()));
             }
+            Value::EnumValue(_, inner) => self.write_value(inner),
         }
     }
 }
