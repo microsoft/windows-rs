@@ -181,9 +181,17 @@ impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
         let mut arches = 0;
 
         if let Some(attribute) = self.find_attribute("SupportedArchitectureAttribute") {
-            if let Some((_, Value::I32(value))) = attribute.value().first() {
-                arches = *value;
-            }
+            arches = match attribute.value().first() {
+                Some((_, Value::I32(v))) => *v,
+                Some((_, Value::EnumValue(_, inner))) => {
+                    if let Value::I32(v) = inner.as_ref() {
+                        *v
+                    } else {
+                        0
+                    }
+                }
+                _ => 0,
+            };
         }
 
         arches
