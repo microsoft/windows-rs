@@ -1,5 +1,0 @@
-#[winrt]
-mod Test {
-    #[Windows::Foundation::Metadata::Activatable(1)]
-    class Foo {}
-}
