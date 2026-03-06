@@ -200,16 +200,20 @@ fn encode_attr_value(
             _ => encoder.err(value, "expected type path"),
         },
         metadata::Type::Name(tn) => {
-            // Enum type: accept an unqualified variant name identifier.
+            // Enum type: accept a qualified variant name `EnumType::Variant`.
             match value {
                 syn::Expr::Path(syn::ExprPath { path, .. })
-                    if path.leading_colon.is_none() && path.segments.len() == 1 =>
+                    if path.leading_colon.is_none() && path.segments.len() == 2 =>
                 {
-                    let variant_name = path.segments[0].ident.to_string();
+                    let type_part = path.segments[0].ident.to_string();
+                    let variant_name = path.segments[1].ident.to_string();
+                    if type_part != tn.name {
+                        return encoder.err(value, &format!("expected `{}::` prefix", tn.name));
+                    }
                     let inner = find_enum_variant_value(encoder, tn, &variant_name, value)?;
                     Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)))
                 }
-                _ => encoder.err(value, "expected enum variant name"),
+                _ => encoder.err(value, &format!("expected `{}::VariantName`", tn.name)),
             }
         }
         _ => encode_value(encoder, ty, value),
@@ -389,7 +393,7 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "expected enum variant name", file_name: ".rdl", line: 8, column: 14 }"#
+    expected = r#"{ message: "expected `Color::VariantName`", file_name: ".rdl", line: 8, column: 14 }"#
 )]
 fn enum_arg_requires_variant_name() {
     Reader::new()
@@ -425,7 +429,7 @@ mod Test {
     enum Color { Red = 0, Green = 1, Blue = 2, }
     attribute PaletteAttribute { fn(value: Color); }
 
-    #[Palette(Purple)]
+    #[Palette(Color::Purple)]
     class MyClass {}
 }
         "#,
