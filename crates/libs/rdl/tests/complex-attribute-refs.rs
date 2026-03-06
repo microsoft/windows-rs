@@ -3,15 +3,15 @@ use windows_rdl::*;
 #[test]
 pub fn parse() {
     Reader::new()
-        .input("tests/attribute-from-reference.rdl")
+        .input("tests/complex-attribute-refs.rdl")
         .reference("../bindgen/default/Windows.winmd")
-        .output("tests/attribute-from-reference.winmd")
+        .output("tests/complex-attribute-refs.winmd")
         .write()
         .unwrap();
 
     Writer::new()
-        .input("tests/attribute-from-reference.winmd")
-        .output("tests/attribute-from-reference-out.rdl")
+        .input("tests/complex-attribute-refs.winmd")
+        .output("tests/complex-attribute-refs.rdl")
         .namespace("Test")
         .write()
         .unwrap();

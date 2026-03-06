@@ -69,7 +69,12 @@ fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
         Type::String => Value::Utf8(blob.read_utf8()),
         Type::Name(tn) => {
             if tn.namespace == "System" && tn.name == "Type" {
-                Value::Utf8(blob.read_utf8())
+                let s = blob.read_utf8();
+                if let Some(dot) = s.rfind('.') {
+                    Value::TypeName(TypeName::named(&s[..dot], &s[dot + 1..]))
+                } else {
+                    Value::TypeName(TypeName::named("", &s))
+                }
             } else {
                 Value::I32(blob.read_i32())
             }

@@ -182,11 +182,11 @@ fn encode_attr_value(
             _ => encoder.err(value, "expected string literal"),
         },
         metadata::Type::Name(tn) if tn == ("System", "Type") => match value {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Str(s),
-                ..
-            }) => Ok(metadata::Value::Utf8(s.value())),
-            _ => encoder.err(value, "expected type name as string literal"),
+            syn::Expr::Path(syn::ExprPath { path, .. }) => match encode_path(encoder, path)? {
+                metadata::Type::Name(tn) => Ok(metadata::Value::TypeName(tn)),
+                _ => encoder.err(value, "expected type name"),
+            },
+            _ => encoder.err(value, "expected type path"),
         },
         _ => encode_value(encoder, ty, value),
     }
@@ -220,12 +220,10 @@ pub fn encode_named_attribute(
         .output
         .TypeRef(&attr_ref.type_name.namespace, &attr_ref.type_name.name);
 
-    let types: Vec<metadata::Type> = attr_ref.args.iter().map(|(_, v)| v.ty()).collect();
-
     let signature = metadata::Signature {
         flags: metadata::MethodCallAttributes::HASTHIS,
         return_type: metadata::Type::Void,
-        types,
+        types: attr_ref.args.iter().map(|(_, v)| v.ty()).collect(),
     };
 
     let ctor = encoder.output.MemberRef(
