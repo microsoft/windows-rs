@@ -258,12 +258,16 @@ fn push_attribute(attr: &str, output: &mut String) {
     let mut space_previously = false;
     let mut after_open_paren = false;
     let mut after_closing_paren = false;
+    let mut after_colon_colon = false;
 
-    for c in attr.chars() {
+    let mut chars = attr.chars().peekable();
+
+    while let Some(c) = chars.next() {
         match c {
             '"' => {
                 in_literal = !in_literal;
                 out.push(c);
+                after_colon_colon = false;
             }
             '[' => {
                 out.trim_space();
@@ -274,19 +278,37 @@ fn push_attribute(attr: &str, output: &mut String) {
                 out.push('(');
                 after_open_paren = true;
                 after_closing_paren = false;
+                after_colon_colon = false;
+                space_previously = false;
             }
             ')' => {
+                out.trim_space();
                 out.push(c);
                 after_open_paren = false;
                 after_closing_paren = true;
+                after_colon_colon = false;
+                space_previously = false;
             }
             ',' => {
                 out.trim_space();
                 out.push(',');
                 space_previously = false;
+                after_colon_colon = false;
+            }
+            ':' if !in_literal && chars.peek() == Some(&':') => {
+                chars.next(); // consume second ':'
+                out.trim_space();
+                out.push_str("::");
+                space_previously = false;
+                after_open_paren = false;
+                after_colon_colon = true;
             }
             c if c.is_whitespace() && !in_literal => {
-                if !after_closing_paren && !after_open_paren && !space_previously {
+                if !after_closing_paren
+                    && !after_open_paren
+                    && !after_colon_colon
+                    && !space_previously
+                {
                     out.push(' ');
                     space_previously = true;
                 }
@@ -295,6 +317,7 @@ fn push_attribute(attr: &str, output: &mut String) {
                 out.push(c);
                 space_previously = false;
                 after_open_paren = false;
+                after_colon_colon = false;
             }
         }
     }

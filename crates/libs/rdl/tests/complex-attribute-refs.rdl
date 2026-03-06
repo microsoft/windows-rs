@@ -1,0 +1,17 @@
+#[winrt]
+mod Test {
+    attribute FirstAttribute {
+        fn(value: u32);
+    }
+    interface IStatics {}
+    #[First(1)]
+    #[Second(2)]
+    #[Windows::Foundation::Metadata::Activatable(3)]
+    #[Windows::Foundation::Metadata::Static(IStatics, 4)]
+    struct MyStruct {
+        x: i32,
+    }
+    attribute SecondAttribute {
+        fn(value: u32);
+    }
+}

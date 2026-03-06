@@ -189,7 +189,7 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
     let name = write_ident(item.name());
     let constant = item.constant().expect("field missing constant");
     let ty = write_type(namespace, &item.ty());
-    let value = write_value(&constant.value());
+    let value = write_value(namespace, &constant.value());
     quote! { const #name: #ty = #value; }
 }
 
@@ -272,30 +272,50 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 /// by the specialised writer logic (e.g. ActivatableAttribute / StaticAttribute on
 /// classes are already emitted as `#[activatable]` / `#[statics]`).
 ///
-/// Attributes that live in well-known Windows / CLR metadata namespaces are skipped
-/// so that only user-defined custom attributes appear in the output.
+/// Attributes that live in well-known CLR metadata namespaces (`System.*`) are
+/// skipped.  Attributes from other external namespaces (e.g. `Windows.Foundation.
+/// Metadata`) are emitted with a fully-qualified path so the reader can locate
+/// them.  `System.Type` constructor arguments are emitted as type paths rather
+/// than string literals so that definitions roundtrip cleanly.
 fn write_custom_attributes(item: &metadata::reader::TypeDef, skip: &[&str]) -> Vec<TokenStream> {
+    let item_namespace = item.namespace();
     item.attributes()
         .filter(|attr| {
             let ns = attr.ctor().parent().namespace();
-            // Skip well-known system/Windows metadata namespaces.
-            if ns.starts_with("System") || ns.starts_with("Windows.Foundation.Metadata") {
+            // Skip CLR metadata namespaces – these are never user-authored.
+            if ns.starts_with("System") {
                 return false;
             }
             // Skip built-ins that the caller already handles.
             !skip.contains(&attr.name())
         })
         .map(|attr| {
-            let name = attr
+            let attr_ns = attr.ctor().parent().namespace();
+            let attr_short = attr
                 .name()
                 .strip_suffix("Attribute")
                 .unwrap_or_else(|| attr.name());
-            let name_ts = write_ident(name);
+
+            // Build the (possibly qualified) attribute path token stream.
+            let name_ts = if attr_ns.is_empty() || attr_ns == item_namespace {
+                write_ident(attr_short)
+            } else {
+                let mut tokens = TokenStream::new();
+                for part in attr_ns.split('.') {
+                    let ident = write_ident(part);
+                    tokens = quote! { #tokens #ident :: };
+                }
+                let short = write_ident(attr_short);
+                quote! { #tokens #short }
+            };
+
+            // Build the args token stream.
             let args: Vec<_> = attr
                 .value()
                 .into_iter()
-                .map(|(_, v)| write_value(&v))
+                .map(|(_, v)| write_value(item_namespace, &v))
                 .collect();
+
             if args.is_empty() {
                 quote! { #[#name_ts] }
             } else {
@@ -316,7 +336,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
     }
 }
 
-fn write_value(value: &metadata::Value) -> TokenStream {
+fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
     match value {
         metadata::Value::Bool(value) => quote! { #value },
         metadata::Value::U8(value) => {
@@ -361,6 +381,7 @@ fn write_value(value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
+        metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
         metadata::Value::AttributeEnum(..) => todo!(),
     }
 }
