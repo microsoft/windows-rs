@@ -186,10 +186,6 @@ fn encode_attr_value(
             _ => encoder.err(value, "expected string literal"),
         },
         metadata::Type::Name(tn) if tn == ("System", "Type") => match value {
-            syn::Expr::Lit(syn::ExprLit {
-                lit: syn::Lit::Str(s),
-                ..
-            }) => Ok(metadata::Value::Utf8(s.value())),
             syn::Expr::Path(syn::ExprPath { path, .. }) => {
                 match encode_path(encoder, path)? {
                     metadata::Type::Name(tn) => {
@@ -198,7 +194,7 @@ fn encode_attr_value(
                     _ => encoder.err(value, "expected type name"),
                 }
             }
-            _ => encoder.err(value, "expected string literal or type path"),
+            _ => encoder.err(value, "expected type path"),
         },
         _ => encode_value(encoder, ty, value),
     }
