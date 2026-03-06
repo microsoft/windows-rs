@@ -353,9 +353,8 @@ fn write_enum_value(
                             _ => false,
                         };
                         if matches {
-                            let type_name = write_ident(&tn.name);
                             let variant = write_ident(field.name());
-                            return quote! { #type_name :: #variant };
+                            return quote! { #variant };
                         }
                     }
                 }
