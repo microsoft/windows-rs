@@ -334,6 +334,8 @@ fn write_enum_value(
                     if let Some(constant) = field.constant() {
                         let matches = match constant.value() {
                             metadata::Value::I32(v) => v == inner_i32,
+                            // Guard against negative inner_i32 wrapping to a large u32 that
+                            // coincidentally equals a real constant (e.g. -1 as u32 == u32::MAX).
                             metadata::Value::U32(v) => inner_i32 >= 0 && v == inner_i32 as u32,
                             _ => false,
                         };

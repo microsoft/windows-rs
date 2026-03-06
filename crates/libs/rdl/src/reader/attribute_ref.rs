@@ -168,7 +168,11 @@ fn match_constructor_args(
         }
     }
 
-    Err(last_type_error.unwrap_or_else(|| encoder.error(attr, "no matching attribute constructor found")))
+    if let Some(err) = last_type_error {
+        Err(err)
+    } else {
+        encoder.err(attr, "no matching attribute constructor found")
+    }
 }
 
 /// Converts a `syn::Expr` to a `metadata::Value` for the given constructor
@@ -228,10 +232,12 @@ fn find_enum_variant_value(
                     && field.name() == variant_name
                 {
                     if let Some(constant) = field.constant() {
+                        // Attribute blobs always encode enum values as i32, so
+                        // normalise both possible underlying types to I32.
                         return Ok(match constant.value() {
                             metadata::Value::I32(v) => metadata::Value::I32(v),
                             metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                            other => other,
+                            other => return encoder.err(spanned, &format!("unsupported enum constant type: {other:?}")),
                         });
                     }
                 }
