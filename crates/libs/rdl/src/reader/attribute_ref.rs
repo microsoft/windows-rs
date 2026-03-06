@@ -186,7 +186,15 @@ fn encode_attr_value(
                 lit: syn::Lit::Str(s),
                 ..
             }) => Ok(metadata::Value::Utf8(s.value())),
-            _ => encoder.err(value, "expected type name as string literal"),
+            syn::Expr::Path(syn::ExprPath { path, .. }) => {
+                match encode_path(encoder, path)? {
+                    metadata::Type::Name(tn) => {
+                        Ok(metadata::Value::Utf8(format!("{}.{}", tn.namespace, tn.name)))
+                    }
+                    _ => encoder.err(value, "expected type name"),
+                }
+            }
+            _ => encoder.err(value, "expected string literal or type path"),
         },
         _ => encode_value(encoder, ty, value),
     }

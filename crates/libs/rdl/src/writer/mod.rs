@@ -272,30 +272,69 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 /// by the specialised writer logic (e.g. ActivatableAttribute / StaticAttribute on
 /// classes are already emitted as `#[activatable]` / `#[statics]`).
 ///
-/// Attributes that live in well-known Windows / CLR metadata namespaces are skipped
-/// so that only user-defined custom attributes appear in the output.
+/// Attributes that live in well-known CLR metadata namespaces (`System.*`) are
+/// skipped.  Attributes from other external namespaces (e.g. `Windows.Foundation.
+/// Metadata`) are emitted with a fully-qualified path so the reader can locate
+/// them.  `System.Type` constructor arguments are emitted as type paths rather
+/// than string literals so that definitions roundtrip cleanly.
 fn write_custom_attributes(item: &metadata::reader::TypeDef, skip: &[&str]) -> Vec<TokenStream> {
+    let item_namespace = item.namespace();
     item.attributes()
         .filter(|attr| {
             let ns = attr.ctor().parent().namespace();
-            // Skip well-known system/Windows metadata namespaces.
-            if ns.starts_with("System") || ns.starts_with("Windows.Foundation.Metadata") {
+            // Skip CLR metadata namespaces – these are never user-authored.
+            if ns.starts_with("System") {
                 return false;
             }
             // Skip built-ins that the caller already handles.
             !skip.contains(&attr.name())
         })
         .map(|attr| {
-            let name = attr
+            let attr_ns = attr.ctor().parent().namespace();
+            let attr_short = attr
                 .name()
                 .strip_suffix("Attribute")
                 .unwrap_or_else(|| attr.name());
-            let name_ts = write_ident(name);
+
+            // Build the (possibly qualified) attribute path token stream.
+            let name_ts = if attr_ns.is_empty() || attr_ns == item_namespace {
+                write_ident(attr_short)
+            } else {
+                let mut tokens = TokenStream::new();
+                for part in attr_ns.split('.') {
+                    let ident = write_ident(part);
+                    tokens = quote! { #tokens #ident :: };
+                }
+                let short = write_ident(attr_short);
+                quote! { #tokens #short }
+            };
+
+            // Obtain the constructor parameter types so we can render
+            // `System.Type` values as type paths rather than string literals.
+            let ctor_types = attr.ctor().signature(&[]).types;
             let args: Vec<_> = attr
                 .value()
                 .into_iter()
-                .map(|(_, v)| write_value(&v))
+                .enumerate()
+                .map(|(i, (_, v))| {
+                    if let (
+                        Some(metadata::Type::Name(tn)),
+                        metadata::Value::Utf8(s),
+                    ) = (ctor_types.get(i), &v)
+                    {
+                        if tn.namespace == "System" && tn.name == "Type" {
+                            if let Some(dot) = s.rfind('.') {
+                                return write_type(
+                                    item_namespace,
+                                    &metadata::Type::named(&s[..dot], &s[dot + 1..]),
+                                );
+                            }
+                        }
+                    }
+                    write_value(&v)
+                })
                 .collect();
+
             if args.is_empty() {
                 quote! { #[#name_ts] }
             } else {

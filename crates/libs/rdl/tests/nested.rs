@@ -4,7 +4,7 @@ use windows_rdl::*;
 pub fn parse() {
     Reader::new()
         .input("tests/nested.rdl")
-        .reference("../bindgen/default/windows.winmd")
+        .reference("../bindgen/default/Windows.winmd")
         .output("tests/nested.winmd")
         .write()
         .unwrap();
