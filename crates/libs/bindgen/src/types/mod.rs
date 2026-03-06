@@ -366,7 +366,6 @@ impl Type {
                 )),
                 _ => Self::from_metadata_type(inner, enclosing, generics, reader),
             },
-            rest => panic!("{rest:?}"),
         }
     }
 

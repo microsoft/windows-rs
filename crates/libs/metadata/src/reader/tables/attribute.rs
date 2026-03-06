@@ -32,10 +32,8 @@ impl<'a> Attribute<'a> {
         debug_assert_eq!(prolog, 1);
 
         for ty in &signature.types {
-            let mut name = String::new();
-            let value = read_value(&mut blob, ty, &mut name);
-            debug_assert!(name.is_empty());
-            values.push((name, value));
+            let value = read_value(&mut blob, ty);
+            values.push((String::new(), value));
         }
 
         let named_arg_count = blob.read_u16();
@@ -45,8 +43,8 @@ impl<'a> Attribute<'a> {
             let _id = blob.read_u8();
             // TODO: what's ID?
             let ty = blob.read_type_code(&[]);
-            let mut name = blob.read_utf8();
-            let value = read_value(&mut blob, &ty, &mut name);
+            let name = blob.read_utf8();
+            let value = read_value(&mut blob, &ty);
             values.push((name, value));
         }
 
@@ -55,7 +53,7 @@ impl<'a> Attribute<'a> {
     }
 }
 
-fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
+fn read_value(blob: &mut Blob, ty: &Type) -> Value {
     match ty {
         Type::Bool => Value::Bool(blob.read_bool()),
         Type::I8 => Value::I8(blob.read_i8()),
@@ -78,11 +76,6 @@ fn read_value(blob: &mut Blob, ty: &Type, name: &mut String) -> Value {
             } else {
                 Value::I32(blob.read_i32())
             }
-        }
-        Type::AttributeEnum => {
-            let enum_name = name.clone();
-            *name = blob.read_utf8();
-            Value::AttributeEnum(enum_name, blob.read_i32())
         }
         rest => panic!("{rest:?}"),
     }

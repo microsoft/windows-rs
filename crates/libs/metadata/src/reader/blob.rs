@@ -204,7 +204,6 @@ impl<'a> Blob<'a> {
                     generics: ty_generics,
                 })
             }
-            0x55 => Type::AttributeEnum,
             rest => panic!("{rest:?}"),
         }
     }
