@@ -237,7 +237,12 @@ fn find_enum_variant_value(
                         return Ok(match constant.value() {
                             metadata::Value::I32(v) => metadata::Value::I32(v),
                             metadata::Value::U32(v) => metadata::Value::I32(v as i32),
-                            other => return encoder.err(spanned, &format!("unsupported enum constant type: {other:?}")),
+                            other => {
+                                return encoder.err(
+                                    spanned,
+                                    &format!("unsupported enum constant type: {other:?}"),
+                                )
+                            }
                         });
                     }
                 }
