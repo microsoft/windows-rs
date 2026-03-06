@@ -16,7 +16,6 @@ pub enum Value {
     Utf8(String),
     Utf16(String),
     TypeName(TypeName),
-    AttributeEnum(String, i32),
 }
 
 impl Value {
@@ -36,7 +35,6 @@ impl Value {
             Self::Utf8(..) => Type::String,
             Self::Utf16(..) => Type::String,
             Self::TypeName(..) => Type::Name(TypeName::named("System", "Type")),
-            Self::AttributeEnum(..) => Type::AttributeEnum,
         }
     }
 }
