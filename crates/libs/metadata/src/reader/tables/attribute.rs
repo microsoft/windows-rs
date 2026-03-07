@@ -74,7 +74,7 @@ fn read_value(blob: &mut Blob, ty: &Type) -> Value {
                     Value::TypeName(TypeName::named("", &s))
                 }
             } else {
-                Value::I32(blob.read_i32())
+                Value::EnumValue(tn.clone(), Box::new(Value::I32(blob.read_i32())))
             }
         }
         rest => panic!("{rest:?}"),

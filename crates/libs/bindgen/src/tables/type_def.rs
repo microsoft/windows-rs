@@ -62,7 +62,10 @@ impl TypeDefExt for TypeDef {
             match attribute.name() {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::I32(2))) = attribute.value().first() {
+                    if matches!(
+                        attribute.value().first(),
+                        Some((_, Value::EnumValue(_, inner))) if matches!(**inner, Value::I32(2))
+                    ) {
                         return true;
                     }
                 }
