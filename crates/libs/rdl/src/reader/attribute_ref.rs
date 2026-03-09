@@ -57,9 +57,8 @@ fn find_attribute_type(encoder: &Encoder, path: &syn::Path) -> Option<AttributeI
     };
 
     for ns in &namespaces {
-        if let Some((constructors, properties)) =
-            find_in_reference(encoder, ns, &attr_name)
-                .or_else(|| find_in_index(encoder, ns, &attr_name))
+        if let Some((constructors, properties)) = find_in_reference(encoder, ns, &attr_name)
+            .or_else(|| find_in_index(encoder, ns, &attr_name))
         {
             return Some(AttributeInfo {
                 type_name: metadata::TypeName::named(ns, &attr_name),
@@ -249,12 +248,7 @@ fn resolve_attribute_args(
             .iter()
             .find(|(pname, _)| pname == name)
             .map(|(_, ty)| ty)
-            .ok_or_else(|| {
-                encoder.error(
-                    attr,
-                    &format!("attribute has no property `{name}`"),
-                )
-            })?;
+            .ok_or_else(|| encoder.error(attr, &format!("attribute has no property `{name}`")))?;
         let value = encode_attr_value(encoder, prop_ty, value_expr)?;
         result.push((name.clone(), value));
     }
