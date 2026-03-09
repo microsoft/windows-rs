@@ -9,14 +9,6 @@ pub struct AttributeRef {
     pub args: Vec<(String, metadata::Value)>,
 }
 
-/// The constructor overloads and named instance-field properties collected from
-/// either a winmd reference or the RDL index for a single attribute type.
-struct AttributeComponents {
-    constructors: Vec<Vec<metadata::Type>>,
-    /// Named instance fields: `(field_name, field_type)`.
-    properties: Vec<(String, metadata::Type)>,
-}
-
 /// Collected information about an attribute type: constructor overloads and named
 /// instance-field properties (e.g. `version: u32`).
 struct AttributeInfo {
@@ -65,14 +57,10 @@ fn find_attribute_type(encoder: &Encoder, path: &syn::Path) -> Option<AttributeI
     };
 
     for ns in &namespaces {
-        if let Some(components) = find_in_reference(encoder, ns, &attr_name)
+        if let Some(info) = find_in_reference(encoder, ns, &attr_name)
             .or_else(|| find_in_index(encoder, ns, &attr_name))
         {
-            return Some(AttributeInfo {
-                type_name: metadata::TypeName::named(ns, &attr_name),
-                constructors: components.constructors,
-                properties: components.properties,
-            });
+            return Some(info);
         }
     }
 
@@ -80,13 +68,8 @@ fn find_attribute_type(encoder: &Encoder, path: &syn::Path) -> Option<AttributeI
 }
 
 /// Searches the metadata reference for a type with the given namespace/name that
-/// has `TypeCategory::Attribute`, and returns all constructor type lists plus
-/// named instance-field types.
-fn find_in_reference(
-    encoder: &Encoder,
-    namespace: &str,
-    attr_name: &str,
-) -> Option<AttributeComponents> {
+/// has `TypeCategory::Attribute`, and returns its full `AttributeInfo`.
+fn find_in_reference(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<AttributeInfo> {
     let mut constructors = vec![];
     let mut properties = vec![];
 
@@ -116,7 +99,8 @@ fn find_in_reference(
     if constructors.is_empty() && properties.is_empty() {
         None
     } else {
-        Some(AttributeComponents {
+        Some(AttributeInfo {
+            type_name: metadata::TypeName::named(namespace, attr_name),
             constructors,
             properties,
         })
@@ -124,12 +108,8 @@ fn find_in_reference(
 }
 
 /// Searches the RDL index for an `Item::Attribute` with the given namespace/name
-/// and returns its constructor type lists plus named-property types.
-fn find_in_index(
-    encoder: &Encoder,
-    namespace: &str,
-    attr_name: &str,
-) -> Option<AttributeComponents> {
+/// and returns its full `AttributeInfo`.
+fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<AttributeInfo> {
     let (_, item) = *encoder
         .index
         .namespaces
@@ -159,7 +139,8 @@ fn find_in_index(
         }
     }
 
-    Some(AttributeComponents {
+    Some(AttributeInfo {
+        type_name: metadata::TypeName::named(namespace, attr_name),
         constructors,
         properties,
     })
