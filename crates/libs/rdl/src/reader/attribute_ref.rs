@@ -9,12 +9,18 @@ pub struct AttributeRef {
     pub args: Vec<(String, metadata::Value)>,
 }
 
+/// Collected information about an attribute type: constructor overloads and named
+/// instance-field properties (e.g. `version: u32`).
+struct AttributeInfo {
+    type_name: metadata::TypeName,
+    constructors: Vec<Vec<metadata::Type>>,
+    /// Named instance fields: `(field_name, field_type)`.
+    properties: Vec<(String, metadata::Type)>,
+}
+
 /// Finds an attribute type (as `<ident>Attribute`) in the encoder's index and
-/// reference, returning its `TypeName` and all constructor parameter-type lists.
-fn find_attribute_type(
-    encoder: &Encoder,
-    path: &syn::Path,
-) -> Option<(metadata::TypeName, Vec<Vec<metadata::Type>>)> {
+/// reference, returning its full `AttributeInfo`.
+fn find_attribute_type(encoder: &Encoder, path: &syn::Path) -> Option<AttributeInfo> {
     // Convert Rust-style `A::B::C` path to metadata-style `A.B.C` namespace + name.
     let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
 
@@ -51,10 +57,10 @@ fn find_attribute_type(
     };
 
     for ns in &namespaces {
-        if let Some(result) = find_in_reference(encoder, ns, &attr_name)
+        if let Some(info) = find_in_reference(encoder, ns, &attr_name)
             .or_else(|| find_in_index(encoder, ns, &attr_name))
         {
-            return Some((metadata::TypeName::named(ns, &attr_name), result));
+            return Some(info);
         }
     }
 
@@ -62,13 +68,11 @@ fn find_attribute_type(
 }
 
 /// Searches the metadata reference for a type with the given namespace/name that
-/// has `TypeCategory::Attribute`, and returns all constructor type lists.
-fn find_in_reference(
-    encoder: &Encoder,
-    namespace: &str,
-    attr_name: &str,
-) -> Option<Vec<Vec<metadata::Type>>> {
+/// has `TypeCategory::Attribute`, and returns its full `AttributeInfo`.
+fn find_in_reference(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<AttributeInfo> {
     let mut constructors = vec![];
+    let mut properties = vec![];
+
     for typedef in encoder.reference.get(namespace, attr_name) {
         if typedef.category() == metadata::reader::TypeCategory::Attribute {
             for method in typedef.methods() {
@@ -77,22 +81,35 @@ fn find_in_reference(
                     constructors.push(sig.types);
                 }
             }
+            for field in typedef.fields() {
+                let flags = field.flags();
+                // Named instance fields only – skip literals (enum variants), statics, and
+                // special-name fields like the enum discriminant (value__).
+                if flags.contains(metadata::FieldAttributes::Public)
+                    && !flags.contains(metadata::FieldAttributes::Static)
+                    && !flags.contains(metadata::FieldAttributes::Literal)
+                    && !flags.contains(metadata::FieldAttributes::SpecialName)
+                {
+                    properties.push((field.name().to_string(), field.ty()));
+                }
+            }
         }
     }
-    if constructors.is_empty() {
+
+    if constructors.is_empty() && properties.is_empty() {
         None
     } else {
-        Some(constructors)
+        Some(AttributeInfo {
+            type_name: metadata::TypeName::named(namespace, attr_name),
+            constructors,
+            properties,
+        })
     }
 }
 
 /// Searches the RDL index for an `Item::Attribute` with the given namespace/name
-/// and returns its constructor type lists (built from the `syn::TypeBareFn` methods).
-fn find_in_index(
-    encoder: &Encoder,
-    namespace: &str,
-    attr_name: &str,
-) -> Option<Vec<Vec<metadata::Type>>> {
+/// and returns its full `AttributeInfo`.
+fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<AttributeInfo> {
     let (_, item) = *encoder
         .index
         .namespaces
@@ -114,54 +131,85 @@ fn find_in_index(
             constructors.push(types);
         }
     }
-    Some(constructors)
+
+    let mut properties = vec![];
+    for (prop_name, prop_ty) in &attr_item.properties {
+        if let Ok(ty) = encode_type(encoder, prop_ty) {
+            properties.push((prop_name.to_string(), ty));
+        }
+    }
+
+    Some(AttributeInfo {
+        type_name: metadata::TypeName::named(namespace, attr_name),
+        constructors,
+        properties,
+    })
 }
 
-/// Tries to match the attribute's arguments against the provided constructor
-/// type lists and returns the validated argument values on success.
-fn match_constructor_args(
+/// Positional and named arguments split from a raw argument list.
+struct SplitArgs<'a> {
+    positional: Vec<&'a syn::Expr>,
+    named: Vec<(String, &'a syn::Expr)>,
+}
+
+/// Splits a list of `syn::Expr` argument expressions into positional arguments
+/// (emitted before any named argument) and named `name = value` arguments.
+///
+/// Returns an error if a positional argument follows a named one, or if the
+/// left-hand side of an `=` expression is not a plain identifier.
+fn split_args<'a>(encoder: &Encoder, args: &'a [syn::Expr]) -> Result<SplitArgs<'a>, Error> {
+    let mut positional: Vec<&syn::Expr> = vec![];
+    let mut named: Vec<(String, &syn::Expr)> = vec![];
+
+    for arg in args {
+        if let syn::Expr::Assign(syn::ExprAssign { left, right, .. }) = arg {
+            // `name = value` — named argument.
+            if let syn::Expr::Path(syn::ExprPath { path, .. }) = left.as_ref() {
+                if path.leading_colon.is_none() && path.segments.len() == 1 {
+                    named.push((path.segments[0].ident.to_string(), right.as_ref()));
+                    continue;
+                }
+            }
+            return encoder.err(arg, "expected `name = value` for named attribute argument");
+        }
+        // Positional argument – must not come after a named one.
+        if !named.is_empty() {
+            return encoder.err(
+                arg,
+                "positional attribute arguments must come before named arguments",
+            );
+        }
+        positional.push(arg);
+    }
+
+    Ok(SplitArgs { positional, named })
+}
+
+/// Tries to match the positional arguments against the constructor overloads,
+/// then validates and encodes any named arguments against the attribute's
+/// instance-field properties.
+///
+/// Returns the combined ordered `(name, value)` list ready for the blob writer.
+fn resolve_attribute_args(
     encoder: &Encoder,
     attr: &syn::Attribute,
-    constructors: &[Vec<metadata::Type>],
+    info: &AttributeInfo,
+    positional: &[&syn::Expr],
+    named: &[(String, &syn::Expr)],
 ) -> Result<Vec<(String, metadata::Value)>, Error> {
-    // Parse the argument expressions.
-    let args: Vec<syn::Expr> = match &attr.meta {
-        syn::Meta::Path(_) => vec![],
-        syn::Meta::List(_) => attr
-            .parse_args_with(
-                syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated,
-            )
-            .map_err(|e| {
-                let start = e.span().start();
-                Error::new(
-                    &e.to_string(),
-                    &encoder.file.source,
-                    start.line,
-                    start.column,
-                )
-            })?
-            .into_iter()
-            .collect(),
-        syn::Meta::NameValue(_) => {
-            return encoder.err(attr, "attribute cannot use `name = value` syntax");
-        }
-    };
-
-    // Try each constructor overload in order, remembering the last type-level
-    // error from an overload whose argument count matched.  That error is more
-    // specific than the generic "no matching constructor" message and gives the
-    // caller a better diagnostic when only one overload was eligible.
+    // Match positional args against constructor overloads.
     let mut last_type_error: Option<Error> = None;
+    let mut ctor_values: Option<Vec<(String, metadata::Value)>> = None;
 
-    for types in constructors {
-        if types.len() != args.len() {
+    for types in &info.constructors {
+        if types.len() != positional.len() {
             continue;
         }
 
         let mut values = vec![];
         let mut type_error: Option<Error> = None;
 
-        for (ty, arg) in types.iter().zip(args.iter()) {
+        for (ty, arg) in types.iter().zip(positional.iter()) {
             match encode_attr_value(encoder, ty, arg) {
                 Ok(v) => values.push((String::new(), v)),
                 Err(e) => {
@@ -172,16 +220,38 @@ fn match_constructor_args(
         }
 
         match type_error {
-            None => return Ok(values),
+            None => {
+                ctor_values = Some(values);
+                break;
+            }
             Some(e) => last_type_error = Some(e),
         }
     }
 
-    if let Some(err) = last_type_error {
-        Err(err)
-    } else {
-        encoder.err(attr, "no matching attribute constructor found")
+    let mut result = match ctor_values {
+        Some(v) => v,
+        None => {
+            if let Some(err) = last_type_error {
+                return Err(err);
+            } else {
+                return encoder.err(attr, "no matching attribute constructor found");
+            }
+        }
+    };
+
+    // Encode named args, validating each against the attribute's declared properties.
+    for (name, value_expr) in named {
+        let prop_ty = info
+            .properties
+            .iter()
+            .find(|(pname, _)| pname == name)
+            .map(|(_, ty)| ty)
+            .ok_or_else(|| encoder.error(attr, &format!("attribute has no property `{name}`")))?;
+        let value = encode_attr_value(encoder, prop_ty, value_expr)?;
+        result.push((name.clone(), value));
     }
+
+    Ok(result)
 }
 
 /// Converts a `syn::Expr` to a `metadata::Value` for the given constructor
@@ -285,12 +355,40 @@ pub fn resolve_attribute_ref(
 ) -> Result<AttributeRef, Error> {
     let path = attr.path();
 
-    let (type_name, constructors) = find_attribute_type(encoder, path)
+    let info = find_attribute_type(encoder, path)
         .ok_or_else(|| encoder.error(attr, "attribute type not found"))?;
 
-    let args = match_constructor_args(encoder, attr, &constructors)?;
+    // Parse the argument expressions.
+    let raw_args: Vec<syn::Expr> = match &attr.meta {
+        syn::Meta::Path(_) => vec![],
+        syn::Meta::List(_) => attr
+            .parse_args_with(
+                syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated,
+            )
+            .map_err(|e| {
+                let start = e.span().start();
+                Error::new(
+                    &e.to_string(),
+                    &encoder.file.source,
+                    start.line,
+                    start.column,
+                )
+            })?
+            .into_iter()
+            .collect(),
+        syn::Meta::NameValue(_) => {
+            return encoder.err(attr, "attribute cannot use top-level `name = value` syntax");
+        }
+    };
 
-    Ok(AttributeRef { type_name, args })
+    let split = split_args(encoder, &raw_args)?;
+
+    let args = resolve_attribute_args(encoder, attr, &info, &split.positional, &split.named)?;
+
+    Ok(AttributeRef {
+        type_name: info.type_name,
+        args,
+    })
 }
 
 /// Emits a custom attribute onto `has_attribute` in the metadata output.
@@ -306,7 +404,14 @@ pub fn encode_named_attribute(
     let signature = metadata::Signature {
         flags: metadata::MethodCallAttributes::HASTHIS,
         return_type: metadata::Type::Void,
-        types: attr_ref.args.iter().map(|(_, v)| v.ty()).collect(),
+        // Only positional (empty-name) args belong in the constructor signature;
+        // named args are encoded separately in the attribute blob named-args section.
+        types: attr_ref
+            .args
+            .iter()
+            .filter(|(name, _)| name.is_empty())
+            .map(|(_, v)| v.ty())
+            .collect(),
     };
 
     let ctor = encoder.output.MemberRef(
@@ -435,6 +540,94 @@ mod Test {
     attribute PaletteAttribute { fn(value: Color); }
 
     #[Palette(Purple)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "positional attribute arguments must come before named arguments", file_name: ".rdl", line: 6, column: 26 }"#
+)]
+fn positional_after_named_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(value: u32); }
+
+    #[Foo(named_prop = 1, 42)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "no matching attribute constructor found", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn no_matching_ctor_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(value: u32); }
+
+    #[Foo(1, 2, 3)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "attribute has no property `unknown`", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn unknown_property_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(); version: u32, }
+
+    #[Foo(unknown = 42)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "attribute cannot use top-level `name = value` syntax", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn top_level_name_value_syntax_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(); }
+
+    #[Foo = "bar"]
     class MyClass {}
 }
         "#,

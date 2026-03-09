@@ -511,7 +511,21 @@ impl File {
 
         for (name, value) in &values[count..] {
             buffer.push(0x53); // field=0x53 property=0x54
-            buffer.push(value.ty().code());
+
+            if let Value::EnumValue(tn, _) = value {
+                // SERIALIZATION_TYPE_ENUM (ECMA-335 §II.23.1.16): 0x55 followed by
+                // a SerString of the fully-qualified enum type name.
+                buffer.push(0x55);
+                let enum_name = if tn.namespace.is_empty() {
+                    tn.name.clone()
+                } else {
+                    format!("{}.{}", tn.namespace, tn.name)
+                };
+                buffer.write_compressed(enum_name.len());
+                buffer.extend_from_slice(enum_name.as_bytes());
+            } else {
+                buffer.push(value.ty().code());
+            }
 
             buffer.write_compressed(name.len());
             buffer.extend_from_slice(name.as_bytes());

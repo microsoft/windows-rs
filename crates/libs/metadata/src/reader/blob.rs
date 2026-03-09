@@ -204,6 +204,16 @@ impl<'a> Blob<'a> {
                     generics: ty_generics,
                 })
             }
+            0x55 => {
+                // SERIALIZATION_TYPE_ENUM in custom attribute named argument format
+                // (ECMA-335 §II.23.1.16): followed by a SerString of the enum type name.
+                let name = self.read_utf8();
+                if let Some(dot) = name.rfind('.') {
+                    Type::Name(TypeName::named(&name[..dot], &name[dot + 1..]))
+                } else {
+                    Type::Name(TypeName::named("", &name))
+                }
+            }
             rest => panic!("{rest:?}"),
         }
     }
