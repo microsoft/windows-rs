@@ -1,0 +1,31 @@
+#[winrt]
+mod Test {
+    attribute DualApiPartitionAttribute {
+        fn();
+        version: u32,
+    }
+    attribute MarshalingBehaviorAttribute {
+        fn(value: MarshalingType);
+    }
+    #[repr(i32)]
+    enum MarshalingType {
+        None = 1,
+        Agile = 2,
+        Standard = 3,
+        InvalidMarshaling = 4,
+    }
+    #[DualApiPartition(version = 100794368)]
+    #[MarshalingBehavior(Agile)]
+    #[Threading(Both)]
+    class MySocket {}
+    attribute ThreadingAttribute {
+        fn(value: ThreadingModel);
+    }
+    #[repr(i32)]
+    enum ThreadingModel {
+        STA = 1,
+        MTA = 2,
+        Both = 3,
+        InvalidThreading = 4,
+    }
+}
