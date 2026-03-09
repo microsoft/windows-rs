@@ -9,6 +9,14 @@ pub struct AttributeRef {
     pub args: Vec<(String, metadata::Value)>,
 }
 
+/// The constructor overloads and named instance-field properties collected from
+/// either a winmd reference or the RDL index for a single attribute type.
+struct AttributeComponents {
+    constructors: Vec<Vec<metadata::Type>>,
+    /// Named instance fields: `(field_name, field_type)`.
+    properties: Vec<(String, metadata::Type)>,
+}
+
 /// Collected information about an attribute type: constructor overloads and named
 /// instance-field properties (e.g. `version: u32`).
 struct AttributeInfo {
@@ -57,13 +65,13 @@ fn find_attribute_type(encoder: &Encoder, path: &syn::Path) -> Option<AttributeI
     };
 
     for ns in &namespaces {
-        if let Some((constructors, properties)) = find_in_reference(encoder, ns, &attr_name)
+        if let Some(components) = find_in_reference(encoder, ns, &attr_name)
             .or_else(|| find_in_index(encoder, ns, &attr_name))
         {
             return Some(AttributeInfo {
                 type_name: metadata::TypeName::named(ns, &attr_name),
-                constructors,
-                properties,
+                constructors: components.constructors,
+                properties: components.properties,
             });
         }
     }
@@ -78,7 +86,7 @@ fn find_in_reference(
     encoder: &Encoder,
     namespace: &str,
     attr_name: &str,
-) -> Option<(Vec<Vec<metadata::Type>>, Vec<(String, metadata::Type)>)> {
+) -> Option<AttributeComponents> {
     let mut constructors = vec![];
     let mut properties = vec![];
 
@@ -108,7 +116,10 @@ fn find_in_reference(
     if constructors.is_empty() && properties.is_empty() {
         None
     } else {
-        Some((constructors, properties))
+        Some(AttributeComponents {
+            constructors,
+            properties,
+        })
     }
 }
 
@@ -118,7 +129,7 @@ fn find_in_index(
     encoder: &Encoder,
     namespace: &str,
     attr_name: &str,
-) -> Option<(Vec<Vec<metadata::Type>>, Vec<(String, metadata::Type)>)> {
+) -> Option<AttributeComponents> {
     let (_, item) = *encoder
         .index
         .namespaces
@@ -148,7 +159,16 @@ fn find_in_index(
         }
     }
 
-    Some((constructors, properties))
+    Some(AttributeComponents {
+        constructors,
+        properties,
+    })
+}
+
+/// Positional and named arguments split from a raw argument list.
+struct SplitArgs<'a> {
+    positional: Vec<&'a syn::Expr>,
+    named: Vec<(String, &'a syn::Expr)>,
 }
 
 /// Splits a list of `syn::Expr` argument expressions into positional arguments
@@ -156,10 +176,7 @@ fn find_in_index(
 ///
 /// Returns an error if a positional argument follows a named one, or if the
 /// left-hand side of an `=` expression is not a plain identifier.
-fn split_args<'a>(
-    encoder: &Encoder,
-    args: &'a [syn::Expr],
-) -> Result<(Vec<&'a syn::Expr>, Vec<(String, &'a syn::Expr)>), Error> {
+fn split_args<'a>(encoder: &Encoder, args: &'a [syn::Expr]) -> Result<SplitArgs<'a>, Error> {
     let mut positional: Vec<&syn::Expr> = vec![];
     let mut named: Vec<(String, &syn::Expr)> = vec![];
 
@@ -184,7 +201,7 @@ fn split_args<'a>(
         positional.push(arg);
     }
 
-    Ok((positional, named))
+    Ok(SplitArgs { positional, named })
 }
 
 /// Tries to match the positional arguments against the constructor overloads,
@@ -383,9 +400,9 @@ pub fn resolve_attribute_ref(
         }
     };
 
-    let (positional, named) = split_args(encoder, &raw_args)?;
+    let split = split_args(encoder, &raw_args)?;
 
-    let args = resolve_attribute_args(encoder, attr, &info, &positional, &named)?;
+    let args = resolve_attribute_args(encoder, attr, &info, &split.positional, &split.named)?;
 
     Ok(AttributeRef {
         type_name: info.type_name,
