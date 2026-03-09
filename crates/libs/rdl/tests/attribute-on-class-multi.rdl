@@ -2,7 +2,7 @@
 mod Test {
     attribute FooAttribute {
         fn(value: u32);
-        fn(name: HSTRING);
+        fn(name: String);
     }
     #[Foo("hello")]
     class MyClass {}
