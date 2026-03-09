@@ -66,6 +66,13 @@ fn encode_const_value(
         .output
         .Constant(metadata::writer::HasConstant::Field(field), &value);
 
+    encode_attrs(
+        encoder,
+        metadata::writer::HasAttribute::Field(field),
+        &item.attrs,
+        &[],
+    )?;
+
     Ok(())
 }
 

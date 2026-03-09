@@ -1,0 +1,19 @@
+#[win32]
+mod Test {
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+    const Ansi: String = "Hello, world!";
+    #[Windows::Win32::Foundation::Metadata::NativeEncoding("utf-16")]
+    const Utf16: String = "Hello, world!";
+}
+mod Windows {
+    mod Win32 {
+        mod Foundation {
+            #[win32]
+            mod Metadata {
+                attribute NativeEncodingAttribute {
+                    fn(name: String);
+                }
+            }
+        }
+    }
+}

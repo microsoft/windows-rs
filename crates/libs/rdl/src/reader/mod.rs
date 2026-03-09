@@ -402,6 +402,7 @@ fn encode_value(
         metadata::Type::U64 => metadata::Value::U64(encode_lit_int::<u64>(encoder, value)?),
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
+        metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
         rest => todo!("{rest:?}"),
     };
 
@@ -473,6 +474,18 @@ where
             }) => float.base10_parse().ok().map(|value: T| -value),
             _ => None,
         },
+        _ => None,
+    };
+
+    value.ok_or_else(|| encoder.error(expr, "value not valid"))
+}
+
+fn encode_lit_string(encoder: &Encoder, expr: &syn::Expr) -> Result<String, Error> {
+    let value = match expr {
+        syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Str(string),
+            ..
+        }) => Some(string.value()),
         _ => None,
     };
 
