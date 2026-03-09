@@ -157,14 +157,21 @@ impl File {
             }
         }
 
-        // The type may be local to the module but that requires more contextual information.
-        let scope = ResolutionScope::AssemblyRef(self.AssemblyRef(namespace));
-
-        let pos = id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
-            TypeName: self.strings.insert(name),
-            TypeNamespace: self.strings.insert(namespace),
-            ResolutionScope: scope,
-        }));
+        let pos = if let Some((parent, leaf)) = name.rsplit_once('/') {
+            let enclosing = self.TypeRef(namespace, parent);
+            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+                TypeName: self.strings.insert(leaf),
+                TypeNamespace: self.strings.insert(""),
+                ResolutionScope: ResolutionScope::TypeRef(enclosing),
+            }))
+        } else {
+            let scope = ResolutionScope::AssemblyRef(self.AssemblyRef(namespace));
+            id::TypeRef(self.records.TypeRef.push_pos(rec::TypeRef {
+                TypeName: self.strings.insert(name),
+                TypeNamespace: self.strings.insert(namespace),
+                ResolutionScope: scope,
+            }))
+        };
 
         self.TypeRef
             .entry(namespace.to_string())
