@@ -306,15 +306,24 @@ fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream>
                 quote! { #tokens #short }
             };
 
-            // Build the args token stream.
+            // Build the args token stream.  Positional args are emitted as plain values;
+            // named args (non-empty name) are emitted as `name = value`.
             let args: Vec<_> = attr
                 .value()
                 .into_iter()
-                .map(|(_, v)| match &v {
-                    metadata::Value::EnumValue(tn, inner) => {
-                        write_enum_value(item_namespace, tn, inner, index)
+                .map(|(name, v)| {
+                    let value_ts = match &v {
+                        metadata::Value::EnumValue(tn, inner) => {
+                            write_enum_value(item_namespace, tn, inner, index)
+                        }
+                        _ => write_value(item_namespace, &v),
+                    };
+                    if name.is_empty() {
+                        value_ts
+                    } else {
+                        let name_ident = write_ident(&name);
+                        quote! { #name_ident = #value_ts }
                     }
-                    _ => write_value(item_namespace, &v),
                 })
                 .collect();
 

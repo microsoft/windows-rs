@@ -1,5 +1,9 @@
 #[winrt]
 mod Test {
+    attribute DualApiPartitionAttribute {
+        fn();
+        version: u32,
+    }
     attribute MarshalingBehaviorAttribute {
         fn(value: MarshalingType);
     }
@@ -10,6 +14,7 @@ mod Test {
         Standard = 3,
         InvalidMarshaling = 4,
     }
+    #[DualApiPartition(version = 100794368)]
     #[MarshalingBehavior(Agile)]
     #[Threading(Both)]
     class MySocket {}

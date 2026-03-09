@@ -8,6 +8,8 @@ pub struct Attribute {
     pub token: attribute,
     pub name: syn::Ident,
     pub methods: Vec<syn::TypeBareFn>,
+    /// Named instance-field properties, declared as `name: type,` inside the attribute body.
+    pub properties: Vec<(syn::Ident, syn::Type)>,
     pub winrt: bool,
 }
 
@@ -20,10 +22,19 @@ impl syn::parse::Parse for Attribute {
         let content;
         syn::braced!(content in input);
         let mut methods = vec![];
+        let mut properties = vec![];
 
         while !content.is_empty() {
-            methods.push(content.parse()?);
-            content.parse::<syn::Token![;]>()?;
+            if content.peek(syn::Token![fn]) {
+                methods.push(content.parse()?);
+                content.parse::<syn::Token![;]>()?;
+            } else {
+                let prop_name: syn::Ident = content.parse()?;
+                content.parse::<syn::Token![:]>()?;
+                let prop_ty: syn::Type = content.parse()?;
+                content.parse::<syn::Token![,]>()?;
+                properties.push((prop_name, prop_ty));
+            }
         }
 
         Ok(Self {
@@ -31,6 +42,7 @@ impl syn::parse::Parse for Attribute {
             token,
             name,
             methods,
+            properties,
             winrt: false,
         })
     }
@@ -92,6 +104,16 @@ impl Attribute {
                     param.attributes,
                 );
             }
+        }
+
+        // Emit public instance fields for named properties (e.g. `version: u32`).
+        for (prop_name, prop_ty) in &self.properties {
+            let ty = encode_type(encoder, prop_ty)?;
+            encoder.output.Field(
+                &prop_name.to_string(),
+                &ty,
+                metadata::FieldAttributes::Public,
+            );
         }
 
         Ok(())
