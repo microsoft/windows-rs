@@ -461,7 +461,7 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         USize => quote! { usize },
 
         Void => quote! { void },
-        String => quote! { HSTRING },
+        String => quote! { String },
         Object => quote! { IInspectable },
         Name(tn) if tn == ("System", "Type") => quote! { Type },
         Name(tn) if tn == ("System", "Guid") => quote! { GUID },

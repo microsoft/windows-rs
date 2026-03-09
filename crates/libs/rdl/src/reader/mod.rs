@@ -596,7 +596,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
             "usize" => return Ok(metadata::Type::USize),
 
             "void" => return Ok(metadata::Type::Void),
-            "HSTRING" => return Ok(metadata::Type::String),
+            "String" => return Ok(metadata::Type::String),
             "IInspectable" => return Ok(metadata::Type::Object),
             "Type" => return Ok(metadata::Type::named("System", "Type")),
             "GUID" => return Ok(("System", "Guid").into()),
