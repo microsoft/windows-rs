@@ -550,3 +550,91 @@ mod Test {
         .write()
         .unwrap();
 }
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "positional attribute arguments must come before named arguments", file_name: ".rdl", line: 6, column: 26 }"#
+)]
+fn positional_after_named_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(value: u32); }
+
+    #[Foo(named_prop = 1, 42)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "no matching attribute constructor found", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn no_matching_ctor_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(value: u32); }
+
+    #[Foo(1, 2, 3)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "attribute has no property `unknown`", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn unknown_property_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(); version: u32, }
+
+    #[Foo(unknown = 42)]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "attribute cannot use top-level `name = value` syntax", file_name: ".rdl", line: 6, column: 4 }"#
+)]
+fn top_level_name_value_syntax_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    attribute FooAttribute { fn(); }
+
+    #[Foo = "bar"]
+    class MyClass {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
