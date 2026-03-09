@@ -373,6 +373,64 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
     }
 }
 
+/// Like [`encode_type`] but tries `attr_ns` as the primary base namespace for
+/// unqualified type names before falling back to `encoder.namespace`.
+///
+/// This is needed when resolving constructor-parameter types for an attribute
+/// that lives in a namespace other than the one currently being encoded.  For
+/// example, `MarshalingBehaviorAttribute` (in `Windows.Foundation.Metadata`)
+/// takes a `MarshalingType` parameter; if the *calling* item is in
+/// `Windows.Something`, the plain name `MarshalingType` must still be looked
+/// up in `Windows.Foundation.Metadata`, not in `Windows.Something`.
+fn encode_type_in_attr_ns(
+    encoder: &Encoder,
+    attr_ns: &str,
+    ty: &syn::Type,
+) -> Result<metadata::Type, Error> {
+    // Fast path: no special handling needed when the namespaces already agree.
+    if attr_ns == encoder.namespace {
+        return encode_type(encoder, ty);
+    }
+
+    // For a plain relative (non-`::`) path we first attempt to resolve it in
+    // `attr_ns`.  If the lookup succeeds we return the fully-qualified type
+    // immediately; otherwise we delegate to the regular `encode_type` so that
+    // builtin aliases ("u32", "String", …) and types genuinely local to the
+    // caller's namespace are still handled correctly.
+    if let syn::Type::Path(type_path) = ty {
+        if type_path.qself.is_none() && type_path.path.leading_colon.is_none() {
+            let segs: Vec<String> = type_path
+                .path
+                .segments
+                .iter()
+                .map(|s| s.ident.to_string())
+                .collect();
+
+            // Paths containing `super` need the regular encoder context.
+            if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
+                let name = segs.last().unwrap();
+                let candidate_ns = if segs.len() == 1 {
+                    attr_ns.to_string()
+                } else {
+                    format!("{}.{}", attr_ns, segs[..segs.len() - 1].join("."))
+                };
+
+                if encoder.index.contains(&candidate_ns, name)
+                    || encoder.reference.contains(&candidate_ns, name)
+                {
+                    return Ok(metadata::Type::Name(metadata::TypeName {
+                        namespace: candidate_ns,
+                        name: name.to_string(),
+                        generics: vec![],
+                    }));
+                }
+            }
+        }
+    }
+
+    encode_type(encoder, ty)
+}
+
 fn encode_type_slice(encoder: &Encoder, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
     Ok(metadata::Type::Array(Box::new(encode_type(
         encoder, &ty.elem,

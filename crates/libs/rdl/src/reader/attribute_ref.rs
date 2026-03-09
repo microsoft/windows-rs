@@ -125,7 +125,7 @@ fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<
         let types: Result<Vec<_>, _> = method
             .inputs
             .iter()
-            .map(|arg| encode_type(encoder, &arg.ty))
+            .map(|arg| encode_type_in_attr_ns(encoder, namespace, &arg.ty))
             .collect();
         if let Ok(types) = types {
             constructors.push(types);
@@ -134,7 +134,7 @@ fn find_in_index(encoder: &Encoder, namespace: &str, attr_name: &str) -> Option<
 
     let mut properties = vec![];
     for (prop_name, prop_ty) in &attr_item.properties {
-        if let Ok(ty) = encode_type(encoder, prop_ty) {
+        if let Ok(ty) = encode_type_in_attr_ns(encoder, namespace, prop_ty) {
             properties.push((prop_name.to_string(), ty));
         }
     }

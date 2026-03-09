@@ -1,0 +1,19 @@
+mod Test {
+    #[winrt]
+    mod Attributes {
+        attribute MarshalingBehaviorAttribute {
+            fn(value: MarshalingType);
+        }
+        #[repr(i32)]
+        enum MarshalingType {
+            None = 1,
+            Agile = 2,
+            Standard = 3,
+        }
+    }
+    #[winrt]
+    mod Types {
+        #[Test::Attributes::MarshalingBehavior(Agile)]
+        class MyClass {}
+    }
+}
