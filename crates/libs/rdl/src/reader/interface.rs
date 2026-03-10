@@ -133,10 +133,15 @@ impl Interface {
 
             // Check for the built-in `#[special]` pseudo-attribute which sets the
             // SpecialName bit on the MethodDef, preserving properties and events.
-            let is_special = method
-                .attrs
-                .iter()
-                .any(|attr| attr.path().is_ident("special"));
+            let mut is_special = false;
+            for attr in &method.attrs {
+                if attr.path().is_ident("special") {
+                    if !matches!(attr.meta, syn::Meta::Path(_)) {
+                        return encoder.err(attr, "`special` attribute does not accept arguments");
+                    }
+                    is_special = true;
+                }
+            }
 
             let mut flags = base_flags;
             if is_special {
@@ -233,6 +238,28 @@ fn missing_self_no_params() {
 mod Test {
     interface IFoo {
         fn Method();
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`special` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 8 }"#
+)]
+fn special_with_args() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        #[special(42)]
+        fn Method(&self);
     }
 }
         "#,
