@@ -41,13 +41,6 @@ impl Union {
             winrt: false,
             is_union: true,
         };
-        let mut breadcrumbs = vec![];
-        encode_struct_inner(
-            encoder,
-            &item,
-            &self.name.to_string(),
-            None,
-            &mut breadcrumbs,
-        )
+        item.encode(encoder)
     }
 }

@@ -102,7 +102,7 @@ struct NestedEntry<'a> {
     def: &'a Struct,
 }
 
-pub(super) fn encode_struct_inner(
+fn encode_struct_inner(
     encoder: &mut Encoder,
     item: &Struct,
     item_name: &str,
