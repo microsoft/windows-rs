@@ -1,8 +1,12 @@
 # Copilot Instructions
 
-## Code formatting
+## Preparing a PR
 
-Always run `cargo fmt --all` and `cargo clippy` before raising a PR.
+Before raising a PR, run the following in order:
+
+1. `cargo test --all` - ensure all tests pass
+2. `cargo clippy --all` - fix any lints
+3. `cargo fmt` - format the code
 
 ## Generated code
 
