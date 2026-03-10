@@ -187,9 +187,11 @@ fn emit_fields(
             StructField::Regular(regular) => {
                 let field_name = regular.ident.as_ref().unwrap().to_string();
                 let field_type = encode_type(encoder, &regular.ty)?;
-                let field_id = encoder
-                    .output
-                    .Field(&field_name, &field_type, metadata::FieldAttributes::Public);
+                let field_id = encoder.output.Field(
+                    &field_name,
+                    &field_type,
+                    metadata::FieldAttributes::Public,
+                );
                 encode_attrs(
                     encoder,
                     metadata::writer::HasAttribute::Field(field_id),
