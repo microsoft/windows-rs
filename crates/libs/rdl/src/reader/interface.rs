@@ -8,7 +8,7 @@ pub struct Interface {
     pub token: interface,
     pub name: syn::Ident,
     pub generics: syn::Generics,
-    // pub requires: Vec<TypeParamBound>,
+    pub requires: Vec<syn::Path>,
     pub methods: Vec<Method>,
     pub winrt: bool,
 }
@@ -19,6 +19,16 @@ impl syn::parse::Parse for Interface {
         let token = input.parse()?;
         let name = input.parse()?;
         let generics = input.parse()?;
+
+        let requires = if input.parse::<syn::Token![:]>().is_ok() {
+            let mut requires = vec![input.parse::<syn::Path>()?];
+            while input.parse::<syn::Token![+]>().is_ok() {
+                requires.push(input.parse::<syn::Path>()?);
+            }
+            requires
+        } else {
+            vec![]
+        };
 
         let content;
         syn::braced!(content in input);
@@ -33,6 +43,7 @@ impl syn::parse::Parse for Interface {
             token,
             name,
             generics,
+            requires,
             methods,
             winrt: false,
         })
@@ -91,6 +102,18 @@ impl Interface {
             &self.attrs,
             &[],
         )?;
+
+        if !self.winrt && self.requires.len() > 1 {
+            return encoder.err(
+                &self.requires[1],
+                "non-WinRT interface can only inherit from one interface",
+            );
+        }
+
+        for require in &self.requires {
+            let ty = encode_path(encoder, require)?;
+            encoder.output.InterfaceImpl(interface, &ty);
+        }
 
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
@@ -200,6 +223,25 @@ mod Test {
     interface IFoo {
         fn Method(&mut self);
     }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "non-WinRT interface can only inherit from one interface", file_name: ".rdl", line: 4, column: 27 }"#
+)]
+fn win32_multiple_required_interfaces() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo: IBar + IBaz {}
 }
         "#,
         )

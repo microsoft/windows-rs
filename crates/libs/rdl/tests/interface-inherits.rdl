@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    interface IInheritsA: IInheritsNothing {}
+    interface IInheritsB: IInheritsA {}
+    interface IInheritsNothing {}
+}

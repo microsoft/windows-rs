@@ -13,6 +13,17 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         .methods()
         .map(|method| write_method(namespace, &method, &generics));
 
+    let requires: Vec<_> = item.interface_impls().collect();
+
+    let requires_tokens = if requires.is_empty() {
+        quote! {}
+    } else {
+        let ifaces = requires
+            .iter()
+            .map(|imp| write_type(namespace, &imp.interface(&generics)));
+        quote! { : #(#ifaces)+* }
+    };
+
     let generics = if generics.is_empty() {
         quote! {}
     } else {
@@ -24,7 +35,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
 
     quote! {
         #(#custom_attrs)*
-        interface #name #generics {
+        interface #name #generics #requires_tokens {
             #(#methods)*
         }
     }
