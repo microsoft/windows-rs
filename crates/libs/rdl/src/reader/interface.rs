@@ -115,7 +115,7 @@ impl Interface {
             encoder.output.InterfaceImpl(interface, &ty);
         }
 
-        let flags = metadata::MethodAttributes::Public
+        let base_flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
             | metadata::MethodAttributes::Abstract
             | metadata::MethodAttributes::NewSlot
@@ -154,6 +154,23 @@ impl Interface {
                 types,
             };
 
+            // Check for the built-in `#[special]` pseudo-attribute which sets the
+            // SpecialName bit on the MethodDef, preserving properties and events.
+            let mut is_special = false;
+            for attr in &method.attrs {
+                if attr.path().is_ident("special") {
+                    if !matches!(attr.meta, syn::Meta::Path(_)) {
+                        return encoder.err(attr, "`special` attribute does not accept arguments");
+                    }
+                    is_special = true;
+                }
+            }
+
+            let mut flags = base_flags;
+            if is_special {
+                flags |= metadata::MethodAttributes::SpecialName;
+            }
+
             let method_def = encoder.output.MethodDef(
                 &method.sig.ident.to_string(),
                 &signature,
@@ -162,11 +179,12 @@ impl Interface {
             );
 
             // Emit any Named attributes attached to this method.
+            // `special` is a built-in pseudo-attribute and must not be emitted as metadata.
             encode_attrs(
                 encoder,
                 metadata::writer::HasAttribute::MethodDef(method_def),
                 &method.attrs,
-                &[],
+                &["special"],
             )?;
 
             for (sequence, param) in params.iter().enumerate() {
@@ -187,6 +205,25 @@ impl Interface {
 
         Ok(())
     }
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "non-WinRT interface can only inherit from one interface", file_name: ".rdl", line: 4, column: 27 }"#
+)]
+fn win32_multiple_required_interfaces() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo: IBar + IBaz {}
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }
 
 #[test]
@@ -233,25 +270,6 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "non-WinRT interface can only inherit from one interface", file_name: ".rdl", line: 4, column: 27 }"#
-)]
-fn win32_multiple_required_interfaces() {
-    Reader::new()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    interface IFoo: IBar + IBaz {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(
     expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 11 }"#
 )]
 fn missing_self_no_params() {
@@ -262,6 +280,28 @@ fn missing_self_no_params() {
 mod Test {
     interface IFoo {
         fn Method();
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`special` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 8 }"#
+)]
+fn special_with_args() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        #[special(42)]
+        fn Method(&self);
     }
 }
         "#,

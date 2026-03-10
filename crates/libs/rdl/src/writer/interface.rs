@@ -62,7 +62,19 @@ fn write_method(
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
+    // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
+    // preserving properties and events on round-trip.
+    let special_attr = if item
+        .flags()
+        .contains(metadata::MethodAttributes::SpecialName)
+    {
+        quote! { #[special] }
+    } else {
+        quote! {}
+    };
+
     quote! {
+        #special_attr
         #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     }
