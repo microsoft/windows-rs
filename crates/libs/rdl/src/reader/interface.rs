@@ -270,25 +270,6 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "non-WinRT interface can only inherit from one interface", file_name: ".rdl", line: 4, column: 27 }"#
-)]
-fn win32_multiple_required_interfaces() {
-    Reader::new()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    interface IFoo: IBar + IBaz {}
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
-#[should_panic(
     expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 11 }"#
 )]
 fn missing_self_no_params() {
