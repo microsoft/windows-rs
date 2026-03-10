@@ -1,0 +1,21 @@
+#[winrt]
+mod Test {
+    #[Usage(Class)]
+    struct ForClass {}
+    #[Usage(Struct | Class)]
+    struct ForClassOrStruct {}
+    #[Usage(16)]
+    struct ForUnknown {}
+    #[repr(i32)]
+    #[flags]
+    enum Targets {
+        None = 0,
+        Class = 1,
+        Struct = 2,
+        Interface = 4,
+        Method = 8,
+    }
+    attribute UsageAttribute {
+        fn(value: Targets);
+    }
+}

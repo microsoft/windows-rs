@@ -279,20 +279,120 @@ fn encode_attr_value(
             _ => encoder.err(value, "expected type path"),
         },
         metadata::Type::Name(tn) => {
-            // Enum type: accept an unqualified variant name, e.g. `Agile`.
-            match value {
-                syn::Expr::Path(syn::ExprPath { path, .. })
-                    if path.leading_colon.is_none() && path.segments.len() == 1 =>
-                {
+            // Single unqualified variant name, e.g. `Agile`.
+            if let syn::Expr::Path(syn::ExprPath { path, .. }) = value {
+                if path.leading_colon.is_none() && path.segments.len() == 1 {
                     let variant_name = path.segments[0].ident.to_string();
                     let inner = find_enum_variant_value(encoder, tn, &variant_name, value)?;
-                    Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)))
+                    return Ok(metadata::Value::EnumValue(tn.clone(), Box::new(inner)));
                 }
-                _ => encoder.err(value, &format!("expected `{}` variant name", tn.name)),
             }
+            // The remaining forms are only valid for flag enums (those with FlagsAttribute
+            // in metadata or `#[flags]` in RDL).
+            if enum_is_flags(encoder, tn) {
+                // Flags combination: `Flag1 | Flag2 | ...` written by the writer for flag enums.
+                // Collect all variant names from the binary-OR chain and OR their values.
+                if let Some(names) = collect_bitor_variants(value) {
+                    let mut combined: i32 = 0;
+                    for name in &names {
+                        let inner = find_enum_variant_value(encoder, tn, name, value)?;
+                        let v = match inner {
+                            metadata::Value::I32(v) => v,
+                            _ => {
+                                return encoder
+                                    .err(value, &format!("expected `{}` variant name", tn.name))
+                            }
+                        };
+                        combined |= v;
+                    }
+                    return Ok(metadata::Value::EnumValue(
+                        tn.clone(),
+                        Box::new(metadata::Value::I32(combined)),
+                    ));
+                }
+                // Numeric literal fallback for values that have no named representation
+                // (e.g. `3967`).  This preserves round-trip fidelity for unknown flag values.
+                if let syn::Expr::Lit(syn::ExprLit {
+                    lit: syn::Lit::Int(int),
+                    ..
+                }) = value
+                {
+                    if let Ok(v) = int.base10_parse::<i32>() {
+                        return Ok(metadata::Value::EnumValue(
+                            tn.clone(),
+                            Box::new(metadata::Value::I32(v)),
+                        ));
+                    }
+                }
+            }
+            encoder.err(value, &format!("expected `{}` variant name", tn.name))
         }
         _ => encode_value(encoder, ty, value),
     }
+}
+
+/// Collects the individual variant name identifiers from a chain of binary `|`
+/// expressions such as `Flag1 | Flag2 | Flag3`.  Returns `None` if the
+/// expression is not a pure chain of simple single-segment path expressions
+/// joined by `|`.
+///
+/// Single-segment paths (e.g. bare `Class`) are handled by the caller before
+/// this function is reached, so we only recognise true multi-part OR chains.
+fn collect_bitor_variants(expr: &syn::Expr) -> Option<Vec<String>> {
+    let mut names = Vec::new();
+    collect_bitor_variants_inner(expr, &mut names)?;
+    if names.len() >= 2 {
+        Some(names)
+    } else {
+        None
+    }
+}
+
+fn collect_bitor_variants_inner(expr: &syn::Expr, names: &mut Vec<String>) -> Option<()> {
+    match expr {
+        syn::Expr::Binary(syn::ExprBinary {
+            left,
+            op: syn::BinOp::BitOr(_),
+            right,
+            ..
+        }) => {
+            collect_bitor_variants_inner(left, names)?;
+            collect_bitor_variants_inner(right, names)?;
+            Some(())
+        }
+        syn::Expr::Path(syn::ExprPath { path, .. })
+            if path.leading_colon.is_none() && path.segments.len() == 1 =>
+        {
+            names.push(path.segments[0].ident.to_string());
+            Some(())
+        }
+        _ => None,
+    }
+}
+
+/// Returns `true` if the enum type referred to by `tn` carries the flags marker —
+/// either `System.FlagsAttribute` in a metadata reference or the `#[flags]`
+/// attribute in the RDL index.
+fn enum_is_flags(encoder: &Encoder, tn: &metadata::TypeName) -> bool {
+    // Check in the metadata reference (external winmd files).
+    for typedef in encoder.reference.get(&tn.namespace, &tn.name) {
+        if typedef.category() == metadata::reader::TypeCategory::Enum
+            && metadata::HasAttributes::attributes(&typedef).any(|attr| {
+                attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
+            })
+        {
+            return true;
+        }
+    }
+    // Check in the RDL index (types defined in current input files).
+    if let Some(ns) = encoder.index.namespaces.get(&tn.namespace) {
+        if let Some((_, Item::Enum(enum_item))) = ns.types.get(&tn.name) {
+            if enum_item.attrs.iter().any(|a| a.path().is_ident("flags")) {
+                return true;
+            }
+        }
+    }
+    false
 }
 
 /// Looks up the integer value of an enum variant by name, searching first the
