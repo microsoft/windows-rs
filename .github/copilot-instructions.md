@@ -2,7 +2,7 @@
 
 ## Code formatting
 
-Always run `cargo fmt --all` before raising a PR.
+Always run `cargo fmt --all` and `cargo clippy` before raising a PR.
 
 ## Generated code
 
