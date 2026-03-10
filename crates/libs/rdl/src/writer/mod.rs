@@ -434,9 +434,8 @@ fn write_flags_combination(
 
     // Sort descending by the unsigned interpretation so that composite flags
     // like `All = 0xFFFFFFFF` are tried before individual bits, giving more
-    // compact results.  We reinterpret each i32 as u32 for the comparison so
-    // that bit-patterns like 0xFFFFFFFF (stored as -1) sort at the top.
-    fields.sort_by(|a, b| (b.1 as u32).cmp(&(a.1 as u32)));
+    // compact results.
+    fields.sort_by_key(|b| std::cmp::Reverse(b.1 as u32));
 
     let mut remaining = value;
     let mut components: Vec<String> = Vec::new();
