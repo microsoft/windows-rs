@@ -2,7 +2,7 @@
 
 ## Preparing a PR
 
-Before raising a PR, run the following in order:
+Before creating a PR, and before pushing any subsequent commits, run the following commands to catch any potential build failures:
 
 1. `cargo test --all` - ensure all tests pass
 2. `cargo clippy --all` - fix any lints
