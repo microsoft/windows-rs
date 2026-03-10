@@ -356,7 +356,10 @@ fn write_custom_attributes<'a>(
 }
 
 /// Writes an enum attribute argument as its variant name by looking up the integer
-/// value in the TypeIndex.  Falls back to the raw inner value if no match is found.
+/// value in the TypeIndex.  For flag enums (those with `System.FlagsAttribute`),
+/// falls back to decomposing the value into a `Flag1 | Flag2` combination when no
+/// exact variant match is found.  Falls back to the raw inner value when no match
+/// or decomposition can be found.
 fn write_enum_value(
     namespace: &str,
     tn: &metadata::TypeName,
@@ -370,14 +373,15 @@ fn write_enum_value(
 
     for typedef in index.get(&tn.namespace, &tn.name) {
         if typedef.category() == metadata::reader::TypeCategory::Enum {
+            // First try an exact variant match.
             for field in typedef.fields() {
                 if field.flags().contains(metadata::FieldAttributes::Literal) {
                     if let Some(constant) = field.constant() {
                         let matches = match constant.value() {
                             metadata::Value::I32(v) => v == inner_i32,
-                            // Guard against negative inner_i32 wrapping to a large u32 that
-                            // coincidentally equals a real constant (e.g. -1 as u32 == u32::MAX).
-                            metadata::Value::U32(v) => inner_i32 >= 0 && v == inner_i32 as u32,
+                            // Use bit-equal comparison so that `U32(0xFFFFFFFF)` matches
+                            // the `I32(-1)` that attribute blobs carry for that value.
+                            metadata::Value::U32(v) => v == inner_i32 as u32,
                             _ => false,
                         };
                         if matches {
@@ -387,10 +391,88 @@ fn write_enum_value(
                     }
                 }
             }
+
+            // For flag enums, try to decompose into a `Flag1 | Flag2` combination.
+            let has_flags = typedef.attributes().any(|attr| {
+                attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
+            });
+
+            if has_flags {
+                if let Some(flags_ts) = write_flags_combination(namespace, &typedef, inner_i32) {
+                    return flags_ts;
+                }
+            }
         }
     }
 
     write_value(namespace, inner)
+}
+
+/// Attempts to express `value` as a bitwise OR of known enum variants for a flags
+/// enum.  Returns `None` if the value cannot be fully covered by the available
+/// variants (i.e. there are leftover bits with no matching name).
+fn write_flags_combination(
+    _namespace: &str,
+    typedef: &metadata::reader::TypeDef,
+    value: i32,
+) -> Option<TokenStream> {
+    // Collect all non-zero literal fields together with their i32 values.
+    let mut fields: Vec<(String, i32)> = typedef
+        .fields()
+        .filter_map(|field| {
+            if !field.flags().contains(metadata::FieldAttributes::Literal) {
+                return None;
+            }
+            let constant = field.constant()?;
+            let v = match constant.value() {
+                metadata::Value::I32(v) => v,
+                // Reinterpret-cast U32 to i32 so that values like 0xFFFFFFFF
+                // (`All`) are included and compared bit-identically below.
+                metadata::Value::U32(v) => v as i32,
+                _ => return None,
+            };
+            if v == 0 {
+                None
+            } else {
+                Some((field.name().to_string(), v))
+            }
+        })
+        .collect();
+
+    // Sort descending by the unsigned interpretation so that composite flags
+    // like `All = 0xFFFFFFFF` are tried before individual bits, giving more
+    // compact results.
+    fields.sort_by_key(|b| std::cmp::Reverse(b.1 as u32));
+
+    let mut remaining = value;
+    let mut components: Vec<String> = Vec::new();
+
+    for (name, v) in &fields {
+        if remaining == 0 {
+            break;
+        }
+        if (remaining & v) == *v {
+            remaining &= !v;
+            components.push(name.clone());
+        }
+    }
+
+    if remaining != 0 || components.is_empty() {
+        // `remaining != 0` means there are bits with no matching variant.
+        // `components.is_empty()` means `value` was 0 and no zero-valued variant
+        // was found — the caller's exact-match pass handles the named-zero case
+        // (e.g. `None = 0`), so falling back to the raw numeric value is correct.
+        return None;
+    }
+
+    let mut iter = components.iter();
+    let first = write_ident(iter.next().unwrap());
+    let result = iter.fold(first, |acc, name| {
+        let variant = write_ident(name);
+        quote! { #acc | #variant }
+    });
+
+    Some(result)
 }
 
 fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
