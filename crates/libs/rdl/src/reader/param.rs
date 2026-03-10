@@ -4,6 +4,7 @@ pub struct Param {
     pub name: String,
     pub ty: metadata::Type,
     pub attributes: metadata::ParamAttributes,
+    pub attrs: Vec<syn::Attribute>,
 }
 
 pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error> {
@@ -24,6 +25,7 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
         name,
         ty,
         attributes,
+        attrs: param.attrs.clone(),
     })
 }
 
@@ -36,5 +38,6 @@ pub fn bare_param(encoder: &mut Encoder, param: &syn::BareFnArg) -> Result<Param
         name: name.unraw_to_string(),
         ty: encode_type(encoder, &param.ty)?,
         attributes: metadata::ParamAttributes::In,
+        attrs: vec![],
     })
 }

@@ -42,6 +42,7 @@ impl syn::parse::Parse for Struct {
 
 impl syn::parse::Parse for StructField {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        let attrs = input.call(syn::Attribute::parse_outer)?;
         let name = input.parse()?;
         input.parse::<syn::Token![:]>()?;
 
@@ -52,7 +53,7 @@ impl syn::parse::Parse for StructField {
             })
         } else {
             Ok(StructField::Regular(syn::Field {
-                attrs: vec![],
+                attrs,
                 ident: Some(name),
                 ty: input.parse()?,
                 vis: syn::Visibility::Inherited,
@@ -186,9 +187,17 @@ fn emit_fields(
             StructField::Regular(regular) => {
                 let field_name = regular.ident.as_ref().unwrap().to_string();
                 let field_type = encode_type(encoder, &regular.ty)?;
-                encoder
-                    .output
-                    .Field(&field_name, &field_type, metadata::FieldAttributes::Public);
+                let field_id = encoder.output.Field(
+                    &field_name,
+                    &field_type,
+                    metadata::FieldAttributes::Public,
+                );
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Field(field_id),
+                    &regular.attrs,
+                    &[],
+                )?;
             }
             StructField::Nested { name, .. } => {
                 let field_name = name.to_string();

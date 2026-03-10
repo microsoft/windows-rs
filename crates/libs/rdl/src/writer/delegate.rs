@@ -31,7 +31,10 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
     quote! {
+        #(#custom_attrs)*
         delegate fn #name #generics (#(#params),*) #return_type;
     }
 }

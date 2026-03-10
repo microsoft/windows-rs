@@ -21,8 +21,11 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
         })
     });
 
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
     quote! {
         #[repr(#repr)]
+        #(#custom_attrs)*
         enum #name {
             #(#fields)*
         }

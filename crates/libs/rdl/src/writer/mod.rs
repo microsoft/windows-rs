@@ -283,7 +283,10 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
         todo!()
     };
 
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
     quote! {
+        #(#custom_attrs)*
         #[link(name = #library, abi = #abi)]
         fn #name(#(#params),*) #return_type;
     }

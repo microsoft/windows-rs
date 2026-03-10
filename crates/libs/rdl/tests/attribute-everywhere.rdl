@@ -1,0 +1,55 @@
+#[winrt]
+mod Test {
+    #[Test("Class")]
+    class WC {}
+    #[Test("Delegate")]
+    delegate fn WD();
+    #[repr(i32)]
+    #[Test("Enum")]
+    enum WE {}
+    #[Test("Interface")]
+    interface WI {
+        #[Test("Method")]
+        fn M(&self, #[Test("Param")] p: u32);
+    }
+    #[Test("Struct")]
+    struct WS {
+        #[Test("Field")]
+        f: u32,
+    }
+}
+#[win32]
+mod Test {
+    #[Test("Constant")]
+    const C: u32 = 0;
+    #[Test("Delegate")]
+    delegate fn D();
+    #[repr(u32)]
+    #[Test("Enum")]
+    enum E {}
+    #[Test("Fn")]
+    #[link(name = "test.dll", abi = "system")]
+    fn F();
+    #[Test("Interface")]
+    interface I {
+        #[Test("Method")]
+        fn M(&self, #[Test("Param")] p: u32);
+    }
+    #[Test("Struct")]
+    struct S {
+        #[Test("Field")]
+        f: u32,
+    }
+    #[Usage]
+    attribute TestAttribute {
+        fn(s: String);
+    }
+    #[Test("Union")]
+    union U {
+        #[Test("Field")]
+        f: u32,
+    }
+    attribute UsageAttribute {
+        fn();
+    }
+}

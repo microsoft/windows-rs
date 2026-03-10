@@ -45,10 +45,14 @@ fn write_method(
         std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
             let name = write_ident(param.name());
             let ty = write_type(namespace, &ty);
-            quote! { #name: #ty }
+            let param_attrs = write_custom_attributes(param.attributes(), namespace, item.index());
+            quote! { #(#param_attrs)* #name: #ty }
         }));
 
+    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
     quote! {
+        #(#method_attrs)*
         fn #name(#(#params),*) #return_type;
     }
 }

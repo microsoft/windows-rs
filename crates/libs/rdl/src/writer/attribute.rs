@@ -25,7 +25,10 @@ pub fn write_attribute(item: &metadata::reader::TypeDef) -> TokenStream {
         }
     });
 
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
     quote! {
+        #(#custom_attrs)*
         attribute #name {
             #(#methods)*
             #(#fields)*
