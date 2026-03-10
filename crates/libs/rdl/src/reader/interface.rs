@@ -131,19 +131,34 @@ impl Interface {
                 types,
             };
 
-            encoder.output.MethodDef(
+            let method_def = encoder.output.MethodDef(
                 &method.sig.ident.to_string(),
                 &signature,
                 flags,
                 Default::default(),
             );
 
+            // Emit any Named attributes attached to this method.
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::MethodDef(method_def),
+                &method.attrs,
+                &[],
+            )?;
+
             for (sequence, param) in params.iter().enumerate() {
-                encoder.output.Param(
+                let param_id = encoder.output.Param(
                     &param.name,
                     (sequence + 1).try_into().unwrap(),
                     param.attributes,
                 );
+
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Param(param_id),
+                    &param.attrs,
+                    &[],
+                )?;
             }
         }
 

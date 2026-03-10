@@ -35,7 +35,7 @@ impl Union {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let value_type = encoder.output.TypeRef("System", "ValueType");
 
-        encoder.output.TypeDef(
+        let type_def = encoder.output.TypeDef(
             encoder.namespace,
             encoder.name,
             metadata::writer::TypeDefOrRef::TypeRef(value_type),
@@ -43,6 +43,14 @@ impl Union {
                 | metadata::TypeAttributes::ExplicitLayout
                 | metadata::TypeAttributes::Sealed,
         );
+
+        // Emit any Named attributes attached to this union.
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(type_def),
+            &self.attrs,
+            &[],
+        )?;
 
         for field in &self.fields {
             let name = field.ident.as_ref().unwrap().to_string();
@@ -52,6 +60,13 @@ impl Union {
                 .Field(&name, &ty, metadata::FieldAttributes::Public);
 
             encoder.output.FieldLayout(field_id, 0);
+
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::Field(field_id),
+                &field.attrs,
+                &[],
+            )?;
         }
 
         Ok(())

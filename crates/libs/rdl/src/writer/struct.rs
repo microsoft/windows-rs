@@ -91,7 +91,9 @@ fn write_field(
         _ => write_type(namespace, &item.ty()),
     };
 
-    quote! { #name: #ty, }
+    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
+    quote! { #(#field_attrs)* #name: #ty, }
 }
 
 fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {
