@@ -1,0 +1,12 @@
+#[winrt]
+mod Test {
+    #[repr(u32)]
+    #[flags]
+    enum VirtualKeyModifiers {
+        None = 0,
+        Control = 1,
+        Menu = 2,
+        Shift = 4,
+        Windows = 8,
+    }
+}
