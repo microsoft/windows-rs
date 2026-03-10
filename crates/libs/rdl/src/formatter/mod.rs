@@ -80,6 +80,9 @@ enum Token<'a> {
     #[token("struct")]
     Struct,
 
+    #[token("+")]
+    Plus,
+
     #[token("r#")]
     Raw,
 
@@ -186,6 +189,10 @@ pub fn format(input: &str) -> String {
             }
             Token::Hyphen => {
                 output.push('-');
+            }
+            Token::Plus => {
+                output.trim_space();
+                output.push_str(" + ");
             }
             Token::OpenBracket => {
                 output.push('[');
