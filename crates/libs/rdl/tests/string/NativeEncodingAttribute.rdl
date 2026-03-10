@@ -1,0 +1,12 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Foundation {
+            mod Metadata {
+                attribute NativeEncodingAttribute {
+                    fn(name: String);
+                }
+            }
+        }
+    }
+}

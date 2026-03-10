@@ -74,6 +74,9 @@ enum Token<'a> {
     #[token(">")]
     GreaterThan,
 
+    #[regex(r#""[^"]*""#)]
+    StringLiteral(&'a str),
+
     #[token("struct")]
     Struct,
 
@@ -235,6 +238,9 @@ pub fn format(input: &str) -> String {
                 } else {
                     output.push('\n');
                 }
+            }
+            Token::StringLiteral(literal) => {
+                output.push_str(literal);
             }
             Token::Struct => {
                 output.push_str("struct ");

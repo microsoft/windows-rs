@@ -93,7 +93,7 @@ impl Writer {
 
         if self.split {
             for namespace in index.keys() {
-                if !namespace_starts_with(namespace, &self.namespace) {
+                if !namespace.is_empty() && !namespace_starts_with(namespace, &self.namespace) {
                     continue;
                 }
 
@@ -121,12 +121,14 @@ impl Writer {
             let mut layout = Layout::new();
 
             for namespace in index.keys() {
-                if self.recursive {
-                    if !namespace_starts_with(namespace, &self.namespace) {
+                if !self.namespace.is_empty() {
+                    if self.recursive {
+                        if !namespace_starts_with(namespace, &self.namespace) {
+                            continue;
+                        }
+                    } else if *namespace != self.namespace {
                         continue;
                     }
-                } else if *namespace != self.namespace {
-                    continue;
                 }
 
                 for (name, item) in index.namespace_items(namespace) {
@@ -204,7 +206,12 @@ fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenSt
     let constant = item.constant().expect("field missing constant");
     let ty = write_type(namespace, &item.ty());
     let value = write_value(namespace, &constant.value());
-    quote! { const #name: #ty = #value; }
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+
+    quote! {
+        #(#custom_attrs)*
+        const #name: #ty = #value;
+    }
 }
 
 fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenStream {
@@ -282,10 +289,12 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
     }
 }
 
-fn write_custom_attributes(item: &metadata::reader::TypeDef) -> Vec<TokenStream> {
-    let index = item.index();
-    let item_namespace = item.namespace();
-    item.attributes()
+fn write_custom_attributes<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::TypeIndex,
+) -> Vec<TokenStream> {
+    attributes
         .map(|attr| {
             let attr_ns = attr.ctor().parent().namespace();
             let attr_short = attr

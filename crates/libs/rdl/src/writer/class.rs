@@ -12,7 +12,7 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { : #ty }
     };
 
-    let custom_attrs = write_custom_attributes(item);
+    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
     let interfaces = item
         .interface_impls()
