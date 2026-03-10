@@ -6,6 +6,7 @@ mod Test {
     const I32: i32 = -32;
     const I64: i64 = -64;
     const I8: i8 = -8;
+    const NOVALUE: String;
     const U16: u16 = 16;
     const U32: u32 = 32;
     const U64: u64 = 64;
