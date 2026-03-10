@@ -1,16 +1,17 @@
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Struct {
     pub attrs: Vec<syn::Attribute>,
-    pub token: syn::Token![struct],
+    pub span: proc_macro2::Span,
     pub name: Option<syn::Ident>,
     pub fields: Vec<StructField>,
     pub winrt: bool,
+    pub is_union: bool,
 }
 
 #[allow(clippy::large_enum_variant)]
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum StructField {
     Regular(syn::Field),
     Nested { name: syn::Ident, def: Struct },
@@ -19,7 +20,7 @@ pub enum StructField {
 impl syn::parse::Parse for Struct {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
+        let token: syn::Token![struct] = input.parse()?;
         let name = input.parse()?;
 
         let content;
@@ -32,10 +33,11 @@ impl syn::parse::Parse for Struct {
 
         Ok(Self {
             attrs,
-            token,
+            span: token.span,
             name,
             fields,
             winrt: false,
+            is_union: false,
         })
     }
 }
@@ -50,6 +52,29 @@ impl syn::parse::Parse for StructField {
             Ok(StructField::Nested {
                 name,
                 def: input.parse()?,
+            })
+        } else if input.peek(syn::Token![union]) {
+            let union_token: syn::Token![union] = input.parse()?;
+            let nested_name = input.parse()?;
+
+            let content;
+            syn::braced!(content in input);
+
+            let fields = content
+                .parse_terminated(StructField::parse, syn::Token![,])?
+                .into_iter()
+                .collect();
+
+            Ok(StructField::Nested {
+                name,
+                def: Struct {
+                    attrs: vec![],
+                    span: union_token.span,
+                    name: nested_name,
+                    fields,
+                    winrt: false,
+                    is_union: true,
+                },
             })
         } else {
             Ok(StructField::Regular(syn::Field {
@@ -77,7 +102,7 @@ struct NestedEntry<'a> {
     def: &'a Struct,
 }
 
-fn encode_struct_inner(
+pub(super) fn encode_struct_inner(
     encoder: &mut Encoder,
     item: &Struct,
     item_name: &str,
@@ -86,9 +111,9 @@ fn encode_struct_inner(
 ) -> Result<(), Error> {
     breadcrumbs.push(item_name.to_string());
     let nested = collect_nested(item, breadcrumbs);
-    let type_def = define_type(encoder, item_name, outer, item.winrt);
+    let type_def = define_type(encoder, item_name, outer, item.winrt, item.is_union);
 
-    emit_fields(encoder, item, &nested)?;
+    emit_fields(encoder, item, &nested, item.is_union)?;
 
     if outer.is_none() {
         encode_attrs(
@@ -134,9 +159,17 @@ fn define_type(
     item_name: &str,
     outer: Option<metadata::writer::TypeDef>,
     winrt: bool,
+    is_union: bool,
 ) -> metadata::writer::TypeDef {
     let value_type = encoder.output.TypeRef("System", "ValueType");
-    let mut flags = metadata::TypeAttributes::SequentialLayout | metadata::TypeAttributes::Sealed;
+
+    let layout_flag = if is_union {
+        metadata::TypeAttributes::ExplicitLayout
+    } else {
+        metadata::TypeAttributes::SequentialLayout
+    };
+
+    let mut flags = layout_flag | metadata::TypeAttributes::Sealed;
 
     if outer.is_some() {
         flags |= metadata::TypeAttributes::NestedPublic;
@@ -181,6 +214,7 @@ fn emit_fields(
     encoder: &mut Encoder,
     item: &Struct,
     nested: &BTreeMap<String, NestedEntry>,
+    is_union: bool,
 ) -> Result<(), Error> {
     for field in &item.fields {
         match field {
@@ -192,6 +226,9 @@ fn emit_fields(
                     &field_type,
                     metadata::FieldAttributes::Public,
                 );
+                if is_union {
+                    encoder.output.FieldLayout(field_id, 0);
+                }
                 encode_attrs(
                     encoder,
                     metadata::writer::HasAttribute::Field(field_id),
@@ -203,9 +240,14 @@ fn emit_fields(
                 let field_name = name.to_string();
                 let field_type =
                     metadata::Type::named(encoder.namespace, &nested[&field_name].full_path);
-                encoder
-                    .output
-                    .Field(&field_name, &field_type, metadata::FieldAttributes::Public);
+                let field_id = encoder.output.Field(
+                    &field_name,
+                    &field_type,
+                    metadata::FieldAttributes::Public,
+                );
+                if is_union {
+                    encoder.output.FieldLayout(field_id, 0);
+                }
             }
         }
     }
