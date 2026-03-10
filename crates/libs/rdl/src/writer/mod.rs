@@ -203,14 +203,21 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
 
 fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     let name = write_ident(item.name());
-    let constant = item.constant().expect("field missing constant");
+    let constant = item.constant();
     let ty = write_type(namespace, &item.ty());
-    let value = write_value(namespace, &constant.value());
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    quote! {
-        #(#custom_attrs)*
-        const #name: #ty = #value;
+    if let Some(constant) = constant {
+        let value = write_value(namespace, &constant.value());
+        quote! {
+            #(#custom_attrs)*
+            const #name: #ty = #value;
+        }
+    } else {
+        quote! {
+            #(#custom_attrs)*
+            const #name: #ty;
+        }
     }
 }
 
