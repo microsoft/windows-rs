@@ -6,7 +6,7 @@ pub struct Const {
     pub token: syn::Token![const],
     pub name: syn::Ident,
     pub ty: syn::Type,
-    pub expr: syn::Expr,
+    pub expr: Option<syn::Expr>,
 }
 
 impl syn::parse::Parse for Const {
@@ -16,8 +16,12 @@ impl syn::parse::Parse for Const {
         let name = input.parse()?;
         input.parse::<syn::Token![:]>()?;
         let ty = input.parse()?;
-        input.parse::<syn::Token![=]>()?;
-        let expr = input.parse()?;
+        let expr = if input.peek(syn::Token![=]) {
+            input.parse::<syn::Token![=]>()?;
+            Some(input.parse()?)
+        } else {
+            None
+        };
         input.parse::<syn::Token![;]>()?;
 
         Ok(Self {
@@ -52,8 +56,6 @@ fn encode_const_value(
     item: &Const,
     name: &str,
 ) -> Result<(), Error> {
-    let value = encode_value(encoder, ty, &item.expr)?;
-
     let field = encoder.output.Field(
         name,
         ty,
@@ -62,9 +64,12 @@ fn encode_const_value(
             | metadata::FieldAttributes::Literal,
     );
 
-    encoder
-        .output
-        .Constant(metadata::writer::HasConstant::Field(field), &value);
+    if let Some(expr) = &item.expr {
+        let value = encode_value(encoder, ty, expr)?;
+        encoder
+            .output
+            .Constant(metadata::writer::HasConstant::Field(field), &value);
+    }
 
     encode_attrs(
         encoder,
@@ -82,7 +87,8 @@ fn encode_const_guid(
     item: &Const,
     name: &str,
 ) -> Result<(), Error> {
-    let value: u128 = encode_lit_int(encoder, &item.expr)?;
+    let expr = item.expr.as_ref().expect("GUID const missing value");
+    let value: u128 = encode_lit_int(encoder, expr)?;
     let field = encoder.output.Field(
         name,
         ty,
