@@ -53,11 +53,12 @@ fn write_field(
                     .find(|t| t.name() == ty_name.name)
                     .unwrap_or_else(|| panic!("Could not resolve nested type: {}", ty_name.name));
 
+                let keyword = nested_keyword(&nested);
                 let fields = nested
                     .fields()
                     .map(|f| write_field(namespace, &nested, &f))
                     .collect::<Vec<_>>();
-                quote! { struct { #(#fields)* } }
+                quote! { #keyword { #(#fields)* } }
             } else if ty_name.namespace.is_empty() {
                 let mut segments = ty_name.name.split('/');
                 let first = segments.next().unwrap();
@@ -76,11 +77,12 @@ fn write_field(
                         .unwrap_or_else(|| panic!("Could not resolve nested type: {}", segment));
                 }
 
+                let keyword = nested_keyword(&resolved);
                 let fields = resolved
                     .fields()
                     .map(|f| write_field(namespace, &resolved, &f))
                     .collect::<Vec<_>>();
-                quote! { struct { #(#fields)* } }
+                quote! { #keyword { #(#fields)* } }
             } else {
                 write_type(
                     namespace,
@@ -99,4 +101,15 @@ fn write_field(
 fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {
     item.flags()
         .contains(metadata::TypeAttributes::NestedPublic)
+}
+
+fn nested_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
+    if item
+        .flags()
+        .contains(metadata::TypeAttributes::ExplicitLayout)
+    {
+        quote! { union }
+    } else {
+        quote! { struct }
+    }
 }
