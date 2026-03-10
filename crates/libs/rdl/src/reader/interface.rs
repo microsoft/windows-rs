@@ -92,7 +92,7 @@ impl Interface {
             &[],
         )?;
 
-        let flags = metadata::MethodAttributes::Public
+        let base_flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
             | metadata::MethodAttributes::Abstract
             | metadata::MethodAttributes::NewSlot
@@ -131,6 +131,18 @@ impl Interface {
                 types,
             };
 
+            // Check for the built-in `#[special]` pseudo-attribute which sets the
+            // SpecialName bit on the MethodDef, preserving properties and events.
+            let is_special = method
+                .attrs
+                .iter()
+                .any(|attr| attr.path().is_ident("special"));
+
+            let mut flags = base_flags;
+            if is_special {
+                flags |= metadata::MethodAttributes::SpecialName;
+            }
+
             let method_def = encoder.output.MethodDef(
                 &method.sig.ident.to_string(),
                 &signature,
@@ -139,11 +151,12 @@ impl Interface {
             );
 
             // Emit any Named attributes attached to this method.
+            // `special` is a built-in pseudo-attribute and must not be emitted as metadata.
             encode_attrs(
                 encoder,
                 metadata::writer::HasAttribute::MethodDef(method_def),
                 &method.attrs,
-                &[],
+                &["special"],
             )?;
 
             for (sequence, param) in params.iter().enumerate() {
