@@ -127,7 +127,11 @@ pub fn format(input: &str) -> String {
             }
             Token::Attribute(attr) => {
                 push_attribute(attr, &mut output);
-                output.push('\n');
+                if paren_depth > 0 {
+                    output.push(' ');
+                } else {
+                    output.push('\n');
+                }
             }
             Token::CloseBrace => {
                 indent_level -= 1;

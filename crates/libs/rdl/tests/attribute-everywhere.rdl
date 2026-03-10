@@ -10,8 +10,7 @@ mod Test {
     #[Test("Interface")]
     interface WI {
         #[Test("Method")]
-        fn M(&self, #[Test("Param")]
-        p: u32);
+        fn M(&self, #[Test("Param")] p: u32);
     }
     #[Test("Struct")]
     struct WS {
@@ -34,8 +33,7 @@ mod Test {
     #[Test("Interface")]
     interface I {
         #[Test("Method")]
-        fn M(&self, #[Test("Param")]
-        p: u32);
+        fn M(&self, #[Test("Param")] p: u32);
     }
     #[Test("Struct")]
     struct S {
