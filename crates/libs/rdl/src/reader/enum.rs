@@ -78,12 +78,36 @@ impl Enum {
             return encoder.err(attribute, "`repr` must be an integer type");
         }
 
+        // Handle the special `#[flags]` attribute by encoding it as `System.FlagsAttribute`.
+        if let Some(attr) = self.attrs.iter().find(|a| a.path().is_ident("flags")) {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return encoder.err(attr, "`flags` attribute does not accept arguments");
+            }
+
+            let flags_type = encoder.output.TypeRef("System", "FlagsAttribute");
+            let signature = metadata::Signature {
+                flags: metadata::MethodCallAttributes::HASTHIS,
+                return_type: metadata::Type::Void,
+                types: vec![],
+            };
+            let ctor = encoder.output.MemberRef(
+                ".ctor",
+                &signature,
+                metadata::writer::MemberRefParent::TypeRef(flags_type),
+            );
+            encoder.output.Attribute(
+                metadata::writer::HasAttribute::TypeDef(enum_type),
+                metadata::writer::AttributeType::MemberRef(ctor),
+                &[],
+            );
+        }
+
         // Emit any Named attributes (defined in metadata or RDL) attached to this enum.
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(enum_type),
             &self.attrs,
-            &["repr"],
+            &["repr", "flags"],
         )?;
 
         encoder.output.Field(
@@ -135,6 +159,29 @@ mod Test {
     #[repr(bool)]
     enum AsyncStatus {
         Started = 0,
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`flags` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 4 }"#
+)]
+fn flags_with_args_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    #[repr(u32)]
+    #[flags(something)]
+    enum VirtualKeyModifiers {
+        None = 0,
     }
 }
         "#,

@@ -21,13 +21,34 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> TokenStream {
         })
     });
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let is_flags_attr = |attr: metadata::reader::Attribute| {
+        attr.name() == "FlagsAttribute" && attr.ctor().parent().namespace() == "System"
+    };
 
-    quote! {
-        #[repr(#repr)]
-        #(#custom_attrs)*
-        enum #name {
-            #(#fields)*
+    let has_flags = item.attributes().any(is_flags_attr);
+
+    let custom_attrs = write_custom_attributes(
+        item.attributes().filter(|attr| !is_flags_attr(*attr)),
+        namespace,
+        item.index(),
+    );
+
+    if has_flags {
+        quote! {
+            #[repr(#repr)]
+            #[flags]
+            #(#custom_attrs)*
+            enum #name {
+                #(#fields)*
+            }
+        }
+    } else {
+        quote! {
+            #[repr(#repr)]
+            #(#custom_attrs)*
+            enum #name {
+                #(#fields)*
+            }
         }
     }
 }
