@@ -372,9 +372,9 @@ fn write_enum_value(
                     if let Some(constant) = field.constant() {
                         let matches = match constant.value() {
                             metadata::Value::I32(v) => v == inner_i32,
-                            // Guard against negative inner_i32 wrapping to a large u32 that
-                            // coincidentally equals a real constant (e.g. -1 as u32 == u32::MAX).
-                            metadata::Value::U32(v) => inner_i32 >= 0 && v == inner_i32 as u32,
+                            // Use bit-equal comparison so that `U32(0xFFFFFFFF)` matches
+                            // the `I32(-1)` that attribute blobs carry for that value.
+                            metadata::Value::U32(v) => v == inner_i32 as u32,
                             _ => false,
                         };
                         if matches {
@@ -419,7 +419,9 @@ fn write_flags_combination(
             let constant = field.constant()?;
             let v = match constant.value() {
                 metadata::Value::I32(v) => v,
-                metadata::Value::U32(v) if v <= i32::MAX as u32 => v as i32,
+                // Reinterpret-cast U32 to i32 so that values like 0xFFFFFFFF
+                // (`All`) are included and compared bit-identically below.
+                metadata::Value::U32(v) => v as i32,
                 _ => return None,
             };
             if v == 0 {
@@ -430,9 +432,11 @@ fn write_flags_combination(
         })
         .collect();
 
-    // Sort descending so that combined flags (e.g. `All = A | B | C`) are tried
-    // before individual bits, giving more compact results.
-    fields.sort_by(|a, b| b.1.cmp(&a.1));
+    // Sort descending by the unsigned interpretation so that composite flags
+    // like `All = 0xFFFFFFFF` are tried before individual bits, giving more
+    // compact results.  We reinterpret each i32 as u32 for the comparison so
+    // that bit-patterns like 0xFFFFFFFF (stored as -1) sort at the top.
+    fields.sort_by(|a, b| (b.1 as u32).cmp(&(a.1 as u32)));
 
     let mut remaining = value;
     let mut components: Vec<String> = Vec::new();

@@ -435,7 +435,21 @@ fn find_enum_variant_value(
             for variant in &enum_item.variants {
                 if variant.ident == variant_name {
                     if let Some((_, discriminant)) = &variant.discriminant {
-                        return encode_value(encoder, &metadata::Type::I32, discriminant);
+                        // Attribute blobs encode enum values as I32.  Try I32 first,
+                        // then fall back to U32 for repr(u32) enums whose values
+                        // exceed i32::MAX (e.g. `All = 0xFFFF_FFFF`), converting to
+                        // I32 via a bit-reinterpret cast — mirroring the metadata
+                        // reference path above.
+                        let result = encode_value(encoder, &metadata::Type::I32, discriminant)
+                            .or_else(|_| {
+                                encode_value(encoder, &metadata::Type::U32, discriminant).map(|v| {
+                                    match v {
+                                        metadata::Value::U32(n) => metadata::Value::I32(n as i32),
+                                        other => other,
+                                    }
+                                })
+                            });
+                        return result;
                     }
                 }
             }
