@@ -147,9 +147,7 @@ impl Enum {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`repr` must be an integer type", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `repr` must be an integer type\n --> .rdl:4:5")]
 fn repr_must_be_integer() {
     Reader::new()
         .input_str(
@@ -169,9 +167,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`flags` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 4 }"#
-)]
+#[should_panic(expected = "error: `flags` attribute does not accept arguments\n --> .rdl:5:5")]
 fn flags_with_args_errors() {
     Reader::new()
         .input_str(

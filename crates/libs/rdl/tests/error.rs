@@ -6,13 +6,11 @@ pub fn error_display() {
 
     let s = format!("{e}");
 
-    assert_eq!(s, "error: message\n  --> file_name.rdl:2:4");
+    assert_eq!(s, "\nerror: message\n --> file_name.rdl:2:4");
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`repr` attribute not found", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `repr` attribute not found\n --> .rdl:4:5")]
 pub fn enum_repr_not_found() {
     Reader::new()
         .input_str(
@@ -34,9 +32,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "value not valid", file_name: ".rdl", line: 4, column: 19 }"#
-)]
+#[should_panic(expected = "error: value not valid\n --> .rdl:4:20")]
 pub fn const_value_not_valid() {
     Reader::new()
         .input_str(
@@ -53,9 +49,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`link` attribute not found", file_name: ".rdl", line: 3, column: 4 }"#
-)]
+#[should_panic(expected = "error: `link` attribute not found\n --> .rdl:3:5")]
 pub fn fn_link_not_found() {
     Reader::new()
         .input_str(
@@ -71,9 +65,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`winrt` and `win32` attributes are mutually exclusive", file_name: ".rdl", line: 5, column: 4 }"#
-)]
+#[should_panic(expected = "error: `winrt` and `win32` attributes are mutually exclusive\n --> .rdl:5:5")]
 pub fn winrt_win32_exclusive() {
     Reader::new()
         .input_str(
@@ -91,9 +83,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`winrt` or `win32` attribute required", file_name: ".rdl", line: 3, column: 4 }"#
-)]
+#[should_panic(expected = "error: `winrt` or `win32` attribute required\n --> .rdl:3:5")]
 pub fn winrt_win32_required() {
     Reader::new()
         .input_str(
