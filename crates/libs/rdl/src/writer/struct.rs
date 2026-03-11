@@ -84,10 +84,7 @@ fn write_field(
                     .collect::<Vec<_>>();
                 quote! { #keyword { #(#fields)* } }
             } else {
-                write_type(
-                    namespace,
-                    &metadata::Type::named(&ty_name.namespace, &ty_name.name),
-                )
+                write_type(namespace, &metadata::Type::Name(ty_name.clone()))
             }
         }
         _ => write_type(namespace, &item.ty()),
