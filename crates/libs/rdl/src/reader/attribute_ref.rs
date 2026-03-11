@@ -656,7 +656,9 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: positional attribute arguments must come before named arguments\n --> .rdl:6:27")]
+#[should_panic(
+    expected = "error: positional attribute arguments must come before named arguments\n --> .rdl:6:27"
+)]
 fn positional_after_named_errors() {
     Reader::new()
         .input_str(
@@ -716,7 +718,9 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: attribute cannot use top-level `name = value` syntax\n --> .rdl:6:5")]
+#[should_panic(
+    expected = "error: attribute cannot use top-level `name = value` syntax\n --> .rdl:6:5"
+)]
 fn top_level_name_value_syntax_errors() {
     Reader::new()
         .input_str(

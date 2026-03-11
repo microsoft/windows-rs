@@ -208,7 +208,9 @@ impl Interface {
 }
 
 #[test]
-#[should_panic(expected = "error: non-WinRT interface can only inherit from one interface\n --> .rdl:4:28")]
+#[should_panic(
+    expected = "error: non-WinRT interface can only inherit from one interface\n --> .rdl:4:28"
+)]
 fn win32_multiple_required_interfaces() {
     Reader::new()
         .input_str(

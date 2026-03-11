@@ -65,7 +65,9 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `winrt` and `win32` attributes are mutually exclusive\n --> .rdl:5:5")]
+#[should_panic(
+    expected = "error: `winrt` and `win32` attributes are mutually exclusive\n --> .rdl:5:5"
+)]
 pub fn winrt_win32_exclusive() {
     Reader::new()
         .input_str(
