@@ -1,0 +1,27 @@
+use Windows::Foundation::Metadata::*;
+
+#[winrt]
+mod Sample {
+    #[Version(1)]
+    #[Activatable(IJsonValidatorFactory, 1)]
+    #[MarshalingBehavior(Agile)]
+    #[Threading(Both)]
+    class JsonValidator {
+        #[default]
+        IJsonValidator,
+    }
+
+    #[Guid(3768365355, 45372, 20793, 140, 153, 97, 64, 191, 128, 222, 185)]
+    #[ExclusiveTo(JsonValidator)]
+    #[Version(1)]
+    interface IJsonValidator {
+        fn Validate(&self, value: String) -> String;
+    }
+
+    #[ExclusiveTo(JsonValidator)]
+    #[Version(1)]
+    #[Guid(485770830, 44702, 21973, 149, 57, 10, 244, 216, 252, 53, 170)]
+    interface IJsonValidatorFactory {
+        fn CreateInstance(&self, schema: String) -> JsonValidator;
+    }
+}

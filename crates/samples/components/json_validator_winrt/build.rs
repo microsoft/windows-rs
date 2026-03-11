@@ -1,30 +1,22 @@
 fn main() {
-    println!("cargo:rerun-if-changed=src/sample.idl");
-    let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
-    let mut command = std::process::Command::new("midlrt.exe");
+    println!("cargo:rerun-if-changed=src/sample.rdl");
 
-    command.args([
-        "/winrt",
-        "/nomidl",
-        "/h",
-        "nul",
-        "/metadata_dir",
-        &metadata_dir,
-        "/reference",
-        &format!("{metadata_dir}\\Windows.Foundation.winmd"),
-        "/winmd",
-        "sample.winmd",
-        "src/sample.idl",
-    ]);
+    let windows_foundation = format!(
+        "{}\\System32\\WinMetadata\\Windows.Foundation.winmd",
+        env!("windir")
+    );
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run midlrt");
-    }
+    windows_rdl::Reader::new()
+        .input("src/sample.rdl")
+        .reference(&windows_foundation)
+        .output("sample.winmd")
+        .write()
+        .unwrap();
 
     windows_bindgen::bindgen([
         "--in",
         "sample.winmd",
-        &metadata_dir,
+        &windows_foundation,
         "--out",
         "src/bindings.rs",
         "--filter",
