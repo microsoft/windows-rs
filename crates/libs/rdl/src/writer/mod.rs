@@ -304,7 +304,17 @@ fn write_custom_attributes<'a>(
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
 ) -> Vec<TokenStream> {
+    write_custom_attributes_except(attributes, item_namespace, index, &[])
+}
+
+fn write_custom_attributes_except<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::TypeIndex,
+    exclude: &[&str],
+) -> Vec<TokenStream> {
     attributes
+        .filter(|attr| !exclude.contains(&attr.name()))
         .map(|attr| {
             let attr_ns = attr.ctor().parent().namespace();
             let attr_short = attr

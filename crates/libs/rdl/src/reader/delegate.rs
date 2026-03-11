@@ -1,4 +1,5 @@
 use super::*;
+use super::guid;
 
 syn::custom_keyword!(delegate);
 
@@ -64,6 +65,15 @@ impl Delegate {
         );
 
         // Emit any Named attributes (defined in metadata or RDL) attached to this delegate.
+        // Skip GuidAttribute here; for WinRT delegates it is derived below unless already present.
+        let already_has_guid = self.attrs.iter().any(|attr| {
+            attr.path()
+                .segments
+                .last()
+                .map(|s| s.ident == "GuidAttribute")
+                .unwrap_or(false)
+        });
+
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(delegate),
@@ -108,11 +118,32 @@ impl Delegate {
             }
         }
 
-        let types = params.iter().map(|param| param.ty.clone()).collect();
+        let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
+        let return_type = encode_return_type(encoder, &self.sig.output)?;
+
+        // For WinRT delegates without an explicit GuidAttribute, derive the GUID from the
+        // delegate name and Invoke method signature using the midlrt algorithm.
+        if self.winrt && !already_has_guid {
+            let invoke_methods: Vec<(&str, &[metadata::Type], &metadata::Type)> =
+                vec![("Invoke", types.as_slice(), &return_type)];
+            let interface_string =
+                guid::build_interface_string(encoder.namespace, encoder.name, &invoke_methods);
+            let (data1, data2, data3, data4) =
+                guid::guid_from_interface_string(&interface_string);
+
+            guid::emit_guid_attribute(
+                encoder.output,
+                metadata::writer::HasAttribute::TypeDef(delegate),
+                data1,
+                data2,
+                data3,
+                data4,
+            );
+        }
 
         let signature = metadata::Signature {
             flags: Default::default(),
-            return_type: encode_return_type(encoder, &self.sig.output)?,
+            return_type,
             types,
         };
 
