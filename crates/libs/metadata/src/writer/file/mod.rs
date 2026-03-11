@@ -349,9 +349,7 @@ impl File {
         let interface = if interface.generics.is_empty() {
             TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
         } else {
-            // TODO: confirm this decoration is needed for InterfaceImpl
-            let name = format!("{}`{}", interface.name, interface.generics.len());
-            TypeDefOrRef::TypeSpec(self.TypeSpec(&interface.namespace, &name, &interface.generics))
+            TypeDefOrRef::TypeSpec(self.TypeSpec(&interface.namespace, &interface.name, &interface.generics))
         };
 
         id::InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
