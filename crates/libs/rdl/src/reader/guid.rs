@@ -1,11 +1,10 @@
-use windows_metadata::Type;
 use windows_metadata::writer;
+use windows_metadata::Type;
 
 /// The midlrt namespace GUID {e72a134c-baf7-4dd3-b542-77848e87b138} in network (big-endian) byte
 /// order. This is used as the UUID v5 namespace for WinRT interface GUID derivation.
 const MIDLRT_NAMESPACE: [u8; 16] = [
-    0xe7, 0x2a, 0x13, 0x4c, 0xba, 0xf7, 0x4d, 0xd3, 0xb5, 0x42, 0x77, 0x84, 0x8e, 0x87, 0xb1,
-    0x38,
+    0xe7, 0x2a, 0x13, 0x4c, 0xba, 0xf7, 0x4d, 0xd3, 0xb5, 0x42, 0x77, 0x84, 0x8e, 0x87, 0xb1, 0x38,
 ];
 
 /// Computes a deterministic WinRT interface GUID from an interface string using the midlrt
@@ -166,22 +165,21 @@ pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
             let base = if tn.generics.is_empty() {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
-                // Backtick-N notation for generic types (e.g., IVector`1<Int32>)
+                // Backtick-N notation for generic types (e.g., IVector`1<Int32>).
+                // Multi-arg generics use ", " (comma + space) as the separator, matching midlrt.
                 let args: Vec<String> = tn.generics.iter().map(type_to_string).collect();
                 format!(
                     "{}.{}`{}<{}>",
                     tn.namespace,
                     tn.name,
                     tn.generics.len(),
-                    args.join(",")
+                    args.join(", ")
                 )
             };
             format!("{base}{}", stars(extra_stars))
         }
         // Pointer types: the depth encodes the number of * levels
-        Type::PtrMut(inner, depth) => {
-            type_to_string_extra(inner, depth + extra_stars)
-        }
+        Type::PtrMut(inner, depth) => type_to_string_extra(inner, depth + extra_stars),
         Type::PtrConst(inner, depth) => {
             // Const pointers use & suffix per the midlrt convention
             let base = type_to_string(inner);
@@ -372,6 +370,51 @@ mod tests {
         check(
             "test_overloads.IA:HRESULT Method(Int32*);HRESULT Method2(Int32,Int32*);",
             "ea3ed6f8-2f81-5cfc-a281-4bf0d7535521",
+        );
+    }
+
+    #[test]
+    fn build_interface_string_generic_separator() {
+        use windows_metadata::TypeName;
+
+        // Single-arg generic: IIterable`1<Int32> — no comma, no space
+        let iter_ty = Type::Name(TypeName {
+            namespace: "Windows.Foundation.Collections".to_string(),
+            name: "IIterable".to_string(),
+            generics: vec![Type::I32],
+        });
+        let single = build_interface_string(
+            "Test",
+            "ISingle",
+            &[(
+                "get_Items",
+                &[Type::PtrMut(Box::new(iter_ty), 1)],
+                &Type::Void,
+            )],
+        );
+        assert_eq!(
+            single,
+            "Test.ISingle:HRESULT get_Items(Windows.Foundation.Collections.IIterable`1<Int32>*);"
+        );
+
+        // Two-arg generic: IKeyValuePair`2<String, Int32> — must use ", " per midlrt spec
+        let kvp_ty = Type::Name(TypeName {
+            namespace: "Windows.Foundation.Collections".to_string(),
+            name: "IKeyValuePair".to_string(),
+            generics: vec![Type::String, Type::I32],
+        });
+        let two_arg = build_interface_string(
+            "Test",
+            "ITwoArg",
+            &[(
+                "get_Pair",
+                &[Type::PtrMut(Box::new(kvp_ty), 1)],
+                &Type::Void,
+            )],
+        );
+        assert_eq!(
+            two_arg,
+            "Test.ITwoArg:HRESULT get_Pair(Windows.Foundation.Collections.IKeyValuePair`2<String, Int32>*);"
         );
     }
 }

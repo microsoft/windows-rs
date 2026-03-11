@@ -25,10 +25,13 @@ fn guid_for_type(winmd: &str, namespace: &str, name: &str) -> String {
         windows_metadata::Value::U16(v) => v,
         _ => panic!("unexpected type for d3"),
     };
-    let d4: Vec<u8> = values[3..].iter().map(|v| match *v {
-        windows_metadata::Value::U8(b) => b,
-        _ => panic!("unexpected type for d4 byte"),
-    }).collect();
+    let d4: Vec<u8> = values[3..]
+        .iter()
+        .map(|v| match *v {
+            windows_metadata::Value::U8(b) => b,
+            _ => panic!("unexpected type for d4 byte"),
+        })
+        .collect();
 
     format!(
         "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",

@@ -1,5 +1,5 @@
-use super::*;
 use super::guid;
+use super::*;
 
 syn::custom_keyword!(delegate);
 
@@ -128,8 +128,7 @@ impl Delegate {
                 vec![("Invoke", types.as_slice(), &return_type)];
             let interface_string =
                 guid::build_interface_string(encoder.namespace, encoder.name, &invoke_methods);
-            let (data1, data2, data3, data4) =
-                guid::guid_from_interface_string(&interface_string);
+            let (data1, data2, data3, data4) = guid::guid_from_interface_string(&interface_string);
 
             guid::emit_guid_attribute(
                 encoder.output,

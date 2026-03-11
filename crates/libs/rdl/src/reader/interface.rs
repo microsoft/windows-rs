@@ -1,5 +1,5 @@
-use super::*;
 use super::guid;
+use super::*;
 
 syn::custom_keyword!(interface);
 
@@ -133,8 +133,7 @@ impl Interface {
 
         // Collect method signatures for WinRT GUID derivation (only needed for WinRT interfaces
         // that don't already have an explicit GuidAttribute).
-        let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> =
-            Vec::new();
+        let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
         for method in &self.methods {
             let mut params = vec![];
@@ -161,8 +160,7 @@ impl Interface {
                 }
             }
 
-            let types: Vec<metadata::Type> =
-                params.iter().map(|param| param.ty.clone()).collect();
+            let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
             let return_type = encode_return_type(encoder, &method.sig.output)?;
 
             if self.winrt && !already_has_guid {
@@ -238,8 +236,7 @@ impl Interface {
 
             let interface_string =
                 guid::build_interface_string(encoder.namespace, encoder.name, &methods);
-            let (data1, data2, data3, data4) =
-                guid::guid_from_interface_string(&interface_string);
+            let (data1, data2, data3, data4) = guid::guid_from_interface_string(&interface_string);
 
             guid::emit_guid_attribute(
                 encoder.output,
