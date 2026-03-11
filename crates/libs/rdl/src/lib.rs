@@ -1,5 +1,5 @@
 #![doc = include_str!("../readme.md")]
-#![allow(dead_code)]
+#![allow(dead_code, clippy::large_enum_variant)]
 
 mod error;
 mod formatter;
