@@ -3,6 +3,7 @@ mod Test {
     interface ITest {
         fn Return(&self, input: [i32]) -> [i32];
         fn Out(&self, input: [i32], output: &mut [i32]);
+        fn ExplicitOut(&self, input: [i32], #[out] output: [i32]);
     }
 }
 #[win32]

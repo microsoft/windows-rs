@@ -16,10 +16,19 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
 
     let ty = encode_type(encoder, &param.ty)?;
 
-    let attributes = match ty {
+    let mut attributes = match ty {
         metadata::Type::RefMut(..) | metadata::Type::PtrMut(..) => metadata::ParamAttributes::Out,
         _ => metadata::ParamAttributes::In,
     };
+
+    for attr in &param.attrs {
+        if attr.path().is_ident("out") {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return encoder.err(attr, "`out` attribute does not accept arguments");
+            }
+            attributes = metadata::ParamAttributes::Out;
+        }
+    }
 
     Ok(Param {
         name,

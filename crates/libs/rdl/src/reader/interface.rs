@@ -198,7 +198,7 @@ impl Interface {
                     encoder,
                     metadata::writer::HasAttribute::Param(param_id),
                     &param.attrs,
-                    &[],
+                    &["out"],
                 )?;
             }
         }
@@ -280,6 +280,27 @@ fn missing_self_no_params() {
 mod Test {
     interface IFoo {
         fn Method();
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(
+    expected = r#"{ message: "`out` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 25 }"#
+)]
+fn out_with_args() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    interface IFoo {
+        fn Method(&self, #[out(42)] output: i32);
     }
 }
         "#,
