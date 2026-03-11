@@ -1,0 +1,14 @@
+#[winrt]
+mod Test {
+    interface IEmpty {}
+    interface ISimple {
+        fn get_Value(&self) -> i32;
+    }
+    interface IWithParam {
+        fn Add(&self, a: i32, b: i32) -> i32;
+    }
+    interface IWithString {
+        fn get_Name(&self) -> String;
+    }
+    delegate fn IHandler(arg: i32) -> u32;
+}
