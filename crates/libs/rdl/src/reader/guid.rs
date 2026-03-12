@@ -33,6 +33,22 @@ pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8
     (data1, data2, data3, data4)
 }
 
+/// Derives a GUID from the interface/delegate shape and emits a `GuidAttribute` on `target`.
+///
+/// Builds the interface string from `namespace`, `name`, and `methods`, computes the UUID v5
+/// GUID, and writes the attribute to `output`. Shared by both `interface.rs` and `delegate.rs`.
+pub fn derive_and_emit_guid(
+    output: &mut writer::File,
+    target: writer::HasAttribute,
+    namespace: &str,
+    name: &str,
+    methods: &[(&str, &[Type], &Type)],
+) {
+    let interface_string = build_interface_string(namespace, name, methods);
+    let (data1, data2, data3, data4) = guid_from_interface_string(&interface_string);
+    emit_guid_attribute(output, target, data1, data2, data3, data4);
+}
+
 /// Emits a `GuidAttribute` with the given GUID components to `target` in `output`.
 pub fn emit_guid_attribute(
     output: &mut writer::File,
