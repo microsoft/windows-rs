@@ -11,6 +11,26 @@ mod Test {
         fn get_Name(&self) -> String;
     }
     delegate fn IHandler(arg: i32) -> u32;
+    // Exercises all type_to_string_extra paths: primitives as return values (Boolean*, Int8*, …),
+    // const pointer/reference params (Int32& via ampersand notation), and a double-mut pointer
+    // (*mut *mut i32 → Int32**).
+    interface ITypeExercise {
+        fn get_Bool(&self) -> bool;
+        fn get_I8(&self) -> i8;
+        fn get_U8(&self) -> u8;
+        fn get_I16(&self) -> i16;
+        fn get_U16(&self) -> u16;
+        fn get_I64(&self) -> i64;
+        fn get_U64(&self) -> u64;
+        fn get_F32(&self) -> f32;
+        fn get_F64(&self) -> f64;
+        fn get_ISize(&self) -> isize;
+        fn get_USize(&self) -> usize;
+        fn get_Obj(&self) -> IInspectable;
+        fn read_const(&self, p: *const i32);
+        fn read_ref(&self, p: &i32);
+        fn write_ptr(&self, p: *mut *mut i32);
+    }
     // WinRT delegate with an explicit Guid (derivation must be suppressed)
     #[Windows::Foundation::Metadata::Guid(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)]
     delegate fn IExplicitDelegate();
