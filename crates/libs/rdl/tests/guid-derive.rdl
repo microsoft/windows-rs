@@ -12,10 +12,10 @@ mod Test {
     }
     delegate fn IHandler(arg: i32) -> u32;
     // WinRT delegate with an explicit Guid (derivation must be suppressed)
-    #[Guid(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)]
+    #[Windows::Foundation::Metadata::Guid(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)]
     delegate fn IExplicitDelegate();
     // WinRT interface with an explicit Guid (derivation must be suppressed)
-    #[Guid(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27)]
+    #[Windows::Foundation::Metadata::Guid(17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27)]
     interface IExplicitInterface {}
 }
 #[win32]
@@ -23,21 +23,6 @@ mod Test {
     // Win32 interface with a derived Guid
     interface IWin32 {}
     // Win32 interface with an explicit Guid (derivation must be suppressed)
-    #[Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
+    #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
     interface IWin32Explicit {}
-    attribute GuidAttribute {
-        fn(
-            data1: u32,
-            data2: u16,
-            data3: u16,
-            b0: u8,
-            b1: u8,
-            b2: u8,
-            b3: u8,
-            b4: u8,
-            b5: u8,
-            b6: u8,
-            b7: u8,
-        );
-    }
 }

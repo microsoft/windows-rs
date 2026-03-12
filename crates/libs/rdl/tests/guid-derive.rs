@@ -43,6 +43,7 @@ fn guid_for_type(winmd: &str, namespace: &str, name: &str) -> String {
 fn guid_derive() {
     Reader::new()
         .input("tests/guid-derive.rdl")
+        .reference("../bindgen/default/Windows.winmd")
         .output("tests/guid-derive.winmd")
         .write()
         .unwrap();
