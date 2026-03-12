@@ -131,8 +131,8 @@ impl Interface {
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
 
-        // Collect method signatures for WinRT GUID derivation (only needed for WinRT interfaces
-        // that don't already have an explicit GuidAttribute).
+        // Collect method signatures for GUID derivation (for any interface without an explicit
+        // GuidAttribute — both WinRT and Win32 interfaces benefit from this).
         let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
         for method in &self.methods {
@@ -163,7 +163,7 @@ impl Interface {
             let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
             let return_type = encode_return_type(encoder, &method.sig.output)?;
 
-            if self.winrt && !already_has_guid {
+            if !already_has_guid {
                 method_signatures.push((
                     method.sig.ident.to_string(),
                     types.clone(),
@@ -226,9 +226,9 @@ impl Interface {
             }
         }
 
-        // For WinRT interfaces without an explicit GuidAttribute, derive the GUID from the
-        // interface name and method signatures using the midlrt algorithm (RFC 4122 UUID v5).
-        if self.winrt && !already_has_guid {
+        // For interfaces without an explicit GuidAttribute (both WinRT and Win32), derive the GUID
+        // from the interface name and method signatures using the midlrt algorithm (RFC 4122 UUID v5).
+        if !already_has_guid {
             let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = method_signatures
                 .iter()
                 .map(|(name, types, ret)| (name.as_str(), types.as_slice(), ret))
