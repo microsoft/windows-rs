@@ -13,8 +13,8 @@ pub use error::Error;
 pub use reader::Reader;
 pub use writer::Writer;
 
-fn expand_winmd(inputs: &[String]) -> Result<Vec<String>, Error> {
-    fn expand_one(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
+fn expand_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
+    fn expand_one(result: &mut Vec<String>, input: &str, extension: &str) -> Result<(), Error> {
         let path = std::path::Path::new(input);
 
         if path.is_dir() {
@@ -29,7 +29,7 @@ fn expand_winmd(inputs: &[String]) -> Result<Vec<String>, Error> {
                 if path.is_file()
                     && path
                         .extension()
-                        .is_some_and(|extension| extension.eq_ignore_ascii_case("winmd"))
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case(extension))
                 {
                     result.push(path.to_string_lossy().replace('\\', "/"));
                 }
@@ -37,7 +37,7 @@ fn expand_winmd(inputs: &[String]) -> Result<Vec<String>, Error> {
 
             if result.len() == prev_len {
                 return Err(Error::new(
-                    "failed to find .winmd files in directory",
+                    &format!("failed to find .{extension} files in directory"),
                     input,
                     0,
                     0,
@@ -53,7 +53,7 @@ fn expand_winmd(inputs: &[String]) -> Result<Vec<String>, Error> {
     let mut result = vec![];
 
     for input in inputs {
-        expand_one(&mut result, input)?;
+        expand_one(&mut result, input, extension)?;
     }
 
     Ok(result)
