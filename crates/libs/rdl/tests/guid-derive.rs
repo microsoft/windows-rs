@@ -136,10 +136,39 @@ fn guid_derive() {
     // interface. Array params ([In] T[] b) expand to (b_len: u32, b: *mut T) → (UInt32, T*).
     // The `object` type (IInspectable) is already a pointer, so [in] object a → Object*, its
     // array elements → Object**, and the [out,retval] return → Object**.
+    // Classes (ClassMidl) and interfaces (IInterfaceMidl) are also COM interface pointers and
+    // follow the same pattern: T*, T**, T**.
+    // The GUID type (alias "Guid") is a value type — no implicit pointer.
     assert_guid(
         "tests/guid-derive.winmd",
         "Sample",
         "ICompareWithMidl",
-        "382ceef6-493d-5722-9320-2d701e7a5021",
+        "7986b2cb-647c-54fb-90c7-66f6aa2d8706",
+    );
+
+    // ICompareWithMidl_JustObject: single-method interface using IInspectable (Object*).
+    // Matches midlrt: 9d2b8800-6497-5434-a497-16b4af79407b
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Sample",
+        "ICompareWithMidl_JustObject",
+        "9d2b8800-6497-5434-a497-16b4af79407b",
+    );
+
+    // ICompareWithMidl_JustClass: single-method interface using a WinRT class (Sample.ClassMidl*).
+    // Matches midlrt: 79f33632-b09b-54dc-83db-6c7e1213e733
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Sample",
+        "ICompareWithMidl_JustClass",
+        "79f33632-b09b-54dc-83db-6c7e1213e733",
+    );
+
+    // ICompareWithMidl_JustGuid: single-method interface using the Guid value type.
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Sample",
+        "ICompareWithMidl_JustGuid",
+        "9014e95c-6299-528c-a404-68b6e765355f",
     );
 }

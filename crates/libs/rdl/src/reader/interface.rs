@@ -237,6 +237,21 @@ impl Interface {
                 encoder.namespace,
                 encoder.name,
                 &methods,
+                &|namespace, name| {
+                    encoder.index.is_ref_type(namespace, name)
+                        || encoder
+                            .reference
+                            .get(namespace, name)
+                            .next()
+                            .is_some_and(|td| {
+                                matches!(
+                                    td.category(),
+                                    windows_metadata::reader::TypeCategory::Interface
+                                        | windows_metadata::reader::TypeCategory::Class
+                                        | windows_metadata::reader::TypeCategory::Delegate
+                                )
+                            })
+                },
             );
         }
 

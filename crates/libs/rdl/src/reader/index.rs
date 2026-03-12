@@ -53,4 +53,15 @@ impl<'a> Index<'a> {
             .and_then(|namespace| namespace.types.get(name))
             .is_some()
     }
+
+    /// Returns `true` if `namespace::name` is a reference type (interface, class, or delegate)
+    /// in the local index. Used by GUID derivation to determine implicit pointer levels.
+    pub fn is_ref_type(&self, namespace: &str, name: &str) -> bool {
+        self.namespaces
+            .get(namespace)
+            .and_then(|ns| ns.types.get(name))
+            .is_some_and(|(_, item)| {
+                matches!(item, Item::Interface(_) | Item::Class(_) | Item::Delegate(_))
+            })
+    }
 }

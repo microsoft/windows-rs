@@ -52,14 +52,22 @@ mod Test {
 //       bool Bool([In] bool a, [In] bool[] b);
 //       byte U8([In] byte a, [In] byte[] b);
 //       ... (all scalar WinRT primitive types + string + object)
+//       Guid Guid([In] Guid a, [In] Guid[] b);
+//       ClassMidl Class([In] ClassMidl a, [In] ClassMidl[] b);
+//       IInterfaceMidl Interface([In] IInterfaceMidl a, [In] IInterfaceMidl[] b);
 //   }
 // No explicit [Guid] here — the test asserts that our derivation produces the same
-// GUID that midlrt.exe would assign: 382ceef6-493d-5722-9320-2d701e7a5021.
+// GUID that midlrt.exe would assign.
 // The `b: [T]` array syntax expands to two ABI params for GUID purposes: UInt32 (length) + T*.
 // The `object` keyword (IInspectable) implies a COM interface pointer, so [in] object a → Object*,
 // its array elements → Object**, and its [out,retval] return → Object**.
+// Classes and interfaces are also COM interface pointers, so ClassMidl and IInterfaceMidl
+// follow the same pattern: [in] a → T*, array elements → T**, [out,retval] return → T**.
+// The `GUID` keyword maps to the WinRT canonical alias "Guid" (a value type — no implicit pointer).
 #[winrt]
 mod Sample {
+    class ClassMidl {}
+    interface IInterfaceMidl {}
     interface ICompareWithMidl {
         fn Bool(&self, a: bool, b: [bool]) -> bool;
         fn U8(&self, a: u8, b: [u8]) -> u8;
@@ -73,5 +81,21 @@ mod Sample {
         fn F64(&self, a: f64, b: [f64]) -> f64;
         fn String(&self, a: String, b: [String]) -> String;
         fn Object(&self, a: IInspectable, b: [IInspectable]) -> IInspectable;
+        fn Guid(&self, a: GUID, b: [GUID]) -> GUID;
+        fn Class(&self, a: ClassMidl, b: [ClassMidl]) -> ClassMidl;
+        fn Interface(&self, a: IInterfaceMidl, b: [IInterfaceMidl]) -> IInterfaceMidl;
+    }
+    // Single-method validation interfaces, each exercising one type category.
+    // JustObject validates IInspectable (Object*) — matches midlrt: 9d2b8800-6497-5434-a497-16b4af79407b
+    interface ICompareWithMidl_JustObject {
+        fn Object(&self, a: IInspectable, b: [IInspectable]) -> IInspectable;
+    }
+    // JustClass validates a WinRT class (Sample.ClassMidl*) — matches midlrt: 79f33632-b09b-54dc-83db-6c7e1213e733
+    interface ICompareWithMidl_JustClass {
+        fn Class(&self, a: ClassMidl, b: [ClassMidl]) -> ClassMidl;
+    }
+    // JustGuid validates the GUID value type (alias "Guid", no implicit pointer)
+    interface ICompareWithMidl_JustGuid {
+        fn Guid(&self, a: GUID, b: [GUID]) -> GUID;
     }
 }

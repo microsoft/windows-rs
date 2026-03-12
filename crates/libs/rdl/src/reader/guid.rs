@@ -37,14 +37,19 @@ pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8
 ///
 /// Builds the interface string from `namespace`, `name`, and `methods`, computes the UUID v5
 /// GUID, and writes the attribute to `output`. Shared by both `interface.rs` and `delegate.rs`.
+///
+/// `is_ref_type(namespace, name)` should return `true` for types that are COM interface
+/// pointers at the ABI level (interfaces, classes, delegates). Such types contribute one
+/// implicit `*` to the GUID signature string, matching MIDLRT's behaviour.
 pub fn derive_and_emit_guid(
     output: &mut writer::File,
     target: writer::HasAttribute,
     namespace: &str,
     name: &str,
     methods: &[(&str, &[Type], &Type)],
+    is_ref_type: &dyn Fn(&str, &str) -> bool,
 ) {
-    let interface_string = build_interface_string(namespace, name, methods);
+    let interface_string = build_interface_string(namespace, name, methods, is_ref_type);
     let (data1, data2, data3, data4) = guid_from_interface_string(&interface_string);
     emit_guid_attribute(output, target, data1, data2, data3, data4);
 }
@@ -109,10 +114,15 @@ pub fn emit_guid_attribute(
 /// Format: `"namespace.Name:HRESULT Method1(param1,param2,...);HRESULT Method2(...);..."`
 ///
 /// For empty interfaces (no methods): `"namespace.Name:"`
+///
+/// `is_ref_type(namespace, name)` should return `true` for types that are COM interface
+/// pointers at the ABI level (interfaces, classes, delegates). Such types contribute one
+/// implicit `*` to the type string, matching MIDLRT's behaviour.
 pub fn build_interface_string(
     namespace: &str,
     name: &str,
     methods: &[(&str, &[Type], &Type)],
+    is_ref_type: &dyn Fn(&str, &str) -> bool,
 ) -> String {
     let mut s = String::new();
     s.push_str(namespace);
@@ -136,10 +146,10 @@ pub fn build_interface_string(
                 Type::Array(inner) => {
                     s.push_str("UInt32");
                     s.push(',');
-                    s.push_str(&type_to_string_extra(inner, 1));
+                    s.push_str(&type_to_string_extra(inner, 1, is_ref_type));
                 }
                 _ => {
-                    s.push_str(&type_to_string(ty));
+                    s.push_str(&type_to_string(ty, is_ref_type));
                 }
             }
         }
@@ -150,7 +160,7 @@ pub fn build_interface_string(
                 s.push(',');
             }
             // Return types get one extra pointer level (the [out,retval] indirection)
-            s.push_str(&type_to_string_extra(return_type, 1));
+            s.push_str(&type_to_string_extra(return_type, 1, is_ref_type));
         }
 
         s.push(')');
@@ -161,13 +171,21 @@ pub fn build_interface_string(
 }
 
 /// Converts a `metadata::Type` to its WinRT interface string representation.
-pub fn type_to_string(ty: &Type) -> String {
-    type_to_string_extra(ty, 0)
+fn type_to_string(ty: &Type, is_ref_type: &dyn Fn(&str, &str) -> bool) -> String {
+    type_to_string_extra(ty, 0, is_ref_type)
 }
 
 /// Converts a `metadata::Type` to its WinRT interface string representation, appending
 /// `extra_stars` additional pointer levels (used for return types).
-pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
+///
+/// `is_ref_type(namespace, name)` returns `true` for types that are COM interface pointers
+/// at the ABI level (interfaces, classes, delegates). Such types get one implicit `*` added,
+/// in addition to any `extra_stars`, matching MIDLRT's behaviour.
+fn type_to_string_extra(
+    ty: &Type,
+    extra_stars: usize,
+    is_ref_type: &dyn Fn(&str, &str) -> bool,
+) -> String {
     match ty {
         Type::Void => String::new(),
         Type::Bool => format!("Boolean{}", stars(extra_stars)),
@@ -185,15 +203,24 @@ pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
         Type::ISize => format!("IntPtr{}", stars(extra_stars)),
         Type::USize => format!("UIntPtr{}", stars(extra_stars)),
         Type::String => format!("String{}", stars(extra_stars)),
+        // IInspectable is already a COM interface pointer — contributes one implicit `*`.
         Type::Object => format!("Object{}", stars(extra_stars + 1)),
         Type::Generic(name, _) => format!("{name}{}", stars(extra_stars)),
         Type::Name(tn) => {
-            let base = if tn.generics.is_empty() {
+            // `GUID` in IDL/RDL maps to ("System", "Guid") and uses the WinRT canonical
+            // alias `"Guid"` (no namespace prefix) in the interface string.
+            let base = if tn == ("System", "Guid") {
+                "Guid".to_string()
+            } else if tn.generics.is_empty() {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
                 // Backtick-N notation for generic types (e.g., IVector`1<Int32>).
                 // Multi-arg generics use ", " (comma + space) as the separator, matching midlrt.
-                let args: Vec<String> = tn.generics.iter().map(type_to_string).collect();
+                let args: Vec<String> = tn
+                    .generics
+                    .iter()
+                    .map(|t| type_to_string(t, is_ref_type))
+                    .collect();
                 format!(
                     "{}.{}`{}<{}>",
                     tn.namespace,
@@ -202,18 +229,21 @@ pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
                     args.join(", ")
                 )
             };
-            format!("{base}{}", stars(extra_stars))
+            // Interfaces, classes, and delegates are COM interface pointers at the ABI level
+            // and contribute one implicit `*` to the signature, just like `Type::Object`.
+            let implicit = if is_ref_type(&tn.namespace, &tn.name) { 1 } else { 0 };
+            format!("{base}{}", stars(extra_stars + implicit))
         }
         // Pointer types: the depth encodes the number of * levels
-        Type::PtrMut(inner, depth) => type_to_string_extra(inner, depth + extra_stars),
+        Type::PtrMut(inner, depth) => type_to_string_extra(inner, depth + extra_stars, is_ref_type),
         Type::PtrConst(inner, depth) => {
             // Const pointers use & suffix per the midlrt convention
-            let base = type_to_string(inner);
+            let base = type_to_string(inner, is_ref_type);
             format!("{base}{}", ampersands(depth + extra_stars))
         }
-        Type::RefMut(inner) => type_to_string_extra(inner, 1 + extra_stars),
+        Type::RefMut(inner) => type_to_string_extra(inner, 1 + extra_stars, is_ref_type),
         Type::RefConst(inner) => {
-            let base = type_to_string(inner);
+            let base = type_to_string(inner, is_ref_type);
             format!("{base}{}", ampersands(1 + extra_stars))
         }
         // Arrays are not applicable for WinRT interface parameter type strings
@@ -433,6 +463,10 @@ HRESULT Object(Object*,UInt32,Object**,Object**);",
     fn build_interface_string_generic_separator() {
         use windows_metadata::TypeName;
 
+        // is_ref_type is false for all types in this unit test (we're only checking generic
+        // separator formatting, not reference-type pointer behaviour).
+        let no_refs: &dyn Fn(&str, &str) -> bool = &|_, _| false;
+
         // Single-arg generic: IIterable`1<Int32> — no comma, no space
         let iter_ty = Type::Name(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
@@ -447,6 +481,7 @@ HRESULT Object(Object*,UInt32,Object**,Object**);",
                 &[Type::PtrMut(Box::new(iter_ty), 1)],
                 &Type::Void,
             )],
+            no_refs,
         );
         assert_eq!(
             single,
@@ -467,6 +502,7 @@ HRESULT Object(Object*,UInt32,Object**,Object**);",
                 &[Type::PtrMut(Box::new(kvp_ty), 1)],
                 &Type::Void,
             )],
+            no_refs,
         );
         assert_eq!(
             two_arg,
