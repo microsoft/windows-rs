@@ -254,7 +254,7 @@ impl Interface {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "non-WinRT interface can only inherit from one interface", file_name: ".rdl", line: 4, column: 27 }"#
+    expected = "error: non-WinRT interface can only inherit from one interface\n --> .rdl:4:28"
 )]
 fn win32_multiple_required_interfaces() {
     Reader::new()
@@ -272,9 +272,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 18 }"#
-)]
+#[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_typed_first_param() {
     Reader::new()
         .input_str(
@@ -293,9 +291,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 18 }"#
-)]
+#[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_wrong_receiver() {
     Reader::new()
         .input_str(
@@ -314,9 +310,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`&self` parameter not found", file_name: ".rdl", line: 5, column: 11 }"#
-)]
+#[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:12")]
 fn missing_self_no_params() {
     Reader::new()
         .input_str(
@@ -335,9 +329,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`out` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 25 }"#
-)]
+#[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:26")]
 fn out_with_args() {
     Reader::new()
         .input_str(
@@ -356,9 +348,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`special` attribute does not accept arguments", file_name: ".rdl", line: 5, column: 8 }"#
-)]
+#[should_panic(expected = "error: `special` attribute does not accept arguments\n --> .rdl:5:9")]
 fn special_with_args() {
     Reader::new()
         .input_str(

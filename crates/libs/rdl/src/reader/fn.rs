@@ -143,9 +143,7 @@ fn library(attr: &syn::Attribute) -> syn::Result<(String, String)> {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "unexpected `self` parameter", file_name: ".rdl", line: 4, column: 9 }"#
-)]
+#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:10")]
 fn unexpected_self() {
     Reader::new()
         .input_str(
@@ -162,9 +160,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "param names must be unique", file_name: ".rdl", line: 4, column: 17 }"#
-)]
+#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:18")]
 fn param_name_unique() {
     Reader::new()
         .input_str(
@@ -181,9 +177,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`link` attribute not found", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `link` attribute not found\n --> .rdl:4:5")]
 fn link_not_found() {
     Reader::new()
         .input_str(
@@ -200,9 +194,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`link` attribute missing name/abi arguments", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `link` attribute missing name/abi arguments\n --> .rdl:4:5")]
 fn link_missing_name() {
     Reader::new()
         .input_str(
@@ -220,9 +212,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`link` attribute missing name/abi arguments", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `link` attribute missing name/abi arguments\n --> .rdl:4:5")]
 fn link_missing_abi() {
     Reader::new()
         .input_str(
@@ -240,9 +230,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "`link` abi not supported", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: `link` abi not supported\n --> .rdl:4:5")]
 fn link_abi_not_supported() {
     Reader::new()
         .input_str(

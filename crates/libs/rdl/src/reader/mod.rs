@@ -739,9 +739,7 @@ impl IdentMethods for syn::Ident {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "use namespace not found", file_name: ".rdl", line: 2, column: 0 }"#
-)]
+#[should_panic(expected = "error: use namespace not found\n --> .rdl:2:1")]
 fn use_glob_invalid_path() {
     Reader::new()
         .input_str(
@@ -762,9 +760,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "type not found", file_name: ".rdl", line: 7, column: 11 }"#
-)]
+#[should_panic(expected = "error: type not found\n --> .rdl:7:12")]
 fn use_glob_unresolved_type() {
     Reader::new()
         .input_str(

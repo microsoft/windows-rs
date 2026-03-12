@@ -163,9 +163,7 @@ impl Delegate {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "unexpected `self` parameter", file_name: ".rdl", line: 4, column: 24 }"#
-)]
+#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:25")]
 fn unexpected_self() {
     Reader::new()
         .input_str(
@@ -182,9 +180,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "param names must be unique", file_name: ".rdl", line: 4, column: 32 }"#
-)]
+#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:33")]
 fn param_name_unique() {
     Reader::new()
         .input_str(
