@@ -84,9 +84,10 @@ impl Reader {
             }
         }
 
+        let reference_paths = expand_files(&self.reference, "winmd")?;
         let mut reference = vec![];
 
-        for file_name in &self.reference {
+        for file_name in &reference_paths {
             reference.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
@@ -103,48 +104,7 @@ impl Reader {
 }
 
 fn expand_input(input: &[String], input_str: &[String]) -> Result<Vec<File>, Error> {
-    #[track_caller]
-    fn expand_input(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
-        let path = std::path::Path::new(input);
-
-        if path.is_dir() {
-            let prev_len = result.len();
-
-            for path in path
-                .read_dir()
-                .map_err(|_| Error::new("failed to read directory", input, 0, 0))?
-                .flatten()
-                .map(|entry| entry.path())
-            {
-                if path.is_file()
-                    && path
-                        .extension()
-                        .is_some_and(|extension| extension.eq_ignore_ascii_case("rdl"))
-                {
-                    result.push(path.to_string_lossy().replace('\\', "/"));
-                }
-            }
-
-            if result.len() == prev_len {
-                return Err(Error::new(
-                    "failed to find .rdl files in directory",
-                    input,
-                    0,
-                    0,
-                ));
-            }
-        } else {
-            result.push(input.to_string());
-        }
-
-        Ok(())
-    }
-
-    let mut paths = vec![];
-
-    for input in input {
-        expand_input(&mut paths, input)?;
-    }
+    let paths = expand_files(input, "rdl")?;
 
     let mut input = vec![];
 
