@@ -46,3 +46,33 @@ mod Test {
     #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
     interface IWin32Explicit {}
 }
+// MIDLRT validation: equivalent to the C# MIDL3 interface
+//   public interface Sample.ICompareWithMidl
+//   {
+//       bool Bool([In] bool a, [In] bool[] b);
+//       byte U8([In] byte a, [In] byte[] b);
+//       ... (all scalar WinRT primitive types + string + object)
+//   }
+// No explicit [Guid] here — the test asserts that our derivation produces the same
+// GUID that midlrt.exe would assign: 382ceef6-493d-5722-9320-2d701e7a5021.
+// Array parameters ([In] T[] b) expand to two ABI params: b_len: u32 (length) + b: *mut T.
+// The `object` (IInspectable) type is an interface pointer, so its [in] param is *mut IInspectable
+// (Object*), its array elements are *mut *mut IInspectable (Object**), and its return type is
+// *mut IInspectable which gains one extra star as the [out,retval] → Object**.
+#[winrt]
+mod Sample {
+    interface ICompareWithMidl {
+        fn Bool(&self, a: bool, b_len: u32, b: *mut bool) -> bool;
+        fn U8(&self, a: u8, b_len: u32, b: *mut u8) -> u8;
+        fn I16(&self, a: i16, b_len: u32, b: *mut i16) -> i16;
+        fn U16(&self, a: u16, b_len: u32, b: *mut u16) -> u16;
+        fn I32(&self, a: i32, b_len: u32, b: *mut i32) -> i32;
+        fn U32(&self, a: u32, b_len: u32, b: *mut u32) -> u32;
+        fn I64(&self, a: i64, b_len: u32, b: *mut i64) -> i64;
+        fn U64(&self, a: u64, b_len: u32, b: *mut u64) -> u64;
+        fn F32(&self, a: f32, b_len: u32, b: *mut f32) -> f32;
+        fn F64(&self, a: f64, b_len: u32, b: *mut f64) -> f64;
+        fn String(&self, a: String, b_len: u32, b: *mut String) -> String;
+        fn Object(&self, a: *mut IInspectable, b_len: u32, b: *mut *mut IInspectable) -> *mut IInspectable;
+    }
+}

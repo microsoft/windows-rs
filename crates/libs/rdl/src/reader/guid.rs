@@ -390,6 +390,36 @@ mod tests {
     }
 
     #[test]
+    fn guid_midlrt_compat() {
+        // Validates against the GUID midlrt.exe assigns to:
+        //   public interface Sample.ICompareWithMidl
+        //   {
+        //       bool Bool([In] bool a, [In] bool[] b);
+        //       byte U8([In] byte a, [In] byte[] b);
+        //       ...
+        //       object Object([In] object a, [In] object[] b);
+        //   }
+        // Array params expand to (UInt32, T*) for value types; the `object` / IInspectable type
+        // is already a pointer so its [in] param is Object* and its array elements are Object**.
+        check(
+            "Sample.ICompareWithMidl:\
+HRESULT Bool(Boolean,UInt32,Boolean*,Boolean*);\
+HRESULT U8(UInt8,UInt32,UInt8*,UInt8*);\
+HRESULT I16(Int16,UInt32,Int16*,Int16*);\
+HRESULT U16(UInt16,UInt32,UInt16*,UInt16*);\
+HRESULT I32(Int32,UInt32,Int32*,Int32*);\
+HRESULT U32(UInt32,UInt32,UInt32*,UInt32*);\
+HRESULT I64(Int64,UInt32,Int64*,Int64*);\
+HRESULT U64(UInt64,UInt32,UInt64*,UInt64*);\
+HRESULT F32(Single,UInt32,Single*,Single*);\
+HRESULT F64(Double,UInt32,Double*,Double*);\
+HRESULT String(String,UInt32,String*,String*);\
+HRESULT Object(Object*,UInt32,Object**,Object**);",
+            "382ceef6-493d-5722-9320-2d701e7a5021",
+        );
+    }
+
+    #[test]
     fn build_interface_string_generic_separator() {
         use windows_metadata::TypeName;
 

@@ -130,4 +130,15 @@ fn guid_derive() {
         "IWin32Explicit",
         "00000021-0022-0023-2425-262728292a2b",
     );
+
+    // ICompareWithMidl: validates against the GUID midlrt.exe assigns to the equivalent C# MIDL3
+    // interface. Array params ([In] T[] b) expand to (b_len: u32, b: *mut T) → (UInt32, T*).
+    // The `object` type (IInspectable) is already a pointer, so [in] object a → Object*, its
+    // array elements → Object**, and the [out,retval] return → Object**.
+    assert_guid(
+        "tests/guid-derive.winmd",
+        "Sample",
+        "ICompareWithMidl",
+        "382ceef6-493d-5722-9320-2d701e7a5021",
+    );
 }
