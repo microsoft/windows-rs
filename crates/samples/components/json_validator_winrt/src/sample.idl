@@ -1,8 +1,0 @@
-namespace Sample
-{
-    runtimeclass JsonValidator
-    {
-        JsonValidator(String schema);
-        String Validate(String value);
-    }
-}

@@ -15,6 +15,7 @@ windows = { workspace = true, features = ["Win32_System_WinRT"] }
 windows-core = { workspace = true }
 
 [build-dependencies]
+windows-rdl = { workspace = true }
 windows-bindgen = { workspace = true }
 
 [lints]
