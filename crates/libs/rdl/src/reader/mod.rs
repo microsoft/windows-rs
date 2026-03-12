@@ -83,9 +83,10 @@ impl Reader {
             }
         }
 
+        let reference_paths = expand_winmd(&self.reference)?;
         let mut reference = vec![];
 
-        for file_name in &self.reference {
+        for file_name in &reference_paths {
             reference.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,

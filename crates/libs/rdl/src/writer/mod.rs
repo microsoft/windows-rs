@@ -74,14 +74,14 @@ impl Writer {
     pub fn write(&self) -> Result<(), Error> {
         let mut input = vec![];
 
-        for file_name in &self.input {
+        for file_name in &expand_winmd(&self.input)? {
             input.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
             );
         }
 
-        for file_name in &self.reference {
+        for file_name in &expand_winmd(&self.reference)? {
             input.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
