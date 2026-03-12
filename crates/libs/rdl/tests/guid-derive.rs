@@ -81,4 +81,35 @@ fn guid_derive() {
         "0121059b-6e73-5866-878e-2bc9151d46bc",
         "IHandler delegate GUID mismatch"
     );
+
+    // IExplicitDelegate: WinRT delegate with explicit Guid — derivation must be suppressed.
+    // Explicit values: data1=1, data2=2, data3=3, b0..b7 = 4..11
+    assert_eq!(
+        guid_for_type("tests/guid-derive.winmd", "Test", "IExplicitDelegate"),
+        "00000001-0002-0003-0405-060708090a0b",
+        "IExplicitDelegate explicit GUID mismatch"
+    );
+
+    // IExplicitInterface: WinRT interface with explicit Guid — derivation must be suppressed.
+    // Explicit values: data1=17, data2=18, data3=19, b0..b7 = 20..27
+    assert_eq!(
+        guid_for_type("tests/guid-derive.winmd", "Test", "IExplicitInterface"),
+        "00000011-0012-0013-1415-161718191a1b",
+        "IExplicitInterface explicit GUID mismatch"
+    );
+
+    // IWin32: Win32 interface with a derived Guid → "Test.IWin32:"
+    assert_eq!(
+        guid_for_type("tests/guid-derive.winmd", "Test", "IWin32"),
+        "9a1e6fa8-6f1f-5234-b2d0-40f90d191be6",
+        "IWin32 derived GUID mismatch"
+    );
+
+    // IWin32Explicit: Win32 interface with explicit Guid — derivation must be suppressed.
+    // Explicit values: data1=33, data2=34, data3=35, b0..b7 = 36..43
+    assert_eq!(
+        guid_for_type("tests/guid-derive.winmd", "Test", "IWin32Explicit"),
+        "00000021-0022-0023-2425-262728292a2b",
+        "IWin32Explicit explicit GUID mismatch"
+    );
 }

@@ -65,12 +65,13 @@ impl Delegate {
         );
 
         // Emit any Named attributes (defined in metadata or RDL) attached to this delegate.
-        // Skip GuidAttribute here; for WinRT delegates it is derived below unless already present.
+        // Skip GUID derivation if an explicit GuidAttribute is already present.
+        // The short form `#[Guid(...)]` maps to `GuidAttribute`; both spellings are recognised.
         let already_has_guid = self.attrs.iter().any(|attr| {
             attr.path()
                 .segments
                 .last()
-                .map(|s| s.ident == "GuidAttribute")
+                .map(|s| s.ident == "Guid" || s.ident == "GuidAttribute")
                 .unwrap_or(false)
         });
 
