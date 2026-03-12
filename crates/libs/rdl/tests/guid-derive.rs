@@ -107,12 +107,13 @@ fn guid_derive() {
 
     // ITypeExercise: exercises all type_to_string_extra paths — primitives as return values
     // (Boolean*, Int8*, UInt8*, Int16*, UInt16*, Int64*, UInt64*, Single*, Double*, IntPtr*,
-    // UIntPtr*, Object*), const-pointer/ref params (Int32&), and double-mut pointer (Int32**).
+    // UIntPtr*, Object**), const-pointer/ref params (Int32&), and double-mut pointer (Int32**).
+    // Object** because IInspectable already implies one pointer level, plus [out,retval] adds another.
     assert_guid(
         "tests/guid-derive.winmd",
         "Test",
         "ITypeExercise",
-        "86928075-d2ea-5324-a2e5-0672fed22949",
+        "f4bffc4c-e8b6-5b5b-b8cb-04e8ef1d33e8",
     );
 
     // IWin32: Win32 interface with a derived Guid → "Test.IWin32:"

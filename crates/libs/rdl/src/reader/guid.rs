@@ -185,7 +185,7 @@ pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
         Type::ISize => format!("IntPtr{}", stars(extra_stars)),
         Type::USize => format!("UIntPtr{}", stars(extra_stars)),
         Type::String => format!("String{}", stars(extra_stars)),
-        Type::Object => format!("Object{}", stars(extra_stars)),
+        Type::Object => format!("Object{}", stars(extra_stars + 1)),
         Type::Generic(name, _) => format!("{name}{}", stars(extra_stars)),
         Type::Name(tn) => {
             let base = if tn.generics.is_empty() {

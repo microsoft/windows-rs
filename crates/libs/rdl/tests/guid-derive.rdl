@@ -56,9 +56,8 @@ mod Test {
 // No explicit [Guid] here — the test asserts that our derivation produces the same
 // GUID that midlrt.exe would assign: 382ceef6-493d-5722-9320-2d701e7a5021.
 // The `b: [T]` array syntax expands to two ABI params for GUID purposes: UInt32 (length) + T*.
-// The `object` (IInspectable) type is an interface pointer, so its [in] param is *mut IInspectable
-// (Object*), its array elements are *mut *mut IInspectable (Object**), and its return type is
-// *mut IInspectable which gains one extra star as the [out,retval] → Object**.
+// The `object` keyword (IInspectable) implies a COM interface pointer, so [in] object a → Object*,
+// its array elements → Object**, and its [out,retval] return → Object**.
 #[winrt]
 mod Sample {
     interface ICompareWithMidl {
@@ -73,6 +72,6 @@ mod Sample {
         fn F32(&self, a: f32, b: [f32]) -> f32;
         fn F64(&self, a: f64, b: [f64]) -> f64;
         fn String(&self, a: String, b: [String]) -> String;
-        fn Object(&self, a: *mut IInspectable, b: [*mut IInspectable]) -> *mut IInspectable;
+        fn Object(&self, a: IInspectable, b: [IInspectable]) -> IInspectable;
     }
 }
