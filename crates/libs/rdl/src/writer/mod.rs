@@ -74,14 +74,14 @@ impl Writer {
     pub fn write(&self) -> Result<(), Error> {
         let mut input = vec![];
 
-        for file_name in &self.input {
+        for file_name in &expand_files(&self.input, "winmd")? {
             input.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
             );
         }
 
-        for file_name in &self.reference {
+        for file_name in &expand_files(&self.reference, "winmd")? {
             input.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
@@ -304,7 +304,17 @@ fn write_custom_attributes<'a>(
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
 ) -> Vec<TokenStream> {
+    write_custom_attributes_except(attributes, item_namespace, index, &[])
+}
+
+fn write_custom_attributes_except<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::TypeIndex,
+    exclude: &[&str],
+) -> Vec<TokenStream> {
     attributes
+        .filter(|attr| !exclude.contains(&attr.name()))
         .map(|attr| {
             let attr_ns = attr.ctor().parent().namespace();
             let attr_short = attr

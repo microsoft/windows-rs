@@ -31,7 +31,13 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        // GuidAttribute is derived from the interface shape; skip it so round-trips stay clean
+        &["GuidAttribute"],
+    );
 
     quote! {
         #(#custom_attrs)*

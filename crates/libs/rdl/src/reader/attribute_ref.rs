@@ -541,6 +541,13 @@ pub fn encode_named_attribute(
     );
 }
 
+/// Returns `true` if `attr` resolves to `Windows.Foundation.Metadata.GuidAttribute`.
+pub fn is_guid_attribute(encoder: &Encoder, attr: &syn::Attribute) -> bool {
+    find_attribute_type(encoder, attr.path())
+        .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
+        .unwrap_or(false)
+}
+
 /// Iterates `attrs`, skipping the built-in RDL attributes listed in `skip` (as
 /// well as the unconditionally-skipped `win32`/`winrt`), and resolves every
 /// remaining attribute as an `AttributeRef` defined in the encoder's index or
@@ -574,9 +581,7 @@ pub fn encode_attrs(
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "attribute type not found", file_name: ".rdl", line: 4, column: 4 }"#
-)]
+#[should_panic(expected = "error: attribute type not found\n --> .rdl:4:5")]
 fn unknown_attribute_errors() {
     Reader::new()
         .input_str(
@@ -594,9 +599,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "value not valid", file_name: ".rdl", line: 6, column: 10 }"#
-)]
+#[should_panic(expected = "error: value not valid\n --> .rdl:6:11")]
 fn wrong_arg_type_errors() {
     Reader::new()
         .input_str(
@@ -616,9 +619,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "expected `Color` variant name", file_name: ".rdl", line: 8, column: 14 }"#
-)]
+#[should_panic(expected = "error: expected `Color` variant name\n --> .rdl:8:15")]
 fn enum_arg_requires_variant_name() {
     Reader::new()
         .input_str(
@@ -640,9 +641,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "enum variant not found", file_name: ".rdl", line: 8, column: 14 }"#
-)]
+#[should_panic(expected = "error: enum variant not found\n --> .rdl:8:15")]
 fn enum_arg_unknown_variant_errors() {
     Reader::new()
         .input_str(
@@ -665,7 +664,7 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "positional attribute arguments must come before named arguments", file_name: ".rdl", line: 6, column: 26 }"#
+    expected = "error: positional attribute arguments must come before named arguments\n --> .rdl:6:27"
 )]
 fn positional_after_named_errors() {
     Reader::new()
@@ -686,9 +685,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "no matching attribute constructor found", file_name: ".rdl", line: 6, column: 4 }"#
-)]
+#[should_panic(expected = "error: no matching attribute constructor found\n --> .rdl:6:5")]
 fn no_matching_ctor_errors() {
     Reader::new()
         .input_str(
@@ -708,9 +705,7 @@ mod Test {
 }
 
 #[test]
-#[should_panic(
-    expected = r#"{ message: "attribute has no property `unknown`", file_name: ".rdl", line: 6, column: 4 }"#
-)]
+#[should_panic(expected = "error: attribute has no property `unknown`\n --> .rdl:6:5")]
 fn unknown_property_errors() {
     Reader::new()
         .input_str(
@@ -731,7 +726,7 @@ mod Test {
 
 #[test]
 #[should_panic(
-    expected = r#"{ message: "attribute cannot use top-level `name = value` syntax", file_name: ".rdl", line: 6, column: 4 }"#
+    expected = "error: attribute cannot use top-level `name = value` syntax\n --> .rdl:6:5"
 )]
 fn top_level_name_value_syntax_errors() {
     Reader::new()
