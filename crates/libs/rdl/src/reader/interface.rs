@@ -1,3 +1,4 @@
+use super::guid;
 use super::*;
 
 syn::custom_keyword!(interface);
@@ -96,6 +97,12 @@ impl Interface {
         }
 
         // Emit any Named attributes (defined in metadata or RDL) attached to this interface.
+        // Skip GUID derivation if an explicit GuidAttribute is already present.
+        let already_has_guid = self
+            .attrs
+            .iter()
+            .any(|attr| is_guid_attribute(encoder, attr));
+
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(interface),
@@ -120,6 +127,10 @@ impl Interface {
             | metadata::MethodAttributes::Abstract
             | metadata::MethodAttributes::NewSlot
             | metadata::MethodAttributes::Virtual;
+
+        // Collect method signatures for GUID derivation (for any interface without an explicit
+        // GuidAttribute — both WinRT and Win32 interfaces benefit from this).
+        let mut method_signatures: Vec<(String, Vec<metadata::Type>, metadata::Type)> = Vec::new();
 
         for method in &self.methods {
             let mut params = vec![];
@@ -146,11 +157,20 @@ impl Interface {
                 }
             }
 
-            let types = params.iter().map(|param| param.ty.clone()).collect();
+            let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
+            let return_type = encode_return_type(encoder, &method.sig.output)?;
+
+            if !already_has_guid {
+                method_signatures.push((
+                    method.sig.ident.to_string(),
+                    types.clone(),
+                    return_type.clone(),
+                ));
+            }
 
             let signature = metadata::Signature {
                 flags: metadata::MethodCallAttributes::HASTHIS,
-                return_type: encode_return_type(encoder, &method.sig.output)?,
+                return_type,
                 types,
             };
 
@@ -201,6 +221,23 @@ impl Interface {
                     &["out"],
                 )?;
             }
+        }
+
+        // For interfaces without an explicit GuidAttribute (both WinRT and Win32), derive the GUID
+        // from the interface name and method signatures using the midlrt algorithm (RFC 4122 UUID v5).
+        if !already_has_guid {
+            let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = method_signatures
+                .iter()
+                .map(|(name, types, ret)| (name.as_str(), types.as_slice(), ret))
+                .collect();
+
+            guid::derive_and_emit_guid(
+                encoder.output,
+                metadata::writer::HasAttribute::TypeDef(interface),
+                encoder.namespace,
+                encoder.name,
+                &methods,
+            );
         }
 
         Ok(())

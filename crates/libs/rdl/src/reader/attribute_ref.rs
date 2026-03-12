@@ -541,6 +541,13 @@ pub fn encode_named_attribute(
     );
 }
 
+/// Returns `true` if `attr` resolves to `Windows.Foundation.Metadata.GuidAttribute`.
+pub fn is_guid_attribute(encoder: &Encoder, attr: &syn::Attribute) -> bool {
+    find_attribute_type(encoder, attr.path())
+        .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
+        .unwrap_or(false)
+}
+
 /// Iterates `attrs`, skipping the built-in RDL attributes listed in `skip` (as
 /// well as the unconditionally-skipped `win32`/`winrt`), and resolves every
 /// remaining attribute as an `AttributeRef` defined in the encoder's index or

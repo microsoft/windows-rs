@@ -6,6 +6,7 @@ mod delegate;
 mod r#enum;
 mod file;
 mod r#fn;
+pub(super) mod guid;
 mod index;
 mod interface;
 mod item;
