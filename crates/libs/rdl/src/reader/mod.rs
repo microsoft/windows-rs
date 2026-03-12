@@ -629,7 +629,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
 
             "void" => return Ok(metadata::Type::Void),
             "String" => return Ok(metadata::Type::String),
-            "IInspectable" => return Ok(metadata::Type::Object),
+            "Object" => return Ok(metadata::Type::Object),
             "Type" => return Ok(metadata::Type::named("System", "Type")),
             "GUID" => return Ok(("System", "Guid").into()),
             "HRESULT" => return Ok(("Windows.Foundation", "HResult").into()),

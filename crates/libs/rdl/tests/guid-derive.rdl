@@ -26,7 +26,7 @@ mod Test {
         fn get_F64(&self) -> f64;
         fn get_ISize(&self) -> isize;
         fn get_USize(&self) -> usize;
-        fn get_Obj(&self) -> IInspectable;
+        fn get_Obj(&self) -> Object;
         fn read_const(&self, p: *const i32);
         fn read_ref(&self, p: &i32);
         fn write_ptr(&self, p: *mut *mut i32);
@@ -56,9 +56,9 @@ mod Test {
 // No explicit [Guid] here — the test asserts that our derivation produces the same
 // GUID that midlrt.exe would assign: 382ceef6-493d-5722-9320-2d701e7a5021.
 // The `b: [T]` array syntax expands to two ABI params for GUID purposes: UInt32 (length) + T*.
-// The `object` (IInspectable) type is an interface pointer, so its [in] param is *mut IInspectable
-// (Object*), its array elements are *mut *mut IInspectable (Object**), and its return type is
-// *mut IInspectable which gains one extra star as the [out,retval] → Object**.
+// The `object` (Object) type is an interface pointer, so its [in] param is *mut Object
+// (Object*), its array elements are *mut *mut Object (Object**), and its return type is
+// *mut Object which gains one extra star as the [out,retval] → Object**.
 #[winrt]
 mod Sample {
     interface ICompareWithMidl {
@@ -73,6 +73,6 @@ mod Sample {
         fn F32(&self, a: f32, b: [f32]) -> f32;
         fn F64(&self, a: f64, b: [f64]) -> f64;
         fn String(&self, a: String, b: [String]) -> String;
-        fn Object(&self, a: *mut IInspectable, b: [*mut IInspectable]) -> *mut IInspectable;
+        fn Object(&self, a: *mut Object, b: [*mut Object]) -> *mut Object;
     }
 }

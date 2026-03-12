@@ -573,7 +573,7 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
         Void => quote! { void },
         String => quote! { String },
-        Object => quote! { IInspectable },
+        Object => quote! { Object },
         Name(tn) if tn == ("System", "Type") => quote! { Type },
         Name(tn) if tn == ("System", "Guid") => quote! { GUID },
         Name(tn) if tn == ("Windows.Foundation", "HResult") => quote! { HRESULT },

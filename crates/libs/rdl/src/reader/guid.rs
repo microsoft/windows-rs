@@ -409,7 +409,7 @@ mod tests {
         //       ...
         //       object Object([In] object a, [In] object[] b);
         //   }
-        // Array params expand to (UInt32, T*) for value types; the `object` / IInspectable type
+        // Array params expand to (UInt32, T*) for value types; the `object` / Object type
         // is already a pointer so its [in] param is Object* and its array elements are Object**.
         check(
             "Sample.ICompareWithMidl:\
