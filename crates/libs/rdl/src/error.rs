@@ -1,4 +1,3 @@
-#[derive(Debug)]
 pub struct Error {
     pub message: String,
     pub file_name: String,
@@ -19,11 +18,17 @@ impl Error {
 
 impl std::error::Error for Error {}
 
+impl std::fmt::Debug for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        std::fmt::Display::fmt(self, f)
+    }
+}
+
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(
             f,
-            "error: {}\n  --> {}:{}:{}",
+            "\nerror: {}\n --> {}:{}:{}",
             &self.message,
             &self.file_name,
             self.line,
