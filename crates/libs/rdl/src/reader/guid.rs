@@ -131,7 +131,17 @@ pub fn build_interface_string(
                 s.push(',');
             }
             first = false;
-            s.push_str(&type_to_string(ty));
+            match ty {
+                // WinRT [in] array: expand to (UInt32 length, T* data) matching the ABI
+                Type::Array(inner) => {
+                    s.push_str("UInt32");
+                    s.push(',');
+                    s.push_str(&type_to_string_extra(inner, 1));
+                }
+                _ => {
+                    s.push_str(&type_to_string(ty));
+                }
+            }
         }
 
         // Non-void return type becomes the last [out, retval] parameter with one extra pointer
