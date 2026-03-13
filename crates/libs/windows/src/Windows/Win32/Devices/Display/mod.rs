@@ -4065,7 +4065,7 @@ impl core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
     }
 }
 pub const SGI_EXTRASPACE: u32 = 0u32;
-pub type SORTCOMP = Option<unsafe extern "system" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
+pub type SORTCOMP = Option<unsafe extern "C" fn(pv1: *const core::ffi::c_void, pv2: *const core::ffi::c_void) -> i32>;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
 pub const SO_CHARACTER_EXTRA: u32 = 2048u32;
 pub const SO_CHAR_INC_EQUAL_BM_BASE: u32 = 32u32;

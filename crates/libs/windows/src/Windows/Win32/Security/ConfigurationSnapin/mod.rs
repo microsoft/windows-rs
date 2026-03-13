@@ -132,7 +132,7 @@ impl ISceSvcAttachmentPersistInfo_Vtbl {
 }
 impl windows_core::RuntimeName for ISceSvcAttachmentPersistInfo {}
 pub type PFSCE_FREE_INFO = Option<unsafe extern "system" fn(pvserviceinfo: *mut core::ffi::c_void) -> u32>;
-pub type PFSCE_LOG_INFO = Option<unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32>;
+pub type PFSCE_LOG_INFO = Option<unsafe extern "C" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32>;
 pub type PFSCE_QUERY_INFO = Option<unsafe extern "system" fn(scehandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: windows_core::BOOL, ppvinfo: *mut *mut core::ffi::c_void, psceenumhandle: *mut u32) -> u32>;
 pub type PFSCE_SET_INFO = Option<unsafe extern "system" fn(scehandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: windows_core::BOOL, pvinfo: *mut core::ffi::c_void) -> u32>;
 pub type PF_ConfigAnalyzeService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;

@@ -5565,7 +5565,7 @@ impl Default for RPC_SERVER_INTERFACE {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type RPC_SETFILTER_FUNC = Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
+pub type RPC_SETFILTER_FUNC = Option<unsafe extern "C" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_STATS_VECTOR {
