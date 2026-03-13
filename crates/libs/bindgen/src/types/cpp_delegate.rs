@@ -64,7 +64,7 @@ impl CppDelegate {
                 match &**value {
                     Value::I32(1) => abi = Some("system"),
                     Value::I32(2) => abi = Some("C"),
-                    Value::I32(5) => abi = Some("fastcall"),
+                    Value::I32(5) => abi = Some("system"), // TODO: fastcall unsupported on non-x86 targets
                     rest => todo!("{rest:?}"),
                 }
             }
