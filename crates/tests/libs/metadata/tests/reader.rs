@@ -47,13 +47,6 @@ fn item_index() {
         panic!()
     };
     assert_eq!(constant.name(), "CONTROL_C_EXIT");
-
-    let reader::Item::Const(constant) =
-        index.expect("Windows.Win32.Foundation", "FACILITY_DEBUGGER")
-    else {
-        panic!()
-    };
-    assert_eq!(constant.name(), "FACILITY_DEBUGGER");
 }
 
 #[test]

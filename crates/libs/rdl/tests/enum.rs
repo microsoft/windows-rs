@@ -4,6 +4,7 @@ use windows_rdl::*;
 pub fn parse() {
     Reader::new()
         .input("tests/enum.rdl")
+        .reference("../bindgen/default")
         .output("tests/enum.winmd")
         .write()
         .unwrap();
