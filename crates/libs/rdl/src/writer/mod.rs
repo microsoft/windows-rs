@@ -1,13 +1,16 @@
 mod attribute;
+mod callback;
 mod class;
 mod delegate;
 mod r#enum;
+mod r#fn;
 mod interface;
 mod layout;
 mod r#struct;
 
 use super::*;
 use attribute::*;
+use callback::*;
 use class::*;
 use delegate::*;
 use interface::*;
@@ -17,6 +20,7 @@ use metadata::HasAttributes;
 use proc_macro2::*;
 use quote::*;
 use r#enum::*;
+use r#fn::*;
 use r#struct::*;
 use windows_metadata as metadata;
 
@@ -261,44 +265,6 @@ fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenS
     }
 }
 
-fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
-    let name = write_ident(item.name());
-    let signature = item.signature(&[]);
-
-    let return_type = write_return_type(namespace, &signature);
-    let params = item.params().filter(|param| param.sequence() != 0);
-
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
-
-    let Some(impl_map) = item.impl_map() else {
-        todo!()
-    };
-
-    let scope = impl_map.import_scope();
-    let library = scope.name();
-    let flags = impl_map.flags();
-
-    let abi = if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
-        "system"
-    } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
-        "C"
-    } else {
-        todo!()
-    };
-
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
-
-    quote! {
-        #(#custom_attrs)*
-        #[link(name = #library, abi = #abi)]
-        fn #name(#(#params),*) #return_type;
-    }
-}
-
 fn write_custom_attributes<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
@@ -491,7 +457,16 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         metadata::reader::TypeCategory::Class => write_class(item),
-        metadata::reader::TypeCategory::Delegate => write_delegate(item),
+        metadata::reader::TypeCategory::Delegate => {
+            if item
+                .flags()
+                .contains(metadata::TypeAttributes::WindowsRuntime)
+            {
+                write_delegate(item)
+            } else {
+                write_callback(item)
+            }
+        }
         metadata::reader::TypeCategory::Attribute => write_attribute(item),
     }
 }

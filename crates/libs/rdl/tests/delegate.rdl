@@ -4,5 +4,5 @@ mod Test {
 }
 #[win32]
 mod Test {
-    delegate fn Callback(arg: i64) -> u64;
+    extern fn Callback(arg: i64) -> u64;
 }
