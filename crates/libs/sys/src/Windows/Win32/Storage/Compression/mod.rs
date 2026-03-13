@@ -37,5 +37,5 @@ pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0i32;
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = 2i32;
 pub const COMPRESS_RAW: u32 = 536870912u32;
 pub type DECOMPRESSOR_HANDLE = *mut core::ffi::c_void;
-pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
-pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;
+pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type PFN_COMPRESS_FREE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

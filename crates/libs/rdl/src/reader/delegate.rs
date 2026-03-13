@@ -7,6 +7,7 @@ syn::custom_keyword!(delegate);
 pub struct Delegate {
     pub attrs: Vec<syn::Attribute>,
     pub token: delegate,
+    pub abi: Option<syn::LitStr>,
     pub sig: syn::Signature,
     pub winrt: bool,
 }
@@ -15,12 +16,14 @@ impl syn::parse::Parse for Delegate {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
         let token = input.parse()?;
+        let abi = input.parse()?;
         let sig = input.parse()?;
         input.parse::<syn::Token![;]>()?;
 
         Ok(Self {
             attrs,
             token,
+            abi,
             sig,
             winrt: false,
         })
@@ -127,6 +130,40 @@ impl Delegate {
                 encoder.namespace,
                 encoder.name,
                 &[("Invoke", types.as_slice(), &return_type)],
+            );
+        }
+
+        if let Some(abi) = &self.abi {
+            let abi = match abi.value().as_str() {
+                "system" => 1,
+                "C" => 2,
+                _ => return encoder.err(abi, "callback abi not supported"),
+            };
+
+            let guid_typeref = encoder.output.TypeRef(
+                "System.Runtime.InteropServices",
+                "UnmanagedFunctionPointerAttribute",
+            );
+
+            let signature = windows_metadata::Signature {
+                flags: windows_metadata::MethodCallAttributes::HASTHIS,
+                return_type: windows_metadata::Type::Void,
+                types: vec![windows_metadata::Type::named(
+                    "System.Runtime.InteropServices",
+                    "CallingConvention",
+                )],
+            };
+
+            let ctor = encoder.output.MemberRef(
+                ".ctor",
+                &signature,
+                windows_metadata::writer::MemberRefParent::TypeRef(guid_typeref),
+            );
+
+            encoder.output.Attribute(
+                metadata::writer::HasAttribute::TypeDef(delegate),
+                windows_metadata::writer::AttributeType::MemberRef(ctor),
+                &[(String::new(), windows_metadata::Value::I32(abi))],
             );
         }
 

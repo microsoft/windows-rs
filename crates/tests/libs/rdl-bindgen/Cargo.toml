@@ -1,0 +1,17 @@
+[package]
+name = "test_rdl_bindgen"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows-bindgen = { workspace = true }
+windows-rdl = { workspace = true }
+windows-link = { workspace = true }
+
+[lints]
+workspace = true

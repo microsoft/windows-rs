@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[link(name = "test.dll", abi = "C")]
+    fn CallC(f: CallbackC);
+    #[link(name = "test.dll", abi = "system")]
+    fn CallS(f: CallbackS);
+    delegate "C" fn CallbackC();
+    delegate "system" fn CallbackS();
+}

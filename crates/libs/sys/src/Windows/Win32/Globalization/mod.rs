@@ -2887,7 +2887,7 @@ pub const UBRK_WORD_NONE_LIMIT: UWordBreak = 100i32;
 pub const UBRK_WORD_NUMBER: UWordBreak = 100i32;
 pub const UBRK_WORD_NUMBER_LIMIT: UWordBreak = 200i32;
 pub type UBiDi = isize;
-pub type UBiDiClassCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, c: i32) -> UCharDirection>;
+pub type UBiDiClassCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, c: i32) -> UCharDirection>;
 pub type UBiDiDirection = i32;
 pub type UBiDiMirroring = i32;
 pub type UBiDiOrder = i32;
@@ -3219,7 +3219,7 @@ pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = 1i32;
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = 0i32;
 pub type UCPMap = isize;
 pub type UCPMapRangeOption = i32;
-pub type UCPMapValueFilter = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, value: u32) -> u32>;
+pub type UCPMapValueFilter = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, value: u32) -> u32>;
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
 pub const UCPTRIE_FAST_DATA_MASK: i32 = 63i32;
@@ -3293,7 +3293,7 @@ pub type UCalendarWeekdayType = i32;
 pub type UCaseMap = isize;
 pub type UCharCategory = i32;
 pub type UCharDirection = i32;
-pub type UCharEnumTypeRange = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
+pub type UCharEnumTypeRange = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UCharIterator {
@@ -3319,17 +3319,17 @@ impl Default for UCharIterator {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type UCharIteratorCurrent = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
-pub type UCharIteratorGetIndex = Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
-pub type UCharIteratorGetState = Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
-pub type UCharIteratorHasNext = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
-pub type UCharIteratorHasPrevious = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
-pub type UCharIteratorMove = Option<unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
-pub type UCharIteratorNext = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorCurrent = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorGetIndex = Option<unsafe extern "C" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorGetState = Option<unsafe extern "C" fn(iter: *const UCharIterator) -> u32>;
+pub type UCharIteratorHasNext = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorHasPrevious = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> i8>;
+pub type UCharIteratorMove = Option<unsafe extern "C" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
+pub type UCharIteratorNext = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> i32>;
 pub type UCharIteratorOrigin = i32;
-pub type UCharIteratorPrevious = Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
-pub type UCharIteratorReserved = Option<unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32>;
-pub type UCharIteratorSetState = Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
+pub type UCharIteratorPrevious = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> i32>;
+pub type UCharIteratorReserved = Option<unsafe extern "C" fn(iter: *mut UCharIterator, something: i32) -> i32>;
+pub type UCharIteratorSetState = Option<unsafe extern "C" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
 pub type UCharNameChoice = i32;
 pub type UCharsetDetector = isize;
 pub type UCharsetMatch = isize;
@@ -3344,7 +3344,7 @@ pub type UCollator = isize;
 pub type UConstrainedFieldPosition = isize;
 pub type UConverter = isize;
 pub type UConverterCallbackReason = i32;
-pub type UConverterFromUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
+pub type UConverterFromUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UConverterFromUnicodeArgs {
@@ -3364,7 +3364,7 @@ impl Default for UConverterFromUnicodeArgs {
 }
 pub type UConverterPlatform = i32;
 pub type UConverterSelector = isize;
-pub type UConverterToUCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
+pub type UConverterToUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: windows_sys::core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UConverterToUnicodeArgs {
@@ -3629,7 +3629,7 @@ pub type UDialectHandling = i32;
 pub type UDisplayContext = i32;
 pub type UDisplayContextType = i32;
 pub type UEastAsianWidth = i32;
-pub type UEnumCharNamesFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: windows_sys::core::PCSTR, length: i32) -> i8>;
+pub type UEnumCharNamesFn = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: windows_sys::core::PCSTR, length: i32) -> i8>;
 pub type UEnumeration = isize;
 pub type UErrorCode = i32;
 pub const UFIELD_CATEGORY_DATE: UFieldCategory = 1i32;
@@ -3824,14 +3824,14 @@ pub const UMS_UK: UMeasurementSystem = 2i32;
 pub const UMS_US: UMeasurementSystem = 1i32;
 pub type UMeasureFormatWidth = i32;
 pub type UMeasurementSystem = i32;
-pub type UMemAllocFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
-pub type UMemFreeFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void)>;
-pub type UMemReallocFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type UMemAllocFn = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
+pub type UMemFreeFn = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void)>;
+pub type UMemReallocFn = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, mem: *mut core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
 pub type UMessagePatternApostropheMode = i32;
 pub type UMessagePatternArgType = i32;
 pub type UMessagePatternPartType = i32;
 pub type UMutableCPTrie = isize;
-pub type UNESCAPE_CHAR_AT = Option<unsafe extern "system" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
+pub type UNESCAPE_CHAR_AT = Option<unsafe extern "C" fn(offset: i32, context: *mut core::ffi::c_void) -> u16>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct UNICODERANGE {
@@ -4069,8 +4069,8 @@ pub const URGN_SUBCONTINENT: URegionType = 4i32;
 pub const URGN_TERRITORY: URegionType = 1i32;
 pub const URGN_UNKNOWN: URegionType = 0i32;
 pub const URGN_WORLD: URegionType = 2i32;
-pub type URegexFindProgressCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, matchindex: i64) -> i8>;
-pub type URegexMatchCallback = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, steps: i32) -> i8>;
+pub type URegexFindProgressCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, matchindex: i64) -> i8>;
+pub type URegexMatchCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, steps: i32) -> i8>;
 pub type URegexpFlag = i32;
 pub type URegion = isize;
 pub type URegionType = i32;
@@ -4378,7 +4378,7 @@ pub type USetSpanCondition = i32;
 pub type USpoofCheckResult = isize;
 pub type USpoofChecker = isize;
 pub type USpoofChecks = i32;
-pub type UStringCaseMapper = Option<unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
+pub type UStringCaseMapper = Option<unsafe extern "C" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
 pub type UStringPrepProfile = isize;
 pub type UStringPrepProfileType = i32;
 pub type UStringSearch = isize;
@@ -4514,11 +4514,11 @@ impl Default for UText {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type UTextAccess = Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
-pub type UTextClone = Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
-pub type UTextClose = Option<unsafe extern "system" fn(ut: *mut UText)>;
-pub type UTextCopy = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
-pub type UTextExtract = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
+pub type UTextAccess = Option<unsafe extern "C" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
+pub type UTextClone = Option<unsafe extern "C" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
+pub type UTextClose = Option<unsafe extern "C" fn(ut: *mut UText)>;
+pub type UTextCopy = Option<unsafe extern "C" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
+pub type UTextExtract = Option<unsafe extern "C" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct UTextFuncs {
@@ -4539,10 +4539,10 @@ pub struct UTextFuncs {
     pub spare2: UTextClose,
     pub spare3: UTextClose,
 }
-pub type UTextMapNativeIndexToUTF16 = Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
-pub type UTextMapOffsetToNative = Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
-pub type UTextNativeLength = Option<unsafe extern "system" fn(ut: *mut UText) -> i64>;
-pub type UTextReplace = Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
+pub type UTextMapNativeIndexToUTF16 = Option<unsafe extern "C" fn(ut: *const UText, nativeindex: i64) -> i32>;
+pub type UTextMapOffsetToNative = Option<unsafe extern "C" fn(ut: *const UText) -> i64>;
+pub type UTextNativeLength = Option<unsafe extern "C" fn(ut: *mut UText) -> i64>;
+pub type UTextReplace = Option<unsafe extern "C" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
 pub type UTimeScaleValue = i32;
 pub type UTimeZoneFormatGMTOffsetPatternType = i32;
 pub type UTimeZoneFormatParseOption = i32;
@@ -4550,9 +4550,9 @@ pub type UTimeZoneFormatStyle = i32;
 pub type UTimeZoneFormatTimeType = i32;
 pub type UTimeZoneNameType = i32;
 pub type UTimeZoneTransitionType = i32;
-pub type UTraceData = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;
-pub type UTraceEntry = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32)>;
-pub type UTraceExit = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;
+pub type UTraceData = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, level: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;
+pub type UTraceEntry = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32)>;
+pub type UTraceExit = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, fnnumber: i32, fmt: windows_sys::core::PCSTR, args: *mut i8)>;
 pub type UTraceFunctionNumber = i32;
 pub type UTraceLevel = i32;
 pub type UTransDirection = i32;
