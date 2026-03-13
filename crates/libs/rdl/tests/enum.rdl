@@ -15,3 +15,17 @@ mod Test {
         D = 2,
     }
 }
+#[win32]
+mod Test {
+    #[repr(i32)]
+    #[Windows::Win32::Foundation::Metadata::ScopedEnum]
+    enum Scoped {
+        One = 1,
+        Two = 2,
+    }
+    #[repr(i32)]
+    enum Unscoped {
+        Unscoped_One = 1,
+        Unscoped_Two = 2,
+    }
+}

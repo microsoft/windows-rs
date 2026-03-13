@@ -38,20 +38,6 @@ impl<'a> ItemIndex<'a> {
             } else {
                 insert(&mut members, namespace, name, Item::Type(ty));
             }
-
-            // TODO: get rid of unscoped enums and encode them simply as constants in the first place
-            if !ty.flags().contains(TypeAttributes::WindowsRuntime) {
-                match ty.category() {
-                    TypeCategory::Enum if !ty.has_attribute("ScopedEnumAttribute") => {
-                        for field in ty.fields() {
-                            if field.flags().contains(FieldAttributes::Literal) {
-                                insert(&mut members, namespace, field.name(), Item::Const(field));
-                            }
-                        }
-                    }
-                    _ => {}
-                }
-            }
         }
 
         Self(members)
