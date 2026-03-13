@@ -57,10 +57,22 @@ impl CppDelegate {
         let arches = write_arches(self.def);
         let cfg = self.write_cfg(config);
 
+        let mut abi = None;
+
+        if let Some(attribute) = self.def.find_attribute("UnmanagedFunctionPointerAttribute") {
+            if let Some((_, Value::EnumValue(_, value))) = attribute.value().first() {
+                match &**value {
+                    Value::I32(1) => abi = Some("system"),
+                    Value::I32(2) => abi = Some("C"),
+                    rest => todo!("{rest:?}"),
+                }
+            }
+        }
+
         quote! {
             #arches
             #cfg
-            pub type #name = Option<unsafe extern "system" fn(#params) #return_sig>;
+            pub type #name = Option<unsafe extern #abi fn(#params) #return_sig>;
         }
     }
 }

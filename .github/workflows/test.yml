@@ -289,6 +289,8 @@ jobs:
         run:  cargo test -p test_package --target ${{ matrix.target }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }}
+      - name: Test test_rdl_bindgen
+        run:  cargo test -p test_rdl_bindgen --target ${{ matrix.target }}
       - name: Test test_readme
         run:  cargo test -p test_readme --target ${{ matrix.target }}
       - name: Test test_ref_params
@@ -365,10 +367,10 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
-      - name: Test tool_license
-        run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test tool_license
+        run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc

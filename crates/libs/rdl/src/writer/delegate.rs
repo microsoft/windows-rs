@@ -36,11 +36,23 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         namespace,
         item.index(),
         // GuidAttribute is derived from the delegate shape; skip it so round-trips stay clean
-        &["GuidAttribute"],
+        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
     );
+
+    let mut abi = None;
+
+    if let Some(attribute) = item.find_attribute("UnmanagedFunctionPointerAttribute") {
+        if let Some((_, metadata::Value::EnumValue(_, value))) = attribute.value().first() {
+            match &**value {
+                metadata::Value::I32(1) => abi = Some("system"),
+                metadata::Value::I32(2) => abi = Some("C"),
+                rest => todo!("{rest:?}"),
+            }
+        }
+    }
 
     quote! {
         #(#custom_attrs)*
-        delegate fn #name #generics (#(#params),*) #return_type;
+        delegate #abi fn #name #generics (#(#params),*) #return_type;
     }
 }

@@ -252,6 +252,7 @@ pub fn format(input: &str) -> String {
             }
             Token::StringLiteral(literal) => {
                 output.push_str(literal);
+                output.push(' ');
             }
             Token::Struct => {
                 output.push_str("struct ");
