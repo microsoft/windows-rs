@@ -46,6 +46,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
             match &**value {
                 metadata::Value::I32(1) => abi = Some("system"),
                 metadata::Value::I32(2) => abi = Some("C"),
+                metadata::Value::I32(5) => abi = Some("fastcall"),
                 rest => todo!("{rest:?}"),
             }
         }
