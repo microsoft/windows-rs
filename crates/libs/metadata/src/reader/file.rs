@@ -689,7 +689,7 @@ impl View for [u8] {
     }
 
     fn is_proper_length<T>(&self, offset: usize) -> Option<()> {
-        if offset + size_of::<T>() <= self.len() {
+        if offset.checked_add(size_of::<T>())? <= self.len() {
             Some(())
         } else {
             None
