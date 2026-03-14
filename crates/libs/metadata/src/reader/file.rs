@@ -697,7 +697,10 @@ impl View for [u8] {
     }
 
     fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T> {
-        self.is_proper_length::<T>(offset * count)?;
+        let end = offset.checked_add(count.checked_mul(size_of::<T>())?)?;
+        if end > self.len() {
+            return None;
+        }
         let ptr = &self[offset] as *const u8 as *const T;
 
         if ptr.align_offset(align_of::<T>()) == 0 {

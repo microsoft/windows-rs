@@ -226,7 +226,7 @@ impl<'a> Blob<'a> {
 
     pub fn read_utf8(&mut self) -> String {
         let len = self.read_compressed();
-        let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
+        let value = std::str::from_utf8(&self.slice[..len]).expect("expected valid UTF-8 string");
         self.offset(len);
         value.to_string()
     }
