@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Fn {
     pub attrs: Vec<syn::Attribute>,
-    pub token: syn::Token![extern],
     pub abi: Option<syn::LitStr>, // "system" is default
     pub sig: syn::Signature,
 }
@@ -11,17 +10,12 @@ pub struct Fn {
 impl syn::parse::Parse for Fn {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
+        input.parse::<syn::Token![extern]>()?;
         let abi = input.parse()?;
         let sig = input.parse()?;
         input.parse::<syn::Token![;]>()?;
 
-        Ok(Self {
-            attrs,
-            token,
-            abi,
-            sig,
-        })
+        Ok(Self { attrs, abi, sig })
     }
 }
 

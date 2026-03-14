@@ -239,17 +239,6 @@ impl Type {
     }
 
     #[track_caller]
-    pub fn from_blob(
-        blob: &mut Blob,
-        enclosing: Option<&CppStruct>,
-        generics: &[Self],
-        reader: &Reader,
-    ) -> Self {
-        let metadata_type = blob.read_type_signature(&Self::generic_placeholders(generics.len()));
-        Self::from_metadata_type(&metadata_type, enclosing, generics, reader)
-    }
-
-    #[track_caller]
     pub fn from_metadata_type(
         ty: &windows_metadata::Type,
         enclosing: Option<&CppStruct>,

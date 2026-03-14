@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Const {
     pub attrs: Vec<syn::Attribute>,
-    pub token: syn::Token![const],
     pub name: syn::Ident,
     pub ty: syn::Type,
     pub expr: Option<syn::Expr>,
@@ -12,7 +11,7 @@ pub struct Const {
 impl syn::parse::Parse for Const {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
+        input.parse::<syn::Token![const]>()?;
         let name = input.parse()?;
         input.parse::<syn::Token![:]>()?;
         let ty = input.parse()?;
@@ -26,7 +25,6 @@ impl syn::parse::Parse for Const {
 
         Ok(Self {
             attrs,
-            token,
             name,
             ty,
             expr,
