@@ -11,7 +11,7 @@ mod Test {
         fn get_Name(&self) -> String;
     }
     delegate fn IHandler(arg: i32) -> u32;
-    // Exercises all type_to_string_extra paths: primitives as return values (Boolean*, Int8*, …),
+    // Exercises all type_to_string paths: primitives as return values (Boolean*, Int8*, …),
     // const pointer/reference params (Int32& via ampersand notation), and a double-mut pointer
     // (*mut *mut i32 → Int32**).
     interface ITypeExercise {

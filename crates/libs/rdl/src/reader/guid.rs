@@ -136,7 +136,8 @@ pub fn build_interface_string(
                 Type::Array(inner) => {
                     s.push_str("UInt32");
                     s.push(',');
-                    s.push_str(&type_to_string_extra(inner, 1));
+                    s.push_str(&type_to_string(inner));
+                    s.push('*');
                 }
                 _ => {
                     s.push_str(&type_to_string(ty));
@@ -149,8 +150,8 @@ pub fn build_interface_string(
             if !first {
                 s.push(',');
             }
-            // Return types get one extra pointer level (the [out,retval] indirection)
-            s.push_str(&type_to_string_extra(return_type, 1));
+            s.push_str(&type_to_string(return_type));
+            s.push('*');
         }
 
         s.push(')');
@@ -162,33 +163,27 @@ pub fn build_interface_string(
 
 /// Converts a `metadata::Type` to its WinRT interface string representation.
 pub fn type_to_string(ty: &Type) -> String {
-    type_to_string_extra(ty, 0)
-}
-
-/// Converts a `metadata::Type` to its WinRT interface string representation, appending
-/// `extra_stars` additional pointer levels (used for return types).
-pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
     match ty {
         Type::Void => String::new(),
-        Type::Bool => format!("Boolean{}", stars(extra_stars)),
-        Type::Char => format!("Char16{}", stars(extra_stars)),
-        Type::I8 => format!("Int8{}", stars(extra_stars)),
-        Type::U8 => format!("UInt8{}", stars(extra_stars)),
-        Type::I16 => format!("Int16{}", stars(extra_stars)),
-        Type::U16 => format!("UInt16{}", stars(extra_stars)),
-        Type::I32 => format!("Int32{}", stars(extra_stars)),
-        Type::U32 => format!("UInt32{}", stars(extra_stars)),
-        Type::I64 => format!("Int64{}", stars(extra_stars)),
-        Type::U64 => format!("UInt64{}", stars(extra_stars)),
-        Type::F32 => format!("Single{}", stars(extra_stars)),
-        Type::F64 => format!("Double{}", stars(extra_stars)),
-        Type::ISize => format!("IntPtr{}", stars(extra_stars)),
-        Type::USize => format!("UIntPtr{}", stars(extra_stars)),
-        Type::String => format!("String{}", stars(extra_stars)),
-        Type::Object => format!("Object{}", stars(extra_stars)),
-        Type::Generic(name, _) => format!("{name}{}", stars(extra_stars)),
+        Type::Bool => "Boolean".to_string(),
+        Type::Char => "Char16".to_string(),
+        Type::I8 => "Int8".to_string(),
+        Type::U8 => "UInt8".to_string(),
+        Type::I16 => "Int16".to_string(),
+        Type::U16 => "UInt16".to_string(),
+        Type::I32 => "Int32".to_string(),
+        Type::U32 => "UInt32".to_string(),
+        Type::I64 => "Int64".to_string(),
+        Type::U64 => "UInt64".to_string(),
+        Type::F32 => "Single".to_string(),
+        Type::F64 => "Double".to_string(),
+        Type::ISize => "IntPtr".to_string(),
+        Type::USize => "UIntPtr".to_string(),
+        Type::String => "String".to_string(),
+        Type::Object => "Object".to_string(),
+        Type::Generic(name, _) => name.clone(),
         Type::Name(tn) => {
-            let base = if tn.generics.is_empty() {
+            if tn.generics.is_empty() {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
                 // Backtick-N notation for generic types (e.g., IVector`1<Int32>).
@@ -201,32 +196,17 @@ pub fn type_to_string_extra(ty: &Type, extra_stars: usize) -> String {
                     tn.generics.len(),
                     args.join(", ")
                 )
-            };
-            format!("{base}{}", stars(extra_stars))
+            }
         }
-        // Pointer types: the depth encodes the number of * levels
-        Type::PtrMut(inner, depth) => type_to_string_extra(inner, depth + extra_stars),
-        Type::PtrConst(inner, depth) => {
-            // Const pointers use & suffix per the midlrt convention
-            let base = type_to_string(inner);
-            format!("{base}{}", ampersands(depth + extra_stars))
-        }
-        Type::RefMut(inner) => type_to_string_extra(inner, 1 + extra_stars),
-        Type::RefConst(inner) => {
-            let base = type_to_string(inner);
-            format!("{base}{}", ampersands(1 + extra_stars))
-        }
+        // Pointer types: depth encodes the number of pointer levels
+        Type::PtrMut(inner, depth) => format!("{}{}", type_to_string(inner), "*".repeat(*depth)),
+        // Const pointers use & suffix per the midlrt convention
+        Type::PtrConst(inner, depth) => format!("{}{}", type_to_string(inner), "&".repeat(*depth)),
+        Type::RefMut(inner) => format!("{}*", type_to_string(inner)),
+        Type::RefConst(inner) => format!("{}&", type_to_string(inner)),
         // Arrays are not applicable for WinRT interface parameter type strings
         Type::Array(_) | Type::ArrayFixed(_, _) => String::new(),
     }
-}
-
-fn stars(n: usize) -> String {
-    "*".repeat(n)
-}
-
-fn ampersands(n: usize) -> String {
-    "&".repeat(n)
 }
 
 /// A minimal runtime SHA-1 implementation (not const fn).
