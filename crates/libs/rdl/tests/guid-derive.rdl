@@ -11,9 +11,9 @@ mod Test {
         fn get_Name(&self) -> String;
     }
     delegate fn IHandler(arg: i32) -> u32;
-    // Exercises all type_to_string_extra paths: primitives as return values (Boolean*, Int8*, …),
-    // const pointer/reference params (Int32& via ampersand notation), and a double-mut pointer
-    // (*mut *mut i32 → Int32**).
+    // Exercises all type_to_string variants: primitive returns (Bool, I8, …, Object),
+    // const-pointer param (PtrConst(I32,1)), const-ref param (RefConst(I32)),
+    // and double-mut-pointer param (PtrMut(I32,2)).
     interface ITypeExercise {
         fn get_Bool(&self) -> bool;
         fn get_I8(&self) -> i8;
@@ -46,19 +46,11 @@ mod Test {
     #[Windows::Foundation::Metadata::Guid(33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43)]
     interface IWin32Explicit {}
 }
-// MIDLRT validation: equivalent to the C# MIDL3 interface
-//   public interface Sample.ICompareWithMidl
-//   {
-//       bool Bool([In] bool a, [In] bool[] b);
-//       byte U8([In] byte a, [In] byte[] b);
-//       ... (all scalar WinRT primitive types + string + object)
-//   }
-// No explicit [Guid] here — the test asserts that our derivation produces the same
-// GUID that midlrt.exe would assign: 382ceef6-493d-5722-9320-2d701e7a5021.
-// The `b: [T]` array syntax expands to two ABI params for GUID purposes: UInt32 (length) + T*.
-// The `object` (Object) type is an interface pointer, so its [in] param is *mut Object
-// (Object*), its array elements are *mut *mut Object (Object**), and its return type is
-// *mut Object which gains one extra star as the [out,retval] → Object**.
+// Exercises literal type encoding with all scalar WinRT primitive types, arrays, and object pointers.
+// Each method: in-param, array param, and return type. E.g. Bool encodes as:
+//   "HRESULT Bool(Bool,Array(Bool),Bool);"
+// Object uses *mut Object, encoding as:
+//   "HRESULT Object(PtrMut(Object,1),Array(PtrMut(Object,1)),PtrMut(Object,1));"
 #[winrt]
 mod Sample {
     interface ICompareWithMidl {
