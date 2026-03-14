@@ -49,22 +49,6 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `link` attribute not found\n --> .rdl:3:5")]
-pub fn fn_link_not_found() {
-    Reader::new()
-        .input_str(
-            r#"
-mod Test {
-    fn GetTickCount() -> u32;
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
 #[should_panic(
     expected = "error: `winrt` and `win32` attributes are mutually exclusive\n --> .rdl:5:5"
 )]

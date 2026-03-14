@@ -1,83 +1,51 @@
-use super::guid;
 use super::*;
 
-syn::custom_keyword!(delegate);
-
 #[derive(Debug)]
-pub struct Delegate {
+pub struct Callback {
     pub attrs: Vec<syn::Attribute>,
-    pub token: delegate,
+    pub token: syn::Token![extern],
+    pub abi: Option<syn::LitStr>, // "system" is default
     pub sig: syn::Signature,
 }
 
-impl syn::parse::Parse for Delegate {
+impl syn::parse::Parse for Callback {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
         let token = input.parse()?;
+        let abi = input.parse()?;
         let sig = input.parse()?;
         input.parse::<syn::Token![;]>()?;
 
-        Ok(Self { attrs, token, sig })
+        Ok(Self {
+            attrs,
+            token,
+            abi,
+            sig,
+        })
     }
 }
 
-impl Delegate {
+impl Callback {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let extends = encoder.output.TypeRef("System", "MulticastDelegate");
 
-        let flags = metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Sealed
-            | metadata::TypeAttributes::WindowsRuntime;
+        let flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
 
-        encoder.generics = self
-            .sig
-            .generics
-            .params
-            .iter()
-            .map(|generic| {
-                let syn::GenericParam::Type(generic) = generic else {
-                    todo!("syntax parsing should not allow anything else");
-                };
+        let name = encoder.name.to_string();
 
-                generic.ident.to_string()
-            })
-            .collect();
-
-        let mut name = encoder.name.to_string();
-
-        if !encoder.generics.is_empty() {
-            name = format!("{name}`{}", encoder.generics.len());
-        }
-
-        let delegate = encoder.output.TypeDef(
+        let callback = encoder.output.TypeDef(
             encoder.namespace,
             &name,
             metadata::writer::TypeDefOrRef::TypeRef(extends),
             flags,
         );
 
-        // Emit any Named attributes (defined in metadata or RDL) attached to this delegate.
-        // Skip GUID derivation if an explicit GuidAttribute is already present.
-        let already_has_guid = self
-            .attrs
-            .iter()
-            .any(|attr| is_guid_attribute(encoder, attr));
-
         encode_attrs(
             encoder,
-            metadata::writer::HasAttribute::TypeDef(delegate),
+            metadata::writer::HasAttribute::TypeDef(callback),
             &self.attrs,
             &[],
         )?;
-
-        for (number, name) in encoder.generics.iter().enumerate() {
-            encoder.output.GenericParam(
-                name,
-                metadata::writer::TypeOrMethodDef::TypeDef(delegate),
-                number.try_into().unwrap(),
-                metadata::GenericParamAttributes::None,
-            );
-        }
 
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
@@ -110,17 +78,42 @@ impl Delegate {
         let types: Vec<metadata::Type> = params.iter().map(|param| param.ty.clone()).collect();
         let return_type = encode_return_type(encoder, &self.sig.output)?;
 
-        // For WinRT delegates without an explicit GuidAttribute, derive the GUID from the
-        // delegate name and Invoke method signature using the midlrt algorithm.
-        if !already_has_guid {
-            guid::derive_and_emit_guid(
-                encoder.output,
-                metadata::writer::HasAttribute::TypeDef(delegate),
-                encoder.namespace,
-                encoder.name,
-                &[("Invoke", types.as_slice(), &return_type)],
-            );
+        let mut abi = 1; // "system"
+
+        if let Some(value) = &self.abi {
+            abi = match value.value().as_str() {
+                "system" => 1,
+                "C" => 2,
+                "fastcall" => 5,
+                _ => return encoder.err(value, "callback abi not supported"),
+            };
         }
+
+        let attribute = encoder.output.TypeRef(
+            "System.Runtime.InteropServices",
+            "UnmanagedFunctionPointerAttribute",
+        );
+
+        let signature = windows_metadata::Signature {
+            flags: windows_metadata::MethodCallAttributes::HASTHIS,
+            return_type: windows_metadata::Type::Void,
+            types: vec![windows_metadata::Type::named(
+                "System.Runtime.InteropServices",
+                "CallingConvention",
+            )],
+        };
+
+        let ctor = encoder.output.MemberRef(
+            ".ctor",
+            &signature,
+            windows_metadata::writer::MemberRefParent::TypeRef(attribute),
+        );
+
+        encoder.output.Attribute(
+            metadata::writer::HasAttribute::TypeDef(callback),
+            windows_metadata::writer::AttributeType::MemberRef(ctor),
+            &[(String::new(), windows_metadata::Value::I32(abi))],
+        );
 
         let signature = metadata::Signature {
             flags: Default::default(),
@@ -145,14 +138,14 @@ impl Delegate {
 }
 
 #[test]
-#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:25")]
+#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:23")]
 fn unexpected_self() {
     Reader::new()
         .input_str(
             r#"
-#[winrt]
+#[win32]
 mod Test {
-    delegate fn Handler(&self);
+    extern fn Handler(&self);
 }
         "#,
         )
@@ -162,14 +155,31 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:33")]
+#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:31")]
 fn param_name_unique() {
     Reader::new()
         .input_str(
             r#"
-#[winrt]
+#[win32]
 mod Test {
-    delegate fn Handler(a: i32, a: i32);
+    extern fn Handler(a: i32, a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: callback abi not supported\n --> .rdl:4:12")]
+fn abi_not_supported() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    extern "D" fn Handler();
 }
         "#,
         )

@@ -8,7 +8,7 @@ fn test() {
 
     windows_rdl::Writer::new()
         .input("tests/fn_abi.winmd")
-        .output("tests/fn_abi.rdl")
+        .output("tests/fn_abi_writer.rdl")
         .namespace("Test")
         .write()
         .unwrap();

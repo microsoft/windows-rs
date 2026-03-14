@@ -10,7 +10,9 @@
 
 pub mod Test {
     windows_link::link!("test.dll" "C" fn CallC(f : CallbackC));
+    windows_link::link!("test.dll" "system" fn CallDefault(f : CallbackDefault));
     windows_link::link!("test.dll" "system" fn CallS(f : CallbackS));
     pub type CallbackC = Option<unsafe extern "C" fn()>;
+    pub type CallbackDefault = Option<unsafe extern "system" fn()>;
     pub type CallbackS = Option<unsafe extern "system" fn()>;
 }
