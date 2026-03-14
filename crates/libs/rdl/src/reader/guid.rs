@@ -129,9 +129,7 @@ pub fn build_interface_string(
         s.push('(');
 
         let mut parts: Vec<String> = param_types.iter().map(type_to_string).collect();
-        if !matches!(return_type, Type::Void) {
-            parts.push(type_to_string(return_type));
-        }
+        parts.push(type_to_string(return_type));
         s.push_str(&parts.join(","));
 
         s.push(')');
@@ -312,7 +310,7 @@ mod tests {
         );
         assert_eq!(
             single,
-            "Test.ISingle:HRESULT get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1));"
+            "Test.ISingle:HRESULT get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1),Void);"
         );
 
         // Two-arg generic: IKeyValuePair<String,I32> — args joined with ","
@@ -332,7 +330,7 @@ mod tests {
         );
         assert_eq!(
             two_arg,
-            "Test.ITwoArg:HRESULT get_Pair(PtrMut(Windows.Foundation.Collections.IKeyValuePair<String,I32>,1));"
+            "Test.ITwoArg:HRESULT get_Pair(PtrMut(Windows.Foundation.Collections.IKeyValuePair<String,I32>,1),Void);"
         );
 
         // Array param encoded as Array(inner), not expanded to UInt32 + T*
@@ -341,7 +339,7 @@ mod tests {
             "IArr",
             &[("Fill", &[Type::Array(Box::new(Type::I32))], &Type::Void)],
         );
-        assert_eq!(arr, "Test.IArr:HRESULT Fill(Array(I32));");
+        assert_eq!(arr, "Test.IArr:HRESULT Fill(Array(I32),Void);");
 
         // Return type encoded literally without added *
         let ret = build_interface_string("Test", "IRet", &[("get_V", &[], &Type::I32)]);
@@ -364,7 +362,7 @@ mod tests {
         );
         assert_eq!(
             ptrs,
-            "Test.IPtr:HRESULT Method(PtrMut(I32,2),PtrConst(I32,1),RefMut(I32),RefConst(I32));"
+            "Test.IPtr:HRESULT Method(PtrMut(I32,2),PtrConst(I32,1),RefMut(I32),RefConst(I32),Void);"
         );
     }
 }

@@ -111,7 +111,7 @@ fn guid_derive() {
         "tests/guid-derive.winmd",
         "Test",
         "ITypeExercise",
-        "e722b051-522a-5002-b0c7-18525cf9fef6",
+        "ae84aa56-ab01-555d-b765-afc17defa2bb",
     );
 
     // IWin32: Win32 interface with a derived Guid → "Test.IWin32:"
