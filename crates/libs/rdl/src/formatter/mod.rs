@@ -101,13 +101,13 @@ pub fn format(input: &str) -> String {
     let mut token_idx = 0;
 
     while token_idx < tokens.len() {
-        let (token, span) = &tokens[token_idx];
+        let (token, _span) = &tokens[token_idx];
 
         let token = match token {
             Ok(token) => token,
             Err(_) => {
-                emit_error(input, span.start, "unexpected token");
-                panic!();
+                token_idx += 1;
+                continue;
             }
         };
 
