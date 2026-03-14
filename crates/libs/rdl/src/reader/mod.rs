@@ -290,16 +290,6 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
     Ok(output.into_stream())
 }
 
-fn err<T, S: syn::spanned::Spanned>(
-    spanned: S,
-    source_file: &str,
-    message: &str,
-) -> Result<T, Error> {
-    let start = spanned.span().start();
-
-    Err(Error::new(message, source_file, start.line, start.column))
-}
-
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
