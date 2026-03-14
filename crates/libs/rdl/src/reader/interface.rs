@@ -61,18 +61,14 @@ impl Interface {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        encoder.generics = self
-            .generics
-            .params
-            .iter()
-            .map(|generic| {
-                let syn::GenericParam::Type(generic) = generic else {
-                    todo!("syntax parsing should not allow anything else");
-                };
-
-                generic.ident.to_string()
-            })
-            .collect();
+        let mut generics = Vec::with_capacity(self.generics.params.len());
+        for generic in self.generics.params.iter() {
+            let syn::GenericParam::Type(generic) = generic else {
+                return encoder.err(generic, "only type generic parameters are supported");
+            };
+            generics.push(generic.ident.to_string());
+        }
+        encoder.generics = generics;
 
         let mut name = encoder.name.to_string();
 
@@ -351,6 +347,23 @@ mod Test {
         #[special(42)]
         fn Method(&self);
     }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:20")]
+fn interface_lifetime_generic_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    interface IFoo<'a> {}
 }
         "#,
         )

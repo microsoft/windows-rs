@@ -109,6 +109,10 @@ fn encode_implement(
         let path = attr.path();
 
         if path.is_ident("default") {
+            if !matches!(attr.meta, syn::Meta::Path(_)) {
+                return encoder.err(attr, "`default` attribute does not accept arguments");
+            }
+
             let default_attribute = metadata::writer::MemberRefParent::TypeRef(
                 encoder
                     .output
@@ -132,5 +136,32 @@ fn encode_implement(
         }
     }
 
+    encode_attrs(
+        encoder,
+        metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+        &interface.attrs,
+        &["default"],
+    )?;
+
     Ok(())
+}
+
+#[test]
+#[should_panic(expected = "error: `default` attribute does not accept arguments\n --> .rdl:6:9")]
+fn default_with_args_on_class_interface_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    interface IFoo {}
+    class MyClass {
+        #[default(42)] IFoo,
+    }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }
