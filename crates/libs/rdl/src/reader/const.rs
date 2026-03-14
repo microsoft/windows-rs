@@ -87,7 +87,10 @@ fn encode_const_guid(
     item: &Const,
     name: &str,
 ) -> Result<(), Error> {
-    let expr = item.expr.as_ref().expect("GUID const missing value");
+    let expr = item
+        .expr
+        .as_ref()
+        .ok_or_else(|| encoder.error(&item.name, "GUID constant requires a value"))?;
     let value: u128 = encode_lit_int(encoder, expr)?;
     let field = encoder.output.Field(
         name,
@@ -143,4 +146,21 @@ fn encode_const_guid(
     );
 
     Ok(())
+}
+
+#[test]
+#[should_panic(expected = "error: GUID constant requires a value\n --> .rdl:4:11")]
+fn guid_const_missing_value() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    const MY_GUID: GUID;
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }

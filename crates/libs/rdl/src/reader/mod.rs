@@ -329,7 +329,7 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
         syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
         syn::Type::Slice(ty) => encode_type_slice(encoder, ty),
         syn::Type::Array(ty) => encode_type_array(encoder, ty),
-        rest => todo!("{rest:?}"),
+        rest => encoder.err(rest, "type not supported"),
     }
 }
 
@@ -770,6 +770,25 @@ mod Other {
         "#,
         )
         .output(&output.to_string_lossy())
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: type not supported\n --> .rdl:5:12")]
+fn unsupported_type_errors() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    struct Foo {
+        a: (i32, i32),
+    }
+}
+        "#,
+        )
+        .output(".")
         .write()
         .unwrap();
 }
