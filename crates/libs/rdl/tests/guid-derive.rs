@@ -57,36 +57,36 @@ fn guid_derive() {
         "93f72119-d661-5bef-a41c-d6bf160de60a",
     );
 
-    // ISimple: fn get_Value(&self) -> i32  → "Test.ISimple:HRESULT get_Value(I32);"
+    // ISimple: fn get_Value(&self) -> i32  → "Test.ISimple:get_Value(I32);"
     assert_guid(
         "tests/guid-derive.winmd",
         "Test",
         "ISimple",
-        "6912466a-c018-5452-83a7-fef2e644fa79",
+        "e2b97695-90c7-5ec8-a50b-ebd2c14cc21c",
     );
 
-    // IWithParam: fn Add(&self, a: i32, b: i32) -> i32  → "Test.IWithParam:HRESULT Add(I32,I32,I32);"
+    // IWithParam: fn Add(&self, a: i32, b: i32) -> i32  → "Test.IWithParam:Add(I32,I32,I32);"
     assert_guid(
         "tests/guid-derive.winmd",
         "Test",
         "IWithParam",
-        "2ff0391c-c0b7-56ff-85f9-ded1c3288e07",
+        "d9541331-4000-54cc-9930-25d4dcac4e9e",
     );
 
-    // IWithString: fn get_Name(&self) -> String  → "Test.IWithString:HRESULT get_Name(String);"
+    // IWithString: fn get_Name(&self) -> String  → "Test.IWithString:get_Name(String);"
     assert_guid(
         "tests/guid-derive.winmd",
         "Test",
         "IWithString",
-        "5b3776af-d351-5741-be32-88b51c491328",
+        "a35e5162-a2cc-5615-8020-db6aecaab204",
     );
 
-    // IHandler (delegate): fn Invoke(arg: i32) -> u32  → "Test.IHandler:HRESULT Invoke(I32,U32);"
+    // IHandler (delegate): fn Invoke(arg: i32) -> u32  → "Test.IHandler:Invoke(I32,U32);"
     assert_guid(
         "tests/guid-derive.winmd",
         "Test",
         "IHandler",
-        "0010437a-8168-52ad-ab6c-eef2fad966ca",
+        "e9a79fae-34d3-5cc3-9424-7904b061d096",
     );
 
     // IExplicitDelegate: WinRT delegate with explicit Guid — derivation must be suppressed.
@@ -111,7 +111,7 @@ fn guid_derive() {
         "tests/guid-derive.winmd",
         "Test",
         "ITypeExercise",
-        "ae84aa56-ab01-555d-b765-afc17defa2bb",
+        "556f3952-b277-5c0d-b864-8c73529cf6e2",
     );
 
     // IWin32: Win32 interface with a derived Guid → "Test.IWin32:"
@@ -132,12 +132,12 @@ fn guid_derive() {
 
     // ICompareWithMidl: exercises array params (Array(T)) and all scalar WinRT primitive types.
     // Each method has an in-param, an array param, and a return type, e.g.:
-    //   "HRESULT Bool(Bool,Array(Bool),Bool);"
-    // The Object method uses *mut Object: "HRESULT Object(PtrMut(Object,1),Array(PtrMut(Object,1)),PtrMut(Object,1));"
+    //   "Bool(Bool,Array(Bool),Bool);"
+    // The Object method uses *mut Object: "Object(PtrMut(Object,1),Array(PtrMut(Object,1)),PtrMut(Object,1));"
     assert_guid(
         "tests/guid-derive.winmd",
         "Sample",
         "ICompareWithMidl",
-        "7a5647a6-0179-531b-a2dd-509cd4226937",
+        "3f9f1bc8-e8be-5939-b0d4-652564052a23",
     );
 }

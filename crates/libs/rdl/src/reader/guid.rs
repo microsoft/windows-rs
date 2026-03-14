@@ -106,7 +106,7 @@ pub fn emit_guid_attribute(
 
 /// Builds the interface string for a method-based interface or delegate.
 ///
-/// Format: `"namespace.Name:HRESULT Method1(param1,param2,...);HRESULT Method2(...);..."`
+/// Format: `"namespace.Name:Method1(param1,param2,...);Method2(...);..."`
 ///
 /// For empty interfaces (no methods): `"namespace.Name:"`
 ///
@@ -124,7 +124,6 @@ pub fn build_interface_string(
     s.push(':');
 
     for (method_name, param_types, return_type) in methods {
-        s.push_str("HRESULT ");
         s.push_str(method_name);
         s.push('(');
 
@@ -278,14 +277,14 @@ mod tests {
 
     #[test]
     fn guid_simple_method() {
-        // Methods with no parameters: hash of "namespace.Name:HRESULT Method();"
+        // Methods with no parameters: hash of "namespace.Name:Method();"
         check(
-            "test_component.Nested.IThing:HRESULT Method();",
-            "5448be22-9873-5ae6-9106-f6e8455d2fdd",
+            "test_component.Nested.IThing:Method();",
+            "d1411ebd-7428-58ac-9ae0-f3852487ae39",
         );
         check(
-            "test_activation.One.IMissing:HRESULT Method();",
-            "ad54a92f-16de-537c-b6c0-5099534ee12e",
+            "test_activation.One.IMissing:Method();",
+            "4eb2284e-3292-5584-8b10-0a03ba18af99",
         );
     }
 
@@ -310,7 +309,7 @@ mod tests {
         );
         assert_eq!(
             single,
-            "Test.ISingle:HRESULT get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1),Void);"
+            "Test.ISingle:get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1),Void);"
         );
 
         // Two-arg generic: IKeyValuePair<String,I32> — args joined with ","
@@ -330,7 +329,7 @@ mod tests {
         );
         assert_eq!(
             two_arg,
-            "Test.ITwoArg:HRESULT get_Pair(PtrMut(Windows.Foundation.Collections.IKeyValuePair<String,I32>,1),Void);"
+            "Test.ITwoArg:get_Pair(PtrMut(Windows.Foundation.Collections.IKeyValuePair<String,I32>,1),Void);"
         );
 
         // Array param encoded as Array(inner), not expanded to UInt32 + T*
@@ -339,11 +338,11 @@ mod tests {
             "IArr",
             &[("Fill", &[Type::Array(Box::new(Type::I32))], &Type::Void)],
         );
-        assert_eq!(arr, "Test.IArr:HRESULT Fill(Array(I32),Void);");
+        assert_eq!(arr, "Test.IArr:Fill(Array(I32),Void);");
 
         // Return type encoded literally without added *
         let ret = build_interface_string("Test", "IRet", &[("get_V", &[], &Type::I32)]);
-        assert_eq!(ret, "Test.IRet:HRESULT get_V(I32);");
+        assert_eq!(ret, "Test.IRet:get_V(I32);");
 
         // Pointer types
         let ptrs = build_interface_string(
@@ -362,7 +361,7 @@ mod tests {
         );
         assert_eq!(
             ptrs,
-            "Test.IPtr:HRESULT Method(PtrMut(I32,2),PtrConst(I32,1),RefMut(I32),RefConst(I32),Void);"
+            "Test.IPtr:Method(PtrMut(I32,2),PtrConst(I32,1),RefMut(I32),RefConst(I32),Void);"
         );
     }
 }
