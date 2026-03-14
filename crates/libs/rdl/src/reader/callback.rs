@@ -84,6 +84,7 @@ impl Callback {
             abi = match value.value().as_str() {
                 "system" => 1,
                 "C" => 2,
+                "fastcall" => 5,
                 _ => return encoder.err(abi, "callback abi not supported"),
             };
         }
@@ -137,14 +138,14 @@ impl Callback {
 }
 
 #[test]
-#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:25")]
+#[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:23")]
 fn unexpected_self() {
     Reader::new()
         .input_str(
             r#"
-#[winrt]
+#[win32]
 mod Test {
-    delegate fn Handler(&self);
+    extern fn Handler(&self);
 }
         "#,
         )
@@ -154,14 +155,14 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:33")]
+#[should_panic(expected = "error: param names must be unique\n --> .rdl:4:31")]
 fn param_name_unique() {
     Reader::new()
         .input_str(
             r#"
-#[winrt]
+#[win32]
 mod Test {
-    delegate fn Handler(a: i32, a: i32);
+    extern fn Handler(a: i32, a: i32);
 }
         "#,
         )

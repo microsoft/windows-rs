@@ -21,10 +21,12 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     let library = scope.name();
     let flags = impl_map.flags();
 
-    let abi = if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
-        None
+    let abi = if flags.contains(metadata::PInvokeAttributes::CallConvFastcall) {
+        Some("fastcall")
     } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
         Some("C")
+    } else if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
+        None
     } else {
         todo!()
     };
