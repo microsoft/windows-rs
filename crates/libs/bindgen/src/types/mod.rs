@@ -1045,3 +1045,23 @@ fn write_ptr_mut(pointers: usize) -> TokenStream {
 fn write_ptr_const(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
+
+/// Helper for types whose `write_cfg` only needs their own dependencies.
+/// Returns an empty token stream when packaging is disabled.
+fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
+    if !config.package {
+        return quote! {};
+    }
+    Cfg::new(&ty.dependencies(config.reader), config).write(config, false)
+}
+
+/// Helper for types whose `write_cfg` needs to return both the `Cfg` value and its token form.
+/// Returns default/empty values when packaging is disabled.
+fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream) {
+    if !config.package {
+        return (Cfg::default(), quote! {});
+    }
+    let cfg = Cfg::new(&ty.dependencies(config.reader), config);
+    let tokens = cfg.write(config, false);
+    (cfg, tokens)
+}
