@@ -7,8 +7,8 @@ const MIDLRT_NAMESPACE: [u8; 16] = [
     0xe7, 0x2a, 0x13, 0x4c, 0xba, 0xf7, 0x4d, 0xd3, 0xb5, 0x42, 0x77, 0x84, 0x8e, 0x87, 0xb1, 0x38,
 ];
 
-/// Computes a deterministic WinRT interface GUID from an interface string using the midlrt
-/// algorithm (RFC 4122 UUID v5 / SHA-1 name-based UUID).
+/// Computes a deterministic interface GUID from an interface string using RFC 4122 UUID v5
+/// (SHA-1 name-based UUID) with the midlrt namespace.
 ///
 /// Returns `(data1, data2, data3, data4)` suitable for writing a `GuidAttribute`.
 pub fn guid_from_interface_string(interface_string: &str) -> (u32, u16, u16, [u8; 8]) {
@@ -104,11 +104,14 @@ pub fn emit_guid_attribute(
     );
 }
 
-/// Builds the WinRT interface string for a method-based interface or delegate.
+/// Builds the interface string for a method-based interface or delegate.
 ///
 /// Format: `"namespace.Name:HRESULT Method1(param1,param2,...);HRESULT Method2(...);..."`
 ///
 /// For empty interfaces (no methods): `"namespace.Name:"`
+///
+/// Each type is encoded using the literal `Type` variant name (e.g. `I32`, `Bool`,
+/// `PtrMut(I32,1)`, `Array(Bool)`), matching the `windows-metadata` type one-to-one.
 pub fn build_interface_string(
     namespace: &str,
     name: &str,
@@ -125,34 +128,11 @@ pub fn build_interface_string(
         s.push_str(method_name);
         s.push('(');
 
-        let mut first = true;
-        for ty in *param_types {
-            if !first {
-                s.push(',');
-            }
-            first = false;
-            match ty {
-                // WinRT [in] array: expand to (UInt32 length, T* data) matching the ABI
-                Type::Array(inner) => {
-                    s.push_str("UInt32");
-                    s.push(',');
-                    s.push_str(&type_to_string(inner));
-                    s.push('*');
-                }
-                _ => {
-                    s.push_str(&type_to_string(ty));
-                }
-            }
-        }
-
-        // Non-void return type becomes the last [out, retval] parameter with one extra pointer
+        let mut parts: Vec<String> = param_types.iter().map(type_to_string).collect();
         if !matches!(return_type, Type::Void) {
-            if !first {
-                s.push(',');
-            }
-            s.push_str(&type_to_string(return_type));
-            s.push('*');
+            parts.push(type_to_string(return_type));
         }
+        s.push_str(&parts.join(","));
 
         s.push(')');
         s.push(';');
@@ -161,51 +141,42 @@ pub fn build_interface_string(
     s
 }
 
-/// Converts a `metadata::Type` to its WinRT interface string representation.
+/// Converts a `metadata::Type` to its literal variant-name representation, matching the
+/// `windows-metadata` `Type` enum one-to-one.
 pub fn type_to_string(ty: &Type) -> String {
     match ty {
-        Type::Void => String::new(),
-        Type::Bool => "Boolean".to_string(),
-        Type::Char => "Char16".to_string(),
-        Type::I8 => "Int8".to_string(),
-        Type::U8 => "UInt8".to_string(),
-        Type::I16 => "Int16".to_string(),
-        Type::U16 => "UInt16".to_string(),
-        Type::I32 => "Int32".to_string(),
-        Type::U32 => "UInt32".to_string(),
-        Type::I64 => "Int64".to_string(),
-        Type::U64 => "UInt64".to_string(),
-        Type::F32 => "Single".to_string(),
-        Type::F64 => "Double".to_string(),
-        Type::ISize => "IntPtr".to_string(),
-        Type::USize => "UIntPtr".to_string(),
+        Type::Void => "Void".to_string(),
+        Type::Bool => "Bool".to_string(),
+        Type::Char => "Char".to_string(),
+        Type::I8 => "I8".to_string(),
+        Type::U8 => "U8".to_string(),
+        Type::I16 => "I16".to_string(),
+        Type::U16 => "U16".to_string(),
+        Type::I32 => "I32".to_string(),
+        Type::U32 => "U32".to_string(),
+        Type::I64 => "I64".to_string(),
+        Type::U64 => "U64".to_string(),
+        Type::F32 => "F32".to_string(),
+        Type::F64 => "F64".to_string(),
+        Type::ISize => "ISize".to_string(),
+        Type::USize => "USize".to_string(),
         Type::String => "String".to_string(),
         Type::Object => "Object".to_string(),
-        Type::Generic(name, _) => name.clone(),
+        Type::Generic(name, index) => format!("Generic({name},{index})"),
         Type::Name(tn) => {
             if tn.generics.is_empty() {
                 format!("{}.{}", tn.namespace, tn.name)
             } else {
-                // Backtick-N notation for generic types (e.g., IVector`1<Int32>).
-                // Multi-arg generics use ", " (comma + space) as the separator, matching midlrt.
                 let args: Vec<String> = tn.generics.iter().map(type_to_string).collect();
-                format!(
-                    "{}.{}`{}<{}>",
-                    tn.namespace,
-                    tn.name,
-                    tn.generics.len(),
-                    args.join(", ")
-                )
+                format!("{}.{}<{}>", tn.namespace, tn.name, args.join(","))
             }
         }
-        // Pointer types: depth encodes the number of pointer levels
-        Type::PtrMut(inner, depth) => format!("{}{}", type_to_string(inner), "*".repeat(*depth)),
-        // Const pointers use & suffix per the midlrt convention
-        Type::PtrConst(inner, depth) => format!("{}{}", type_to_string(inner), "&".repeat(*depth)),
-        Type::RefMut(inner) => format!("{}*", type_to_string(inner)),
-        Type::RefConst(inner) => format!("{}&", type_to_string(inner)),
-        // Arrays are not applicable for WinRT interface parameter type strings
-        Type::Array(_) | Type::ArrayFixed(_, _) => String::new(),
+        Type::PtrMut(inner, depth) => format!("PtrMut({},{})", type_to_string(inner), depth),
+        Type::PtrConst(inner, depth) => format!("PtrConst({},{})", type_to_string(inner), depth),
+        Type::RefMut(inner) => format!("RefMut({})", type_to_string(inner)),
+        Type::RefConst(inner) => format!("RefConst({})", type_to_string(inner)),
+        Type::Array(inner) => format!("Array({})", type_to_string(inner)),
+        Type::ArrayFixed(inner, n) => format!("ArrayFixed({},{})", type_to_string(inner), n),
     }
 }
 
@@ -296,12 +267,11 @@ mod tests {
 
     #[test]
     fn guid_empty_interface() {
-        // test_composable.IContainerVisualFactory (no methods)
+        // Empty interfaces (no methods): hash of "namespace.Name:"
         check(
             "test_composable.IContainerVisualFactory:",
             "558b6180-1a65-5f01-8be2-2cc0b2034c0e",
         );
-        // test_composable.IVisualFactory (no methods)
         check(
             "test_composable.IVisualFactory:",
             "1974545d-259f-553c-8ea0-e505f897df81",
@@ -310,12 +280,11 @@ mod tests {
 
     #[test]
     fn guid_simple_method() {
-        // test_component.Nested.IThing
+        // Methods with no parameters: hash of "namespace.Name:HRESULT Method();"
         check(
             "test_component.Nested.IThing:HRESULT Method();",
             "5448be22-9873-5ae6-9106-f6e8455d2fdd",
         );
-        // test_activation.One.IMissing
         check(
             "test_activation.One.IMissing:HRESULT Method();",
             "ad54a92f-16de-537c-b6c0-5099534ee12e",
@@ -323,97 +292,10 @@ mod tests {
     }
 
     #[test]
-    fn guid_property_getter() {
-        // test_activation.One.IInstance: Int32 Property { get; }
-        check(
-            "test_activation.One.IInstance:HRESULT get_Property(Int32*);",
-            "4cc554b9-8483-54a9-8490-1467dfd7078f",
-        );
-    }
-
-    #[test]
-    fn guid_composable_factory() {
-        // test_constructors.IComposableFactory
-        check(
-            "test_constructors.IComposableFactory:HRESULT CreateInstance(Object*,Object**,test_constructors.Composable**);HRESULT WithValue(Int32,Object*,Object**,test_constructors.Composable**);",
-            "6a461099-83c0-5810-9e20-2e8b9521d143",
-        );
-    }
-
-    #[test]
-    fn guid_generic_collection() {
-        // Test.ITest (collection_interop): arrays expand to (UInt32, TypeName*), generic with space
-        check(
-            "Test.ITest:HRESULT TestIterable(Windows.Foundation.Collections.IIterable`1<Int32>*,UInt32,Int32*);HRESULT GetIterable(UInt32,Int32*,Windows.Foundation.Collections.IIterable`1<Int32>**);HRESULT GetMapView(UInt32,Int32*,Windows.Foundation.Collections.IMapView`2<Int32, Windows.Foundation.Collections.IVectorView`1<Int32>>**);",
-            "ab9ee103-2921-5ff1-95b3-6b72ea1d289f",
-        );
-    }
-
-    #[test]
-    fn guid_composable_interfaces() {
-        check(
-            "test_composable.ICompositor:HRESULT CreateSpriteVisual(Int32,test_composable.SpriteVisual**);HRESULT CreateContainerVisual(Int32,test_composable.ContainerVisual**);",
-            "ac7b49b8-e092-52ad-8456-48696a5a258e",
-        );
-        check(
-            "test_composable.IVisual:HRESULT get_Compositor(test_composable.Compositor**);",
-            "ce89606a-5b03-5861-af26-9dced3aab7e6",
-        );
-        check(
-            "test_composable.IContainerVisual:HRESULT get_Children(Int32*);",
-            "b8accc46-3ff7-5a24-8247-f5a52e1f5a8d",
-        );
-        check(
-            "test_composable.ISpriteVisual:HRESULT get_Brush(Int32*);",
-            "25f23ebe-4cd3-5349-b16d-d88c4d852ea1",
-        );
-    }
-
-    #[test]
-    fn guid_overloads() {
-        // test_overloads.IA: Method() -> Int32, Method(Int32 a) -> Int32
-        // midlrt auto-renames the second overload to "Method2"
-        check(
-            "test_overloads.IA:HRESULT Method(Int32*);HRESULT Method2(Int32,Int32*);",
-            "ea3ed6f8-2f81-5cfc-a281-4bf0d7535521",
-        );
-    }
-
-    #[test]
-    fn guid_midlrt_compat() {
-        // Validates against the GUID midlrt.exe assigns to:
-        //   public interface Sample.ICompareWithMidl
-        //   {
-        //       bool Bool([In] bool a, [In] bool[] b);
-        //       byte U8([In] byte a, [In] byte[] b);
-        //       ...
-        //       object Object([In] object a, [In] object[] b);
-        //   }
-        // Array params expand to (UInt32, T*) for value types; the `object` / Object type
-        // is already a pointer so its [in] param is Object* and its array elements are Object**.
-        check(
-            "Sample.ICompareWithMidl:\
-HRESULT Bool(Boolean,UInt32,Boolean*,Boolean*);\
-HRESULT U8(UInt8,UInt32,UInt8*,UInt8*);\
-HRESULT I16(Int16,UInt32,Int16*,Int16*);\
-HRESULT U16(UInt16,UInt32,UInt16*,UInt16*);\
-HRESULT I32(Int32,UInt32,Int32*,Int32*);\
-HRESULT U32(UInt32,UInt32,UInt32*,UInt32*);\
-HRESULT I64(Int64,UInt32,Int64*,Int64*);\
-HRESULT U64(UInt64,UInt32,UInt64*,UInt64*);\
-HRESULT F32(Single,UInt32,Single*,Single*);\
-HRESULT F64(Double,UInt32,Double*,Double*);\
-HRESULT String(String,UInt32,String*,String*);\
-HRESULT Object(Object*,UInt32,Object**,Object**);",
-            "382ceef6-493d-5722-9320-2d701e7a5021",
-        );
-    }
-
-    #[test]
-    fn build_interface_string_generic_separator() {
+    fn build_interface_string_literal_types() {
         use windows_metadata::TypeName;
 
-        // Single-arg generic: IIterable`1<Int32> — no comma, no space
+        // Single-arg generic: IIterable<I32> — literal variant-name encoding, no backtick
         let iter_ty = Type::Name(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IIterable".to_string(),
@@ -430,10 +312,10 @@ HRESULT Object(Object*,UInt32,Object**,Object**);",
         );
         assert_eq!(
             single,
-            "Test.ISingle:HRESULT get_Items(Windows.Foundation.Collections.IIterable`1<Int32>*);"
+            "Test.ISingle:HRESULT get_Items(PtrMut(Windows.Foundation.Collections.IIterable<I32>,1));"
         );
 
-        // Two-arg generic: IKeyValuePair`2<String, Int32> — must use ", " per midlrt spec
+        // Two-arg generic: IKeyValuePair<String,I32> — args joined with ","
         let kvp_ty = Type::Name(TypeName {
             namespace: "Windows.Foundation.Collections".to_string(),
             name: "IKeyValuePair".to_string(),
@@ -450,7 +332,39 @@ HRESULT Object(Object*,UInt32,Object**,Object**);",
         );
         assert_eq!(
             two_arg,
-            "Test.ITwoArg:HRESULT get_Pair(Windows.Foundation.Collections.IKeyValuePair`2<String, Int32>*);"
+            "Test.ITwoArg:HRESULT get_Pair(PtrMut(Windows.Foundation.Collections.IKeyValuePair<String,I32>,1));"
+        );
+
+        // Array param encoded as Array(inner), not expanded to UInt32 + T*
+        let arr = build_interface_string(
+            "Test",
+            "IArr",
+            &[("Fill", &[Type::Array(Box::new(Type::I32))], &Type::Void)],
+        );
+        assert_eq!(arr, "Test.IArr:HRESULT Fill(Array(I32));");
+
+        // Return type encoded literally without added *
+        let ret = build_interface_string("Test", "IRet", &[("get_V", &[], &Type::I32)]);
+        assert_eq!(ret, "Test.IRet:HRESULT get_V(I32);");
+
+        // Pointer types
+        let ptrs = build_interface_string(
+            "Test",
+            "IPtr",
+            &[(
+                "Method",
+                &[
+                    Type::PtrMut(Box::new(Type::I32), 2),
+                    Type::PtrConst(Box::new(Type::I32), 1),
+                    Type::RefMut(Box::new(Type::I32)),
+                    Type::RefConst(Box::new(Type::I32)),
+                ],
+                &Type::Void,
+            )],
+        );
+        assert_eq!(
+            ptrs,
+            "Test.IPtr:HRESULT Method(PtrMut(I32,2),PtrConst(I32,1),RefMut(I32),RefConst(I32));"
         );
     }
 }
