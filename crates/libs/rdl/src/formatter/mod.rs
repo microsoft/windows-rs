@@ -107,7 +107,7 @@ pub fn format(input: &str) -> String {
             Ok(token) => token,
             Err(_) => {
                 emit_error(input, span.start, "unexpected token");
-                panic!();
+                return input.to_string();
             }
         };
 

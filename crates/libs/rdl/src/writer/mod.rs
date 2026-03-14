@@ -115,7 +115,7 @@ impl Writer {
                 path.push(&self.output);
                 path.push(format!("{namespace}.rdl"));
 
-                write_to_file(path.to_str().unwrap(), formatter::format(&output));
+                write_to_file(path.to_str().unwrap(), formatter::format(&output))?;
             }
         } else {
             let mut layout = Layout::new();
@@ -143,24 +143,28 @@ impl Writer {
             }
 
             let output = layout.to_string();
-            write_to_file(&self.output, formatter::format(&output));
+            write_to_file(&self.output, formatter::format(&output))?;
         }
 
         Ok(())
     }
 }
 
-#[track_caller]
-fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
+fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<(), Error> {
     if let Some(parent) = std::path::Path::new(path).parent() {
-        if std::fs::create_dir_all(parent).is_err() {
-            panic!("failed to create directory `{path}`");
-        }
+        std::fs::create_dir_all(parent).map_err(|error| {
+            Error::new(
+                &format!("failed to create directory: {error}"),
+                path,
+                0,
+                0,
+            )
+        })?;
     }
 
-    if std::fs::write(path, contents).is_err() {
-        panic!("failed to write file `{path}`");
-    }
+    std::fs::write(path, contents).map_err(|error| {
+        Error::new(&format!("failed to write file: {error}"), path, 0, 0)
+    })
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
@@ -270,12 +274,23 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 
     let params = params.zip(signature.types).map(|(param, ty)| {
         let name = write_ident(param.name());
+        let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
+            && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+        {
+            quote! { #[out] }
+        } else {
+            quote! {}
+        };
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
+        quote! { #out_attr #name: #ty }
     });
 
     let Some(impl_map) = item.impl_map() else {
-        todo!()
+        eprintln!(
+            "windows-rdl: skipping function `{}`: missing ImplMap row",
+            item.name()
+        );
+        return quote! {};
     };
 
     let scope = impl_map.import_scope();
@@ -287,7 +302,11 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
     } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
         "C"
     } else {
-        todo!()
+        eprintln!(
+            "windows-rdl: skipping function `{}`: unsupported calling convention",
+            item.name()
+        );
+        return quote! {};
     };
 
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());

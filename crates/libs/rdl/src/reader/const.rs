@@ -87,7 +87,12 @@ fn encode_const_guid(
     item: &Const,
     name: &str,
 ) -> Result<(), Error> {
-    let expr = item.expr.as_ref().expect("GUID const missing value");
+    let expr = item.expr.as_ref().ok_or_else(|| {
+        encoder.error(
+            &item.token,
+            &format!("GUID constant `{name}` requires a value"),
+        )
+    })?;
     let value: u128 = encode_lit_int(encoder, expr)?;
     let field = encoder.output.Field(
         name,

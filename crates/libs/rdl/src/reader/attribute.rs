@@ -98,11 +98,18 @@ impl Attribute {
                 .MethodDef(".ctor", &signature, flags, Default::default());
 
             for (sequence, param) in params.iter().enumerate() {
-                encoder.output.Param(
+                let param_id = encoder.output.Param(
                     &param.name,
                     (sequence + 1).try_into().unwrap(),
                     param.attributes,
                 );
+
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Param(param_id),
+                    &param.attrs,
+                    &[],
+                )?;
             }
         }
 

@@ -20,8 +20,15 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
 
     let params = params.zip(signature.types).map(|(param, ty)| {
         let name = write_ident(param.name());
+        let out_attr = if param.flags().contains(metadata::ParamAttributes::Out)
+            && !matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..))
+        {
+            quote! { #[out] }
+        } else {
+            quote! {}
+        };
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
+        quote! { #out_attr #name: #ty }
     });
 
     let generics = if generics.is_empty() {
@@ -47,7 +54,12 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
                 metadata::Value::I32(1) => abi = Some("system"),
                 metadata::Value::I32(2) => abi = Some("C"),
                 metadata::Value::I32(5) => abi = Some("fastcall"),
-                rest => todo!("{rest:?}"),
+                rest => {
+                    eprintln!(
+                        "windows-rdl: unsupported calling convention `{rest:?}` on delegate `{}`, skipping ABI annotation",
+                        item.name()
+                    );
+                }
             }
         }
     }

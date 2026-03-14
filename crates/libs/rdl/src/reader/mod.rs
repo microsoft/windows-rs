@@ -291,16 +291,6 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
     Ok(output.into_stream())
 }
 
-fn err<T, S: syn::spanned::Spanned>(
-    spanned: S,
-    source_file: &str,
-    message: &str,
-) -> Result<T, Error> {
-    let start = spanned.span().start();
-
-    Err(Error::new(message, source_file, start.line, start.column))
-}
-
 struct Encoder<'a> {
     output: &'a mut metadata::writer::File,
     index: &'a Index<'a>,
@@ -529,21 +519,37 @@ fn encode_type_reference(
 
 fn encode_type_ptr(encoder: &Encoder, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
     let is_mut = ty.mutability.is_some();
-    let ty = encode_type(encoder, &ty.elem)?;
+    let inner = encode_type(encoder, &ty.elem)?;
 
-    let ty = match ty {
-        metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
-        metadata::Type::PtrConst(ty, pointers) => metadata::Type::PtrConst(ty, pointers + 1),
+    let result = match inner {
+        metadata::Type::PtrMut(inner_ty, pointers) => {
+            if !is_mut {
+                return encoder.err(
+                    ty,
+                    "mixed pointer mutability (`*const *mut T`) is not supported",
+                );
+            }
+            metadata::Type::PtrMut(inner_ty, pointers + 1)
+        }
+        metadata::Type::PtrConst(inner_ty, pointers) => {
+            if is_mut {
+                return encoder.err(
+                    ty,
+                    "mixed pointer mutability (`*mut *const T`) is not supported",
+                );
+            }
+            metadata::Type::PtrConst(inner_ty, pointers + 1)
+        }
         _ => {
             if is_mut {
-                metadata::Type::PtrMut(Box::new(ty), 1)
+                metadata::Type::PtrMut(Box::new(inner), 1)
             } else {
-                metadata::Type::PtrConst(Box::new(ty), 1)
+                metadata::Type::PtrConst(Box::new(inner), 1)
             }
         }
     };
 
-    Ok(ty)
+    Ok(result)
 }
 
 fn glob_use_namespace(use_item: &syn::ItemUse) -> Option<String> {

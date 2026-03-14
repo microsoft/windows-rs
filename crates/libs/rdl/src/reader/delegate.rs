@@ -74,13 +74,6 @@ impl Delegate {
             .iter()
             .any(|attr| is_guid_attribute(encoder, attr));
 
-        encode_attrs(
-            encoder,
-            metadata::writer::HasAttribute::TypeDef(delegate),
-            &self.attrs,
-            &[],
-        )?;
-
         for (number, name) in encoder.generics.iter().enumerate() {
             encoder.output.GenericParam(
                 name,
@@ -89,6 +82,13 @@ impl Delegate {
                 metadata::GenericParamAttributes::None,
             );
         }
+
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(delegate),
+            &self.attrs,
+            &[],
+        )?;
 
         let flags = metadata::MethodAttributes::Public
             | metadata::MethodAttributes::HideBySig
@@ -178,11 +178,18 @@ impl Delegate {
             .MethodDef("Invoke", &signature, flags, Default::default());
 
         for (sequence, param) in params.iter().enumerate() {
-            encoder.output.Param(
+            let param_id = encoder.output.Param(
                 &param.name,
                 (sequence + 1).try_into().unwrap(),
                 param.attributes,
             );
+
+            encode_attrs(
+                encoder,
+                metadata::writer::HasAttribute::Param(param_id),
+                &param.attrs,
+                &["out"],
+            )?;
         }
 
         Ok(())

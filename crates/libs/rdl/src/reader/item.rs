@@ -62,7 +62,7 @@ impl Item {
             Self::Class(ty) => ty.encode(encoder),
             Self::Delegate(ty) => ty.encode(encoder),
             Self::Attribute(ty) => ty.encode(encoder),
-            rest => todo!("{rest:?}"),
+            Self::Module(ty) => encoder.err(&ty.token, "module items cannot be directly encoded"),
         }
     }
 }

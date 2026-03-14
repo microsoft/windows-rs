@@ -5,6 +5,7 @@ syn::custom_keyword!(class);
 #[derive(Debug)]
 pub struct Class {
     pub attrs: Vec<syn::Attribute>,
+    #[allow(dead_code)]
     pub token: class,
     pub name: syn::Ident,
     pub extends: Option<syn::Path>,
