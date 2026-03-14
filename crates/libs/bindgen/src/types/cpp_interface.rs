@@ -48,13 +48,7 @@ impl CppInterface {
     }
 
     fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
-        if !config.package {
-            return (Cfg::default(), quote! {});
-        }
-
-        let cfg = Cfg::new(&self.dependencies(config.reader), config);
-        let tokens = cfg.write(config, false);
-        (cfg, tokens)
+        write_full_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {

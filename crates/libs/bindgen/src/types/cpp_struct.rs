@@ -58,11 +58,7 @@ impl CppStruct {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
