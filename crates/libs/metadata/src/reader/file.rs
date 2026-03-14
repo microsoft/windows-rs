@@ -650,7 +650,7 @@ trait View {
     fn view_as_slice_of<T>(&self, offset: usize, len: usize) -> Option<&[T]>;
     fn copy_as<T: Copy>(&self, offset: usize) -> Option<T>;
     fn view_as_str(&self, offset: usize) -> Option<&[u8]>;
-    fn is_proper_length<T>(&self, offset: usize) -> Option<()>;
+    fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()>;
     fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T>;
 }
 
@@ -669,7 +669,7 @@ impl View for [u8] {
     }
 
     fn copy_as<T>(&self, offset: usize) -> Option<T> {
-        self.is_proper_length::<T>(offset)?;
+        self.is_proper_length::<T>(offset, 1)?;
 
         unsafe {
             let mut data = std::mem::MaybeUninit::zeroed().assume_init();
@@ -688,8 +688,8 @@ impl View for [u8] {
         Some(&self[offset..offset + pos])
     }
 
-    fn is_proper_length<T>(&self, offset: usize) -> Option<()> {
-        if offset.checked_add(size_of::<T>())? <= self.len() {
+    fn is_proper_length<T>(&self, offset: usize, count: usize) -> Option<()> {
+        if offset.checked_add(count.checked_mul(size_of::<T>())?)? <= self.len() {
             Some(())
         } else {
             None
@@ -697,10 +697,7 @@ impl View for [u8] {
     }
 
     fn is_proper_length_and_alignment<T>(&self, offset: usize, count: usize) -> Option<*const T> {
-        let end = offset.checked_add(count.checked_mul(size_of::<T>())?)?;
-        if end > self.len() {
-            return None;
-        }
+        self.is_proper_length::<T>(offset, count)?;
         let ptr = &self[offset] as *const u8 as *const T;
 
         if ptr.align_offset(align_of::<T>()) == 0 {
