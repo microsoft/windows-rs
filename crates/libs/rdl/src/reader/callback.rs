@@ -85,7 +85,7 @@ impl Callback {
                 "system" => 1,
                 "C" => 2,
                 "fastcall" => 5,
-                _ => return encoder.err(abi, "callback abi not supported"),
+                _ => return encoder.err(value, "callback abi not supported"),
             };
         }
 
@@ -163,6 +163,23 @@ fn param_name_unique() {
 #[win32]
 mod Test {
     extern fn Handler(a: i32, a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: callback abi not supported\n --> .rdl:4:12")]
+fn abi_not_supported() {
+    Reader::new()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    extern "D" fn Handler();
 }
         "#,
         )

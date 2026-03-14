@@ -154,9 +154,6 @@ fn resolve_winrt(item: &mut Item, source_file: &str, parent: Option<bool>) -> Re
         Item::Struct(item) => {
             item.winrt = read_winrt_expected(source_file, &item.span, &item.attrs, parent)?;
         }
-        Item::Delegate(item) => {
-            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
-        }
         Item::Attribute(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
