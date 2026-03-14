@@ -421,7 +421,7 @@ fn encode_value(
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
-        rest => todo!("{rest:?}"),
+        rest => return encoder.err(value, &format!("constant type not supported: {rest:?}")),
     };
 
     Ok(value)

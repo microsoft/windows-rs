@@ -35,13 +35,13 @@ impl Delegate {
             .params
             .iter()
             .map(|generic| {
-                let syn::GenericParam::Type(generic) = generic else {
-                    todo!("syntax parsing should not allow anything else");
-                };
-
-                generic.ident.to_string()
+                if let syn::GenericParam::Type(ty) = generic {
+                    Ok(ty.ident.to_string())
+                } else {
+                    Err(encoder.error(generic, "only type generic parameters are supported"))
+                }
             })
-            .collect();
+            .collect::<Result<Vec<_>, Error>>()?;
 
         let mut name = encoder.name.to_string();
 

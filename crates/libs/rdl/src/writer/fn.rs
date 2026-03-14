@@ -14,7 +14,7 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     });
 
     let Some(impl_map) = item.impl_map() else {
-        todo!()
+        unreachable!("fn item must have an ImplMap to be written as an `fn` item")
     };
 
     let scope = impl_map.import_scope();
@@ -28,7 +28,10 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
     } else if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
         None
     } else {
-        todo!()
+        unreachable!(
+            "unexpected calling convention in ImplMap flags: {:?}",
+            flags
+        )
     };
 
     let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());

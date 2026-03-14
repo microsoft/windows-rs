@@ -356,7 +356,9 @@ impl Window {
                     LRESULT(0)
                 }
                 WM_ACTIVATE => {
-                    self.visible = true; // TODO: unpack !HIWORD(wparam);
+                    // HIWORD(wparam) is non-zero when the window is minimized; only
+                    // render when the window is not minimized.
+                    self.visible = (wparam.0 >> 16) as u16 == 0;
                     LRESULT(0)
                 }
                 WM_DESTROY => {
