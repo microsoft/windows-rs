@@ -136,13 +136,6 @@ fn encode_implement(
         }
     }
 
-    encode_attrs(
-        encoder,
-        metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
-        &interface.attrs,
-        &["default"],
-    )?;
-
     Ok(())
 }
 
