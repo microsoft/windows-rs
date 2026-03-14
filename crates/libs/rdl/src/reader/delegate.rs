@@ -177,3 +177,20 @@ mod Test {
         .write()
         .unwrap();
 }
+
+#[test]
+#[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:")]
+fn non_type_generic_not_supported() {
+    Reader::new()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    delegate fn Handler<'a>(a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
