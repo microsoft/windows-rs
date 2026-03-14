@@ -5,7 +5,6 @@ syn::custom_keyword!(class);
 #[derive(Debug)]
 pub struct Class {
     pub attrs: Vec<syn::Attribute>,
-    pub token: class,
     pub name: syn::Ident,
     pub extends: Option<syn::Path>,
     pub interfaces: Vec<ClassInterface>,
@@ -14,7 +13,7 @@ pub struct Class {
 impl syn::parse::Parse for Class {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
+        input.parse::<class>()?;
         let name = input.parse()?;
 
         let extends = if input.parse::<syn::Token![:]>().is_ok() {
@@ -33,7 +32,6 @@ impl syn::parse::Parse for Class {
 
         Ok(Self {
             attrs,
-            token,
             name,
             extends,
             interfaces,

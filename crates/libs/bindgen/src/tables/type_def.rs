@@ -3,7 +3,6 @@ use super::*;
 pub trait TypeDefExt {
     fn type_name(&self) -> TypeName;
     fn generics(&self) -> Vec<Type>;
-    fn nested(&self) -> Option<NestedClass>;
     fn underlying_type(&self, reader: &Reader) -> Type;
     fn invalid_values(&self) -> Vec<i64>;
     fn free_function(&self, reader: &Reader) -> Option<CppFn>;
@@ -18,10 +17,6 @@ impl TypeDefExt for TypeDef {
 
     fn generics(&self) -> Vec<Type> {
         self.generic_params().map(Type::Generic).collect()
-    }
-
-    fn nested(&self) -> Option<NestedClass> {
-        self.equal_range(0, self.pos() + 1).next()
     }
 
     fn underlying_type(&self, reader: &Reader) -> Type {

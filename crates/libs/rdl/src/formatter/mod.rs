@@ -342,33 +342,6 @@ fn push_attribute(attr: &str, output: &mut String) {
     output.push_str(&out);
 }
 
-fn emit_error(input: &str, pos: usize, msg: &str) {
-    let start = input[..pos].rfind('\n').map_or(0, |i| i + 1);
-    let end = input[pos..].find('\n').map_or(input.len(), |i| pos + i);
-    let col = pos - start;
-
-    const MAX_LINE_WIDTH: usize = 80;
-    const WINDOW_SIZE: usize = 40;
-
-    let line_len = end - start;
-
-    let (line, col, prefix) = if line_len > MAX_LINE_WIDTH {
-        let start_offset = col.saturating_sub(WINDOW_SIZE);
-        let end_offset = (col + WINDOW_SIZE).min(line_len);
-        let prefix = if start_offset > 0 { "... " } else { "" };
-
-        let windowed = input[start + start_offset..start + end_offset].trim_end();
-        (windowed, col - start_offset, prefix)
-    } else {
-        (input[start..end].trim_end(), col, "")
-    };
-
-    let padding = " ".repeat(col + prefix.len());
-    eprintln!("{}{}", prefix, line);
-    eprintln!("{}▲", padding);
-    eprintln!("{}└─── {}", padding, msg);
-}
-
 trait StringMethods {
     fn push_indent(&mut self, indent_level: i32);
     fn trim_space(&mut self);
