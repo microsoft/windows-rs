@@ -6,10 +6,7 @@ mod Sample {
     #[Activatable(IJsonValidatorFactory, 1)]
     #[MarshalingBehavior(Agile)]
     #[Threading(Both)]
-    class JsonValidator {
-        #[default]
-        IJsonValidator,
-    }
+    class JsonValidator: IJsonValidator {}
 
     #[Guid(3768365355, 45372, 20793, 140, 153, 97, 64, 191, 128, 222, 185)]
     #[ExclusiveTo(JsonValidator)]

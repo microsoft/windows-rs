@@ -96,6 +96,18 @@ pub fn format(input: &str) -> String {
     let mut paren_depth = 0;
     let mut angle_depth = 0;
     let mut within_brackets = false;
+    let mut in_colon_list = false;
+    // Tracks whether the most recently seen declaration keyword was `mod`.
+    // Only `mod` introduces a namespace body where a `:` begins an inheritance
+    // list. All other bodies (struct, union, class, interface, fn, attribute,
+    // etc.) use `:` for field-name-to-type separators and must NOT trigger
+    // `in_colon_list`. Defaults to `true` (non-mod) so that bodies entered
+    // without a preceding recognized keyword (e.g. `union`, `attribute`,
+    // `class`, `interface` — which are Identifiers, not keywords) are
+    // correctly treated as field bodies.
+    let mut last_keyword_is_mod = false;
+    // Stack of body kinds: `false` = mod/namespace body, `true` = any other body.
+    let mut body_stack: Vec<bool> = Vec::new();
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -137,6 +149,7 @@ pub fn format(input: &str) -> String {
                 }
             }
             Token::CloseBrace => {
+                body_stack.pop();
                 indent_level -= 1;
                 output.push_indent(indent_level);
                 output.push('}');
@@ -156,6 +169,13 @@ pub fn format(input: &str) -> String {
             Token::Colon => {
                 output.trim_space();
                 output.push_str(": ");
+                // Only treat this as a class/interface header colon when we are
+                // outside parentheses/angles AND inside a mod/namespace body.
+                // All other bodies (struct, union, attribute, fn, class, etc.)
+                // use `:` for field-name-to-type separators.
+                if paren_depth == 0 && angle_depth == 0 && body_stack.last() == Some(&false) {
+                    in_colon_list = true;
+                }
             }
             Token::ColonColon => {
                 output.trim_space();
@@ -164,7 +184,7 @@ pub fn format(input: &str) -> String {
             Token::Comma => {
                 output.trim_space();
                 output.push(',');
-                if paren_depth > 0 || angle_depth > 0 {
+                if paren_depth > 0 || angle_depth > 0 || in_colon_list {
                     output.push(' ');
                 } else {
                     output.push('\n');
@@ -218,15 +238,23 @@ pub fn format(input: &str) -> String {
                 output.push(' ');
             }
             Token::Mod => {
+                last_keyword_is_mod = true;
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
+                in_colon_list = false;
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
+                    // Shorthand empty body `{}` — do not push to body_stack.
                     output.push_str("{}");
                     output.push('\n');
                     token_idx += 2;
+                    last_keyword_is_mod = false;
                     continue;
                 } else {
+                    // `false` = mod/namespace body (`:` is an inheritance separator)
+                    // `true`  = any other body (struct, union, fn, class, etc.)
+                    body_stack.push(!last_keyword_is_mod);
+                    last_keyword_is_mod = false;
                     if !output.ends_with(' ') {
                         output.push(' ');
                     }
@@ -241,6 +269,7 @@ pub fn format(input: &str) -> String {
                 output.push('(');
             }
             Token::Semicolon => {
+                in_colon_list = false;
                 output.trim_space();
                 output.push(';');
 
