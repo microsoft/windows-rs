@@ -119,8 +119,14 @@ impl CppStruct {
             let fields = quote! { #(#fields)* };
 
             if fields.is_empty() {
-                quote! {
-                    (pub u8);
+                if is_union {
+                    quote! {
+                        { pub value: u8 }
+                    }
+                } else {
+                    quote! {
+                        (pub u8);
+                    }
                 }
             } else {
                 quote! {
