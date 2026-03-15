@@ -97,6 +97,13 @@ pub fn format(input: &str) -> String {
     let mut angle_depth = 0;
     let mut within_brackets = false;
     let mut in_colon_list = false;
+    // Tracks the most recently seen declaration keyword so that when `{` is
+    // processed we can determine whether we are entering a struct/enum body
+    // (where field colons must NOT start a colon-list) vs a mod/namespace body
+    // (where class/interface declarations live and header colons should).
+    let mut last_keyword_is_struct_like = false;
+    // Stack of body kinds: `true` = struct/enum body, `false` = mod/namespace body.
+    let mut body_stack: Vec<bool> = Vec::new();
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -138,6 +145,7 @@ pub fn format(input: &str) -> String {
                 }
             }
             Token::CloseBrace => {
+                body_stack.pop();
                 indent_level -= 1;
                 output.push_indent(indent_level);
                 output.push('}');
@@ -157,7 +165,10 @@ pub fn format(input: &str) -> String {
             Token::Colon => {
                 output.trim_space();
                 output.push_str(": ");
-                if paren_depth == 0 && angle_depth == 0 {
+                // Only treat this as a class/interface header colon when we are
+                // outside parentheses/angles AND not inside a struct/enum body.
+                // Struct field colons (`field: Type`) must not trigger a colon-list.
+                if paren_depth == 0 && angle_depth == 0 && body_stack.last() != Some(&true) {
                     in_colon_list = true;
                 }
             }
@@ -182,6 +193,7 @@ pub fn format(input: &str) -> String {
                 output.push('.');
             }
             Token::Enum => {
+                last_keyword_is_struct_like = true;
                 output.push_str("enum ");
             }
             Token::Equals => {
@@ -189,6 +201,7 @@ pub fn format(input: &str) -> String {
                 output.push_str(" = ");
             }
             Token::Fn => {
+                last_keyword_is_struct_like = true;
                 output.push_str("fn ");
             }
             Token::Hyphen => {
@@ -222,16 +235,21 @@ pub fn format(input: &str) -> String {
                 output.push(' ');
             }
             Token::Mod => {
+                last_keyword_is_struct_like = false;
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
                 in_colon_list = false;
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
+                    // Shorthand empty body `{}` — do not push to body_stack.
                     output.push_str("{}");
                     output.push('\n');
                     token_idx += 2;
+                    last_keyword_is_struct_like = false;
                     continue;
                 } else {
+                    body_stack.push(last_keyword_is_struct_like);
+                    last_keyword_is_struct_like = false;
                     if !output.ends_with(' ') {
                         output.push(' ');
                     }
@@ -261,6 +279,7 @@ pub fn format(input: &str) -> String {
                 output.push(' ');
             }
             Token::Struct => {
+                last_keyword_is_struct_like = true;
                 output.push_str("struct ");
             }
             Token::Whitespace => {}

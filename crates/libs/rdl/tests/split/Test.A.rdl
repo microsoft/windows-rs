@@ -2,6 +2,7 @@ mod Test {
     #[winrt]
     mod A {
         struct AS {
-            base: super::Base,         }
+            base: super::Base,
+        }
     }
 }

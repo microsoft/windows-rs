@@ -2,16 +2,20 @@
 mod Test {
     struct Name {
         a1: struct {
-            b1: u16, b2: i32,         },
+            b1: u16,
+            b2: i32,
+        },
         a2: struct {
             c1: struct {
-                d1: Windows::Foundation::IStringable,             },
+                d1: Windows::Foundation::IStringable,
+            },
             c2: struct {
                 d1: struct {
                     e1: struct {
                         f1: struct {
                             g1: struct {
-                                h1: bool,                             },
+                                h1: bool,
+                            },
                         },
                     },
                 },
@@ -19,5 +23,6 @@ mod Test {
         },
     }
     struct Name2 {
-        a1: Name,     }
+        a1: Name,
+    }
 }
