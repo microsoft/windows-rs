@@ -3,11 +3,12 @@ use super::*;
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppEnum {
     pub def: TypeDef,
+    pub name: &'static str,
 }
 
 impl Ord for CppEnum {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.def.name().cmp(other.def.name())
+        self.name.cmp(other.name)
     }
 }
 
@@ -23,7 +24,7 @@ impl CppEnum {
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
-        self.type_name().write(config, &[])
+        TypeName(self.type_name().namespace(), self.name).write(config, &[])
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -34,7 +35,7 @@ impl CppEnum {
             return config.write_cpp_handle(self.def);
         }
 
-        let name = to_ident(tn.name());
+        let name = to_ident(self.name);
         let underlying_type = self.def.underlying_type(config.reader).write_name(config);
 
         let mut derive = DeriveWriter::new(config, tn);

@@ -231,7 +231,9 @@ impl Type {
 
         if let Some(outer) = enclosing {
             if code_name.namespace().is_empty() {
-                return Self::CppStruct(outer.nested[code_name.name()].clone());
+                if let Some(ty) = outer.nested.get(code_name.name()) {
+                    return ty.clone();
+                }
             }
         }
 
@@ -310,7 +312,9 @@ impl Type {
                 // Handle nested type lookup via enclosing struct
                 if let Some(outer) = enclosing {
                     if ns.is_empty() {
-                        return Self::CppStruct(outer.nested[n].clone());
+                        if let Some(ty) = outer.nested.get(n) {
+                            return ty.clone();
+                        }
                     }
                 }
                 let mut bindgen_ty = reader.unwrap_full_name(ns, n);
