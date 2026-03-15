@@ -96,6 +96,7 @@ pub fn format(input: &str) -> String {
     let mut paren_depth = 0;
     let mut angle_depth = 0;
     let mut within_brackets = false;
+    let mut in_colon_list = false;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -156,6 +157,9 @@ pub fn format(input: &str) -> String {
             Token::Colon => {
                 output.trim_space();
                 output.push_str(": ");
+                if paren_depth == 0 && angle_depth == 0 {
+                    in_colon_list = true;
+                }
             }
             Token::ColonColon => {
                 output.trim_space();
@@ -164,7 +168,7 @@ pub fn format(input: &str) -> String {
             Token::Comma => {
                 output.trim_space();
                 output.push(',');
-                if paren_depth > 0 || angle_depth > 0 {
+                if paren_depth > 0 || angle_depth > 0 || in_colon_list {
                     output.push(' ');
                 } else {
                     output.push('\n');
@@ -221,6 +225,7 @@ pub fn format(input: &str) -> String {
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
+                in_colon_list = false;
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
                     output.push_str("{}");
                     output.push('\n');
@@ -241,6 +246,7 @@ pub fn format(input: &str) -> String {
                 output.push('(');
             }
             Token::Semicolon => {
+                in_colon_list = false;
                 output.trim_space();
                 output.push(';');
 

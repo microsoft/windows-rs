@@ -4,6 +4,5 @@ mod Test {
         fn Value(&self) -> T;
     }
     struct Progress {
-        count: IReference<u64>,
-    }
+        count: IReference<u64>,     }
 }

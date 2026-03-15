@@ -1,8 +1,5 @@
 #[win32]
 mod Test {
     union Name {
-        a1: u8,
-        a2: u16,
-        a3: f32,
-    }
+        a1: u8, a2: u16, a3: f32,     }
 }

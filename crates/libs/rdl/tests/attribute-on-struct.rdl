@@ -5,6 +5,5 @@ mod Test {
     }
     #[Foo(1)]
     struct MyStruct {
-        x: i32,
-    }
+        x: i32,     }
 }
