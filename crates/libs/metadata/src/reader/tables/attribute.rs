@@ -41,7 +41,8 @@ impl<'a> Attribute<'a> {
 
         for _ in 0..named_arg_count {
             let _id = blob.read_u8();
-            // TODO: what's ID?
+            // Per ECMA-335 §II.23.3, this byte is 0x53 (FIELD) or 0x54 (PROPERTY),
+            // indicating whether the named argument targets a field or a property.
             let ty = blob.read_type_code(&[]);
             let name = blob.read_utf8();
             let value = read_value(&mut blob, &ty);

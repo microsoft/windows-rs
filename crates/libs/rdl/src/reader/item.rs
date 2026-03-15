@@ -62,7 +62,11 @@ impl Item {
             Self::Interface(ty) => ty.encode(encoder),
             Self::Struct(ty) => ty.encode(encoder),
             Self::Union(ty) => ty.encode(encoder),
-            rest => todo!("{rest:?}"),
+            // Module items are expanded into their children during indexing and are
+            // never placed in the index themselves, so this arm is unreachable.
+            Self::Module(_) => unreachable!(
+                "Module items cannot be encoded directly; they are expanded during indexing"
+            ),
         }
     }
 }
