@@ -340,7 +340,11 @@ impl CppStruct {
                 }
             })
             .chain(self.nested.values().filter_map(|ty| {
-                if let Type::CppStruct(s) = ty { Some(s.clone()) } else { None }
+                if let Type::CppStruct(s) = ty {
+                    Some(s.clone())
+                } else {
+                    None
+                }
             }))
     }
 
