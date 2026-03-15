@@ -4,7 +4,7 @@ use super::*;
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: &'static str,
-    pub nested: BTreeMap<&'static str, CppStruct>,
+    pub nested: BTreeMap<&'static str, Type>,
 }
 
 impl Ord for CppStruct {
@@ -230,7 +230,10 @@ impl CppStruct {
         };
 
         for nested in self.nested.values() {
-            tokens.combine(nested.write_with_cfg(config, cfg));
+            match nested {
+                Type::CppStruct(nested) => tokens.combine(nested.write_with_cfg(config, cfg)),
+                ty => tokens.combine(ty.write(config)),
+            }
         }
 
         tokens
@@ -336,7 +339,13 @@ impl CppStruct {
                     None
                 }
             })
-            .chain(self.nested.values().cloned())
+            .chain(self.nested.values().filter_map(|ty| {
+                if let Type::CppStruct(s) = ty {
+                    Some(s.clone())
+                } else {
+                    None
+                }
+            }))
     }
 
     pub fn size(&self, reader: &Reader) -> usize {

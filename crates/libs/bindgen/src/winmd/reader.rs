@@ -48,7 +48,13 @@ impl Reader {
             collect_nested(index, def, &mut nested);
         }
 
+        let nested_inner: HashSet<TypeDef> = nested.values().flatten().cloned().collect();
+
         for (namespace, name, def) in index.iter() {
+            if nested_inner.contains(&def) {
+                continue;
+            }
+
             let flags = def.flags();
 
             let type_name = TypeName(namespace, name);
@@ -121,7 +127,7 @@ impl Reader {
                         insert(types, name, Type::CppDelegate(CppDelegate { def }));
                     }
                     windows_metadata::reader::TypeCategory::Enum => {
-                        insert(types, name, Type::CppEnum(CppEnum { def }));
+                        insert(types, name, Type::CppEnum(CppEnum { def, name }));
 
                         if !def.has_attribute("ScopedEnumAttribute") {
                             for field in def.fields() {
@@ -159,11 +165,22 @@ impl Reader {
                                 {
                                     ty.nested.insert(
                                         nested_def.name(),
-                                        make(
+                                        Type::CppStruct(make(
                                             *nested_def,
                                             format!("{}_{index}", ty.name).leak(),
                                             nested,
-                                        ),
+                                        )),
+                                    );
+                                } else if nested_def.category()
+                                    == windows_metadata::reader::TypeCategory::Enum
+                                {
+                                    ty.nested.insert(
+                                        nested_def.name(),
+                                        Type::CppEnum(CppEnum {
+                                            def: *nested_def,
+                                            name: format!("{}_{}", ty.name, nested_def.name())
+                                                .leak(),
+                                        }),
                                     );
                                 }
                             }
