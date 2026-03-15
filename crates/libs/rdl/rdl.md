@@ -350,13 +350,10 @@ mod Contoso {
 #### Classes (WinRT)
 
 ```rust
-class ClassName : BaseClassName {
-    ImplementedInterface1,
-    ImplementedInterface2
-}
+class ClassName: BaseClassName, ImplementedInterface1, ImplementedInterface2 {}
 ```
 
-Classes may optionally extend a base class and mark a default interface.
+Classes may optionally extend a base class and implement one or more interfaces. The first interface in the list is automatically treated as the default interface. The base class (if any) must appear before all interfaces.
 
 **Example:**
 
@@ -364,29 +361,20 @@ Classes may optionally extend a base class and mark a default interface.
 #[winrt]
 mod Contoso {
     mod Sprockets {
-        class Sprocket {
-            #[default]
-            ISprocket,
-        }
+        class Sprocket: ISprocket {}
 
         #[activatable(1)]
-        class ActivatableSprocket: Sprocket {
-            #[default]
-            ISprocket,
-            #[activatable(1)]
-            ISprocketFactory,
-            #[statics(1)]
-            ISprocketStatics,
-        }
+        class ActivatableSprocket: Sprocket, IActivatableSprocket, ISprocketFactory, ISprocketStatics {}
 
         interface ISprocket {}
+        interface IActivatableSprocket {}
         interface ISprocketFactory {}
         interface ISprocketStatics {}
     }
 }
 ```
 
-The `#[activatable(...)]` attribute on the class enables default construction. The `#[default]` attribute on an interface marks it as the default interface. The `#[activatable(...)]` and `#[statics(...)]` attributes on interfaces mark them as factory and statics interfaces, respectively.
+The `#[activatable(...)]` attribute on the class enables default construction.
 
 ---
 
