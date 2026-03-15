@@ -5,13 +5,20 @@ mod Test {
             b1: u16,
             b2: i32,
         },
-        a2: u32,     }
+        a2: u32,
+    }
     struct Name2 {
         a1: union {
-            b1: u16, b2: i32,         },
-        a2: u32,     }
+            b1: u16,
+            b2: i32,
+        },
+        a2: u32,
+    }
     union Name3 {
         a1: union {
-            b1: u16, b2: i32,         },
-        a2: u32,     }
+            b1: u16,
+            b2: i32,
+        },
+        a2: u32,
+    }
 }

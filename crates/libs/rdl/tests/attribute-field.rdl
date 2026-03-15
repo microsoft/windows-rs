@@ -14,5 +14,8 @@ mod Test {
         fn(a: u8);
         fn(a: u8, b: String);
         fn(a: u8, b: String, c: f32);
-        a: u8, b: String, c: f32,     }
+        a: u8,
+        b: String,
+        c: f32,
+    }
 }

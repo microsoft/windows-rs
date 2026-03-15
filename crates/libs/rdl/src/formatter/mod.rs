@@ -97,12 +97,16 @@ pub fn format(input: &str) -> String {
     let mut angle_depth = 0;
     let mut within_brackets = false;
     let mut in_colon_list = false;
-    // Tracks the most recently seen declaration keyword so that when `{` is
-    // processed we can determine whether we are entering a struct/enum body
-    // (where field colons must NOT start a colon-list) vs a mod/namespace body
-    // (where class/interface declarations live and header colons should).
-    let mut last_keyword_is_struct_like = false;
-    // Stack of body kinds: `true` = struct/enum body, `false` = mod/namespace body.
+    // Tracks whether the most recently seen declaration keyword was `mod`.
+    // Only `mod` introduces a namespace body where a `:` begins an inheritance
+    // list. All other bodies (struct, union, class, interface, fn, attribute,
+    // etc.) use `:` for field-name-to-type separators and must NOT trigger
+    // `in_colon_list`. Defaults to `true` (non-mod) so that bodies entered
+    // without a preceding recognized keyword (e.g. `union`, `attribute`,
+    // `class`, `interface` — which are Identifiers, not keywords) are
+    // correctly treated as field bodies.
+    let mut last_keyword_is_mod = false;
+    // Stack of body kinds: `false` = mod/namespace body, `true` = any other body.
     let mut body_stack: Vec<bool> = Vec::new();
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
@@ -166,9 +170,10 @@ pub fn format(input: &str) -> String {
                 output.trim_space();
                 output.push_str(": ");
                 // Only treat this as a class/interface header colon when we are
-                // outside parentheses/angles AND not inside a struct/enum body.
-                // Struct field colons (`field: Type`) must not trigger a colon-list.
-                if paren_depth == 0 && angle_depth == 0 && body_stack.last() != Some(&true) {
+                // outside parentheses/angles AND inside a mod/namespace body.
+                // All other bodies (struct, union, attribute, fn, class, etc.)
+                // use `:` for field-name-to-type separators.
+                if paren_depth == 0 && angle_depth == 0 && body_stack.last() == Some(&false) {
                     in_colon_list = true;
                 }
             }
@@ -193,7 +198,6 @@ pub fn format(input: &str) -> String {
                 output.push('.');
             }
             Token::Enum => {
-                last_keyword_is_struct_like = true;
                 output.push_str("enum ");
             }
             Token::Equals => {
@@ -201,7 +205,6 @@ pub fn format(input: &str) -> String {
                 output.push_str(" = ");
             }
             Token::Fn => {
-                last_keyword_is_struct_like = true;
                 output.push_str("fn ");
             }
             Token::Hyphen => {
@@ -235,7 +238,7 @@ pub fn format(input: &str) -> String {
                 output.push(' ');
             }
             Token::Mod => {
-                last_keyword_is_struct_like = false;
+                last_keyword_is_mod = true;
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
@@ -245,11 +248,13 @@ pub fn format(input: &str) -> String {
                     output.push_str("{}");
                     output.push('\n');
                     token_idx += 2;
-                    last_keyword_is_struct_like = false;
+                    last_keyword_is_mod = false;
                     continue;
                 } else {
-                    body_stack.push(last_keyword_is_struct_like);
-                    last_keyword_is_struct_like = false;
+                    // `false` = mod/namespace body (`:` is an inheritance separator)
+                    // `true`  = any other body (struct, union, fn, class, etc.)
+                    body_stack.push(!last_keyword_is_mod);
+                    last_keyword_is_mod = false;
                     if !output.ends_with(' ') {
                         output.push(' ');
                     }
@@ -279,7 +284,6 @@ pub fn format(input: &str) -> String {
                 output.push(' ');
             }
             Token::Struct => {
-                last_keyword_is_struct_like = true;
                 output.push_str("struct ");
             }
             Token::Whitespace => {}
