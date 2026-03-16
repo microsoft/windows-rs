@@ -2,7 +2,7 @@ mod Test {
     mod A {
         #[winrt]
         mod B {
-            struct C {}
+            struct C{}
         }
     }
 }
