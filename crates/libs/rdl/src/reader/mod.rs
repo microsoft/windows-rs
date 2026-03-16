@@ -416,7 +416,8 @@ fn encode_value(
                 .reference
                 .get(&tn.namespace, &tn.name)
                 .next()
-                .and_then(|def| def.underlying_type());
+                .and_then(|def| def.underlying_type())
+                .or_else(|| rdl_underlying_type(encoder, &tn.namespace, &tn.name));
 
             match underlying {
                 Some(underlying) => return encode_value(encoder, &underlying, value),
@@ -427,6 +428,25 @@ fn encode_value(
     };
 
     Ok(value)
+}
+
+fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option<metadata::Type> {
+    let item = encoder.index.get(namespace, name)?;
+
+    if let Item::Struct(s) = item {
+        let mut fields = s.fields.iter().filter_map(|f| match f {
+            StructField::Regular(field) => Some(field),
+            StructField::Nested { .. } => None,
+        });
+
+        if let Some(field) = fields.next() {
+            if fields.next().is_none() {
+                return encode_type(encoder, &field.ty).ok();
+            }
+        }
+    }
+
+    None
 }
 
 fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>

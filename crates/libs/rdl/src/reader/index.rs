@@ -53,4 +53,11 @@ impl<'a> Index<'a> {
             .and_then(|namespace| namespace.types.get(name))
             .is_some()
     }
+
+    pub fn get(&self, namespace: &str, name: &str) -> Option<&Item> {
+        self.namespaces
+            .get(namespace)
+            .and_then(|namespace| namespace.types.get(name))
+            .map(|(_, item)| *item)
+    }
 }
