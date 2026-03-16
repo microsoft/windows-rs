@@ -4,5 +4,6 @@ mod Test {
         fn();
     }
     #[Foo]
-    class MyClass {}
+    class MyClass {
+    }
 }

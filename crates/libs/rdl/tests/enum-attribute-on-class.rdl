@@ -11,5 +11,6 @@ mod Test {
         InvalidMarshaling = 4,
     }
     #[MarshalingBehavior(Agile)]
-    class MyClass {}
+    class MyClass {
+    }
 }

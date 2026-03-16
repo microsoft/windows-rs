@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_callback(item: &metadata::reader::TypeDef) -> String {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -13,13 +13,16 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
     let return_type = write_return_type(namespace, &signature);
     let params = method.params().filter(|param| param.sequence() != 0);
 
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
+    let params: Vec<String> = params
+        .zip(signature.types)
+        .map(|(param, ty)| {
+            let name = write_ident(param.name());
+            let ty = write_type(namespace, &ty);
+            format!("{name}: {ty}")
+        })
+        .collect();
 
-    let custom_attrs = write_custom_attributes_except(
+    let attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
@@ -39,8 +42,18 @@ pub fn write_callback(item: &metadata::reader::TypeDef) -> TokenStream {
         }
     }
 
-    quote! {
-        #(#custom_attrs)*
-        extern #abi fn #name (#(#params),*) #return_type;
-    }
+    let abi_str = match abi {
+        Some(abi) => format!(" \"{abi}\""),
+        None => String::new(),
+    };
+    let ret_str = if return_type.is_empty() {
+        String::new()
+    } else {
+        format!(" {return_type}")
+    };
+
+    format!(
+        "{attrs}extern{abi_str} fn {name}({}){ret_str};\n",
+        params.join(", ")
+    )
 }

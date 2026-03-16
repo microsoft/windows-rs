@@ -1,42 +1,35 @@
 use super::*;
 
-pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_class(item: &metadata::reader::TypeDef) -> String {
     let namespace = item.namespace();
     let name = write_ident(item.name());
     let extends = item.extends().expect("class always extends");
 
-    let extends = if extends == ("System", "Object") {
-        quote! {}
+    let extends_str = if extends == ("System", "Object") {
+        String::new()
     } else {
         let ty = write_type_ref(namespace, &extends);
-        quote! { : #ty }
+        format!(": {ty} ")
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    let interfaces = item
+    let interfaces: String = item
         .interface_impls()
-        .map(|imp| write_interface(namespace, &imp));
+        .map(|imp| write_interface_impl(namespace, &imp))
+        .collect();
 
-    quote! {
-        #(#custom_attrs)*
-        class #name #extends {
-            #(#interfaces)*
-        }
-    }
+    format!("{attrs}class {name} {extends_str}{{\n{interfaces}}}\n")
 }
 
-fn write_interface(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> TokenStream {
+fn write_interface_impl(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> String {
     let interface = write_type(namespace, &imp.interface(&[]));
 
-    let default = if imp.has_attribute("DefaultAttribute") {
-        quote! { #[default] }
+    let default_attr = if imp.has_attribute("DefaultAttribute") {
+        "#[default]\n".to_string()
     } else {
-        quote! {}
+        String::new()
     };
 
-    quote! {
-        #default
-        #interface,
-    }
+    format!("{default_attr}{interface},\n")
 }

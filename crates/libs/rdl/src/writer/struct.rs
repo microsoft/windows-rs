@@ -1,45 +1,41 @@
 use super::*;
 use windows_metadata::AsRow;
 
-pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_struct(item: &metadata::reader::TypeDef) -> String {
     if is_nested_type(item) {
-        return quote! {};
+        return String::new();
     }
 
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
-    let fields = item
+    let fields: String = item
         .fields()
-        .map(|field| write_field(namespace, item, &field));
+        .map(|field| write_field(namespace, item, &field))
+        .collect();
 
     let keyword = if item
         .flags()
         .contains(metadata::TypeAttributes::ExplicitLayout)
     {
-        quote! { union }
+        "union"
     } else {
-        quote! { struct }
+        "struct"
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    quote! {
-        #(#custom_attrs)*
-        #keyword #name {
-            #(#fields)*
-        }
-    }
+    format!("{attrs}{keyword} {name} {{\n{fields}}}\n")
 }
 
 fn write_field(
     namespace: &str,
     parent: &metadata::reader::TypeDef,
     item: &metadata::reader::Field,
-) -> TokenStream {
+) -> String {
     let name = write_ident(item.name());
 
-    let ty = match item.ty() {
+    let ty_str = match item.ty() {
         metadata::Type::Name(ty_name) => {
             if let Some(_resolved) = item.index().get(namespace, &ty_name.name).next() {
                 write_type(
@@ -54,11 +50,11 @@ fn write_field(
                     .unwrap_or_else(|| panic!("Could not resolve nested type: {}", ty_name.name));
 
                 let keyword = nested_keyword(&nested);
-                let fields = nested
+                let fields: String = nested
                     .fields()
                     .map(|f| write_field(namespace, &nested, &f))
-                    .collect::<Vec<_>>();
-                quote! { #keyword { #(#fields)* } }
+                    .collect();
+                format!("{keyword} {{\n{fields}}}")
             } else if ty_name.namespace.is_empty() {
                 let mut segments = ty_name.name.split('/');
                 let first = segments.next().unwrap();
@@ -78,11 +74,11 @@ fn write_field(
                 }
 
                 let keyword = nested_keyword(&resolved);
-                let fields = resolved
+                let fields: String = resolved
                     .fields()
                     .map(|f| write_field(namespace, &resolved, &f))
-                    .collect::<Vec<_>>();
-                quote! { #keyword { #(#fields)* } }
+                    .collect();
+                format!("{keyword} {{\n{fields}}}")
             } else {
                 write_type(namespace, &metadata::Type::Name(ty_name.clone()))
             }
@@ -92,7 +88,14 @@ fn write_field(
 
     let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    quote! { #(#field_attrs)* #name: #ty, }
+    // A type string ending with `}` is a multi-line nested struct/union.
+    // The closing brace and field comma must appear together on their own line
+    // so that reindent() correctly handles the indentation.
+    if ty_str.ends_with('}') {
+        format!("{field_attrs}{name}: {},\n", ty_str)
+    } else {
+        format!("{field_attrs}{name}: {ty_str},\n")
+    }
 }
 
 fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {
@@ -100,13 +103,13 @@ fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {
         .contains(metadata::TypeAttributes::NestedPublic)
 }
 
-fn nested_keyword(item: &metadata::reader::TypeDef) -> TokenStream {
+fn nested_keyword(item: &metadata::reader::TypeDef) -> &'static str {
     if item
         .flags()
         .contains(metadata::TypeAttributes::ExplicitLayout)
     {
-        quote! { union }
+        "union"
     } else {
-        quote! { struct }
+        "struct"
     }
 }

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
+pub fn write_delegate(item: &metadata::reader::TypeDef) -> String {
     let namespace = item.namespace();
     let name = write_ident(item.name());
 
@@ -18,20 +18,26 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let return_type = write_return_type(namespace, &signature);
     let params = method.params().filter(|param| param.sequence() != 0);
 
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
+    let params: Vec<String> = params
+        .zip(signature.types)
+        .map(|(param, ty)| {
+            let name = write_ident(param.name());
+            let ty = write_type(namespace, &ty);
+            format!("{name}: {ty}")
+        })
+        .collect();
 
-    let generics = if generics.is_empty() {
-        quote! {}
+    let generics_str = if generics.is_empty() {
+        String::new()
     } else {
-        let generics = item.generic_params().map(|param| write_ident(param.name()));
-        quote! { <#(#generics),*> }
+        let names: Vec<String> = item
+            .generic_params()
+            .map(|param| write_ident(param.name()))
+            .collect();
+        format!("<{}>", names.join(", "))
     };
 
-    let custom_attrs = write_custom_attributes_except(
+    let attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
         item.index(),
@@ -52,8 +58,18 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         }
     }
 
-    quote! {
-        #(#custom_attrs)*
-        delegate #abi fn #name #generics (#(#params),*) #return_type;
-    }
+    let abi_str = match abi {
+        Some(abi) => format!(" \"{abi}\""),
+        None => String::new(),
+    };
+    let ret_str = if return_type.is_empty() {
+        String::new()
+    } else {
+        format!(" {return_type}")
+    };
+
+    format!(
+        "{attrs}delegate{abi_str} fn {name}{generics_str}({}){ret_str};\n",
+        params.join(", ")
+    )
 }

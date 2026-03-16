@@ -1,17 +1,20 @@
 use super::*;
 
-pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
+pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> String {
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
     let return_type = write_return_type(namespace, &signature);
     let params = item.params().filter(|param| param.sequence() != 0);
 
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty }
-    });
+    let params: Vec<String> = params
+        .zip(signature.types)
+        .map(|(param, ty)| {
+            let name = write_ident(param.name());
+            let ty = write_type(namespace, &ty);
+            format!("{name}: {ty}")
+        })
+        .collect();
 
     let Some(impl_map) = item.impl_map() else {
         unreachable!("fn item must have an ImplMap to be written as an `fn` item")
@@ -34,11 +37,20 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStr
         )
     };
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
+    let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
 
-    quote! {
-        #(#custom_attrs)*
-        #[library(#library)]
-        extern #abi fn #name(#(#params),*) #return_type;
-    }
+    let abi_str = match abi {
+        Some(abi) => format!(" \"{abi}\""),
+        None => String::new(),
+    };
+    let ret_str = if return_type.is_empty() {
+        String::new()
+    } else {
+        format!(" {return_type}")
+    };
+
+    format!(
+        "{attrs}#[library(\"{library}\")]\nextern{abi_str} fn {name}({}){ret_str};\n",
+        params.join(", ")
+    )
 }

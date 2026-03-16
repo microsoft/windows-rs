@@ -9,7 +9,7 @@ mod Test {
     #[Windows::Foundation::Metadata::Activatable(IDerivedFactory2, 2)]
     #[Windows::Foundation::Metadata::Static(IDerivedStatics, 1)]
     #[Windows::Foundation::Metadata::Static(IDerivedStatics2, 2)]
-    class Derived: Base {
+    class Derived : Base {
         #[default]
         IDerived,
         IDerived2,

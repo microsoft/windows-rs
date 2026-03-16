@@ -1,13 +1,17 @@
 #[winrt]
 mod Test {
     #[Usage(All)]
-    struct ForAll {}
+    struct ForAll {
+    }
     #[Usage(Class)]
-    struct ForClass {}
+    struct ForClass {
+    }
     #[Usage(Struct | Class)]
-    struct ForClassOrStruct {}
+    struct ForClassOrStruct {
+    }
     #[Usage(16)]
-    struct ForUnknown {}
+    struct ForUnknown {
+    }
     #[repr(u32)]
     #[flags]
     enum Targets {
