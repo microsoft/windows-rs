@@ -19,7 +19,7 @@ impl Waiter {
     // Waits for the `WaiterSignaler` to signal and then closes the handle.
     pub fn wait(self) {
         unsafe {
-            WaitForSingleObject(self.0, INFINITE);
+            WaitForSingleObject(self.0, 0xFFFFFFFF);
         }
     }
 }
