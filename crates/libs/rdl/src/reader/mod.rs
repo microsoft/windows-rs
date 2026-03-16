@@ -419,7 +419,7 @@ fn encode_value(
 
 fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
 where
-    T: std::str::FromStr + std::ops::Neg<Output = T>,
+    T: std::str::FromStr + TryFrom<i128>,
     T::Err: std::fmt::Display,
 {
     let value = match expr {
@@ -435,7 +435,10 @@ where
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Int(int),
                 ..
-            }) => int.base10_parse().ok().map(|value: T| -value),
+            }) => int
+                .base10_parse::<u64>()
+                .ok()
+                .and_then(|v| T::try_from(-(v as i128)).ok()),
             _ => None,
         },
         _ => None,

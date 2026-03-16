@@ -186,3 +186,24 @@ mod Test {
         .write()
         .unwrap();
 }
+
+#[test]
+fn repr_i32_boundary_values() {
+    let output = std::env::temp_dir().join("repr_i32_boundary_values.winmd");
+    reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Limits {
+        MaxValue = 2147483647,
+        MinValue = -2147483648,
+    }
+}
+        "#,
+        )
+        .output(output.to_str().unwrap())
+        .write()
+        .unwrap();
+}
