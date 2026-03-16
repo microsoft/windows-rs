@@ -344,6 +344,8 @@ jobs:
         run:  cargo clippy -p tool_merge --tests
       - name: Check tool_msvc
         run:  cargo clippy -p tool_msvc --tests
+      - name: Check tool_rdl_roundtrip
+        run:  cargo clippy -p tool_rdl_roundtrip --tests
       - name: Check tool_standalone
         run:  cargo clippy -p tool_standalone --tests
       - name: Check tool_test_all
