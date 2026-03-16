@@ -20,8 +20,8 @@ pub fn format(input: &str) -> String {
 ///
 /// * `indent`  – current indentation level (each level is 4 spaces).
 /// * `inline`  – when `true` the tokens are inside `( )` or `[ ]` and
-///               commas/semicolons are followed by a space rather than a
-///               newline.
+///   commas/semicolons are followed by a space rather than a
+///   newline.
 fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: bool) {
     let mut i = 0;
     let mut angle_depth = 0i32;
