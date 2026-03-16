@@ -12,6 +12,14 @@ pub use error::Error;
 pub use reader::Reader;
 pub use writer::Writer;
 
+pub fn reader() -> Reader {
+    Reader::new()
+}
+
+pub fn writer() -> Writer {
+    Writer::new()
+}
+
 fn expand_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
     fn expand_one(result: &mut Vec<String>, input: &str, extension: &str) -> Result<(), Error> {
         let path = std::path::Path::new(input);

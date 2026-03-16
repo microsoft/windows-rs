@@ -2,13 +2,13 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/use-declarations.rdl")
         .output("tests/use-declarations.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/use-declarations.winmd")
         .output("tests/use-declarations-out.rdl")
         .namespace("Test")
@@ -18,14 +18,14 @@ pub fn parse() {
 
 #[test]
 pub fn parse_with_reference() {
-    Reader::new()
+    reader()
         .input("tests/use-declarations-ref.rdl")
         .reference("../bindgen/default/Windows.winmd")
         .output("tests/use-declarations-ref.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/use-declarations-ref.winmd")
         .output("tests/use-declarations-ref-out.rdl")
         .namespace("Test")
