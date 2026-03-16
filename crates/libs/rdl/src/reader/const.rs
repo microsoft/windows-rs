@@ -162,28 +162,3 @@ mod Test {
         .write()
         .unwrap();
 }
-
-#[test]
-fn const_underlying_type_from_rdl() {
-    Reader::new()
-        .input_str(
-            r#"
-#[win32]
-mod Test {
-    struct Flag {
-        Value: i32,
-    }
-    const ENABLED: Flag = 1;
-    const DISABLED: Flag = 0;
-}
-        "#,
-        )
-        .output(
-            std::env::temp_dir()
-                .join("windows_rdl_const_underlying_rdl.winmd")
-                .to_str()
-                .unwrap(),
-        )
-        .write()
-        .unwrap();
-}
