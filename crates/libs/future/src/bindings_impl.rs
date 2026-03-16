@@ -5,6 +5,7 @@ windows_link::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HAN
 pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;
 pub type PCWSTR = *const u16;
+pub const INFINITE: u32 = 0xFFFFFFFF;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
