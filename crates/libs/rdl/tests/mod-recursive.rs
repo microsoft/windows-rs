@@ -2,20 +2,20 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/mod-recursive.rdl")
         .output("tests/mod-recursive.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive-not.rdl")
         .namespace("Test.C")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive.rdl")
         .namespace("Test")
@@ -23,7 +23,7 @@ pub fn parse() {
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive-subset.rdl")
         .namespace("Test.C")

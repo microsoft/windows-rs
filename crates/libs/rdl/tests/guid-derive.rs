@@ -42,7 +42,7 @@ fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
 
 #[test]
 fn guid_derive() {
-    Reader::new()
+    reader()
         .input("tests/guid-derive.rdl")
         .reference("../bindgen/default/Windows.winmd")
         .output("tests/guid-derive.winmd")

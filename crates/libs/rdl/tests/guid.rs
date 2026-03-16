@@ -2,13 +2,13 @@ use windows_rdl::*;
 
 #[test]
 pub fn guid() {
-    Reader::new()
+    reader()
         .input("tests/guid.rdl")
         .output("tests/guid.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/guid.winmd")
         .output("tests/guid.rdl")
         .namespace("Test")

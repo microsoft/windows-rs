@@ -2,14 +2,14 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/nested.rdl")
         .reference("../bindgen/default/Windows.winmd")
         .output("tests/nested.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/nested.winmd")
         .output("tests/nested.rdl")
         .namespace("Test")
