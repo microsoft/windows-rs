@@ -13,6 +13,10 @@ impl<'a> Attribute<'a> {
         self.ctor().parent().name()
     }
 
+    pub fn namespace(&self) -> &'a str {
+        self.ctor().parent().namespace()
+    }
+
     pub fn parent(&self) -> HasAttribute<'a> {
         self.decode(0)
     }
