@@ -5,6 +5,5 @@ mod Test {
         fn(name: String);
     }
     #[Foo("hello")]
-    class MyClass {
-    }
+    class MyClass {}
 }

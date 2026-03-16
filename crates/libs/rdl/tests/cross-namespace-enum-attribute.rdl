@@ -14,7 +14,6 @@ mod Test {
     #[winrt]
     mod Types {
         #[Test::Attributes::MarshalingBehavior(Agile)]
-        class MyClass {
-        }
+        class MyClass {}
     }
 }

@@ -36,9 +36,7 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> String {
         item.index(),
     );
 
-    if has_flags {
-        format!("#[repr({repr})]\n#[flags]\n{attrs}enum {name} {{\n{fields}}}\n")
-    } else {
-        format!("#[repr({repr})]\n{attrs}enum {name} {{\n{fields}}}\n")
-    }
+    let flags_line = if has_flags { "#[flags]\n" } else { "" };
+    let header = format!("#[repr({repr})]\n{flags_line}{attrs}enum {name} ");
+    write_block(header, fields)
 }

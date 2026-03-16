@@ -30,8 +30,8 @@ pub fn write_attribute(item: &metadata::reader::TypeDef) -> String {
         .collect();
 
     let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
-
-    format!("{attrs}attribute {name} {{\n{methods}{fields}}}\n")
+    let header = format!("{attrs}attribute {name} ");
+    write_block(header, format!("{methods}{fields}"))
 }
 
 fn write_method(namespace: &str, item: &metadata::reader::MethodDef) -> String {

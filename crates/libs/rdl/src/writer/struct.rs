@@ -24,8 +24,8 @@ pub fn write_struct(item: &metadata::reader::TypeDef) -> String {
     };
 
     let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
-
-    format!("{attrs}{keyword} {name} {{\n{fields}}}\n")
+    let header = format!("{attrs}{keyword} {name} ");
+    write_block(header, fields)
 }
 
 fn write_field(
@@ -49,12 +49,11 @@ fn write_field(
                     .find(|t| t.name() == ty_name.name)
                     .unwrap_or_else(|| panic!("Could not resolve nested type: {}", ty_name.name));
 
-                let keyword = nested_keyword(&nested);
                 let fields: String = nested
                     .fields()
                     .map(|f| write_field(namespace, &nested, &f))
                     .collect();
-                format!("{keyword} {{\n{fields}}}")
+                write_inline_block(nested_keyword(&nested), fields)
             } else if ty_name.namespace.is_empty() {
                 let mut segments = ty_name.name.split('/');
                 let first = segments.next().unwrap();
@@ -73,12 +72,11 @@ fn write_field(
                         .unwrap_or_else(|| panic!("Could not resolve nested type: {}", segment));
                 }
 
-                let keyword = nested_keyword(&resolved);
                 let fields: String = resolved
                     .fields()
                     .map(|f| write_field(namespace, &resolved, &f))
                     .collect();
-                format!("{keyword} {{\n{fields}}}")
+                write_inline_block(nested_keyword(&resolved), fields)
             } else {
                 write_type(namespace, &metadata::Type::Name(ty_name.clone()))
             }
@@ -87,15 +85,7 @@ fn write_field(
     };
 
     let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index());
-
-    // A type string ending with `}` is a multi-line nested struct/union.
-    // The closing brace and field comma must appear together on their own line
-    // so that reindent() correctly handles the indentation.
-    if ty_str.ends_with('}') {
-        format!("{field_attrs}{name}: {},\n", ty_str)
-    } else {
-        format!("{field_attrs}{name}: {ty_str},\n")
-    }
+    format!("{field_attrs}{name}: {ty_str},\n")
 }
 
 fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {

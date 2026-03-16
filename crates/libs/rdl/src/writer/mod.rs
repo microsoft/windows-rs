@@ -258,7 +258,7 @@ fn write_custom_attributes<'a>(
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
 ) -> String {
-    write_custom_attributes_except(attributes, item_namespace, index, &[])
+    write_custom_attributes_impl(attributes, item_namespace, index, &[], false)
 }
 
 fn write_custom_attributes_except<'a>(
@@ -267,6 +267,27 @@ fn write_custom_attributes_except<'a>(
     index: &windows_metadata::reader::TypeIndex,
     exclude: &[&str],
 ) -> String {
+    write_custom_attributes_impl(attributes, item_namespace, index, exclude, false)
+}
+
+/// Attributes on method parameters are emitted inline (space-terminated rather
+/// than newline-terminated) so they appear on the same line as the parameter.
+fn write_param_attributes<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::TypeIndex,
+) -> String {
+    write_custom_attributes_impl(attributes, item_namespace, index, &[], true)
+}
+
+fn write_custom_attributes_impl<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::TypeIndex,
+    exclude: &[&str],
+    inline: bool,
+) -> String {
+    let sep = if inline { " " } else { "\n" };
     let mut output = String::new();
     for attr in attributes {
         if exclude.contains(&attr.name()) {
@@ -313,9 +334,9 @@ fn write_custom_attributes_except<'a>(
             .collect();
 
         if args.is_empty() {
-            output.push_str(&format!("#[{name_str}]\n"));
+            output.push_str(&format!("#[{name_str}]{sep}"));
         } else {
-            output.push_str(&format!("#[{name_str}({})]\n", args.join(", ")));
+            output.push_str(&format!("#[{name_str}({})]{sep}", args.join(", ")));
         }
     }
     output
@@ -466,8 +487,8 @@ fn write_value(namespace: &str, value: &metadata::Value) -> String {
         metadata::Value::I32(value) => value.to_string(),
         metadata::Value::U64(value) => value.to_string(),
         metadata::Value::I64(value) => value.to_string(),
-        metadata::Value::F32(value) => format_float(*value as f64, ""),
-        metadata::Value::F64(value) => format_float(*value, ""),
+        metadata::Value::F32(value) => format_float_f32(*value),
+        metadata::Value::F64(value) => format_float_f64(*value),
         metadata::Value::Utf8(value) => format!("{value:?}"),
         metadata::Value::Utf16(value) => format!("{value:?}"),
         metadata::Value::TypeName(tn) => write_type(namespace, &metadata::Type::Name(tn.clone())),
@@ -475,19 +496,18 @@ fn write_value(namespace: &str, value: &metadata::Value) -> String {
     }
 }
 
-/// Format a floating-point value without a trailing type suffix, matching the
-/// output of `proc_macro2::Literal::f32_unsuffixed` / `f64_unsuffixed`.
-fn format_float(value: f64, _suffix: &str) -> String {
-    // Rust's Display for f64 already produces the minimal decimal representation
-    // that round-trips, but we need to ensure there is always a decimal point so
-    // that the output is unambiguously a float literal.
-    let s = format!("{value}");
-    if s.contains('.')
-        || s.contains('e')
-        || s.contains('E')
-        || s.contains("inf")
-        || s.contains("NaN")
-    {
+fn format_float_f32(value: f32) -> String {
+    let s = value.to_string();
+    if s.contains('.') || s.contains('e') || s.contains('E') {
+        s
+    } else {
+        format!("{s}.0")
+    }
+}
+
+fn format_float_f64(value: f64) -> String {
+    let s = value.to_string();
+    if s.contains('.') || s.contains('e') || s.contains('E') {
         s
     } else {
         format!("{s}.0")
@@ -499,6 +519,25 @@ fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> Str
         namespace,
         &metadata::Type::named(item.namespace(), item.name()),
     )
+}
+
+/// Emit `header {}` for an empty body or `header {\n{body}}\n` otherwise.
+fn write_block(header: String, body: String) -> String {
+    if body.is_empty() {
+        format!("{header}{{}}\n")
+    } else {
+        format!("{header}{{\n{body}}}\n")
+    }
+}
+
+/// Like `write_block` but without the trailing newline, for use as a field type
+/// in a struct/union where the block appears inline within a larger expression.
+fn write_inline_block(keyword: &str, body: String) -> String {
+    if body.is_empty() {
+        format!("{keyword} {{}}")
+    } else {
+        format!("{keyword} {{\n{body}}}")
+    }
 }
 
 fn write_type(namespace: &str, item: &metadata::Type) -> std::string::String {

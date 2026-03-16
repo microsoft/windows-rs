@@ -1,19 +1,16 @@
 #[winrt]
 mod Test {
     #[Test("Class")]
-    class WC {
-    }
+    class WC {}
     #[Test("Delegate")]
     delegate fn WD();
     #[repr(i32)]
     #[Test("Enum")]
-    enum WE {
-    }
+    enum WE {}
     #[Test("Interface")]
     interface WI {
         #[Test("Method")]
-        fn M(&self, #[Test("Param")]
-        p: u32);
+        fn M(&self, #[Test("Param")] p: u32);
     }
     #[Test("Struct")]
     struct WS {
@@ -29,16 +26,14 @@ mod Test {
     extern fn D();
     #[repr(u32)]
     #[Test("Enum")]
-    enum E {
-    }
+    enum E {}
     #[Test("Fn")]
     #[library("test.dll")]
     extern fn F();
     #[Test("Interface")]
     interface I {
         #[Test("Method")]
-        fn M(&self, #[Test("Param")]
-        p: u32);
+        fn M(&self, #[Test("Param")] p: u32);
     }
     #[Test("Struct")]
     struct S {

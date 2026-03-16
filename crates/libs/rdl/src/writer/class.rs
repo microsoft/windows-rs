@@ -9,7 +9,7 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> String {
         String::new()
     } else {
         let ty = write_type_ref(namespace, &extends);
-        format!(": {ty} ")
+        format!(": {ty}")
     };
 
     let attrs = write_custom_attributes(item.attributes(), namespace, item.index());
@@ -19,7 +19,8 @@ pub fn write_class(item: &metadata::reader::TypeDef) -> String {
         .map(|imp| write_interface_impl(namespace, &imp))
         .collect();
 
-    format!("{attrs}class {name} {extends_str}{{\n{interfaces}}}\n")
+    let header = format!("{attrs}class {name}{extends_str} ");
+    write_block(header, interfaces)
 }
 
 fn write_interface_impl(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> String {

@@ -2,8 +2,7 @@ mod Test {
     mod A {
         #[win32]
         mod B {
-            struct C {
-            }
+            struct C {}
         }
     }
 }

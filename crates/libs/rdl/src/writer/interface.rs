@@ -23,7 +23,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
             .iter()
             .map(|imp| write_type(namespace, &imp.interface(&generics)))
             .collect();
-        format!(": {} ", ifaces.join(" + "))
+        format!(": {}", ifaces.join(" + "))
     };
 
     let generics_str = if generics.is_empty() {
@@ -44,11 +44,8 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> String {
         &["GuidAttribute"],
     );
 
-    if methods.is_empty() {
-        format!("{attrs}interface {name}{generics_str} {requires_str}{{}}\n")
-    } else {
-        format!("{attrs}interface {name}{generics_str} {requires_str}{{\n{methods}}}\n")
-    }
+    let header = format!("{attrs}interface {name}{generics_str}{requires_str} ");
+    write_block(header, methods)
 }
 
 fn write_method(
@@ -73,7 +70,7 @@ fn write_method(
             String::new()
         };
         let ty_str = write_type(namespace, &ty);
-        let param_attrs = write_custom_attributes(param.attributes(), namespace, item.index());
+        let param_attrs = write_param_attributes(param.attributes(), namespace, item.index());
         param_strs.push(format!("{param_attrs}{out_attr}{param_name}: {ty_str}"));
     }
 
