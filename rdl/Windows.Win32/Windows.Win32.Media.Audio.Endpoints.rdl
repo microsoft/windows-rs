@@ -1,0 +1,159 @@
+mod Windows {
+    mod Win32 {
+        mod Media {
+            mod Audio {
+                #[win32]
+                mod Endpoints {
+                    struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+                        u32Size: u32,
+                        u32TSSessionId: u32,
+                        targetEndpointConnectorType: EndpointConnectorType,
+                        wfxDeviceFormat: super::WAVEFORMATEX,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Guid(2670689126, 26028, 20390, 138, 228, 18, 60, 120, 184, 147, 19)]
+                    struct DEVINTERFACE_AUDIOENDPOINTPLUGIN {}
+                    #[Windows::Win32::Foundation::Metadata::Constant("{316160983, 53010, 18110, 133, 64, 129, 39, 16, 211, 2, 28}, 4")]
+                    const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY;
+                    #[Windows::Win32::Foundation::Metadata::Constant("{316160983, 53010, 18110, 133, 64, 129, 39, 16, 211, 2, 28}, 2")]
+                    const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::Foundation::PROPERTYKEY;
+                    #[Windows::Win32::Foundation::Metadata::Constant("{316160983, 53010, 18110, 133, 64, 129, 39, 16, 211, 2, 28}, 1")]
+                    const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::Foundation::PROPERTYKEY;
+                    #[Windows::Win32::Foundation::Metadata::Constant("{316160983, 53010, 18110, 133, 64, 129, 39, 16, 211, 2, 28}, 3")]
+                    const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::Foundation::PROPERTYKEY;
+                    #[repr(i32)]
+                    enum EndpointConnectorType {
+                        eHostProcessConnector = 0,
+                        eOffloadConnector = 1,
+                        eLoopbackConnector = 2,
+                        eKeywordDetectorConnector = 3,
+                        eConnectorCount = 4,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioendpoints/nn-audioendpoints-iaudioendpointformatcontrol")]
+                    interface IAudioEndpointFormatControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioendpoints/nf-audioendpoints-iaudioendpointformatcontrol-resettodefault")]
+                        fn ResetToDefault(&self, ResetFlags: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-iaudioendpointlastbuffercontrol")]
+                    interface IAudioEndpointLastBufferControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointlastbuffercontrol-islastbuffercontrolsupported")]
+                        fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointlastbuffercontrol-releaseoutputdatapointerforlastbuffer")]
+                        fn ReleaseOutputDataPointerForLastBuffer(&self, #[Windows::Win32::Foundation::Metadata::Const] pConnectionProperty: *mut super::Apo::APO_CONNECTION_PROPERTY);
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-iaudioendpointoffloadstreammeter")]
+                    interface IAudioEndpointOffloadStreamMeter: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreammeter-getmeterchannelcount")]
+                        fn GetMeterChannelCount(&self, pu32ChannelCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreammeter-getmeteringdata")]
+                        fn GetMeteringData(&self, u32ChannelCount: u32, pf32PeakValues: *mut f32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-iaudioendpointoffloadstreammute")]
+                    interface IAudioEndpointOffloadStreamMute: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreammute-setmute")]
+                        fn SetMute(&self, bMuted: u8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreammute-getmute")]
+                        fn GetMute(&self, pbMuted: *mut u8) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-iaudioendpointoffloadstreamvolume")]
+                    interface IAudioEndpointOffloadStreamVolume: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreamvolume-getvolumechannelcount")]
+                        fn GetVolumeChannelCount(&self, pu32ChannelCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreamvolume-setchannelvolumes")]
+                        fn SetChannelVolumes(&self, u32ChannelCount: u32, pf32Volumes: *mut f32, u32CurveType: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pCurveDuration: *mut i64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudioendpointoffloadstreamvolume-getchannelvolumes")]
+                        fn GetChannelVolumes(&self, u32ChannelCount: u32, pf32Volumes: *mut f32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nn-endpointvolume-iaudioendpointvolume")]
+                    interface IAudioEndpointVolume: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-registercontrolchangenotify")]
+                        fn RegisterControlChangeNotify(&self, pNotify: IAudioEndpointVolumeCallback) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-unregistercontrolchangenotify")]
+                        fn UnregisterControlChangeNotify(&self, pNotify: IAudioEndpointVolumeCallback) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getchannelcount")]
+                        fn GetChannelCount(&self, pnChannelCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-setmastervolumelevel")]
+                        fn SetMasterVolumeLevel(&self, fLevelDB: f32, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-setmastervolumelevelscalar")]
+                        fn SetMasterVolumeLevelScalar(&self, fLevel: f32, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getmastervolumelevel")]
+                        fn GetMasterVolumeLevel(&self, pfLevelDB: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getmastervolumelevelscalar")]
+                        fn GetMasterVolumeLevelScalar(&self, pfLevel: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-setchannelvolumelevel")]
+                        fn SetChannelVolumeLevel(&self, nChannel: u32, fLevelDB: f32, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-setchannelvolumelevelscalar")]
+                        fn SetChannelVolumeLevelScalar(&self, nChannel: u32, fLevel: f32, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getchannelvolumelevel")]
+                        fn GetChannelVolumeLevel(&self, nChannel: u32, pfLevelDB: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getchannelvolumelevelscalar")]
+                        fn GetChannelVolumeLevelScalar(&self, nChannel: u32, pfLevel: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-setmute")]
+                        fn SetMute(&self, bMute: super::super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getmute")]
+                        fn GetMute(&self, pbMute: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getvolumestepinfo")]
+                        fn GetVolumeStepInfo(&self, pnStep: *mut u32, pnStepCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-volumestepup")]
+                        fn VolumeStepUp(&self, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-volumestepdown")]
+                        fn VolumeStepDown(&self, #[Windows::Win32::Foundation::Metadata::Const] pguidEventContext: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-queryhardwaresupport")]
+                        fn QueryHardwareSupport(&self, pdwHardwareSupportMask: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolume-getvolumerange")]
+                        fn GetVolumeRange(&self, pflVolumeMindB: *mut f32, pflVolumeMaxdB: *mut f32, pflVolumeIncrementdB: *mut f32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nn-endpointvolume-iaudioendpointvolumecallback")]
+                    interface IAudioEndpointVolumeCallback: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolumecallback-onnotify")]
+                        fn OnNotify(&self, pNotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nn-endpointvolume-iaudioendpointvolumeex")]
+                    interface IAudioEndpointVolumeEx: IAudioEndpointVolume {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudioendpointvolumeex-getvolumerangechannel")]
+                        fn GetVolumeRangeChannel(&self, iChannel: u32, pflVolumeMindB: *mut f32, pflVolumeMaxdB: *mut f32, pflVolumeIncrementdB: *mut f32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-iaudiolfxcontrol")]
+                    interface IAudioLfxControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudiolfxcontrol-setlocaleffectsstate")]
+                        fn SetLocalEffectsState(&self, bEnabled: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-iaudiolfxcontrol-getlocaleffectsstate")]
+                        fn GetLocalEffectsState(&self, pbEnabled: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nn-endpointvolume-iaudiometerinformation")]
+                    interface IAudioMeterInformation: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudiometerinformation-getpeakvalue")]
+                        fn GetPeakValue(&self, pfPeak: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudiometerinformation-getmeteringchannelcount")]
+                        fn GetMeteringChannelCount(&self, pnChannelCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudiometerinformation-getchannelspeakvalues")]
+                        fn GetChannelsPeakValues(&self, u32ChannelCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] afPeakValues: *mut f32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/endpointvolume/nf-endpointvolume-iaudiometerinformation-queryhardwaresupport")]
+                        fn QueryHardwareSupport(&self, pdwHardwareSupportMask: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nn-audioengineendpoint-ihardwareaudioenginebase")]
+                    interface IHardwareAudioEngineBase: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-ihardwareaudioenginebase-getavailableoffloadconnectorcount")]
+                        fn GetAvailableOffloadConnectorCount(&self, _pwstrDeviceId: super::super::super::Foundation::PWSTR, _uConnectorId: u32, _pAvailableConnectorInstanceCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-ihardwareaudioenginebase-getengineformat")]
+                        fn GetEngineFormat(&self, pDevice: super::IMMDevice, _bRequestDeviceFormat: super::super::super::Foundation::BOOL, _ppwfxFormat: *mut *mut super::WAVEFORMATEX) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-ihardwareaudioenginebase-setenginedeviceformat")]
+                        fn SetEngineDeviceFormat(&self, pDevice: super::IMMDevice, _pwfxFormat: *mut super::WAVEFORMATEX) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-ihardwareaudioenginebase-setgfxstate")]
+                        fn SetGfxState(&self, pDevice: super::IMMDevice, _bEnable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/audioengineendpoint/nf-audioengineendpoint-ihardwareaudioenginebase-getgfxstate")]
+                        fn GetGfxState(&self, pDevice: super::IMMDevice, _pbEnable: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

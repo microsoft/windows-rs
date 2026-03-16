@@ -1,0 +1,748 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod OfflineFiles {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-ienumofflinefilesitems")]
+                interface IEnumOfflineFilesItems: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilesitems-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut IOfflineFilesItem, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilesitems-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilesitems-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilesitems-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumOfflineFilesItems) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-ienumofflinefilessettings")]
+                interface IEnumOfflineFilesSettings: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilessettings-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut IOfflineFilesSetting, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilessettings-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilessettings-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-ienumofflinefilessettings-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumOfflineFilesSettings) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilescache")]
+                interface IOfflineFilesCache: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-synchronize")]
+                    fn Synchronize(&self, hwndParent: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] rgpszPaths: *mut super::super::Foundation::PWSTR, cPaths: u32, bAsync: super::super::Foundation::BOOL, dwSyncControl: u32, pISyncConflictHandler: IOfflineFilesSyncConflictHandler, pIProgress: IOfflineFilesSyncProgress, pSyncId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-deleteitems")]
+                    fn DeleteItems(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] rgpszPaths: *mut super::super::Foundation::PWSTR, cPaths: u32, dwFlags: u32, bAsync: super::super::Foundation::BOOL, pIProgress: IOfflineFilesSimpleProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-deleteitemsforuser")]
+                    fn DeleteItemsForUser(&self, #[Windows::Win32::Foundation::Metadata::Const] pszUser: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] rgpszPaths: *mut super::super::Foundation::PWSTR, cPaths: u32, dwFlags: u32, bAsync: super::super::Foundation::BOOL, pIProgress: IOfflineFilesSimpleProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-pin")]
+                    fn Pin(&self, hwndParent: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] rgpszPaths: *mut super::super::Foundation::PWSTR, cPaths: u32, bDeep: super::super::Foundation::BOOL, bAsync: super::super::Foundation::BOOL, dwPinControlFlags: u32, pIProgress: IOfflineFilesSyncProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-unpin")]
+                    fn Unpin(&self, hwndParent: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] rgpszPaths: *mut super::super::Foundation::PWSTR, cPaths: u32, bDeep: super::super::Foundation::BOOL, bAsync: super::super::Foundation::BOOL, dwPinControlFlags: u32, pIProgress: IOfflineFilesSyncProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-getencryptionstatus")]
+                    fn GetEncryptionStatus(&self, pbEncrypted: *mut super::super::Foundation::BOOL, pbPartial: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-encrypt")]
+                    fn Encrypt(&self, hwndParent: super::super::Foundation::HWND, bEncrypt: super::super::Foundation::BOOL, dwEncryptionControlFlags: u32, bAsync: super::super::Foundation::BOOL, pIProgress: IOfflineFilesSyncProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-finditem")]
+                    fn FindItem(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, dwQueryFlags: u32, ppItem: *mut IOfflineFilesItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-finditemex")]
+                    fn FindItemEx(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, pIncludeFileFilter: IOfflineFilesItemFilter, pIncludeDirFilter: IOfflineFilesItemFilter, pExcludeFileFilter: IOfflineFilesItemFilter, pExcludeDirFilter: IOfflineFilesItemFilter, dwQueryFlags: u32, ppItem: *mut IOfflineFilesItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-renameitem")]
+                    fn RenameItem(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPathOriginal: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszPathNew: super::super::Foundation::PWSTR, bReplaceIfExists: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-getlocation")]
+                    fn GetLocation(&self, ppszPath: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-getdiskspaceinformation")]
+                    fn GetDiskSpaceInformation(&self, pcbVolumeTotal: *mut u64, pcbLimit: *mut u64, pcbUsed: *mut u64, pcbUnpinnedLimit: *mut u64, pcbUnpinnedUsed: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-setdiskspacelimits")]
+                    fn SetDiskSpaceLimits(&self, cbLimit: u64, cbUnpinnedLimit: u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-processadminpinpolicy")]
+                    fn ProcessAdminPinPolicy(&self, pPinProgress: IOfflineFilesSyncProgress, pUnpinProgress: IOfflineFilesSyncProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-getsettingobject")]
+                    fn GetSettingObject(&self, #[Windows::Win32::Foundation::Metadata::Const] pszSettingName: super::super::Foundation::PWSTR, ppSetting: *mut IOfflineFilesSetting) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-enumsettingobjects")]
+                    fn EnumSettingObjects(&self, ppEnum: *mut IEnumOfflineFilesSettings) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache-ispathcacheable")]
+                    fn IsPathCacheable(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, pbCacheable: *mut super::super::Foundation::BOOL, pShareCachingMode: *mut OFFLINEFILES_CACHING_MODE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilescache2")]
+                interface IOfflineFilesCache2: IOfflineFilesCache {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilescache2-renameitemex")]
+                    fn RenameItemEx(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPathOriginal: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszPathNew: super::super::Foundation::PWSTR, bReplaceIfExists: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefileschangeinfo")]
+                interface IOfflineFilesChangeInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-isdirty")]
+                    fn IsDirty(&self, pbDirty: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-isdeletedoffline")]
+                    fn IsDeletedOffline(&self, pbDeletedOffline: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-iscreatedoffline")]
+                    fn IsCreatedOffline(&self, pbCreatedOffline: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-islocallymodifieddata")]
+                    fn IsLocallyModifiedData(&self, pbLocallyModifiedData: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-islocallymodifiedattributes")]
+                    fn IsLocallyModifiedAttributes(&self, pbLocallyModifiedAttributes: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileschangeinfo-islocallymodifiedtime")]
+                    fn IsLocallyModifiedTime(&self, pbLocallyModifiedTime: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesconnectioninfo")]
+                interface IOfflineFilesConnectionInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesconnectioninfo-getconnectstate")]
+                    fn GetConnectState(&self, pConnectState: *mut OFFLINEFILES_CONNECT_STATE, pOfflineReason: *mut OFFLINEFILES_OFFLINE_REASON) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesconnectioninfo-setconnectstate")]
+                    fn SetConnectState(&self, hwndParent: super::super::Foundation::HWND, dwFlags: u32, ConnectState: OFFLINEFILES_CONNECT_STATE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesconnectioninfo-transitiononline")]
+                    fn TransitionOnline(&self, hwndParent: super::super::Foundation::HWND, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesconnectioninfo-transitionoffline")]
+                    fn TransitionOffline(&self, hwndParent: super::super::Foundation::HWND, dwFlags: u32, bForceOpenFilesClosed: super::super::Foundation::BOOL, pbOpenFilesPreventedTransition: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesdirectoryitem")]
+                interface IOfflineFilesDirectoryItem: IOfflineFilesItem {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesdirtyinfo")]
+                interface IOfflineFilesDirtyInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesdirtyinfo-localdirtybytecount")]
+                    fn LocalDirtyByteCount(&self, pDirtyByteCount: *mut i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesdirtyinfo-remotedirtybytecount")]
+                    fn RemoteDirtyByteCount(&self, pDirtyByteCount: *mut i64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefileserrorinfo")]
+                interface IOfflineFilesErrorInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileserrorinfo-getrawdata")]
+                    fn GetRawData(&self, ppBlob: *mut *mut super::super::System::Com::BYTE_BLOB) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileserrorinfo-getdescription")]
+                    fn GetDescription(&self, ppszDescription: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesevents")]
+                interface IOfflineFilesEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-cachemoved")]
+                    fn CacheMoved(&self, #[Windows::Win32::Foundation::Metadata::Const] pszOldPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszNewPath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-cacheisfull")]
+                    fn CacheIsFull(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-cacheiscorrupted")]
+                    fn CacheIsCorrupted(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-enabled")]
+                    fn Enabled(&self, bEnabled: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-encryptionchanged")]
+                    fn EncryptionChanged(&self, bWasEncrypted: super::super::Foundation::BOOL, bWasPartial: super::super::Foundation::BOOL, bIsEncrypted: super::super::Foundation::BOOL, bIsPartial: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncbegin")]
+                    fn SyncBegin(&self, #[Windows::Win32::Foundation::Metadata::Const] rSyncId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncfileresult")]
+                    fn SyncFileResult(&self, #[Windows::Win32::Foundation::Metadata::Const] rSyncId: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pszFile: super::super::Foundation::PWSTR, hrResult: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncconflictrecadded")]
+                    fn SyncConflictRecAdded(&self, #[Windows::Win32::Foundation::Metadata::Const] pszConflictPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pftConflictDateTime: *mut super::super::Foundation::FILETIME, ConflictSyncState: OFFLINEFILES_SYNC_STATE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncconflictrecupdated")]
+                    fn SyncConflictRecUpdated(&self, #[Windows::Win32::Foundation::Metadata::Const] pszConflictPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pftConflictDateTime: *mut super::super::Foundation::FILETIME, ConflictSyncState: OFFLINEFILES_SYNC_STATE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncconflictrecremoved")]
+                    fn SyncConflictRecRemoved(&self, #[Windows::Win32::Foundation::Metadata::Const] pszConflictPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pftConflictDateTime: *mut super::super::Foundation::FILETIME, ConflictSyncState: OFFLINEFILES_SYNC_STATE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-syncend")]
+                    fn SyncEnd(&self, #[Windows::Win32::Foundation::Metadata::Const] rSyncId: *mut GUID, hrResult: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-nettransportarrived")]
+                    fn NetTransportArrived(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-nonettransports")]
+                    fn NoNetTransports(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemdisconnected")]
+                    fn ItemDisconnected(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemreconnected")]
+                    fn ItemReconnected(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemavailableoffline")]
+                    fn ItemAvailableOffline(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemnotavailableoffline")]
+                    fn ItemNotAvailableOffline(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itempinned")]
+                    fn ItemPinned(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemnotpinned")]
+                    fn ItemNotPinned(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemmodified")]
+                    fn ItemModified(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE, bModifiedData: super::super::Foundation::BOOL, bModifiedAttributes: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemaddedtocache")]
+                    fn ItemAddedToCache(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemdeletedfromcache")]
+                    fn ItemDeletedFromCache(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-itemrenamed")]
+                    fn ItemRenamed(&self, #[Windows::Win32::Foundation::Metadata::Const] pszOldPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszNewPath: super::super::Foundation::PWSTR, ItemType: OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-datalost")]
+                    fn DataLost(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents-ping")]
+                    fn Ping(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesevents2")]
+                interface IOfflineFilesEvents2: IOfflineFilesEvents {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-itemreconnectbegin")]
+                    fn ItemReconnectBegin(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-itemreconnectend")]
+                    fn ItemReconnectEnd(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-cacheevictbegin")]
+                    fn CacheEvictBegin(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-cacheevictend")]
+                    fn CacheEvictEnd(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-backgroundsyncbegin")]
+                    fn BackgroundSyncBegin(&self, dwSyncControlFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-backgroundsyncend")]
+                    fn BackgroundSyncEnd(&self, dwSyncControlFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-policychangedetected")]
+                    fn PolicyChangeDetected(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-preferencechangedetected")]
+                    fn PreferenceChangeDetected(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents2-settingschangesapplied")]
+                    fn SettingsChangesApplied(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesevents3")]
+                interface IOfflineFilesEvents3: IOfflineFilesEvents2 {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents3-transparentcacheitemnotify")]
+                    fn TransparentCacheItemNotify(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, EventType: OFFLINEFILES_EVENTS, ItemType: OFFLINEFILES_ITEM_TYPE, bModifiedData: super::super::Foundation::BOOL, bModifiedAttributes: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] pzsOldPath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents3-prefetchfilebegin")]
+                    fn PrefetchFileBegin(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesevents3-prefetchfileend")]
+                    fn PrefetchFileEnd(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, hrResult: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                interface IOfflineFilesEvents4: IOfflineFilesEvents3 {
+                    fn PrefetchCloseHandleBegin(&self) -> super::super::Foundation::HRESULT;
+                    fn PrefetchCloseHandleEnd(&self, dwClosedHandleCount: u32, dwOpenHandleCount: u32, hrResult: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefileseventsfilter")]
+                interface IOfflineFilesEventsFilter: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileseventsfilter-getpathfilter")]
+                    fn GetPathFilter(&self, ppszFilter: *mut super::super::Foundation::PWSTR, pMatch: *mut OFFLINEFILES_PATHFILTER_MATCH) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileseventsfilter-getincludedevents")]
+                    fn GetIncludedEvents(&self, cElements: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] prgEvents: *mut OFFLINEFILES_EVENTS, pcEvents: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefileseventsfilter-getexcludedevents")]
+                    fn GetExcludedEvents(&self, cElements: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] prgEvents: *mut OFFLINEFILES_EVENTS, pcEvents: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesfileitem")]
+                interface IOfflineFilesFileItem: IOfflineFilesItem {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesfileitem-issparse")]
+                    fn IsSparse(&self, pbIsSparse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesfileitem-isencrypted")]
+                    fn IsEncrypted(&self, pbIsEncrypted: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesfilesysinfo")]
+                interface IOfflineFilesFileSysInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesfilesysinfo-getattributes")]
+                    fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY, pdwAttributes: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesfilesysinfo-gettimes")]
+                    fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftCreationTime: *mut super::super::Foundation::FILETIME, pftLastWriteTime: *mut super::super::Foundation::FILETIME, pftChangeTime: *mut super::super::Foundation::FILETIME, pftLastAccessTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesfilesysinfo-getfilesize")]
+                    fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY, pSize: *mut i64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesghostinfo")]
+                interface IOfflineFilesGhostInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesghostinfo-isghosted")]
+                    fn IsGhosted(&self, pbGhosted: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesitem")]
+                interface IOfflineFilesItem: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitem-getitemtype")]
+                    fn GetItemType(&self, pItemType: *mut OFFLINEFILES_ITEM_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitem-getpath")]
+                    fn GetPath(&self, ppszPath: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitem-getparentitem")]
+                    fn GetParentItem(&self, ppItem: *mut IOfflineFilesItem) -> super::super::Foundation::HRESULT;
+                    fn Refresh(&self, dwQueryFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitem-ismarkedfordeletion")]
+                    fn IsMarkedForDeletion(&self, pbMarkedForDeletion: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesitemcontainer")]
+                interface IOfflineFilesItemContainer: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitemcontainer-enumitems")]
+                    fn EnumItems(&self, dwQueryFlags: u32, ppenum: *mut IEnumOfflineFilesItems) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitemcontainer-enumitemsex")]
+                    fn EnumItemsEx(&self, pIncludeFileFilter: IOfflineFilesItemFilter, pIncludeDirFilter: IOfflineFilesItemFilter, pExcludeFileFilter: IOfflineFilesItemFilter, pExcludeDirFilter: IOfflineFilesItemFilter, dwEnumFlags: u32, dwQueryFlags: u32, ppenum: *mut IEnumOfflineFilesItems) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesitemfilter")]
+                interface IOfflineFilesItemFilter: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitemfilter-getfilterflags")]
+                    fn GetFilterFlags(&self, pullFlags: *mut u64, pullMask: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitemfilter-gettimefilter")]
+                    fn GetTimeFilter(&self, pftTime: *mut super::super::Foundation::FILETIME, pbEvalTimeOfDay: *mut super::super::Foundation::BOOL, pTimeType: *mut OFFLINEFILES_ITEM_TIME, pCompare: *mut OFFLINEFILES_COMPARE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesitemfilter-getpatternfilter")]
+                    fn GetPatternFilter(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pszPattern: super::super::Foundation::PWSTR, cchPattern: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilespininfo")]
+                interface IOfflineFilesPinInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo-ispinned")]
+                    fn IsPinned(&self, pbPinned: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo-ispinnedforuser")]
+                    fn IsPinnedForUser(&self, pbPinnedForUser: *mut super::super::Foundation::BOOL, pbInherit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo-ispinnedforuserbypolicy")]
+                    fn IsPinnedForUserByPolicy(&self, pbPinnedForUser: *mut super::super::Foundation::BOOL, pbInherit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo-ispinnedforcomputer")]
+                    fn IsPinnedForComputer(&self, pbPinnedForComputer: *mut super::super::Foundation::BOOL, pbInherit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo-ispinnedforfolderredirection")]
+                    fn IsPinnedForFolderRedirection(&self, pbPinnedForFolderRedirection: *mut super::super::Foundation::BOOL, pbInherit: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilespininfo2")]
+                interface IOfflineFilesPinInfo2: IOfflineFilesPinInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilespininfo2-ispartlypinned")]
+                    fn IsPartlyPinned(&self, pbPartlyPinned: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesprogress")]
+                interface IOfflineFilesProgress: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesprogress-begin")]
+                    fn Begin(&self, pbAbort: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesprogress-queryabort")]
+                    fn QueryAbort(&self, pbAbort: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesprogress-end")]
+                    fn End(&self, hrResult: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesserveritem")]
+                interface IOfflineFilesServerItem: IOfflineFilesItem {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessetting")]
+                interface IOfflineFilesSetting: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getname")]
+                    fn GetName(&self, ppszName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getvaluetype")]
+                    fn GetValueType(&self, pType: *mut OFFLINEFILES_SETTING_VALUE_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getpreference")]
+                    fn GetPreference(&self, pvarValue: *mut super::super::System::Variant::VARIANT, dwScope: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getpreferencescope")]
+                    fn GetPreferenceScope(&self, pdwScope: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-setpreference")]
+                    fn SetPreference(&self, #[Windows::Win32::Foundation::Metadata::Const] pvarValue: *mut super::super::System::Variant::VARIANT, dwScope: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-deletepreference")]
+                    fn DeletePreference(&self, dwScope: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getpolicy")]
+                    fn GetPolicy(&self, pvarValue: *mut super::super::System::Variant::VARIANT, dwScope: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getpolicyscope")]
+                    fn GetPolicyScope(&self, pdwScope: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessetting-getvalue")]
+                    fn GetValue(&self, pvarValue: *mut super::super::System::Variant::VARIANT, pbSetByPolicy: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesshareinfo")]
+                interface IOfflineFilesShareInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesshareinfo-getshareitem")]
+                    fn GetShareItem(&self, ppShareItem: *mut IOfflineFilesShareItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesshareinfo-getsharecachingmode")]
+                    fn GetShareCachingMode(&self, pCachingMode: *mut OFFLINEFILES_CACHING_MODE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilesshareinfo-issharedfsjunction")]
+                    fn IsShareDfsJunction(&self, pbIsDfsJunction: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilesshareitem")]
+                interface IOfflineFilesShareItem: IOfflineFilesItem {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessimpleprogress")]
+                interface IOfflineFilesSimpleProgress: IOfflineFilesProgress {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessimpleprogress-itembegin")]
+                    fn ItemBegin(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFile: super::super::Foundation::PWSTR, pResponse: *mut OFFLINEFILES_OP_RESPONSE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessimpleprogress-itemresult")]
+                    fn ItemResult(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFile: super::super::Foundation::PWSTR, hrResult: super::super::Foundation::HRESULT, pResponse: *mut OFFLINEFILES_OP_RESPONSE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessuspend")]
+                interface IOfflineFilesSuspend: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessuspend-suspendroot")]
+                    fn SuspendRoot(&self, bSuspend: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessuspendinfo")]
+                interface IOfflineFilesSuspendInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessuspendinfo-issuspended")]
+                    fn IsSuspended(&self, pbSuspended: *mut super::super::Foundation::BOOL, pbSuspendedRoot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessyncconflicthandler")]
+                interface IOfflineFilesSyncConflictHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncconflicthandler-resolveconflict")]
+                    fn ResolveConflict(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPath: super::super::Foundation::PWSTR, fStateKnown: u32, state: OFFLINEFILES_SYNC_STATE, fChangeDetails: u32, pConflictResolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppszNewName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessyncerrorinfo")]
+                interface IOfflineFilesSyncErrorInfo: IOfflineFilesErrorInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-getsyncoperation")]
+                    fn GetSyncOperation(&self, pSyncOp: *mut OFFLINEFILES_SYNC_OPERATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-getitemchangeflags")]
+                    fn GetItemChangeFlags(&self, pdwItemChangeFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-infoenumerated")]
+                    fn InfoEnumerated(&self, pbLocalEnumerated: *mut super::super::Foundation::BOOL, pbRemoteEnumerated: *mut super::super::Foundation::BOOL, pbOriginalEnumerated: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-infoavailable")]
+                    fn InfoAvailable(&self, pbLocalInfo: *mut super::super::Foundation::BOOL, pbRemoteInfo: *mut super::super::Foundation::BOOL, pbOriginalInfo: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-getlocalinfo")]
+                    fn GetLocalInfo(&self, ppInfo: *mut IOfflineFilesSyncErrorItemInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-getremoteinfo")]
+                    fn GetRemoteInfo(&self, ppInfo: *mut IOfflineFilesSyncErrorItemInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerrorinfo-getoriginalinfo")]
+                    fn GetOriginalInfo(&self, ppInfo: *mut IOfflineFilesSyncErrorItemInfo) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessyncerroriteminfo")]
+                interface IOfflineFilesSyncErrorItemInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerroriteminfo-getfileattributes")]
+                    fn GetFileAttributes(&self, pdwAttributes: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerroriteminfo-getfiletimes")]
+                    fn GetFileTimes(&self, pftLastWrite: *mut super::super::Foundation::FILETIME, pftChange: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncerroriteminfo-getfilesize")]
+                    fn GetFileSize(&self, pSize: *mut i64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilessyncprogress")]
+                interface IOfflineFilesSyncProgress: IOfflineFilesProgress {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncprogress-syncitembegin")]
+                    fn SyncItemBegin(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFile: super::super::Foundation::PWSTR, pResponse: *mut OFFLINEFILES_OP_RESPONSE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilessyncprogress-syncitemresult")]
+                    fn SyncItemResult(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFile: super::super::Foundation::PWSTR, hrResult: super::super::Foundation::HRESULT, pErrorInfo: IOfflineFilesSyncErrorInfo, pResponse: *mut OFFLINEFILES_OP_RESPONSE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nn-cscobj-iofflinefilestransparentcacheinfo")]
+                interface IOfflineFilesTransparentCacheInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/nf-cscobj-iofflinefilestransparentcacheinfo-istransparentlycached")]
+                    fn IsTransparentlyCached(&self, pbTransparentlyCached: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_caching_mode")]
+                enum OFFLINEFILES_CACHING_MODE {
+                    OFFLINEFILES_CACHING_MODE_NONE = 0,
+                    OFFLINEFILES_CACHING_MODE_NOCACHING = 1,
+                    OFFLINEFILES_CACHING_MODE_MANUAL = 2,
+                    OFFLINEFILES_CACHING_MODE_AUTO_DOC = 3,
+                    OFFLINEFILES_CACHING_MODE_AUTO_PROGANDDOC = 4,
+                }
+                const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2;
+                const OFFLINEFILES_CHANGES_LOCAL_SIZE: u32 = 1;
+                const OFFLINEFILES_CHANGES_LOCAL_TIME: u32 = 4;
+                const OFFLINEFILES_CHANGES_NONE: u32 = 0;
+                const OFFLINEFILES_CHANGES_REMOTE_ATTRIBUTES: u32 = 16;
+                const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8;
+                const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_compare")]
+                enum OFFLINEFILES_COMPARE {
+                    OFFLINEFILES_COMPARE_EQ = 0,
+                    OFFLINEFILES_COMPARE_NEQ = 1,
+                    OFFLINEFILES_COMPARE_LT = 2,
+                    OFFLINEFILES_COMPARE_GT = 3,
+                    OFFLINEFILES_COMPARE_LTE = 4,
+                    OFFLINEFILES_COMPARE_GTE = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_connect_state")]
+                enum OFFLINEFILES_CONNECT_STATE {
+                    OFFLINEFILES_CONNECT_STATE_UNKNOWN = 0,
+                    OFFLINEFILES_CONNECT_STATE_OFFLINE = 1,
+                    OFFLINEFILES_CONNECT_STATE_ONLINE = 2,
+                    OFFLINEFILES_CONNECT_STATE_TRANSPARENTLY_CACHED = 3,
+                    OFFLINEFILES_CONNECT_STATE_PARTLY_TRANSPARENTLY_CACHED = 4,
+                }
+                const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648;
+                const OFFLINEFILES_DELETE_FLAG_DELMODIFIED: u32 = 4;
+                const OFFLINEFILES_DELETE_FLAG_NOAUTOCACHED: u32 = 1;
+                const OFFLINEFILES_DELETE_FLAG_NOPINNED: u32 = 2;
+                const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024;
+                const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_BACKGROUND: u32 = 65536;
+                const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_CONSOLE: u32 = 4096;
+                const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_INTERACTIVE: u32 = 2048;
+                const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_LOWPRIORITY: u32 = 512;
+                const OFFLINEFILES_ENUM_FLAT: u32 = 1;
+                const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_events")]
+                enum OFFLINEFILES_EVENTS {
+                    OFFLINEFILES_EVENT_CACHEMOVED = 0,
+                    OFFLINEFILES_EVENT_CACHEISFULL = 1,
+                    OFFLINEFILES_EVENT_CACHEISCORRUPTED = 2,
+                    OFFLINEFILES_EVENT_ENABLED = 3,
+                    OFFLINEFILES_EVENT_ENCRYPTIONCHANGED = 4,
+                    OFFLINEFILES_EVENT_SYNCBEGIN = 5,
+                    OFFLINEFILES_EVENT_SYNCFILERESULT = 6,
+                    OFFLINEFILES_EVENT_SYNCCONFLICTRECADDED = 7,
+                    OFFLINEFILES_EVENT_SYNCCONFLICTRECUPDATED = 8,
+                    OFFLINEFILES_EVENT_SYNCCONFLICTRECREMOVED = 9,
+                    OFFLINEFILES_EVENT_SYNCEND = 10,
+                    OFFLINEFILES_EVENT_BACKGROUNDSYNCBEGIN = 11,
+                    OFFLINEFILES_EVENT_BACKGROUNDSYNCEND = 12,
+                    OFFLINEFILES_EVENT_NETTRANSPORTARRIVED = 13,
+                    OFFLINEFILES_EVENT_NONETTRANSPORTS = 14,
+                    OFFLINEFILES_EVENT_ITEMDISCONNECTED = 15,
+                    OFFLINEFILES_EVENT_ITEMRECONNECTED = 16,
+                    OFFLINEFILES_EVENT_ITEMAVAILABLEOFFLINE = 17,
+                    OFFLINEFILES_EVENT_ITEMNOTAVAILABLEOFFLINE = 18,
+                    OFFLINEFILES_EVENT_ITEMPINNED = 19,
+                    OFFLINEFILES_EVENT_ITEMNOTPINNED = 20,
+                    OFFLINEFILES_EVENT_ITEMMODIFIED = 21,
+                    OFFLINEFILES_EVENT_ITEMADDEDTOCACHE = 22,
+                    OFFLINEFILES_EVENT_ITEMDELETEDFROMCACHE = 23,
+                    OFFLINEFILES_EVENT_ITEMRENAMED = 24,
+                    OFFLINEFILES_EVENT_DATALOST = 25,
+                    OFFLINEFILES_EVENT_PING = 26,
+                    OFFLINEFILES_EVENT_ITEMRECONNECTBEGIN = 27,
+                    OFFLINEFILES_EVENT_ITEMRECONNECTEND = 28,
+                    OFFLINEFILES_EVENT_CACHEEVICTBEGIN = 29,
+                    OFFLINEFILES_EVENT_CACHEEVICTEND = 30,
+                    OFFLINEFILES_EVENT_POLICYCHANGEDETECTED = 31,
+                    OFFLINEFILES_EVENT_PREFERENCECHANGEDETECTED = 32,
+                    OFFLINEFILES_EVENT_SETTINGSCHANGESAPPLIED = 33,
+                    OFFLINEFILES_EVENT_TRANSPARENTCACHEITEMNOTIFY = 34,
+                    OFFLINEFILES_EVENT_PREFETCHFILEBEGIN = 35,
+                    OFFLINEFILES_EVENT_PREFETCHFILEEND = 36,
+                    OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEBEGIN = 37,
+                    OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEEND = 38,
+                    OFFLINEFILES_NUM_EVENTS = 39,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_item_copy")]
+                enum OFFLINEFILES_ITEM_COPY {
+                    OFFLINEFILES_ITEM_COPY_LOCAL = 0,
+                    OFFLINEFILES_ITEM_COPY_REMOTE = 1,
+                    OFFLINEFILES_ITEM_COPY_ORIGINAL = 2,
+                }
+                const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_DELETED: u32 = 16;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_DIRECTORY: u32 = 256;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_DIRTY: u32 = 32;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_FILE: u32 = 128;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_GHOST: u32 = 8192;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_ANYACCESS: u32 = 33554432;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_READ: u32 = 16777216;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_WRITE: u32 = 8388608;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED: u32 = 4;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_ATTRIBUTES: u32 = 2;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_DATA: u32 = 1;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_OFFLINE: u32 = 32768;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_ONLINE: u32 = 65536;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_ANYACCESS: u32 = 4194304;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_READ: u32 = 2097152;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_WRITE: u32 = 1048576;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED: u32 = 4096;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_COMPUTER: u32 = 2048;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_OTHERS: u32 = 1024;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_USER: u32 = 512;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_SPARSE: u32 = 64;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_SUSPENDED: u32 = 16384;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_USER_ANYACCESS: u32 = 524288;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_USER_READ: u32 = 262144;
+                const OFFLINEFILES_ITEM_FILTER_FLAG_USER_WRITE: u32 = 131072;
+                const OFFLINEFILES_ITEM_QUERY_ADMIN: u32 = 2147483648;
+                const OFFLINEFILES_ITEM_QUERY_ATTEMPT_TRANSITIONONLINE: u32 = 32;
+                const OFFLINEFILES_ITEM_QUERY_CONNECTIONSTATE: u32 = 2;
+                const OFFLINEFILES_ITEM_QUERY_INCLUDETRANSPARENTCACHE: u32 = 16;
+                const OFFLINEFILES_ITEM_QUERY_LOCALDIRTYBYTECOUNT: u32 = 4;
+                const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8;
+                const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_item_time")]
+                enum OFFLINEFILES_ITEM_TIME {
+                    OFFLINEFILES_ITEM_TIME_CREATION = 0,
+                    OFFLINEFILES_ITEM_TIME_LASTACCESS = 1,
+                    OFFLINEFILES_ITEM_TIME_LASTWRITE = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_item_type")]
+                enum OFFLINEFILES_ITEM_TYPE {
+                    OFFLINEFILES_ITEM_TYPE_FILE = 0,
+                    OFFLINEFILES_ITEM_TYPE_DIRECTORY = 1,
+                    OFFLINEFILES_ITEM_TYPE_SHARE = 2,
+                    OFFLINEFILES_ITEM_TYPE_SERVER = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_offline_reason")]
+                enum OFFLINEFILES_OFFLINE_REASON {
+                    OFFLINEFILES_OFFLINE_REASON_UNKNOWN = 0,
+                    OFFLINEFILES_OFFLINE_REASON_NOT_APPLICABLE = 1,
+                    OFFLINEFILES_OFFLINE_REASON_CONNECTION_FORCED = 2,
+                    OFFLINEFILES_OFFLINE_REASON_CONNECTION_SLOW = 3,
+                    OFFLINEFILES_OFFLINE_REASON_CONNECTION_ERROR = 4,
+                    OFFLINEFILES_OFFLINE_REASON_ITEM_VERSION_CONFLICT = 5,
+                    OFFLINEFILES_OFFLINE_REASON_ITEM_SUSPENDED = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_op_response")]
+                enum OFFLINEFILES_OP_RESPONSE {
+                    OFFLINEFILES_OP_CONTINUE = 0,
+                    OFFLINEFILES_OP_RETRY = 1,
+                    OFFLINEFILES_OP_ABORT = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_pathfilter_match")]
+                enum OFFLINEFILES_PATHFILTER_MATCH {
+                    OFFLINEFILES_PATHFILTER_SELF = 0,
+                    OFFLINEFILES_PATHFILTER_CHILD = 1,
+                    OFFLINEFILES_PATHFILTER_DESCENDENT = 2,
+                    OFFLINEFILES_PATHFILTER_SELFORCHILD = 3,
+                    OFFLINEFILES_PATHFILTER_SELFORDESCENDENT = 4,
+                }
+                const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2;
+                const OFFLINEFILES_PINLINKTARGETS_EXPLICIT: u32 = 1;
+                const OFFLINEFILES_PINLINKTARGETS_NEVER: u32 = 0;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_BACKGROUND: u32 = 65536;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_CONSOLE: u32 = 4096;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_FILL: u32 = 1;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_FORALL: u32 = 128;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_FORREDIR: u32 = 256;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER: u32 = 32;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER_POLICY: u32 = 64;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_INTERACTIVE: u32 = 2048;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_LOWPRIORITY: u32 = 512;
+                const OFFLINEFILES_PIN_CONTROL_FLAG_PINLINKTARGETS: u32 = 16;
+                const OFFLINEFILES_SETTING_PinLinkTargets: String = "LinkTargetCaching";
+                const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2;
+                const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_setting_value_type")]
+                enum OFFLINEFILES_SETTING_VALUE_TYPE {
+                    OFFLINEFILES_SETTING_VALUE_UI4 = 0,
+                    OFFLINEFILES_SETTING_VALUE_BSTR = 1,
+                    OFFLINEFILES_SETTING_VALUE_BSTR_DBLNULTERM = 2,
+                    OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_UI4 = 3,
+                    OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_BSTR = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_sync_conflict_resolve")]
+                enum OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NONE = 0,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLOCAL = 1,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPREMOTE = 2,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPALLCHANGES = 3,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLATEST = 4,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_LOG = 5,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_SKIP = 6,
+                    OFFLINEFILES_SYNC_CONFLICT_ABORT = 7,
+                    OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NUMCODES = 8,
+                }
+                const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0;
+                const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLATEST: u32 = 805306368;
+                const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLOCAL: u32 = 268435456;
+                const OFFLINEFILES_SYNC_CONTROL_CR_KEEPREMOTE: u32 = 536870912;
+                const OFFLINEFILES_SYNC_CONTROL_CR_MASK: u32 = 4026531840;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_BACKGROUND: u32 = 65536;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_CONSOLE: u32 = 4096;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_FILLSPARSE: u32 = 1;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_INTERACTIVE: u32 = 2048;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_LOWPRIORITY: u32 = 512;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_NONEWFILESOUT: u32 = 131072;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORALL: u32 = 128;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORREDIR: u32 = 256;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER: u32 = 32;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER_POLICY: u32 = 64;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINLINKTARGETS: u32 = 16;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_PINNEWFILES: u32 = 8;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_SKIPSUSPENDEDDIRS: u32 = 8192;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCIN: u32 = 2;
+                const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCOUT: u32 = 4;
+                const OFFLINEFILES_SYNC_ITEM_CHANGE_ATTRIBUTES: u32 = 8;
+                const OFFLINEFILES_SYNC_ITEM_CHANGE_CHANGETIME: u32 = 1;
+                const OFFLINEFILES_SYNC_ITEM_CHANGE_FILESIZE: u32 = 4;
+                const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0;
+                const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_sync_operation")]
+                enum OFFLINEFILES_SYNC_OPERATION {
+                    OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_SERVER = 0,
+                    OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_CLIENT = 1,
+                    OFFLINEFILES_SYNC_OPERATION_SYNC_TO_SERVER = 2,
+                    OFFLINEFILES_SYNC_OPERATION_SYNC_TO_CLIENT = 3,
+                    OFFLINEFILES_SYNC_OPERATION_DELETE_SERVER_COPY = 4,
+                    OFFLINEFILES_SYNC_OPERATION_DELETE_CLIENT_COPY = 5,
+                    OFFLINEFILES_SYNC_OPERATION_PIN = 6,
+                    OFFLINEFILES_SYNC_OPERATION_PREPARE = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscobj/ne-cscobj-offlinefiles_sync_state")]
+                enum OFFLINEFILES_SYNC_STATE {
+                    OFFLINEFILES_SYNC_STATE_Stable = 0,
+                    OFFLINEFILES_SYNC_STATE_FileOnClient_DirOnServer = 1,
+                    OFFLINEFILES_SYNC_STATE_FileOnClient_NoServerCopy = 2,
+                    OFFLINEFILES_SYNC_STATE_DirOnClient_FileOnServer = 3,
+                    OFFLINEFILES_SYNC_STATE_DirOnClient_FileChangedOnServer = 4,
+                    OFFLINEFILES_SYNC_STATE_DirOnClient_NoServerCopy = 5,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_NoServerCopy = 6,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileChangedOnServer = 7,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirChangedOnServer = 8,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileOnServer = 9,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirOnServer = 10,
+                    OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DeletedOnServer = 11,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnClient_ChangedOnServer = 12,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirOnServer = 13,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirChangedOnServer = 14,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DeletedOnServer = 15,
+                    OFFLINEFILES_SYNC_STATE_FileSparseOnClient_ChangedOnServer = 16,
+                    OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DeletedOnServer = 17,
+                    OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirOnServer = 18,
+                    OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirChangedOnServer = 19,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_NoServerCopy = 20,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirOnServer = 21,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileOnServer = 22,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileChangedOnServer = 23,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirChangedOnServer = 24,
+                    OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DeletedOnServer = 25,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileOnServer = 26,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileChangedOnServer = 27,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnClient_ChangedOnServer = 28,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnClient_DeletedOnServer = 29,
+                    OFFLINEFILES_SYNC_STATE_NoClientCopy_FileOnServer = 30,
+                    OFFLINEFILES_SYNC_STATE_NoClientCopy_DirOnServer = 31,
+                    OFFLINEFILES_SYNC_STATE_NoClientCopy_FileChangedOnServer = 32,
+                    OFFLINEFILES_SYNC_STATE_NoClientCopy_DirChangedOnServer = 33,
+                    OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileOnServer = 34,
+                    OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirOnServer = 35,
+                    OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileChangedOnServer = 36,
+                    OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirChangedOnServer = 37,
+                    OFFLINEFILES_SYNC_STATE_FileSparseOnClient = 38,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnClient = 39,
+                    OFFLINEFILES_SYNC_STATE_FileRenamedOnClient = 40,
+                    OFFLINEFILES_SYNC_STATE_DirSparseOnClient = 41,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnClient = 42,
+                    OFFLINEFILES_SYNC_STATE_DirRenamedOnClient = 43,
+                    OFFLINEFILES_SYNC_STATE_FileChangedOnServer = 44,
+                    OFFLINEFILES_SYNC_STATE_FileRenamedOnServer = 45,
+                    OFFLINEFILES_SYNC_STATE_FileDeletedOnServer = 46,
+                    OFFLINEFILES_SYNC_STATE_DirChangedOnServer = 47,
+                    OFFLINEFILES_SYNC_STATE_DirRenamedOnServer = 48,
+                    OFFLINEFILES_SYNC_STATE_DirDeletedOnServer = 49,
+                    OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileOnServer = 50,
+                    OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileChangedOnServer = 51,
+                    OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirOnServer = 52,
+                    OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirChangedOnServer = 53,
+                    OFFLINEFILES_SYNC_STATE_NUMSTATES = 54,
+                }
+                const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1;
+                const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2;
+                const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2;
+                const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Guid(1220984444, 14449, 17356, 180, 111, 20, 73, 161, 187, 47, 243)]
+                struct OfflineFilesCache {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscapi/nf-cscapi-offlinefilesenable")]
+                #[library("CSCAPI.dll")]
+                extern fn OfflineFilesEnable(bEnable: super::super::Foundation::BOOL, pbRebootRequired: *mut super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscapi/nf-cscapi-offlinefilesquerystatus")]
+                #[library("CSCAPI.dll")]
+                extern fn OfflineFilesQueryStatus(pbActive: *mut super::super::Foundation::BOOL, pbEnabled: *mut super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscapi/nf-cscapi-offlinefilesquerystatusex")]
+                #[library("CSCAPI.dll")]
+                extern fn OfflineFilesQueryStatusEx(pbActive: *mut super::super::Foundation::BOOL, pbEnabled: *mut super::super::Foundation::BOOL, pbAvailable: *mut super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Guid(4248197609, 43296, 16675, 173, 100, 127, 199, 108, 122, 172, 223)]
+                struct OfflineFilesSetting {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cscapi/nf-cscapi-offlinefilesstart")]
+                #[library("CSCAPI.dll")]
+                extern fn OfflineFilesStart() -> u32;
+            }
+        }
+    }
+}

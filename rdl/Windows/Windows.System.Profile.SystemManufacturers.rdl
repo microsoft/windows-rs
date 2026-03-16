@@ -1,0 +1,85 @@
+mod Windows {
+    mod System {
+        mod Profile {
+            #[winrt]
+            mod SystemManufacturers {
+                #[Windows::Foundation::Metadata::ExclusiveTo(OemSupportInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                interface IOemSupportInfo {
+                    #[special]
+                    fn get_SupportLink(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_SupportAppLink(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_SupportProvider(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SmbiosInformation)]
+                interface ISmbiosInformationStatics {
+                    #[special]
+                    fn get_SerialNumber(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportDeviceInfo)]
+                interface ISystemSupportDeviceInfo {
+                    #[special]
+                    fn get_OperatingSystem(&self) -> String;
+                    #[special]
+                    fn get_FriendlyName(&self) -> String;
+                    #[special]
+                    fn get_SystemManufacturer(&self) -> String;
+                    #[special]
+                    fn get_SystemProductName(&self) -> String;
+                    #[special]
+                    fn get_SystemSku(&self) -> String;
+                    #[special]
+                    fn get_SystemHardwareVersion(&self) -> String;
+                    #[special]
+                    fn get_SystemFirmwareVersion(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
+                interface ISystemSupportInfoStatics {
+                    #[special]
+                    fn get_LocalSystemEdition(&self) -> String;
+                    #[special]
+                    fn get_OemSupportInfo(&self) -> OemSupportInfo;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemSupportInfo)]
+                interface ISystemSupportInfoStatics2 {
+                    #[special]
+                    fn get_LocalDeviceInfo(&self) -> SystemSupportDeviceInfo;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class OemSupportInfo {
+                    #[default]
+                    IOemSupportInfo,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISmbiosInformationStatics, 65536, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
+                class SmbiosInformation {}
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(196608)]
+                struct SystemManufacturersContract {}
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SystemSupportDeviceInfo {
+                    #[default]
+                    ISystemSupportDeviceInfo,
+                }
+                #[Windows::Foundation::Metadata::Static(ISystemSupportInfoStatics2, 196608, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISystemSupportInfoStatics, 131072, "Windows.System.Profile.SystemManufacturers.SystemManufacturersContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(SystemManufacturersContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SystemSupportInfo {}
+            }
+        }
+    }
+}

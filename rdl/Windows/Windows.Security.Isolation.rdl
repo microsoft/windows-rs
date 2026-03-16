@@ -1,0 +1,759 @@
+mod Windows {
+    mod Security {
+        #[winrt]
+        mod Isolation {
+            #[Windows::Foundation::Metadata::Deprecated("HostMessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            delegate fn HostMessageReceivedCallback(receiverId: GUID, message: super::super::Foundation::Collections::IVectorView<Object>);
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironment)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironment {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Id(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("StartProcessSilentlyAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartProcessSilentlyAsync(&self, hostExePath: String, arguments: String, activator: IsolatedWindowsEnvironmentActivator) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>;
+                #[Windows::Foundation::Metadata::Overload("StartProcessSilentlyWithTelemetryAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartProcessSilentlyAsync(&self, hostExePath: String, arguments: String, activator: IsolatedWindowsEnvironmentActivator, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShareFolderAsync")]
+                fn ShareFolderAsync(&self, hostFolder: String, requestOptions: IsolatedWindowsEnvironmentShareFolderRequestOptions) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>;
+                #[Windows::Foundation::Metadata::Overload("ShareFolderWithTelemetryAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShareFolderAsync(&self, hostFolder: String, requestOptions: IsolatedWindowsEnvironmentShareFolderRequestOptions, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::Overload("LaunchFileWithUIAsync")]
+                fn LaunchFileWithUIAsync(&self, appExePath: String, argumentsTemplate: String, filePath: String) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::Overload("LaunchFileWithUIAndTelemetryAsync")]
+                fn LaunchFileWithUIAsync(&self, appExePath: String, argumentsTemplate: String, filePath: String, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::Overload("TerminateAsync")]
+                fn TerminateAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("TerminateWithTelemetryAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn TerminateAsync(&self, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn RegisterMessageReceiver(&self, receiverId: GUID, messageReceivedCallback: MessageReceivedCallback);
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn UnregisterMessageReceiver(&self, receiverId: GUID);
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironment)]
+            interface IIsolatedWindowsEnvironment2 {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("PostMessageToReceiverAsync")]
+                fn PostMessageToReceiverAsync(&self, receiverId: GUID, message: super::super::Foundation::Collections::IIterable<Object>) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("PostMessageToReceiverWithTelemetryAsync")]
+                fn PostMessageToReceiverAsync(&self, receiverId: GUID, message: super::super::Foundation::Collections::IIterable<Object>, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironment)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironment3 {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn GetUserInfo(&self) -> IsolatedWindowsEnvironmentUserInfo;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShareFileAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn ShareFileAsync(&self, filePath: String, options: IsolatedWindowsEnvironmentShareFileRequestOptions) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShareFileWithTelemetryAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn ShareFileAsync(&self, filePath: String, options: IsolatedWindowsEnvironmentShareFileRequestOptions, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironment)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            interface IIsolatedWindowsEnvironment4 {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn ChangePriority(&self, Priority: IsolatedWindowsEnvironmentCreationPriority);
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentCreateResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            interface IIsolatedWindowsEnvironmentCreateResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentCreateStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Environment(&self) -> IsolatedWindowsEnvironment;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentCreateResult)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentCreateResult2 {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn ChangeCreationPriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironment)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentFactory {
+                #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn CreateAsync(&self, options: IsolatedWindowsEnvironmentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateWithTelemetryAsync")]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn CreateAsync(&self, options: IsolatedWindowsEnvironmentOptions, telemetryParameters: IsolatedWindowsEnvironmentTelemetryParameters) -> super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn GetById(&self, environmentId: String) -> IsolatedWindowsEnvironment;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn FindByOwnerId(&self, environmentOwnerId: String) -> super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentFile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentFile {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Id(&self) -> GUID;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_HostPath(&self) -> String;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn Close(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentFile)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            interface IIsolatedWindowsEnvironmentFile2 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_GuestPath(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_IsReadOnly(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentHost is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentHost)]
+            interface IIsolatedWindowsEnvironmentHostStatics {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentHost is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_IsReady(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentHost is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_HostErrors(&self) -> super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentLaunchFileResult)]
+            interface IIsolatedWindowsEnvironmentLaunchFileResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentLaunchFileStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_File(&self) -> IsolatedWindowsEnvironmentFile;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOptions)]
+            interface IIsolatedWindowsEnvironmentOptions {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_EnvironmentOwnerId(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_EnvironmentOwnerId(&self, value: String);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowedClipboardFormats(&self) -> IsolatedWindowsEnvironmentAllowedClipboardFormats;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowedClipboardFormats(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ClipboardCopyPasteDirections(&self) -> IsolatedWindowsEnvironmentClipboardCopyPasteDirections;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_ClipboardCopyPasteDirections(&self, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AvailablePrinters(&self) -> IsolatedWindowsEnvironmentAvailablePrinters;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AvailablePrinters(&self, value: IsolatedWindowsEnvironmentAvailablePrinters);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_SharedHostFolderPath(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_SharedFolderNameInEnvironment(&self) -> String;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn ShareHostFolderForUntrustedItems(&self, SharedHostFolderPath: String, ShareFolderNameInEnvironment: String);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_PersistUserProfile(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_PersistUserProfile(&self, value: bool);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowGraphicsHardwareAcceleration(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowGraphicsHardwareAcceleration(&self, value: bool);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowCameraAndMicrophoneAccess(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowCameraAndMicrophoneAccess(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            interface IIsolatedWindowsEnvironmentOptions2 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_WindowAnnotationOverride(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_WindowAnnotationOverride(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOptions)]
+            interface IIsolatedWindowsEnvironmentOptions3 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowedClipboardFormatsToEnvironment(&self) -> IsolatedWindowsEnvironmentAllowedClipboardFormats;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowedClipboardFormatsToEnvironment(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowedClipboardFormatsToHost(&self) -> IsolatedWindowsEnvironmentAllowedClipboardFormats;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowedClipboardFormatsToHost(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_CreationPriority(&self) -> IsolatedWindowsEnvironmentCreationPriority;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_CreationPriority(&self, value: IsolatedWindowsEnvironmentCreationPriority);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOwnerRegistrationData)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentOwnerRegistrationData {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ShareableFolders(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ProcessesRunnableAsSystem(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ProcessesRunnableAsUser(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ActivationFileExtensions(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOwnerRegistrationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentOwnerRegistrationResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentOwnerRegistrationStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentOwnerRegistration)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            interface IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn Register(&self, ownerName: String, ownerRegistrationData: IsolatedWindowsEnvironmentOwnerRegistrationData) -> IsolatedWindowsEnvironmentOwnerRegistrationResult;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn Unregister(&self, ownerName: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentPostMessageResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentPostMessageResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentPostMessageResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentPostMessageResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentPostMessageStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentPostMessageResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentProcess)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentProcess {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_State(&self) -> IsolatedWindowsEnvironmentProcessState;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExitCode(&self) -> u32;
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn WaitForExit(&self);
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn WaitForExitWithTimeout(&self, timeoutMilliseconds: u32);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn WaitForExitAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentShareFileRequestOptions)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            interface IIsolatedWindowsEnvironmentShareFileRequestOptions {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowWrite(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowWrite(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentShareFileResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentShareFileResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentShareFileStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_File(&self) -> IsolatedWindowsEnvironmentFile;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentShareFolderRequestOptions)]
+            interface IIsolatedWindowsEnvironmentShareFolderRequestOptions {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_AllowWrite(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_AllowWrite(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentShareFolderResult)]
+            interface IIsolatedWindowsEnvironmentShareFolderResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentShareFolderStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentStartProcessResult)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            interface IIsolatedWindowsEnvironmentStartProcessResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Status(&self) -> IsolatedWindowsEnvironmentStartProcessStatus;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_ExtendedError(&self) -> HRESULT;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_Process(&self) -> IsolatedWindowsEnvironmentProcess;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentTelemetryParameters is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentTelemetryParameters)]
+            interface IIsolatedWindowsEnvironmentTelemetryParameters {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentTelemetryParameters is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_CorrelationId(&self) -> GUID;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentTelemetryParameters is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn put_CorrelationId(&self, value: GUID);
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentUserInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            interface IIsolatedWindowsEnvironmentUserInfo {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_EnvironmentUserSid(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn get_EnvironmentUserName(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn TryWaitForSignInAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsEnvironmentUserInfo)]
+            interface IIsolatedWindowsEnvironmentUserInfo2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn TryWaitForSignInWithProgressAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsHostMessenger)]
+            interface IIsolatedWindowsHostMessengerStatics {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn PostMessageToReceiver(&self, receiverId: GUID, message: super::super::Foundation::Collections::IVectorView<Object>);
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn GetFileId(&self, filePath: String) -> GUID;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsolatedWindowsHostMessenger)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            interface IIsolatedWindowsHostMessengerStatics2 {
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn RegisterHostMessageReceiver(&self, receiverId: GUID, hostMessageReceivedCallback: HostMessageReceivedCallback);
+                #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+                fn UnregisterHostMessageReceiver(&self, receiverId: GUID);
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsEnvironmentFactory, 65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironment is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironment {
+                #[default]
+                IIsolatedWindowsEnvironment,
+                IIsolatedWindowsEnvironment2,
+                IIsolatedWindowsEnvironment3,
+                IIsolatedWindowsEnvironment4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentActivator is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            enum IsolatedWindowsEnvironmentActivator {
+                System = 0,
+                User = 1,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentAllowedClipboardFormats is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentAllowedClipboardFormats {
+                None = 0,
+                Text = 1,
+                Image = 2,
+                Rtf = 4,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentAvailablePrinters is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            enum IsolatedWindowsEnvironmentAvailablePrinters {
+                None = 0,
+                Local = 1,
+                Network = 2,
+                SystemPrintToPdf = 4,
+                SystemPrintToXps = 8,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentClipboardCopyPasteDirections is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+                None = 0,
+                HostToIsolatedWindowsEnvironment = 1,
+                IsolatedWindowsEnvironmentToHost = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(327680)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct IsolatedWindowsEnvironmentContract {}
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateProgress is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            struct IsolatedWindowsEnvironmentCreateProgress {
+                State: IsolatedWindowsEnvironmentProgressState,
+                PercentComplete: u32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironmentCreateResult {
+                #[default]
+                IIsolatedWindowsEnvironmentCreateResult,
+                IIsolatedWindowsEnvironmentCreateResult2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreateStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            enum IsolatedWindowsEnvironmentCreateStatus {
+                Success = 0,
+                FailureByPolicy = 1,
+                UnknownFailure = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentCreationPriority is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentCreationPriority {
+                Low = 0,
+                Normal = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentFile is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironmentFile {
+                #[default]
+                IIsolatedWindowsEnvironmentFile,
+                IIsolatedWindowsEnvironmentFile2,
+            }
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsEnvironmentHostStatics, 65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentHost is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentHost {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentHostError is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentHostError {
+                AdminPolicyIsDisabledOrNotPresent = 0,
+                FeatureNotInstalled = 1,
+                HardwareRequirementsNotMet = 2,
+                RebootRequired = 3,
+                UnknownError = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironmentLaunchFileResult {
+                #[default]
+                IIsolatedWindowsEnvironmentLaunchFileResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentLaunchFileStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentLaunchFileStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                EnvironmentUnavailable = 2,
+                FileNotFound = 3,
+                TimedOut = 4,
+                AlreadySharedWithConflictingOptions = 5,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentOptions {
+                #[default]
+                IIsolatedWindowsEnvironmentOptions,
+                IIsolatedWindowsEnvironmentOptions2,
+                IIsolatedWindowsEnvironmentOptions3,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, 65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class IsolatedWindowsEnvironmentOwnerRegistration {}
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationData is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            class IsolatedWindowsEnvironmentOwnerRegistrationData {
+                #[default]
+                IIsolatedWindowsEnvironmentOwnerRegistrationData,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironmentOwnerRegistrationResult {
+                #[default]
+                IIsolatedWindowsEnvironmentOwnerRegistrationResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentOwnerRegistrationStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+                Success = 0,
+                InvalidArgument = 1,
+                AccessDenied = 2,
+                InsufficientMemory = 3,
+                UnknownFailure = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentPostMessageResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentPostMessageResult {
+                #[default]
+                IIsolatedWindowsEnvironmentPostMessageResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 131072)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentPostMessageStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentPostMessageStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                EnvironmentUnavailable = 2,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcess is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentProcess {
+                #[default]
+                IIsolatedWindowsEnvironmentProcess,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProcessState is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            enum IsolatedWindowsEnvironmentProcessState {
+                Running = 1,
+                Aborted = 2,
+                Completed = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentProgressState is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentProgressState {
+                Queued = 0,
+                Processing = 1,
+                Completed = 2,
+                Creating = 3,
+                Retrying = 4,
+                Starting = 5,
+                Finalizing = 6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentShareFileRequestOptions {
+                #[default]
+                IIsolatedWindowsEnvironmentShareFileRequestOptions,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            class IsolatedWindowsEnvironmentShareFileResult {
+                #[default]
+                IIsolatedWindowsEnvironmentShareFileResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFileStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentShareFileStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                EnvironmentUnavailable = 2,
+                AlreadySharedWithConflictingOptions = 3,
+                FileNotFound = 4,
+                AccessDenied = 5,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderRequestOptions is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentShareFolderRequestOptions {
+                #[default]
+                IIsolatedWindowsEnvironmentShareFolderRequestOptions,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            class IsolatedWindowsEnvironmentShareFolderResult {
+                #[default]
+                IIsolatedWindowsEnvironmentShareFolderResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentShareFolderStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            enum IsolatedWindowsEnvironmentShareFolderStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                EnvironmentUnavailable = 2,
+                FolderNotFound = 3,
+                AccessDenied = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 262144)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentSignInProgress is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentSignInProgress {
+                Connecting = 0,
+                Connected = 1,
+                Authenticating = 2,
+                SettingUpAccount = 3,
+                Finalizing = 4,
+                Completed = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            class IsolatedWindowsEnvironmentStartProcessResult {
+                #[default]
+                IIsolatedWindowsEnvironmentStartProcessResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentStartProcessStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            enum IsolatedWindowsEnvironmentStartProcessStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                EnvironmentUnavailable = 2,
+                FileNotFound = 3,
+                AppNotRegistered = 4,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentTelemetryParameters is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class IsolatedWindowsEnvironmentTelemetryParameters {
+                #[default]
+                IIsolatedWindowsEnvironmentTelemetryParameters,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 196608)]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsEnvironmentUserInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsEnvironmentUserInfo {
+                #[default]
+                IIsolatedWindowsEnvironmentUserInfo,
+                IIsolatedWindowsEnvironmentUserInfo2,
+            }
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsHostMessengerStatics, 65536, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IIsolatedWindowsHostMessengerStatics2, 131072, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::Deprecated("IsolatedWindowsHostMessenger is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IsolatedWindowsHostMessenger {}
+            #[Windows::Foundation::Metadata::ContractVersion(IsolatedWindowsEnvironmentContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("MessageReceivedCallback is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 327680, "Windows.Security.Isolation.IsolatedWindowsEnvironmentContract")]
+            delegate fn MessageReceivedCallback(receiverId: GUID, message: super::super::Foundation::Collections::IVectorView<Object>);
+        }
+    }
+}

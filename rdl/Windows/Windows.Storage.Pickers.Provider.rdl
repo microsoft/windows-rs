@@ -1,0 +1,175 @@
+mod Windows {
+    mod Storage {
+        mod Pickers {
+            #[winrt]
+            mod Provider {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AddFileResult {
+                    Added = 0,
+                    AlreadyAdded = 1,
+                    NotAllowed = 2,
+                    Unavailable = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class FileOpenPickerUI {
+                    #[default]
+                    IFileOpenPickerUI,
+                }
+                #[Windows::Foundation::Metadata::Deprecated("Since Windows 10, only apps can remove files, not end users so the FileRemoved event will not be raised.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class FileRemovedEventArgs {
+                    #[default]
+                    IFileRemovedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class FileSavePickerUI {
+                    #[default]
+                    IFileSavePickerUI,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum FileSelectionMode {
+                    Single = 0,
+                    Multiple = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPickerUI)]
+                interface IFileOpenPickerUI {
+                    fn AddFile(&self, id: String, file: super::super::IStorageFile) -> AddFileResult;
+                    fn RemoveFile(&self, id: String);
+                    fn ContainsFile(&self, id: String) -> bool;
+                    fn CanAddFile(&self, file: super::super::IStorageFile) -> bool;
+                    #[special]
+                    fn get_AllowedFileTypes(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_SelectionMode(&self) -> FileSelectionMode;
+                    #[special]
+                    fn get_SettingsIdentifier(&self) -> String;
+                    #[special]
+                    fn get_Title(&self) -> String;
+                    #[special]
+                    fn put_Title(&self, value: String);
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Since Windows 10, only apps can remove files, not end users so the FileRemoved event will not be raised.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                    fn add_FileRemoved(&self, handler: super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Since Windows 10, only apps can remove files, not end users so the FileRemoved event will not be raised.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                    fn remove_FileRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_Closing(&self, handler: super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Closing(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Since Windows 10, only apps can remove files, not end users so the FileRemoved event will not be raised.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FileRemovedEventArgs)]
+                interface IFileRemovedEventArgs {
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Since Windows 10, only apps can remove files, not end users so the FileRemoved event will not be raised.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                    fn get_Id(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePickerUI)]
+                interface IFileSavePickerUI {
+                    #[special]
+                    fn get_Title(&self) -> String;
+                    #[special]
+                    fn put_Title(&self, value: String);
+                    #[special]
+                    fn get_AllowedFileTypes(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_SettingsIdentifier(&self) -> String;
+                    #[special]
+                    fn get_FileName(&self) -> String;
+                    fn TrySetFileName(&self, value: String) -> SetFileNameResult;
+                    #[special]
+                    fn add_FileNameChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_FileNameChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_TargetFileRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_TargetFileRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PickerClosingDeferral)]
+                interface IPickerClosingDeferral {
+                    fn Complete(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(PickerClosingEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPickerClosingEventArgs {
+                    #[special]
+                    fn get_ClosingOperation(&self) -> PickerClosingOperation;
+                    #[special]
+                    fn get_IsCanceled(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(PickerClosingOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPickerClosingOperation {
+                    fn GetDeferral(&self) -> PickerClosingDeferral;
+                    #[special]
+                    fn get_Deadline(&self) -> super::super::super::Foundation::DateTime;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TargetFileRequest)]
+                interface ITargetFileRequest {
+                    #[special]
+                    fn get_TargetFile(&self) -> super::super::IStorageFile;
+                    #[special]
+                    fn put_TargetFile(&self, value: super::super::IStorageFile);
+                    fn GetDeferral(&self) -> TargetFileRequestDeferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TargetFileRequestDeferral)]
+                interface ITargetFileRequestDeferral {
+                    fn Complete(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(TargetFileRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ITargetFileRequestedEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> TargetFileRequest;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PickerClosingDeferral {
+                    #[default]
+                    IPickerClosingDeferral,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PickerClosingEventArgs {
+                    #[default]
+                    IPickerClosingEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PickerClosingOperation {
+                    #[default]
+                    IPickerClosingOperation,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum SetFileNameResult {
+                    Succeeded = 0,
+                    NotAllowed = 1,
+                    Unavailable = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TargetFileRequest {
+                    #[default]
+                    ITargetFileRequest,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TargetFileRequestDeferral {
+                    #[default]
+                    ITargetFileRequestDeferral,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TargetFileRequestedEventArgs {
+                    #[default]
+                    ITargetFileRequestedEventArgs,
+                }
+            }
+        }
+    }
+}

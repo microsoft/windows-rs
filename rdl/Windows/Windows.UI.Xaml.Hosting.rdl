@@ -1,0 +1,337 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            #[winrt]
+            mod Hosting {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                class DesignerAppExitedEventArgs {
+                    #[default]
+                    IDesignerAppExitedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                #[Windows::Foundation::Metadata::Activatable(IDesignerAppManagerFactory, 131072, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class DesignerAppManager {
+                    #[default]
+                    IDesignerAppManager,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class DesignerAppView {
+                    #[default]
+                    IDesignerAppView,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum DesignerAppViewState {
+                    Visible = 0,
+                    Hidden = 1,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Composable(IDesktopWindowXamlSourceFactory, Public, 196608, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DesktopWindowXamlSource {
+                    #[default]
+                    IDesktopWindowXamlSource,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                class DesktopWindowXamlSourceGotFocusEventArgs {
+                    #[default]
+                    IDesktopWindowXamlSourceGotFocusEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+                    #[default]
+                    IDesktopWindowXamlSourceTakeFocusRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Static(IElementCompositionPreviewStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IElementCompositionPreviewStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IElementCompositionPreviewStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class ElementCompositionPreview {
+                    #[default]
+                    IElementCompositionPreview,
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(327680)]
+                struct HostingContract {}
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesignerAppExitedEventArgs)]
+                interface IDesignerAppExitedEventArgs {
+                    #[special]
+                    fn get_ExitCode(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesignerAppManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                interface IDesignerAppManager {
+                    #[special]
+                    fn get_AppUserModelId(&self) -> String;
+                    #[special]
+                    fn add_DesignerAppExited(&self, handler: super::super::super::Foundation::TypedEventHandler<DesignerAppManager, DesignerAppExitedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DesignerAppExited(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateNewViewAsync(&self, initialViewState: DesignerAppViewState, initialViewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncOperation<DesignerAppView>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn LoadObjectIntoAppAsync(&self, dllName: String, classId: GUID, initializationData: String) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesignerAppManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                interface IDesignerAppManagerFactory {
+                    fn Create(&self, appUserModelId: String) -> DesignerAppManager;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesignerAppView)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IDesignerAppView {
+                    #[special]
+                    fn get_ApplicationViewId(&self) -> i32;
+                    #[special]
+                    fn get_AppUserModelId(&self) -> String;
+                    #[special]
+                    fn get_ViewState(&self) -> DesignerAppViewState;
+                    #[special]
+                    fn get_ViewSize(&self) -> super::super::super::Foundation::Size;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn UpdateViewAsync(&self, viewState: DesignerAppViewState, viewSize: super::super::super::Foundation::Size) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowXamlSource)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IDesktopWindowXamlSource {
+                    #[special]
+                    fn get_Content(&self) -> super::UIElement;
+                    #[special]
+                    fn put_Content(&self, value: super::UIElement);
+                    #[special]
+                    fn get_HasFocus(&self) -> bool;
+                    #[special]
+                    fn add_TakeFocusRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceTakeFocusRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_TakeFocusRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_GotFocus(&self, handler: super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceGotFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_GotFocus(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn NavigateFocus(&self, request: XamlSourceFocusNavigationRequest) -> XamlSourceFocusNavigationResult;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowXamlSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IDesktopWindowXamlSourceFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DesktopWindowXamlSource;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowXamlSourceGotFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IDesktopWindowXamlSourceGotFocusEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> XamlSourceFocusNavigationRequest;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowXamlSourceTakeFocusRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> XamlSourceFocusNavigationRequest;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface IElementCompositionPreview {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface IElementCompositionPreviewStatics {
+                    fn GetElementVisual(&self, element: super::UIElement) -> super::super::Composition::Visual;
+                    fn GetElementChildVisual(&self, element: super::UIElement) -> super::super::Composition::Visual;
+                    fn SetElementChildVisual(&self, element: super::UIElement, visual: super::super::Composition::Visual);
+                    fn GetScrollViewerManipulationPropertySet(&self, scrollViewer: super::Controls::ScrollViewer) -> super::super::Composition::CompositionPropertySet;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
+                interface IElementCompositionPreviewStatics2 {
+                    fn SetImplicitShowAnimation(&self, element: super::UIElement, animation: super::super::Composition::ICompositionAnimationBase);
+                    fn SetImplicitHideAnimation(&self, element: super::UIElement, animation: super::super::Composition::ICompositionAnimationBase);
+                    fn SetIsTranslationEnabled(&self, element: super::UIElement, value: bool);
+                    fn GetPointerPositionPropertySet(&self, targetElement: super::UIElement) -> super::super::Composition::CompositionPropertySet;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(ElementCompositionPreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IElementCompositionPreviewStatics3 {
+                    fn SetAppWindowContent(&self, appWindow: super::super::WindowManagement::AppWindow, xamlContent: super::UIElement);
+                    fn GetAppWindowContent(&self, appWindow: super::super::WindowManagement::AppWindow) -> super::UIElement;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WindowsXamlManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IWindowsXamlManager {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WindowsXamlManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IWindowsXamlManagerStatics {
+                    fn InitializeForCurrentThread(&self) -> WindowsXamlManager;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationRequest)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                interface IXamlSourceFocusNavigationRequest {
+                    #[special]
+                    fn get_Reason(&self) -> XamlSourceFocusNavigationReason;
+                    #[special]
+                    fn get_HintRect(&self) -> super::super::super::Foundation::Rect;
+                    #[special]
+                    fn get_CorrelationId(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationRequest)]
+                interface IXamlSourceFocusNavigationRequestFactory {
+                    fn CreateInstance(&self, reason: XamlSourceFocusNavigationReason) -> XamlSourceFocusNavigationRequest;
+                    fn CreateInstanceWithHintRect(&self, reason: XamlSourceFocusNavigationReason, hintRect: super::super::super::Foundation::Rect) -> XamlSourceFocusNavigationRequest;
+                    fn CreateInstanceWithHintRectAndCorrelationId(&self, reason: XamlSourceFocusNavigationReason, hintRect: super::super::super::Foundation::Rect, correlationId: GUID) -> XamlSourceFocusNavigationRequest;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationResult)]
+                interface IXamlSourceFocusNavigationResult {
+                    #[special]
+                    fn get_WasFocusMoved(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlSourceFocusNavigationResult)]
+                interface IXamlSourceFocusNavigationResultFactory {
+                    fn CreateInstance(&self, focusMoved: bool) -> XamlSourceFocusNavigationResult;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUIPresenter)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                interface IXamlUIPresenter {
+                    #[special]
+                    fn get_RootElement(&self) -> super::UIElement;
+                    #[special]
+                    fn put_RootElement(&self, value: super::UIElement);
+                    #[special]
+                    fn get_ThemeKey(&self) -> String;
+                    #[special]
+                    fn put_ThemeKey(&self, value: String);
+                    #[special]
+                    fn get_ThemeResourcesXaml(&self) -> String;
+                    #[special]
+                    fn put_ThemeResourcesXaml(&self, value: String);
+                    fn SetSize(&self, width: i32, height: i32);
+                    fn Render(&self);
+                    fn Present(&self);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                interface IXamlUIPresenterHost {
+                    fn ResolveFileResource(&self, path: String) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IXamlUIPresenterHost2 {
+                    fn GetGenericXamlFilePath(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IXamlUIPresenterHost3 {
+                    fn ResolveDictionaryResource(&self, dictionary: super::ResourceDictionary, dictionaryKey: Object, suggestedValue: Object) -> Object;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUIPresenter)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IXamlUIPresenterStatics {
+                    #[special]
+                    fn get_CompleteTimelinesAutomatically(&self) -> bool;
+                    #[special]
+                    fn put_CompleteTimelinesAutomatically(&self, value: bool);
+                    fn SetHost(&self, host: IXamlUIPresenterHost);
+                    fn NotifyWindowSizeChanged(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUIPresenter)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IXamlUIPresenterStatics2 {
+                    fn GetFlyoutPlacementTargetInfo(&self, placementTarget: super::FrameworkElement, preferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, targetPreferredPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode, allowFallbacks: &mut bool) -> super::super::super::Foundation::Rect;
+                    fn GetFlyoutPlacement(&self, placementTargetBounds: super::super::super::Foundation::Rect, controlSize: super::super::super::Foundation::Size, minControlSize: super::super::super::Foundation::Size, containerRect: super::super::super::Foundation::Rect, targetPreferredPlacement: super::Controls::Primitives::FlyoutPlacementMode, allowFallbacks: bool, chosenPlacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> super::super::super::Foundation::Rect;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::Static(IWindowsXamlManagerStatics, 196608, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class WindowsXamlManager {
+                    #[default]
+                    IWindowsXamlManager,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                enum XamlSourceFocusNavigationReason {
+                    Programmatic = 0,
+                    Restore = 1,
+                    First = 3,
+                    Last = 4,
+                    Left = 7,
+                    Up = 8,
+                    Right = 9,
+                    Down = 10,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IXamlSourceFocusNavigationRequestFactory, 196608, "Windows.UI.Xaml.Hosting.HostingContract")]
+                class XamlSourceFocusNavigationRequest {
+                    #[default]
+                    IXamlSourceFocusNavigationRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(IXamlSourceFocusNavigationResultFactory, 196608, "Windows.UI.Xaml.Hosting.HostingContract")]
+                class XamlSourceFocusNavigationResult {
+                    #[default]
+                    IXamlSourceFocusNavigationResult,
+                }
+                #[Windows::Foundation::Metadata::Static(IXamlUIPresenterStatics2, 65536, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IXamlUIPresenterStatics, 65536, "Windows.UI.Xaml.Hosting.HostingContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class XamlUIPresenter {
+                    #[default]
+                    IXamlUIPresenter,
+                }
+            }
+        }
+    }
+}

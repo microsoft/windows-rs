@@ -1,0 +1,333 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod SettingsManagementInfrastructure {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-iitemenumerator")]
+                interface IItemEnumerator: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-iitemenumerator-current")]
+                    fn Current(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Item: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-iitemenumerator-movenext")]
+                    fn MoveNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ItemValid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-iitemenumerator-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingscontext")]
+                interface ISettingsContext: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-serialize")]
+                    fn Serialize(&self, pStream: super::Com::IStream, pTarget: ITargetInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-deserialize")]
+                    fn Deserialize(&self, pStream: super::Com::IStream, pTarget: ITargetInfo, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pppResults: *mut *mut ISettingsResult, #[Windows::Win32::Foundation::Metadata::RetVal] pcResultCount: *mut usize) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-setuserdata")]
+                    fn SetUserData(&self, pUserData: *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-getuserdata")]
+                    fn GetUserData(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pUserData: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-getnamespaces")]
+                    fn GetNamespaces(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNamespaceIds: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-getstoredsettings")]
+                    fn GetStoredSettings(&self, pIdentity: ISettingsIdentity, ppAddedSettings: *mut IItemEnumerator, ppModifiedSettings: *mut IItemEnumerator, ppDeletedSettings: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingscontext-revertsetting")]
+                    fn RevertSetting(&self, pIdentity: ISettingsIdentity, #[Windows::Win32::Foundation::Metadata::Const] pwzSetting: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingsengine")]
+                interface ISettingsEngine: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-getnamespaces")]
+                    fn GetNamespaces(&self, Flags: WcmNamespaceEnumerationFlags, Reserved: *mut void, #[Windows::Win32::Foundation::Metadata::RetVal] Namespaces: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-getnamespace")]
+                    fn GetNamespace(&self, SettingsID: ISettingsIdentity, Access: WcmNamespaceAccess, Reserved: *mut void, #[Windows::Win32::Foundation::Metadata::RetVal] NamespaceItem: *mut ISettingsNamespace) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-geterrordescription")]
+                    fn GetErrorDescription(&self, HResult: i32, #[Windows::Win32::Foundation::Metadata::RetVal] Message: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-createsettingsidentity")]
+                    fn CreateSettingsIdentity(&self, #[Windows::Win32::Foundation::Metadata::RetVal] SettingsID: *mut ISettingsIdentity) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-getstorestatus")]
+                    fn GetStoreStatus(&self, Reserved: *mut void, Status: *mut WcmUserStatus) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-loadstore")]
+                    fn LoadStore(&self, Flags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-unloadstore")]
+                    fn UnloadStore(&self, Reserved: *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-registernamespace")]
+                    fn RegisterNamespace(&self, SettingsID: ISettingsIdentity, Stream: super::Com::IStream, PushSettings: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::RetVal] Results: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-unregisternamespace")]
+                    fn UnregisterNamespace(&self, SettingsID: ISettingsIdentity, RemoveSettings: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-createtargetinfo")]
+                    fn CreateTargetInfo(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Target: *mut ITargetInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-gettargetinfo")]
+                    fn GetTargetInfo(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Target: *mut ITargetInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-settargetinfo")]
+                    fn SetTargetInfo(&self, Target: ITargetInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-createsettingscontext")]
+                    fn CreateSettingsContext(&self, Flags: u32, Reserved: *mut void, #[Windows::Win32::Foundation::Metadata::RetVal] SettingsContext: *mut ISettingsContext) -> super::super::Foundation::HRESULT;
+                    fn SetSettingsContext(&self, SettingsContext: ISettingsContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsengine-applysettingscontext")]
+                    fn ApplySettingsContext(&self, SettingsContext: ISettingsContext, pppwzIdentities: *mut *mut super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pcIdentities: *mut usize) -> super::super::Foundation::HRESULT;
+                    fn GetSettingsContext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] SettingsContext: *mut ISettingsContext) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingsidentity")]
+                interface ISettingsIdentity: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsidentity-getattribute")]
+                    fn GetAttribute(&self, Reserved: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsidentity-setattribute")]
+                    fn SetAttribute(&self, Reserved: *mut void, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Value: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsidentity-getflags")]
+                    fn GetFlags(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Flags: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsidentity-setflags")]
+                    fn SetFlags(&self, Flags: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingsitem")]
+                interface ISettingsItem: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getname")]
+                    fn GetName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getvalue")]
+                    fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-setvalue")]
+                    fn SetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] Value: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getsettingtype")]
+                    fn GetSettingType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Type: *mut WcmSettingType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getdatatype")]
+                    fn GetDataType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Type: *mut WcmDataType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getvalueraw")]
+                    fn GetValueRaw(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] Data: *mut *mut u8, #[Windows::Win32::Foundation::Metadata::RetVal] DataSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-setvalueraw")]
+                    fn SetValueRaw(&self, DataType: i32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] Data: *mut u8, DataSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-haschild")]
+                    fn HasChild(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ItemHasChild: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-children")]
+                    fn Children(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Children: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getchild")]
+                    fn GetChild(&self, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Child: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getsettingbypath")]
+                    fn GetSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Setting: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-createsettingbypath")]
+                    fn CreateSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Setting: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-removesettingbypath")]
+                    fn RemoveSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getlistkeyinformation")]
+                    fn GetListKeyInformation(&self, KeyName: *mut super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] DataType: *mut WcmDataType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-createlistelement")]
+                    fn CreateListElement(&self, #[Windows::Win32::Foundation::Metadata::Const] KeyData: *mut super::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::RetVal] Child: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-removelistelement")]
+                    fn RemoveListElement(&self, #[Windows::Win32::Foundation::Metadata::Const] ElementName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-attributes")]
+                    fn Attributes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Attributes: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getattribute")]
+                    fn GetAttribute(&self, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getpath")]
+                    fn GetPath(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Path: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getrestrictionfacets")]
+                    fn GetRestrictionFacets(&self, #[Windows::Win32::Foundation::Metadata::RetVal] RestrictionFacets: *mut WcmRestrictionFacets) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getrestriction")]
+                    fn GetRestriction(&self, RestrictionFacet: WcmRestrictionFacets, #[Windows::Win32::Foundation::Metadata::RetVal] FacetData: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsitem-getkeyvalue")]
+                    fn GetKeyValue(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingsnamespace")]
+                interface ISettingsNamespace: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-getidentity")]
+                    fn GetIdentity(&self, #[Windows::Win32::Foundation::Metadata::RetVal] SettingsID: *mut ISettingsIdentity) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-settings")]
+                    fn Settings(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Settings: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-save")]
+                    fn Save(&self, PushSettings: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::RetVal] Result: *mut ISettingsResult) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-getsettingbypath")]
+                    fn GetSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Setting: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-createsettingbypath")]
+                    fn CreateSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Setting: *mut ISettingsItem) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-removesettingbypath")]
+                    fn RemoveSettingByPath(&self, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsnamespace-getattribute")]
+                    fn GetAttribute(&self, #[Windows::Win32::Foundation::Metadata::Const] Name: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-isettingsresult")]
+                interface ISettingsResult: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-getdescription")]
+                    fn GetDescription(&self, #[Windows::Win32::Foundation::Metadata::RetVal] description: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-geterrorcode")]
+                    fn GetErrorCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] hrOut: *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-getcontextdescription")]
+                    fn GetContextDescription(&self, #[Windows::Win32::Foundation::Metadata::RetVal] description: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-getline")]
+                    fn GetLine(&self, #[Windows::Win32::Foundation::Metadata::RetVal] dwLine: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-getcolumn")]
+                    fn GetColumn(&self, #[Windows::Win32::Foundation::Metadata::RetVal] dwColumn: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-isettingsresult-getsource")]
+                    fn GetSource(&self, #[Windows::Win32::Foundation::Metadata::RetVal] file: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nn-wcmconfig-itargetinfo")]
+                interface ITargetInfo: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-gettargetmode")]
+                    fn GetTargetMode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] TargetMode: *mut WcmTargetMode) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-settargetmode")]
+                    fn SetTargetMode(&self, TargetMode: WcmTargetMode) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-gettemporarystorelocation")]
+                    fn GetTemporaryStoreLocation(&self, #[Windows::Win32::Foundation::Metadata::RetVal] TemporaryStoreLocation: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-settemporarystorelocation")]
+                    fn SetTemporaryStoreLocation(&self, #[Windows::Win32::Foundation::Metadata::Const] TemporaryStoreLocation: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-gettargetid")]
+                    fn GetTargetID(&self, #[Windows::Win32::Foundation::Metadata::RetVal] TargetID: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-settargetid")]
+                    fn SetTargetID(&self, TargetID: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-gettargetprocessorarchitecture")]
+                    fn GetTargetProcessorArchitecture(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ProcessorArchitecture: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-settargetprocessorarchitecture")]
+                    fn SetTargetProcessorArchitecture(&self, #[Windows::Win32::Foundation::Metadata::Const] ProcessorArchitecture: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-getproperty")]
+                    fn GetProperty(&self, Offline: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] Property: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] Value: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-setproperty")]
+                    fn SetProperty(&self, Offline: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] Property: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Value: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-getenumerator")]
+                    fn GetEnumerator(&self, #[Windows::Win32::Foundation::Metadata::RetVal] Enumerator: *mut IItemEnumerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-expandtarget")]
+                    fn ExpandTarget(&self, Offline: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] Location: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ExpandedLocation: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-expandtargetpath")]
+                    fn ExpandTargetPath(&self, Offline: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] Location: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ExpandedLocation: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-setmodulepath")]
+                    fn SetModulePath(&self, #[Windows::Win32::Foundation::Metadata::Const] Module: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Path: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-loadmodule")]
+                    fn LoadModule(&self, #[Windows::Win32::Foundation::Metadata::Const] Module: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ModuleHandle: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-setwow64context")]
+                    fn SetWow64Context(&self, #[Windows::Win32::Foundation::Metadata::Const] InstallerModule: super::super::Foundation::PWSTR, Wow64Context: *mut u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-translatewow64")]
+                    fn TranslateWow64(&self, #[Windows::Win32::Foundation::Metadata::Const] ClientArchitecture: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Value: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] TranslatedValue: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-setschemahivelocation")]
+                    fn SetSchemaHiveLocation(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzHiveDir: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-getschemahivelocation")]
+                    fn GetSchemaHiveLocation(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pHiveLocation: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-setschemahivemountname")]
+                    fn SetSchemaHiveMountName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzMountName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/nf-wcmconfig-itargetinfo-getschemahivemountname")]
+                    fn GetSchemaHiveMountName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pMountName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                const LIMITED_VALIDATION_MODE: u32 = 1;
+                const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Guid(2675801013, 8371, 4570, 129, 165, 0, 48, 241, 100, 46, 60)]
+                struct SettingsEngine {}
+                const WCM_E_ABORTOPERATION: super::super::Foundation::HRESULT = -2145255384;
+                const WCM_E_ASSERTIONFAILED: super::super::Foundation::HRESULT = -2145255398;
+                const WCM_E_ATTRIBUTENOTALLOWED: super::super::Foundation::HRESULT = -2145255420;
+                const WCM_E_ATTRIBUTENOTFOUND: super::super::Foundation::HRESULT = -2145255421;
+                const WCM_E_CONFLICTINGASSERTION: super::super::Foundation::HRESULT = -2145255399;
+                const WCM_E_CYCLICREFERENCE: super::super::Foundation::HRESULT = -2145255389;
+                const WCM_E_DUPLICATENAME: super::super::Foundation::HRESULT = -2145255397;
+                const WCM_E_EXPRESSIONNOTFOUND: super::super::Foundation::HRESULT = -2145255408;
+                const WCM_E_HANDLERNOTFOUND: super::super::Foundation::HRESULT = -2145255394;
+                const WCM_E_INTERNALERROR: super::super::Foundation::HRESULT = -2145255424;
+                const WCM_E_INVALIDATTRIBUTECOMBINATION: super::super::Foundation::HRESULT = -2145255385;
+                const WCM_E_INVALIDDATATYPE: super::super::Foundation::HRESULT = -2145255416;
+                const WCM_E_INVALIDEXPRESSIONSYNTAX: super::super::Foundation::HRESULT = -2145255401;
+                const WCM_E_INVALIDHANDLERSYNTAX: super::super::Foundation::HRESULT = -2145255393;
+                const WCM_E_INVALIDKEY: super::super::Foundation::HRESULT = -2145255396;
+                const WCM_E_INVALIDLANGUAGEFORMAT: super::super::Foundation::HRESULT = -2145255410;
+                const WCM_E_INVALIDPATH: super::super::Foundation::HRESULT = -2145255413;
+                const WCM_E_INVALIDPROCESSORFORMAT: super::super::Foundation::HRESULT = -2145255382;
+                const WCM_E_INVALIDSTREAM: super::super::Foundation::HRESULT = -2145255395;
+                const WCM_E_INVALIDVALUE: super::super::Foundation::HRESULT = -2145255419;
+                const WCM_E_INVALIDVALUEFORMAT: super::super::Foundation::HRESULT = -2145255418;
+                const WCM_E_INVALIDVERSIONFORMAT: super::super::Foundation::HRESULT = -2145255411;
+                const WCM_E_KEYNOTCHANGEABLE: super::super::Foundation::HRESULT = -2145255409;
+                const WCM_E_MANIFESTCOMPILATIONFAILED: super::super::Foundation::HRESULT = -2145255390;
+                const WCM_E_MISSINGCONFIGURATION: super::super::Foundation::HRESULT = -2145255383;
+                const WCM_E_MIXTYPEASSERTION: super::super::Foundation::HRESULT = -2145255388;
+                const WCM_E_NAMESPACEALREADYREGISTERED: super::super::Foundation::HRESULT = -2145255403;
+                const WCM_E_NAMESPACENOTFOUND: super::super::Foundation::HRESULT = -2145255404;
+                const WCM_E_NOTIFICATIONNOTFOUND: super::super::Foundation::HRESULT = -2145255400;
+                const WCM_E_NOTPOSITIONED: super::super::Foundation::HRESULT = -2145255415;
+                const WCM_E_NOTSUPPORTEDFUNCTION: super::super::Foundation::HRESULT = -2145255387;
+                const WCM_E_READONLYITEM: super::super::Foundation::HRESULT = -2145255414;
+                const WCM_E_RESTRICTIONFAILED: super::super::Foundation::HRESULT = -2145255391;
+                const WCM_E_SOURCEMANEMPTYVALUE: super::super::Foundation::HRESULT = -2145255381;
+                const WCM_E_STATENODENOTALLOWED: super::super::Foundation::HRESULT = -2145255422;
+                const WCM_E_STATENODENOTFOUND: super::super::Foundation::HRESULT = -2145255423;
+                const WCM_E_STORECORRUPTED: super::super::Foundation::HRESULT = -2145255402;
+                const WCM_E_SUBSTITUTIONNOTFOUND: super::super::Foundation::HRESULT = -2145255407;
+                const WCM_E_TYPENOTSPECIFIED: super::super::Foundation::HRESULT = -2145255417;
+                const WCM_E_UNKNOWNRESULT: super::super::Foundation::HRESULT = -2145251325;
+                const WCM_E_USERALREADYREGISTERED: super::super::Foundation::HRESULT = -2145255406;
+                const WCM_E_USERNOTFOUND: super::super::Foundation::HRESULT = -2145255405;
+                const WCM_E_VALIDATIONFAILED: super::super::Foundation::HRESULT = -2145255392;
+                const WCM_E_VALUETOOBIG: super::super::Foundation::HRESULT = -2145255386;
+                const WCM_E_WRONGESCAPESTRING: super::super::Foundation::HRESULT = -2145255412;
+                const WCM_SETTINGS_ID_ARCHITECTURE: String = "architecture";
+                const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1;
+                const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0;
+                const WCM_SETTINGS_ID_LANGUAGE: String = "language";
+                const WCM_SETTINGS_ID_NAME: String = "name";
+                const WCM_SETTINGS_ID_TOKEN: String = "token";
+                const WCM_SETTINGS_ID_URI: String = "uri";
+                const WCM_SETTINGS_ID_VERSION: String = "version";
+                const WCM_SETTINGS_ID_VERSION_SCOPE: String = "versionScope";
+                const WCM_S_ATTRIBUTENOTALLOWED: super::super::Foundation::HRESULT = 2232325;
+                const WCM_S_ATTRIBUTENOTFOUND: super::super::Foundation::HRESULT = 2232321;
+                const WCM_S_INTERNALERROR: super::super::Foundation::HRESULT = 2232320;
+                const WCM_S_INVALIDATTRIBUTECOMBINATION: super::super::Foundation::HRESULT = 2232324;
+                const WCM_S_LEGACYSETTINGWARNING: super::super::Foundation::HRESULT = 2232322;
+                const WCM_S_NAMESPACENOTFOUND: super::super::Foundation::HRESULT = 2232326;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmdatatype")]
+                enum WcmDataType {
+                    dataTypeByte = 1,
+                    dataTypeSByte = 2,
+                    dataTypeUInt16 = 3,
+                    dataTypeInt16 = 4,
+                    dataTypeUInt32 = 5,
+                    dataTypeInt32 = 6,
+                    dataTypeUInt64 = 7,
+                    dataTypeInt64 = 8,
+                    dataTypeBoolean = 11,
+                    dataTypeString = 12,
+                    dataTypeFlagArray = 32768,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmnamespaceaccess")]
+                enum WcmNamespaceAccess {
+                    ReadOnlyAccess = 1,
+                    ReadWriteAccess = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmnamespaceenumerationflags")]
+                enum WcmNamespaceEnumerationFlags {
+                    SharedEnumeration = 1,
+                    UserEnumeration = 2,
+                    AllEnumeration = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmrestrictionfacets")]
+                enum WcmRestrictionFacets {
+                    restrictionFacetMaxLength = 1,
+                    restrictionFacetEnumeration = 2,
+                    restrictionFacetMaxInclusive = 4,
+                    restrictionFacetMinInclusive = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmsettingtype")]
+                enum WcmSettingType {
+                    settingTypeScalar = 1,
+                    settingTypeComplex = 2,
+                    settingTypeList = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmtargetmode")]
+                enum WcmTargetMode {
+                    OfflineMode = 1,
+                    OnlineMode = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcmconfig/ne-wcmconfig-wcmuserstatus")]
+                enum WcmUserStatus {
+                    UnknownStatus = 0,
+                    UserRegistered = 1,
+                    UserUnregistered = 2,
+                    UserLoaded = 3,
+                    UserUnloaded = 4,
+                }
+            }
+        }
+    }
+}

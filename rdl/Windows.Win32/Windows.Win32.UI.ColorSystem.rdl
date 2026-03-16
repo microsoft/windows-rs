@@ -1,0 +1,1027 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            #[win32]
+            mod ColorSystem {
+                const ATTRIB_MATTE: u32 = 2;
+                const ATTRIB_TRANSPARENCY: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-associatecolorprofilewithdevicea")]
+                #[library("mscms.dll")]
+                extern fn AssociateColorProfileWithDeviceA(pMachineName: super::super::Foundation::PSTR, pProfileName: super::super::Foundation::PSTR, pDeviceName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-associatecolorprofilewithdevicew")]
+                #[library("mscms.dll")]
+                extern fn AssociateColorProfileWithDeviceW(pMachineName: super::super::Foundation::PWSTR, pProfileName: super::super::Foundation::PWSTR, pDeviceName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                const BEST_MODE: u32 = 3;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ne-icm-bmformat")]
+                enum BMFORMAT {
+                    BM_x555RGB = 0,
+                    BM_x555XYZ = 257,
+                    BM_x555Yxy = 258,
+                    BM_x555Lab = 259,
+                    BM_x555G3CH = 260,
+                    BM_RGBTRIPLETS = 2,
+                    BM_BGRTRIPLETS = 4,
+                    BM_XYZTRIPLETS = 513,
+                    BM_YxyTRIPLETS = 514,
+                    BM_LabTRIPLETS = 515,
+                    BM_G3CHTRIPLETS = 516,
+                    BM_5CHANNEL = 517,
+                    BM_6CHANNEL = 518,
+                    BM_7CHANNEL = 519,
+                    BM_8CHANNEL = 520,
+                    BM_GRAY = 521,
+                    BM_xRGBQUADS = 8,
+                    BM_xBGRQUADS = 16,
+                    BM_xG3CHQUADS = 772,
+                    BM_KYMCQUADS = 773,
+                    BM_CMYKQUADS = 32,
+                    BM_10b_RGB = 9,
+                    BM_10b_XYZ = 1025,
+                    BM_10b_Yxy = 1026,
+                    BM_10b_Lab = 1027,
+                    BM_10b_G3CH = 1028,
+                    BM_NAMED_INDEX = 1029,
+                    BM_16b_RGB = 10,
+                    BM_16b_XYZ = 1281,
+                    BM_16b_Yxy = 1282,
+                    BM_16b_Lab = 1283,
+                    BM_16b_G3CH = 1284,
+                    BM_16b_GRAY = 1285,
+                    BM_565RGB = 1,
+                    BM_32b_scRGB = 1537,
+                    BM_32b_scARGB = 1538,
+                    BM_S2DOT13FIXED_scRGB = 1539,
+                    BM_S2DOT13FIXED_scARGB = 1540,
+                    BM_R10G10B10A2 = 1793,
+                    BM_R10G10B10A2_XR = 1794,
+                    BM_R16G16B16A16_FLOAT = 1795,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-blackinformation")]
+                struct BlackInformation {
+                    fBlackOnly: super::super::Foundation::BOOL,
+                    blackWeight: f32,
+                }
+                const CATID_WcsPlugin: GUID = 0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcheckcolors")]
+                #[library("ICM32.dll")]
+                extern fn CMCheckColors(hcmTransform: isize, lpaInputColors: *mut COLOR, nColors: u32, ctInput: COLORTYPE, lpaResult: *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcheckcolorsingamut")]
+                #[library("ICM32.dll")]
+                extern fn CMCheckColorsInGamut(hcmTransform: isize, lpaRGBTriple: *mut super::super::Graphics::Gdi::RGBTRIPLE, lpaResult: *mut u8, nCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcheckrgbs")]
+                #[library("ICM32.dll")]
+                extern fn CMCheckRGBs(hcmTransform: isize, lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, lpaResult: *mut u8, pfnCallback: LPBMCALLBACKFN, ulCallbackData: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmconvertcolornametoindex")]
+                #[library("ICM32.dll")]
+                extern fn CMConvertColorNameToIndex(hProfile: isize, paColorName: *mut *mut i8, paIndex: *mut u32, dwCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmconvertindextocolorname")]
+                #[library("ICM32.dll")]
+                extern fn CMConvertIndexToColorName(hProfile: isize, paIndex: *mut u32, paColorName: *mut *mut i8, dwCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatedevicelinkprofile")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateDeviceLinkProfile(pahProfiles: *mut isize, nProfiles: u32, padwIntents: *mut u32, nIntents: u32, dwFlags: u32, lpProfileData: *mut *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatemultiprofiletransform")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateMultiProfileTransform(pahProfiles: *mut isize, nProfiles: u32, padwIntents: *mut u32, nIntents: u32, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreateprofile")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateProfile(lpColorSpace: *mut LOGCOLORSPACEA, lpProfileData: *mut *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreateprofilew")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateProfileW(lpColorSpace: *mut LOGCOLORSPACEW, lpProfileData: *mut *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatetransform")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateTransform(lpColorSpace: *mut LOGCOLORSPACEA, lpDevCharacter: *mut void, lpTargetDevCharacter: *mut void) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatetransformext")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateTransformExt(lpColorSpace: *mut LOGCOLORSPACEA, lpDevCharacter: *mut void, lpTargetDevCharacter: *mut void, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatetransformextw")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateTransformExtW(lpColorSpace: *mut LOGCOLORSPACEW, lpDevCharacter: *mut void, lpTargetDevCharacter: *mut void, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmcreatetransformw")]
+                #[library("ICM32.dll")]
+                extern fn CMCreateTransformW(lpColorSpace: *mut LOGCOLORSPACEW, lpDevCharacter: *mut void, lpTargetDevCharacter: *mut void) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmdeletetransform")]
+                #[library("ICM32.dll")]
+                extern fn CMDeleteTransform(hcmTransform: isize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmgetinfo")]
+                #[library("ICM32.dll")]
+                extern fn CMGetInfo(dwInfo: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmgetnamedprofileinfo")]
+                #[library("ICM32.dll")]
+                extern fn CMGetNamedProfileInfo(hProfile: isize, pNamedProfileInfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmisprofilevalid")]
+                #[library("ICM32.dll")]
+                extern fn CMIsProfileValid(hProfile: isize, lpbValid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                const CMM_DESCRIPTION: u32 = 5;
+                const CMM_DLL_VERSION: u32 = 3;
+                const CMM_DRIVER_VERSION: u32 = 2;
+                const CMM_FROM_PROFILE: u32 = 0;
+                const CMM_IDENT: u32 = 1;
+                const CMM_LOGOICON: u32 = 6;
+                const CMM_VERSION: u32 = 4;
+                const CMM_WIN_VERSION: u32 = 0;
+                const CMS_BACKWARD: u32 = 1;
+                const CMS_DISABLEICM: u32 = 1;
+                const CMS_DISABLEINTENT: u32 = 1024;
+                const CMS_DISABLERENDERINTENT: u32 = 2048;
+                const CMS_ENABLEPROOFING: u32 = 2;
+                const CMS_FORWARD: u32 = 0;
+                const CMS_MONITOROVERFLOW: i32 = -2147483648;
+                const CMS_PRINTEROVERFLOW: i32 = 1073741824;
+                const CMS_SETMONITORPROFILE: u32 = 16;
+                const CMS_SETPRINTERPROFILE: u32 = 32;
+                const CMS_SETPROOFINTENT: u32 = 8;
+                const CMS_SETRENDERINTENT: u32 = 4;
+                const CMS_SETTARGETPROFILE: u32 = 64;
+                const CMS_TARGETOVERFLOW: i32 = 536870912;
+                const CMS_USEAPPLYCALLBACK: u32 = 256;
+                const CMS_USEDESCRIPTION: u32 = 512;
+                const CMS_USEHOOK: u32 = 128;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmtranslatecolors")]
+                #[library("ICM32.dll")]
+                extern fn CMTranslateColors(hcmTransform: isize, lpaInputColors: *mut COLOR, nColors: u32, ctInput: COLORTYPE, lpaOutputColors: *mut COLOR, ctOutput: COLORTYPE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmtranslatergb")]
+                #[library("ICM32.dll")]
+                extern fn CMTranslateRGB(hcmTransform: isize, ColorRef: super::super::Foundation::COLORREF, lpColorRef: *mut u32, dwFlags: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmtranslatergbs")]
+                #[library("ICM32.dll")]
+                extern fn CMTranslateRGBs(hcmTransform: isize, lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwTranslateDirection: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-cmtranslatergbsext")]
+                #[library("ICM32.dll")]
+                extern fn CMTranslateRGBsExt(hcmTransform: isize, lpSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, lpDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, lpfnCallback: LPBMCALLBACKFN, ulCallbackData: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-cmykcolor")]
+                struct CMYKCOLOR {
+                    cyan: u16,
+                    magenta: u16,
+                    yellow: u16,
+                    black: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-color")]
+                union COLOR {
+                    gray: GRAYCOLOR,
+                    rgb: RGBCOLOR,
+                    cmyk: CMYKCOLOR,
+                    XYZ: XYZCOLOR,
+                    Yxy: YxyCOLOR,
+                    Lab: LabCOLOR,
+                    gen3ch: GENERIC3CHANNEL,
+                    named: NAMEDCOLOR,
+                    hifi: HiFiCOLOR,
+                    Anonymous: struct {
+                        reserved1: u32,
+                        reserved2: *mut void,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ne-icm-colordatatype")]
+                enum COLORDATATYPE {
+                    COLOR_BYTE = 1,
+                    COLOR_WORD = 2,
+                    COLOR_FLOAT = 3,
+                    COLOR_S2DOT13FIXED = 4,
+                    COLOR_10b_R10G10B10A2 = 5,
+                    COLOR_10b_R10G10B10A2_XR = 6,
+                    COLOR_FLOAT16 = 7,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-colormatchsetupa")]
+                struct COLORMATCHSETUPA {
+                    dwSize: u32,
+                    dwVersion: u32,
+                    dwFlags: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pSourceName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pDisplayName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pPrinterName: super::super::Foundation::PSTR,
+                    dwRenderIntent: u32,
+                    dwProofingIntent: u32,
+                    pMonitorProfile: super::super::Foundation::PSTR,
+                    ccMonitorProfile: u32,
+                    pPrinterProfile: super::super::Foundation::PSTR,
+                    ccPrinterProfile: u32,
+                    pTargetProfile: super::super::Foundation::PSTR,
+                    ccTargetProfile: u32,
+                    lpfnHook: super::WindowsAndMessaging::DLGPROC,
+                    lParam: super::super::Foundation::LPARAM,
+                    lpfnApplyCallback: PCMSCALLBACKA,
+                    lParamApplyCallback: super::super::Foundation::LPARAM,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-colormatchsetupw")]
+                struct COLORMATCHSETUPW {
+                    dwSize: u32,
+                    dwVersion: u32,
+                    dwFlags: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pSourceName: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pDisplayName: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pPrinterName: super::super::Foundation::PWSTR,
+                    dwRenderIntent: u32,
+                    dwProofingIntent: u32,
+                    pMonitorProfile: super::super::Foundation::PWSTR,
+                    ccMonitorProfile: u32,
+                    pPrinterProfile: super::super::Foundation::PWSTR,
+                    ccPrinterProfile: u32,
+                    pTargetProfile: super::super::Foundation::PWSTR,
+                    ccTargetProfile: u32,
+                    lpfnHook: super::WindowsAndMessaging::DLGPROC,
+                    lParam: super::super::Foundation::LPARAM,
+                    lpfnApplyCallback: PCMSCALLBACKW,
+                    lParamApplyCallback: super::super::Foundation::LPARAM,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ne-icm-colorprofilesubtype")]
+                enum COLORPROFILESUBTYPE {
+                    CPST_PERCEPTUAL = 0,
+                    CPST_RELATIVE_COLORIMETRIC = 1,
+                    CPST_SATURATION = 2,
+                    CPST_ABSOLUTE_COLORIMETRIC = 3,
+                    CPST_NONE = 4,
+                    CPST_RGB_WORKING_SPACE = 5,
+                    CPST_CUSTOM_WORKING_SPACE = 6,
+                    CPST_STANDARD_DISPLAY_COLOR_MODE = 7,
+                    CPST_EXTENDED_DISPLAY_COLOR_MODE = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ne-icm-colorprofiletype")]
+                enum COLORPROFILETYPE {
+                    CPT_ICC = 0,
+                    CPT_DMP = 1,
+                    CPT_CAMP = 2,
+                    CPT_GMMP = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/TSF/colortype")]
+                enum COLORTYPE {
+                    COLOR_GRAY = 1,
+                    COLOR_RGB = 2,
+                    COLOR_XYZ = 3,
+                    COLOR_Yxy = 4,
+                    COLOR_Lab = 5,
+                    COLOR_3_CHANNEL = 6,
+                    COLOR_CMYK = 7,
+                    COLOR_5_CHANNEL = 8,
+                    COLOR_6_CHANNEL = 9,
+                    COLOR_7_CHANNEL = 10,
+                    COLOR_8_CHANNEL = 11,
+                    COLOR_NAMED = 12,
+                }
+                #[repr(u32)]
+                enum COLOR_MATCH_TO_TARGET_ACTION {
+                    CS_ENABLE = 1,
+                    CS_DISABLE = 2,
+                    CS_DELETE_TRANSFORM = 3,
+                }
+                const COLOR_MATCH_VERSION: u32 = 512;
+                const CSA_A: u32 = 1;
+                const CSA_ABC: u32 = 2;
+                const CSA_CMYK: u32 = 7;
+                const CSA_DEF: u32 = 3;
+                const CSA_DEFG: u32 = 4;
+                const CSA_GRAY: u32 = 5;
+                const CSA_Lab: u32 = 8;
+                const CSA_RGB: u32 = 6;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-checkbitmapbits")]
+                #[library("mscms.dll")]
+                extern fn CheckBitmapBits(hColorTransform: isize, pSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwStride: u32, paResult: *mut u8, pfnCallback: LPBMCALLBACKFN, lpCallbackData: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-checkcolors")]
+                #[library("mscms.dll")]
+                extern fn CheckColors(hColorTransform: isize, paInputColors: *mut COLOR, nColors: u32, ctInput: COLORTYPE, paResult: *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-checkcolorsingamut")]
+                #[library("GDI32.dll")]
+                extern fn CheckColorsInGamut(hdc: super::super::Graphics::Gdi::HDC, lpRGBTriple: *mut super::super::Graphics::Gdi::RGBTRIPLE, dlpBuffer: *mut void, nCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-closecolorprofile")]
+                #[library("mscms.dll")]
+                extern fn CloseColorProfile(hProfile: isize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-colorcorrectpalette")]
+                #[library("GDI32.dll")]
+                extern fn ColorCorrectPalette(hdc: super::super::Graphics::Gdi::HDC, hPal: super::super::Graphics::Gdi::HPALETTE, deFirst: u32, num: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-colormatchtotarget")]
+                #[library("GDI32.dll")]
+                extern fn ColorMatchToTarget(hdc: super::super::Graphics::Gdi::HDC, hdcTarget: super::super::Graphics::Gdi::HDC, action: COLOR_MATCH_TO_TARGET_ACTION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofileadddisplayassociation")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: super::super::Foundation::PWSTR, targetAdapterID: super::super::Foundation::LUID, sourceID: u32, setAsDefault: super::super::Foundation::BOOL, associateAsAdvancedColor: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofilegetdisplaydefault")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: super::super::Foundation::LUID, sourceID: u32, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, profileName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofilegetdisplaylist")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetAdapterID: super::super::Foundation::LUID, sourceID: u32, profileList: *mut *mut super::super::Foundation::PWSTR, profileCount: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofilegetdisplayuserscope")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileGetDisplayUserScope(targetAdapterID: super::super::Foundation::LUID, sourceID: u32, scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofileremovedisplayassociation")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: super::super::Foundation::PWSTR, targetAdapterID: super::super::Foundation::LUID, sourceID: u32, dissociateAdvancedColor: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-colorprofilesetdisplaydefaultassociation")]
+                #[library("mscms.dll")]
+                extern fn ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profileName: super::super::Foundation::PWSTR, profileType: COLORPROFILETYPE, profileSubType: COLORPROFILESUBTYPE, targetAdapterID: super::super::Foundation::LUID, sourceID: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-convertcolornametoindex")]
+                #[library("mscms.dll")]
+                extern fn ConvertColorNameToIndex(hProfile: isize, paColorName: *mut *mut i8, paIndex: *mut u32, dwCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-convertindextocolorname")]
+                #[library("mscms.dll")]
+                extern fn ConvertIndexToColorName(hProfile: isize, paIndex: *mut u32, paColorName: *mut *mut i8, dwCount: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-createcolorspacea")]
+                #[library("GDI32.dll")]
+                extern fn CreateColorSpaceA(lplcs: *mut LOGCOLORSPACEA) -> HCOLORSPACE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-createcolorspacew")]
+                #[library("GDI32.dll")]
+                extern fn CreateColorSpaceW(lplcs: *mut LOGCOLORSPACEW) -> HCOLORSPACE;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createcolortransforma")]
+                #[library("mscms.dll")]
+                extern fn CreateColorTransformA(pLogColorSpace: *mut LOGCOLORSPACEA, hDestProfile: isize, hTargetProfile: isize, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createcolortransformw")]
+                #[library("mscms.dll")]
+                extern fn CreateColorTransformW(pLogColorSpace: *mut LOGCOLORSPACEW, hDestProfile: isize, hTargetProfile: isize, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createdevicelinkprofile")]
+                #[library("mscms.dll")]
+                extern fn CreateDeviceLinkProfile(hProfile: *mut isize, nProfiles: u32, padwIntent: *mut u32, nIntents: u32, dwFlags: u32, pProfileData: *mut *mut u8, indexPreferredCMM: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createmultiprofiletransform")]
+                #[library("mscms.dll")]
+                extern fn CreateMultiProfileTransform(pahProfiles: *mut isize, nProfiles: u32, padwIntent: *mut u32, nIntents: u32, dwFlags: u32, indexPreferredCMM: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createprofilefromlogcolorspacea")]
+                #[library("mscms.dll")]
+                extern fn CreateProfileFromLogColorSpaceA(pLogColorSpace: *mut LOGCOLORSPACEA, pProfile: *mut *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-createprofilefromlogcolorspacew")]
+                #[library("mscms.dll")]
+                extern fn CreateProfileFromLogColorSpaceW(pLogColorSpace: *mut LOGCOLORSPACEW, pProfile: *mut *mut u8) -> super::super::Foundation::BOOL;
+                const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-deletecolorspace")]
+                #[library("GDI32.dll")]
+                extern fn DeleteColorSpace(hcs: HCOLORSPACE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-deletecolortransform")]
+                #[library("mscms.dll")]
+                extern fn DeleteColorTransform(hxform: isize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-disassociatecolorprofilefromdevicea")]
+                #[library("mscms.dll")]
+                extern fn DisassociateColorProfileFromDeviceA(pMachineName: super::super::Foundation::PSTR, pProfileName: super::super::Foundation::PSTR, pDeviceName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-disassociatecolorprofilefromdevicew")]
+                #[library("mscms.dll")]
+                extern fn DisassociateColorProfileFromDeviceW(pMachineName: super::super::Foundation::PWSTR, pProfileName: super::super::Foundation::PWSTR, pDeviceName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/ns-wingdi-emrcreatecolorspace")]
+                struct EMRCREATECOLORSPACE {
+                    emr: super::super::Graphics::Gdi::EMR,
+                    ihCS: u32,
+                    lcs: LOGCOLORSPACEA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/ns-wingdi-emrcreatecolorspacew")]
+                struct EMRCREATECOLORSPACEW {
+                    emr: super::super::Graphics::Gdi::EMR,
+                    ihCS: u32,
+                    lcs: LOGCOLORSPACEW,
+                    dwFlags: u32,
+                    cbData: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                const ENABLE_GAMUT_CHECKING: u32 = 65536;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-enumtypea")]
+                struct ENUMTYPEA {
+                    dwSize: u32,
+                    dwVersion: u32,
+                    dwFields: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pDeviceName: super::super::Foundation::PSTR,
+                    dwMediaType: u32,
+                    dwDitheringMode: u32,
+                    dwResolution: [u32; 2],
+                    dwCMMType: u32,
+                    dwClass: u32,
+                    dwDataColorSpace: u32,
+                    dwConnectionSpace: u32,
+                    dwSignature: u32,
+                    dwPlatform: u32,
+                    dwProfileFlags: u32,
+                    dwManufacturer: u32,
+                    dwModel: u32,
+                    dwAttributes: [u32; 2],
+                    dwRenderingIntent: u32,
+                    dwCreator: u32,
+                    dwDeviceClass: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-enumtypew")]
+                struct ENUMTYPEW {
+                    dwSize: u32,
+                    dwVersion: u32,
+                    dwFields: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pDeviceName: super::super::Foundation::PWSTR,
+                    dwMediaType: u32,
+                    dwDitheringMode: u32,
+                    dwResolution: [u32; 2],
+                    dwCMMType: u32,
+                    dwClass: u32,
+                    dwDataColorSpace: u32,
+                    dwConnectionSpace: u32,
+                    dwSignature: u32,
+                    dwPlatform: u32,
+                    dwProfileFlags: u32,
+                    dwManufacturer: u32,
+                    dwModel: u32,
+                    dwAttributes: [u32; 2],
+                    dwRenderingIntent: u32,
+                    dwCreator: u32,
+                    dwDeviceClass: u32,
+                }
+                const ENUM_TYPE_VERSION: u32 = 768;
+                const ET_ATTRIBUTES: u32 = 8192;
+                const ET_CLASS: u32 = 32;
+                const ET_CMMTYPE: u32 = 16;
+                const ET_CONNECTIONSPACE: u32 = 128;
+                const ET_CREATOR: u32 = 32768;
+                const ET_DATACOLORSPACE: u32 = 64;
+                const ET_DEVICECLASS: u32 = 65536;
+                const ET_DEVICENAME: u32 = 1;
+                const ET_DITHERMODE: u32 = 4;
+                const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144;
+                const ET_MANUFACTURER: u32 = 2048;
+                const ET_MEDIATYPE: u32 = 2;
+                const ET_MODEL: u32 = 4096;
+                const ET_PLATFORM: u32 = 512;
+                const ET_PROFILEFLAGS: u32 = 1024;
+                const ET_RENDERINGINTENT: u32 = 16384;
+                const ET_RESOLUTION: u32 = 8;
+                const ET_SIGNATURE: u32 = 256;
+                const ET_STANDARDDISPLAYCOLOR: u32 = 131072;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-enumcolorprofilesa")]
+                #[library("mscms.dll")]
+                extern fn EnumColorProfilesA(pMachineName: super::super::Foundation::PSTR, pEnumRecord: *mut ENUMTYPEA, pEnumerationBuffer: *mut u8, pdwSizeOfEnumerationBuffer: *mut u32, pnProfiles: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-enumcolorprofilesw")]
+                #[library("mscms.dll")]
+                extern fn EnumColorProfilesW(pMachineName: super::super::Foundation::PWSTR, pEnumRecord: *mut ENUMTYPEW, pEnumerationBuffer: *mut u8, pdwSizeOfEnumerationBuffer: *mut u32, pnProfiles: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-enumicmprofilesa")]
+                #[library("GDI32.dll")]
+                extern fn EnumICMProfilesA(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCA, param2: super::super::Foundation::LPARAM) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-enumicmprofilesw")]
+                #[library("GDI32.dll")]
+                extern fn EnumICMProfilesW(hdc: super::super::Graphics::Gdi::HDC, proc: ICMENUMPROCW, param2: super::super::Foundation::LPARAM) -> i32;
+                const FAST_TRANSLATE: u32 = 262144;
+                const FLAG_DEPENDENTONDATA: u32 = 2;
+                const FLAG_EMBEDDEDPROFILE: u32 = 1;
+                const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-generic3channel")]
+                struct GENERIC3CHANNEL {
+                    ch1: u16,
+                    ch2: u16,
+                    ch3: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-graycolor")]
+                struct GRAYCOLOR {
+                    gray: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-gamutboundarydescription")]
+                struct GamutBoundaryDescription {
+                    pPrimaries: *mut PrimaryJabColors,
+                    cNeutralSamples: u32,
+                    pNeutralSamples: *mut JabColorF,
+                    pReferenceShell: *mut GamutShell,
+                    pPlausibleShell: *mut GamutShell,
+                    pPossibleShell: *mut GamutShell,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-gamutshell")]
+                struct GamutShell {
+                    JMin: f32,
+                    JMax: f32,
+                    cVertices: u32,
+                    cTriangles: u32,
+                    pVertices: *mut JabColorF,
+                    pTriangles: *mut GamutShellTriangle,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-gamutshelltriangle")]
+                struct GamutShellTriangle {
+                    aVertexIndex: [u32; 3],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcmminfo")]
+                #[library("mscms.dll")]
+                extern fn GetCMMInfo(hColorTransform: isize, param1: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolordirectorya")]
+                #[library("mscms.dll")]
+                extern fn GetColorDirectoryA(pMachineName: super::super::Foundation::PSTR, pBuffer: super::super::Foundation::PSTR, pdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolordirectoryw")]
+                #[library("mscms.dll")]
+                extern fn GetColorDirectoryW(pMachineName: super::super::Foundation::PWSTR, pBuffer: super::super::Foundation::PWSTR, pdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolorprofileelement")]
+                #[library("mscms.dll")]
+                extern fn GetColorProfileElement(hProfile: isize, tag: u32, dwOffset: u32, pcbElement: *mut u32, pElement: *mut void, pbReference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolorprofileelementtag")]
+                #[library("mscms.dll")]
+                extern fn GetColorProfileElementTag(hProfile: isize, dwIndex: u32, pTag: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolorprofilefromhandle")]
+                #[library("mscms.dll")]
+                extern fn GetColorProfileFromHandle(hProfile: isize, pProfile: *mut u8, pcbProfile: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcolorprofileheader")]
+                #[library("mscms.dll")]
+                extern fn GetColorProfileHeader(hProfile: isize, pHeader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-getcolorspace")]
+                #[library("GDI32.dll")]
+                extern fn GetColorSpace(hdc: super::super::Graphics::Gdi::HDC) -> HCOLORSPACE;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getcountcolorprofileelements")]
+                #[library("mscms.dll")]
+                extern fn GetCountColorProfileElements(hProfile: isize, pnElementCount: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-getdevicegammaramp")]
+                #[library("GDI32.dll")]
+                extern fn GetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpRamp: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-geticmprofilea")]
+                #[library("GDI32.dll")]
+                extern fn GetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, pBufSize: *mut u32, pszFilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-geticmprofilew")]
+                #[library("GDI32.dll")]
+                extern fn GetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, pBufSize: *mut u32, pszFilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-getlogcolorspacea")]
+                #[library("GDI32.dll")]
+                extern fn GetLogColorSpaceA(hColorSpace: HCOLORSPACE, lpBuffer: *mut LOGCOLORSPACEA, nSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-getlogcolorspacew")]
+                #[library("GDI32.dll")]
+                extern fn GetLogColorSpaceW(hColorSpace: HCOLORSPACE, lpBuffer: *mut LOGCOLORSPACEW, nSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getnamedprofileinfo")]
+                #[library("mscms.dll")]
+                extern fn GetNamedProfileInfo(hProfile: isize, pNamedProfileInfo: *mut NAMED_PROFILE_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getps2colorrenderingdictionary")]
+                #[library("mscms.dll")]
+                extern fn GetPS2ColorRenderingDictionary(hProfile: isize, dwIntent: u32, pPS2ColorRenderingDictionary: *mut u8, pcbPS2ColorRenderingDictionary: *mut u32, pbBinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getps2colorrenderingintent")]
+                #[library("mscms.dll")]
+                extern fn GetPS2ColorRenderingIntent(hProfile: isize, dwIntent: u32, pBuffer: *mut u8, pcbPS2ColorRenderingIntent: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getps2colorspacearray")]
+                #[library("mscms.dll")]
+                extern fn GetPS2ColorSpaceArray(hProfile: isize, dwIntent: u32, dwCSAType: u32, pPS2ColorSpaceArray: *mut u8, pcbPS2ColorSpaceArray: *mut u32, pbBinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getstandardcolorspaceprofilea")]
+                #[library("mscms.dll")]
+                extern fn GetStandardColorSpaceProfileA(pMachineName: super::super::Foundation::PSTR, dwSCS: u32, pBuffer: super::super::Foundation::PSTR, pcbSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-getstandardcolorspaceprofilew")]
+                #[library("mscms.dll")]
+                extern fn GetStandardColorSpaceProfileW(pMachineName: super::super::Foundation::PWSTR, dwSCS: u32, pBuffer: super::super::Foundation::PWSTR, pcbSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("DeleteColorSpace")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HCOLORSPACE {
+                    Value: *mut void,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-hificolor")]
+                struct HiFiCOLOR {
+                    channel: [u8; 8],
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                extern fn ICMENUMPROCA(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                extern fn ICMENUMPROCW(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32;
+                #[repr(u32)]
+                enum ICM_COMMAND {
+                    ICM_ADDPROFILE = 1,
+                    ICM_DELETEPROFILE = 2,
+                    ICM_QUERYPROFILE = 3,
+                    ICM_SETDEFAULTPROFILE = 4,
+                    ICM_REGISTERICMATCHER = 5,
+                    ICM_UNREGISTERICMATCHER = 6,
+                    ICM_QUERYMATCH = 7,
+                }
+                #[repr(i32)]
+                enum ICM_MODE {
+                    ICM_OFF = 1,
+                    ICM_ON = 2,
+                    ICM_QUERY = 3,
+                    ICM_DONE_OUTSIDEDC = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nn-wcsplugin-idevicemodelplugin")]
+                interface IDeviceModelPlugIn: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-initialize")]
+                    fn Initialize(&self, bstrXml: super::super::Foundation::BSTR, cNumModels: u32, iModelPosition: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getnumchannels")]
+                    fn GetNumChannels(&self, pNumChannels: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-devicetocolorimetriccolors")]
+                    fn DeviceToColorimetricColors(&self, cColors: u32, cChannels: u32, #[Windows::Win32::Foundation::Metadata::Const] pDeviceValues: *mut f32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pXYZColors: *mut XYZColorF) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-colorimetrictodevicecolors")]
+                    fn ColorimetricToDeviceColors(&self, cColors: u32, cChannels: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pXYZColors: *mut XYZColorF, pDeviceValues: *mut f32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-colorimetrictodevicecolorswithblack")]
+                    fn ColorimetricToDeviceColorsWithBlack(&self, cColors: u32, cChannels: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pXYZColors: *mut XYZColorF, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pBlackInformation: *mut BlackInformation, pDeviceValues: *mut f32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-settransformdevicemodelinfo")]
+                    fn SetTransformDeviceModelInfo(&self, iModelPosition: u32, pIDeviceModelOther: IDeviceModelPlugIn) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getprimarysamples")]
+                    fn GetPrimarySamples(&self, pPrimaryColor: *mut PrimaryXYZColors) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getgamutboundarymeshsize")]
+                    fn GetGamutBoundaryMeshSize(&self, pNumVertices: *mut u32, pNumTriangles: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getgamutboundarymesh")]
+                    fn GetGamutBoundaryMesh(&self, cChannels: u32, cVertices: u32, cTriangles: u32, pVertices: *mut f32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pTriangles: *mut GamutShellTriangle) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getneutralaxissize")]
+                    fn GetNeutralAxisSize(&self, pcColors: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-idevicemodelplugin-getneutralaxis")]
+                    fn GetNeutralAxis(&self, cColors: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pXYZColors: *mut XYZColorF) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nn-wcsplugin-igamutmapmodelplugin")]
+                interface IGamutMapModelPlugIn: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-igamutmapmodelplugin-initialize")]
+                    fn Initialize(&self, bstrXml: super::super::Foundation::BSTR, pSrcPlugIn: IDeviceModelPlugIn, pDestPlugIn: IDeviceModelPlugIn, pSrcGBD: *mut GamutBoundaryDescription, pDestGBD: *mut GamutBoundaryDescription) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/nf-wcsplugin-igamutmapmodelplugin-sourcetodestinationappearancecolors")]
+                    fn SourceToDestinationAppearanceColors(&self, cColors: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pInputColors: *mut JChColorF, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pOutputColors: *mut JChColorF) -> super::super::Foundation::HRESULT;
+                }
+                const INDEX_DONT_CARE: u32 = 0;
+                const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3;
+                const INTENT_PERCEPTUAL: u32 = 0;
+                const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
+                const INTENT_SATURATION: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-installcolorprofilea")]
+                #[library("mscms.dll")]
+                extern fn InstallColorProfileA(pMachineName: super::super::Foundation::PSTR, pProfileName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-installcolorprofilew")]
+                #[library("mscms.dll")]
+                extern fn InstallColorProfileW(pMachineName: super::super::Foundation::PWSTR, pProfileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-iscolorprofiletagpresent")]
+                #[library("mscms.dll")]
+                extern fn IsColorProfileTagPresent(hProfile: isize, tag: u32, pbPresent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-iscolorprofilevalid")]
+                #[library("mscms.dll")]
+                extern fn IsColorProfileValid(hProfile: isize, pbValid: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                struct JChColorF {
+                    J: f32,
+                    C: f32,
+                    h: f32,
+                }
+                struct JabColorF {
+                    J: f32,
+                    a: f32,
+                    b: f32,
+                }
+                #[repr(i32)]
+                enum LCSCSTYPE {
+                    LCS_CALIBRATED_RGB = 0,
+                    LCS_sRGB = 1934772034,
+                    LCS_WINDOWS_COLOR_SPACE = 1466527264,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/ns-wingdi-logcolorspacea")]
+                struct LOGCOLORSPACEA {
+                    lcsSignature: u32,
+                    lcsVersion: u32,
+                    lcsSize: u32,
+                    lcsCSType: LCSCSTYPE,
+                    lcsIntent: i32,
+                    lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
+                    lcsGammaRed: u32,
+                    lcsGammaGreen: u32,
+                    lcsGammaBlue: u32,
+                    lcsFilename: [super::super::Foundation::CHAR; 260],
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/ns-wingdi-logcolorspacew")]
+                struct LOGCOLORSPACEW {
+                    lcsSignature: u32,
+                    lcsVersion: u32,
+                    lcsSize: u32,
+                    lcsCSType: LCSCSTYPE,
+                    lcsIntent: i32,
+                    lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
+                    lcsGammaRed: u32,
+                    lcsGammaGreen: u32,
+                    lcsGammaBlue: u32,
+                    lcsFilename: [u16; 260],
+                }
+                extern fn LPBMCALLBACKFN(param0: u32, param1: u32, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-labcolor")]
+                struct LabCOLOR {
+                    L: u16,
+                    a: u16,
+                    b: u16,
+                }
+                const MAX_COLOR_CHANNELS: u32 = 8;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-namedcolor")]
+                struct NAMEDCOLOR {
+                    dwIndex: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-named_profile_info")]
+                struct NAMED_PROFILE_INFO {
+                    dwFlags: u32,
+                    dwCount: u32,
+                    dwCountDevCoordinates: u32,
+                    szPrefix: [i8; 32],
+                    szSuffix: [i8; 32],
+                }
+                const NORMAL_MODE: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-opencolorprofilea")]
+                #[library("mscms.dll")]
+                extern fn OpenColorProfileA(pProfile: *mut PROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-opencolorprofilew")]
+                #[library("mscms.dll")]
+                extern fn OpenColorProfileW(pProfile: *mut PROFILE, dwDesiredAccess: u32, dwShareMode: u32, dwCreationMode: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                extern fn PCMSCALLBACKA(param0: *mut COLORMATCHSETUPA, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                extern fn PCMSCALLBACKW(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                const PRESERVEBLACK: u32 = 1048576;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-profile")]
+                struct PROFILE {
+                    dwType: u32,
+                    pProfileData: *mut void,
+                    cbDataSize: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-profileheader")]
+                struct PROFILEHEADER {
+                    phSize: u32,
+                    phCMMType: u32,
+                    phVersion: u32,
+                    phClass: u32,
+                    phDataColorSpace: u32,
+                    phConnectionSpace: u32,
+                    phDateTime: [u32; 3],
+                    phSignature: u32,
+                    phPlatform: u32,
+                    phProfileFlags: u32,
+                    phManufacturer: u32,
+                    phModel: u32,
+                    phAttributes: [u32; 2],
+                    phRenderingIntent: u32,
+                    phIlluminant: super::super::Graphics::Gdi::CIEXYZ,
+                    phCreator: u32,
+                    phReserved: [u8; 44],
+                }
+                const PROFILE_FILENAME: u32 = 1;
+                const PROFILE_MEMBUFFER: u32 = 2;
+                const PROFILE_READ: u32 = 1;
+                const PROFILE_READWRITE: u32 = 2;
+                const PROOF_MODE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-primaryjabcolors")]
+                struct PrimaryJabColors {
+                    red: JabColorF,
+                    yellow: JabColorF,
+                    green: JabColorF,
+                    cyan: JabColorF,
+                    blue: JabColorF,
+                    magenta: JabColorF,
+                    black: JabColorF,
+                    white: JabColorF,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wcsplugin/ns-wcsplugin-primaryxyzcolors")]
+                struct PrimaryXYZColors {
+                    red: XYZColorF,
+                    yellow: XYZColorF,
+                    green: XYZColorF,
+                    cyan: XYZColorF,
+                    blue: XYZColorF,
+                    magenta: XYZColorF,
+                    black: XYZColorF,
+                    white: XYZColorF,
+                }
+                const RESERVED: u32 = 2147483648;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-rgbcolor")]
+                struct RGBCOLOR {
+                    red: u16,
+                    green: u16,
+                    blue: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-registercmma")]
+                #[library("mscms.dll")]
+                extern fn RegisterCMMA(pMachineName: super::super::Foundation::PSTR, cmmID: u32, pCMMdll: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-registercmmw")]
+                #[library("mscms.dll")]
+                extern fn RegisterCMMW(pMachineName: super::super::Foundation::PWSTR, cmmID: u32, pCMMdll: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                const SEQUENTIAL_TRANSFORM: u32 = 2155872256;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-selectcmm")]
+                #[library("mscms.dll")]
+                extern fn SelectCMM(dwCMMType: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setcolorprofileelement")]
+                #[library("mscms.dll")]
+                extern fn SetColorProfileElement(hProfile: isize, tag: u32, dwOffset: u32, pcbElement: *mut u32, pElement: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setcolorprofileelementreference")]
+                #[library("mscms.dll")]
+                extern fn SetColorProfileElementReference(hProfile: isize, newTag: u32, refTag: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setcolorprofileelementsize")]
+                #[library("mscms.dll")]
+                extern fn SetColorProfileElementSize(hProfile: isize, tagType: u32, pcbElement: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setcolorprofileheader")]
+                #[library("mscms.dll")]
+                extern fn SetColorProfileHeader(hProfile: isize, pHeader: *mut PROFILEHEADER) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-setcolorspace")]
+                #[library("GDI32.dll")]
+                extern fn SetColorSpace(hdc: super::super::Graphics::Gdi::HDC, hcs: HCOLORSPACE) -> HCOLORSPACE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-setdevicegammaramp")]
+                #[library("GDI32.dll")]
+                extern fn SetDeviceGammaRamp(hdc: super::super::Graphics::Gdi::HDC, lpRamp: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-seticmmode")]
+                #[library("GDI32.dll")]
+                extern fn SetICMMode(hdc: super::super::Graphics::Gdi::HDC, mode: ICM_MODE) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-seticmprofilea")]
+                #[library("GDI32.dll")]
+                extern fn SetICMProfileA(hdc: super::super::Graphics::Gdi::HDC, lpFileName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-seticmprofilew")]
+                #[library("GDI32.dll")]
+                extern fn SetICMProfileW(hdc: super::super::Graphics::Gdi::HDC, lpFileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setstandardcolorspaceprofilea")]
+                #[library("mscms.dll")]
+                extern fn SetStandardColorSpaceProfileA(pMachineName: super::super::Foundation::PSTR, dwProfileID: u32, pProfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setstandardcolorspaceprofilew")]
+                #[library("mscms.dll")]
+                extern fn SetStandardColorSpaceProfileW(pMachineName: super::super::Foundation::PWSTR, dwProfileID: u32, pProfileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setupcolormatchinga")]
+                #[library("ICMUI.dll")]
+                extern fn SetupColorMatchingA(pcms: *mut COLORMATCHSETUPA) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-setupcolormatchingw")]
+                #[library("ICMUI.dll")]
+                extern fn SetupColorMatchingW(pcms: *mut COLORMATCHSETUPW) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-translatebitmapbits")]
+                #[library("mscms.dll")]
+                extern fn TranslateBitmapBits(hColorTransform: isize, pSrcBits: *mut void, bmInput: BMFORMAT, dwWidth: u32, dwHeight: u32, dwInputStride: u32, pDestBits: *mut void, bmOutput: BMFORMAT, dwOutputStride: u32, pfnCallBack: LPBMCALLBACKFN, ulCallbackData: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-translatecolors")]
+                #[library("mscms.dll")]
+                extern fn TranslateColors(hColorTransform: isize, paInputColors: *mut COLOR, nColors: u32, ctInput: COLORTYPE, paOutputColors: *mut COLOR, ctOutput: COLORTYPE) -> super::super::Foundation::BOOL;
+                const USE_RELATIVE_COLORIMETRIC: u32 = 131072;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-uninstallcolorprofilea")]
+                #[library("mscms.dll")]
+                extern fn UninstallColorProfileA(pMachineName: super::super::Foundation::PSTR, pProfileName: super::super::Foundation::PSTR, bDelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-uninstallcolorprofilew")]
+                #[library("mscms.dll")]
+                extern fn UninstallColorProfileW(pMachineName: super::super::Foundation::PWSTR, pProfileName: super::super::Foundation::PWSTR, bDelete: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-unregistercmma")]
+                #[library("mscms.dll")]
+                extern fn UnregisterCMMA(pMachineName: super::super::Foundation::PSTR, cmmID: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-unregistercmmw")]
+                #[library("mscms.dll")]
+                extern fn UnregisterCMMW(pMachineName: super::super::Foundation::PWSTR, cmmID: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-updateicmregkeya")]
+                #[library("GDI32.dll")]
+                extern fn UpdateICMRegKeyA(reserved: u32, lpszCMID: super::super::Foundation::PSTR, lpszFileName: super::super::Foundation::PSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wingdi/nf-wingdi-updateicmregkeyw")]
+                #[library("GDI32.dll")]
+                extern fn UpdateICMRegKeyW(reserved: u32, lpszCMID: super::super::Foundation::PWSTR, lpszFileName: super::super::Foundation::PWSTR, command: ICM_COMMAND) -> super::super::Foundation::BOOL;
+                const WCS_ALWAYS: u32 = 2097152;
+                const WCS_DEFAULT: i32 = 0;
+                #[repr(i32)]
+                enum WCS_DEVICE_CAPABILITIES_TYPE {
+                    VideoCardGammaTable = 1,
+                    MicrosoftHardwareColorV2 = 2,
+                }
+                struct WCS_DEVICE_MHC2_CAPABILITIES {
+                    Size: u32,
+                    SupportsMhc2: super::super::Foundation::BOOL,
+                    RegammaLutEntryCount: u32,
+                    CscXyzMatrixRows: u32,
+                    CscXyzMatrixColumns: u32,
+                }
+                struct WCS_DEVICE_VCGT_CAPABILITIES {
+                    Size: u32,
+                    SupportsVcgt: super::super::Foundation::BOOL,
+                }
+                const WCS_ICCONLY: i32 = 65536;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ne-icm-wcs_profile_management_scope")]
+                enum WCS_PROFILE_MANAGEMENT_SCOPE {
+                    WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE = 0,
+                    WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsassociatecolorprofilewithdevice")]
+                #[library("mscms.dll")]
+                extern fn WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: super::super::Foundation::PWSTR, pDeviceName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcscheckcolors")]
+                #[library("mscms.dll")]
+                extern fn WcsCheckColors(hColorTransform: isize, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, pInputData: *mut void, paResult: *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcscreateiccprofile")]
+                #[library("mscms.dll")]
+                extern fn WcsCreateIccProfile(hWcsProfile: isize, dwOptions: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsdisassociatecolorprofilefromdevice")]
+                #[library("mscms.dll")]
+                extern fn WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pProfileName: super::super::Foundation::PWSTR, pDeviceName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsenumcolorprofiles")]
+                #[library("mscms.dll")]
+                extern fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: *mut ENUMTYPEW, pBuffer: *mut u8, dwSize: u32, pnProfiles: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsenumcolorprofilessize")]
+                #[library("mscms.dll")]
+                extern fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pEnumRecord: *mut ENUMTYPEW, pdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsgetcalibrationmanagementstate")]
+                #[library("mscms.dll")]
+                extern fn WcsGetCalibrationManagementState(pbIsEnabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsgetdefaultcolorprofile")]
+                #[library("mscms.dll")]
+                extern fn WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pDeviceName: super::super::Foundation::PWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, cbProfileName: u32, pProfileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsgetdefaultcolorprofilesize")]
+                #[library("mscms.dll")]
+                extern fn WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pDeviceName: super::super::Foundation::PWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, pcbProfileName: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsgetdefaultrenderingintent")]
+                #[library("mscms.dll")]
+                extern fn WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwRenderingIntent: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsgetuseperuserprofiles")]
+                #[library("mscms.dll")]
+                extern fn WcsGetUsePerUserProfiles(pDeviceName: super::super::Foundation::PWSTR, dwDeviceClass: u32, pUsePerUserProfiles: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsopencolorprofilea")]
+                #[library("mscms.dll")]
+                extern fn WcsOpenColorProfileA(pCDMPProfile: *mut PROFILE, pCAMPProfile: *mut PROFILE, pGMMPProfile: *mut PROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcsopencolorprofilew")]
+                #[library("mscms.dll")]
+                extern fn WcsOpenColorProfileW(pCDMPProfile: *mut PROFILE, pCAMPProfile: *mut PROFILE, pGMMPProfile: *mut PROFILE, dwDesireAccess: u32, dwShareMode: u32, dwCreationMode: u32, dwFlags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcssetcalibrationmanagementstate")]
+                #[library("mscms.dll")]
+                extern fn WcsSetCalibrationManagementState(bIsEnabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcssetdefaultcolorprofile")]
+                #[library("mscms.dll")]
+                extern fn WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pDeviceName: super::super::Foundation::PWSTR, cptColorProfileType: COLORPROFILETYPE, cpstColorProfileSubType: COLORPROFILESUBTYPE, dwProfileID: u32, pProfileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcssetdefaultrenderingintent")]
+                #[library("mscms.dll")]
+                extern fn WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwRenderingIntent: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcssetuseperuserprofiles")]
+                #[library("mscms.dll")]
+                extern fn WcsSetUsePerUserProfiles(pDeviceName: super::super::Foundation::PWSTR, dwDeviceClass: u32, usePerUserProfiles: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/nf-icm-wcstranslatecolors")]
+                #[library("mscms.dll")]
+                extern fn WcsTranslateColors(hColorTransform: isize, nColors: u32, nInputChannels: u32, cdtInput: COLORDATATYPE, cbInput: u32, pInputData: *mut void, nOutputChannels: u32, cdtOutput: COLORDATATYPE, cbOutput: u32, pOutputData: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-xyzcolor")]
+                struct XYZCOLOR {
+                    X: u16,
+                    Y: u16,
+                    Z: u16,
+                }
+                struct XYZColorF {
+                    X: f32,
+                    Y: f32,
+                    Z: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icm/ns-icm-yxycolor")]
+                struct YxyCOLOR {
+                    Y: u16,
+                    x: u16,
+                    y: u16,
+                }
+            }
+        }
+    }
+}

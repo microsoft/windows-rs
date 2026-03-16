@@ -1,0 +1,781 @@
+mod Windows {
+    mod UI {
+        #[winrt]
+        mod ViewManagement {
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AccessibilitySettings {
+                #[default]
+                IAccessibilitySettings,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActivationViewSwitcher {
+                #[default]
+                IActivationViewSwitcher,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewFullscreenStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewStatics4, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewInteropStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ApplicationView {
+                #[default]
+                IApplicationView,
+                IApplicationView2,
+                IApplicationView3,
+                IApplicationView4,
+                IApplicationView7,
+                IApplicationView9,
+                IApplicationViewWithContext,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ApplicationViewBoundsMode {
+                UseVisible = 0,
+                UseCoreWindow = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ApplicationViewConsolidatedEventArgs {
+                #[default]
+                IApplicationViewConsolidatedEventArgs,
+                IApplicationViewConsolidatedEventArgs2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum ApplicationViewMode {
+                Default = 0,
+                CompactOverlay = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ApplicationViewOrientation {
+                Landscape = 0,
+                Portrait = 1,
+            }
+            #[Windows::Foundation::Metadata::Static(IApplicationViewScalingStatics, 65536, "Windows.UI.ViewManagement.ViewManagementViewScalingContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ViewManagementViewScalingContract, 65536)]
+            class ApplicationViewScaling {
+                #[default]
+                IApplicationViewScaling,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("ApplicationViewState may be altered or unavailable for releases after Windows 8.1. Instead, query for window layout sizes directly.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ApplicationViewState {
+                FullScreenLandscape = 0,
+                Filled = 1,
+                Snapped = 2,
+                FullScreenPortrait = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewSwitcherStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewSwitcherStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewSwitcherStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class ApplicationViewSwitcher {}
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ApplicationViewSwitchingOptions {
+                Default = 0,
+                SkipAnimation = 1,
+                ConsolidateViews = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ApplicationViewTitleBar {
+                #[default]
+                IApplicationViewTitleBar,
+            }
+            #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IApplicationViewTransferContextStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            class ApplicationViewTransferContext {
+                #[default]
+                IApplicationViewTransferContext,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ApplicationViewWindowingMode {
+                Auto = 0,
+                PreferredLaunchViewSize = 1,
+                FullScreen = 2,
+                CompactOverlay = 3,
+                Maximized = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FullScreenSystemOverlayMode {
+                Standard = 0,
+                Minimal = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HandPreference {
+                LeftHanded = 0,
+                RightHanded = 1,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccessibilitySettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAccessibilitySettings {
+                #[special]
+                fn get_HighContrast(&self) -> bool;
+                #[special]
+                fn get_HighContrastScheme(&self) -> String;
+                #[special]
+                fn add_HighContrastChanged(&self, handler: super::super::Foundation::TypedEventHandler<AccessibilitySettings, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_HighContrastChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationViewSwitcher)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IActivationViewSwitcher {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneAsync")]
+                fn ShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAsStandaloneWithSizePreferenceAsync")]
+                fn ShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncAction;
+                fn IsViewPresentedOnActivationVirtualDesktop(&self, viewId: i32) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationView {
+                #[special]
+                fn get_Orientation(&self) -> ApplicationViewOrientation;
+                #[special]
+                fn get_AdjacentToLeftDisplayEdge(&self) -> bool;
+                #[special]
+                fn get_AdjacentToRightDisplayEdge(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("To check full screen mode, use IsFullScreenMode. To check if the view is adjacent to both edges, use AdjacentToLeftDisplayEdge and AdjacentToRightDisplayEdge. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_IsFullScreen(&self) -> bool;
+                #[special]
+                fn get_IsOnLockScreen(&self) -> bool;
+                #[special]
+                fn get_IsScreenCaptureEnabled(&self) -> bool;
+                #[special]
+                fn put_IsScreenCaptureEnabled(&self, value: bool);
+                #[special]
+                fn put_Title(&self, value: String);
+                #[special]
+                fn get_Title(&self) -> String;
+                #[special]
+                fn get_Id(&self) -> i32;
+                #[special]
+                fn add_Consolidated(&self, handler: super::super::Foundation::TypedEventHandler<ApplicationView, ApplicationViewConsolidatedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Consolidated(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationView2 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Use the TryEnterFullScreen method and IsFullScreenMode property instead of SuppressSystemOverlays. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SuppressSystemOverlays(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Use the TryEnterFullScreen method and IsFullScreenMode property instead of SuppressSystemOverlays. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_SuppressSystemOverlays(&self, value: bool);
+                #[special]
+                fn get_VisibleBounds(&self) -> super::super::Foundation::Rect;
+                #[special]
+                fn add_VisibleBoundsChanged(&self, handler: super::super::Foundation::TypedEventHandler<ApplicationView, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_VisibleBoundsChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                fn SetDesiredBoundsMode(&self, boundsMode: ApplicationViewBoundsMode) -> bool;
+                #[special]
+                fn get_DesiredBoundsMode(&self) -> ApplicationViewBoundsMode;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationView3 {
+                #[special]
+                fn get_TitleBar(&self) -> ApplicationViewTitleBar;
+                #[special]
+                fn get_FullScreenSystemOverlayMode(&self) -> FullScreenSystemOverlayMode;
+                #[special]
+                fn put_FullScreenSystemOverlayMode(&self, value: FullScreenSystemOverlayMode);
+                #[special]
+                fn get_IsFullScreenMode(&self) -> bool;
+                fn TryEnterFullScreenMode(&self) -> bool;
+                fn ExitFullScreenMode(&self);
+                fn ShowStandardSystemOverlays(&self);
+                fn TryResizeView(&self, value: super::super::Foundation::Size) -> bool;
+                fn SetPreferredMinSize(&self, minSize: super::super::Foundation::Size);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            interface IApplicationView4 {
+                #[special]
+                fn get_ViewMode(&self) -> ApplicationViewMode;
+                fn IsViewModeSupported(&self, viewMode: ApplicationViewMode) -> bool;
+                #[Windows::Foundation::Metadata::Overload("TryEnterViewModeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("TryEnterViewModeWithPreferencesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryEnterViewModeAsync(&self, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryConsolidateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IApplicationView7 {
+                #[special]
+                fn get_PersistedStateId(&self) -> String;
+                #[special]
+                fn put_PersistedStateId(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            interface IApplicationView9 {
+                #[special]
+                fn get_WindowingEnvironment(&self) -> super::WindowManagement::WindowingEnvironment;
+                fn GetDisplayRegions(&self) -> super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewConsolidatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationViewConsolidatedEventArgs {
+                #[special]
+                fn get_IsUserInitiated(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewConsolidatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IApplicationViewConsolidatedEventArgs2 {
+                #[special]
+                fn get_IsAppInitiated(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::Deprecated("IApplicationViewFullscreenStatics is deprecated after Windows 8. Please use other resize APIs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            interface IApplicationViewFullscreenStatics {
+                #[Windows::Foundation::Metadata::Deprecated("IApplicationViewFullscreenStatics is deprecated after Windows 8. Please use other resize APIs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn TryUnsnapToFullscreen(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            interface IApplicationViewInteropStatics {
+                fn GetApplicationViewIdForWindow(&self, window: super::Core::ICoreWindow) -> i32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ViewManagementViewScalingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewScaling)]
+            interface IApplicationViewScaling {}
+            #[Windows::Foundation::Metadata::ContractVersion(ViewManagementViewScalingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewScaling)]
+            interface IApplicationViewScalingStatics {
+                #[special]
+                fn get_DisableLayoutScaling(&self) -> bool;
+                fn TrySetDisableLayoutScaling(&self, disableLayoutScaling: bool) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::Deprecated("ApplicationView static methods may be altered or unavailable for releases after Windows 8.1. Instead, use ApplicationView.GetForCurrentView to get an instance of ApplicationView.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationViewStatics {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Value may be altered or unavailable for releases after Windows 8.1. Instead, query for window layout sizes directly.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Value(&self) -> ApplicationViewState;
+                #[Windows::Foundation::Metadata::Deprecated("TryUnsnap may be altered or unavailable for releases after Windows 8.1. Apps can be continuously resized, but cannot be snapped, starting in Windows 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn TryUnsnap(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            interface IApplicationViewStatics2 {
+                fn GetForCurrentView(&self) -> ApplicationView;
+                #[special]
+                fn get_TerminateAppOnFinalViewClose(&self) -> bool;
+                #[special]
+                fn put_TerminateAppOnFinalViewClose(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IApplicationViewStatics3 {
+                #[special]
+                fn get_PreferredLaunchWindowingMode(&self) -> ApplicationViewWindowingMode;
+                #[special]
+                fn put_PreferredLaunchWindowingMode(&self, value: ApplicationViewWindowingMode);
+                #[special]
+                fn get_PreferredLaunchViewSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn put_PreferredLaunchViewSize(&self, value: super::super::Foundation::Size);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IApplicationViewStatics4 {
+                fn ClearAllPersistedState(&self);
+                fn ClearPersistedState(&self, key: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewSwitcher)]
+            interface IApplicationViewSwitcherStatics {
+                fn DisableShowingMainViewOnActivation(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneAsync")]
+                fn TryShowAsStandaloneAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithSizePreferenceAsync")]
+                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryShowAsStandaloneAsync(&self, viewId: i32, sizePreference: ViewSizePreference, anchorViewId: i32, anchorSizePreference: ViewSizePreference) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("SwitchAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SwitchAsync(&self, viewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SwitchFromViewAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("SwitchFromViewWithOptionsAsync")]
+                fn SwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn PrepareForCustomAnimatedSwitchAsync(&self, toViewId: i32, fromViewId: i32, options: ApplicationViewSwitchingOptions) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewSwitcher)]
+            interface IApplicationViewSwitcherStatics2 {
+                fn DisableSystemViewActivationPolicy(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewSwitcher)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IApplicationViewSwitcherStatics3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeAsync")]
+                fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("TryShowAsViewModeWithPreferencesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryShowAsViewModeAsync(&self, viewId: i32, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewTitleBar)]
+            interface IApplicationViewTitleBar {
+                #[special]
+                fn put_ForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_BackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_BackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonHoverForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonHoverForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonHoverBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonHoverBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonPressedForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonPressedForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonPressedBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonPressedBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_InactiveForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_InactiveForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_InactiveBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_InactiveBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonInactiveForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonInactiveForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonInactiveBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonInactiveBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewTransferContext)]
+            interface IApplicationViewTransferContext {
+                #[special]
+                fn get_ViewId(&self) -> i32;
+                #[special]
+                fn put_ViewId(&self, value: i32);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationViewTransferContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IApplicationViewTransferContextStatics {
+                #[special]
+                fn get_DataPackageFormatId(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationView)]
+            interface IApplicationViewWithContext {
+                #[special]
+                fn get_UIContext(&self) -> super::UIContext;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IInputPane {
+                #[special]
+                fn add_Showing(&self, handler: super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Showing(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Hiding(&self, handler: super::super::Foundation::TypedEventHandler<InputPane, InputPaneVisibilityEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Hiding(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_OccludedRect(&self) -> super::super::Foundation::Rect;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
+            interface IInputPane2 {
+                fn TryShow(&self) -> bool;
+                fn TryHide(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IInputPaneControl {
+                #[special]
+                fn get_Visible(&self) -> bool;
+                #[special]
+                fn put_Visible(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
+            interface IInputPaneStatics {
+                fn GetForCurrentView(&self) -> InputPane;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPane)]
+            interface IInputPaneStatics2 {
+                fn GetForUIContext(&self, context: super::UIContext) -> InputPane;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputPaneVisibilityEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IInputPaneVisibilityEventArgs {
+                #[special]
+                fn get_OccludedRect(&self) -> super::super::Foundation::Rect;
+                #[special]
+                fn put_EnsuredFocusedElementInView(&self, value: bool);
+                #[special]
+                fn get_EnsuredFocusedElementInView(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProjectionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProjectionManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("StartProjectingAsync")]
+                fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SwapDisplaysForViewsAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StopProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_ProjectionDisplayAvailable(&self) -> bool;
+                #[special]
+                fn add_ProjectionDisplayAvailableChanged(&self, handler: super::super::Foundation::EventHandler<Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ProjectionDisplayAvailableChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProjectionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProjectionManagerStatics2 {
+                #[Windows::Foundation::Metadata::Overload("StartProjectingWithDeviceInfoAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, displayDeviceInfo: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestStartProjectingAsync")]
+                fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestStartProjectingWithPlacementAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStartProjectingAsync(&self, projectionViewId: i32, anchorViewId: i32, selection: super::super::Foundation::Rect, prefferedPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUISettings {
+                #[special]
+                fn get_HandPreference(&self) -> HandPreference;
+                #[special]
+                fn get_CursorSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn get_ScrollBarSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn get_ScrollBarArrowSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn get_ScrollBarThumbBoxSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn get_MessageDuration(&self) -> u32;
+                #[special]
+                fn get_AnimationsEnabled(&self) -> bool;
+                #[special]
+                fn get_CaretBrowsingEnabled(&self) -> bool;
+                #[special]
+                fn get_CaretBlinkRate(&self) -> u32;
+                #[special]
+                fn get_CaretWidth(&self) -> u32;
+                #[special]
+                fn get_DoubleClickTime(&self) -> u32;
+                #[special]
+                fn get_MouseHoverTime(&self) -> u32;
+                fn UIElementColor(&self, desiredElement: UIElementType) -> super::Color;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUISettings2 {
+                #[special]
+                fn get_TextScaleFactor(&self) -> f64;
+                #[special]
+                fn add_TextScaleFactorChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_TextScaleFactorChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUISettings3 {
+                fn GetColorValue(&self, desiredColor: UIColorType) -> super::Color;
+                #[special]
+                fn add_ColorValuesChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ColorValuesChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            interface IUISettings4 {
+                #[special]
+                fn get_AdvancedEffectsEnabled(&self) -> bool;
+                #[special]
+                fn add_AdvancedEffectsEnabledChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AdvancedEffectsEnabledChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IUISettings5 {
+                #[special]
+                fn get_AutoHideScrollBars(&self) -> bool;
+                #[special]
+                fn add_AutoHideScrollBarsChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, UISettingsAutoHideScrollBarsChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AutoHideScrollBarsChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IUISettings6 {
+                #[special]
+                fn add_AnimationsEnabledChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, UISettingsAnimationsEnabledChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AnimationsEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_MessageDurationChanged(&self, handler: super::super::Foundation::TypedEventHandler<UISettings, UISettingsMessageDurationChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_MessageDurationChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsAnimationsEnabledChangedEventArgs)]
+            interface IUISettingsAnimationsEnabledChangedEventArgs {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsAutoHideScrollBarsChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IUISettingsAutoHideScrollBarsChangedEventArgs {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsMessageDurationChangedEventArgs)]
+            interface IUISettingsMessageDurationChangedEventArgs {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UIViewSettings)]
+            interface IUIViewSettings {
+                #[special]
+                fn get_UserInteractionMode(&self) -> UserInteractionMode;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UIViewSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IUIViewSettingsPreferredInteractionMode {
+                fn GetPreferredInteractionMode(&self, supportedModes: [UserInteractionMode]) -> UserInteractionMode;
+                #[special]
+                fn add_PreferredInteractionModeChanged(&self, handler: super::super::Foundation::TypedEventHandler<UIViewSettings, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_PreferredInteractionModeChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UIViewSettings)]
+            interface IUIViewSettingsStatics {
+                fn GetForCurrentView(&self) -> UIViewSettings;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ViewModePreferences)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IViewModePreferences {
+                #[special]
+                fn get_ViewSizePreference(&self) -> ViewSizePreference;
+                #[special]
+                fn put_ViewSizePreference(&self, value: ViewSizePreference);
+                #[special]
+                fn get_CustomSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn put_CustomSize(&self, value: super::super::Foundation::Size);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ViewModePreferences)]
+            interface IViewModePreferencesStatics {
+                fn CreateDefault(&self, mode: ApplicationViewMode) -> ViewModePreferences;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(IInputPaneStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInputPaneStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class InputPane {
+                #[default]
+                IInputPane,
+                IInputPane2,
+                IInputPaneControl,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class InputPaneVisibilityEventArgs {
+                #[default]
+                IInputPaneVisibilityEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IProjectionManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IProjectionManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProjectionManager {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum ScreenCaptureDisabledBehavior {
+                DrawAsBlack = 0,
+                ExcludeFromCapture = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UIColorType {
+                Background = 0,
+                Foreground = 1,
+                AccentDark3 = 2,
+                AccentDark2 = 3,
+                AccentDark1 = 4,
+                Accent = 5,
+                AccentLight1 = 6,
+                AccentLight2 = 7,
+                AccentLight3 = 8,
+                Complement = 9,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UIElementType {
+                ActiveCaption = 0,
+                Background = 1,
+                ButtonFace = 2,
+                ButtonText = 3,
+                CaptionText = 4,
+                GrayText = 5,
+                Highlight = 6,
+                HighlightText = 7,
+                Hotlight = 8,
+                InactiveCaption = 9,
+                InactiveCaptionText = 10,
+                Window = 11,
+                WindowText = 12,
+                AccentColor = 1000,
+                TextHigh = 1001,
+                TextMedium = 1002,
+                TextLow = 1003,
+                TextContrastWithHigh = 1004,
+                NonTextHigh = 1005,
+                NonTextMediumHigh = 1006,
+                NonTextMedium = 1007,
+                NonTextMediumLow = 1008,
+                NonTextLow = 1009,
+                PageBackground = 1010,
+                PopupBackground = 1011,
+                OverlayOutsidePopup = 1012,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class UISettings {
+                #[default]
+                IUISettings,
+                IUISettings2,
+                IUISettings3,
+                IUISettings4,
+                IUISettings5,
+                IUISettings6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UISettingsAnimationsEnabledChangedEventArgs {
+                #[default]
+                IUISettingsAnimationsEnabledChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UISettingsAutoHideScrollBarsChangedEventArgs {
+                #[default]
+                IUISettingsAutoHideScrollBarsChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UISettingsMessageDurationChangedEventArgs {
+                #[default]
+                IUISettingsMessageDurationChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IUIViewSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class UIViewSettings {
+                #[default]
+                IUIViewSettings,
+                IUIViewSettingsPreferredInteractionMode,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UserInteractionMode {
+                Mouse = 0,
+                Touch = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct ViewManagementViewScalingContract {}
+            #[Windows::Foundation::Metadata::Static(IViewModePreferencesStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class ViewModePreferences {
+                #[default]
+                IViewModePreferences,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ViewSizePreference {
+                Default = 0,
+                UseLess = 1,
+                UseHalf = 2,
+                UseMore = 3,
+                UseMinimum = 4,
+                UseNone = 5,
+                Custom = 6,
+            }
+        }
+    }
+}

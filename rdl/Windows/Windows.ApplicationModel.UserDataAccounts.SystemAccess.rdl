@@ -1,0 +1,269 @@
+mod Windows {
+    mod ApplicationModel {
+        mod UserDataAccounts {
+            #[winrt]
+            mod SystemAccess {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountAuthenticationType {
+                    Basic = 0,
+                    OAuth = 1,
+                    SingleSignOn = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class DeviceAccountConfiguration {
+                    #[default]
+                    IDeviceAccountConfiguration,
+                    IDeviceAccountConfiguration2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountIconId {
+                    Exchange = 0,
+                    Msa = 1,
+                    Outlook = 2,
+                    Generic = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountMailAgeFilter {
+                    All = 0,
+                    Last1Day = 1,
+                    Last3Days = 2,
+                    Last7Days = 3,
+                    Last14Days = 4,
+                    Last30Days = 5,
+                    Last90Days = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum DeviceAccountServerType {
+                    Exchange = 0,
+                    Pop = 1,
+                    Imap = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountSyncScheduleKind {
+                    Manual = 0,
+                    Every15Minutes = 1,
+                    Every30Minutes = 2,
+                    Every60Minutes = 3,
+                    Every2Hours = 4,
+                    Daily = 5,
+                    AsItemsArrive = 6,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDeviceAccountConfiguration {
+                    #[special]
+                    fn get_AccountName(&self) -> String;
+                    #[special]
+                    fn put_AccountName(&self, value: String);
+                    #[special]
+                    fn get_DeviceAccountTypeId(&self) -> String;
+                    #[special]
+                    fn put_DeviceAccountTypeId(&self, value: String);
+                    #[special]
+                    fn get_ServerType(&self) -> DeviceAccountServerType;
+                    #[special]
+                    fn put_ServerType(&self, value: DeviceAccountServerType);
+                    #[special]
+                    fn get_EmailAddress(&self) -> String;
+                    #[special]
+                    fn put_EmailAddress(&self, value: String);
+                    #[special]
+                    fn get_Domain(&self) -> String;
+                    #[special]
+                    fn put_Domain(&self, value: String);
+                    #[special]
+                    fn get_EmailSyncEnabled(&self) -> bool;
+                    #[special]
+                    fn put_EmailSyncEnabled(&self, value: bool);
+                    #[special]
+                    fn get_ContactsSyncEnabled(&self) -> bool;
+                    #[special]
+                    fn put_ContactsSyncEnabled(&self, value: bool);
+                    #[special]
+                    fn get_CalendarSyncEnabled(&self) -> bool;
+                    #[special]
+                    fn put_CalendarSyncEnabled(&self, value: bool);
+                    #[special]
+                    fn get_IncomingServerAddress(&self) -> String;
+                    #[special]
+                    fn put_IncomingServerAddress(&self, value: String);
+                    #[special]
+                    fn get_IncomingServerPort(&self) -> i32;
+                    #[special]
+                    fn put_IncomingServerPort(&self, value: i32);
+                    #[special]
+                    fn get_IncomingServerRequiresSsl(&self) -> bool;
+                    #[special]
+                    fn put_IncomingServerRequiresSsl(&self, value: bool);
+                    #[special]
+                    fn get_IncomingServerUsername(&self) -> String;
+                    #[special]
+                    fn put_IncomingServerUsername(&self, value: String);
+                    #[special]
+                    fn get_OutgoingServerAddress(&self) -> String;
+                    #[special]
+                    fn put_OutgoingServerAddress(&self, value: String);
+                    #[special]
+                    fn get_OutgoingServerPort(&self) -> i32;
+                    #[special]
+                    fn put_OutgoingServerPort(&self, value: i32);
+                    #[special]
+                    fn get_OutgoingServerRequiresSsl(&self) -> bool;
+                    #[special]
+                    fn put_OutgoingServerRequiresSsl(&self, value: bool);
+                    #[special]
+                    fn get_OutgoingServerUsername(&self) -> String;
+                    #[special]
+                    fn put_OutgoingServerUsername(&self, value: String);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IDeviceAccountConfiguration2 {
+                    #[special]
+                    fn get_IncomingServerCredential(&self) -> super::super::super::Security::Credentials::PasswordCredential;
+                    #[special]
+                    fn put_IncomingServerCredential(&self, value: super::super::super::Security::Credentials::PasswordCredential);
+                    #[special]
+                    fn get_OutgoingServerCredential(&self) -> super::super::super::Security::Credentials::PasswordCredential;
+                    #[special]
+                    fn put_OutgoingServerCredential(&self, value: super::super::super::Security::Credentials::PasswordCredential);
+                    #[special]
+                    fn get_OAuthRefreshToken(&self) -> String;
+                    #[special]
+                    fn put_OAuthRefreshToken(&self, value: String);
+                    #[special]
+                    fn get_IsExternallyManaged(&self) -> bool;
+                    #[special]
+                    fn put_IsExternallyManaged(&self, value: bool);
+                    #[special]
+                    fn get_AccountIconId(&self) -> DeviceAccountIconId;
+                    #[special]
+                    fn put_AccountIconId(&self, value: DeviceAccountIconId);
+                    #[special]
+                    fn get_AuthenticationType(&self) -> DeviceAccountAuthenticationType;
+                    #[special]
+                    fn put_AuthenticationType(&self, value: DeviceAccountAuthenticationType);
+                    #[special]
+                    fn get_IsSsoAuthenticationSupported(&self) -> bool;
+                    #[special]
+                    fn get_SsoAccountId(&self) -> String;
+                    #[special]
+                    fn put_SsoAccountId(&self, value: String);
+                    #[special]
+                    fn get_AlwaysDownloadFullMessage(&self) -> bool;
+                    #[special]
+                    fn put_AlwaysDownloadFullMessage(&self, value: bool);
+                    #[special]
+                    fn get_DoesPolicyAllowMailSync(&self) -> bool;
+                    #[special]
+                    fn get_SyncScheduleKind(&self) -> DeviceAccountSyncScheduleKind;
+                    #[special]
+                    fn put_SyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind);
+                    #[special]
+                    fn get_MailAgeFilter(&self) -> DeviceAccountMailAgeFilter;
+                    #[special]
+                    fn put_MailAgeFilter(&self, value: DeviceAccountMailAgeFilter);
+                    #[special]
+                    fn get_IsClientAuthenticationCertificateRequired(&self) -> bool;
+                    #[special]
+                    fn put_IsClientAuthenticationCertificateRequired(&self, value: bool);
+                    #[special]
+                    fn get_AutoSelectAuthenticationCertificate(&self) -> bool;
+                    #[special]
+                    fn put_AutoSelectAuthenticationCertificate(&self, value: bool);
+                    #[special]
+                    fn get_AuthenticationCertificateId(&self) -> String;
+                    #[special]
+                    fn put_AuthenticationCertificateId(&self, value: String);
+                    #[special]
+                    fn get_CardDavSyncScheduleKind(&self) -> DeviceAccountSyncScheduleKind;
+                    #[special]
+                    fn put_CardDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind);
+                    #[special]
+                    fn get_CalDavSyncScheduleKind(&self) -> DeviceAccountSyncScheduleKind;
+                    #[special]
+                    fn put_CalDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind);
+                    #[special]
+                    fn get_CardDavServerUrl(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn put_CardDavServerUrl(&self, value: super::super::super::Foundation::Uri);
+                    #[special]
+                    fn get_CardDavRequiresSsl(&self) -> bool;
+                    #[special]
+                    fn put_CardDavRequiresSsl(&self, value: bool);
+                    #[special]
+                    fn get_CalDavServerUrl(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn put_CalDavServerUrl(&self, value: super::super::super::Foundation::Uri);
+                    #[special]
+                    fn get_CalDavRequiresSsl(&self) -> bool;
+                    #[special]
+                    fn put_CalDavRequiresSsl(&self, value: bool);
+                    #[special]
+                    fn get_WasModifiedByUser(&self) -> bool;
+                    #[special]
+                    fn put_WasModifiedByUser(&self, value: bool);
+                    #[special]
+                    fn get_WasIncomingServerCertificateHashConfirmed(&self) -> bool;
+                    #[special]
+                    fn put_WasIncomingServerCertificateHashConfirmed(&self, value: bool);
+                    #[special]
+                    fn get_IncomingServerCertificateHash(&self) -> String;
+                    #[special]
+                    fn put_IncomingServerCertificateHash(&self, value: String);
+                    #[special]
+                    fn get_IsOutgoingServerAuthenticationRequired(&self) -> bool;
+                    #[special]
+                    fn put_IsOutgoingServerAuthenticationRequired(&self, value: bool);
+                    #[special]
+                    fn get_IsOutgoingServerAuthenticationEnabled(&self) -> bool;
+                    #[special]
+                    fn put_IsOutgoingServerAuthenticationEnabled(&self, value: bool);
+                    #[special]
+                    fn get_WasOutgoingServerCertificateHashConfirmed(&self) -> bool;
+                    #[special]
+                    fn put_WasOutgoingServerCertificateHashConfirmed(&self, value: bool);
+                    #[special]
+                    fn get_OutgoingServerCertificateHash(&self) -> String;
+                    #[special]
+                    fn put_OutgoingServerCertificateHash(&self, value: String);
+                    #[special]
+                    fn get_IsSyncScheduleManagedBySystem(&self) -> bool;
+                    #[special]
+                    fn put_IsSyncScheduleManagedBySystem(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                interface IUserDataAccountSystemAccessManagerStatics {
+                    fn AddAndShowDeviceAccountsAsync(&self, accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                interface IUserDataAccountSystemAccessManagerStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SuppressLocalAccountWithAccountAsync(&self, userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateDeviceAccountAsync(&self, account: DeviceAccountConfiguration) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DeleteDeviceAccountAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetDeviceAccountConfigurationAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                class UserDataAccountSystemAccessManager {}
+            }
+        }
+    }
+}

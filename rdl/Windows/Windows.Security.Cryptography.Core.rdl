@@ -1,0 +1,605 @@
+mod Windows {
+    mod Security {
+        mod Cryptography {
+            #[winrt]
+            mod Core {
+                #[Windows::Foundation::Metadata::Static(IAsymmetricAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IAsymmetricAlgorithmNamesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class AsymmetricAlgorithmNames {}
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IAsymmetricKeyAlgorithmProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class AsymmetricKeyAlgorithmProvider {
+                    #[default]
+                    IAsymmetricKeyAlgorithmProvider,
+                    IAsymmetricKeyAlgorithmProvider2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum Capi1KdfTargetAlgorithm {
+                    NotAes = 0,
+                    Aes = 1,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ICryptographicEngineStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(ICryptographicEngineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CryptographicEngine {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CryptographicHash {
+                    #[default]
+                    IHashComputation,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CryptographicKey {
+                    #[default]
+                    ICryptographicKey,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum CryptographicPadding {
+                    None = 0,
+                    RsaOaep = 1,
+                    RsaPkcs1V15 = 2,
+                    RsaPss = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum CryptographicPrivateKeyBlobType {
+                    Pkcs8RawPrivateKeyInfo = 0,
+                    Pkcs1RsaPrivateKey = 1,
+                    BCryptPrivateKey = 2,
+                    Capi1PrivateKey = 3,
+                    BCryptEccFullPrivateKey = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum CryptographicPublicKeyBlobType {
+                    X509SubjectPublicKeyInfo = 0,
+                    Pkcs1RsaPublicKey = 1,
+                    BCryptPublicKey = 2,
+                    Capi1PublicKey = 3,
+                    BCryptEccFullPublicKey = 4,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IEccCurveNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class EccCurveNames {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EncryptedAndAuthenticatedData {
+                    #[default]
+                    IEncryptedAndAuthenticatedData,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IHashAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class HashAlgorithmNames {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IHashAlgorithmProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class HashAlgorithmProvider {
+                    #[default]
+                    IHashAlgorithmProvider,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricAlgorithmNames)]
+                interface IAsymmetricAlgorithmNamesStatics {
+                    #[special]
+                    fn get_RsaPkcs1(&self) -> String;
+                    #[special]
+                    fn get_RsaOaepSha1(&self) -> String;
+                    #[special]
+                    fn get_RsaOaepSha256(&self) -> String;
+                    #[special]
+                    fn get_RsaOaepSha384(&self) -> String;
+                    #[special]
+                    fn get_RsaOaepSha512(&self) -> String;
+                    #[special]
+                    fn get_EcdsaP256Sha256(&self) -> String;
+                    #[special]
+                    fn get_EcdsaP384Sha384(&self) -> String;
+                    #[special]
+                    fn get_EcdsaP521Sha512(&self) -> String;
+                    #[special]
+                    fn get_DsaSha1(&self) -> String;
+                    #[special]
+                    fn get_DsaSha256(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPkcs1Sha1(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPkcs1Sha256(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPkcs1Sha384(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPkcs1Sha512(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPssSha1(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPssSha256(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPssSha384(&self) -> String;
+                    #[special]
+                    fn get_RsaSignPssSha512(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricAlgorithmNames)]
+                interface IAsymmetricAlgorithmNamesStatics2 {
+                    #[special]
+                    fn get_EcdsaSha256(&self) -> String;
+                    #[special]
+                    fn get_EcdsaSha384(&self) -> String;
+                    #[special]
+                    fn get_EcdsaSha512(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricKeyAlgorithmProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAsymmetricKeyAlgorithmProvider {
+                    #[special]
+                    fn get_AlgorithmName(&self) -> String;
+                    fn CreateKeyPair(&self, keySize: u32) -> CryptographicKey;
+                    #[Windows::Foundation::Metadata::Overload("ImportDefaultPrivateKeyBlob")]
+                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    #[Windows::Foundation::Metadata::Overload("ImportKeyPairWithBlobType")]
+                    fn ImportKeyPair(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPrivateKeyBlobType) -> CryptographicKey;
+                    #[Windows::Foundation::Metadata::Overload("ImportDefaultPublicKeyBlob")]
+                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                    #[Windows::Foundation::Metadata::Overload("ImportPublicKeyWithBlobType")]
+                    fn ImportPublicKey(&self, keyBlob: super::super::super::Storage::Streams::IBuffer, BlobType: CryptographicPublicKeyBlobType) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricKeyAlgorithmProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAsymmetricKeyAlgorithmProvider2 {
+                    fn CreateKeyPairWithCurveName(&self, curveName: String) -> CryptographicKey;
+                    fn CreateKeyPairWithCurveParameters(&self, #[Windows::Foundation::Metadata::Range(0, 65536)] parameters: [u8]) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AsymmetricKeyAlgorithmProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAsymmetricKeyAlgorithmProviderStatics {
+                    fn OpenAlgorithm(&self, algorithm: String) -> AsymmetricKeyAlgorithmProvider;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicEngine)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICryptographicEngineStatics {
+                    fn Encrypt(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Decrypt(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn EncryptAndAuthenticate(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, nonce: super::super::super::Storage::Streams::IBuffer, authenticatedData: super::super::super::Storage::Streams::IBuffer) -> EncryptedAndAuthenticatedData;
+                    fn DecryptAndAuthenticate(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, nonce: super::super::super::Storage::Streams::IBuffer, authenticationTag: super::super::super::Storage::Streams::IBuffer, authenticatedData: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn Sign(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn VerifySignature(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, signature: super::super::super::Storage::Streams::IBuffer) -> bool;
+                    fn DeriveKeyMaterial(&self, key: CryptographicKey, parameters: KeyDerivationParameters, desiredKeySize: u32) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicEngine)]
+                interface ICryptographicEngineStatics2 {
+                    fn SignHashedData(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn VerifySignatureWithHashInput(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, signature: super::super::super::Storage::Streams::IBuffer) -> bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DecryptAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer, iv: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SignAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SignHashedDataAsync(&self, key: CryptographicKey, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicKey)]
+                interface ICryptographicKey {
+                    #[special]
+                    fn get_KeySize(&self) -> u32;
+                    #[Windows::Foundation::Metadata::Overload("ExportDefaultPrivateKeyBlobType")]
+                    fn Export(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[Windows::Foundation::Metadata::Overload("ExportPrivateKeyWithBlobType")]
+                    fn Export(&self, BlobType: CryptographicPrivateKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                    #[Windows::Foundation::Metadata::Overload("ExportDefaultPublicKeyBlobType")]
+                    fn ExportPublicKey(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[Windows::Foundation::Metadata::Overload("ExportPublicKeyWithBlobType")]
+                    fn ExportPublicKey(&self, BlobType: CryptographicPublicKeyBlobType) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EccCurveNames)]
+                interface IEccCurveNamesStatics {
+                    #[special]
+                    fn get_BrainpoolP160r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP160t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP192r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP192t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP224r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP224t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP256r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP256t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP320r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP320t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP384r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP384t1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP512r1(&self) -> String;
+                    #[special]
+                    fn get_BrainpoolP512t1(&self) -> String;
+                    #[special]
+                    fn get_Curve25519(&self) -> String;
+                    #[special]
+                    fn get_Ec192wapi(&self) -> String;
+                    #[special]
+                    fn get_NistP192(&self) -> String;
+                    #[special]
+                    fn get_NistP224(&self) -> String;
+                    #[special]
+                    fn get_NistP256(&self) -> String;
+                    #[special]
+                    fn get_NistP384(&self) -> String;
+                    #[special]
+                    fn get_NistP521(&self) -> String;
+                    #[special]
+                    fn get_NumsP256t1(&self) -> String;
+                    #[special]
+                    fn get_NumsP384t1(&self) -> String;
+                    #[special]
+                    fn get_NumsP512t1(&self) -> String;
+                    #[special]
+                    fn get_SecP160k1(&self) -> String;
+                    #[special]
+                    fn get_SecP160r1(&self) -> String;
+                    #[special]
+                    fn get_SecP160r2(&self) -> String;
+                    #[special]
+                    fn get_SecP192k1(&self) -> String;
+                    #[special]
+                    fn get_SecP192r1(&self) -> String;
+                    #[special]
+                    fn get_SecP224k1(&self) -> String;
+                    #[special]
+                    fn get_SecP224r1(&self) -> String;
+                    #[special]
+                    fn get_SecP256k1(&self) -> String;
+                    #[special]
+                    fn get_SecP256r1(&self) -> String;
+                    #[special]
+                    fn get_SecP384r1(&self) -> String;
+                    #[special]
+                    fn get_SecP521r1(&self) -> String;
+                    #[special]
+                    fn get_Wtls7(&self) -> String;
+                    #[special]
+                    fn get_Wtls9(&self) -> String;
+                    #[special]
+                    fn get_Wtls12(&self) -> String;
+                    #[special]
+                    fn get_X962P192v1(&self) -> String;
+                    #[special]
+                    fn get_X962P192v2(&self) -> String;
+                    #[special]
+                    fn get_X962P192v3(&self) -> String;
+                    #[special]
+                    fn get_X962P239v1(&self) -> String;
+                    #[special]
+                    fn get_X962P239v2(&self) -> String;
+                    #[special]
+                    fn get_X962P239v3(&self) -> String;
+                    #[special]
+                    fn get_X962P256v1(&self) -> String;
+                    #[special]
+                    fn get_AllEccCurveNames(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EncryptedAndAuthenticatedData)]
+                interface IEncryptedAndAuthenticatedData {
+                    #[special]
+                    fn get_EncryptedData(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_AuthenticationTag(&self) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HashAlgorithmNames)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHashAlgorithmNamesStatics {
+                    #[special]
+                    fn get_Md5(&self) -> String;
+                    #[special]
+                    fn get_Sha1(&self) -> String;
+                    #[special]
+                    fn get_Sha256(&self) -> String;
+                    #[special]
+                    fn get_Sha384(&self) -> String;
+                    #[special]
+                    fn get_Sha512(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HashAlgorithmProvider)]
+                interface IHashAlgorithmProvider {
+                    #[special]
+                    fn get_AlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_HashLength(&self) -> u32;
+                    fn HashData(&self, data: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Storage::Streams::IBuffer;
+                    fn CreateHash(&self) -> CryptographicHash;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HashAlgorithmProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHashAlgorithmProviderStatics {
+                    fn OpenAlgorithm(&self, algorithm: String) -> HashAlgorithmProvider;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicHash)]
+                interface IHashComputation {
+                    fn Append(&self, data: super::super::super::Storage::Streams::IBuffer);
+                    fn GetValueAndReset(&self) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationAlgorithmNames)]
+                interface IKeyDerivationAlgorithmNamesStatics {
+                    #[special]
+                    fn get_Pbkdf2Md5(&self) -> String;
+                    #[special]
+                    fn get_Pbkdf2Sha1(&self) -> String;
+                    #[special]
+                    fn get_Pbkdf2Sha256(&self) -> String;
+                    #[special]
+                    fn get_Pbkdf2Sha384(&self) -> String;
+                    #[special]
+                    fn get_Pbkdf2Sha512(&self) -> String;
+                    #[special]
+                    fn get_Sp800108CtrHmacMd5(&self) -> String;
+                    #[special]
+                    fn get_Sp800108CtrHmacSha1(&self) -> String;
+                    #[special]
+                    fn get_Sp800108CtrHmacSha256(&self) -> String;
+                    #[special]
+                    fn get_Sp800108CtrHmacSha384(&self) -> String;
+                    #[special]
+                    fn get_Sp800108CtrHmacSha512(&self) -> String;
+                    #[special]
+                    fn get_Sp80056aConcatMd5(&self) -> String;
+                    #[special]
+                    fn get_Sp80056aConcatSha1(&self) -> String;
+                    #[special]
+                    fn get_Sp80056aConcatSha256(&self) -> String;
+                    #[special]
+                    fn get_Sp80056aConcatSha384(&self) -> String;
+                    #[special]
+                    fn get_Sp80056aConcatSha512(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationAlgorithmNames)]
+                interface IKeyDerivationAlgorithmNamesStatics2 {
+                    #[special]
+                    fn get_CapiKdfMd5(&self) -> String;
+                    #[special]
+                    fn get_CapiKdfSha1(&self) -> String;
+                    #[special]
+                    fn get_CapiKdfSha256(&self) -> String;
+                    #[special]
+                    fn get_CapiKdfSha384(&self) -> String;
+                    #[special]
+                    fn get_CapiKdfSha512(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationAlgorithmProvider)]
+                interface IKeyDerivationAlgorithmProvider {
+                    #[special]
+                    fn get_AlgorithmName(&self) -> String;
+                    fn CreateKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationAlgorithmProvider)]
+                interface IKeyDerivationAlgorithmProviderStatics {
+                    fn OpenAlgorithm(&self, algorithm: String) -> KeyDerivationAlgorithmProvider;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IKeyDerivationParameters {
+                    #[special]
+                    fn get_KdfGenericBinary(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn put_KdfGenericBinary(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    #[special]
+                    fn get_IterationCount(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
+                interface IKeyDerivationParameters2 {
+                    #[special]
+                    fn get_Capi1KdfTargetAlgorithm(&self) -> Capi1KdfTargetAlgorithm;
+                    #[special]
+                    fn put_Capi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IKeyDerivationParametersStatics {
+                    fn BuildForPbkdf2(&self, pbkdf2Salt: super::super::super::Storage::Streams::IBuffer, iterationCount: u32) -> KeyDerivationParameters;
+                    fn BuildForSP800108(&self, label: super::super::super::Storage::Streams::IBuffer, context: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
+                    fn BuildForSP80056a(&self, algorithmId: super::super::super::Storage::Streams::IBuffer, partyUInfo: super::super::super::Storage::Streams::IBuffer, partyVInfo: super::super::super::Storage::Streams::IBuffer, suppPubInfo: super::super::super::Storage::Streams::IBuffer, suppPrivInfo: super::super::super::Storage::Streams::IBuffer) -> KeyDerivationParameters;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyDerivationParameters)]
+                interface IKeyDerivationParametersStatics2 {
+                    fn BuildForCapi1Kdf(&self, capi1KdfTargetAlgorithm: Capi1KdfTargetAlgorithm) -> KeyDerivationParameters;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmNames)]
+                interface IMacAlgorithmNamesStatics {
+                    #[special]
+                    fn get_HmacMd5(&self) -> String;
+                    #[special]
+                    fn get_HmacSha1(&self) -> String;
+                    #[special]
+                    fn get_HmacSha256(&self) -> String;
+                    #[special]
+                    fn get_HmacSha384(&self) -> String;
+                    #[special]
+                    fn get_HmacSha512(&self) -> String;
+                    #[special]
+                    fn get_AesCmac(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmProvider)]
+                interface IMacAlgorithmProvider {
+                    #[special]
+                    fn get_AlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_MacLength(&self) -> u32;
+                    fn CreateKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmProvider)]
+                interface IMacAlgorithmProvider2 {
+                    fn CreateHash(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicHash;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MacAlgorithmProvider)]
+                interface IMacAlgorithmProviderStatics {
+                    fn OpenAlgorithm(&self, algorithm: String) -> MacAlgorithmProvider;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PersistedKeyProvider)]
+                interface IPersistedKeyProviderStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn OpenKeyPairFromCertificateAsync(&self, certificate: super::Certificates::Certificate, hashAlgorithmName: String, padding: CryptographicPadding) -> super::super::super::Foundation::IAsyncOperation<CryptographicKey>;
+                    fn OpenPublicKeyFromCertificate(&self, certificate: super::Certificates::Certificate, hashAlgorithmName: String, padding: CryptographicPadding) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SymmetricAlgorithmNames)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ISymmetricAlgorithmNamesStatics {
+                    #[special]
+                    fn get_DesCbc(&self) -> String;
+                    #[special]
+                    fn get_DesEcb(&self) -> String;
+                    #[special]
+                    fn get_TripleDesCbc(&self) -> String;
+                    #[special]
+                    fn get_TripleDesEcb(&self) -> String;
+                    #[special]
+                    fn get_Rc2Cbc(&self) -> String;
+                    #[special]
+                    fn get_Rc2Ecb(&self) -> String;
+                    #[special]
+                    fn get_AesCbc(&self) -> String;
+                    #[special]
+                    fn get_AesEcb(&self) -> String;
+                    #[special]
+                    fn get_AesGcm(&self) -> String;
+                    #[special]
+                    fn get_AesCcm(&self) -> String;
+                    #[special]
+                    fn get_AesCbcPkcs7(&self) -> String;
+                    #[special]
+                    fn get_AesEcbPkcs7(&self) -> String;
+                    #[special]
+                    fn get_DesCbcPkcs7(&self) -> String;
+                    #[special]
+                    fn get_DesEcbPkcs7(&self) -> String;
+                    #[special]
+                    fn get_TripleDesCbcPkcs7(&self) -> String;
+                    #[special]
+                    fn get_TripleDesEcbPkcs7(&self) -> String;
+                    #[special]
+                    fn get_Rc2CbcPkcs7(&self) -> String;
+                    #[special]
+                    fn get_Rc2EcbPkcs7(&self) -> String;
+                    #[special]
+                    fn get_Rc4(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SymmetricKeyAlgorithmProvider)]
+                interface ISymmetricKeyAlgorithmProvider {
+                    #[special]
+                    fn get_AlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_BlockLength(&self) -> u32;
+                    fn CreateSymmetricKey(&self, keyMaterial: super::super::super::Storage::Streams::IBuffer) -> CryptographicKey;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SymmetricKeyAlgorithmProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ISymmetricKeyAlgorithmProviderStatics {
+                    fn OpenAlgorithm(&self, algorithm: String) -> SymmetricKeyAlgorithmProvider;
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Static(IKeyDerivationAlgorithmNamesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IKeyDerivationAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class KeyDerivationAlgorithmNames {}
+                #[Windows::Foundation::Metadata::Static(IKeyDerivationAlgorithmProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class KeyDerivationAlgorithmProvider {
+                    #[default]
+                    IKeyDerivationAlgorithmProvider,
+                }
+                #[Windows::Foundation::Metadata::Static(IKeyDerivationParametersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IKeyDerivationParametersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class KeyDerivationParameters {
+                    #[default]
+                    IKeyDerivationParameters,
+                    IKeyDerivationParameters2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IMacAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class MacAlgorithmNames {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IMacAlgorithmProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class MacAlgorithmProvider {
+                    #[default]
+                    IMacAlgorithmProvider,
+                    IMacAlgorithmProvider2,
+                }
+                #[Windows::Foundation::Metadata::Static(IPersistedKeyProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PersistedKeyProvider {}
+                #[Windows::Foundation::Metadata::Static(ISymmetricAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class SymmetricAlgorithmNames {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(ISymmetricKeyAlgorithmProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class SymmetricKeyAlgorithmProvider {
+                    #[default]
+                    ISymmetricKeyAlgorithmProvider,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1185 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Diagnostics {
+                mod Debug {
+                    #[win32]
+                    mod ActiveScript {
+                        const ACTIVPROF_E_PROFILER_ABSENT: super::super::super::super::Foundation::HRESULT = -2147220991;
+                        const ACTIVPROF_E_PROFILER_PRESENT: super::super::super::super::Foundation::HRESULT = -2147220992;
+                        const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: super::super::super::super::Foundation::HRESULT = -2147220990;
+                        const APPBREAKFLAG_DEBUGGER_BLOCK: u32 = 1;
+                        const APPBREAKFLAG_DEBUGGER_HALT: u32 = 2;
+                        const APPBREAKFLAG_IN_BREAKPOINT: u32 = 2147483648;
+                        const APPBREAKFLAG_NESTED: u32 = 131072;
+                        const APPBREAKFLAG_STEP: u32 = 65536;
+                        const APPBREAKFLAG_STEPTYPE_BYTECODE: u32 = 1048576;
+                        const APPBREAKFLAG_STEPTYPE_MACHINE: u32 = 2097152;
+                        const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640;
+                        const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0;
+                        #[repr(i32)]
+                        enum APPLICATION_NODE_EVENT_FILTER {
+                            FILTER_EXCLUDE_NOTHING = 0,
+                            FILTER_EXCLUDE_ANONYMOUS_CODE = 1,
+                            FILTER_EXCLUDE_EVAL_CODE = 2,
+                        }
+                        interface AsyncIDebugApplicationNodeEvents: super::super::super::Com::IUnknown {
+                            fn Begin_onAddChild(&self, prddpChild: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn Finish_onAddChild(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Begin_onRemoveChild(&self, prddpChild: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn Finish_onRemoveChild(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Begin_onDetach(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Finish_onDetach(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Begin_onAttach(&self, prddpParent: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn Finish_onAttach(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[repr(i32)]
+                        enum BREAKPOINT_STATE {
+                            BREAKPOINT_DELETED = 0,
+                            BREAKPOINT_DISABLED = 1,
+                            BREAKPOINT_ENABLED = 2,
+                        }
+                        #[repr(i32)]
+                        enum BREAKREASON {
+                            BREAKREASON_STEP = 0,
+                            BREAKREASON_BREAKPOINT = 1,
+                            BREAKREASON_DEBUGGER_BLOCK = 2,
+                            BREAKREASON_HOST_INITIATED = 3,
+                            BREAKREASON_LANGUAGE_INITIATED = 4,
+                            BREAKREASON_DEBUGGER_HALT = 5,
+                            BREAKREASON_ERROR = 6,
+                            BREAKREASON_JIT = 7,
+                            BREAKREASON_MUTATION_BREAKPOINT = 8,
+                        }
+                        #[repr(i32)]
+                        enum BREAKRESUMEACTION {
+                            BREAKRESUMEACTION_ABORT = 0,
+                            BREAKRESUMEACTION_CONTINUE = 1,
+                            BREAKRESUMEACTION_STEP_INTO = 2,
+                            BREAKRESUMEACTION_STEP_OVER = 3,
+                            BREAKRESUMEACTION_STEP_OUT = 4,
+                            BREAKRESUMEACTION_IGNORE = 5,
+                            BREAKRESUMEACTION_STEP_DOCUMENT = 6,
+                        }
+                        const CATID_ActiveScript: GUID = 0xf0b7a1a1_9847_11cf_8f20_00805f2cd064;
+                        const CATID_ActiveScriptAuthor: GUID = 0x0aee2a92_bcbb_11d0_8c72_00c04fc2b085;
+                        const CATID_ActiveScriptEncode: GUID = 0xf0b7a1a3_9847_11cf_8f20_00805f2cd064;
+                        const CATID_ActiveScriptParse: GUID = 0xf0b7a1a2_9847_11cf_8f20_00805f2cd064;
+                        #[Windows::Win32::Foundation::Metadata::Guid(2209922214, 26748, 4560, 164, 5, 0, 170, 0, 96, 39, 92)]
+                        struct CDebugDocumentHelper {}
+                        #[repr(i32)]
+                        enum DEBUG_EVENT_INFO_TYPE {
+                            DEIT_GENERAL = 0,
+                            DEIT_ASMJS_IN_DEBUGGING = 1,
+                            DEIT_ASMJS_SUCCEEDED = 2,
+                            DEIT_ASMJS_FAILED = 3,
+                        }
+                        #[repr(i32)]
+                        enum DEBUG_STACKFRAME_TYPE {
+                            DST_SCRIPT_FRAME = 0,
+                            DST_INTERNAL_FRAME = 1,
+                            DST_INVOCATION_FRAME = 2,
+                        }
+                        const DEBUG_TEXT_ALLOWBREAKPOINTS: u32 = 8;
+                        const DEBUG_TEXT_ALLOWERRORREPORT: u32 = 16;
+                        const DEBUG_TEXT_EVALUATETOCODECONTEXT: u32 = 32;
+                        const DEBUG_TEXT_ISEXPRESSION: u32 = 1;
+                        const DEBUG_TEXT_ISNONUSERCODE: u32 = 64;
+                        const DEBUG_TEXT_NOSIDEEFFECTS: u32 = 4;
+                        const DEBUG_TEXT_RETURNVALUE: u32 = 2;
+                        #[repr(i32)]
+                        enum DOCUMENTNAMETYPE {
+                            DOCUMENTNAMETYPE_APPNODE = 0,
+                            DOCUMENTNAMETYPE_TITLE = 1,
+                            DOCUMENTNAMETYPE_FILE_TAIL = 2,
+                            DOCUMENTNAMETYPE_URL = 3,
+                            DOCUMENTNAMETYPE_UNIQUE_TITLE = 4,
+                            DOCUMENTNAMETYPE_SOURCE_MAP_URL = 5,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(201113696, 35869, 4560, 172, 205, 0, 170, 0, 96, 39, 92)]
+                        struct DebugHelper {}
+                        struct DebugStackFrameDescriptor {
+                            pdsf: IDebugStackFrame,
+                            dwMin: u32,
+                            dwLim: u32,
+                            fFinal: super::super::super::super::Foundation::BOOL,
+                            punkFinal: super::super::super::Com::IUnknown,
+                        }
+                        struct DebugStackFrameDescriptor64 {
+                            pdsf: IDebugStackFrame,
+                            dwMin: u64,
+                            dwLim: u64,
+                            fFinal: super::super::super::super::Foundation::BOOL,
+                            punkFinal: super::super::super::Com::IUnknown,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2202085538, 20980, 4560, 143, 32, 0, 128, 95, 44, 208, 100)]
+                        struct DefaultDebugSessionProvider {}
+                        #[repr(i32)]
+                        enum ERRORRESUMEACTION {
+                            ERRORRESUMEACTION_ReexecuteErrorStatement = 0,
+                            ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller = 1,
+                            ERRORRESUMEACTION_SkipErrorStatement = 2,
+                        }
+                        const E_JsDEBUG_INVALID_MEMORY_ADDRESS: super::super::super::super::Foundation::HRESULT = -1916338171;
+                        const E_JsDEBUG_MISMATCHED_RUNTIME: super::super::super::super::Foundation::HRESULT = -1916338175;
+                        const E_JsDEBUG_OUTSIDE_OF_VM: super::super::super::super::Foundation::HRESULT = -1916338172;
+                        const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: super::super::super::super::Foundation::HRESULT = -1916338169;
+                        const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: super::super::super::super::Foundation::HRESULT = -1916338170;
+                        const E_JsDEBUG_UNKNOWN_THREAD: super::super::super::super::Foundation::HRESULT = -1916338174;
+                        const FACILITY_JsDEBUG: u32 = 3527;
+                        const GETATTRFLAG_HUMANTEXT: u32 = 32768;
+                        const GETATTRFLAG_THIS: u32 = 256;
+                        const GETATTRTYPE_DEPSCAN: u32 = 1;
+                        const GETATTRTYPE_NORMAL: u32 = 0;
+                        interface IActiveScript: super::super::super::Com::IUnknown {
+                            fn SetScriptSite(&self, pass: IActiveScriptSite) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptSite(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvObject: *mut *mut void) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetScriptState(&self, ss: SCRIPTSTATE) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptState(&self, pssState: *mut SCRIPTSTATE) -> super::super::super::super::Foundation::HRESULT;
+                            fn Close(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddNamedItem(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddTypeLib(&self, #[Windows::Win32::Foundation::Metadata::Const] rguidTypeLib: *mut GUID, dwMajor: u32, dwMinor: u32, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptDispatch(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, ppdisp: *mut super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCurrentScriptThreadID(&self, pstidThread: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptThreadID(&self, dwWin32ThreadId: u32, pstidThread: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptThreadState(&self, stidThread: u32, pstsState: *mut SCRIPTTHREADSTATE) -> super::super::super::super::Foundation::HRESULT;
+                            fn InterruptScriptThread(&self, stidThread: u32, #[Windows::Win32::Foundation::Metadata::Const] pexcepinfo: *mut super::super::super::Com::EXCEPINFO, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, ppscript: *mut IActiveScript) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptAuthor: super::super::super::Com::IUnknown {
+                            fn AddNamedItem(&self, #[Windows::Win32::Foundation::Metadata::Const] pszName: super::super::super::super::Foundation::PWSTR, dwFlags: u32, pdisp: super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddScriptlet(&self, #[Windows::Win32::Foundation::Metadata::Const] pszDefaultName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszSubItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszEventName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, dwCookie: u32, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ParseScriptText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, dwCookie: u32, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pszCode: super::super::super::super::Foundation::PWSTR, cch: u32, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptletTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pszCode: super::super::super::super::Foundation::PWSTR, cch: u32, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRoot(&self, ppsp: *mut IScriptNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLanguageFlags(&self, pgrfasa: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetEventHandler(&self, pdisp: super::super::super::Com::IDispatch, #[Windows::Win32::Foundation::Metadata::Const] pszItem: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszSubItem: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszEvent: super::super::super::super::Foundation::PWSTR, ppse: *mut IScriptEntry) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveNamedItem(&self, #[Windows::Win32::Foundation::Metadata::Const] pszName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddTypeLib(&self, #[Windows::Win32::Foundation::Metadata::Const] rguidTypeLib: *mut GUID, dwMajor: u32, dwMinor: u32, dwFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveTypeLib(&self, #[Windows::Win32::Foundation::Metadata::Const] rguidTypeLib: *mut GUID, dwMajor: u32, dwMinor: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetChars(&self, fRequestedList: u32, pbstrChars: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetInfoFromContext(&self, #[Windows::Win32::Foundation::Metadata::Const] pszCode: super::super::super::super::Foundation::PWSTR, cchCode: u32, ichCurrentPosition: u32, dwListTypesRequested: u32, pdwListTypesProvided: *mut u32, pichListAnchorPosition: *mut u32, pichFuncAnchorPosition: *mut u32, pmemid: *mut i32, piCurrentParameter: *mut i32, ppunk: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsCommitChar(&self, ch: u16, pfcommit: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptAuthorProcedure: super::super::super::Com::IUnknown {
+                            fn ParseProcedureText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszFormalParams: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszProcedureName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, dwCookie: u32, dwFlags: u32, pdispFor: super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptDebug32: super::super::super::Com::IUnknown {
+                            fn GetScriptTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstrCode: super::super::super::super::Foundation::PWSTR, uNumCodeChars: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptletTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstrCode: super::super::super::super::Foundation::PWSTR, uNumCodeChars: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumCodeContextsOfPosition(&self, dwSourceContext: u32, uCharacterOffset: u32, uNumChars: u32, ppescc: *mut IEnumDebugCodeContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptDebug64: super::super::super::Com::IUnknown {
+                            fn GetScriptTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstrCode: super::super::super::super::Foundation::PWSTR, uNumCodeChars: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptletTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstrCode: super::super::super::super::Foundation::PWSTR, uNumCodeChars: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumCodeContextsOfPosition(&self, dwSourceContext: u64, uCharacterOffset: u32, uNumChars: u32, ppescc: *mut IEnumDebugCodeContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptEncode: super::super::super::Com::IUnknown {
+                            fn EncodeSection(&self, #[Windows::Win32::Foundation::Metadata::Const] pchIn: super::super::super::super::Foundation::PWSTR, cchIn: u32, #[out] pchOut: super::super::super::super::Foundation::PWSTR, cchOut: u32, pcchRet: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn DecodeScript(&self, #[Windows::Win32::Foundation::Metadata::Const] pchIn: super::super::super::super::Foundation::PWSTR, cchIn: u32, #[out] pchOut: super::super::super::super::Foundation::PWSTR, cchOut: u32, pcchRet: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetEncodeProgId(&self, pbstrOut: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptError: super::super::super::Com::IUnknown {
+                            fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSourcePosition(&self, pdwSourceContext: *mut u32, pulLineNumber: *mut u32, plCharacterPosition: *mut i32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSourceLineText(&self, pbstrSourceLine: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptError64: IActiveScriptError {
+                            fn GetSourcePosition64(&self, pdwSourceContext: *mut u64, pulLineNumber: *mut u32, plCharacterPosition: *mut i32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptErrorDebug: IActiveScriptError {
+                            fn GetDocumentContext(&self, ppssc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetStackFrame(&self, ppdsf: *mut IDebugStackFrame) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptErrorDebug110: super::super::super::Com::IUnknown {
+                            fn GetExceptionThrownKind(&self, pExceptionKind: *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptGarbageCollector: super::super::super::Com::IUnknown {
+                            fn CollectGarbage(&self, scriptgctype: SCRIPTGCTYPE) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptHostEncode: super::super::super::Com::IUnknown {
+                            fn EncodeScriptHostFile(&self, bstrInFile: super::super::super::super::Foundation::BSTR, pbstrOutFile: *mut super::super::super::super::Foundation::BSTR, cFlags: u32, bstrDefaultLang: super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParse32: super::super::super::Com::IUnknown {
+                            fn InitNew(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddScriptlet(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrDefaultName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrSubItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrEventName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u32, ulStartingLineNumber: u32, dwFlags: u32, pbstrName: *mut super::super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                            fn ParseScriptText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u32, ulStartingLineNumber: u32, dwFlags: u32, pvarResult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParse64: super::super::super::Com::IUnknown {
+                            fn InitNew(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddScriptlet(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrDefaultName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrSubItemName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrEventName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u64, ulStartingLineNumber: u32, dwFlags: u32, pbstrName: *mut super::super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                            fn ParseScriptText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u64, ulStartingLineNumber: u32, dwFlags: u32, pvarResult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParseProcedure2_32: IActiveScriptParseProcedure32 {}
+                        interface IActiveScriptParseProcedure2_64: IActiveScriptParseProcedure64 {}
+                        interface IActiveScriptParseProcedure32: super::super::super::Com::IUnknown {
+                            fn ParseProcedureText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrFormalParams: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrProcedureName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u32, ulStartingLineNumber: u32, dwFlags: u32, ppdisp: *mut super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParseProcedure64: super::super::super::Com::IUnknown {
+                            fn ParseProcedureText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrFormalParams: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrProcedureName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u64, ulStartingLineNumber: u32, dwFlags: u32, ppdisp: *mut super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParseProcedureOld32: super::super::super::Com::IUnknown {
+                            fn ParseProcedureText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrFormalParams: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u32, ulStartingLineNumber: u32, dwFlags: u32, ppdisp: *mut super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptParseProcedureOld64: super::super::super::Com::IUnknown {
+                            fn ParseProcedureText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrFormalParams: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pstrItemName: super::super::super::super::Foundation::PWSTR, punkContext: super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwSourceContextCookie: u64, ulStartingLineNumber: u32, dwFlags: u32, ppdisp: *mut super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerCallback: super::super::super::Com::IUnknown {
+                            fn Initialize(&self, dwContext: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Shutdown(&self, hrReason: super::super::super::super::Foundation::HRESULT) -> super::super::super::super::Foundation::HRESULT;
+                            fn ScriptCompiled(&self, scriptId: i32, r#type: PROFILER_SCRIPT_TYPE, pIDebugDocumentContext: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn FunctionCompiled(&self, functionId: i32, scriptId: i32, #[Windows::Win32::Foundation::Metadata::Const] pwszFunctionName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszFunctionNameHint: super::super::super::super::Foundation::PWSTR, pIDebugDocumentContext: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnFunctionEnter(&self, scriptId: i32, functionId: i32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnFunctionExit(&self, scriptId: i32, functionId: i32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerCallback2: IActiveScriptProfilerCallback {
+                            fn OnFunctionEnterByName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszFunctionName: super::super::super::super::Foundation::PWSTR, r#type: PROFILER_SCRIPT_TYPE) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnFunctionExitByName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszFunctionName: super::super::super::super::Foundation::PWSTR, r#type: PROFILER_SCRIPT_TYPE) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerCallback3: IActiveScriptProfilerCallback2 {
+                            fn SetWebWorkerId(&self, webWorkerId: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerControl: super::super::super::Com::IUnknown {
+                            fn StartProfiling(&self, #[Windows::Win32::Foundation::Metadata::Const] clsidProfilerObject: *mut GUID, dwEventMask: u32, dwContext: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetProfilerEventMask(&self, dwEventMask: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn StopProfiling(&self, hrShutdownReason: super::super::super::super::Foundation::HRESULT) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerControl2: IActiveScriptProfilerControl {
+                            fn CompleteProfilerStart(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn PrepareProfilerStop(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerControl3: IActiveScriptProfilerControl2 {
+                            fn EnumHeap(&self, ppEnum: *mut IActiveScriptProfilerHeapEnum) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerControl4: IActiveScriptProfilerControl3 {
+                            fn SummarizeHeap(&self, heapSummary: *mut PROFILER_HEAP_SUMMARY) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerControl5: IActiveScriptProfilerControl4 {
+                            fn EnumHeap2(&self, enumFlags: PROFILER_HEAP_ENUM_FLAGS, ppEnum: *mut IActiveScriptProfilerHeapEnum) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProfilerHeapEnum: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] heapObjects: *mut *mut PROFILER_HEAP_OBJECT, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOptionalInfo(&self, heapObject: *mut PROFILER_HEAP_OBJECT, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] optionalInfo: *mut PROFILER_HEAP_OBJECT_OPTIONAL_INFO) -> super::super::super::super::Foundation::HRESULT;
+                            fn FreeObjectAndOptionalInfo(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] heapObjects: *mut *mut PROFILER_HEAP_OBJECT) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNameIdMap(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pNameList: *mut *mut *mut super::super::super::super::Foundation::PWSTR, pcelt: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptProperty: super::super::super::Com::IUnknown {
+                            fn GetProperty(&self, dwProperty: u32, pvarIndex: *mut super::super::super::Variant::VARIANT, pvarValue: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetProperty(&self, dwProperty: u32, pvarIndex: *mut super::super::super::Variant::VARIANT, pvarValue: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSIPInfo: super::super::super::Com::IUnknown {
+                            fn GetSIPOID(&self, poid_sip: *mut GUID) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSite: super::super::super::Com::IUnknown {
+                            fn GetLCID(&self, plcid: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetItemInfo(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::super::Foundation::PWSTR, dwReturnMask: u32, ppiunkItem: *mut super::super::super::Com::IUnknown, ppti: *mut super::super::super::Com::ITypeInfo) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDocVersionString(&self, pbstrVersion: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnScriptTerminate(&self, #[Windows::Win32::Foundation::Metadata::Const] pvarResult: *mut super::super::super::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::Const] pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnStateChange(&self, ssScriptState: SCRIPTSTATE) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnScriptError(&self, pscripterror: IActiveScriptError) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnEnterScript(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnLeaveScript(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteDebug32: super::super::super::Com::IUnknown {
+                            fn GetDocumentContextFromPosition(&self, dwSourceContext: u32, uCharacterOffset: u32, uNumChars: u32, ppsc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetApplication(&self, ppda: *mut IDebugApplication32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRootApplicationNode(&self, ppdanRoot: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnScriptErrorDebug(&self, pErrorDebug: IActiveScriptErrorDebug, pfEnterDebugger: *mut super::super::super::super::Foundation::BOOL, pfCallOnScriptErrorWhenContinuing: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteDebug64: super::super::super::Com::IUnknown {
+                            fn GetDocumentContextFromPosition(&self, dwSourceContext: u64, uCharacterOffset: u32, uNumChars: u32, ppsc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetApplication(&self, ppda: *mut IDebugApplication64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRootApplicationNode(&self, ppdanRoot: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnScriptErrorDebug(&self, pErrorDebug: IActiveScriptErrorDebug, pfEnterDebugger: *mut super::super::super::super::Foundation::BOOL, pfCallOnScriptErrorWhenContinuing: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteDebugEx: super::super::super::Com::IUnknown {
+                            fn OnCanNotJITScriptErrorDebug(&self, pErrorDebug: IActiveScriptErrorDebug, pfCallOnScriptErrorWhenContinuing: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteInterruptPoll: super::super::super::Com::IUnknown {
+                            fn QueryContinue(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteTraceInfo: super::super::super::Com::IUnknown {
+                            fn SendScriptTraceInfo(&self, stiEventType: SCRIPTTRACEINFO, guidContextID: GUID, dwScriptContextCookie: u32, lScriptStatementStart: i32, lScriptStatementEnd: i32, dwReserved: u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteUIControl: super::super::super::Com::IUnknown {
+                            fn GetUIBehavior(&self, UicItem: SCRIPTUICITEM, pUicHandling: *mut SCRIPTUICHANDLING) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptSiteWindow: super::super::super::Com::IUnknown {
+                            fn GetWindow(&self, phwnd: *mut super::super::super::super::Foundation::HWND) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnableModeless(&self, fEnable: super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptStats: super::super::super::Com::IUnknown {
+                            fn GetStat(&self, stid: u32, pluHi: *mut u32, pluLo: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetStatEx(&self, #[Windows::Win32::Foundation::Metadata::Const] guid: *mut GUID, pluHi: *mut u32, pluLo: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ResetStats(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptStringCompare: super::super::super::Com::IUnknown {
+                            fn StrComp(&self, bszStr1: super::super::super::super::Foundation::BSTR, bszStr2: super::super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] iRet: *mut i32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptTraceInfo: super::super::super::Com::IUnknown {
+                            fn StartScriptTracing(&self, pSiteTraceInfo: IActiveScriptSiteTraceInfo, guidContextID: GUID) -> super::super::super::super::Foundation::HRESULT;
+                            fn StopScriptTracing(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IActiveScriptWinRTErrorDebug: IActiveScriptError {
+                            fn GetRestrictedErrorString(&self, errorString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRestrictedErrorReference(&self, referenceString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCapabilitySid(&self, capabilitySid: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IApplicationDebugger: super::super::super::Com::IUnknown {
+                            fn QueryAlive(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateInstanceAtDebugger(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, pUnkOuter: super::super::super::Com::IUnknown, dwClsContext: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvObject: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn onDebugOutput(&self, #[Windows::Win32::Foundation::Metadata::Const] pstr: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn onHandleBreakPoint(&self, prpt: IRemoteDebugApplicationThread, br: BREAKREASON, pError: IActiveScriptErrorDebug) -> super::super::super::super::Foundation::HRESULT;
+                            fn onClose(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn onDebuggerEvent(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, punk: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IApplicationDebuggerUI: super::super::super::Com::IUnknown {
+                            fn BringDocumentToTop(&self, pddt: IDebugDocumentText) -> super::super::super::super::Foundation::HRESULT;
+                            fn BringDocumentContextToTop(&self, pddc: IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IBindEventHandler: super::super::super::Com::IUnknown {
+                            fn BindHandler(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrEvent: super::super::super::super::Foundation::PWSTR, pdisp: super::super::super::Com::IDispatch) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplication11032: IRemoteDebugApplication110 {
+                            fn SynchronousCallInMainThread(&self, pptc: IDebugThreadCall32, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                            fn AsynchronousCallInMainThread(&self, pptc: IDebugThreadCall32, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                            fn CallableWaitForHandles(&self, handleCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pHandles: *mut super::super::super::super::Foundation::HANDLE, pIndex: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplication11064: IRemoteDebugApplication110 {
+                            fn SynchronousCallInMainThread(&self, pptc: IDebugThreadCall64, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                            fn AsynchronousCallInMainThread(&self, pptc: IDebugThreadCall64, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                            fn CallableWaitForHandles(&self, handleCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pHandles: *mut super::super::super::super::Foundation::HANDLE, pIndex: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplication32: IRemoteDebugApplication {
+                            fn SetName(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StepOutComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn DebugOutput(&self, #[Windows::Win32::Foundation::Metadata::Const] pstr: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartDebugSession(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn HandleBreakPoint(&self, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> super::super::super::super::Foundation::HRESULT;
+                            fn Close(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetBreakFlags(&self, pabf: *mut u32, pprdatSteppingThread: *mut IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCurrentThread(&self, pat: *mut IDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateAsyncDebugOperation(&self, psdo: IDebugSyncOperation, ppado: *mut IDebugAsyncOperation) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddStackFrameSniffer(&self, pdsfs: IDebugStackFrameSniffer, pdwCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveStackFrameSniffer(&self, dwCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryCurrentThreadIsDebuggerThread(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn SynchronousCallInDebuggerThread(&self, pptc: IDebugThreadCall32, dwParam1: u32, dwParam2: u32, dwParam3: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateApplicationNode(&self, ppdanNew: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn FireDebuggerEvent(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, punk: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn HandleRuntimeError(&self, pErrorDebug: IActiveScriptErrorDebug, pScriptSite: IActiveScriptSite, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfCallOnScriptError: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
+                            fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
+                            fn AddGlobalExpressionContextProvider(&self, pdsfs: IProvideExpressionContexts, pdwCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveGlobalExpressionContextProvider(&self, dwCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplication64: IRemoteDebugApplication {
+                            fn SetName(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StepOutComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn DebugOutput(&self, #[Windows::Win32::Foundation::Metadata::Const] pstr: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartDebugSession(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn HandleBreakPoint(&self, br: BREAKREASON, pbra: *mut BREAKRESUMEACTION) -> super::super::super::super::Foundation::HRESULT;
+                            fn Close(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetBreakFlags(&self, pabf: *mut u32, pprdatSteppingThread: *mut IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCurrentThread(&self, pat: *mut IDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateAsyncDebugOperation(&self, psdo: IDebugSyncOperation, ppado: *mut IDebugAsyncOperation) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddStackFrameSniffer(&self, pdsfs: IDebugStackFrameSniffer, pdwCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveStackFrameSniffer(&self, dwCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryCurrentThreadIsDebuggerThread(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn SynchronousCallInDebuggerThread(&self, pptc: IDebugThreadCall64, dwParam1: u64, dwParam2: u64, dwParam3: u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateApplicationNode(&self, ppdanNew: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn FireDebuggerEvent(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, punk: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn HandleRuntimeError(&self, pErrorDebug: IActiveScriptErrorDebug, pScriptSite: IActiveScriptSite, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfCallOnScriptError: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL;
+                            fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL;
+                            fn AddGlobalExpressionContextProvider(&self, pdsfs: IProvideExpressionContexts, pdwCookie: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveGlobalExpressionContextProvider(&self, dwCookie: u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationNode: IDebugDocumentProvider {
+                            fn EnumChildren(&self, pperddp: *mut IEnumDebugApplicationNodes) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetParent(&self, pprddp: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDocumentProvider(&self, pddp: IDebugDocumentProvider) -> super::super::super::super::Foundation::HRESULT;
+                            fn Close(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Attach(&self, pdanParent: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn Detach(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationNode100: super::super::super::Com::IUnknown {
+                            fn SetFilterForEventSink(&self, dwCookie: u32, filter: APPLICATION_NODE_EVENT_FILTER) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetExcludedDocuments(&self, filter: APPLICATION_NODE_EVENT_FILTER, pDocuments: *mut TEXT_DOCUMENT_ARRAY) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryIsChildNode(&self, pSearchKey: IDebugDocument) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationNodeEvents: super::super::super::Com::IUnknown {
+                            fn onAddChild(&self, prddpChild: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn onRemoveChild(&self, prddpChild: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn onDetach(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn onAttach(&self, prddpParent: IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationThread: IRemoteDebugApplicationThread {
+                            fn SynchronousCallIntoThread32(&self, pstcb: IDebugThreadCall32, dwParam1: u32, dwParam2: u32, dwParam3: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryIsCurrentThread(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryIsDebuggerThread(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDescription(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrDescription: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetStateString(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrState: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationThread11032: super::super::super::Com::IUnknown {
+                            fn GetActiveThreadRequestCount(&self, puiThreadRequests: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsSuspendedForBreakPoint(&self, pfIsSuspended: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsThreadCallable(&self, pfIsCallable: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn AsynchronousCallIntoThread(&self, pptc: IDebugThreadCall32, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationThread11064: super::super::super::Com::IUnknown {
+                            fn GetActiveThreadRequestCount(&self, puiThreadRequests: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsSuspendedForBreakPoint(&self, pfIsSuspended: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsThreadCallable(&self, pfIsCallable: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn AsynchronousCallIntoThread(&self, pptc: IDebugThreadCall64, dwParam1: usize, dwParam2: usize, dwParam3: usize) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationThread64: IDebugApplicationThread {
+                            fn SynchronousCallIntoThread64(&self, pstcb: IDebugThreadCall64, dwParam1: u64, dwParam2: u64, dwParam3: u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugApplicationThreadEvents110: super::super::super::Com::IUnknown {
+                            fn OnSuspendForBreakPoint(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnResumeFromBreakPoint(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnThreadRequestComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnBeginThreadRequest(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugAsyncOperation: super::super::super::Com::IUnknown {
+                            fn GetSyncDebugOperation(&self, ppsdo: *mut IDebugSyncOperation) -> super::super::super::super::Foundation::HRESULT;
+                            fn Start(&self, padocb: IDebugAsyncOperationCallBack) -> super::super::super::super::Foundation::HRESULT;
+                            fn Abort(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryIsComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetResult(&self, phrResult: *mut super::super::super::super::Foundation::HRESULT, ppunkResult: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugAsyncOperationCallBack: super::super::super::Com::IUnknown {
+                            fn onComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugCodeContext: super::super::super::Com::IUnknown {
+                            fn GetDocumentContext(&self, ppsc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetBreakPoint(&self, bps: BREAKPOINT_STATE) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugCookie: super::super::super::Com::IUnknown {
+                            fn SetDebugCookie(&self, dwDebugAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocument: IDebugDocumentInfo {}
+                        interface IDebugDocumentContext: super::super::super::Com::IUnknown {
+                            fn GetDocument(&self, ppsd: *mut IDebugDocument) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumCodeContexts(&self, ppescc: *mut IEnumDebugCodeContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentHelper32: super::super::super::Com::IUnknown {
+                            fn Init(&self, pda: IDebugApplication32, #[Windows::Win32::Foundation::Metadata::Const] pszShortName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszLongName: super::super::super::super::Foundation::PWSTR, docAttr: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Attach(&self, pddhParent: IDebugDocumentHelper32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Detach(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddUnicodeText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszText: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDBCSText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszText: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDebugDocumentHost(&self, pddh: IDebugDocumentHost) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDeferredText(&self, cChars: u32, dwTextStartCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn DefineScriptBlock(&self, ulCharOffset: u32, cChars: u32, pas: IActiveScript, fScriptlet: super::super::super::super::Foundation::BOOL, pdwSourceContext: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDefaultTextAttr(&self, staTextAttr: u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetTextAttributes(&self, ulCharOffset: u32, cChars: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstaTextAttr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetLongName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszLongName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetShortName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszShortName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDocumentAttr(&self, pszAttributes: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDebugApplicationNode(&self, ppdan: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptBlockInfo(&self, dwSourceContext: u32, ppasd: *mut IActiveScript, piCharPos: *mut u32, pcChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateDebugDocumentContext(&self, iCharPos: u32, cChars: u32, ppddc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn BringDocumentToTop(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn BringDocumentContextToTop(&self, pddc: IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentHelper64: super::super::super::Com::IUnknown {
+                            fn Init(&self, pda: IDebugApplication64, #[Windows::Win32::Foundation::Metadata::Const] pszShortName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszLongName: super::super::super::super::Foundation::PWSTR, docAttr: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Attach(&self, pddhParent: IDebugDocumentHelper64) -> super::super::super::super::Foundation::HRESULT;
+                            fn Detach(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddUnicodeText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszText: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDBCSText(&self, #[Windows::Win32::Foundation::Metadata::Const] pszText: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDebugDocumentHost(&self, pddh: IDebugDocumentHost) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDeferredText(&self, cChars: u32, dwTextStartCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn DefineScriptBlock(&self, ulCharOffset: u32, cChars: u32, pas: IActiveScript, fScriptlet: super::super::super::super::Foundation::BOOL, pdwSourceContext: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDefaultTextAttr(&self, staTextAttr: u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetTextAttributes(&self, ulCharOffset: u32, cChars: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstaTextAttr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetLongName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszLongName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetShortName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszShortName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetDocumentAttr(&self, pszAttributes: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDebugApplicationNode(&self, ppdan: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptBlockInfo(&self, dwSourceContext: u64, ppasd: *mut IActiveScript, piCharPos: *mut u32, pcChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateDebugDocumentContext(&self, iCharPos: u32, cChars: u32, ppddc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn BringDocumentToTop(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn BringDocumentContextToTop(&self, pddc: IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentHost: super::super::super::Com::IUnknown {
+                            fn GetDeferredText(&self, dwTextStartCookie: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] pcharText: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] pstaTextAttr: *mut u16, pcNumChars: *mut u32, cMaxChars: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptTextAttributes(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pstrCode: super::super::super::super::Foundation::PWSTR, uNumCodeChars: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pattr: *mut u16) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnCreateDocumentContext(&self, ppunkOuter: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetPathName(&self, pbstrLongName: *mut super::super::super::super::Foundation::BSTR, pfIsOriginalFile: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetFileName(&self, pbstrShortName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn NotifyChanged(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentInfo: super::super::super::Com::IUnknown {
+                            fn GetName(&self, dnt: DOCUMENTNAMETYPE, pbstrName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDocumentClassId(&self, pclsidDocument: *mut GUID) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentProvider: IDebugDocumentInfo {
+                            fn GetDocument(&self, ppssd: *mut IDebugDocument) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentText: IDebugDocument {
+                            fn GetDocumentAttributes(&self, ptextdocattr: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSize(&self, pcNumLines: *mut u32, pcNumChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetPositionOfLine(&self, cLineNumber: u32, pcCharacterPosition: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLineOfPosition(&self, cCharacterPosition: u32, pcLineNumber: *mut u32, pcCharacterOffsetInLine: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetText(&self, cCharacterPosition: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] pcharText: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] pstaTextAttr: *mut u16, pcNumChars: *mut u32, cMaxChars: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetPositionOfContext(&self, psc: IDebugDocumentContext, pcCharacterPosition: *mut u32, cNumChars: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetContextOfPosition(&self, cCharacterPosition: u32, cNumChars: u32, ppsc: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentTextAuthor: IDebugDocumentText {
+                            fn InsertText(&self, cCharacterPosition: u32, cNumToInsert: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pcharText: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveText(&self, cCharacterPosition: u32, cNumToRemove: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ReplaceText(&self, cCharacterPosition: u32, cNumToReplace: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pcharText: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentTextEvents: super::super::super::Com::IUnknown {
+                            fn onDestroy(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn onInsertText(&self, cCharacterPosition: u32, cNumToInsert: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn onRemoveText(&self, cCharacterPosition: u32, cNumToRemove: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn onReplaceText(&self, cCharacterPosition: u32, cNumToReplace: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn onUpdateTextAttributes(&self, cCharacterPosition: u32, cNumToUpdate: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn onUpdateDocumentAttributes(&self, textdocattr: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugDocumentTextExternalAuthor: super::super::super::Com::IUnknown {
+                            fn GetPathName(&self, pbstrLongName: *mut super::super::super::super::Foundation::BSTR, pfIsOriginalFile: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetFileName(&self, pbstrShortName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn NotifyChanged(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugExpression: super::super::super::Com::IUnknown {
+                            fn Start(&self, pdecb: IDebugExpressionCallBack) -> super::super::super::super::Foundation::HRESULT;
+                            fn Abort(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryIsComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetResultAsString(&self, phrResult: *mut super::super::super::super::Foundation::HRESULT, pbstrResult: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetResultAsDebugProperty(&self, phrResult: *mut super::super::super::super::Foundation::HRESULT, ppdp: *mut super::IDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugExpressionCallBack: super::super::super::Com::IUnknown {
+                            fn onComplete(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugExpressionContext: super::super::super::Com::IUnknown {
+                            fn ParseLanguageText(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrCode: super::super::super::super::Foundation::PWSTR, nRadix: u32, #[Windows::Win32::Foundation::Metadata::Const] pstrDelimiter: super::super::super::super::Foundation::PWSTR, dwFlags: u32, ppe: *mut IDebugExpression) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLanguageInfo(&self, pbstrLanguageName: *mut super::super::super::super::Foundation::BSTR, pLanguageID: *mut GUID) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugFormatter: super::super::super::Com::IUnknown {
+                            fn GetStringForVariant(&self, pvar: *mut super::super::super::Variant::VARIANT, nRadix: u32, pbstrValue: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetVariantForString(&self, #[Windows::Win32::Foundation::Metadata::Const] pwstrValue: super::super::super::super::Foundation::PWSTR, pvar: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetStringForVarType(&self, vt: super::super::super::Variant::VARENUM, ptdescArrayType: *mut super::super::super::Com::TYPEDESC, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugHelper: super::super::super::Com::IUnknown {
+                            fn CreatePropertyBrowser(&self, pvar: *mut super::super::super::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::Const] bstrName: super::super::super::super::Foundation::PWSTR, pdat: IDebugApplicationThread, ppdob: *mut super::IDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreatePropertyBrowserEx(&self, pvar: *mut super::super::super::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::Const] bstrName: super::super::super::super::Foundation::PWSTR, pdat: IDebugApplicationThread, pdf: IDebugFormatter, ppdob: *mut super::IDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateSimpleConnectionPoint(&self, pdisp: super::super::super::Com::IDispatch, ppscp: *mut ISimpleConnectionPoint) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugSessionProvider: super::super::super::Com::IUnknown {
+                            fn StartDebugSession(&self, pda: IRemoteDebugApplication) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugStackFrame: super::super::super::Com::IUnknown {
+                            fn GetCodeContext(&self, ppcc: *mut IDebugCodeContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDescriptionString(&self, fLong: super::super::super::super::Foundation::BOOL, pbstrDescription: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLanguageString(&self, fLong: super::super::super::super::Foundation::BOOL, pbstrLanguage: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetThread(&self, ppat: *mut IDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDebugProperty(&self, ppDebugProp: *mut super::IDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugStackFrame110: IDebugStackFrame {
+                            fn GetStackFrameType(&self, pStackFrameKind: *mut DEBUG_STACKFRAME_TYPE) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetScriptInvocationContext(&self, ppInvocationContext: *mut IScriptInvocationContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugStackFrameSniffer: super::super::super::Com::IUnknown {
+                            fn EnumStackFrames(&self, ppedsf: *mut IEnumDebugStackFrames) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugStackFrameSnifferEx32: IDebugStackFrameSniffer {
+                            fn EnumStackFramesEx32(&self, dwSpMin: u32, ppedsf: *mut IEnumDebugStackFrames) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugStackFrameSnifferEx64: IDebugStackFrameSniffer {
+                            fn EnumStackFramesEx64(&self, dwSpMin: u64, ppedsf: *mut IEnumDebugStackFrames64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugSyncOperation: super::super::super::Com::IUnknown {
+                            fn GetTargetThread(&self, ppatTarget: *mut IDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn Execute(&self, ppunkResult: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn InProgressAbort(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugThreadCall32: super::super::super::Com::IUnknown {
+                            fn ThreadCallHandler(&self, dwParam1: u32, dwParam2: u32, dwParam3: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IDebugThreadCall64: super::super::super::Com::IUnknown {
+                            fn ThreadCallHandler(&self, dwParam1: u64, dwParam2: u64, dwParam3: u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumDebugApplicationNodes: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, pprddp: *mut IDebugApplicationNode, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, pperddp: *mut IEnumDebugApplicationNodes) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumDebugCodeContexts: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, pscc: *mut IDebugCodeContext, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, ppescc: *mut IEnumDebugCodeContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumDebugExpressionContexts: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, ppdec: *mut IDebugExpressionContext, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, ppedec: *mut IEnumDebugExpressionContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumDebugStackFrames: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, ppedsf: *mut IEnumDebugStackFrames) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumDebugStackFrames64: IEnumDebugStackFrames {
+                            fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumJsStackFrames: super::super::super::Com::IUnknown {
+                            fn Next(&self, cFrameCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pFrames: *mut JS_NATIVE_FRAME, pcFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumRemoteDebugApplicationThreads: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, pprdat: *mut IRemoteDebugApplicationThread, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, pperdat: *mut IEnumRemoteDebugApplicationThreads) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IEnumRemoteDebugApplications: super::super::super::Com::IUnknown {
+                            fn Next(&self, celt: u32, ppda: *mut IRemoteDebugApplication, pceltFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Skip(&self, celt: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Clone(&self, ppessd: *mut IEnumRemoteDebugApplications) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebug: super::super::super::Com::IUnknown {
+                            fn OpenVirtualProcess(&self, processId: u32, runtimeJsBaseAddress: u64, pDataTarget: IJsDebugDataTarget, ppProcess: *mut IJsDebugProcess) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugBreakPoint: super::super::super::Com::IUnknown {
+                            fn IsEnabled(&self, pIsEnabled: *mut super::super::super::super::Foundation::BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn Enable(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Disable(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Delete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDocumentPosition(&self, pDocumentId: *mut u64, pCharacterOffset: *mut u32, pStatementCharCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugDataTarget: super::super::super::Com::IUnknown {
+                            fn ReadMemory(&self, address: u64, flags: JsDebugReadMemoryFlags, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pBuffer: *mut u8, size: u32, pBytesRead: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn WriteMemory(&self, address: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pMemory: *mut u8, size: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AllocateVirtualMemory(&self, address: u64, size: u32, allocationType: u32, pageProtection: u32, pAllocatedAddress: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn FreeVirtualMemory(&self, address: u64, size: u32, freeType: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetTlsValue(&self, threadId: u32, tlsIndex: u32, pValue: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn ReadBSTR(&self, address: u64, pString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn ReadNullTerminatedString(&self, address: u64, characterSize: u16, maxCharacters: u32, pString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateStackFrameEnumerator(&self, threadId: u32, ppEnumerator: *mut IEnumJsStackFrames) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetThreadContext(&self, threadId: u32, contextFlags: u32, contextSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pContext: *mut void) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugFrame: super::super::super::Com::IUnknown {
+                            fn GetStackRange(&self, pStart: *mut u64, pEnd: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetName(&self, pName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDocumentPositionWithId(&self, pDocumentId: *mut u64, pCharacterOffset: *mut u32, pStatementCharCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDocumentPositionWithName(&self, pDocumentName: *mut super::super::super::super::Foundation::BSTR, pLine: *mut u32, pColumn: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDebugProperty(&self, ppDebugProperty: *mut IJsDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetReturnAddress(&self, pReturnAddress: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn Evaluate(&self, #[Windows::Win32::Foundation::Metadata::Const] pExpressionText: super::super::super::super::Foundation::PWSTR, ppDebugProperty: *mut IJsDebugProperty, pError: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugProcess: super::super::super::Com::IUnknown {
+                            fn CreateStackWalker(&self, threadId: u32, ppStackWalker: *mut IJsDebugStackWalker) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateBreakPoint(&self, documentId: u64, characterOffset: u32, characterCount: u32, isEnabled: super::super::super::super::Foundation::BOOL, ppDebugBreakPoint: *mut IJsDebugBreakPoint) -> super::super::super::super::Foundation::HRESULT;
+                            fn PerformAsyncBreak(&self, threadId: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetExternalStepAddress(&self, pCodeAddress: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugProperty: super::super::super::Com::IUnknown {
+                            fn GetPropertyInfo(&self, nRadix: u32, pPropertyInfo: *mut JsDebugPropertyInfo) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetMembers(&self, members: JS_PROPERTY_MEMBERS, ppEnum: *mut IJsEnumDebugProperty) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsDebugStackWalker: super::super::super::Com::IUnknown {
+                            fn GetNext(&self, ppFrame: *mut IJsDebugFrame) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IJsEnumDebugProperty: super::super::super::Com::IUnknown {
+                            fn Next(&self, count: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppDebugProperty: *mut IJsDebugProperty, pActualCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCount(&self, pCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IMachineDebugManager: super::super::super::Com::IUnknown {
+                            fn AddApplication(&self, pda: IRemoteDebugApplication, pdwAppCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveApplication(&self, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumApplications(&self, ppeda: *mut IEnumRemoteDebugApplications) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IMachineDebugManagerCookie: super::super::super::Com::IUnknown {
+                            fn AddApplication(&self, pda: IRemoteDebugApplication, dwDebugAppCookie: u32, pdwAppCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveApplication(&self, dwDebugAppCookie: u32, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumApplications(&self, ppeda: *mut IEnumRemoteDebugApplications) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IMachineDebugManagerEvents: super::super::super::Com::IUnknown {
+                            fn onAddApplication(&self, pda: IRemoteDebugApplication, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn onRemoveApplication(&self, pda: IRemoteDebugApplication, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IProcessDebugManager32: super::super::super::Com::IUnknown {
+                            fn CreateApplication(&self, ppda: *mut IDebugApplication32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDefaultApplication(&self, ppda: *mut IDebugApplication32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddApplication(&self, pda: IDebugApplication32, pdwAppCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveApplication(&self, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateDebugDocumentHelper(&self, punkOuter: super::super::super::Com::IUnknown, pddh: *mut IDebugDocumentHelper32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IProcessDebugManager64: super::super::super::Com::IUnknown {
+                            fn CreateApplication(&self, ppda: *mut IDebugApplication64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDefaultApplication(&self, ppda: *mut IDebugApplication64) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddApplication(&self, pda: IDebugApplication64, pdwAppCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveApplication(&self, dwAppCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateDebugDocumentHelper(&self, punkOuter: super::super::super::Com::IUnknown, pddh: *mut IDebugDocumentHelper64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IProvideExpressionContexts: super::super::super::Com::IUnknown {
+                            fn EnumExpressionContexts(&self, ppedec: *mut IEnumDebugExpressionContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugApplication: super::super::super::Com::IUnknown {
+                            fn ResumeFromBreakPoint(&self, prptFocus: IRemoteDebugApplicationThread, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> super::super::super::super::Foundation::HRESULT;
+                            fn CauseBreak(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn ConnectDebugger(&self, pad: IApplicationDebugger) -> super::super::super::super::Foundation::HRESULT;
+                            fn DisconnectDebugger(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDebugger(&self, pad: *mut IApplicationDebugger) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateInstanceAtApplication(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, pUnkOuter: super::super::super::Com::IUnknown, dwClsContext: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvObject: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryAlive(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumThreads(&self, pperdat: *mut IEnumRemoteDebugApplicationThreads) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetName(&self, pbstrName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRootNode(&self, ppdanRoot: *mut IDebugApplicationNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumGlobalExpressionContexts(&self, ppedec: *mut IEnumDebugExpressionContexts) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugApplication110: super::super::super::Com::IUnknown {
+                            fn SetDebuggerOptions(&self, mask: SCRIPT_DEBUGGER_OPTIONS, value: SCRIPT_DEBUGGER_OPTIONS) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCurrentDebuggerOptions(&self, pCurrentOptions: *mut SCRIPT_DEBUGGER_OPTIONS) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetMainThread(&self, ppThread: *mut IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugApplicationEvents: super::super::super::Com::IUnknown {
+                            fn OnConnectDebugger(&self, pad: IApplicationDebugger) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnDisconnectDebugger(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnSetName(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnDebugOutput(&self, #[Windows::Win32::Foundation::Metadata::Const] pstr: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnClose(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnEnterBreakPoint(&self, prdat: IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnLeaveBreakPoint(&self, prdat: IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnCreateThread(&self, prdat: IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnDestroyThread(&self, prdat: IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                            fn OnBreakFlagChange(&self, abf: u32, prdatSteppingThread: IRemoteDebugApplicationThread) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugApplicationThread: super::super::super::Com::IUnknown {
+                            fn GetSystemThreadId(&self, dwThreadId: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetApplication(&self, pprda: *mut IRemoteDebugApplication) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumStackFrames(&self, ppedsf: *mut IEnumDebugStackFrames) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDescription(&self, pbstrDescription: *mut super::super::super::super::Foundation::BSTR, pbstrState: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetNextStatement(&self, pStackFrame: IDebugStackFrame, pCodeContext: IDebugCodeContext) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetState(&self, pState: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Suspend(&self, pdwCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Resume(&self, pdwCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSuspendCount(&self, pdwCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugCriticalErrorEvent110: super::super::super::Com::IUnknown {
+                            fn GetErrorInfo(&self, pbstrSource: *mut super::super::super::super::Foundation::BSTR, pMessageId: *mut i32, pbstrMessage: *mut super::super::super::super::Foundation::BSTR, ppLocation: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IRemoteDebugInfoEvent110: super::super::super::Com::IUnknown {
+                            fn GetEventInfo(&self, pMessageType: *mut DEBUG_EVENT_INFO_TYPE, pbstrMessage: *mut super::super::super::super::Foundation::BSTR, pbstrUrl: *mut super::super::super::super::Foundation::BSTR, ppLocation: *mut IDebugDocumentContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IScriptEntry: IScriptNode {
+                            fn GetText(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetText(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetBody(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetBody(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetName(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetName(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetItemName(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetItemName(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSignature(&self, ppti: *mut super::super::super::Com::ITypeInfo, piMethod: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetSignature(&self, pti: super::super::super::Com::ITypeInfo, iMethod: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRange(&self, pichMin: *mut u32, pcch: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IScriptInvocationContext: super::super::super::Com::IUnknown {
+                            fn GetContextType(&self, pInvocationContextType: *mut SCRIPT_INVOCATION_CONTEXT_TYPE) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetContextDescription(&self, pDescription: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetContextObject(&self, ppContextObject: *mut super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IScriptNode: super::super::super::Com::IUnknown {
+                            fn Alive(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn Delete(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetParent(&self, ppsnParent: *mut IScriptNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetIndexInParent(&self, pisn: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCookie(&self, pdwCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNumberOfChildren(&self, pcsn: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetChild(&self, isn: u32, ppsn: *mut IScriptNode) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLanguage(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateChildEntry(&self, isn: u32, dwCookie: u32, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, ppse: *mut IScriptEntry) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateChildHandler(&self, #[Windows::Win32::Foundation::Metadata::Const] pszDefaultName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] prgpszNames: *mut super::super::super::super::Foundation::PWSTR, cpszNames: u32, #[Windows::Win32::Foundation::Metadata::Const] pszEvent: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszDelimiter: super::super::super::super::Foundation::PWSTR, ptiSignature: super::super::super::Com::ITypeInfo, iMethodSignature: u32, isn: u32, dwCookie: u32, ppse: *mut IScriptEntry) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IScriptScriptlet: IScriptEntry {
+                            fn GetSubItemName(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetSubItemName(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetEventName(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetEventName(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetSimpleEventName(&self, pbstr: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetSimpleEventName(&self, #[Windows::Win32::Foundation::Metadata::Const] psz: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface ISimpleConnectionPoint: super::super::super::Com::IUnknown {
+                            fn GetEventCount(&self, pulCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn DescribeEvents(&self, iEvent: u32, cEvents: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgid: *mut i32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] prgbstr: *mut super::super::super::super::Foundation::BSTR, pcEventsFetched: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Advise(&self, pdisp: super::super::super::Com::IDispatch, pdwCookie: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn Unadvise(&self, dwCookie: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface ITridentEventSink: super::super::super::Com::IUnknown {
+                            fn FireEvent(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrEvent: super::super::super::super::Foundation::PWSTR, pdp: *mut super::super::super::Com::DISPPARAMS, pvarRes: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IWebAppDiagnosticsObjectInitialization: super::super::super::Com::IUnknown {
+                            fn Initialize(&self, hPassedHandle: super::super::super::super::Foundation::HANDLE_PTR, pDebugApplication: super::super::super::Com::IUnknown) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        interface IWebAppDiagnosticsSetup: super::super::super::Com::IUnknown {
+                            fn DiagnosticsSupported(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pRetVal: *mut super::super::super::super::Foundation::VARIANT_BOOL) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateObjectWithSiteAtWebApp(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, dwClsContext: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, hPassToObject: usize) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        struct JS_NATIVE_FRAME {
+                            InstructionOffset: u64,
+                            ReturnOffset: u64,
+                            FrameOffset: u64,
+                            StackOffset: u64,
+                        }
+                        #[repr(i32)]
+                        enum JS_PROPERTY_ATTRIBUTES {
+                            JS_PROPERTY_ATTRIBUTE_NONE = 0,
+                            JS_PROPERTY_HAS_CHILDREN = 1,
+                            JS_PROPERTY_FAKE = 2,
+                            JS_PROPERTY_METHOD = 4,
+                            JS_PROPERTY_READONLY = 8,
+                            JS_PROPERTY_NATIVE_WINRT_POINTER = 16,
+                            JS_PROPERTY_FRAME_INTRYBLOCK = 32,
+                            JS_PROPERTY_FRAME_INCATCHBLOCK = 64,
+                            JS_PROPERTY_FRAME_INFINALLYBLOCK = 128,
+                        }
+                        #[repr(i32)]
+                        enum JS_PROPERTY_MEMBERS {
+                            JS_PROPERTY_MEMBERS_ALL = 0,
+                            JS_PROPERTY_MEMBERS_ARGUMENTS = 1,
+                        }
+                        struct JsDebugPropertyInfo {
+                            name: super::super::super::super::Foundation::BSTR,
+                            r#type: super::super::super::super::Foundation::BSTR,
+                            value: super::super::super::super::Foundation::BSTR,
+                            fullName: super::super::super::super::Foundation::BSTR,
+                            attr: JS_PROPERTY_ATTRIBUTES,
+                        }
+                        #[repr(i32)]
+                        #[Windows::Win32::Foundation::Metadata::ScopedEnum]
+                        enum JsDebugReadMemoryFlags {
+                            None = 0,
+                            JsDebugAllowPartialRead = 1,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1232510188, 14933, 19376, 182, 151, 136, 254, 222, 119, 232, 234)]
+                        struct MachineDebugManager_DEBUG {}
+                        #[Windows::Win32::Foundation::Metadata::Guid(201995878, 12489, 4560, 143, 32, 0, 128, 95, 44, 208, 100)]
+                        struct MachineDebugManager_RETAIL {}
+                        const OID_JSSIP: GUID = 0x06c9e010_38ce_11d4_a2a3_00104bd35090;
+                        const OID_VBSSIP: GUID = 0x1629f04e_2799_4db5_8fe5_ace10f17ebab;
+                        const OID_WSFSIP: GUID = 0x1a610570_38ce_11d4_a2a3_00104bd35090;
+                        #[repr(i32)]
+                        #[flags]
+                        enum PROFILER_EVENT_MASK {
+                            PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL = 1,
+                            PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL = 2,
+                            PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL = 4,
+                            PROFILER_EVENT_MASK_TRACE_ALL = 3,
+                            PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM = 7,
+                        }
+                        #[repr(i32)]
+                        #[flags]
+                        enum PROFILER_HEAP_ENUM_FLAGS {
+                            PROFILER_HEAP_ENUM_FLAGS_NONE = 0,
+                            PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS = 1,
+                            PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS = 2,
+                            PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS = 3,
+                        }
+                        struct PROFILER_HEAP_OBJECT {
+                            size: u32,
+                            Anonymous: union {
+                                objectId: usize,
+                                externalObjectAddress: *mut void,
+                            },
+                            typeNameId: u32,
+                            flags: u32,
+                            unused: u16,
+                            optionalInfoCount: u16,
+                        }
+                        #[repr(i32)]
+                        #[flags]
+                        enum PROFILER_HEAP_OBJECT_FLAGS {
+                            PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT = 1,
+                            PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT = 2,
+                            PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED = 4,
+                            PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL = 8,
+                            PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN = 16,
+                            PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH = 32,
+                            PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE = 64,
+                            PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE = 128,
+                            PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE = 256,
+                            PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE = 512,
+                            PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS = 1024,
+                            PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE = 2048,
+                            PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE = 4096,
+                        }
+                        const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295;
+                        struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
+                            infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
+                            Anonymous: union {
+                                prototype: usize,
+                                #[Windows::Win32::Foundation::Metadata::Const]
+                                functionName: super::super::super::super::Foundation::PWSTR,
+                                elementAttributesSize: u32,
+                                elementTextChildrenSize: u32,
+                                scopeList: *mut PROFILER_HEAP_OBJECT_SCOPE_LIST,
+                                internalProperty: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP,
+                                namePropertyList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                indexPropertyList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                relationshipList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                eventList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                weakMapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                mapCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                                setCollectionList: *mut PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST,
+                            },
+                        }
+                        #[repr(i32)]
+                        enum PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE = 1,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME = 2,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST = 3,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY = 4,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES = 5,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES = 6,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE = 7,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE = 8,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS = 9,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS = 10,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST = 11,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST = 12,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST = 13,
+                            PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE = 13,
+                        }
+                        struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
+                            relationshipId: u32,
+                            relationshipInfo: PROFILER_RELATIONSHIP_INFO,
+                            Anonymous: union {
+                                numberValue: f64,
+                                #[Windows::Win32::Foundation::Metadata::Const]
+                                stringValue: super::super::super::super::Foundation::PWSTR,
+                                bstrValue: super::super::super::super::Foundation::BSTR,
+                                objectId: usize,
+                                externalObjectAddress: *mut void,
+                                subString: *mut PROFILER_PROPERTY_TYPE_SUBSTRING_INFO,
+                            },
+                        }
+                        #[repr(i32)]
+                        #[flags]
+                        enum PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+                            PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE = 0,
+                            PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR = 65536,
+                            PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR = 131072,
+                            PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE = 262144,
+                            PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE = 524288,
+                        }
+                        struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
+                            count: u32,
+                            #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                            elements: [PROFILER_HEAP_OBJECT_RELATIONSHIP; 1],
+                        }
+                        struct PROFILER_HEAP_OBJECT_SCOPE_LIST {
+                            count: u32,
+                            #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                            scopes: [usize; 1],
+                        }
+                        struct PROFILER_HEAP_SUMMARY {
+                            version: PROFILER_HEAP_SUMMARY_VERSION,
+                            totalHeapSize: u32,
+                        }
+                        #[repr(i32)]
+                        enum PROFILER_HEAP_SUMMARY_VERSION {
+                            PROFILER_HEAP_SUMMARY_VERSION_1 = 1,
+                        }
+                        struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
+                            length: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            value: super::super::super::super::Foundation::PWSTR,
+                        }
+                        #[repr(i32)]
+                        enum PROFILER_RELATIONSHIP_INFO {
+                            PROFILER_PROPERTY_TYPE_NUMBER = 1,
+                            PROFILER_PROPERTY_TYPE_STRING = 2,
+                            PROFILER_PROPERTY_TYPE_HEAP_OBJECT = 3,
+                            PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT = 4,
+                            PROFILER_PROPERTY_TYPE_BSTR = 5,
+                            PROFILER_PROPERTY_TYPE_SUBSTRING = 6,
+                        }
+                        #[repr(i32)]
+                        enum PROFILER_SCRIPT_TYPE {
+                            PROFILER_SCRIPT_TYPE_USER = 0,
+                            PROFILER_SCRIPT_TYPE_DYNAMIC = 1,
+                            PROFILER_SCRIPT_TYPE_NATIVE = 2,
+                            PROFILER_SCRIPT_TYPE_DOM = 3,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2024085538, 20980, 4560, 143, 32, 0, 128, 95, 44, 208, 100)]
+                        struct ProcessDebugManager {}
+                        #[repr(i32)]
+                        enum SCRIPTGCTYPE {
+                            SCRIPTGCTYPE_NORMAL = 0,
+                            SCRIPTGCTYPE_EXHAUSTIVE = 1,
+                        }
+                        const SCRIPTINFO_ITYPEINFO: u32 = 2;
+                        const SCRIPTINFO_IUNKNOWN: u32 = 1;
+                        const SCRIPTINTERRUPT_DEBUG: u32 = 1;
+                        const SCRIPTINTERRUPT_RAISEEXCEPTION: u32 = 2;
+                        const SCRIPTITEM_CODEONLY: u32 = 512;
+                        const SCRIPTITEM_GLOBALMEMBERS: u32 = 8;
+                        const SCRIPTITEM_ISPERSISTENT: u32 = 64;
+                        const SCRIPTITEM_ISSOURCE: u32 = 4;
+                        const SCRIPTITEM_ISVISIBLE: u32 = 2;
+                        const SCRIPTITEM_NOCODE: u32 = 1024;
+                        #[repr(i32)]
+                        enum SCRIPTLANGUAGEVERSION {
+                            SCRIPTLANGUAGEVERSION_DEFAULT = 0,
+                            SCRIPTLANGUAGEVERSION_5_7 = 1,
+                            SCRIPTLANGUAGEVERSION_5_8 = 2,
+                            SCRIPTLANGUAGEVERSION_MAX = 255,
+                        }
+                        const SCRIPTPROC_HOSTMANAGESSOURCE: u32 = 128;
+                        const SCRIPTPROC_IMPLICIT_PARENTS: u32 = 512;
+                        const SCRIPTPROC_IMPLICIT_THIS: u32 = 256;
+                        const SCRIPTPROC_ISEXPRESSION: u32 = 32;
+                        const SCRIPTPROC_ISXDOMAIN: u32 = 1024;
+                        const SCRIPTPROP_ABBREVIATE_GLOBALNAME_RESOLUTION: u32 = 1879048194;
+                        const SCRIPTPROP_BUILDNUMBER: u32 = 3;
+                        const SCRIPTPROP_CATCHEXCEPTION: u32 = 4097;
+                        const SCRIPTPROP_CONVERSIONLCID: u32 = 4098;
+                        const SCRIPTPROP_DEBUGGER: u32 = 4352;
+                        const SCRIPTPROP_DELAYEDEVENTSINKING: u32 = 4096;
+                        const SCRIPTPROP_GCCONTROLSOFTCLOSE: u32 = 8192;
+                        const SCRIPTPROP_HACK_FIBERSUPPORT: u32 = 1879048192;
+                        const SCRIPTPROP_HACK_TRIDENTEVENTSINK: u32 = 1879048193;
+                        const SCRIPTPROP_HOSTKEEPALIVE: u32 = 1879048196;
+                        const SCRIPTPROP_HOSTSTACKREQUIRED: u32 = 4099;
+                        const SCRIPTPROP_INTEGERMODE: u32 = 12288;
+                        const SCRIPTPROP_INVOKEVERSIONING: u32 = 16384;
+                        const SCRIPTPROP_JITDEBUG: u32 = 4353;
+                        const SCRIPTPROP_MAJORVERSION: u32 = 1;
+                        const SCRIPTPROP_MINORVERSION: u32 = 2;
+                        const SCRIPTPROP_NAME: u32 = 0;
+                        const SCRIPTPROP_SCRIPTSAREFULLYTRUSTED: u32 = 4100;
+                        const SCRIPTPROP_STRINGCOMPAREINSTANCE: u32 = 12289;
+                        #[repr(i32)]
+                        enum SCRIPTSTATE {
+                            SCRIPTSTATE_UNINITIALIZED = 0,
+                            SCRIPTSTATE_INITIALIZED = 5,
+                            SCRIPTSTATE_STARTED = 1,
+                            SCRIPTSTATE_CONNECTED = 2,
+                            SCRIPTSTATE_DISCONNECTED = 3,
+                            SCRIPTSTATE_CLOSED = 4,
+                        }
+                        const SCRIPTSTAT_INSTRUCTION_COUNT: u32 = 2;
+                        const SCRIPTSTAT_INTSTRUCTION_TIME: u32 = 3;
+                        const SCRIPTSTAT_STATEMENT_COUNT: u32 = 1;
+                        const SCRIPTSTAT_TOTAL_TIME: u32 = 4;
+                        const SCRIPTTEXT_DELAYEXECUTION: u32 = 1;
+                        const SCRIPTTEXT_HOSTMANAGESSOURCE: u32 = 128;
+                        const SCRIPTTEXT_ISEXPRESSION: u32 = 32;
+                        const SCRIPTTEXT_ISNONUSERCODE: u32 = 512;
+                        const SCRIPTTEXT_ISPERSISTENT: u32 = 64;
+                        const SCRIPTTEXT_ISVISIBLE: u32 = 2;
+                        const SCRIPTTEXT_ISXDOMAIN: u32 = 256;
+                        #[repr(i32)]
+                        enum SCRIPTTHREADSTATE {
+                            SCRIPTTHREADSTATE_NOTINSCRIPT = 0,
+                            SCRIPTTHREADSTATE_RUNNING = 1,
+                        }
+                        #[repr(i32)]
+                        enum SCRIPTTRACEINFO {
+                            SCRIPTTRACEINFO_SCRIPTSTART = 0,
+                            SCRIPTTRACEINFO_SCRIPTEND = 1,
+                            SCRIPTTRACEINFO_COMCALLSTART = 2,
+                            SCRIPTTRACEINFO_COMCALLEND = 3,
+                            SCRIPTTRACEINFO_CREATEOBJSTART = 4,
+                            SCRIPTTRACEINFO_CREATEOBJEND = 5,
+                            SCRIPTTRACEINFO_GETOBJSTART = 6,
+                            SCRIPTTRACEINFO_GETOBJEND = 7,
+                        }
+                        const SCRIPTTYPELIB_ISCONTROL: u32 = 16;
+                        const SCRIPTTYPELIB_ISPERSISTENT: u32 = 64;
+                        #[repr(i32)]
+                        enum SCRIPTUICHANDLING {
+                            SCRIPTUICHANDLING_ALLOW = 0,
+                            SCRIPTUICHANDLING_NOUIERROR = 1,
+                            SCRIPTUICHANDLING_NOUIDEFAULT = 2,
+                        }
+                        #[repr(i32)]
+                        enum SCRIPTUICITEM {
+                            SCRIPTUICITEM_INPUTBOX = 1,
+                            SCRIPTUICITEM_MSGBOX = 2,
+                        }
+                        const SCRIPT_CMPL_COMMIT: u32 = 4;
+                        const SCRIPT_CMPL_ENUMLIST: u32 = 2;
+                        const SCRIPT_CMPL_ENUM_TRIGGER: u32 = 1;
+                        const SCRIPT_CMPL_GLOBALLIST: u32 = 8;
+                        const SCRIPT_CMPL_MEMBERLIST: u32 = 1;
+                        const SCRIPT_CMPL_MEMBER_TRIGGER: u32 = 2;
+                        const SCRIPT_CMPL_NOLIST: u32 = 0;
+                        const SCRIPT_CMPL_PARAMTIP: u32 = 4;
+                        const SCRIPT_CMPL_PARAM_TRIGGER: u32 = 3;
+                        #[repr(i32)]
+                        #[flags]
+                        enum SCRIPT_DEBUGGER_OPTIONS {
+                            SDO_NONE = 0,
+                            SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS = 1,
+                            SDO_ENABLE_WEB_WORKER_SUPPORT = 2,
+                            SDO_ENABLE_NONUSER_CODE_SUPPORT = 4,
+                            SDO_ENABLE_LIBRARY_STACK_FRAME = 8,
+                        }
+                        const SCRIPT_ENCODE_DEFAULT_LANGUAGE: u32 = 1;
+                        const SCRIPT_ENCODE_NO_ASP_LANGUAGE: u32 = 2;
+                        const SCRIPT_ENCODE_SECTION: u32 = 1;
+                        #[repr(i32)]
+                        enum SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {
+                            ETK_FIRST_CHANCE = 0,
+                            ETK_USER_UNHANDLED = 1,
+                            ETK_UNHANDLED = 2,
+                        }
+                        const SCRIPT_E_PROPAGATE: i32 = -2147352318;
+                        const SCRIPT_E_RECORDED: i32 = -2040119292;
+                        const SCRIPT_E_REPORTED: i32 = -2147352319;
+                        #[repr(i32)]
+                        enum SCRIPT_INVOCATION_CONTEXT_TYPE {
+                            SICT_Event = 0,
+                            SICT_SetTimeout = 1,
+                            SICT_SetInterval = 2,
+                            SICT_SetImmediate = 3,
+                            SICT_RequestAnimationFrame = 4,
+                            SICT_ToString = 5,
+                            SICT_MutationObserverCheckpoint = 6,
+                            SICT_WWAExecUnsafeLocalFunction = 7,
+                            SICT_WWAExecAtPriority = 8,
+                        }
+                        const SOURCETEXT_ATTR_COMMENT: u32 = 2;
+                        const SOURCETEXT_ATTR_FUNCTION_START: u32 = 64;
+                        const SOURCETEXT_ATTR_HUMANTEXT: u32 = 32768;
+                        const SOURCETEXT_ATTR_IDENTIFIER: u32 = 256;
+                        const SOURCETEXT_ATTR_KEYWORD: u32 = 1;
+                        const SOURCETEXT_ATTR_MEMBERLOOKUP: u32 = 512;
+                        const SOURCETEXT_ATTR_NONSOURCE: u32 = 4;
+                        const SOURCETEXT_ATTR_NUMBER: u32 = 16;
+                        const SOURCETEXT_ATTR_OPERATOR: u32 = 8;
+                        const SOURCETEXT_ATTR_STRING: u32 = 32;
+                        const SOURCETEXT_ATTR_THIS: u32 = 1024;
+                        struct TEXT_DOCUMENT_ARRAY {
+                            dwCount: u32,
+                            Members: *mut IDebugDocumentText,
+                        }
+                        const TEXT_DOC_ATTR_READONLY: u32 = 1;
+                        const TEXT_DOC_ATTR_TYPE_PRIMARY: u32 = 2;
+                        const TEXT_DOC_ATTR_TYPE_SCRIPT: u32 = 8;
+                        const TEXT_DOC_ATTR_TYPE_WORKER: u32 = 4;
+                        const THREAD_BLOCKED: u32 = 4;
+                        const THREAD_OUT_OF_CONTEXT: u32 = 8;
+                        const THREAD_STATE_RUNNING: u32 = 1;
+                        const THREAD_STATE_SUSPENDED: u32 = 2;
+                        const fasaCaseSensitive: u32 = 4;
+                        const fasaPreferInternalHandler: u32 = 1;
+                        const fasaSupportInternalHandler: u32 = 2;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod SetupAndMigration {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oobenotification/nf-oobenotification-oobecomplete")]
+                #[library("KERNEL32.dll")]
+                extern fn OOBEComplete(isOOBEComplete: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                extern fn OOBE_COMPLETED_CALLBACK(CallbackContext: *mut void);
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oobenotification/nf-oobenotification-registerwaituntiloobecompleted")]
+                #[library("KERNEL32.dll")]
+                extern fn RegisterWaitUntilOOBECompleted(OOBECompletedCallback: OOBE_COMPLETED_CALLBACK, CallbackContext: *mut void, WaitHandle: *mut *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oobenotification/nf-oobenotification-unregisterwaituntiloobecompleted")]
+                #[library("KERNEL32.dll")]
+                extern fn UnregisterWaitUntilOOBECompleted(WaitHandle: *mut void) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

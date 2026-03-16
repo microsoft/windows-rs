@@ -1,0 +1,112 @@
+mod Windows {
+    #[winrt]
+    mod Management {
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmAlert)]
+        interface IMdmAlert {
+            #[special]
+            fn get_Data(&self) -> String;
+            #[special]
+            fn put_Data(&self, value: String);
+            #[special]
+            fn get_Format(&self) -> MdmAlertDataType;
+            #[special]
+            fn put_Format(&self, value: MdmAlertDataType);
+            #[special]
+            fn get_Mark(&self) -> MdmAlertMark;
+            #[special]
+            fn put_Mark(&self, value: MdmAlertMark);
+            #[special]
+            fn get_Source(&self) -> String;
+            #[special]
+            fn put_Source(&self, value: String);
+            #[special]
+            fn get_Status(&self) -> u32;
+            #[special]
+            fn get_Target(&self) -> String;
+            #[special]
+            fn put_Target(&self, value: String);
+            #[special]
+            fn get_Type(&self) -> String;
+            #[special]
+            fn put_Type(&self, value: String);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmSession)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        interface IMdmSession {
+            #[special]
+            fn get_Alerts(&self) -> super::Foundation::Collections::IVectorView<MdmAlert>;
+            #[special]
+            fn get_ExtendedError(&self) -> HRESULT;
+            #[special]
+            fn get_Id(&self) -> String;
+            #[special]
+            fn get_State(&self) -> MdmSessionState;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AttachAsync(&self) -> super::Foundation::IAsyncAction;
+            fn Delete(&self);
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("StartAsync")]
+            fn StartAsync(&self) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("StartWithAlertsAsync")]
+            fn StartAsync(&self, alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmSessionManager)]
+        interface IMdmSessionManagerStatics {
+            #[special]
+            fn get_SessionIds(&self) -> super::Foundation::Collections::IVectorView<String>;
+            fn TryCreateSession(&self) -> MdmSession;
+            fn DeleteSessionById(&self, sessionId: String);
+            fn GetSessionById(&self, sessionId: String) -> MdmSession;
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+        class MdmAlert {
+            #[default]
+            IMdmAlert,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmAlertDataType {
+            String = 0,
+            Base64 = 1,
+            Boolean = 2,
+            Integer = 3,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmAlertMark {
+            None = 0,
+            Fatal = 1,
+            Critical = 2,
+            Warning = 3,
+            Informational = 4,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        class MdmSession {
+            #[default]
+            IMdmSession,
+        }
+        #[Windows::Foundation::Metadata::Static(IMdmSessionManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        class MdmSessionManager {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmSessionState {
+            NotStarted = 0,
+            Starting = 1,
+            Connecting = 2,
+            Communicating = 3,
+            AlertStatusAvailable = 4,
+            Retrying = 5,
+            Completed = 6,
+        }
+    }
+}

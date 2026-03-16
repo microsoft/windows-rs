@@ -1,0 +1,83 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            #[win32]
+            mod Tpm {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nn-tpmvscmgr-itpmvirtualsmartcardmanager")]
+                interface ITpmVirtualSmartCardManager: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nf-tpmvscmgr-itpmvirtualsmartcardmanager-createvirtualsmartcard")]
+                    fn CreateVirtualSmartCard(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFriendlyName: super::super::Foundation::PWSTR, bAdminAlgId: u8, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pbAdminKey: *mut u8, cbAdminKey: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pbAdminKcv: *mut u8, cbAdminKcv: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] pbPuk: *mut u8, cbPuk: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 9)] pbPin: *mut u8, cbPin: u32, fGenerate: super::super::Foundation::BOOL, pStatusCallback: ITpmVirtualSmartCardManagerStatusCallback, ppszInstanceId: *mut super::super::Foundation::PWSTR, pfNeedReboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nf-tpmvscmgr-itpmvirtualsmartcardmanager-destroyvirtualsmartcard")]
+                    fn DestroyVirtualSmartCard(&self, #[Windows::Win32::Foundation::Metadata::Const] pszInstanceId: super::super::Foundation::PWSTR, pStatusCallback: ITpmVirtualSmartCardManagerStatusCallback, pfNeedReboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface ITpmVirtualSmartCardManager2: ITpmVirtualSmartCardManager {
+                    fn CreateVirtualSmartCardWithPinPolicy(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFriendlyName: super::super::Foundation::PWSTR, bAdminAlgId: u8, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pbAdminKey: *mut u8, cbAdminKey: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pbAdminKcv: *mut u8, cbAdminKcv: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] pbPuk: *mut u8, cbPuk: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 9)] pbPin: *mut u8, cbPin: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 11)] pbPinPolicy: *mut u8, cbPinPolicy: u32, fGenerate: super::super::Foundation::BOOL, pStatusCallback: ITpmVirtualSmartCardManagerStatusCallback, ppszInstanceId: *mut super::super::Foundation::PWSTR, pfNeedReboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface ITpmVirtualSmartCardManager3: ITpmVirtualSmartCardManager2 {
+                    fn CreateVirtualSmartCardWithAttestation(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFriendlyName: super::super::Foundation::PWSTR, bAdminAlgId: u8, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pbAdminKey: *mut u8, cbAdminKey: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pbAdminKcv: *mut u8, cbAdminKcv: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] pbPuk: *mut u8, cbPuk: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 9)] pbPin: *mut u8, cbPin: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 11)] pbPinPolicy: *mut u8, cbPinPolicy: u32, attestationType: TPMVSC_ATTESTATION_TYPE, fGenerate: super::super::Foundation::BOOL, pStatusCallback: ITpmVirtualSmartCardManagerStatusCallback, ppszInstanceId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nn-tpmvscmgr-itpmvirtualsmartcardmanagerstatuscallback")]
+                interface ITpmVirtualSmartCardManagerStatusCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nf-tpmvscmgr-itpmvirtualsmartcardmanagerstatuscallback-reportprogress")]
+                    fn ReportProgress(&self, Status: TPMVSCMGR_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/nf-tpmvscmgr-itpmvirtualsmartcardmanagerstatuscallback-reporterror")]
+                    fn ReportError(&self, Error: TPMVSCMGR_ERROR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(355377832, 28892, 19545, 139, 42, 50, 170, 60, 160, 220, 172)]
+                struct RemoteTpmVirtualSmartCardManager {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/ne-tpmvscmgr-tpmvscmgr_error")]
+                enum TPMVSCMGR_ERROR {
+                    TPMVSCMGR_ERROR_IMPERSONATION = 0,
+                    TPMVSCMGR_ERROR_PIN_COMPLEXITY = 1,
+                    TPMVSCMGR_ERROR_READER_COUNT_LIMIT = 2,
+                    TPMVSCMGR_ERROR_TERMINAL_SERVICES_SESSION = 3,
+                    TPMVSCMGR_ERROR_VTPMSMARTCARD_INITIALIZE = 4,
+                    TPMVSCMGR_ERROR_VTPMSMARTCARD_CREATE = 5,
+                    TPMVSCMGR_ERROR_VTPMSMARTCARD_DESTROY = 6,
+                    TPMVSCMGR_ERROR_VGIDSSIMULATOR_INITIALIZE = 7,
+                    TPMVSCMGR_ERROR_VGIDSSIMULATOR_CREATE = 8,
+                    TPMVSCMGR_ERROR_VGIDSSIMULATOR_DESTROY = 9,
+                    TPMVSCMGR_ERROR_VGIDSSIMULATOR_WRITE_PROPERTY = 10,
+                    TPMVSCMGR_ERROR_VGIDSSIMULATOR_READ_PROPERTY = 11,
+                    TPMVSCMGR_ERROR_VREADER_INITIALIZE = 12,
+                    TPMVSCMGR_ERROR_VREADER_CREATE = 13,
+                    TPMVSCMGR_ERROR_VREADER_DESTROY = 14,
+                    TPMVSCMGR_ERROR_GENERATE_LOCATE_READER = 15,
+                    TPMVSCMGR_ERROR_GENERATE_FILESYSTEM = 16,
+                    TPMVSCMGR_ERROR_CARD_CREATE = 17,
+                    TPMVSCMGR_ERROR_CARD_DESTROY = 18,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tpmvscmgr/ne-tpmvscmgr-tpmvscmgr_status")]
+                enum TPMVSCMGR_STATUS {
+                    TPMVSCMGR_STATUS_VTPMSMARTCARD_INITIALIZING = 0,
+                    TPMVSCMGR_STATUS_VTPMSMARTCARD_CREATING = 1,
+                    TPMVSCMGR_STATUS_VTPMSMARTCARD_DESTROYING = 2,
+                    TPMVSCMGR_STATUS_VGIDSSIMULATOR_INITIALIZING = 3,
+                    TPMVSCMGR_STATUS_VGIDSSIMULATOR_CREATING = 4,
+                    TPMVSCMGR_STATUS_VGIDSSIMULATOR_DESTROYING = 5,
+                    TPMVSCMGR_STATUS_VREADER_INITIALIZING = 6,
+                    TPMVSCMGR_STATUS_VREADER_CREATING = 7,
+                    TPMVSCMGR_STATUS_VREADER_DESTROYING = 8,
+                    TPMVSCMGR_STATUS_GENERATE_WAITING = 9,
+                    TPMVSCMGR_STATUS_GENERATE_AUTHENTICATING = 10,
+                    TPMVSCMGR_STATUS_GENERATE_RUNNING = 11,
+                    TPMVSCMGR_STATUS_CARD_CREATED = 12,
+                    TPMVSCMGR_STATUS_CARD_DESTROYED = 13,
+                }
+                #[repr(i32)]
+                enum TPMVSC_ATTESTATION_TYPE {
+                    TPMVSC_ATTESTATION_NONE = 0,
+                    TPMVSC_ATTESTATION_AIK_ONLY = 1,
+                    TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE = 2,
+                }
+                const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130;
+                #[Windows::Win32::Foundation::Metadata::Guid(379686534, 32622, 19488, 173, 137, 79, 252, 13, 183, 169, 106)]
+                struct TpmVirtualSmartCardManager {}
+            }
+        }
+    }
+}

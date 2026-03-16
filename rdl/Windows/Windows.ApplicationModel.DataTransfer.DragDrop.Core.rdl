@@ -1,0 +1,175 @@
+mod Windows {
+    mod ApplicationModel {
+        mod DataTransfer {
+            mod DragDrop {
+                #[winrt]
+                mod Core {
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::Static(ICoreDragDropManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CoreDragDropManager {
+                        #[default]
+                        ICoreDragDropManager,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CoreDragInfo {
+                        #[default]
+                        ICoreDragInfo,
+                        ICoreDragInfo2,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class CoreDragOperation {
+                        #[default]
+                        ICoreDragOperation,
+                        ICoreDragOperation2,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum CoreDragUIContentMode {
+                        Auto = 0,
+                        Deferred = 1,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class CoreDragUIOverride {
+                        #[default]
+                        ICoreDragUIOverride,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class CoreDropOperationTargetRequestedEventArgs {
+                        #[default]
+                        ICoreDropOperationTargetRequestedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragDropManager)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ICoreDragDropManager {
+                        #[special]
+                        fn add_TargetRequested(&self, value: super::super::super::super::Foundation::TypedEventHandler<CoreDragDropManager, CoreDropOperationTargetRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TargetRequested(&self, value: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn get_AreConcurrentOperationsEnabled(&self) -> bool;
+                        #[special]
+                        fn put_AreConcurrentOperationsEnabled(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragDropManager)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ICoreDragDropManagerStatics {
+                        fn GetForCurrentView(&self) -> CoreDragDropManager;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ICoreDragInfo {
+                        #[special]
+                        fn get_Data(&self) -> super::super::DataPackageView;
+                        #[special]
+                        fn get_Modifiers(&self) -> super::DragDropModifiers;
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragInfo)]
+                    interface ICoreDragInfo2: ICoreDragInfo {
+                        #[special]
+                        fn get_AllowedOperations(&self) -> super::super::DataPackageOperation;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragOperation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICoreDragOperation {
+                        #[special]
+                        fn get_Data(&self) -> super::super::DataPackage;
+                        fn SetPointerId(&self, pointerId: u32);
+                        #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmap")]
+                        fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
+                        #[Windows::Foundation::Metadata::Overload("SetDragUIContentFromSoftwareBitmapWithAnchorPoint")]
+                        fn SetDragUIContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        #[special]
+                        fn get_DragUIContentMode(&self) -> CoreDragUIContentMode;
+                        #[special]
+                        fn put_DragUIContentMode(&self, value: CoreDragUIContentMode);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn StartAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragOperation)]
+                    interface ICoreDragOperation2: ICoreDragOperation {
+                        #[special]
+                        fn get_AllowedOperations(&self) -> super::super::DataPackageOperation;
+                        #[special]
+                        fn put_AllowedOperations(&self, value: super::super::DataPackageOperation);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDragUIOverride)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ICoreDragUIOverride {
+                        #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmap")]
+                        fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap);
+                        #[Windows::Foundation::Metadata::Overload("SetContentFromSoftwareBitmapWithAnchorPoint")]
+                        fn SetContentFromSoftwareBitmap(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap, anchorPoint: super::super::super::super::Foundation::Point);
+                        #[special]
+                        fn get_IsContentVisible(&self) -> bool;
+                        #[special]
+                        fn put_IsContentVisible(&self, value: bool);
+                        #[special]
+                        fn get_Caption(&self) -> String;
+                        #[special]
+                        fn put_Caption(&self, value: String);
+                        #[special]
+                        fn get_IsCaptionVisible(&self) -> bool;
+                        #[special]
+                        fn put_IsCaptionVisible(&self, value: bool);
+                        #[special]
+                        fn get_IsGlyphVisible(&self) -> bool;
+                        #[special]
+                        fn put_IsGlyphVisible(&self, value: bool);
+                        fn Clear(&self);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICoreDropOperationTarget {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn EnterAsync(&self, dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn OverAsync(&self, dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn LeaveAsync(&self, dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn DropAsync(&self, dragInfo: CoreDragInfo) -> super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CoreDropOperationTargetRequestedEventArgs)]
+                    interface ICoreDropOperationTargetRequestedEventArgs {
+                        fn SetTarget(&self, target: ICoreDropOperationTarget);
+                    }
+                }
+            }
+        }
+    }
+}

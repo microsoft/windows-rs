@@ -1,0 +1,473 @@
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            #[win32]
+            mod Communication {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-buildcommdcba")]
+                #[library("KERNEL32.dll")]
+                extern fn BuildCommDCBA(lpDef: super::super::Foundation::PSTR, lpDCB: *mut DCB) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-buildcommdcbandtimeoutsa")]
+                #[library("KERNEL32.dll")]
+                extern fn BuildCommDCBAndTimeoutsA(lpDef: super::super::Foundation::PSTR, lpDCB: *mut DCB, lpCommTimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-buildcommdcbandtimeoutsw")]
+                #[library("KERNEL32.dll")]
+                extern fn BuildCommDCBAndTimeoutsW(lpDef: super::super::Foundation::PWSTR, lpDCB: *mut DCB, lpCommTimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-buildcommdcbw")]
+                #[library("KERNEL32.dll")]
+                extern fn BuildCommDCBW(lpDef: super::super::Foundation::PWSTR, lpDCB: *mut DCB) -> super::super::Foundation::BOOL;
+                #[repr(u32)]
+                #[flags]
+                enum CLEAR_COMM_ERROR_FLAGS {
+                    CE_BREAK = 16,
+                    CE_FRAME = 8,
+                    CE_OVERRUN = 2,
+                    CE_RXOVER = 1,
+                    CE_RXPARITY = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-commconfig")]
+                struct COMMCONFIG {
+                    dwSize: u32,
+                    wVersion: u16,
+                    wReserved: u16,
+                    dcb: DCB,
+                    dwProviderSubType: u32,
+                    dwProviderOffset: u32,
+                    dwProviderSize: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    wcProviderData: [u16; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-commprop")]
+                struct COMMPROP {
+                    wPacketLength: u16,
+                    wPacketVersion: u16,
+                    dwServiceMask: u32,
+                    dwReserved1: u32,
+                    dwMaxTxQueue: u32,
+                    dwMaxRxQueue: u32,
+                    dwMaxBaud: u32,
+                    dwProvSubType: u32,
+                    dwProvCapabilities: u32,
+                    dwSettableParams: u32,
+                    dwSettableBaud: u32,
+                    wSettableData: u16,
+                    wSettableStopParity: COMMPROP_STOP_PARITY,
+                    dwCurrentTxQueue: u32,
+                    dwCurrentRxQueue: u32,
+                    dwProvSpec1: u32,
+                    dwProvSpec2: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    wcProvChar: [u16; 1],
+                }
+                #[repr(u16)]
+                #[flags]
+                enum COMMPROP_STOP_PARITY {
+                    STOPBITS_10 = 1,
+                    STOPBITS_15 = 2,
+                    STOPBITS_20 = 4,
+                    PARITY_NONE = 256,
+                    PARITY_ODD = 512,
+                    PARITY_EVEN = 1024,
+                    PARITY_MARK = 2048,
+                    PARITY_SPACE = 4096,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-commtimeouts")]
+                struct COMMTIMEOUTS {
+                    ReadIntervalTimeout: u32,
+                    ReadTotalTimeoutMultiplier: u32,
+                    ReadTotalTimeoutConstant: u32,
+                    WriteTotalTimeoutMultiplier: u32,
+                    WriteTotalTimeoutConstant: u32,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum COMM_EVENT_MASK {
+                    EV_BREAK = 64,
+                    EV_CTS = 8,
+                    EV_DSR = 16,
+                    EV_ERR = 128,
+                    EV_EVENT1 = 2048,
+                    EV_EVENT2 = 4096,
+                    EV_PERR = 512,
+                    EV_RING = 256,
+                    EV_RLSD = 32,
+                    EV_RX80FULL = 1024,
+                    EV_RXCHAR = 1,
+                    EV_RXFLAG = 2,
+                    EV_TXEMPTY = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-comstat")]
+                struct COMSTAT {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fCtsHold", 0, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fDsrHold", 1, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fRlsdHold", 2, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fXoffHold", 3, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fXoffSent", 4, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fEof", 5, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fTxim", 6, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fReserved", 7, 25)]
+                    _bitfield: u32,
+                    cbInQue: u32,
+                    cbOutQue: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-clearcommbreak")]
+                #[library("KERNEL32.dll")]
+                extern fn ClearCommBreak(hFile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-clearcommerror")]
+                #[library("KERNEL32.dll")]
+                extern fn ClearCommError(hFile: super::super::Foundation::HANDLE, lpErrors: *mut CLEAR_COMM_ERROR_FLAGS, lpStat: *mut COMSTAT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-commconfigdialoga")]
+                #[library("KERNEL32.dll")]
+                extern fn CommConfigDialogA(lpszName: super::super::Foundation::PSTR, hWnd: super::super::Foundation::HWND, lpCC: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-commconfigdialogw")]
+                #[library("KERNEL32.dll")]
+                extern fn CommConfigDialogW(lpszName: super::super::Foundation::PWSTR, hWnd: super::super::Foundation::HWND, lpCC: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-dcb")]
+                struct DCB {
+                    DCBlength: u32,
+                    BaudRate: u32,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fBinary", 0, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fParity", 1, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fOutxCtsFlow", 2, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fOutxDsrFlow", 3, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fDtrControl", 4, 2)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fDsrSensitivity", 6, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fTXContinueOnXoff", 7, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fOutX", 8, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fInX", 9, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fErrorChar", 10, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fNull", 11, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fRtsControl", 12, 2)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fAbortOnError", 14, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("fDummy2", 15, 17)]
+                    _bitfield: u32,
+                    wReserved: u16,
+                    XonLim: u16,
+                    XoffLim: u16,
+                    ByteSize: u8,
+                    Parity: DCB_PARITY,
+                    StopBits: DCB_STOP_BITS,
+                    XonChar: super::super::Foundation::CHAR,
+                    XoffChar: super::super::Foundation::CHAR,
+                    ErrorChar: super::super::Foundation::CHAR,
+                    EofChar: super::super::Foundation::CHAR,
+                    EvtChar: super::super::Foundation::CHAR,
+                    wReserved1: u16,
+                }
+                #[repr(u8)]
+                enum DCB_PARITY {
+                    EVENPARITY = 2,
+                    MARKPARITY = 3,
+                    NOPARITY = 0,
+                    ODDPARITY = 1,
+                    SPACEPARITY = 4,
+                }
+                #[repr(u8)]
+                enum DCB_STOP_BITS {
+                    ONESTOPBIT = 0,
+                    ONE5STOPBITS = 1,
+                    TWOSTOPBITS = 2,
+                }
+                #[repr(u32)]
+                enum ESCAPE_COMM_FUNCTION {
+                    CLRBREAK = 9,
+                    CLRDTR = 6,
+                    CLRRTS = 4,
+                    SETBREAK = 8,
+                    SETDTR = 5,
+                    SETRTS = 3,
+                    SETXOFF = 1,
+                    SETXON = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-escapecommfunction")]
+                #[library("KERNEL32.dll")]
+                extern fn EscapeCommFunction(hFile: super::super::Foundation::HANDLE, dwFunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommconfig")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommConfig(hCommDev: super::super::Foundation::HANDLE, lpCC: *mut COMMCONFIG, lpdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommmask")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommMask(hFile: super::super::Foundation::HANDLE, lpEvtMask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommmodemstatus")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommModemStatus(hFile: super::super::Foundation::HANDLE, lpModemStat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17134")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommports")]
+                #[library("api-ms-win-core-comm-l1-1-2.dll")]
+                extern fn GetCommPorts(lpPortNumbers: *mut u32, uPortNumbersCount: u32, puPortNumbersFound: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommproperties")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommProperties(hFile: super::super::Foundation::HANDLE, lpCommProp: *mut COMMPROP) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommstate")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommState(hFile: super::super::Foundation::HANDLE, lpDCB: *mut DCB) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcommtimeouts")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommTimeouts(hFile: super::super::Foundation::HANDLE, lpCommTimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getdefaultcommconfiga")]
+                #[library("KERNEL32.dll")]
+                extern fn GetDefaultCommConfigA(lpszName: super::super::Foundation::PSTR, lpCC: *mut COMMCONFIG, lpdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getdefaultcommconfigw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetDefaultCommConfigW(lpszName: super::super::Foundation::PWSTR, lpCC: *mut COMMCONFIG, lpdwSize: *mut u32) -> super::super::Foundation::BOOL;
+                const MAXLENGTH_NAI: u32 = 72;
+                const MAXLENGTH_UICCDATASTORE: u32 = 10;
+                const MDM_ANALOG_RLP_OFF: u32 = 1;
+                const MDM_ANALOG_RLP_ON: u32 = 0;
+                const MDM_ANALOG_V34: u32 = 2;
+                const MDM_AUTO_ML_2: u32 = 2;
+                const MDM_AUTO_ML_DEFAULT: u32 = 0;
+                const MDM_AUTO_ML_NONE: u32 = 1;
+                const MDM_AUTO_SPEED_DEFAULT: u32 = 0;
+                const MDM_BEARERMODE_ANALOG: u32 = 0;
+                const MDM_BEARERMODE_GSM: u32 = 2;
+                const MDM_BEARERMODE_ISDN: u32 = 1;
+                const MDM_BLIND_DIAL: u32 = 512;
+                const MDM_CCITT_OVERRIDE: u32 = 64;
+                const MDM_CELLULAR: u32 = 8;
+                const MDM_COMPRESSION: u32 = 1;
+                const MDM_DIAGNOSTICS: u32 = 2048;
+                const MDM_ERROR_CONTROL: u32 = 2;
+                const MDM_FLOWCONTROL_HARD: u32 = 16;
+                const MDM_FLOWCONTROL_SOFT: u32 = 32;
+                const MDM_FORCED_EC: u32 = 4;
+                const MDM_HDLCPPP_AUTH_CHAP: u32 = 3;
+                const MDM_HDLCPPP_AUTH_DEFAULT: u32 = 0;
+                const MDM_HDLCPPP_AUTH_MSCHAP: u32 = 4;
+                const MDM_HDLCPPP_AUTH_NONE: u32 = 1;
+                const MDM_HDLCPPP_AUTH_PAP: u32 = 2;
+                const MDM_HDLCPPP_ML_2: u32 = 2;
+                const MDM_HDLCPPP_ML_DEFAULT: u32 = 0;
+                const MDM_HDLCPPP_ML_NONE: u32 = 1;
+                const MDM_HDLCPPP_SPEED_56K: u32 = 2;
+                const MDM_HDLCPPP_SPEED_64K: u32 = 1;
+                const MDM_HDLCPPP_SPEED_DEFAULT: u32 = 0;
+                const MDM_MASK_AUTO_SPEED: u32 = 7;
+                const MDM_MASK_BEARERMODE: u32 = 61440;
+                const MDM_MASK_HDLCPPP_SPEED: u32 = 7;
+                const MDM_MASK_PROTOCOLDATA: u32 = 267386880;
+                const MDM_MASK_PROTOCOLID: u32 = 983040;
+                const MDM_MASK_V110_SPEED: u32 = 15;
+                const MDM_MASK_V120_SPEED: u32 = 7;
+                const MDM_MASK_X75_DATA: u32 = 7;
+                const MDM_PIAFS_INCOMING: u32 = 0;
+                const MDM_PIAFS_OUTGOING: u32 = 1;
+                const MDM_PROTOCOLID_ANALOG: u32 = 7;
+                const MDM_PROTOCOLID_AUTO: u32 = 6;
+                const MDM_PROTOCOLID_DEFAULT: u32 = 0;
+                const MDM_PROTOCOLID_GPRS: u32 = 8;
+                const MDM_PROTOCOLID_HDLCPPP: u32 = 1;
+                const MDM_PROTOCOLID_PIAFS: u32 = 9;
+                const MDM_PROTOCOLID_V110: u32 = 4;
+                const MDM_PROTOCOLID_V120: u32 = 5;
+                const MDM_PROTOCOLID_V128: u32 = 2;
+                const MDM_PROTOCOLID_X75: u32 = 3;
+                const MDM_SHIFT_AUTO_ML: u32 = 6;
+                const MDM_SHIFT_AUTO_SPEED: u32 = 0;
+                const MDM_SHIFT_BEARERMODE: u32 = 12;
+                const MDM_SHIFT_EXTENDEDINFO: u32 = 12;
+                const MDM_SHIFT_HDLCPPP_AUTH: u32 = 3;
+                const MDM_SHIFT_HDLCPPP_ML: u32 = 6;
+                const MDM_SHIFT_HDLCPPP_SPEED: u32 = 0;
+                const MDM_SHIFT_PROTOCOLDATA: u32 = 20;
+                const MDM_SHIFT_PROTOCOLID: u32 = 16;
+                const MDM_SHIFT_PROTOCOLINFO: u32 = 16;
+                const MDM_SHIFT_V110_SPEED: u32 = 0;
+                const MDM_SHIFT_V120_ML: u32 = 6;
+                const MDM_SHIFT_V120_SPEED: u32 = 0;
+                const MDM_SHIFT_X75_DATA: u32 = 0;
+                const MDM_SPEED_ADJUST: u32 = 128;
+                const MDM_TONE_DIAL: u32 = 256;
+                const MDM_V110_SPEED_12DOT0K: u32 = 5;
+                const MDM_V110_SPEED_14DOT4K: u32 = 6;
+                const MDM_V110_SPEED_19DOT2K: u32 = 7;
+                const MDM_V110_SPEED_1DOT2K: u32 = 1;
+                const MDM_V110_SPEED_28DOT8K: u32 = 8;
+                const MDM_V110_SPEED_2DOT4K: u32 = 2;
+                const MDM_V110_SPEED_38DOT4K: u32 = 9;
+                const MDM_V110_SPEED_4DOT8K: u32 = 3;
+                const MDM_V110_SPEED_57DOT6K: u32 = 10;
+                const MDM_V110_SPEED_9DOT6K: u32 = 4;
+                const MDM_V110_SPEED_DEFAULT: u32 = 0;
+                const MDM_V120_ML_2: u32 = 2;
+                const MDM_V120_ML_DEFAULT: u32 = 0;
+                const MDM_V120_ML_NONE: u32 = 1;
+                const MDM_V120_SPEED_56K: u32 = 2;
+                const MDM_V120_SPEED_64K: u32 = 1;
+                const MDM_V120_SPEED_DEFAULT: u32 = 0;
+                const MDM_V23_OVERRIDE: u32 = 1024;
+                const MDM_X75_DATA_128K: u32 = 2;
+                const MDM_X75_DATA_64K: u32 = 1;
+                const MDM_X75_DATA_BTX: u32 = 4;
+                const MDM_X75_DATA_DEFAULT: u32 = 0;
+                const MDM_X75_DATA_T_70: u32 = 3;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mcx/ns-mcx-modemdevcaps")]
+                struct MODEMDEVCAPS {
+                    dwActualSize: u32,
+                    dwRequiredSize: u32,
+                    dwDevSpecificOffset: u32,
+                    dwDevSpecificSize: u32,
+                    dwModemProviderVersion: u32,
+                    dwModemManufacturerOffset: u32,
+                    dwModemManufacturerSize: u32,
+                    dwModemModelOffset: u32,
+                    dwModemModelSize: u32,
+                    dwModemVersionOffset: u32,
+                    dwModemVersionSize: u32,
+                    dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
+                    dwCallSetupFailTimer: u32,
+                    dwInactivityTimeout: u32,
+                    dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
+                    dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
+                    dwModemOptions: u32,
+                    dwMaxDTERate: u32,
+                    dwMaxDCERate: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    abVariablePortion: [u8; 1],
+                }
+                #[repr(u32)]
+                #[flags]
+                enum MODEMDEVCAPS_DIAL_OPTIONS {
+                    DIALOPTION_BILLING = 64,
+                    DIALOPTION_DIALTONE = 256,
+                    DIALOPTION_QUIET = 128,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum MODEMDEVCAPS_SPEAKER_MODE {
+                    MDMSPKRFLAG_CALLSETUP = 8,
+                    MDMSPKRFLAG_DIAL = 2,
+                    MDMSPKRFLAG_OFF = 1,
+                    MDMSPKRFLAG_ON = 4,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum MODEMDEVCAPS_SPEAKER_VOLUME {
+                    MDMVOLFLAG_HIGH = 4,
+                    MDMVOLFLAG_LOW = 1,
+                    MDMVOLFLAG_MEDIUM = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mcx/ns-mcx-modemsettings")]
+                struct MODEMSETTINGS {
+                    dwActualSize: u32,
+                    dwRequiredSize: u32,
+                    dwDevSpecificOffset: u32,
+                    dwDevSpecificSize: u32,
+                    dwCallSetupFailTimer: u32,
+                    dwInactivityTimeout: u32,
+                    dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
+                    dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
+                    dwPreferredModemOptions: u32,
+                    dwNegotiatedModemOptions: u32,
+                    dwNegotiatedDCERate: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    abVariablePortion: [u8; 1],
+                }
+                #[repr(u32)]
+                enum MODEMSETTINGS_SPEAKER_MODE {
+                    MDMSPKR_CALLSETUP = 8,
+                    MDMSPKR_DIAL = 2,
+                    MDMSPKR_OFF = 1,
+                    MDMSPKR_ON = 4,
+                }
+                #[repr(u32)]
+                enum MODEM_SPEAKER_VOLUME {
+                    MDMVOL_HIGH = 2,
+                    MDMVOL_LOW = 0,
+                    MDMVOL_MEDIUM = 1,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum MODEM_STATUS_FLAGS {
+                    MS_CTS_ON = 16,
+                    MS_DSR_ON = 32,
+                    MS_RING_ON = 64,
+                    MS_RLSD_ON = 128,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-opencommport")]
+                #[library("api-ms-win-core-comm-l1-1-1.dll")]
+                extern fn OpenCommPort(uPortNumber: u32, dwDesiredAccess: u32, dwFlagsAndAttributes: u32) -> super::super::Foundation::HANDLE;
+                #[repr(u32)]
+                #[flags]
+                enum PURGE_COMM_FLAGS {
+                    PURGE_RXABORT = 2,
+                    PURGE_RXCLEAR = 8,
+                    PURGE_TXABORT = 1,
+                    PURGE_TXCLEAR = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-purgecomm")]
+                #[library("KERNEL32.dll")]
+                extern fn PurgeComm(hFile: super::super::Foundation::HANDLE, dwFlags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL;
+                const SID_3GPP_SUPSVCMODEL: GUID = 0xd7d08e07_d767_4478_b14a_eecc87ea12f7;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcommbreak")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCommBreak(hFile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcommconfig")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCommConfig(hCommDev: super::super::Foundation::HANDLE, lpCC: *mut COMMCONFIG, dwSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcommmask")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCommMask(hFile: super::super::Foundation::HANDLE, dwEvtMask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcommstate")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCommState(hFile: super::super::Foundation::HANDLE, lpDCB: *mut DCB) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcommtimeouts")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCommTimeouts(hFile: super::super::Foundation::HANDLE, lpCommTimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setdefaultcommconfiga")]
+                #[library("KERNEL32.dll")]
+                extern fn SetDefaultCommConfigA(lpszName: super::super::Foundation::PSTR, lpCC: *mut COMMCONFIG, dwSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setdefaultcommconfigw")]
+                #[library("KERNEL32.dll")]
+                extern fn SetDefaultCommConfigW(lpszName: super::super::Foundation::PWSTR, lpCC: *mut COMMCONFIG, dwSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setupcomm")]
+                #[library("KERNEL32.dll")]
+                extern fn SetupComm(hFile: super::super::Foundation::HANDLE, dwInQueue: u32, dwOutQueue: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-transmitcommchar")]
+                #[library("KERNEL32.dll")]
+                extern fn TransmitCommChar(hFile: super::super::Foundation::HANDLE, cChar: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-waitcommevent")]
+                #[library("KERNEL32.dll")]
+                extern fn WaitCommEvent(hFile: super::super::Foundation::HANDLE, lpEvtMask: *mut COMM_EVENT_MASK, lpOverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

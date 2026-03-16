@@ -1,0 +1,357 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            #[win32]
+            mod Dwm {
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmflip3dwindowpolicy")]
+                enum DWMFLIP3DWINDOWPOLICY {
+                    DWMFLIP3D_DEFAULT = 0,
+                    DWMFLIP3D_EXCLUDEBELOW = 1,
+                    DWMFLIP3D_EXCLUDEABOVE = 2,
+                    DWMFLIP3D_LAST = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmncrenderingpolicy")]
+                enum DWMNCRENDERINGPOLICY {
+                    DWMNCRP_USEWINDOWSTYLE = 0,
+                    DWMNCRP_DISABLED = 1,
+                    DWMNCRP_ENABLED = 2,
+                    DWMNCRP_LAST = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmtransition_ownedwindow_target")]
+                enum DWMTRANSITION_OWNEDWINDOW_TARGET {
+                    DWMTRANSITION_OWNEDWINDOW_NULL = -1,
+                    DWMTRANSITION_OWNEDWINDOW_REPOSITION = 0,
+                }
+                const DWMWA_COLOR_DEFAULT: u32 = 4294967295;
+                const DWMWA_COLOR_NONE: u32 = 4294967294;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute")]
+                enum DWMWINDOWATTRIBUTE {
+                    DWMWA_NCRENDERING_ENABLED = 1,
+                    DWMWA_NCRENDERING_POLICY = 2,
+                    DWMWA_TRANSITIONS_FORCEDISABLED = 3,
+                    DWMWA_ALLOW_NCPAINT = 4,
+                    DWMWA_CAPTION_BUTTON_BOUNDS = 5,
+                    DWMWA_NONCLIENT_RTL_LAYOUT = 6,
+                    DWMWA_FORCE_ICONIC_REPRESENTATION = 7,
+                    DWMWA_FLIP3D_POLICY = 8,
+                    DWMWA_EXTENDED_FRAME_BOUNDS = 9,
+                    DWMWA_HAS_ICONIC_BITMAP = 10,
+                    DWMWA_DISALLOW_PEEK = 11,
+                    DWMWA_EXCLUDED_FROM_PEEK = 12,
+                    DWMWA_CLOAK = 13,
+                    DWMWA_CLOAKED = 14,
+                    DWMWA_FREEZE_REPRESENTATION = 15,
+                    DWMWA_PASSIVE_UPDATE_MODE = 16,
+                    DWMWA_USE_HOSTBACKDROPBRUSH = 17,
+                    DWMWA_USE_IMMERSIVE_DARK_MODE = 20,
+                    DWMWA_WINDOW_CORNER_PREFERENCE = 33,
+                    DWMWA_BORDER_COLOR = 34,
+                    DWMWA_CAPTION_COLOR = 35,
+                    DWMWA_TEXT_COLOR = 36,
+                    DWMWA_VISIBLE_FRAME_BORDER_THICKNESS = 37,
+                    DWMWA_SYSTEMBACKDROP_TYPE = 38,
+                    DWMWA_LAST = 39,
+                }
+                const DWM_BB_BLURREGION: u32 = 2;
+                const DWM_BB_ENABLE: u32 = 1;
+                const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ns-dwmapi-dwm_blurbehind")]
+                struct DWM_BLURBEHIND {
+                    dwFlags: u32,
+                    fEnable: super::super::Foundation::BOOL,
+                    hRgnBlur: super::Gdi::HRGN,
+                    fTransitionOnMaximized: super::super::Foundation::BOOL,
+                }
+                const DWM_CLOAKED_APP: u32 = 1;
+                const DWM_CLOAKED_INHERITED: u32 = 4;
+                const DWM_CLOAKED_SHELL: u32 = 2;
+                const DWM_EC_DISABLECOMPOSITION: u32 = 0;
+                const DWM_EC_ENABLECOMPOSITION: u32 = 1;
+                const DWM_FRAME_DURATION_DEFAULT: i32 = -1;
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ns-dwmapi-dwm_present_parameters")]
+                struct DWM_PRESENT_PARAMETERS {
+                    cbSize: u32,
+                    fQueue: super::super::Foundation::BOOL,
+                    cRefreshStart: u64,
+                    cBuffer: u32,
+                    fUseSourceRate: super::super::Foundation::BOOL,
+                    rateSource: UNSIGNED_RATIO,
+                    cRefreshesPerFrame: u32,
+                    eSampling: DWM_SOURCE_FRAME_SAMPLING,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwm_showcontact")]
+                enum DWM_SHOWCONTACT {
+                    DWMSC_DOWN = 1,
+                    DWMSC_UP = 2,
+                    DWMSC_DRAG = 4,
+                    DWMSC_HOLD = 8,
+                    DWMSC_PENBARREL = 16,
+                    DWMSC_NONE = 0,
+                    DWMSC_ALL = 4294967295,
+                }
+                const DWM_SIT_DISPLAYFRAME: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwm_source_frame_sampling")]
+                enum DWM_SOURCE_FRAME_SAMPLING {
+                    DWM_SOURCE_FRAME_SAMPLING_POINT = 0,
+                    DWM_SOURCE_FRAME_SAMPLING_COVERAGE = 1,
+                    DWM_SOURCE_FRAME_SAMPLING_LAST = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwm_systembackdrop_type")]
+                enum DWM_SYSTEMBACKDROP_TYPE {
+                    DWMSBT_AUTO = 0,
+                    DWMSBT_NONE = 1,
+                    DWMSBT_MAINWINDOW = 2,
+                    DWMSBT_TRANSIENTWINDOW = 3,
+                    DWMSBT_TABBEDWINDOW = 4,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwm_tab_window_requirements")]
+                enum DWM_TAB_WINDOW_REQUIREMENTS {
+                    DWMTWR_NONE = 0,
+                    DWMTWR_IMPLEMENTED_BY_SYSTEM = 1,
+                    DWMTWR_WINDOW_RELATIONSHIP = 2,
+                    DWMTWR_WINDOW_STYLES = 4,
+                    DWMTWR_WINDOW_REGION = 8,
+                    DWMTWR_WINDOW_DWM_ATTRIBUTES = 16,
+                    DWMTWR_WINDOW_MARGINS = 32,
+                    DWMTWR_TABBING_ENABLED = 64,
+                    DWMTWR_USER_POLICY = 128,
+                    DWMTWR_GROUP_POLICY = 256,
+                    DWMTWR_APP_COMPAT = 512,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ns-dwmapi-dwm_thumbnail_properties")]
+                struct DWM_THUMBNAIL_PROPERTIES {
+                    dwFlags: u32,
+                    rcDestination: super::super::Foundation::RECT,
+                    rcSource: super::super::Foundation::RECT,
+                    opacity: u8,
+                    fVisible: super::super::Foundation::BOOL,
+                    fSourceClientAreaOnly: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ns-dwmapi-dwm_timing_info")]
+                struct DWM_TIMING_INFO {
+                    cbSize: u32,
+                    rateRefresh: UNSIGNED_RATIO,
+                    qpcRefreshPeriod: u64,
+                    rateCompose: UNSIGNED_RATIO,
+                    qpcVBlank: u64,
+                    cRefresh: u64,
+                    cDXRefresh: u32,
+                    qpcCompose: u64,
+                    cFrame: u64,
+                    cDXPresent: u32,
+                    cRefreshFrame: u64,
+                    cFrameSubmitted: u64,
+                    cDXPresentSubmitted: u32,
+                    cFrameConfirmed: u64,
+                    cDXPresentConfirmed: u32,
+                    cRefreshConfirmed: u64,
+                    cDXRefreshConfirmed: u32,
+                    cFramesLate: u64,
+                    cFramesOutstanding: u32,
+                    cFrameDisplayed: u64,
+                    qpcFrameDisplayed: u64,
+                    cRefreshFrameDisplayed: u64,
+                    cFrameComplete: u64,
+                    qpcFrameComplete: u64,
+                    cFramePending: u64,
+                    qpcFramePending: u64,
+                    cFramesDisplayed: u64,
+                    cFramesComplete: u64,
+                    cFramesPending: u64,
+                    cFramesAvailable: u64,
+                    cFramesDropped: u64,
+                    cFramesMissed: u64,
+                    cRefreshNextDisplayed: u64,
+                    cRefreshNextPresented: u64,
+                    cRefreshesDisplayed: u64,
+                    cRefreshesPresented: u64,
+                    cRefreshStarted: u64,
+                    cPixelsReceived: u64,
+                    cPixelsDrawn: u64,
+                    cBuffersEmpty: u64,
+                }
+                const DWM_TNP_OPACITY: u32 = 4;
+                const DWM_TNP_RECTDESTINATION: u32 = 1;
+                const DWM_TNP_RECTSOURCE: u32 = 2;
+                const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16;
+                const DWM_TNP_VISIBLE: u32 = 8;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-dwm_window_corner_preference")]
+                enum DWM_WINDOW_CORNER_PREFERENCE {
+                    DWMWCP_DEFAULT = 0,
+                    DWMWCP_DONOTROUND = 1,
+                    DWMWCP_ROUND = 2,
+                    DWMWCP_ROUNDSMALL = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmattachmilcontent")]
+                #[library("dwmapi.dll")]
+                extern fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmdefwindowproc")]
+                #[library("dwmapi.dll")]
+                extern fn DwmDefWindowProc(hWnd: super::super::Foundation::HWND, msg: u32, wParam: super::super::Foundation::WPARAM, lParam: super::super::Foundation::LPARAM, plResult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmdetachmilcontent")]
+                #[library("dwmapi.dll")]
+                extern fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmenableblurbehindwindow")]
+                #[library("dwmapi.dll")]
+                extern fn DwmEnableBlurBehindWindow(hWnd: super::super::Foundation::HWND, pBlurBehind: *mut DWM_BLURBEHIND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmenablecomposition")]
+                #[library("dwmapi.dll")]
+                extern fn DwmEnableComposition(uCompositionAction: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmenablemmcss")]
+                #[library("dwmapi.dll")]
+                extern fn DwmEnableMMCSS(fEnableMMCSS: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmextendframeintoclientarea")]
+                #[library("dwmapi.dll")]
+                extern fn DwmExtendFrameIntoClientArea(hWnd: super::super::Foundation::HWND, pMarInset: *mut super::super::UI::Controls::MARGINS) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmflush")]
+                #[library("dwmapi.dll")]
+                extern fn DwmFlush() -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetcolorizationcolor")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetColorizationColor(pcrColorization: *mut u32, pfOpaqueBlend: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetcompositiontiminginfo")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, pTimingInfo: *mut DWM_TIMING_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetgraphicsstreamclient")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetGraphicsStreamClient(uIndex: u32, pClientUuid: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetgraphicsstreamtransformhint")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetGraphicsStreamTransformHint(uIndex: u32, pTransform: *mut MilMatrix3x2D) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgettransportattributes")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetTransportAttributes(pfIsRemoting: *mut super::super::Foundation::BOOL, pfIsConnected: *mut super::super::Foundation::BOOL, pDwGeneration: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17134")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetunmettabrequirements")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetUnmetTabRequirements(appWindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmgetwindowattribute")]
+                #[library("dwmapi.dll")]
+                extern fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwAttribute: u32, pvAttribute: *mut void, cbAttribute: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwminvalidateiconicbitmaps")]
+                #[library("dwmapi.dll")]
+                extern fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmiscompositionenabled")]
+                #[library("dwmapi.dll")]
+                extern fn DwmIsCompositionEnabled(pfEnabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmmodifypreviousdxframeduration")]
+                #[library("dwmapi.dll")]
+                extern fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, cRefreshes: i32, fRelative: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmquerythumbnailsourcesize")]
+                #[library("dwmapi.dll")]
+                extern fn DwmQueryThumbnailSourceSize(hThumbnail: isize, pSize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmregisterthumbnail")]
+                #[library("dwmapi.dll")]
+                extern fn DwmRegisterThumbnail(hwndDestination: super::super::Foundation::HWND, hwndSource: super::super::Foundation::HWND, phThumbnailId: *mut isize) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmrendergesture")]
+                #[library("dwmapi.dll")]
+                extern fn DwmRenderGesture(gt: GESTURE_TYPE, cContacts: u32, pdwPointerID: *mut u32, pPoints: *mut super::super::Foundation::POINT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmsetdxframeduration")]
+                #[library("dwmapi.dll")]
+                extern fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, cRefreshes: i32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmseticoniclivepreviewbitmap")]
+                #[library("dwmapi.dll")]
+                extern fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptClient: *mut super::super::Foundation::POINT, dwSITFlags: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmseticonicthumbnail")]
+                #[library("dwmapi.dll")]
+                extern fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwSITFlags: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmsetpresentparameters")]
+                #[library("dwmapi.dll")]
+                extern fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, pPresentParams: *mut DWM_PRESENT_PARAMETERS) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmsetwindowattribute")]
+                #[library("dwmapi.dll")]
+                extern fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwAttribute: u32, pvAttribute: *mut void, cbAttribute: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmshowcontact")]
+                #[library("dwmapi.dll")]
+                extern fn DwmShowContact(dwPointerID: u32, eShowContact: DWM_SHOWCONTACT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmtethercontact")]
+                #[library("dwmapi.dll")]
+                extern fn DwmTetherContact(dwPointerID: u32, fEnable: super::super::Foundation::BOOL, ptTether: super::super::Foundation::POINT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmtransitionownedwindow")]
+                #[library("dwmapi.dll")]
+                extern fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmunregisterthumbnail")]
+                #[library("dwmapi.dll")]
+                extern fn DwmUnregisterThumbnail(hThumbnailId: isize) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/nf-dwmapi-dwmupdatethumbnailproperties")]
+                #[library("dwmapi.dll")]
+                extern fn DwmUpdateThumbnailProperties(hThumbnailId: isize, ptnProperties: *mut DWM_THUMBNAIL_PROPERTIES) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ne-dwmapi-gesture_type")]
+                enum GESTURE_TYPE {
+                    GT_PEN_TAP = 0,
+                    GT_PEN_DOUBLETAP = 1,
+                    GT_PEN_RIGHTTAP = 2,
+                    GT_PEN_PRESSANDHOLD = 3,
+                    GT_PEN_PRESSANDHOLDABORT = 4,
+                    GT_TOUCH_TAP = 5,
+                    GT_TOUCH_DOUBLETAP = 6,
+                    GT_TOUCH_RIGHTTAP = 7,
+                    GT_TOUCH_PRESSANDHOLD = 8,
+                    GT_TOUCH_PRESSANDHOLDABORT = 9,
+                    GT_TOUCH_PRESSANDTAP = 10,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mileffects/ns-mileffects-milmatrix3x2d")]
+                struct MilMatrix3x2D {
+                    S_11: f64,
+                    S_12: f64,
+                    S_21: f64,
+                    S_22: f64,
+                    DX: f64,
+                    DY: f64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dwmapi/ns-dwmapi-unsigned_ratio")]
+                struct UNSIGNED_RATIO {
+                    uiNumerator: u32,
+                    uiDenominator: u32,
+                }
+                const c_DwmMaxAdapters: u32 = 16;
+                const c_DwmMaxMonitors: u32 = 16;
+                const c_DwmMaxQueuedBuffers: u32 = 8;
+            }
+        }
+    }
+}

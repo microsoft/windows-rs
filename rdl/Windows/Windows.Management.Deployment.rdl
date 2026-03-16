@@ -1,0 +1,1031 @@
+mod Windows {
+    mod Management {
+        #[winrt]
+        mod Deployment {
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            enum AddPackageByAppInstallerOptions {
+                None = 0,
+                InstallAllResources = 32,
+                ForceTargetAppShutdown = 64,
+                RequiredContentGroupOnly = 256,
+                LimitToExistingPackages = 512,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Activatable(655360, "Windows.Foundation.UniversalApiContract")]
+            class AddPackageOptions {
+                #[default]
+                IAddPackageOptions,
+                IAddPackageOptions2,
+                IAddPackageOptions3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IAppInstallerManagerStatics, 851968, "Windows.Foundation.UniversalApiContract")]
+            class AppInstallerManager {
+                #[default]
+                IAppInstallerManager,
+            }
+            #[Windows::Foundation::Metadata::Activatable(851968, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IAutoUpdateSettingsOptionsStatics, 851968, "Windows.Foundation.UniversalApiContract")]
+            class AutoUpdateSettingsOptions {
+                #[default]
+                IAutoUpdateSettingsOptions,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            class CreateSharedPackageContainerOptions {
+                #[default]
+                ICreateSharedPackageContainerOptions,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            class CreateSharedPackageContainerResult {
+                #[default]
+                ICreateSharedPackageContainerResult,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            class DeleteSharedPackageContainerOptions {
+                #[default]
+                IDeleteSharedPackageContainerOptions,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DeleteSharedPackageContainerResult {
+                #[default]
+                IDeleteSharedPackageContainerResult,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DeploymentOptions {
+                None = 0,
+                ForceApplicationShutdown = 1,
+                DevelopmentMode = 2,
+                InstallAllResources = 32,
+                ForceTargetApplicationShutdown = 64,
+                RequiredContentGroupOnly = 256,
+                ForceUpdateFromAnyVersion = 262144,
+                RetainFilesOnFailure = 2097152,
+                StageInPlace = 4194304,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct DeploymentProgress {
+                state: DeploymentProgressState,
+                percentage: u32,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DeploymentProgressState {
+                Queued = 0,
+                Processing = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class DeploymentResult {
+                #[default]
+                IDeploymentResult,
+                IDeploymentResult2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class FindSharedPackageContainerOptions {
+                #[default]
+                IFindSharedPackageContainerOptions,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AddPackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IAddPackageOptions {
+                #[special]
+                fn get_DependencyPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_TargetVolume(&self) -> PackageVolume;
+                #[special]
+                fn put_TargetVolume(&self, value: PackageVolume);
+                #[special]
+                fn get_OptionalPackageFamilyNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_OptionalPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_RelatedPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_ExternalLocationUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_ExternalLocationUri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_StubPackageOption(&self) -> StubPackageOption;
+                #[special]
+                fn put_StubPackageOption(&self, value: StubPackageOption);
+                #[special]
+                fn get_DeveloperMode(&self) -> bool;
+                #[special]
+                fn put_DeveloperMode(&self, value: bool);
+                #[special]
+                fn get_ForceAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceAppShutdown(&self, value: bool);
+                #[special]
+                fn get_ForceTargetAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceTargetAppShutdown(&self, value: bool);
+                #[special]
+                fn get_ForceUpdateFromAnyVersion(&self) -> bool;
+                #[special]
+                fn put_ForceUpdateFromAnyVersion(&self, value: bool);
+                #[special]
+                fn get_InstallAllResources(&self) -> bool;
+                #[special]
+                fn put_InstallAllResources(&self, value: bool);
+                #[special]
+                fn get_RequiredContentGroupOnly(&self) -> bool;
+                #[special]
+                fn put_RequiredContentGroupOnly(&self, value: bool);
+                #[special]
+                fn get_RetainFilesOnFailure(&self) -> bool;
+                #[special]
+                fn put_RetainFilesOnFailure(&self, value: bool);
+                #[special]
+                fn get_StageInPlace(&self) -> bool;
+                #[special]
+                fn put_StageInPlace(&self, value: bool);
+                #[special]
+                fn get_AllowUnsigned(&self) -> bool;
+                #[special]
+                fn put_AllowUnsigned(&self, value: bool);
+                #[special]
+                fn get_DeferRegistrationWhenPackagesAreInUse(&self) -> bool;
+                #[special]
+                fn put_DeferRegistrationWhenPackagesAreInUse(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AddPackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface IAddPackageOptions2 {
+                #[special]
+                fn get_ExpectedDigests(&self) -> super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, String>;
+                #[special]
+                fn get_LimitToExistingPackages(&self) -> bool;
+                #[special]
+                fn put_LimitToExistingPackages(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AddPackageOptions)]
+            interface IAddPackageOptions3 {
+                #[special]
+                fn get_PackageOperationPriority(&self) -> PackageOperationPriority;
+                #[special]
+                fn put_PackageOperationPriority(&self, value: PackageOperationPriority);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppInstallerManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IAppInstallerManager {
+                fn SetAutoUpdateSettings(&self, packageFamilyName: String, appInstallerInfo: AutoUpdateSettingsOptions);
+                fn ClearAutoUpdateSettings(&self, packageFamilyName: String);
+                fn PauseAutoUpdatesUntil(&self, packageFamilyName: String, dateTime: super::super::Foundation::DateTime);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppInstallerManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IAppInstallerManagerStatics {
+                fn GetDefault(&self) -> AppInstallerManager;
+                fn GetForSystem(&self) -> AppInstallerManager;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutoUpdateSettingsOptions)]
+            interface IAutoUpdateSettingsOptions {
+                #[special]
+                fn get_Version(&self) -> super::super::ApplicationModel::PackageVersion;
+                #[special]
+                fn put_Version(&self, value: super::super::ApplicationModel::PackageVersion);
+                #[special]
+                fn get_AppInstallerUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_AppInstallerUri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_OnLaunch(&self) -> bool;
+                #[special]
+                fn put_OnLaunch(&self, value: bool);
+                #[special]
+                fn get_HoursBetweenUpdateChecks(&self) -> u32;
+                #[special]
+                fn put_HoursBetweenUpdateChecks(&self, value: u32);
+                #[special]
+                fn get_ShowPrompt(&self) -> bool;
+                #[special]
+                fn put_ShowPrompt(&self, value: bool);
+                #[special]
+                fn get_UpdateBlocksActivation(&self) -> bool;
+                #[special]
+                fn put_UpdateBlocksActivation(&self, value: bool);
+                #[special]
+                fn get_AutomaticBackgroundTask(&self) -> bool;
+                #[special]
+                fn put_AutomaticBackgroundTask(&self, value: bool);
+                #[special]
+                fn get_ForceUpdateFromAnyVersion(&self) -> bool;
+                #[special]
+                fn put_ForceUpdateFromAnyVersion(&self, value: bool);
+                #[special]
+                fn get_IsAutoRepairEnabled(&self) -> bool;
+                #[special]
+                fn put_IsAutoRepairEnabled(&self, value: bool);
+                #[special]
+                fn get_UpdateUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_RepairUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_DependencyPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_OptionalPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutoUpdateSettingsOptions)]
+            interface IAutoUpdateSettingsOptionsStatics {
+                fn CreateFromAppInstallerInfo(&self, appInstallerInfo: super::super::ApplicationModel::AppInstallerInfo) -> AutoUpdateSettingsOptions;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateSharedPackageContainerOptions)]
+            interface ICreateSharedPackageContainerOptions {
+                #[special]
+                fn get_Members(&self) -> super::super::Foundation::Collections::IVector<SharedPackageContainerMember>;
+                #[special]
+                fn get_ForceAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceAppShutdown(&self, value: bool);
+                #[special]
+                fn get_CreateCollisionOption(&self) -> SharedPackageContainerCreationCollisionOptions;
+                #[special]
+                fn put_CreateCollisionOption(&self, value: SharedPackageContainerCreationCollisionOptions);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateSharedPackageContainerResult)]
+            interface ICreateSharedPackageContainerResult {
+                #[special]
+                fn get_Container(&self) -> SharedPackageContainer;
+                #[special]
+                fn get_Status(&self) -> SharedPackageContainerOperationStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeleteSharedPackageContainerOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            interface IDeleteSharedPackageContainerOptions {
+                #[special]
+                fn get_ForceAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceAppShutdown(&self, value: bool);
+                #[special]
+                fn get_AllUsers(&self) -> bool;
+                #[special]
+                fn put_AllUsers(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeleteSharedPackageContainerResult)]
+            interface IDeleteSharedPackageContainerResult {
+                #[special]
+                fn get_Status(&self) -> SharedPackageContainerOperationStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDeploymentResult {
+                #[special]
+                fn get_ErrorText(&self) -> String;
+                #[special]
+                fn get_ActivityId(&self) -> GUID;
+                #[special]
+                fn get_ExtendedErrorCode(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentResult)]
+            interface IDeploymentResult2 {
+                #[special]
+                fn get_IsRegistered(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FindSharedPackageContainerOptions)]
+            interface IFindSharedPackageContainerOptions {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_PackageFamilyName(&self) -> String;
+                #[special]
+                fn put_PackageFamilyName(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageAllUserProvisioningOptions)]
+            interface IPackageAllUserProvisioningOptions {
+                #[special]
+                fn get_OptionalPackageFamilyNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_ProjectionOrderPackageFamilyNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageAllUserProvisioningOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            interface IPackageAllUserProvisioningOptions2 {
+                #[special]
+                fn get_DeferAutomaticRegistration(&self) -> bool;
+                #[special]
+                fn put_DeferAutomaticRegistration(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPackageManager {
+                #[Windows::Foundation::Metadata::Overload("AddPackageAsync")]
+                fn AddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                fn UpdatePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemovePackageAsync(&self, packageFullName: String) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                fn StagePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("RegisterPackageAsync")]
+                fn RegisterPackageAsync(&self, manifestUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("FindPackages")]
+                fn FindPackages(&self) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityId")]
+                fn FindPackagesForUser(&self, userSecurityId: String) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByNamePublisher")]
+                fn FindPackages(&self, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdNamePublisher")]
+                fn FindPackagesForUser(&self, userSecurityId: String, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                fn FindUsers(&self, packageFullName: String) -> super::super::Foundation::Collections::IIterable<PackageUserInformation>;
+                fn SetPackageState(&self, packageFullName: String, packageState: PackageState);
+                #[Windows::Foundation::Metadata::Overload("FindPackageByPackageFullName")]
+                fn FindPackage(&self, packageFullName: String) -> super::super::ApplicationModel::Package;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CleanupPackageForUserAsync(&self, packageName: String, userSecurityId: String) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByPackageFamilyName")]
+                fn FindPackages(&self, packageFamilyName: String) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdPackageFamilyName")]
+                fn FindPackagesForUser(&self, userSecurityId: String, packageFamilyName: String) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackageByUserSecurityIdPackageFullName")]
+                fn FindPackageForUser(&self, userSecurityId: String, packageFullName: String) -> super::super::ApplicationModel::Package;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager10 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ProvisionPackageForAllUsersWithOptionsAsync")]
+                fn ProvisionPackageForAllUsersAsync(&self, mainPackageFamilyName: String, options: PackageAllUserProvisioningOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1179648)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager11 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemovePackageByUriAsync(&self, packageUri: super::super::Foundation::Uri, options: RemovePackageOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IPackageManager12 {
+                fn IsPackageRemovalPending(&self, packageFullName: String) -> bool;
+                fn IsPackageRemovalPendingForUser(&self, packageFullName: String, userSecurityId: String) -> bool;
+                fn IsPackageRemovalPendingByUri(&self, packageUri: super::super::Foundation::Uri) -> bool;
+                fn IsPackageRemovalPendingByUriForUser(&self, packageUri: super::super::Foundation::Uri, userSecurityId: String) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager2 {
+                #[Windows::Foundation::Metadata::Overload("RemovePackageWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemovePackageAsync(&self, packageFullName: String, removalOptions: RemovalOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StagePackageWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StagePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterPackageByFullNameAsync(&self, mainPackageFullName: String, dependencyPackageFullNames: super::super::Foundation::Collections::IIterable<String>, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesWithPackageTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdWithPackageTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByNamePublisherWithPackageTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageName: String, packagePublisher: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdNamePublisherWithPackageTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageName: String, packagePublisher: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByPackageFamilyNameWithPackageTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageFamilyName: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageFamilyName: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IIterable<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("StageUserDataAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StageUserDataAsync(&self, packageFullName: String) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AddPackageVolumeAsync(&self, packageStorePath: String) -> super::super::Foundation::IAsyncOperation<PackageVolume>;
+                #[Windows::Foundation::Metadata::Overload("AddPackageToVolumeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                fn ClearPackageStatus(&self, packageFullName: String, status: PackageStatus);
+                #[Windows::Foundation::Metadata::Overload("RegisterPackageWithAppDataVolumeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterPackageAsync(&self, manifestUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, appDataVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("FindPackageVolumeByName")]
+                fn FindPackageVolume(&self, volumeName: String) -> PackageVolume;
+                fn FindPackageVolumes(&self) -> super::super::Foundation::Collections::IIterable<PackageVolume>;
+                fn GetDefaultPackageVolume(&self) -> PackageVolume;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn MovePackageToVolumeAsync(&self, packageFullName: String, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemovePackageVolumeAsync(&self, volume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                fn SetDefaultPackageVolume(&self, volume: PackageVolume);
+                fn SetPackageStatus(&self, packageFullName: String, status: PackageStatus);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPackageVolumeOfflineAsync(&self, packageVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPackageVolumeOnlineAsync(&self, packageVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StagePackageToVolumeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StagePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StageUserDataWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StageUserDataAsync(&self, packageFullName: String, deploymentOptions: DeploymentOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPackageManager4 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetPackageVolumesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PackageVolume>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager5 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::Overload("AddPackageToVolumeAndOptionalPackagesAsync")]
+                fn AddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, externalPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StagePackageToVolumeAndOptionalPackagesAsync")]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StagePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, externalPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RegisterPackageByFamilyNameAndOptionalPackagesAsync")]
+                fn RegisterPackageByFamilyNameAsync(&self, mainPackageFamilyName: String, dependencyPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, deploymentOptions: DeploymentOptions, appDataVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[special]
+                fn get_DebugSettings(&self) -> PackageManagerDebugSettings;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager6 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProvisionPackageForAllUsersAsync(&self, packageFamilyName: String) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AddPackageByAppInstallerFileAsync(&self, appInstallerFileUri: super::super::Foundation::Uri, options: AddPackageByAppInstallerOptions, targetVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAddPackageByAppInstallerFileAsync(&self, appInstallerFileUri: super::super::Foundation::Uri, options: AddPackageByAppInstallerOptions, targetVolume: PackageVolume) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("AddPackageToVolumeAndRelatedSetAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, options: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, packageUrisToInstall: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, relatedPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StagePackageToVolumeAndRelatedSetAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StagePackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, options: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, packageUrisToInstall: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, relatedPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, relatedPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager7 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAddPackageAndRelatedSetAsync")]
+                fn RequestAddPackageAsync(&self, packageUri: super::super::Foundation::Uri, dependencyPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, optionalPackageFamilyNames: super::super::Foundation::Collections::IIterable<String>, relatedPackageUris: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, packageUrisToInstall: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IPackageManager8 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeprovisionPackageForAllUsersAsync(&self, packageFamilyName: String) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManager)]
+            interface IPackageManager9 {
+                #[Windows::Foundation::Metadata::Overload("FindProvisionedPackages")]
+                fn FindProvisionedPackages(&self) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("AddPackageByUriAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AddPackageByUriAsync(&self, packageUri: super::super::Foundation::Uri, options: AddPackageOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("StagePackageByUriAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StagePackageByUriAsync(&self, packageUri: super::super::Foundation::Uri, options: StagePackageOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RegisterPackageByUriAsync")]
+                fn RegisterPackageByUriAsync(&self, manifestUri: super::super::Foundation::Uri, options: RegisterPackageOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("RegisterPackagesByFullNameAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterPackagesByFullNameAsync(&self, packageFullNames: super::super::Foundation::Collections::IIterable<String>, options: RegisterPackageOptions) -> super::super::Foundation::IAsyncOperationWithProgress<DeploymentResult, DeploymentProgress>;
+                #[Windows::Foundation::Metadata::Overload("SetPackageStubPreference")]
+                fn SetPackageStubPreference(&self, packageFamilyName: String, useStub: PackageStubPreference);
+                #[Windows::Foundation::Metadata::Overload("GetPackageStubPreference")]
+                fn GetPackageStubPreference(&self, packageFamilyName: String) -> PackageStubPreference;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageManagerDebugSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IPackageManagerDebugSettings {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("SetContentGroupStateAsync")]
+                fn SetContentGroupStateAsync(&self, package: super::super::ApplicationModel::Package, contentGroupName: String, state: super::super::ApplicationModel::PackageContentGroupState) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SetContentGroupStateWithPercentageAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetContentGroupStateAsync(&self, package: super::super::ApplicationModel::Package, contentGroupName: String, state: super::super::ApplicationModel::PackageContentGroupState, completionPercentage: f64) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageUserInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPackageUserInformation {
+                #[special]
+                fn get_UserSecurityId(&self) -> String;
+                #[special]
+                fn get_InstallState(&self) -> PackageInstallState;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageVolume)]
+            interface IPackageVolume {
+                #[special]
+                fn get_IsOffline(&self) -> bool;
+                #[special]
+                fn get_IsSystemVolume(&self) -> bool;
+                #[special]
+                fn get_MountPoint(&self) -> String;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_PackageStorePath(&self) -> String;
+                #[special]
+                fn get_SupportsHardLinks(&self) -> bool;
+                #[Windows::Foundation::Metadata::Overload("FindPackages")]
+                fn FindPackages(&self) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByNamePublisher")]
+                fn FindPackages(&self, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByPackageFamilyName")]
+                fn FindPackages(&self, packageFamilyName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesWithPackageTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByNamePublisherWithPackagesTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageTypes: PackageTypes, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByPackageFamilyNameWithPackageTypes")]
+                fn FindPackagesWithPackageTypes(&self, packageTypes: PackageTypes, packageFamilyName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackageByPackageFullName")]
+                fn FindPackage(&self, packageFullName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityId")]
+                fn FindPackagesForUser(&self, userSecurityId: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdNamePublisher")]
+                fn FindPackagesForUser(&self, userSecurityId: String, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdPackageFamilyName")]
+                fn FindPackagesForUser(&self, userSecurityId: String, packageFamilyName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdWithPackageTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageTypes: PackageTypes) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdNamePublisherWithPackageTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageTypes: PackageTypes, packageName: String, packagePublisher: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes")]
+                fn FindPackagesForUserWithPackageTypes(&self, userSecurityId: String, packageTypes: PackageTypes, packageFamilyName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+                #[Windows::Foundation::Metadata::Overload("FindPackageByUserSecurityIdPackageFullName")]
+                fn FindPackageForUser(&self, userSecurityId: String, packageFullName: String) -> super::super::Foundation::Collections::IVector<super::super::ApplicationModel::Package>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PackageVolume)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPackageVolume2 {
+                #[special]
+                fn get_IsFullTrustPackageSupported(&self) -> bool;
+                #[special]
+                fn get_IsAppxInstallSupported(&self) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAvailableSpaceAsync(&self) -> super::super::Foundation::IAsyncOperation<u64>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RegisterPackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IRegisterPackageOptions {
+                #[special]
+                fn get_DependencyPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_AppDataVolume(&self) -> PackageVolume;
+                #[special]
+                fn put_AppDataVolume(&self, value: PackageVolume);
+                #[special]
+                fn get_OptionalPackageFamilyNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_ExternalLocationUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_ExternalLocationUri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_DeveloperMode(&self) -> bool;
+                #[special]
+                fn put_DeveloperMode(&self, value: bool);
+                #[special]
+                fn get_ForceAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceAppShutdown(&self, value: bool);
+                #[special]
+                fn get_ForceTargetAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceTargetAppShutdown(&self, value: bool);
+                #[special]
+                fn get_ForceUpdateFromAnyVersion(&self) -> bool;
+                #[special]
+                fn put_ForceUpdateFromAnyVersion(&self, value: bool);
+                #[special]
+                fn get_InstallAllResources(&self) -> bool;
+                #[special]
+                fn put_InstallAllResources(&self, value: bool);
+                #[special]
+                fn get_StageInPlace(&self) -> bool;
+                #[special]
+                fn put_StageInPlace(&self, value: bool);
+                #[special]
+                fn get_AllowUnsigned(&self) -> bool;
+                #[special]
+                fn put_AllowUnsigned(&self, value: bool);
+                #[special]
+                fn get_DeferRegistrationWhenPackagesAreInUse(&self) -> bool;
+                #[special]
+                fn put_DeferRegistrationWhenPackagesAreInUse(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RegisterPackageOptions)]
+            interface IRegisterPackageOptions2 {
+                #[special]
+                fn get_ExpectedDigests(&self) -> super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RemovePackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1179648)]
+            interface IRemovePackageOptions {
+                #[special]
+                fn get_PreserveApplicationData(&self) -> bool;
+                #[special]
+                fn put_PreserveApplicationData(&self, value: bool);
+                #[special]
+                fn get_PreserveRoamableApplicationData(&self) -> bool;
+                #[special]
+                fn put_PreserveRoamableApplicationData(&self, value: bool);
+                #[special]
+                fn get_RemoveForAllUsers(&self) -> bool;
+                #[special]
+                fn put_RemoveForAllUsers(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RemovePackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IRemovePackageOptions2 {
+                #[special]
+                fn get_DeferRemovalWhenPackagesAreInUse(&self) -> bool;
+                #[special]
+                fn put_DeferRemovalWhenPackagesAreInUse(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SharedPackageContainer)]
+            interface ISharedPackageContainer {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_Id(&self) -> String;
+                fn GetMembers(&self) -> super::super::Foundation::Collections::IVector<SharedPackageContainerMember>;
+                fn RemovePackageFamily(&self, packageFamilyName: String, options: UpdateSharedPackageContainerOptions) -> UpdateSharedPackageContainerResult;
+                fn ResetData(&self) -> UpdateSharedPackageContainerResult;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SharedPackageContainerManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            interface ISharedPackageContainerManager {
+                fn CreateContainer(&self, name: String, options: CreateSharedPackageContainerOptions) -> CreateSharedPackageContainerResult;
+                fn DeleteContainer(&self, id: String, options: DeleteSharedPackageContainerOptions) -> DeleteSharedPackageContainerResult;
+                fn GetContainer(&self, id: String) -> SharedPackageContainer;
+                #[Windows::Foundation::Metadata::Overload("FindContainers")]
+                fn FindContainers(&self) -> super::super::Foundation::Collections::IVector<SharedPackageContainer>;
+                #[Windows::Foundation::Metadata::Overload("FindContainersWithOptions")]
+                fn FindContainers(&self, options: FindSharedPackageContainerOptions) -> super::super::Foundation::Collections::IVector<SharedPackageContainer>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SharedPackageContainerManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            interface ISharedPackageContainerManagerStatics {
+                fn GetDefault(&self) -> SharedPackageContainerManager;
+                fn GetForUser(&self, userSid: String) -> SharedPackageContainerManager;
+                fn GetForProvisioning(&self) -> SharedPackageContainerManager;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SharedPackageContainerMember)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            interface ISharedPackageContainerMember {
+                #[special]
+                fn get_PackageFamilyName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SharedPackageContainerMember)]
+            interface ISharedPackageContainerMemberFactory {
+                fn CreateInstance(&self, packageFamilyName: String) -> SharedPackageContainerMember;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(StagePackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IStagePackageOptions {
+                #[special]
+                fn get_DependencyPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_TargetVolume(&self) -> PackageVolume;
+                #[special]
+                fn put_TargetVolume(&self, value: PackageVolume);
+                #[special]
+                fn get_OptionalPackageFamilyNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_OptionalPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_RelatedPackageUris(&self) -> super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[special]
+                fn get_ExternalLocationUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_ExternalLocationUri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_StubPackageOption(&self) -> StubPackageOption;
+                #[special]
+                fn put_StubPackageOption(&self, value: StubPackageOption);
+                #[special]
+                fn get_DeveloperMode(&self) -> bool;
+                #[special]
+                fn put_DeveloperMode(&self, value: bool);
+                #[special]
+                fn get_ForceUpdateFromAnyVersion(&self) -> bool;
+                #[special]
+                fn put_ForceUpdateFromAnyVersion(&self, value: bool);
+                #[special]
+                fn get_InstallAllResources(&self) -> bool;
+                #[special]
+                fn put_InstallAllResources(&self, value: bool);
+                #[special]
+                fn get_RequiredContentGroupOnly(&self) -> bool;
+                #[special]
+                fn put_RequiredContentGroupOnly(&self, value: bool);
+                #[special]
+                fn get_StageInPlace(&self) -> bool;
+                #[special]
+                fn put_StageInPlace(&self, value: bool);
+                #[special]
+                fn get_AllowUnsigned(&self) -> bool;
+                #[special]
+                fn put_AllowUnsigned(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(StagePackageOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface IStagePackageOptions2 {
+                #[special]
+                fn get_ExpectedDigests(&self) -> super::super::Foundation::Collections::IMap<super::super::Foundation::Uri, String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StagePackageOptions)]
+            interface IStagePackageOptions3 {
+                #[special]
+                fn get_PackageOperationPriority(&self) -> PackageOperationPriority;
+                #[special]
+                fn put_PackageOperationPriority(&self, value: PackageOperationPriority);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(UpdateSharedPackageContainerOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            interface IUpdateSharedPackageContainerOptions {
+                #[special]
+                fn get_ForceAppShutdown(&self) -> bool;
+                #[special]
+                fn put_ForceAppShutdown(&self, value: bool);
+                #[special]
+                fn get_RequirePackagesPresent(&self) -> bool;
+                #[special]
+                fn put_RequirePackagesPresent(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UpdateSharedPackageContainerResult)]
+            interface IUpdateSharedPackageContainerResult {
+                #[special]
+                fn get_Status(&self) -> SharedPackageContainerOperationStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::Activatable(851968, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            class PackageAllUserProvisioningOptions {
+                #[default]
+                IPackageAllUserProvisioningOptions,
+                IPackageAllUserProvisioningOptions2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PackageInstallState {
+                NotInstalled = 0,
+                Staged = 1,
+                Installed = 2,
+                Paused = 6,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PackageManager {
+                #[default]
+                IPackageManager,
+                IPackageManager2,
+                IPackageManager3,
+                IPackageManager4,
+                IPackageManager5,
+                IPackageManager6,
+                IPackageManager7,
+                IPackageManager8,
+                IPackageManager9,
+                IPackageManager10,
+                IPackageManager11,
+                IPackageManager12,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class PackageManagerDebugSettings {
+                #[default]
+                IPackageManagerDebugSettings,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            enum PackageOperationPriority {
+                Low = 0,
+                Normal = 1,
+                High = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PackageState {
+                Normal = 0,
+                LicenseInvalid = 1,
+                Modified = 2,
+                Tampered = 3,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PackageStatus {
+                OK = 0,
+                LicenseIssue = 1,
+                Modified = 2,
+                Tampered = 4,
+                Disabled = 8,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum PackageStubPreference {
+                Full = 0,
+                Stub = 1,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PackageTypes {
+                None = 0,
+                Main = 1,
+                Framework = 2,
+                Resource = 4,
+                Bundle = 8,
+                Xap = 16,
+                Optional = 32,
+                All = 4294967295,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PackageUserInformation {
+                #[default]
+                IPackageUserInformation,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PackageVolume {
+                #[default]
+                IPackageVolume,
+                IPackageVolume2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Activatable(655360, "Windows.Foundation.UniversalApiContract")]
+            class RegisterPackageOptions {
+                #[default]
+                IRegisterPackageOptions,
+                IRegisterPackageOptions2,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RemovalOptions {
+                None = 0,
+                PreserveApplicationData = 4096,
+                PreserveRoamableApplicationData = 128,
+                DeferRemovalWhenPackagesAreInUse = 8192,
+                RemoveForAllUsers = 524288,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1179648)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Activatable(1179648, "Windows.Foundation.UniversalApiContract")]
+            class RemovePackageOptions {
+                #[default]
+                IRemovePackageOptions,
+                IRemovePackageOptions2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SharedPackageContainer {
+                #[default]
+                ISharedPackageContainer,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct SharedPackageContainerContract {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            enum SharedPackageContainerCreationCollisionOptions {
+                FailIfExists = 0,
+                MergeWithExisting = 1,
+                ReplaceExisting = 2,
+            }
+            #[Windows::Foundation::Metadata::Static(ISharedPackageContainerManagerStatics, 65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            class SharedPackageContainerManager {
+                #[default]
+                ISharedPackageContainerManager,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(ISharedPackageContainerMemberFactory, 65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            class SharedPackageContainerMember {
+                #[default]
+                ISharedPackageContainerMember,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            enum SharedPackageContainerOperationStatus {
+                Success = 0,
+                BlockedByPolicy = 1,
+                AlreadyExists = 2,
+                PackageFamilyExistsInAnotherContainer = 3,
+                NotFound = 4,
+                UnknownFailure = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Activatable(655360, "Windows.Foundation.UniversalApiContract")]
+            class StagePackageOptions {
+                #[default]
+                IStagePackageOptions,
+                IStagePackageOptions2,
+                IStagePackageOptions3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum StubPackageOption {
+                Default = 0,
+                InstallFull = 1,
+                InstallStub = 2,
+                UsePreference = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Management.Deployment.SharedPackageContainerContract")]
+            class UpdateSharedPackageContainerOptions {
+                #[default]
+                IUpdateSharedPackageContainerOptions,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(SharedPackageContainerContract, 65536)]
+            class UpdateSharedPackageContainerResult {
+                #[default]
+                IUpdateSharedPackageContainerResult,
+            }
+        }
+    }
+}

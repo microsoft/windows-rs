@@ -1,0 +1,251 @@
+mod Windows {
+    mod UI {
+        mod Input {
+            mod Inking {
+                #[winrt]
+                mod Analysis {
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisInkBullet)]
+                    interface IInkAnalysisInkBullet: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisInkDrawing)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisInkDrawing: IInkAnalysisNode {
+                        #[special]
+                        fn get_DrawingKind(&self) -> InkAnalysisDrawingKind;
+                        #[special]
+                        fn get_Center(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Points(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisInkWord)]
+                    interface IInkAnalysisInkWord: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                        #[special]
+                        fn get_TextAlternates(&self) -> super::super::super::super::Foundation::Collections::IVectorView<String>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisLine)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisLine: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                        #[special]
+                        fn get_IndentLevel(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisListItem)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisListItem: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisNode {
+                        #[special]
+                        fn get_Id(&self) -> u32;
+                        #[special]
+                        fn get_Kind(&self) -> InkAnalysisNodeKind;
+                        #[special]
+                        fn get_BoundingRect(&self) -> super::super::super::super::Foundation::Rect;
+                        #[special]
+                        fn get_RotatedBoundingRect(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>;
+                        #[special]
+                        fn get_Children(&self) -> super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>;
+                        #[special]
+                        fn get_Parent(&self) -> IInkAnalysisNode;
+                        fn GetStrokeIds(&self) -> super::super::super::super::Foundation::Collections::IVectorView<u32>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisParagraph)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisParagraph: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisResult)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisResult {
+                        #[special]
+                        fn get_Status(&self) -> InkAnalysisStatus;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisRoot)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalysisRoot: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                        fn FindNodes(&self, nodeKind: InkAnalysisNodeKind) -> super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalysisWritingRegion)]
+                    interface IInkAnalysisWritingRegion: IInkAnalysisNode {
+                        #[special]
+                        fn get_RecognizedText(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InkAnalyzer)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalyzer {
+                        #[special]
+                        fn get_AnalysisRoot(&self) -> InkAnalysisRoot;
+                        #[special]
+                        fn get_IsAnalyzing(&self) -> bool;
+                        fn AddDataForStroke(&self, stroke: super::InkStroke);
+                        fn AddDataForStrokes(&self, strokes: super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>);
+                        fn ClearDataForAllStrokes(&self);
+                        fn RemoveDataForStroke(&self, strokeId: u32);
+                        fn RemoveDataForStrokes(&self, strokeIds: super::super::super::super::Foundation::Collections::IIterable<u32>);
+                        fn ReplaceDataForStroke(&self, stroke: super::InkStroke);
+                        fn SetStrokeDataKind(&self, strokeId: u32, strokeKind: InkAnalysisStrokeKind);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn AnalyzeAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IInkAnalyzerFactory {
+                        fn CreateAnalyzer(&self) -> InkAnalyzer;
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    enum InkAnalysisDrawingKind {
+                        Drawing = 0,
+                        Circle = 1,
+                        Ellipse = 2,
+                        Triangle = 3,
+                        IsoscelesTriangle = 4,
+                        EquilateralTriangle = 5,
+                        RightTriangle = 6,
+                        Quadrilateral = 7,
+                        Rectangle = 8,
+                        Square = 9,
+                        Diamond = 10,
+                        Trapezoid = 11,
+                        Parallelogram = 12,
+                        Pentagon = 13,
+                        Hexagon = 14,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class InkAnalysisInkBullet {
+                        #[default]
+                        IInkAnalysisInkBullet,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class InkAnalysisInkDrawing {
+                        #[default]
+                        IInkAnalysisInkDrawing,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    class InkAnalysisInkWord {
+                        #[default]
+                        IInkAnalysisInkWord,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class InkAnalysisLine {
+                        #[default]
+                        IInkAnalysisLine,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class InkAnalysisListItem {
+                        #[default]
+                        IInkAnalysisListItem,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class InkAnalysisNode {
+                        #[default]
+                        IInkAnalysisNode,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    enum InkAnalysisNodeKind {
+                        UnclassifiedInk = 0,
+                        Root = 1,
+                        WritingRegion = 2,
+                        Paragraph = 3,
+                        Line = 4,
+                        InkWord = 5,
+                        InkBullet = 6,
+                        InkDrawing = 7,
+                        ListItem = 8,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    class InkAnalysisParagraph {
+                        #[default]
+                        IInkAnalysisParagraph,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class InkAnalysisResult {
+                        #[default]
+                        IInkAnalysisResult,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    class InkAnalysisRoot {
+                        #[default]
+                        IInkAnalysisRoot,
+                        IInkAnalysisNode,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    enum InkAnalysisStatus {
+                        Updated = 0,
+                        Unchanged = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    enum InkAnalysisStrokeKind {
+                        Auto = 0,
+                        Writing = 1,
+                        Drawing = 2,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class InkAnalysisWritingRegion {
+                        #[default]
+                        IInkAnalysisWritingRegion,
+                        IInkAnalysisNode,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                    #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class InkAnalyzer {
+                        #[default]
+                        IInkAnalyzer,
+                    }
+                }
+            }
+        }
+    }
+}

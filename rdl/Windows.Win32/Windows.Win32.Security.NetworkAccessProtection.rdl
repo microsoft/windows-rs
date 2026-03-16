@@ -1,0 +1,163 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            #[win32]
+            mod NetworkAccessProtection {
+                const ComponentTypeEnforcementClientRp: u32 = 2;
+                const ComponentTypeEnforcementClientSoH: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-correlationid")]
+                struct CorrelationId {
+                    connId: GUID,
+                    timeStamp: super::super::Foundation::FILETIME,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-countedstring")]
+                struct CountedString {
+                    length: u16,
+                    string: super::super::Foundation::PWSTR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-extendedisolationstate")]
+                enum ExtendedIsolationState {
+                    extendedIsolationStateNoData = 0,
+                    extendedIsolationStateTransition = 1,
+                    extendedIsolationStateInfected = 2,
+                    extendedIsolationStateUnknown = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-failurecategory")]
+                enum FailureCategory {
+                    failureCategoryNone = 0,
+                    failureCategoryOther = 1,
+                    failureCategoryClientComponent = 2,
+                    failureCategoryClientCommunication = 3,
+                    failureCategoryServerComponent = 4,
+                    failureCategoryServerCommunication = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-failurecategorymapping")]
+                struct FailureCategoryMapping {
+                    mappingCompliance: [super::super::Foundation::BOOL; 5],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-fixupinfo")]
+                struct FixupInfo {
+                    state: FixupState,
+                    percentage: u8,
+                    resultCodes: ResultCodes,
+                    fixupMsgId: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-fixupstate")]
+                enum FixupState {
+                    fixupStateSuccess = 0,
+                    fixupStateInProgress = 1,
+                    fixupStateCouldNotUpdate = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-ipv4address")]
+                struct Ipv4Address {
+                    addr: [u8; 4],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-ipv6address")]
+                struct Ipv6Address {
+                    addr: [u8; 16],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-isolationinfo")]
+                struct IsolationInfo {
+                    isolationState: IsolationState,
+                    probEndTime: super::super::Foundation::FILETIME,
+                    failureUrl: CountedString,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-isolationinfoex")]
+                struct IsolationInfoEx {
+                    isolationState: IsolationState,
+                    extendedIsolationState: ExtendedIsolationState,
+                    probEndTime: super::super::Foundation::FILETIME,
+                    failureUrl: CountedString,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-isolationstate")]
+                enum IsolationState {
+                    isolationStateNotRestricted = 1,
+                    isolationStateInProbation = 2,
+                    isolationStateRestrictedAccess = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-napcomponentregistrationinfo")]
+                struct NapComponentRegistrationInfo {
+                    id: u32,
+                    friendlyName: CountedString,
+                    description: CountedString,
+                    version: CountedString,
+                    vendorName: CountedString,
+                    infoClsid: GUID,
+                    configClsid: GUID,
+                    registrationDate: super::super::Foundation::FILETIME,
+                    componentType: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-napnotifytype")]
+                enum NapNotifyType {
+                    napNotifyTypeUnknown = 0,
+                    napNotifyTypeServiceState = 1,
+                    napNotifyTypeQuarState = 2,
+                }
+                #[repr(i32)]
+                enum NapTracingLevel {
+                    tracingLevelUndefined = 0,
+                    tracingLevelBasic = 1,
+                    tracingLevelAdvanced = 2,
+                    tracingLevelDebug = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-networksoh")]
+                struct NetworkSoH {
+                    size: u16,
+                    data: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-privatedata")]
+                struct PrivateData {
+                    size: u16,
+                    data: *mut u8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ne-naptypes-remoteconfigurationtype")]
+                enum RemoteConfigurationType {
+                    remoteConfigTypeMachine = 1,
+                    remoteConfigTypeConfigBlob = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-resultcodes")]
+                struct ResultCodes {
+                    count: u16,
+                    results: *mut super::super::Foundation::HRESULT,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-soh")]
+                struct SoH {
+                    count: u16,
+                    attributes: *mut SoHAttribute,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-sohattribute")]
+                struct SoHAttribute {
+                    r#type: u16,
+                    size: u16,
+                    value: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/naptypes/ns-naptypes-systemhealthagentstate")]
+                struct SystemHealthAgentState {
+                    id: u32,
+                    shaResultCodes: ResultCodes,
+                    failureCategory: FailureCategory,
+                    fixupInfo: FixupInfo,
+                }
+                const failureCategoryCount: u32 = 5;
+                const freshSoHRequest: u32 = 1;
+                const maxConnectionCountPerEnforcer: u32 = 20;
+                const maxEnforcerCount: u32 = 20;
+                const maxNetworkSoHSize: u32 = 4000;
+                const maxPrivateDataSize: u32 = 200;
+                const maxSoHAttributeCount: u32 = 100;
+                const maxSoHAttributeSize: u32 = 4000;
+                const maxStringLength: u32 = 1024;
+                const maxSystemHealthEntityCount: u32 = 20;
+                const minNetworkSoHSize: u32 = 12;
+                const percentageNotSupported: u32 = 101;
+                const shaFixup: u32 = 1;
+            }
+        }
+    }
+}

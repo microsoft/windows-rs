@@ -1,0 +1,480 @@
+mod Windows {
+    mod Media {
+        #[winrt]
+        mod Miracast {
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiver)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiver {
+                fn GetDefaultSettings(&self) -> MiracastReceiverSettings;
+                fn GetCurrentSettings(&self) -> MiracastReceiverSettings;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSettings>;
+                fn DisconnectAllAndApplySettings(&self, settings: MiracastReceiverSettings) -> MiracastReceiverApplySettingsResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisconnectAllAndApplySettingsAsync(&self, settings: MiracastReceiverSettings) -> super::super::Foundation::IAsyncOperation<MiracastReceiverApplySettingsResult>;
+                fn GetStatus(&self) -> MiracastReceiverStatus;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetStatusAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverStatus>;
+                #[special]
+                fn add_StatusChanged(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiver, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_StatusChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                fn CreateSession(&self, view: super::super::ApplicationModel::Core::CoreApplicationView) -> MiracastReceiverSession;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateSessionAsync(&self, view: super::super::ApplicationModel::Core::CoreApplicationView) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSession>;
+                fn ClearKnownTransmitters(&self);
+                fn RemoveKnownTransmitter(&self, transmitter: MiracastTransmitter);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverApplySettingsResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverApplySettingsResult {
+                #[special]
+                fn get_Status(&self) -> MiracastReceiverApplySettingsStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverConnection)]
+            interface IMiracastReceiverConnection {
+                #[Windows::Foundation::Metadata::Overload("Disconnect")]
+                fn Disconnect(&self, reason: MiracastReceiverDisconnectReason);
+                #[Windows::Foundation::Metadata::Overload("DisconnectWithMessage")]
+                fn Disconnect(&self, reason: MiracastReceiverDisconnectReason, message: String);
+                fn Pause(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn PauseAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn Resume(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ResumeAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_Transmitter(&self) -> MiracastTransmitter;
+                #[special]
+                fn get_InputDevices(&self) -> MiracastReceiverInputDevices;
+                #[special]
+                fn get_CursorImageChannel(&self) -> MiracastReceiverCursorImageChannel;
+                #[special]
+                fn get_StreamControl(&self) -> MiracastReceiverStreamControl;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverConnectionCreatedEventArgs)]
+            interface IMiracastReceiverConnectionCreatedEventArgs {
+                #[special]
+                fn get_Connection(&self) -> MiracastReceiverConnection;
+                #[special]
+                fn get_Pin(&self) -> String;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverCursorImageChannel)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverCursorImageChannel {
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn get_MaxImageSize(&self) -> super::super::Graphics::SizeInt32;
+                #[special]
+                fn get_Position(&self) -> super::super::Graphics::PointInt32;
+                #[special]
+                fn get_ImageStream(&self) -> super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[special]
+                fn add_ImageStreamChanged(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ImageStreamChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_PositionChanged(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_PositionChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverCursorImageChannelSettings)]
+            interface IMiracastReceiverCursorImageChannelSettings {
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn put_IsEnabled(&self, value: bool);
+                #[special]
+                fn get_MaxImageSize(&self) -> super::super::Graphics::SizeInt32;
+                #[special]
+                fn put_MaxImageSize(&self, value: super::super::Graphics::SizeInt32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverDisconnectedEventArgs)]
+            interface IMiracastReceiverDisconnectedEventArgs {
+                #[special]
+                fn get_Connection(&self) -> MiracastReceiverConnection;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverGameControllerDevice)]
+            interface IMiracastReceiverGameControllerDevice {
+                #[special]
+                fn get_TransmitInput(&self) -> bool;
+                #[special]
+                fn put_TransmitInput(&self, value: bool);
+                #[special]
+                fn get_IsRequestedByTransmitter(&self) -> bool;
+                #[special]
+                fn get_IsTransmittingInput(&self) -> bool;
+                #[special]
+                fn get_Mode(&self) -> MiracastReceiverGameControllerDeviceUsageMode;
+                #[special]
+                fn put_Mode(&self, value: MiracastReceiverGameControllerDeviceUsageMode);
+                #[special]
+                fn add_Changed(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverInputDevices)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverInputDevices {
+                #[special]
+                fn get_Keyboard(&self) -> MiracastReceiverKeyboardDevice;
+                #[special]
+                fn get_GameController(&self) -> MiracastReceiverGameControllerDevice;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverKeyboardDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverKeyboardDevice {
+                #[special]
+                fn get_TransmitInput(&self) -> bool;
+                #[special]
+                fn put_TransmitInput(&self, value: bool);
+                #[special]
+                fn get_IsRequestedByTransmitter(&self) -> bool;
+                #[special]
+                fn get_IsTransmittingInput(&self) -> bool;
+                #[special]
+                fn add_Changed(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverMediaSourceCreatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverMediaSourceCreatedEventArgs {
+                #[special]
+                fn get_Connection(&self) -> MiracastReceiverConnection;
+                #[special]
+                fn get_MediaSource(&self) -> super::Core::MediaSource;
+                #[special]
+                fn get_CursorImageChannelSettings(&self) -> MiracastReceiverCursorImageChannelSettings;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverSession {
+                #[special]
+                fn add_ConnectionCreated(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ConnectionCreated(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_MediaSourceCreated(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_MediaSourceCreated(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Disconnected(&self, handler: super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverDisconnectedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Disconnected(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_AllowConnectionTakeover(&self) -> bool;
+                #[special]
+                fn put_AllowConnectionTakeover(&self, value: bool);
+                #[special]
+                fn get_MaxSimultaneousConnections(&self) -> i32;
+                #[special]
+                fn put_MaxSimultaneousConnections(&self, value: i32);
+                fn Start(&self) -> MiracastReceiverSessionStartResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSessionStartResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSessionStartResult)]
+            interface IMiracastReceiverSessionStartResult {
+                #[special]
+                fn get_Status(&self) -> MiracastReceiverSessionStartStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverSettings {
+                #[special]
+                fn get_FriendlyName(&self) -> String;
+                #[special]
+                fn put_FriendlyName(&self, value: String);
+                #[special]
+                fn get_ModelName(&self) -> String;
+                #[special]
+                fn put_ModelName(&self, value: String);
+                #[special]
+                fn get_ModelNumber(&self) -> String;
+                #[special]
+                fn put_ModelNumber(&self, value: String);
+                #[special]
+                fn get_AuthorizationMethod(&self) -> MiracastReceiverAuthorizationMethod;
+                #[special]
+                fn put_AuthorizationMethod(&self, value: MiracastReceiverAuthorizationMethod);
+                #[special]
+                fn get_RequireAuthorizationFromKnownTransmitters(&self) -> bool;
+                #[special]
+                fn put_RequireAuthorizationFromKnownTransmitters(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverStatus)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverStatus {
+                #[special]
+                fn get_ListeningStatus(&self) -> MiracastReceiverListeningStatus;
+                #[special]
+                fn get_WiFiStatus(&self) -> MiracastReceiverWiFiStatus;
+                #[special]
+                fn get_IsConnectionTakeoverSupported(&self) -> bool;
+                #[special]
+                fn get_MaxSimultaneousConnections(&self) -> i32;
+                #[special]
+                fn get_KnownTransmitters(&self) -> super::super::Foundation::Collections::IVectorView<MiracastTransmitter>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverStreamControl)]
+            interface IMiracastReceiverStreamControl {
+                fn GetVideoStreamSettings(&self) -> MiracastReceiverVideoStreamSettings;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetVideoStreamSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverVideoStreamSettings>;
+                fn SuggestVideoStreamSettings(&self, settings: MiracastReceiverVideoStreamSettings);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SuggestVideoStreamSettingsAsync(&self, settings: MiracastReceiverVideoStreamSettings) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_MuteAudio(&self) -> bool;
+                #[special]
+                fn put_MuteAudio(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverVideoStreamSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IMiracastReceiverVideoStreamSettings {
+                #[special]
+                fn get_Size(&self) -> super::super::Graphics::SizeInt32;
+                #[special]
+                fn put_Size(&self, value: super::super::Graphics::SizeInt32);
+                #[special]
+                fn get_Bitrate(&self) -> i32;
+                #[special]
+                fn put_Bitrate(&self, value: i32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MiracastTransmitter)]
+            interface IMiracastTransmitter {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_AuthorizationStatus(&self) -> MiracastTransmitterAuthorizationStatus;
+                #[special]
+                fn put_AuthorizationStatus(&self, value: MiracastTransmitterAuthorizationStatus);
+                fn GetConnections(&self) -> super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>;
+                #[special]
+                fn get_MacAddress(&self) -> String;
+                #[special]
+                fn get_LastConnectionTime(&self) -> super::super::Foundation::DateTime;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiver {
+                #[default]
+                IMiracastReceiver,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class MiracastReceiverApplySettingsResult {
+                #[default]
+                IMiracastReceiverApplySettingsResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverApplySettingsStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                MiracastNotSupported = 2,
+                AccessDenied = 3,
+                FriendlyNameTooLong = 4,
+                ModelNameTooLong = 5,
+                ModelNumberTooLong = 6,
+                InvalidSettings = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverAuthorizationMethod {
+                None = 0,
+                ConfirmConnection = 1,
+                PinDisplayIfRequested = 2,
+                PinDisplayRequired = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverConnection {
+                #[default]
+                IMiracastReceiverConnection,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverConnectionCreatedEventArgs {
+                #[default]
+                IMiracastReceiverConnectionCreatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverCursorImageChannel {
+                #[default]
+                IMiracastReceiverCursorImageChannel,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverCursorImageChannelSettings {
+                #[default]
+                IMiracastReceiverCursorImageChannelSettings,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverDisconnectReason {
+                Finished = 0,
+                AppSpecificError = 1,
+                ConnectionNotAccepted = 2,
+                DisconnectedByUser = 3,
+                FailedToStartStreaming = 4,
+                MediaDecodingError = 5,
+                MediaStreamingError = 6,
+                MediaDecryptionError = 7,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MiracastReceiverDisconnectedEventArgs {
+                #[default]
+                IMiracastReceiverDisconnectedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverGameControllerDevice {
+                #[default]
+                IMiracastReceiverGameControllerDevice,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverGameControllerDeviceUsageMode {
+                AsGameController = 0,
+                AsMouseAndKeyboard = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverInputDevices {
+                #[default]
+                IMiracastReceiverInputDevices,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverKeyboardDevice {
+                #[default]
+                IMiracastReceiverKeyboardDevice,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverListeningStatus {
+                NotListening = 0,
+                Listening = 1,
+                ConnectionPending = 2,
+                Connected = 3,
+                DisabledByPolicy = 4,
+                TemporarilyDisabled = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MiracastReceiverMediaSourceCreatedEventArgs {
+                #[default]
+                IMiracastReceiverMediaSourceCreatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverSession {
+                #[default]
+                IMiracastReceiverSession,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class MiracastReceiverSessionStartResult {
+                #[default]
+                IMiracastReceiverSessionStartResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverSessionStartStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                MiracastNotSupported = 2,
+                AccessDenied = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverSettings {
+                #[default]
+                IMiracastReceiverSettings,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MiracastReceiverStatus {
+                #[default]
+                IMiracastReceiverStatus,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class MiracastReceiverStreamControl {
+                #[default]
+                IMiracastReceiverStreamControl,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MiracastReceiverVideoStreamSettings {
+                #[default]
+                IMiracastReceiverVideoStreamSettings,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastReceiverWiFiStatus {
+                MiracastSupportUndetermined = 0,
+                MiracastNotSupported = 1,
+                MiracastSupportNotOptimized = 2,
+                MiracastSupported = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class MiracastTransmitter {
+                #[default]
+                IMiracastTransmitter,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum MiracastTransmitterAuthorizationStatus {
+                Undecided = 0,
+                Allowed = 1,
+                AlwaysPrompt = 2,
+                Blocked = 3,
+            }
+        }
+    }
+}

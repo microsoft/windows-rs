@@ -1,0 +1,357 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod Store {
+            #[Windows::Foundation::Metadata::Static(ICurrentAppWithConsumables, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICurrentApp, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICurrentAppWithCampaignId, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICurrentAppStaticsWithFiltering, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICurrentApp2Statics, 131072, "Windows.Foundation.UniversalApiContract")]
+            class CurrentApp {}
+            #[Windows::Foundation::Metadata::Static(ICurrentAppSimulatorWithConsumables, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICurrentAppSimulatorWithCampaignId, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICurrentAppSimulator, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ICurrentAppSimulatorStaticsWithFiltering, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CurrentAppSimulator {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FulfillmentResult {
+                Succeeded = 0,
+                NothingToFulfill = 1,
+                PurchasePending = 2,
+                PurchaseReverted = 3,
+                ServerError = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentApp)]
+            interface ICurrentApp {
+                #[special]
+                fn get_LicenseInformation(&self) -> LicenseInformation;
+                #[special]
+                fn get_LinkUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn get_AppId(&self) -> GUID;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAppPurchaseAsync(&self, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("RequestProductPurchaseAsync(productId, includeReceipt) may be altered or unavailable for releases after Windows 8.1. Instead, use RequestProductPurchaseAsync(productId).",Deprecate,65536,"Windows.Foundation.UniversalApiContract")]
+                fn RequestProductPurchaseAsync(&self, productId: String, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadListingInformationAsync(&self) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppReceiptAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProductReceiptAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentApp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ICurrentApp2Statics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCustomerPurchaseIdAsync(&self, serviceTicket: String, publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCustomerCollectionsIdAsync(&self, serviceTicket: String, publisherUserId: String) -> super::super::Foundation::IAsyncOperation<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentAppSimulator)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICurrentAppSimulator {
+                #[special]
+                fn get_LicenseInformation(&self) -> LicenseInformation;
+                #[special]
+                fn get_LinkUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn get_AppId(&self) -> GUID;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAppPurchaseAsync(&self, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("RequestProductPurchaseAsync(productId, includeReceipt) may be altered or unavailable for releases after Windows 8.1. Instead, use RequestProductPurchaseAsync(productId).",Deprecate,65536,"Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseAsync")]
+                fn RequestProductPurchaseAsync(&self, productId: String, includeReceipt: bool) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadListingInformationAsync(&self) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppReceiptAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProductReceiptAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReloadSimulatorAsync(&self, simulatorSettingsFile: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentAppSimulator)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICurrentAppSimulatorStaticsWithFiltering {
+                fn LoadListingInformationByProductIdsAsync(&self, productIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+                fn LoadListingInformationByKeywordsAsync(&self, keywords: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentAppSimulator)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICurrentAppSimulatorWithCampaignId {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppPurchaseCampaignIdAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentAppSimulator)]
+            interface ICurrentAppSimulatorWithConsumables {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportConsumableFulfillmentAsync(&self, productId: String, transactionId: GUID) -> super::super::Foundation::IAsyncOperation<FulfillmentResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithResultsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestProductPurchaseAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithDisplayPropertiesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestProductPurchaseAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetUnfulfilledConsumablesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentApp)]
+            interface ICurrentAppStaticsWithFiltering {
+                fn LoadListingInformationByProductIdsAsync(&self, productIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+                fn LoadListingInformationByKeywordsAsync(&self, keywords: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ListingInformation>;
+                fn ReportProductFulfillment(&self, productId: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentApp)]
+            interface ICurrentAppWithCampaignId {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppPurchaseCampaignIdAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentApp)]
+            interface ICurrentAppWithConsumables {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportConsumableFulfillmentAsync(&self, productId: String, transactionId: GUID) -> super::super::Foundation::IAsyncOperation<FulfillmentResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithResultsAsync")]
+                fn RequestProductPurchaseAsync(&self, productId: String) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestProductPurchaseWithDisplayPropertiesAsync")]
+                fn RequestProductPurchaseAsync(&self, productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties) -> super::super::Foundation::IAsyncOperation<PurchaseResults>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetUnfulfilledConsumablesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LicenseInformation)]
+            interface ILicenseInformation {
+                #[special]
+                fn get_ProductLicenses(&self) -> super::super::Foundation::Collections::IMapView<String, ProductLicense>;
+                #[special]
+                fn get_IsActive(&self) -> bool;
+                #[special]
+                fn get_IsTrial(&self) -> bool;
+                #[special]
+                fn get_ExpirationDate(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn add_LicenseChanged(&self, handler: LicenseChangedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_LicenseChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ListingInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IListingInformation {
+                #[special]
+                fn get_CurrentMarket(&self) -> String;
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn get_ProductListings(&self) -> super::super::Foundation::Collections::IMapView<String, ProductListing>;
+                #[special]
+                fn get_FormattedPrice(&self) -> String;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_AgeRating(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ListingInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IListingInformation2 {
+                #[special]
+                fn get_FormattedBasePrice(&self) -> String;
+                #[special]
+                fn get_SaleEndDate(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_IsOnSale(&self) -> bool;
+                #[special]
+                fn get_CurrencyCode(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductLicense)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProductLicense {
+                #[special]
+                fn get_ProductId(&self) -> String;
+                #[special]
+                fn get_IsActive(&self) -> bool;
+                #[special]
+                fn get_ExpirationDate(&self) -> super::super::Foundation::DateTime;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductLicense)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProductLicenseWithFulfillment: IProductLicense {
+                #[special]
+                fn get_IsConsumable(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductListing)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProductListing {
+                #[special]
+                fn get_ProductId(&self) -> String;
+                #[special]
+                fn get_FormattedPrice(&self) -> String;
+                #[special]
+                fn get_Name(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductListing)]
+            interface IProductListing2 {
+                #[special]
+                fn get_FormattedBasePrice(&self) -> String;
+                #[special]
+                fn get_SaleEndDate(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_IsOnSale(&self) -> bool;
+                #[special]
+                fn get_CurrencyCode(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductListing)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProductListingWithConsumables {
+                #[special]
+                fn get_ProductType(&self) -> ProductType;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductListing)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProductListingWithMetadata: IProductListing {
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn get_Keywords(&self) -> super::super::Foundation::Collections::IIterable<String>;
+                #[special]
+                fn get_ProductType(&self) -> ProductType;
+                #[special]
+                fn get_Tag(&self) -> String;
+                #[special]
+                fn get_ImageUri(&self) -> super::super::Foundation::Uri;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductPurchaseDisplayProperties)]
+            interface IProductPurchaseDisplayProperties {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+                #[special]
+                fn get_Image(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_Image(&self, value: super::super::Foundation::Uri);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProductPurchaseDisplayProperties)]
+            interface IProductPurchaseDisplayPropertiesFactory {
+                fn CreateProductPurchaseDisplayProperties(&self, name: String) -> ProductPurchaseDisplayProperties;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PurchaseResults)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPurchaseResults {
+                #[special]
+                fn get_Status(&self) -> ProductPurchaseStatus;
+                #[special]
+                fn get_TransactionId(&self) -> GUID;
+                #[special]
+                fn get_ReceiptXml(&self) -> String;
+                #[special]
+                fn get_OfferId(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UnfulfilledConsumable)]
+            interface IUnfulfilledConsumable {
+                #[special]
+                fn get_ProductId(&self) -> String;
+                #[special]
+                fn get_TransactionId(&self) -> GUID;
+                #[special]
+                fn get_OfferId(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn LicenseChangedEventHandler();
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LicenseInformation {
+                #[default]
+                ILicenseInformation,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ListingInformation {
+                #[default]
+                IListingInformation,
+                IListingInformation2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProductLicense {
+                #[default]
+                IProductLicense,
+                IProductLicenseWithFulfillment,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProductListing {
+                #[default]
+                IProductListing,
+                IProductListingWithMetadata,
+                IProductListing2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IProductPurchaseDisplayPropertiesFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProductPurchaseDisplayProperties {
+                #[default]
+                IProductPurchaseDisplayProperties,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ProductPurchaseStatus {
+                Succeeded = 0,
+                AlreadyPurchased = 1,
+                NotFulfilled = 2,
+                NotPurchased = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ProductType {
+                Unknown = 0,
+                Durable = 1,
+                Consumable = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PurchaseResults {
+                #[default]
+                IPurchaseResults,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class UnfulfilledConsumable {
+                #[default]
+                IUnfulfilledConsumable,
+            }
+        }
+    }
+}

@@ -1,0 +1,464 @@
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            mod Enumeration {
+                #[win32]
+                mod Pnp {
+                    const ADDRESS_FAMILY_VALUE_NAME: String = "AddressFamily";
+                    const FAULT_ACTION_SPECIFIC_BASE: u32 = 600;
+                    const FAULT_ACTION_SPECIFIC_MAX: u32 = 899;
+                    const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501;
+                    const FAULT_INVALID_ACTION: u32 = 401;
+                    const FAULT_INVALID_ARG: u32 = 402;
+                    const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403;
+                    const FAULT_INVALID_VARIABLE: u32 = 404;
+                    #[Windows::Win32::Foundation::Metadata::RAIIFree("SwDeviceClose")]
+                    #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                    #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                    #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                    struct HSWDEVICE {
+                        Value: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpaddressfamilycontrol")]
+                    interface IUPnPAddressFamilyControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpaddressfamilycontrol-setaddressfamily")]
+                        fn SetAddressFamily(&self, dwFlags: i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpaddressfamilycontrol-getaddressfamily")]
+                        fn GetAddressFamily(&self, pdwFlags: *mut i32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpasyncresult")]
+                    interface IUPnPAsyncResult: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpasyncresult-asyncoperationcomplete")]
+                        fn AsyncOperationComplete(&self, ullRequestID: u64) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdescriptiondocument")]
+                    interface IUPnPDescriptionDocument: super::super::super::System::Com::IDispatch {
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-get_readystate")]
+                        fn get_ReadyState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plReadyState: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-load")]
+                        fn Load(&self, bstrUrl: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-loadasync")]
+                        fn LoadAsync(&self, bstrUrl: super::super::super::Foundation::BSTR, punkCallback: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-get_loadresult")]
+                        fn get_LoadResult(&self, #[Windows::Win32::Foundation::Metadata::RetVal] phrError: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-abort")]
+                        fn Abort(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-rootdevice")]
+                        fn RootDevice(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppudRootDevice: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocument-devicebyudn")]
+                        fn DeviceByUDN(&self, bstrUDN: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppudDevice: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdescriptiondocumentcallback")]
+                    interface IUPnPDescriptionDocumentCallback: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdescriptiondocumentcallback-loadcomplete")]
+                        fn LoadComplete(&self, hrLoadResult: super::super::super::Foundation::HRESULT) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevice")]
+                    interface IUPnPDevice: super::super::super::System::Com::IDispatch {
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_isrootdevice")]
+                        fn get_IsRootDevice(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_rootdevice")]
+                        fn get_RootDevice(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppudRootDevice: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_parentdevice")]
+                        fn get_ParentDevice(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppudDeviceParent: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_haschildren")]
+                        fn get_HasChildren(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_children")]
+                        fn get_Children(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppudChildren: *mut IUPnPDevices) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_uniquedevicename")]
+                        fn get_UniqueDeviceName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_friendlyname")]
+                        fn get_FriendlyName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_type")]
+                        fn get_Type(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_presentationurl")]
+                        fn get_PresentationURL(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_manufacturername")]
+                        fn get_ManufacturerName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_manufacturerurl")]
+                        fn get_ManufacturerURL(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_modelname")]
+                        fn get_ModelName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_modelnumber")]
+                        fn get_ModelNumber(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_description")]
+                        fn get_Description(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_modelurl")]
+                        fn get_ModelURL(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_upc")]
+                        fn get_UPC(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_serialnumber")]
+                        fn get_SerialNumber(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-iconurl")]
+                        fn IconURL(&self, bstrEncodingFormat: super::super::super::Foundation::BSTR, lSizeX: i32, lSizeY: i32, lBitDepth: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrIconURL: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevice-get_services")]
+                        fn get_Services(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppusServices: *mut IUPnPServices) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpdevicecontrol")]
+                    interface IUPnPDeviceControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpdevicecontrol-initialize")]
+                        fn Initialize(&self, bstrXMLDesc: super::super::super::Foundation::BSTR, bstrDeviceIdentifier: super::super::super::Foundation::BSTR, bstrInitString: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpdevicecontrol-getserviceobject")]
+                        fn GetServiceObject(&self, bstrUDN: super::super::super::Foundation::BSTR, bstrServiceId: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppdispService: *mut super::super::super::System::Com::IDispatch) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IUPnPDeviceControlHttpHeaders: super::super::super::System::Com::IUnknown {
+                        fn GetAdditionalResponseHeaders(&self, #[Windows::Win32::Foundation::Metadata::RetVal] bstrHttpResponseHeaders: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevicedocumentaccess")]
+                    interface IUPnPDeviceDocumentAccess: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicedocumentaccess-getdocumenturl")]
+                        fn GetDocumentURL(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDocument: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevicedocumentaccessex")]
+                    interface IUPnPDeviceDocumentAccessEx: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicedocumentaccessex-getdocument")]
+                        fn GetDocument(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDocument: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevicefinder")]
+                    interface IUPnPDeviceFinder: super::super::super::System::Com::IDispatch {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinder-findbytype")]
+                        fn FindByType(&self, bstrTypeURI: super::super::super::Foundation::BSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::RetVal] pDevices: *mut IUPnPDevices) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinder-createasyncfind")]
+                        fn CreateAsyncFind(&self, bstrTypeURI: super::super::super::Foundation::BSTR, dwFlags: u32, punkDeviceFinderCallback: super::super::super::System::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::RetVal] plFindData: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinder-startasyncfind")]
+                        fn StartAsyncFind(&self, lFindData: i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinder-cancelasyncfind")]
+                        fn CancelAsyncFind(&self, lFindData: i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinder-findbyudn")]
+                        fn FindByUDN(&self, bstrUDN: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pDevice: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevicefinderaddcallbackwithinterface")]
+                    interface IUPnPDeviceFinderAddCallbackWithInterface: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefinderaddcallbackwithinterface-deviceaddedwithinterface")]
+                        fn DeviceAddedWithInterface(&self, lFindData: i32, pDevice: IUPnPDevice, pguidInterface: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevicefindercallback")]
+                    interface IUPnPDeviceFinderCallback: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefindercallback-deviceadded")]
+                        fn DeviceAdded(&self, lFindData: i32, pDevice: IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefindercallback-deviceremoved")]
+                        fn DeviceRemoved(&self, lFindData: i32, bstrUDN: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevicefindercallback-searchcomplete")]
+                        fn SearchComplete(&self, lFindData: i32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpdeviceprovider")]
+                    interface IUPnPDeviceProvider: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpdeviceprovider-start")]
+                        fn Start(&self, bstrInitString: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpdeviceprovider-stop")]
+                        fn Stop(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpdevices")]
+                    interface IUPnPDevices: super::super::super::System::Com::IDispatch {
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevices-get_count")]
+                        fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plCount: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevices-get__newenum")]
+                        fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppunk: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpdevices-get_item")]
+                        fn get_Item(&self, bstrUDN: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppDevice: *mut IUPnPDevice) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpeventsink")]
+                    interface IUPnPEventSink: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpeventsink-onstatechanged")]
+                        fn OnStateChanged(&self, cChanges: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgdispidChanges: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpeventsink-onstatechangedsafe")]
+                        fn OnStateChangedSafe(&self, varsadispidChanges: super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpeventsource")]
+                    interface IUPnPEventSource: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpeventsource-advise")]
+                        fn Advise(&self, pesSubscriber: IUPnPEventSink) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpeventsource-unadvise")]
+                        fn Unadvise(&self, pesSubscriber: IUPnPEventSink) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnphttpheadercontrol")]
+                    interface IUPnPHttpHeaderControl: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnphttpheadercontrol-addrequestheaders")]
+                        fn AddRequestHeaders(&self, bstrHttpHeaders: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpregistrar")]
+                    interface IUPnPRegistrar: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-registerdevice")]
+                        fn RegisterDevice(&self, bstrXMLDesc: super::super::super::Foundation::BSTR, bstrProgIDDeviceControlClass: super::super::super::Foundation::BSTR, bstrInitString: super::super::super::Foundation::BSTR, bstrContainerId: super::super::super::Foundation::BSTR, bstrResourcePath: super::super::super::Foundation::BSTR, nLifeTime: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDeviceIdentifier: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-registerrunningdevice")]
+                        fn RegisterRunningDevice(&self, bstrXMLDesc: super::super::super::Foundation::BSTR, punkDeviceControl: super::super::super::System::Com::IUnknown, bstrInitString: super::super::super::Foundation::BSTR, bstrResourcePath: super::super::super::Foundation::BSTR, nLifeTime: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDeviceIdentifier: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-registerdeviceprovider")]
+                        fn RegisterDeviceProvider(&self, bstrProviderName: super::super::super::Foundation::BSTR, bstrProgIDProviderClass: super::super::super::Foundation::BSTR, bstrInitString: super::super::super::Foundation::BSTR, bstrContainerId: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-getuniquedevicename")]
+                        fn GetUniqueDeviceName(&self, bstrDeviceIdentifier: super::super::super::Foundation::BSTR, bstrTemplateUDN: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUDN: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-unregisterdevice")]
+                        fn UnregisterDevice(&self, bstrDeviceIdentifier: super::super::super::Foundation::BSTR, fPermanent: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpregistrar-unregisterdeviceprovider")]
+                        fn UnregisterDeviceProvider(&self, bstrProviderName: super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpremoteendpointinfo")]
+                    interface IUPnPRemoteEndpointInfo: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpremoteendpointinfo-getdwordvalue")]
+                        fn GetDwordValue(&self, bstrValueName: super::super::super::Foundation::BSTR, pdwValue: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpremoteendpointinfo-getstringvalue")]
+                        fn GetStringValue(&self, bstrValueName: super::super::super::Foundation::BSTR, pbstrValue: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpremoteendpointinfo-getguidvalue")]
+                        fn GetGuidValue(&self, bstrValueName: super::super::super::Foundation::BSTR, pguidValue: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nn-upnphost-iupnpreregistrar")]
+                    interface IUPnPReregistrar: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpreregistrar-reregisterdevice")]
+                        fn ReregisterDevice(&self, bstrDeviceIdentifier: super::super::super::Foundation::BSTR, bstrXMLDesc: super::super::super::Foundation::BSTR, bstrProgIDDeviceControlClass: super::super::super::Foundation::BSTR, bstrInitString: super::super::super::Foundation::BSTR, bstrContainerId: super::super::super::Foundation::BSTR, bstrResourcePath: super::super::super::Foundation::BSTR, nLifeTime: i32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnphost/nf-upnphost-iupnpreregistrar-reregisterrunningdevice")]
+                        fn ReregisterRunningDevice(&self, bstrDeviceIdentifier: super::super::super::Foundation::BSTR, bstrXMLDesc: super::super::super::Foundation::BSTR, punkDeviceControl: super::super::super::System::Com::IUnknown, bstrInitString: super::super::super::Foundation::BSTR, bstrResourcePath: super::super::super::Foundation::BSTR, nLifeTime: i32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpservice")]
+                    interface IUPnPService: super::super::super::System::Com::IDispatch {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-querystatevariable")]
+                        fn QueryStateVariable(&self, bstrVariableName: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pValue: *mut super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-invokeaction")]
+                        fn InvokeAction(&self, bstrActionName: super::super::super::Foundation::BSTR, vInActionArgs: super::super::super::System::Variant::VARIANT, pvOutActionArgs: *mut super::super::super::System::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::RetVal] pvRetVal: *mut super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-get_servicetypeidentifier")]
+                        fn get_ServiceTypeIdentifier(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-addcallback")]
+                        fn AddCallback(&self, pUnkCallback: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-get_id")]
+                        fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrId: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservice-get_lasttransportstatus")]
+                        fn get_LastTransportStatus(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plValue: *mut i32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpserviceasync")]
+                    interface IUPnPServiceAsync: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-begininvokeaction")]
+                        fn BeginInvokeAction(&self, bstrActionName: super::super::super::Foundation::BSTR, vInActionArgs: super::super::super::System::Variant::VARIANT, pAsyncResult: IUPnPAsyncResult, pullRequestID: *mut u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-endinvokeaction")]
+                        fn EndInvokeAction(&self, ullRequestID: u64, pvOutActionArgs: *mut super::super::super::System::Variant::VARIANT, pvRetVal: *mut super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-beginquerystatevariable")]
+                        fn BeginQueryStateVariable(&self, bstrVariableName: super::super::super::Foundation::BSTR, pAsyncResult: IUPnPAsyncResult, pullRequestID: *mut u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-endquerystatevariable")]
+                        fn EndQueryStateVariable(&self, ullRequestID: u64, pValue: *mut super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-beginsubscribetoevents")]
+                        fn BeginSubscribeToEvents(&self, pUnkCallback: super::super::super::System::Com::IUnknown, pAsyncResult: IUPnPAsyncResult, pullRequestID: *mut u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-endsubscribetoevents")]
+                        fn EndSubscribeToEvents(&self, ullRequestID: u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-beginscpddownload")]
+                        fn BeginSCPDDownload(&self, pAsyncResult: IUPnPAsyncResult, pullRequestID: *mut u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-endscpddownload")]
+                        fn EndSCPDDownload(&self, ullRequestID: u64, pbstrSCPDDoc: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceasync-cancelasyncoperation")]
+                        fn CancelAsyncOperation(&self, ullRequestID: u64) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpservicecallback")]
+                    interface IUPnPServiceCallback: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservicecallback-statevariablechanged")]
+                        fn StateVariableChanged(&self, pus: IUPnPService, #[Windows::Win32::Foundation::Metadata::Const] pcwszStateVarName: super::super::super::Foundation::PWSTR, vaValue: super::super::super::System::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservicecallback-serviceinstancedied")]
+                        fn ServiceInstanceDied(&self, pus: IUPnPService) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpservicedocumentaccess")]
+                    interface IUPnPServiceDocumentAccess: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservicedocumentaccess-getdocumenturl")]
+                        fn GetDocumentURL(&self, pbstrDocUrl: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservicedocumentaccess-getdocument")]
+                        fn GetDocument(&self, pbstrDoc: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpserviceenumproperty")]
+                    interface IUPnPServiceEnumProperty: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpserviceenumproperty-setserviceenumproperty")]
+                        fn SetServiceEnumProperty(&self, dwMask: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nn-upnp-iupnpservices")]
+                    interface IUPnPServices: super::super::super::System::Com::IDispatch {
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservices-get_count")]
+                        fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plCount: *mut i32) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservices-get__newenum")]
+                        fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppunk: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/upnp/nf-upnp-iupnpservices-get_item")]
+                        fn get_Item(&self, bstrServiceId: super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppService: *mut IUPnPService) -> super::super::super::Foundation::HRESULT;
+                    }
+                    const REMOTE_ADDRESS_VALUE_NAME: String = "RemoteAddress";
+                    #[repr(i32)]
+                    enum SW_DEVICE_CAPABILITIES {
+                        SWDeviceCapabilitiesNone = 0,
+                        SWDeviceCapabilitiesRemovable = 1,
+                        SWDeviceCapabilitiesSilentInstall = 2,
+                        SWDeviceCapabilitiesNoDisplayInUI = 4,
+                        SWDeviceCapabilitiesDriverRequired = 8,
+                    }
+                    extern fn SW_DEVICE_CREATE_CALLBACK(hSwDevice: HSWDEVICE, CreateResult: super::super::super::Foundation::HRESULT, pContext: *mut void, pszDeviceInstanceId: super::super::super::Foundation::PWSTR);
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevicedef/ns-swdevicedef-sw_device_create_info")]
+                    struct SW_DEVICE_CREATE_INFO {
+                        cbSize: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pszInstanceId: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        #[Windows::Win32::Foundation::Metadata::NotNullTerminated]
+                        #[Windows::Win32::Foundation::Metadata::NullNullTerminated]
+                        pszzHardwareIds: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        #[Windows::Win32::Foundation::Metadata::NotNullTerminated]
+                        #[Windows::Win32::Foundation::Metadata::NullNullTerminated]
+                        pszzCompatibleIds: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pContainerId: *mut GUID,
+                        CapabilityFlags: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pszDeviceDescription: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pszDeviceLocation: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pSecurityDescriptor: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
+                    }
+                    #[repr(i32)]
+                    enum SW_DEVICE_LIFETIME {
+                        SWDeviceLifetimeHandle = 0,
+                        SWDeviceLifetimeParentPresent = 1,
+                        SWDeviceLifetimeMax = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdeviceclose")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceClose(hSwDevice: HSWDEVICE);
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdevicecreate")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceCreate(pszEnumeratorName: super::super::super::Foundation::PWSTR, pszParentDeviceInstance: super::super::super::Foundation::PWSTR, pCreateInfo: *mut SW_DEVICE_CREATE_INFO, cPropertyCount: u32, pProperties: *mut super::super::Properties::DEVPROPERTY, pCallback: SW_DEVICE_CREATE_CALLBACK, pContext: *mut void, phSwDevice: *mut HSWDEVICE) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdevicegetlifetime")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceGetLifetime(hSwDevice: HSWDEVICE, pLifetime: *mut SW_DEVICE_LIFETIME) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdeviceinterfacepropertyset")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceInterfacePropertySet(hSwDevice: HSWDEVICE, pszDeviceInterfaceId: super::super::super::Foundation::PWSTR, cPropertyCount: u32, pProperties: *mut super::super::Properties::DEVPROPERTY) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdeviceinterfaceregister")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceInterfaceRegister(hSwDevice: HSWDEVICE, pInterfaceClassGuid: *mut GUID, pszReferenceString: super::super::super::Foundation::PWSTR, cPropertyCount: u32, pProperties: *mut super::super::Properties::DEVPROPERTY, fEnabled: super::super::super::Foundation::BOOL, ppszDeviceInterfaceId: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdeviceinterfacesetstate")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceInterfaceSetState(hSwDevice: HSWDEVICE, pszDeviceInterfaceId: super::super::super::Foundation::PWSTR, fEnabled: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdevicepropertyset")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDevicePropertySet(hSwDevice: HSWDEVICE, cPropertyCount: u32, pProperties: *mut super::super::Properties::DEVPROPERTY) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swdevicesetlifetime")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwDeviceSetLifetime(hSwDevice: HSWDEVICE, Lifetime: SW_DEVICE_LIFETIME) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/swdevice/nf-swdevice-swmemfree")]
+                    #[library("CFGMGR32.dll")]
+                    extern fn SwMemFree(pMem: *mut void);
+                    const UPNP_ADDRESSFAMILY_BOTH: u32 = 3;
+                    const UPNP_ADDRESSFAMILY_IPv4: u32 = 1;
+                    const UPNP_ADDRESSFAMILY_IPv6: u32 = 2;
+                    const UPNP_E_ACTION_REQUEST_FAILED: super::super::super::Foundation::HRESULT = -2147220976;
+                    const UPNP_E_ACTION_SPECIFIC_BASE: super::super::super::Foundation::HRESULT = -2147220736;
+                    const UPNP_E_DEVICE_ELEMENT_EXPECTED: super::super::super::Foundation::HRESULT = -2147220991;
+                    const UPNP_E_DEVICE_ERROR: super::super::super::Foundation::HRESULT = -2147220972;
+                    const UPNP_E_DEVICE_NODE_INCOMPLETE: super::super::super::Foundation::HRESULT = -2147220988;
+                    const UPNP_E_DEVICE_NOTREGISTERED: super::super::super::Foundation::HRESULT = -2147180494;
+                    const UPNP_E_DEVICE_RUNNING: super::super::super::Foundation::HRESULT = -2147180495;
+                    const UPNP_E_DEVICE_TIMEOUT: super::super::super::Foundation::HRESULT = -2147220969;
+                    const UPNP_E_DUPLICATE_NOT_ALLOWED: super::super::super::Foundation::HRESULT = -2147180511;
+                    const UPNP_E_DUPLICATE_SERVICE_ID: super::super::super::Foundation::HRESULT = -2147180510;
+                    const UPNP_E_ERROR_PROCESSING_RESPONSE: super::super::super::Foundation::HRESULT = -2147220970;
+                    const UPNP_E_EVENT_SUBSCRIPTION_FAILED: super::super::super::Foundation::HRESULT = -2147220223;
+                    const UPNP_E_ICON_ELEMENT_EXPECTED: super::super::super::Foundation::HRESULT = -2147220987;
+                    const UPNP_E_ICON_NODE_INCOMPLETE: super::super::super::Foundation::HRESULT = -2147220986;
+                    const UPNP_E_INVALID_ACTION: super::super::super::Foundation::HRESULT = -2147220985;
+                    const UPNP_E_INVALID_ARGUMENTS: super::super::super::Foundation::HRESULT = -2147220984;
+                    const UPNP_E_INVALID_DESCRIPTION: super::super::super::Foundation::HRESULT = -2147180509;
+                    const UPNP_E_INVALID_DOCUMENT: super::super::super::Foundation::HRESULT = -2147220224;
+                    const UPNP_E_INVALID_ICON: super::super::super::Foundation::HRESULT = -2147180507;
+                    const UPNP_E_INVALID_ROOT_NAMESPACE: super::super::super::Foundation::HRESULT = -2147180505;
+                    const UPNP_E_INVALID_SERVICE: super::super::super::Foundation::HRESULT = -2147180508;
+                    const UPNP_E_INVALID_VARIABLE: super::super::super::Foundation::HRESULT = -2147220973;
+                    const UPNP_E_INVALID_XML: super::super::super::Foundation::HRESULT = -2147180506;
+                    const UPNP_E_OUT_OF_SYNC: super::super::super::Foundation::HRESULT = -2147220983;
+                    const UPNP_E_PROTOCOL_ERROR: super::super::super::Foundation::HRESULT = -2147220971;
+                    const UPNP_E_REQUIRED_ELEMENT_ERROR: super::super::super::Foundation::HRESULT = -2147180512;
+                    const UPNP_E_ROOT_ELEMENT_EXPECTED: super::super::super::Foundation::HRESULT = -2147220992;
+                    const UPNP_E_SERVICE_ELEMENT_EXPECTED: super::super::super::Foundation::HRESULT = -2147220990;
+                    const UPNP_E_SERVICE_NODE_INCOMPLETE: super::super::super::Foundation::HRESULT = -2147220989;
+                    const UPNP_E_SUFFIX_TOO_LONG: super::super::super::Foundation::HRESULT = -2147180504;
+                    const UPNP_E_TRANSPORT_ERROR: super::super::super::Foundation::HRESULT = -2147220975;
+                    const UPNP_E_URLBASE_PRESENT: super::super::super::Foundation::HRESULT = -2147180503;
+                    const UPNP_E_VALUE_TOO_LONG: super::super::super::Foundation::HRESULT = -2147180496;
+                    const UPNP_E_VARIABLE_VALUE_UNKNOWN: super::super::super::Foundation::HRESULT = -2147220974;
+                    const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Guid(495622983, 14888, 19682, 138, 75, 189, 52, 228, 91, 206, 235)]
+                    struct UPnPDescriptionDocument {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(872220003, 55322, 17299, 131, 204, 1, 149, 177, 218, 47, 145)]
+                    struct UPnPDescriptionDocumentEx {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(2737132229, 47713, 17786, 181, 154, 162, 86, 30, 18, 94, 51)]
+                    struct UPnPDevice {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(3792199464, 65207, 16458, 184, 231, 230, 89, 189, 234, 170, 2)]
+                    struct UPnPDeviceFinder {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(404444412, 14347, 19061, 179, 241, 74, 196, 94, 150, 5, 176)]
+                    struct UPnPDeviceFinderEx {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(3119009789, 44348, 16548, 184, 53, 8, 130, 235, 203, 170, 168)]
+                    struct UPnPDevices {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(541593785, 29618, 4564, 191, 66, 0, 176, 208, 17, 139, 86)]
+                    struct UPnPRegistrar {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(777946345, 16457, 16964, 183, 40, 45, 36, 34, 113, 87, 199)]
+                    struct UPnPRemoteEndpointInfo {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(3324295829, 64459, 17417, 140, 3, 140, 206, 236, 83, 62, 241)]
+                    struct UPnPService {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(3233565514, 41990, 20220, 147, 47, 184, 84, 107, 129, 0, 204)]
+                    struct UPnPServices {}
+                }
+            }
+        }
+    }
+}

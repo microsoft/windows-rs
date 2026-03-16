@@ -1,0 +1,97 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod Compression {
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("CloseCompressor")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct COMPRESSOR_HANDLE {
+                    Value: *mut void,
+                }
+                #[repr(u32)]
+                enum COMPRESS_ALGORITHM {
+                    COMPRESS_ALGORITHM_MSZIP = 2,
+                    COMPRESS_ALGORITHM_XPRESS = 3,
+                    COMPRESS_ALGORITHM_XPRESS_HUFF = 4,
+                    COMPRESS_ALGORITHM_LZMS = 5,
+                }
+                const COMPRESS_ALGORITHM_INVALID: u32 = 0;
+                const COMPRESS_ALGORITHM_MAX: u32 = 6;
+                const COMPRESS_ALGORITHM_NULL: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/ns-compressapi-compress_allocation_routines")]
+                struct COMPRESS_ALLOCATION_ROUTINES {
+                    Allocate: PFN_COMPRESS_ALLOCATE,
+                    Free: PFN_COMPRESS_FREE,
+                    UserContext: *mut void,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/ne-compressapi-compress_information_class")]
+                enum COMPRESS_INFORMATION_CLASS {
+                    COMPRESS_INFORMATION_CLASS_INVALID = 0,
+                    COMPRESS_INFORMATION_CLASS_BLOCK_SIZE = 1,
+                    COMPRESS_INFORMATION_CLASS_LEVEL = 2,
+                }
+                const COMPRESS_RAW: u32 = 536870912;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-closecompressor")]
+                #[library("Cabinet.dll")]
+                extern fn CloseCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-closedecompressor")]
+                #[library("Cabinet.dll")]
+                extern fn CloseDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-compress")]
+                #[library("Cabinet.dll")]
+                extern fn Compress(CompressorHandle: COMPRESSOR_HANDLE, UncompressedData: *mut void, UncompressedDataSize: usize, CompressedBuffer: *mut void, CompressedBufferSize: usize, CompressedDataSize: *mut usize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-createcompressor")]
+                #[library("Cabinet.dll")]
+                extern fn CreateCompressor(Algorithm: COMPRESS_ALGORITHM, AllocationRoutines: *mut COMPRESS_ALLOCATION_ROUTINES, CompressorHandle: *mut COMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-createdecompressor")]
+                #[library("Cabinet.dll")]
+                extern fn CreateDecompressor(Algorithm: COMPRESS_ALGORITHM, AllocationRoutines: *mut COMPRESS_ALLOCATION_ROUTINES, DecompressorHandle: *mut DECOMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("CloseDecompressor")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct DECOMPRESSOR_HANDLE {
+                    Value: *mut void,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-decompress")]
+                #[library("Cabinet.dll")]
+                extern fn Decompress(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressedData: *mut void, CompressedDataSize: usize, UncompressedBuffer: *mut void, UncompressedBufferSize: usize, UncompressedDataSize: *mut usize) -> super::super::Foundation::BOOL;
+                extern "C" fn PFN_COMPRESS_ALLOCATE(UserContext: *mut void, Size: usize) -> *mut void;
+                extern "C" fn PFN_COMPRESS_FREE(UserContext: *mut void, Memory: *mut void);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-querycompressorinformation")]
+                #[library("Cabinet.dll")]
+                extern fn QueryCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, CompressInformation: *mut void, CompressInformationSize: usize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-querydecompressorinformation")]
+                #[library("Cabinet.dll")]
+                extern fn QueryDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, CompressInformation: *mut void, CompressInformationSize: usize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-resetcompressor")]
+                #[library("Cabinet.dll")]
+                extern fn ResetCompressor(CompressorHandle: COMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-resetdecompressor")]
+                #[library("Cabinet.dll")]
+                extern fn ResetDecompressor(DecompressorHandle: DECOMPRESSOR_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-setcompressorinformation")]
+                #[library("Cabinet.dll")]
+                extern fn SetCompressorInformation(CompressorHandle: COMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, CompressInformation: *mut void, CompressInformationSize: usize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/compressapi/nf-compressapi-setdecompressorinformation")]
+                #[library("Cabinet.dll")]
+                extern fn SetDecompressorInformation(DecompressorHandle: DECOMPRESSOR_HANDLE, CompressInformationClass: COMPRESS_INFORMATION_CLASS, CompressInformation: *mut void, CompressInformationSize: usize) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

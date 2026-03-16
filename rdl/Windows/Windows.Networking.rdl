@@ -1,0 +1,96 @@
+mod Windows {
+    #[winrt]
+    mod Networking {
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum DomainNameType {
+            Suffix = 0,
+            FullyQualified = 1,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Activatable(IEndpointPairFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class EndpointPair {
+            #[default]
+            IEndpointPair,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Static(IHostNameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Activatable(IHostNameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        class HostName {
+            #[default]
+            IHostName,
+            super::Foundation::IStringable,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum HostNameSortOptions {
+            None = 0,
+            OptimizeForLongConnections = 2,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum HostNameType {
+            DomainName = 0,
+            Ipv4 = 1,
+            Ipv6 = 2,
+            Bluetooth = 3,
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IEndpointPair {
+            #[special]
+            fn get_LocalHostName(&self) -> HostName;
+            #[special]
+            fn put_LocalHostName(&self, value: HostName);
+            #[special]
+            fn get_LocalServiceName(&self) -> String;
+            #[special]
+            fn put_LocalServiceName(&self, value: String);
+            #[special]
+            fn get_RemoteHostName(&self) -> HostName;
+            #[special]
+            fn put_RemoteHostName(&self, value: HostName);
+            #[special]
+            fn get_RemoteServiceName(&self) -> String;
+            #[special]
+            fn put_RemoteServiceName(&self, value: String);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
+        interface IEndpointPairFactory {
+            fn CreateEndpointPair(&self, localHostName: HostName, localServiceName: String, remoteHostName: HostName, remoteServiceName: String) -> EndpointPair;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(HostName)]
+        interface IHostName {
+            #[special]
+            fn get_IPInformation(&self) -> Connectivity::IPInformation;
+            #[special]
+            fn get_RawName(&self) -> String;
+            #[special]
+            fn get_DisplayName(&self) -> String;
+            #[special]
+            fn get_CanonicalName(&self) -> String;
+            #[special]
+            fn get_Type(&self) -> HostNameType;
+            fn IsEqual(&self, hostName: HostName) -> bool;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(HostName)]
+        interface IHostNameFactory {
+            fn CreateHostName(&self, hostName: String) -> HostName;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(HostName)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IHostNameStatics {
+            fn Compare(&self, value1: String, value2: String) -> i32;
+        }
+    }
+}

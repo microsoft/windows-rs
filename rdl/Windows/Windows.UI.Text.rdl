@@ -1,0 +1,878 @@
+mod Windows {
+    mod UI {
+        #[winrt]
+        mod Text {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CaretType {
+                Normal = 0,
+                Null = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+            class ContentLinkInfo {
+                #[default]
+                IContentLinkInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FindOptions {
+                None = 0,
+                Word = 2,
+                Case = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FontStretch {
+                Undefined = 0,
+                UltraCondensed = 1,
+                ExtraCondensed = 2,
+                Condensed = 3,
+                SemiCondensed = 4,
+                Normal = 5,
+                SemiExpanded = 6,
+                Expanded = 7,
+                ExtraExpanded = 8,
+                UltraExpanded = 9,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FontStyle {
+                Normal = 0,
+                Oblique = 1,
+                Italic = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct FontWeight {
+                Weight: u16,
+            }
+            #[Windows::Foundation::Metadata::Static(IFontWeightsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FontWeights {
+                #[default]
+                IFontWeights,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FormatEffect {
+                Off = 0,
+                On = 1,
+                Toggle = 2,
+                Undefined = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HorizontalCharacterAlignment {
+                Left = 0,
+                Right = 1,
+                Center = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInfo)]
+            interface IContentLinkInfo {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn put_Id(&self, value: u32);
+                #[special]
+                fn get_DisplayText(&self) -> String;
+                #[special]
+                fn put_DisplayText(&self, value: String);
+                #[special]
+                fn get_SecondaryText(&self) -> String;
+                #[special]
+                fn put_SecondaryText(&self, value: String);
+                #[special]
+                fn get_Uri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_Uri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_LinkContentKind(&self) -> String;
+                #[special]
+                fn put_LinkContentKind(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFontWeights {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
+            interface IFontWeightsStatics {
+                #[special]
+                fn get_Black(&self) -> FontWeight;
+                #[special]
+                fn get_Bold(&self) -> FontWeight;
+                #[special]
+                fn get_ExtraBlack(&self) -> FontWeight;
+                #[special]
+                fn get_ExtraBold(&self) -> FontWeight;
+                #[special]
+                fn get_ExtraLight(&self) -> FontWeight;
+                #[special]
+                fn get_Light(&self) -> FontWeight;
+                #[special]
+                fn get_Medium(&self) -> FontWeight;
+                #[special]
+                fn get_Normal(&self) -> FontWeight;
+                #[special]
+                fn get_SemiBold(&self) -> FontWeight;
+                #[special]
+                fn get_SemiLight(&self) -> FontWeight;
+                #[special]
+                fn get_Thin(&self) -> FontWeight;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextRange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IRichEditTextRange {
+                #[special]
+                fn get_ContentLinkInfo(&self) -> ContentLinkInfo;
+                #[special]
+                fn put_ContentLinkInfo(&self, value: ContentLinkInfo);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITextCharacterFormat {
+                #[special]
+                fn get_AllCaps(&self) -> FormatEffect;
+                #[special]
+                fn put_AllCaps(&self, value: FormatEffect);
+                #[special]
+                fn get_BackgroundColor(&self) -> super::Color;
+                #[special]
+                fn put_BackgroundColor(&self, value: super::Color);
+                #[special]
+                fn get_Bold(&self) -> FormatEffect;
+                #[special]
+                fn put_Bold(&self, value: FormatEffect);
+                #[special]
+                fn get_FontStretch(&self) -> FontStretch;
+                #[special]
+                fn put_FontStretch(&self, value: FontStretch);
+                #[special]
+                fn get_FontStyle(&self) -> FontStyle;
+                #[special]
+                fn put_FontStyle(&self, value: FontStyle);
+                #[special]
+                fn get_ForegroundColor(&self) -> super::Color;
+                #[special]
+                fn put_ForegroundColor(&self, value: super::Color);
+                #[special]
+                fn get_Hidden(&self) -> FormatEffect;
+                #[special]
+                fn put_Hidden(&self, value: FormatEffect);
+                #[special]
+                fn get_Italic(&self) -> FormatEffect;
+                #[special]
+                fn put_Italic(&self, value: FormatEffect);
+                #[special]
+                fn get_Kerning(&self) -> f32;
+                #[special]
+                fn put_Kerning(&self, value: f32);
+                #[special]
+                fn get_LanguageTag(&self) -> String;
+                #[special]
+                fn put_LanguageTag(&self, value: String);
+                #[special]
+                fn get_LinkType(&self) -> LinkType;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_Outline(&self) -> FormatEffect;
+                #[special]
+                fn put_Outline(&self, value: FormatEffect);
+                #[special]
+                fn get_Position(&self) -> f32;
+                #[special]
+                fn put_Position(&self, value: f32);
+                #[special]
+                fn get_ProtectedText(&self) -> FormatEffect;
+                #[special]
+                fn put_ProtectedText(&self, value: FormatEffect);
+                #[special]
+                fn get_Size(&self) -> f32;
+                #[special]
+                fn put_Size(&self, value: f32);
+                #[special]
+                fn get_SmallCaps(&self) -> FormatEffect;
+                #[special]
+                fn put_SmallCaps(&self, value: FormatEffect);
+                #[special]
+                fn get_Spacing(&self) -> f32;
+                #[special]
+                fn put_Spacing(&self, value: f32);
+                #[special]
+                fn get_Strikethrough(&self) -> FormatEffect;
+                #[special]
+                fn put_Strikethrough(&self, value: FormatEffect);
+                #[special]
+                fn get_Subscript(&self) -> FormatEffect;
+                #[special]
+                fn put_Subscript(&self, value: FormatEffect);
+                #[special]
+                fn get_Superscript(&self) -> FormatEffect;
+                #[special]
+                fn put_Superscript(&self, value: FormatEffect);
+                #[special]
+                fn get_TextScript(&self) -> TextScript;
+                #[special]
+                fn put_TextScript(&self, value: TextScript);
+                #[special]
+                fn get_Underline(&self) -> UnderlineType;
+                #[special]
+                fn put_Underline(&self, value: UnderlineType);
+                #[special]
+                fn get_Weight(&self) -> i32;
+                #[special]
+                fn put_Weight(&self, value: i32);
+                fn SetClone(&self, value: ITextCharacterFormat);
+                fn GetClone(&self) -> ITextCharacterFormat;
+                fn IsEqual(&self, format: ITextCharacterFormat) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextConstants)]
+            interface ITextConstantsStatics {
+                #[special]
+                fn get_AutoColor(&self) -> super::Color;
+                #[special]
+                fn get_MinUnitCount(&self) -> i32;
+                #[special]
+                fn get_MaxUnitCount(&self) -> i32;
+                #[special]
+                fn get_UndefinedColor(&self) -> super::Color;
+                #[special]
+                fn get_UndefinedFloatValue(&self) -> f32;
+                #[special]
+                fn get_UndefinedInt32Value(&self) -> i32;
+                #[special]
+                fn get_UndefinedFontStretch(&self) -> FontStretch;
+                #[special]
+                fn get_UndefinedFontStyle(&self) -> FontStyle;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface ITextDocument {
+                #[special]
+                fn get_CaretType(&self) -> CaretType;
+                #[special]
+                fn put_CaretType(&self, value: CaretType);
+                #[special]
+                fn get_DefaultTabStop(&self) -> f32;
+                #[special]
+                fn put_DefaultTabStop(&self, value: f32);
+                #[special]
+                fn get_Selection(&self) -> ITextSelection;
+                #[special]
+                fn get_UndoLimit(&self) -> u32;
+                #[special]
+                fn put_UndoLimit(&self, value: u32);
+                fn CanCopy(&self) -> bool;
+                fn CanPaste(&self) -> bool;
+                fn CanRedo(&self) -> bool;
+                fn CanUndo(&self) -> bool;
+                fn ApplyDisplayUpdates(&self) -> i32;
+                fn BatchDisplayUpdates(&self) -> i32;
+                fn BeginUndoGroup(&self);
+                fn EndUndoGroup(&self);
+                fn GetDefaultCharacterFormat(&self) -> ITextCharacterFormat;
+                fn GetDefaultParagraphFormat(&self) -> ITextParagraphFormat;
+                fn GetRange(&self, startPosition: i32, endPosition: i32) -> ITextRange;
+                fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ITextRange;
+                fn GetText(&self, options: TextGetOptions, value: &mut String);
+                fn LoadFromStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn Redo(&self);
+                fn SaveToStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn SetDefaultCharacterFormat(&self, value: ITextCharacterFormat);
+                fn SetDefaultParagraphFormat(&self, value: ITextParagraphFormat);
+                fn SetText(&self, options: TextSetOptions, value: String);
+                fn Undo(&self);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
+            interface ITextDocument2 {
+                #[special]
+                fn get_AlignmentIncludesTrailingWhitespace(&self) -> bool;
+                #[special]
+                fn put_AlignmentIncludesTrailingWhitespace(&self, value: bool);
+                #[special]
+                fn get_IgnoreTrailingCharacterSpacing(&self) -> bool;
+                #[special]
+                fn put_IgnoreTrailingCharacterSpacing(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
+            interface ITextDocument3 {
+                fn ClearUndoRedoHistory(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface ITextDocument4 {
+                fn SetMath(&self, value: String);
+                fn GetMath(&self, value: &mut String);
+                fn SetMathMode(&self, mode: RichEditMathMode);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface ITextParagraphFormat {
+                #[special]
+                fn get_Alignment(&self) -> ParagraphAlignment;
+                #[special]
+                fn put_Alignment(&self, value: ParagraphAlignment);
+                #[special]
+                fn get_FirstLineIndent(&self) -> f32;
+                #[special]
+                fn get_KeepTogether(&self) -> FormatEffect;
+                #[special]
+                fn put_KeepTogether(&self, value: FormatEffect);
+                #[special]
+                fn get_KeepWithNext(&self) -> FormatEffect;
+                #[special]
+                fn put_KeepWithNext(&self, value: FormatEffect);
+                #[special]
+                fn get_LeftIndent(&self) -> f32;
+                #[special]
+                fn get_LineSpacing(&self) -> f32;
+                #[special]
+                fn get_LineSpacingRule(&self) -> LineSpacingRule;
+                #[special]
+                fn get_ListAlignment(&self) -> MarkerAlignment;
+                #[special]
+                fn put_ListAlignment(&self, value: MarkerAlignment);
+                #[special]
+                fn get_ListLevelIndex(&self) -> i32;
+                #[special]
+                fn put_ListLevelIndex(&self, value: i32);
+                #[special]
+                fn get_ListStart(&self) -> i32;
+                #[special]
+                fn put_ListStart(&self, value: i32);
+                #[special]
+                fn get_ListStyle(&self) -> MarkerStyle;
+                #[special]
+                fn put_ListStyle(&self, value: MarkerStyle);
+                #[special]
+                fn get_ListTab(&self) -> f32;
+                #[special]
+                fn put_ListTab(&self, value: f32);
+                #[special]
+                fn get_ListType(&self) -> MarkerType;
+                #[special]
+                fn put_ListType(&self, value: MarkerType);
+                #[special]
+                fn get_NoLineNumber(&self) -> FormatEffect;
+                #[special]
+                fn put_NoLineNumber(&self, value: FormatEffect);
+                #[special]
+                fn get_PageBreakBefore(&self) -> FormatEffect;
+                #[special]
+                fn put_PageBreakBefore(&self, value: FormatEffect);
+                #[special]
+                fn get_RightIndent(&self) -> f32;
+                #[special]
+                fn put_RightIndent(&self, value: f32);
+                #[special]
+                fn get_RightToLeft(&self) -> FormatEffect;
+                #[special]
+                fn put_RightToLeft(&self, value: FormatEffect);
+                #[special]
+                fn get_Style(&self) -> ParagraphStyle;
+                #[special]
+                fn put_Style(&self, value: ParagraphStyle);
+                #[special]
+                fn get_SpaceAfter(&self) -> f32;
+                #[special]
+                fn put_SpaceAfter(&self, value: f32);
+                #[special]
+                fn get_SpaceBefore(&self) -> f32;
+                #[special]
+                fn put_SpaceBefore(&self, value: f32);
+                #[special]
+                fn get_WidowControl(&self) -> FormatEffect;
+                #[special]
+                fn put_WidowControl(&self, value: FormatEffect);
+                #[special]
+                fn get_TabCount(&self) -> i32;
+                fn AddTab(&self, position: f32, align: TabAlignment, leader: TabLeader);
+                fn ClearAllTabs(&self);
+                fn DeleteTab(&self, position: f32);
+                fn GetClone(&self) -> ITextParagraphFormat;
+                fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader);
+                fn IsEqual(&self, format: ITextParagraphFormat) -> bool;
+                fn SetClone(&self, format: ITextParagraphFormat);
+                fn SetIndents(&self, start: f32, left: f32, right: f32);
+                fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface ITextRange {
+                #[special]
+                fn get_Character(&self) -> u16;
+                #[special]
+                fn put_Character(&self, value: u16);
+                #[special]
+                fn get_CharacterFormat(&self) -> ITextCharacterFormat;
+                #[special]
+                fn put_CharacterFormat(&self, value: ITextCharacterFormat);
+                #[special]
+                fn get_FormattedText(&self) -> ITextRange;
+                #[special]
+                fn put_FormattedText(&self, value: ITextRange);
+                #[special]
+                fn get_EndPosition(&self) -> i32;
+                #[special]
+                fn put_EndPosition(&self, value: i32);
+                #[special]
+                fn get_Gravity(&self) -> RangeGravity;
+                #[special]
+                fn put_Gravity(&self, value: RangeGravity);
+                #[special]
+                fn get_Length(&self) -> i32;
+                #[special]
+                fn get_Link(&self) -> String;
+                #[special]
+                fn put_Link(&self, value: String);
+                #[special]
+                fn get_ParagraphFormat(&self) -> ITextParagraphFormat;
+                #[special]
+                fn put_ParagraphFormat(&self, value: ITextParagraphFormat);
+                #[special]
+                fn get_StartPosition(&self) -> i32;
+                #[special]
+                fn put_StartPosition(&self, value: i32);
+                #[special]
+                fn get_StoryLength(&self) -> i32;
+                #[special]
+                fn get_Text(&self) -> String;
+                #[special]
+                fn put_Text(&self, value: String);
+                fn CanPaste(&self, format: i32) -> bool;
+                fn ChangeCase(&self, value: LetterCase);
+                fn Collapse(&self, value: bool);
+                fn Copy(&self);
+                fn Cut(&self);
+                fn Delete(&self, unit: TextRangeUnit, count: i32) -> i32;
+                fn EndOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
+                fn Expand(&self, unit: TextRangeUnit) -> i32;
+                fn FindText(&self, value: String, scanLength: i32, options: FindOptions) -> i32;
+                fn GetCharacterUtf32(&self, value: &mut u32, offset: i32);
+                fn GetClone(&self) -> ITextRange;
+                fn GetIndex(&self, unit: TextRangeUnit) -> i32;
+                fn GetPoint(&self, horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point);
+                fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32);
+                fn GetText(&self, options: TextGetOptions, value: &mut String);
+                fn GetTextViaStream(&self, options: TextGetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InRange(&self, range: ITextRange) -> bool;
+                fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn InStory(&self, range: ITextRange) -> bool;
+                fn IsEqual(&self, range: ITextRange) -> bool;
+                fn Move(&self, unit: TextRangeUnit, count: i32) -> i32;
+                fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> i32;
+                fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> i32;
+                fn Paste(&self, format: i32);
+                fn ScrollIntoView(&self, value: PointOptions);
+                fn MatchSelection(&self);
+                fn SetIndex(&self, unit: TextRangeUnit, index: i32, extend: bool);
+                fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool);
+                fn SetRange(&self, startPosition: i32, endPosition: i32);
+                fn SetText(&self, options: TextSetOptions, value: String);
+                fn SetTextViaStream(&self, options: TextSetOptions, value: super::super::Storage::Streams::IRandomAccessStream);
+                fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> i32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface ITextSelection: ITextRange {
+                #[special]
+                fn get_Options(&self) -> SelectionOptions;
+                #[special]
+                fn put_Options(&self, value: SelectionOptions);
+                #[special]
+                fn get_Type(&self) -> SelectionType;
+                fn EndKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
+                fn HomeKey(&self, unit: TextRangeUnit, extend: bool) -> i32;
+                fn MoveDown(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
+                fn MoveLeft(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
+                fn MoveRight(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
+                fn MoveUp(&self, unit: TextRangeUnit, count: i32, extend: bool) -> i32;
+                fn TypeText(&self, value: String);
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum LetterCase {
+                Lower = 0,
+                Upper = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum LineSpacingRule {
+                Undefined = 0,
+                Single = 1,
+                OneAndHalf = 2,
+                Double = 3,
+                AtLeast = 4,
+                Exactly = 5,
+                Multiple = 6,
+                Percent = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum LinkType {
+                Undefined = 0,
+                NotALink = 1,
+                ClientLink = 2,
+                FriendlyLinkName = 3,
+                FriendlyLinkAddress = 4,
+                AutoLink = 5,
+                AutoLinkEmail = 6,
+                AutoLinkPhone = 7,
+                AutoLinkPath = 8,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MarkerAlignment {
+                Undefined = 0,
+                Left = 1,
+                Center = 2,
+                Right = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MarkerStyle {
+                Undefined = 0,
+                Parenthesis = 1,
+                Parentheses = 2,
+                Period = 3,
+                Plain = 4,
+                Minus = 5,
+                NoNumber = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MarkerType {
+                Undefined = 0,
+                None = 1,
+                Bullet = 2,
+                Arabic = 3,
+                LowercaseEnglishLetter = 4,
+                UppercaseEnglishLetter = 5,
+                LowercaseRoman = 6,
+                UppercaseRoman = 7,
+                UnicodeSequence = 8,
+                CircledNumber = 9,
+                BlackCircleWingding = 10,
+                WhiteCircleWingding = 11,
+                ArabicWide = 12,
+                SimplifiedChinese = 13,
+                TraditionalChinese = 14,
+                JapanSimplifiedChinese = 15,
+                JapanKorea = 16,
+                ArabicDictionary = 17,
+                ArabicAbjad = 18,
+                Hebrew = 19,
+                ThaiAlphabetic = 20,
+                ThaiNumeric = 21,
+                DevanagariVowel = 22,
+                DevanagariConsonant = 23,
+                DevanagariNumeric = 24,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ParagraphAlignment {
+                Undefined = 0,
+                Left = 1,
+                Center = 2,
+                Right = 3,
+                Justify = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ParagraphStyle {
+                Undefined = 0,
+                None = 1,
+                Normal = 2,
+                Heading1 = 3,
+                Heading2 = 4,
+                Heading3 = 5,
+                Heading4 = 6,
+                Heading5 = 7,
+                Heading6 = 8,
+                Heading7 = 9,
+                Heading8 = 10,
+                Heading9 = 11,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PointOptions {
+                None = 0,
+                IncludeInset = 1,
+                Start = 32,
+                ClientCoordinates = 256,
+                AllowOffClient = 512,
+                Transform = 1024,
+                NoHorizontalScroll = 65536,
+                NoVerticalScroll = 262144,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RangeGravity {
+                UIBehavior = 0,
+                Backward = 1,
+                Forward = 2,
+                Inward = 3,
+                Outward = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum RichEditMathMode {
+                NoMath = 0,
+                MathOnly = 1,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RichEditTextDocument {
+                ITextDocument2,
+                ITextDocument3,
+                ITextDocument4,
+                #[default]
+                ITextDocument,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RichEditTextRange {
+                IRichEditTextRange,
+                #[default]
+                ITextRange,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SelectionOptions {
+                StartActive = 1,
+                AtEndOfLine = 2,
+                Overtype = 4,
+                Active = 8,
+                Replace = 16,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SelectionType {
+                None = 0,
+                InsertionPoint = 1,
+                Normal = 2,
+                InlineShape = 7,
+                Shape = 8,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TabAlignment {
+                Left = 0,
+                Center = 1,
+                Right = 2,
+                Decimal = 3,
+                Bar = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TabLeader {
+                Spaces = 0,
+                Dots = 1,
+                Dashes = 2,
+                Lines = 3,
+                ThickLines = 4,
+                Equals = 5,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITextConstantsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class TextConstants {}
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum TextDecorations {
+                None = 0,
+                Underline = 1,
+                Strikethrough = 2,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TextGetOptions {
+                None = 0,
+                AdjustCrlf = 1,
+                UseCrlf = 2,
+                UseObjectText = 4,
+                AllowFinalEop = 8,
+                NoHidden = 32,
+                IncludeNumbering = 64,
+                FormatRtf = 8192,
+                UseLf = 16777216,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TextRangeUnit {
+                Character = 0,
+                Word = 1,
+                Sentence = 2,
+                Paragraph = 3,
+                Line = 4,
+                Story = 5,
+                Screen = 6,
+                Section = 7,
+                Window = 8,
+                CharacterFormat = 9,
+                ParagraphFormat = 10,
+                Object = 11,
+                HardParagraph = 12,
+                Cluster = 13,
+                Bold = 14,
+                Italic = 15,
+                Underline = 16,
+                Strikethrough = 17,
+                ProtectedText = 18,
+                Link = 19,
+                SmallCaps = 20,
+                AllCaps = 21,
+                Hidden = 22,
+                Outline = 23,
+                Shadow = 24,
+                Imprint = 25,
+                Disabled = 26,
+                Revised = 27,
+                Subscript = 28,
+                Superscript = 29,
+                FontBound = 30,
+                LinkProtected = 31,
+                ContentLink = 32,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TextScript {
+                Undefined = 0,
+                Ansi = 1,
+                EastEurope = 2,
+                Cyrillic = 3,
+                Greek = 4,
+                Turkish = 5,
+                Hebrew = 6,
+                Arabic = 7,
+                Baltic = 8,
+                Vietnamese = 9,
+                Default = 10,
+                Symbol = 11,
+                Thai = 12,
+                ShiftJis = 13,
+                GB2312 = 14,
+                Hangul = 15,
+                Big5 = 16,
+                PC437 = 17,
+                Oem = 18,
+                Mac = 19,
+                Armenian = 20,
+                Syriac = 21,
+                Thaana = 22,
+                Devanagari = 23,
+                Bengali = 24,
+                Gurmukhi = 25,
+                Gujarati = 26,
+                Oriya = 27,
+                Tamil = 28,
+                Telugu = 29,
+                Kannada = 30,
+                Malayalam = 31,
+                Sinhala = 32,
+                Lao = 33,
+                Tibetan = 34,
+                Myanmar = 35,
+                Georgian = 36,
+                Jamo = 37,
+                Ethiopic = 38,
+                Cherokee = 39,
+                Aboriginal = 40,
+                Ogham = 41,
+                Runic = 42,
+                Khmer = 43,
+                Mongolian = 44,
+                Braille = 45,
+                Yi = 46,
+                Limbu = 47,
+                TaiLe = 48,
+                NewTaiLue = 49,
+                SylotiNagri = 50,
+                Kharoshthi = 51,
+                Kayahli = 52,
+                UnicodeSymbol = 53,
+                Emoji = 54,
+                Glagolitic = 55,
+                Lisu = 56,
+                Vai = 57,
+                NKo = 58,
+                Osmanya = 59,
+                PhagsPa = 60,
+                Gothic = 61,
+                Deseret = 62,
+                Tifinagh = 63,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TextSetOptions {
+                None = 0,
+                UnicodeBidi = 1,
+                Unlink = 8,
+                Unhide = 16,
+                CheckTextLimit = 32,
+                FormatRtf = 8192,
+                ApplyRtfDocumentDefaults = 16384,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UnderlineType {
+                Undefined = 0,
+                None = 1,
+                Single = 2,
+                Words = 3,
+                Double = 4,
+                Dotted = 5,
+                Dash = 6,
+                DashDot = 7,
+                DashDotDot = 8,
+                Wave = 9,
+                Thick = 10,
+                Thin = 11,
+                DoubleWave = 12,
+                HeavyWave = 13,
+                LongDash = 14,
+                ThickDash = 15,
+                ThickDashDot = 16,
+                ThickDashDotDot = 17,
+                ThickDotted = 18,
+                ThickLongDash = 19,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum VerticalCharacterAlignment {
+                Top = 0,
+                Baseline = 1,
+                Bottom = 2,
+            }
+        }
+    }
+}

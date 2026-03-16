@@ -1,0 +1,73 @@
+mod Windows {
+    mod UI {
+        #[winrt]
+        mod UIAutomation {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
+            class AutomationConnection {
+                #[default]
+                IAutomationConnection,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
+            class AutomationConnectionBoundObject {
+                #[default]
+                IAutomationConnectionBoundObject,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            class AutomationElement {
+                #[default]
+                IAutomationElement,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AutomationTextRange {
+                #[default]
+                IAutomationTextRange,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAutomationConnection {
+                #[special]
+                #[Windows::Foundation::Metadata::NoException]
+                fn get_IsRemoteSystem(&self) -> bool;
+                #[special]
+                fn get_AppUserModelId(&self) -> String;
+                #[special]
+                fn get_ExecutableFileName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnectionBoundObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
+            interface IAutomationConnectionBoundObject {
+                #[special]
+                fn get_Connection(&self) -> AutomationConnection;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElement)]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            interface IAutomationElement {
+                #[special]
+                #[Windows::Foundation::Metadata::NoException]
+                fn get_IsRemoteSystem(&self) -> bool;
+                #[special]
+                fn get_AppUserModelId(&self) -> String;
+                #[special]
+                fn get_ExecutableFileName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationTextRange)]
+            #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAutomationTextRange {}
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
+            struct UIAutomationContract {}
+        }
+    }
+}

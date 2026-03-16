@@ -1,0 +1,871 @@
+mod Windows {
+    mod Security {
+        mod Cryptography {
+            #[winrt]
+            mod Certificates {
+                #[Windows::Foundation::Metadata::Activatable(ICertificateFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class Certificate {
+                    #[default]
+                    ICertificate,
+                    ICertificate2,
+                    ICertificate3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class CertificateChain {
+                    #[default]
+                    ICertificateChain,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum CertificateChainPolicy {
+                    Base = 0,
+                    Ssl = 1,
+                    NTAuthentication = 2,
+                    MicrosoftRoot = 3,
+                }
+                #[Windows::Foundation::Metadata::Static(ICertificateEnrollmentManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(ICertificateEnrollmentManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ICertificateEnrollmentManagerStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+                class CertificateEnrollmentManager {}
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                class CertificateExtension {
+                    #[default]
+                    ICertificateExtension,
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class CertificateKeyUsages {
+                    #[default]
+                    ICertificateKeyUsages,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CertificateQuery {
+                    #[default]
+                    ICertificateQuery,
+                    ICertificateQuery2,
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class CertificateRequestProperties {
+                    #[default]
+                    ICertificateRequestProperties,
+                    ICertificateRequestProperties2,
+                    ICertificateRequestProperties3,
+                    ICertificateRequestProperties4,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CertificateStore {
+                    #[default]
+                    ICertificateStore,
+                    ICertificateStore2,
+                }
+                #[Windows::Foundation::Metadata::Static(ICertificateStoresStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::Static(ICertificateStoresStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CertificateStores {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class ChainBuildingParameters {
+                    #[default]
+                    IChainBuildingParameters,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ChainValidationParameters {
+                    #[default]
+                    IChainValidationParameters,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ChainValidationResult {
+                    Success = 0,
+                    Untrusted = 1,
+                    Revoked = 2,
+                    Expired = 3,
+                    IncompleteChain = 4,
+                    InvalidSignature = 5,
+                    WrongUsage = 6,
+                    InvalidName = 7,
+                    InvalidCertificateAuthorityPolicy = 8,
+                    BasicConstraintsError = 9,
+                    UnknownCriticalExtension = 10,
+                    RevocationInformationMissing = 11,
+                    RevocationFailure = 12,
+                    OtherErrors = 13,
+                }
+                #[Windows::Foundation::Metadata::Activatable(ICmsAttachedSignatureFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ICmsAttachedSignatureStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class CmsAttachedSignature {
+                    #[default]
+                    ICmsAttachedSignature,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ICmsDetachedSignatureStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::Activatable(ICmsDetachedSignatureFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CmsDetachedSignature {
+                    #[default]
+                    ICmsDetachedSignature,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CmsSignerInfo {
+                    #[default]
+                    ICmsSignerInfo,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CmsTimestampInfo {
+                    #[default]
+                    ICmsTimestampInfo,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum EnrollKeyUsages {
+                    None = 0,
+                    Decryption = 1,
+                    Signing = 2,
+                    KeyAgreement = 4,
+                    All = 16777215,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ExportOption {
+                    NotExportable = 0,
+                    Exportable = 1,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Certificate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificate {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("BuildChainAsync")]
+                    fn BuildChainAsync(&self, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
+                    #[Windows::Foundation::Metadata::Overload("BuildChainWithParametersAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn BuildChainAsync(&self, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>, parameters: ChainBuildingParameters) -> super::super::super::Foundation::IAsyncOperation<CertificateChain>;
+                    #[special]
+                    fn get_SerialNumber(&self) -> [u8];
+                    #[Windows::Foundation::Metadata::Overload("GetHashValue")]
+                    fn GetHashValue(&self) -> [u8];
+                    #[Windows::Foundation::Metadata::Overload("GetHashValueWithAlgorithm")]
+                    fn GetHashValue(&self, hashAlgorithmName: String) -> [u8];
+                    fn GetCertificateBlob(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn get_Issuer(&self) -> String;
+                    #[special]
+                    fn get_HasPrivateKey(&self) -> bool;
+                    #[special]
+                    fn get_IsStronglyProtected(&self) -> bool;
+                    #[special]
+                    fn get_ValidFrom(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn get_ValidTo(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn get_EnhancedKeyUsages(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn put_FriendlyName(&self, value: String);
+                    #[special]
+                    fn get_FriendlyName(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Certificate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificate2 {
+                    #[special]
+                    fn get_IsSecurityDeviceBound(&self) -> bool;
+                    #[special]
+                    fn get_KeyUsages(&self) -> CertificateKeyUsages;
+                    #[special]
+                    fn get_KeyAlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_SignatureAlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_SignatureHashAlgorithmName(&self) -> String;
+                    #[special]
+                    fn get_SubjectAlternativeName(&self) -> SubjectAlternativeNameInfo;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Certificate)]
+                interface ICertificate3 {
+                    #[special]
+                    fn get_IsPerUser(&self) -> bool;
+                    #[special]
+                    fn get_StoreName(&self) -> String;
+                    #[special]
+                    fn get_KeyStorageProviderName(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateChain)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateChain {
+                    #[Windows::Foundation::Metadata::Overload("Validate")]
+                    fn Validate(&self) -> ChainValidationResult;
+                    #[Windows::Foundation::Metadata::Overload("ValidateWithParameters")]
+                    fn Validate(&self, parameter: ChainValidationParameters) -> ChainValidationResult;
+                    fn GetCertificates(&self, includeRoot: bool) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateEnrollmentManager)]
+                interface ICertificateEnrollmentManagerStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateRequestAsync(&self, request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn InstallCertificateAsync(&self, certificate: String, installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataAsync")]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateEnrollmentManager)]
+                interface ICertificateEnrollmentManagerStatics2 {
+                    #[special]
+                    fn get_UserCertificateEnrollmentManager(&self) -> UserCertificateEnrollmentManager;
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateEnrollmentManager)]
+                interface ICertificateEnrollmentManagerStatics3 {
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspWithParametersAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateExtension)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ICertificateExtension {
+                    #[special]
+                    fn get_ObjectId(&self) -> String;
+                    #[special]
+                    fn put_ObjectId(&self, value: String);
+                    #[special]
+                    fn get_IsCritical(&self) -> bool;
+                    #[special]
+                    fn put_IsCritical(&self, value: bool);
+                    fn EncodeValue(&self, value: String);
+                    #[special]
+                    fn get_Value(&self) -> [u8];
+                    #[special]
+                    fn put_Value(&self, value: [u8]);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Certificate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateFactory {
+                    fn CreateCertificate(&self, certBlob: super::super::super::Storage::Streams::IBuffer) -> Certificate;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateKeyUsages)]
+                interface ICertificateKeyUsages {
+                    #[special]
+                    fn get_EncipherOnly(&self) -> bool;
+                    #[special]
+                    fn put_EncipherOnly(&self, value: bool);
+                    #[special]
+                    fn get_CrlSign(&self) -> bool;
+                    #[special]
+                    fn put_CrlSign(&self, value: bool);
+                    #[special]
+                    fn get_KeyCertificateSign(&self) -> bool;
+                    #[special]
+                    fn put_KeyCertificateSign(&self, value: bool);
+                    #[special]
+                    fn get_KeyAgreement(&self) -> bool;
+                    #[special]
+                    fn put_KeyAgreement(&self, value: bool);
+                    #[special]
+                    fn get_DataEncipherment(&self) -> bool;
+                    #[special]
+                    fn put_DataEncipherment(&self, value: bool);
+                    #[special]
+                    fn get_KeyEncipherment(&self) -> bool;
+                    #[special]
+                    fn put_KeyEncipherment(&self, value: bool);
+                    #[special]
+                    fn get_NonRepudiation(&self) -> bool;
+                    #[special]
+                    fn put_NonRepudiation(&self, value: bool);
+                    #[special]
+                    fn get_DigitalSignature(&self) -> bool;
+                    #[special]
+                    fn put_DigitalSignature(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateQuery)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateQuery {
+                    #[special]
+                    fn get_EnhancedKeyUsages(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_IssuerName(&self) -> String;
+                    #[special]
+                    fn put_IssuerName(&self, value: String);
+                    #[special]
+                    fn get_FriendlyName(&self) -> String;
+                    #[special]
+                    fn put_FriendlyName(&self, value: String);
+                    #[special]
+                    fn get_Thumbprint(&self) -> [u8];
+                    #[special]
+                    fn put_Thumbprint(&self, value: [u8]);
+                    #[special]
+                    fn get_HardwareOnly(&self) -> bool;
+                    #[special]
+                    fn put_HardwareOnly(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateQuery)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateQuery2 {
+                    #[special]
+                    fn get_IncludeDuplicates(&self) -> bool;
+                    #[special]
+                    fn put_IncludeDuplicates(&self, value: bool);
+                    #[special]
+                    fn get_IncludeExpiredCertificates(&self) -> bool;
+                    #[special]
+                    fn put_IncludeExpiredCertificates(&self, value: bool);
+                    #[special]
+                    fn get_StoreName(&self) -> String;
+                    #[special]
+                    fn put_StoreName(&self, value: String);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateRequestProperties)]
+                interface ICertificateRequestProperties {
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn put_Subject(&self, value: String);
+                    #[special]
+                    fn get_KeyAlgorithmName(&self) -> String;
+                    #[special]
+                    fn put_KeyAlgorithmName(&self, value: String);
+                    #[special]
+                    fn get_KeySize(&self) -> u32;
+                    #[special]
+                    fn put_KeySize(&self, value: u32);
+                    #[special]
+                    fn get_FriendlyName(&self) -> String;
+                    #[special]
+                    fn put_FriendlyName(&self, value: String);
+                    #[special]
+                    fn get_HashAlgorithmName(&self) -> String;
+                    #[special]
+                    fn put_HashAlgorithmName(&self, value: String);
+                    #[special]
+                    fn get_Exportable(&self) -> ExportOption;
+                    #[special]
+                    fn put_Exportable(&self, value: ExportOption);
+                    #[special]
+                    fn get_KeyUsages(&self) -> EnrollKeyUsages;
+                    #[special]
+                    fn put_KeyUsages(&self, value: EnrollKeyUsages);
+                    #[special]
+                    fn get_KeyProtectionLevel(&self) -> KeyProtectionLevel;
+                    #[special]
+                    fn put_KeyProtectionLevel(&self, value: KeyProtectionLevel);
+                    #[special]
+                    fn get_KeyStorageProviderName(&self) -> String;
+                    #[special]
+                    fn put_KeyStorageProviderName(&self, value: String);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateRequestProperties)]
+                interface ICertificateRequestProperties2 {
+                    #[special]
+                    fn get_SmartcardReaderName(&self) -> String;
+                    #[special]
+                    fn put_SmartcardReaderName(&self, value: String);
+                    #[special]
+                    fn get_SigningCertificate(&self) -> Certificate;
+                    #[special]
+                    fn put_SigningCertificate(&self, value: Certificate);
+                    #[special]
+                    fn get_AttestationCredentialCertificate(&self) -> Certificate;
+                    #[special]
+                    fn put_AttestationCredentialCertificate(&self, value: Certificate);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateRequestProperties)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateRequestProperties3 {
+                    #[special]
+                    fn get_CurveName(&self) -> String;
+                    #[special]
+                    fn put_CurveName(&self, value: String);
+                    #[special]
+                    fn get_CurveParameters(&self) -> [u8];
+                    #[special]
+                    fn put_CurveParameters(&self, value: [u8]);
+                    #[special]
+                    fn get_ContainerNamePrefix(&self) -> String;
+                    #[special]
+                    fn put_ContainerNamePrefix(&self, value: String);
+                    #[special]
+                    fn get_ContainerName(&self) -> String;
+                    #[special]
+                    fn put_ContainerName(&self, value: String);
+                    #[special]
+                    fn get_UseExistingKey(&self) -> bool;
+                    #[special]
+                    fn put_UseExistingKey(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateRequestProperties)]
+                interface ICertificateRequestProperties4 {
+                    #[special]
+                    fn get_SuppressedDefaults(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_SubjectAlternativeName(&self) -> SubjectAlternativeNameInfo;
+                    #[special]
+                    fn get_Extensions(&self) -> super::super::super::Foundation::Collections::IVector<CertificateExtension>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStore)]
+                interface ICertificateStore {
+                    fn Add(&self, certificate: Certificate);
+                    fn Delete(&self, certificate: Certificate);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStore)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateStore2 {
+                    #[special]
+                    fn get_Name(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStores)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICertificateStoresStatics {
+                    #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+                    #[Windows::Foundation::Metadata::Overload("FindAllWithQueryAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FindAllAsync(&self, query: CertificateQuery) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<Certificate>>;
+                    #[special]
+                    fn get_TrustedRootCertificationAuthorities(&self) -> CertificateStore;
+                    #[special]
+                    fn get_IntermediateCertificationAuthorities(&self) -> CertificateStore;
+                    fn GetStoreByName(&self, storeName: String) -> CertificateStore;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CertificateStores)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface ICertificateStoresStatics2 {
+                    fn GetUserStoreByName(&self, storeName: String) -> UserCertificateStore;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(ChainBuildingParameters)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IChainBuildingParameters {
+                    #[special]
+                    fn get_EnhancedKeyUsages(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_ValidationTimestamp(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn put_ValidationTimestamp(&self, value: super::super::super::Foundation::DateTime);
+                    #[special]
+                    fn get_RevocationCheckEnabled(&self) -> bool;
+                    #[special]
+                    fn put_RevocationCheckEnabled(&self, value: bool);
+                    #[special]
+                    fn get_NetworkRetrievalEnabled(&self) -> bool;
+                    #[special]
+                    fn put_NetworkRetrievalEnabled(&self, value: bool);
+                    #[special]
+                    fn get_AuthorityInformationAccessEnabled(&self) -> bool;
+                    #[special]
+                    fn put_AuthorityInformationAccessEnabled(&self, value: bool);
+                    #[special]
+                    fn get_CurrentTimeValidationEnabled(&self) -> bool;
+                    #[special]
+                    fn put_CurrentTimeValidationEnabled(&self, value: bool);
+                    #[special]
+                    fn get_ExclusiveTrustRoots(&self) -> super::super::super::Foundation::Collections::IVector<Certificate>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ChainValidationParameters)]
+                interface IChainValidationParameters {
+                    #[special]
+                    fn get_CertificateChainPolicy(&self) -> CertificateChainPolicy;
+                    #[special]
+                    fn put_CertificateChainPolicy(&self, value: CertificateChainPolicy);
+                    #[special]
+                    fn get_ServerDnsName(&self) -> super::super::super::Networking::HostName;
+                    #[special]
+                    fn put_ServerDnsName(&self, value: super::super::super::Networking::HostName);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsAttachedSignature)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICmsAttachedSignature {
+                    #[special]
+                    fn get_Certificates(&self) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
+                    #[special]
+                    fn get_Content(&self) -> [u8];
+                    #[special]
+                    fn get_Signers(&self) -> super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>;
+                    fn VerifySignature(&self) -> SignatureValidationResult;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsAttachedSignature)]
+                interface ICmsAttachedSignatureFactory {
+                    fn CreateCmsAttachedSignature(&self, inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsAttachedSignature;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsAttachedSignature)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICmsAttachedSignatureStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GenerateSignatureAsync(&self, data: super::super::super::Storage::Streams::IBuffer, signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsDetachedSignature)]
+                interface ICmsDetachedSignature {
+                    #[special]
+                    fn get_Certificates(&self) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
+                    #[special]
+                    fn get_Signers(&self) -> super::super::super::Foundation::Collections::IVectorView<CmsSignerInfo>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn VerifySignatureAsync(&self, data: super::super::super::Storage::Streams::IInputStream) -> super::super::super::Foundation::IAsyncOperation<SignatureValidationResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsDetachedSignature)]
+                interface ICmsDetachedSignatureFactory {
+                    fn CreateCmsDetachedSignature(&self, inputBlob: super::super::super::Storage::Streams::IBuffer) -> CmsDetachedSignature;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsDetachedSignature)]
+                interface ICmsDetachedSignatureStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GenerateSignatureAsync(&self, data: super::super::super::Storage::Streams::IInputStream, signers: super::super::super::Foundation::Collections::IIterable<CmsSignerInfo>, certificates: super::super::super::Foundation::Collections::IIterable<Certificate>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsSignerInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICmsSignerInfo {
+                    #[special]
+                    fn get_Certificate(&self) -> Certificate;
+                    #[special]
+                    fn put_Certificate(&self, value: Certificate);
+                    #[special]
+                    fn get_HashAlgorithmName(&self) -> String;
+                    #[special]
+                    fn put_HashAlgorithmName(&self, value: String);
+                    #[special]
+                    fn get_TimestampInfo(&self) -> CmsTimestampInfo;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CmsTimestampInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICmsTimestampInfo {
+                    #[special]
+                    fn get_SigningCertificate(&self) -> Certificate;
+                    #[special]
+                    fn get_Certificates(&self) -> super::super::super::Foundation::Collections::IVectorView<Certificate>;
+                    #[special]
+                    fn get_Timestamp(&self) -> super::super::super::Foundation::DateTime;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyAlgorithmNames)]
+                interface IKeyAlgorithmNamesStatics {
+                    #[special]
+                    fn get_Rsa(&self) -> String;
+                    #[special]
+                    fn get_Dsa(&self) -> String;
+                    #[special]
+                    fn get_Ecdh256(&self) -> String;
+                    #[special]
+                    fn get_Ecdh384(&self) -> String;
+                    #[special]
+                    fn get_Ecdh521(&self) -> String;
+                    #[special]
+                    fn get_Ecdsa256(&self) -> String;
+                    #[special]
+                    fn get_Ecdsa384(&self) -> String;
+                    #[special]
+                    fn get_Ecdsa521(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyAlgorithmNames)]
+                interface IKeyAlgorithmNamesStatics2 {
+                    #[special]
+                    fn get_Ecdsa(&self) -> String;
+                    #[special]
+                    fn get_Ecdh(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyAttestationHelper)]
+                interface IKeyAttestationHelperStatics {
+                    #[Windows::Foundation::Metadata::Overload("DecryptTpmAttestationCredentialAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DecryptTpmAttestationCredentialAsync(&self, credential: String) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    fn GetTpmAttestationCredentialId(&self, credential: String) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyAttestationHelper)]
+                interface IKeyAttestationHelperStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("DecryptTpmAttestationCredentialWithContainerNameAsync")]
+                    fn DecryptTpmAttestationCredentialAsync(&self, credential: String, containerName: String) -> super::super::super::Foundation::IAsyncOperation<String>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyStorageProviderNames)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IKeyStorageProviderNamesStatics {
+                    #[special]
+                    fn get_SoftwareKeyStorageProvider(&self) -> String;
+                    #[special]
+                    fn get_SmartcardKeyStorageProvider(&self) -> String;
+                    #[special]
+                    fn get_PlatformKeyStorageProvider(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyStorageProviderNames)]
+                interface IKeyStorageProviderNamesStatics2 {
+                    #[special]
+                    fn get_PassportKeyStorageProvider(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(PfxImportParameters)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPfxImportParameters {
+                    #[special]
+                    fn get_Exportable(&self) -> ExportOption;
+                    #[special]
+                    fn put_Exportable(&self, value: ExportOption);
+                    #[special]
+                    fn get_KeyProtectionLevel(&self) -> KeyProtectionLevel;
+                    #[special]
+                    fn put_KeyProtectionLevel(&self, value: KeyProtectionLevel);
+                    #[special]
+                    fn get_InstallOptions(&self) -> InstallOptions;
+                    #[special]
+                    fn put_InstallOptions(&self, value: InstallOptions);
+                    #[special]
+                    fn get_FriendlyName(&self) -> String;
+                    #[special]
+                    fn put_FriendlyName(&self, value: String);
+                    #[special]
+                    fn get_KeyStorageProviderName(&self) -> String;
+                    #[special]
+                    fn put_KeyStorageProviderName(&self, value: String);
+                    #[special]
+                    fn get_ContainerNamePrefix(&self) -> String;
+                    #[special]
+                    fn put_ContainerNamePrefix(&self, value: String);
+                    #[special]
+                    fn get_ReaderName(&self) -> String;
+                    #[special]
+                    fn put_ReaderName(&self, value: String);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StandardCertificateStoreNames)]
+                interface IStandardCertificateStoreNamesStatics {
+                    #[special]
+                    fn get_Personal(&self) -> String;
+                    #[special]
+                    fn get_TrustedRootCertificationAuthorities(&self) -> String;
+                    #[special]
+                    fn get_IntermediateCertificationAuthorities(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SubjectAlternativeNameInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ISubjectAlternativeNameInfo {
+                    #[special]
+                    fn get_EmailName(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_IPAddress(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_Url(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_DnsName(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_DistinguishedName(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[special]
+                    fn get_PrincipalName(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SubjectAlternativeNameInfo)]
+                interface ISubjectAlternativeNameInfo2 {
+                    #[special]
+                    fn get_EmailNames(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_IPAddresses(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_Urls(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_DnsNames(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_DistinguishedNames(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_PrincipalNames(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_Extension(&self) -> CertificateExtension;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserCertificateEnrollmentManager)]
+                interface IUserCertificateEnrollmentManager {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateRequestAsync(&self, request: CertificateRequestProperties) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn InstallCertificateAsync(&self, certificate: String, installOption: InstallOptions) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspAsync")]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserCertificateEnrollmentManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IUserCertificateEnrollmentManager2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ImportPfxDataToKspWithParametersAsync")]
+                    fn ImportPfxDataAsync(&self, pfxData: String, password: String, pfxImportParameters: PfxImportParameters) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserCertificateStore)]
+                interface IUserCertificateStore {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAddAsync(&self, certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestDeleteAsync(&self, certificate: Certificate) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[special]
+                    fn get_Name(&self) -> String;
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum InstallOptions {
+                    None = 0,
+                    DeleteExpired = 1,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IKeyAlgorithmNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Static(IKeyAlgorithmNamesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                class KeyAlgorithmNames {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::Static(IKeyAttestationHelperStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IKeyAttestationHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class KeyAttestationHelper {}
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum KeyProtectionLevel {
+                    NoConsent = 0,
+                    ConsentOnly = 1,
+                    ConsentWithPassword = 2,
+                    ConsentWithFingerprint = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum KeySize {
+                    Invalid = 0,
+                    Rsa2048 = 2048,
+                    Rsa4096 = 4096,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IKeyStorageProviderNamesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IKeyStorageProviderNamesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class KeyStorageProviderNames {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PfxImportParameters {
+                    #[default]
+                    IPfxImportParameters,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum SignatureValidationResult {
+                    Success = 0,
+                    InvalidParameter = 1,
+                    BadMessage = 2,
+                    InvalidSignature = 3,
+                    OtherErrors = 4,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Static(IStandardCertificateStoreNamesStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                class StandardCertificateStoreNames {}
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class SubjectAlternativeNameInfo {
+                    #[default]
+                    ISubjectAlternativeNameInfo,
+                    ISubjectAlternativeNameInfo2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                class UserCertificateEnrollmentManager {
+                    #[default]
+                    IUserCertificateEnrollmentManager,
+                    IUserCertificateEnrollmentManager2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                class UserCertificateStore {
+                    #[default]
+                    IUserCertificateStore,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2260 @@
+mod Windows {
+    mod Win32 {
+        mod AI {
+            mod MachineLearning {
+                #[win32]
+                mod DirectML {
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-dmlcreatedevice")]
+                    #[library("DirectML.dll")]
+                    extern fn DMLCreateDevice(d3d12Device: super::super::super::Graphics::Direct3D12::ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-dmlcreatedevice1")]
+                    #[library("DirectML.dll")]
+                    extern fn DMLCreateDevice1(d3d12Device: super::super::super::Graphics::Direct3D12::ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_celu_operator_desc")]
+                    struct DML_ACTIVATION_CELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_elu_operator_desc")]
+                    struct DML_ACTIVATION_ELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_hardmax_operator_desc")]
+                    struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_hard_sigmoid_operator_desc")]
+                    struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                        Beta: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_identity_operator_desc")]
+                    struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_leaky_relu_operator_desc")]
+                    struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_linear_operator_desc")]
+                    struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                        Beta: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_log_softmax_operator_desc")]
+                    struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_parameterized_relu_operator_desc")]
+                    struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        SlopeTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_parametric_softplus_operator_desc")]
+                    struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                        Beta: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_relu_grad_operator_desc")]
+                    struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_relu_operator_desc")]
+                    struct DML_ACTIVATION_RELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_scaled_elu_operator_desc")]
+                    struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                        Gamma: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_scaled_tanh_operator_desc")]
+                    struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                        Beta: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_shrink_operator_desc")]
+                    struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Bias: f32,
+                        Threshold: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_sigmoid_operator_desc")]
+                    struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_softmax_operator_desc")]
+                    struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_softplus_operator_desc")]
+                    struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Steepness: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_softsign_operator_desc")]
+                    struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_tanh_operator_desc")]
+                    struct DML_ACTIVATION_TANH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_activation_thresholded_relu_operator_desc")]
+                    struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Alpha: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_adam_optimizer_operator_desc")]
+                    struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputParametersTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputFirstMomentTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputSecondMomentTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        GradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        TrainingStepTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputParametersTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputFirstMomentTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSecondMomentTensor: *mut DML_TENSOR_DESC,
+                        LearningRate: f32,
+                        Beta1: f32,
+                        Beta2: f32,
+                        Epsilon: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_argmax_operator_desc")]
+                    struct DML_ARGMAX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        AxisCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Axes: *mut u32,
+                        AxisDirection: DML_AXIS_DIRECTION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_argmin_operator_desc")]
+                    struct DML_ARGMIN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        AxisCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Axes: *mut u32,
+                        AxisDirection: DML_AXIS_DIRECTION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_average_pooling_grad_operator_desc")]
+                    struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        IncludePadding: super::super::super::Foundation::BOOL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_average_pooling_operator_desc")]
+                    struct DML_AVERAGE_POOLING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        IncludePadding: super::super::super::Foundation::BOOL,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_axis_direction")]
+                    enum DML_AXIS_DIRECTION {
+                        DML_AXIS_DIRECTION_INCREASING = 0,
+                        DML_AXIS_DIRECTION_DECREASING = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_batch_normalization_grad_operator_desc")]
+                    struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        MeanTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        VarianceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputScaleGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputBiasGradientTensor: *mut DML_TENSOR_DESC,
+                        Epsilon: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_batch_normalization_operator_desc")]
+                    struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        MeanTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        VarianceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Spatial: super::super::super::Foundation::BOOL,
+                        Epsilon: f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_binding_desc")]
+                    struct DML_BINDING_DESC {
+                        Type: DML_BINDING_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Desc: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_binding_properties")]
+                    struct DML_BINDING_PROPERTIES {
+                        RequiredDescriptorCount: u32,
+                        TemporaryResourceSize: u64,
+                        PersistentResourceSize: u64,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_binding_table_desc")]
+                    struct DML_BINDING_TABLE_DESC {
+                        Dispatchable: IDMLDispatchable,
+                        CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
+                        GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
+                        SizeInDescriptors: u32,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_binding_type")]
+                    enum DML_BINDING_TYPE {
+                        DML_BINDING_TYPE_NONE = 0,
+                        DML_BINDING_TYPE_BUFFER = 1,
+                        DML_BINDING_TYPE_BUFFER_ARRAY = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_buffer_array_binding")]
+                    struct DML_BUFFER_ARRAY_BINDING {
+                        BindingCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Bindings: *mut DML_BUFFER_BINDING,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_buffer_binding")]
+                    struct DML_BUFFER_BINDING {
+                        Buffer: super::super::super::Graphics::Direct3D12::ID3D12Resource,
+                        Offset: u64,
+                        SizeInBytes: u64,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_buffer_tensor_desc")]
+                    struct DML_BUFFER_TENSOR_DESC {
+                        DataType: DML_TENSOR_DATA_TYPE,
+                        Flags: DML_TENSOR_FLAGS,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Sizes: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        TotalTensorSizeInBytes: u64,
+                        GuaranteedBaseOffsetAlignment: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_cast_operator_desc")]
+                    struct DML_CAST_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_convolution_direction")]
+                    enum DML_CONVOLUTION_DIRECTION {
+                        DML_CONVOLUTION_DIRECTION_FORWARD = 0,
+                        DML_CONVOLUTION_DIRECTION_BACKWARD = 1,
+                    }
+                    struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Dilations: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        GroupCount: u32,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_convolution_mode")]
+                    enum DML_CONVOLUTION_MODE {
+                        DML_CONVOLUTION_MODE_CONVOLUTION = 0,
+                        DML_CONVOLUTION_MODE_CROSS_CORRELATION = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_convolution_operator_desc")]
+                    struct DML_CONVOLUTION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Mode: DML_CONVOLUTION_MODE,
+                        Direction: DML_CONVOLUTION_DIRECTION,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Dilations: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputPadding: *mut u32,
+                        GroupCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    #[repr(i32)]
+                    #[flags]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_create_device_flags")]
+                    enum DML_CREATE_DEVICE_FLAGS {
+                        DML_CREATE_DEVICE_FLAG_NONE = 0,
+                        DML_CREATE_DEVICE_FLAG_DEBUG = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_cumulative_product_operator_desc")]
+                    struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        AxisDirection: DML_AXIS_DIRECTION,
+                        HasExclusiveProduct: super::super::super::Foundation::BOOL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_cumulative_summation_operator_desc")]
+                    struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        AxisDirection: DML_AXIS_DIRECTION,
+                        HasExclusiveSum: super::super::super::Foundation::BOOL,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_depth_space_order")]
+                    enum DML_DEPTH_SPACE_ORDER {
+                        DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW = 0,
+                        DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_depth_to_space1_operator_desc")]
+                    struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        BlockSize: u32,
+                        Order: DML_DEPTH_SPACE_ORDER,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_depth_to_space_operator_desc")]
+                    struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        BlockSize: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_diagonal_matrix_operator_desc")]
+                    struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Offset: i32,
+                        Value: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_dynamic_quantize_linear_operator_desc")]
+                    struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputZeroPointTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_abs_operator_desc")]
+                    struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_acosh_operator_desc")]
+                    struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_acos_operator_desc")]
+                    struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_add1_operator_desc")]
+                    struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_add_operator_desc")]
+                    struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_asinh_operator_desc")]
+                    struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_asin_operator_desc")]
+                    struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_atanh_operator_desc")]
+                    struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_atan_operator_desc")]
+                    struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_atan_yx_operator_desc")]
+                    struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_and_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_count_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_not_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_or_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_shift_left_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_shift_right_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_bit_xor_operator_desc")]
+                    struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_ceil_operator_desc")]
+                    struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_clip_grad_operator_desc")]
+                    struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        Min: f32,
+                        Max: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_clip_operator_desc")]
+                    struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                        Min: f32,
+                        Max: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_constant_pow_operator_desc")]
+                    struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                        Exponent: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_cosh_operator_desc")]
+                    struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_cos_operator_desc")]
+                    struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_dequantize_linear_operator_desc")]
+                    struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_difference_square_operator_desc")]
+                    struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_divide_operator_desc")]
+                    struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_erf_operator_desc")]
+                    struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_exp_operator_desc")]
+                    struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_floor_operator_desc")]
+                    struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_identity_operator_desc")]
+                    struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_if_operator_desc")]
+                    struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ConditionTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_is_infinity_operator_desc")]
+                    struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InfinityMode: DML_IS_INFINITY_MODE,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_is_nan_operator_desc")]
+                    struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_and_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_equals_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_greater_than_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_greater_than_or_equal_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_less_than_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_less_than_or_equal_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_not_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_or_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_logical_xor_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_log_operator_desc")]
+                    struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_max_operator_desc")]
+                    struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_mean_operator_desc")]
+                    struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_min_operator_desc")]
+                    struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_modulus_floor_operator_desc")]
+                    struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_modulus_truncate_operator_desc")]
+                    struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_multiply_operator_desc")]
+                    struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_pow_operator_desc")]
+                    struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ExponentTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_quantized_linear_add_operator_desc")]
+                    struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        AScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        AZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_quantize_linear_operator_desc")]
+                    struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_recip_operator_desc")]
+                    struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_round_operator_desc")]
+                    struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        RoundingMode: DML_ROUNDING_MODE,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_sign_operator_desc")]
+                    struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_sinh_operator_desc")]
+                    struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_sin_operator_desc")]
+                    struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_sqrt_operator_desc")]
+                    struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_subtract_operator_desc")]
+                    struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_tanh_operator_desc")]
+                    struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_tan_operator_desc")]
+                    struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_element_wise_threshold_operator_desc")]
+                    struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleBias: *mut DML_SCALE_BIAS,
+                        Min: f32,
+                    }
+                    #[repr(i32)]
+                    #[flags]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_execution_flags")]
+                    enum DML_EXECUTION_FLAGS {
+                        DML_EXECUTION_FLAG_NONE = 0,
+                        DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION = 1,
+                        DML_EXECUTION_FLAG_DISABLE_META_COMMANDS = 2,
+                        DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE = 4,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_feature")]
+                    enum DML_FEATURE {
+                        DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT = 0,
+                        DML_FEATURE_FEATURE_LEVELS = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_feature_data_feature_levels")]
+                    struct DML_FEATURE_DATA_FEATURE_LEVELS {
+                        MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_feature_data_tensor_data_type_support")]
+                    struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
+                        IsSupported: super::super::super::Foundation::BOOL,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_feature_level")]
+                    enum DML_FEATURE_LEVEL {
+                        DML_FEATURE_LEVEL_1_0 = 4096,
+                        DML_FEATURE_LEVEL_2_0 = 8192,
+                        DML_FEATURE_LEVEL_2_1 = 8448,
+                        DML_FEATURE_LEVEL_3_0 = 12288,
+                        DML_FEATURE_LEVEL_3_1 = 12544,
+                        DML_FEATURE_LEVEL_4_0 = 16384,
+                        DML_FEATURE_LEVEL_4_1 = 16640,
+                        DML_FEATURE_LEVEL_5_0 = 20480,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_feature_query_feature_levels")]
+                    struct DML_FEATURE_QUERY_FEATURE_LEVELS {
+                        RequestedFeatureLevelCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        RequestedFeatureLevels: *mut DML_FEATURE_LEVEL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_feature_query_tensor_data_type_support")]
+                    struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
+                        DataType: DML_TENSOR_DATA_TYPE,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_fill_value_constant_operator_desc")]
+                    struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        ValueDataType: DML_TENSOR_DATA_TYPE,
+                        Value: DML_SCALAR_UNION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_fill_value_sequence_operator_desc")]
+                    struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        ValueDataType: DML_TENSOR_DATA_TYPE,
+                        ValueStart: DML_SCALAR_UNION,
+                        ValueDelta: DML_SCALAR_UNION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gather_elements_operator_desc")]
+                    struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gather_nd1_operator_desc")]
+                    struct DML_GATHER_ND1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InputDimensionCount: u32,
+                        IndicesDimensionCount: u32,
+                        BatchDimensionCount: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gather_nd_operator_desc")]
+                    struct DML_GATHER_ND_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InputDimensionCount: u32,
+                        IndicesDimensionCount: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gather_operator_desc")]
+                    struct DML_GATHER_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        IndexDimensions: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gemm_operator_desc")]
+                    struct DML_GEMM_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        CTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        TransA: DML_MATRIX_TRANSFORM,
+                        TransB: DML_MATRIX_TRANSFORM,
+                        Alpha: f32,
+                        Beta: f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_graph_desc")]
+                    struct DML_GRAPH_DESC {
+                        InputCount: u32,
+                        OutputCount: u32,
+                        NodeCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Nodes: *mut DML_GRAPH_NODE_DESC,
+                        InputEdgeCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputEdges: *mut DML_GRAPH_EDGE_DESC,
+                        OutputEdgeCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputEdges: *mut DML_GRAPH_EDGE_DESC,
+                        IntermediateEdgeCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IntermediateEdges: *mut DML_GRAPH_EDGE_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_graph_edge_desc")]
+                    struct DML_GRAPH_EDGE_DESC {
+                        Type: DML_GRAPH_EDGE_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Desc: *mut void,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_graph_edge_type")]
+                    enum DML_GRAPH_EDGE_TYPE {
+                        DML_GRAPH_EDGE_TYPE_INVALID = 0,
+                        DML_GRAPH_EDGE_TYPE_INPUT = 1,
+                        DML_GRAPH_EDGE_TYPE_OUTPUT = 2,
+                        DML_GRAPH_EDGE_TYPE_INTERMEDIATE = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_graph_node_desc")]
+                    struct DML_GRAPH_NODE_DESC {
+                        Type: DML_GRAPH_NODE_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Desc: *mut void,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_graph_node_type")]
+                    enum DML_GRAPH_NODE_TYPE {
+                        DML_GRAPH_NODE_TYPE_INVALID = 0,
+                        DML_GRAPH_NODE_TYPE_OPERATOR = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_gru_operator_desc")]
+                    struct DML_GRU_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WeightTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        RecurrenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        HiddenInitTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        SequenceLengthsTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSequenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSingleTensor: *mut DML_TENSOR_DESC,
+                        ActivationDescCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ActivationDescs: *mut DML_OPERATOR_DESC,
+                        Direction: DML_RECURRENT_NETWORK_DIRECTION,
+                        LinearBeforeReset: super::super::super::Foundation::BOOL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_input_graph_edge_desc")]
+                    struct DML_INPUT_GRAPH_EDGE_DESC {
+                        GraphInputIndex: u32,
+                        ToNodeIndex: u32,
+                        ToNodeInputIndex: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Name: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_intermediate_graph_edge_desc")]
+                    struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
+                        FromNodeIndex: u32,
+                        FromNodeOutputIndex: u32,
+                        ToNodeIndex: u32,
+                        ToNodeInputIndex: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Name: super::super::super::Foundation::PSTR,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_interpolation_mode")]
+                    enum DML_INTERPOLATION_MODE {
+                        DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR = 0,
+                        DML_INTERPOLATION_MODE_LINEAR = 1,
+                    }
+                    #[repr(i32)]
+                    enum DML_IS_INFINITY_MODE {
+                        DML_IS_INFINITY_MODE_EITHER = 0,
+                        DML_IS_INFINITY_MODE_POSITIVE = 1,
+                        DML_IS_INFINITY_MODE_NEGATIVE = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_join_operator_desc")]
+                    struct DML_JOIN_OPERATOR_DESC {
+                        InputCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensors: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_local_response_normalization_grad_operator_desc")]
+                    struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        CrossChannel: super::super::super::Foundation::BOOL,
+                        LocalSize: u32,
+                        Alpha: f32,
+                        Beta: f32,
+                        Bias: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_local_response_normalization_operator_desc")]
+                    struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        CrossChannel: super::super::super::Foundation::BOOL,
+                        LocalSize: u32,
+                        Alpha: f32,
+                        Beta: f32,
+                        Bias: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_lp_normalization_operator_desc")]
+                    struct DML_LP_NORMALIZATION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        Epsilon: f32,
+                        P: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_lp_pooling_operator_desc")]
+                    struct DML_LP_POOLING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        P: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_lstm_operator_desc")]
+                    struct DML_LSTM_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WeightTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        RecurrenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        HiddenInitTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        CellMemInitTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        SequenceLengthsTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        PeepholeTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSequenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSingleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputCellSingleTensor: *mut DML_TENSOR_DESC,
+                        ActivationDescCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ActivationDescs: *mut DML_OPERATOR_DESC,
+                        Direction: DML_RECURRENT_NETWORK_DIRECTION,
+                        ClipThreshold: f32,
+                        UseClipThreshold: super::super::super::Foundation::BOOL,
+                        CoupleInputForget: super::super::super::Foundation::BOOL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_matrix_multiply_integer_operator_desc")]
+                    struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        AZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_matrix_transform")]
+                    enum DML_MATRIX_TRANSFORM {
+                        DML_MATRIX_TRANSFORM_NONE = 0,
+                        DML_MATRIX_TRANSFORM_TRANSPOSE = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_max_pooling1_operator_desc")]
+                    struct DML_MAX_POOLING1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputIndicesTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_max_pooling2_operator_desc")]
+                    struct DML_MAX_POOLING2_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputIndicesTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Dilations: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_max_pooling_grad_operator_desc")]
+                    struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Dilations: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_max_pooling_operator_desc")]
+                    struct DML_MAX_POOLING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WindowSize: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_max_unpooling_operator_desc")]
+                    struct DML_MAX_UNPOOLING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization1_operator_desc")]
+                    struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        AxisCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Axes: *mut u32,
+                        NormalizeVariance: super::super::super::Foundation::BOOL,
+                        Epsilon: f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_mean_variance_normalization_operator_desc")]
+                    struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        CrossChannel: super::super::super::Foundation::BOOL,
+                        NormalizeVariance: super::super::super::Foundation::BOOL,
+                        Epsilon: f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FusedActivation: *mut DML_OPERATOR_DESC,
+                    }
+                    const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_nonzero_coordinates_operator_desc")]
+                    struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputCountTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputCoordinatesTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_one_hot_operator_desc")]
+                    struct DML_ONE_HOT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ValuesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_operator_desc")]
+                    struct DML_OPERATOR_DESC {
+                        Type: DML_OPERATOR_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Desc: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_operator_graph_node_desc")]
+                    struct DML_OPERATOR_GRAPH_NODE_DESC {
+                        Operator: IDMLOperator,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Name: super::super::super::Foundation::PSTR,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_operator_type")]
+                    enum DML_OPERATOR_TYPE {
+                        DML_OPERATOR_INVALID = 0,
+                        DML_OPERATOR_ELEMENT_WISE_IDENTITY = 1,
+                        DML_OPERATOR_ELEMENT_WISE_ABS = 2,
+                        DML_OPERATOR_ELEMENT_WISE_ACOS = 3,
+                        DML_OPERATOR_ELEMENT_WISE_ADD = 4,
+                        DML_OPERATOR_ELEMENT_WISE_ASIN = 5,
+                        DML_OPERATOR_ELEMENT_WISE_ATAN = 6,
+                        DML_OPERATOR_ELEMENT_WISE_CEIL = 7,
+                        DML_OPERATOR_ELEMENT_WISE_CLIP = 8,
+                        DML_OPERATOR_ELEMENT_WISE_COS = 9,
+                        DML_OPERATOR_ELEMENT_WISE_DIVIDE = 10,
+                        DML_OPERATOR_ELEMENT_WISE_EXP = 11,
+                        DML_OPERATOR_ELEMENT_WISE_FLOOR = 12,
+                        DML_OPERATOR_ELEMENT_WISE_LOG = 13,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND = 14,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS = 15,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN = 16,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN = 17,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT = 18,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR = 19,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR = 20,
+                        DML_OPERATOR_ELEMENT_WISE_MAX = 21,
+                        DML_OPERATOR_ELEMENT_WISE_MEAN = 22,
+                        DML_OPERATOR_ELEMENT_WISE_MIN = 23,
+                        DML_OPERATOR_ELEMENT_WISE_MULTIPLY = 24,
+                        DML_OPERATOR_ELEMENT_WISE_POW = 25,
+                        DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW = 26,
+                        DML_OPERATOR_ELEMENT_WISE_RECIP = 27,
+                        DML_OPERATOR_ELEMENT_WISE_SIN = 28,
+                        DML_OPERATOR_ELEMENT_WISE_SQRT = 29,
+                        DML_OPERATOR_ELEMENT_WISE_SUBTRACT = 30,
+                        DML_OPERATOR_ELEMENT_WISE_TAN = 31,
+                        DML_OPERATOR_ELEMENT_WISE_THRESHOLD = 32,
+                        DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR = 33,
+                        DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR = 34,
+                        DML_OPERATOR_ACTIVATION_ELU = 35,
+                        DML_OPERATOR_ACTIVATION_HARDMAX = 36,
+                        DML_OPERATOR_ACTIVATION_HARD_SIGMOID = 37,
+                        DML_OPERATOR_ACTIVATION_IDENTITY = 38,
+                        DML_OPERATOR_ACTIVATION_LEAKY_RELU = 39,
+                        DML_OPERATOR_ACTIVATION_LINEAR = 40,
+                        DML_OPERATOR_ACTIVATION_LOG_SOFTMAX = 41,
+                        DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU = 42,
+                        DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS = 43,
+                        DML_OPERATOR_ACTIVATION_RELU = 44,
+                        DML_OPERATOR_ACTIVATION_SCALED_ELU = 45,
+                        DML_OPERATOR_ACTIVATION_SCALED_TANH = 46,
+                        DML_OPERATOR_ACTIVATION_SIGMOID = 47,
+                        DML_OPERATOR_ACTIVATION_SOFTMAX = 48,
+                        DML_OPERATOR_ACTIVATION_SOFTPLUS = 49,
+                        DML_OPERATOR_ACTIVATION_SOFTSIGN = 50,
+                        DML_OPERATOR_ACTIVATION_TANH = 51,
+                        DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU = 52,
+                        DML_OPERATOR_CONVOLUTION = 53,
+                        DML_OPERATOR_GEMM = 54,
+                        DML_OPERATOR_REDUCE = 55,
+                        DML_OPERATOR_AVERAGE_POOLING = 56,
+                        DML_OPERATOR_LP_POOLING = 57,
+                        DML_OPERATOR_MAX_POOLING = 58,
+                        DML_OPERATOR_ROI_POOLING = 59,
+                        DML_OPERATOR_SLICE = 60,
+                        DML_OPERATOR_CAST = 61,
+                        DML_OPERATOR_SPLIT = 62,
+                        DML_OPERATOR_JOIN = 63,
+                        DML_OPERATOR_PADDING = 64,
+                        DML_OPERATOR_VALUE_SCALE_2D = 65,
+                        DML_OPERATOR_UPSAMPLE_2D = 66,
+                        DML_OPERATOR_GATHER = 67,
+                        DML_OPERATOR_SPACE_TO_DEPTH = 68,
+                        DML_OPERATOR_DEPTH_TO_SPACE = 69,
+                        DML_OPERATOR_TILE = 70,
+                        DML_OPERATOR_TOP_K = 71,
+                        DML_OPERATOR_BATCH_NORMALIZATION = 72,
+                        DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION = 73,
+                        DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION = 74,
+                        DML_OPERATOR_LP_NORMALIZATION = 75,
+                        DML_OPERATOR_RNN = 76,
+                        DML_OPERATOR_LSTM = 77,
+                        DML_OPERATOR_GRU = 78,
+                        DML_OPERATOR_ELEMENT_WISE_SIGN = 79,
+                        DML_OPERATOR_ELEMENT_WISE_IS_NAN = 80,
+                        DML_OPERATOR_ELEMENT_WISE_ERF = 81,
+                        DML_OPERATOR_ELEMENT_WISE_SINH = 82,
+                        DML_OPERATOR_ELEMENT_WISE_COSH = 83,
+                        DML_OPERATOR_ELEMENT_WISE_TANH = 84,
+                        DML_OPERATOR_ELEMENT_WISE_ASINH = 85,
+                        DML_OPERATOR_ELEMENT_WISE_ACOSH = 86,
+                        DML_OPERATOR_ELEMENT_WISE_ATANH = 87,
+                        DML_OPERATOR_ELEMENT_WISE_IF = 88,
+                        DML_OPERATOR_ELEMENT_WISE_ADD1 = 89,
+                        DML_OPERATOR_ACTIVATION_SHRINK = 90,
+                        DML_OPERATOR_MAX_POOLING1 = 91,
+                        DML_OPERATOR_MAX_UNPOOLING = 92,
+                        DML_OPERATOR_DIAGONAL_MATRIX = 93,
+                        DML_OPERATOR_SCATTER_ELEMENTS = 94,
+                        DML_OPERATOR_SCATTER = 94,
+                        DML_OPERATOR_ONE_HOT = 95,
+                        DML_OPERATOR_RESAMPLE = 96,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT = 97,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT = 98,
+                        DML_OPERATOR_ELEMENT_WISE_ROUND = 99,
+                        DML_OPERATOR_ELEMENT_WISE_IS_INFINITY = 100,
+                        DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE = 101,
+                        DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR = 102,
+                        DML_OPERATOR_FILL_VALUE_CONSTANT = 103,
+                        DML_OPERATOR_FILL_VALUE_SEQUENCE = 104,
+                        DML_OPERATOR_CUMULATIVE_SUMMATION = 105,
+                        DML_OPERATOR_REVERSE_SUBSEQUENCES = 106,
+                        DML_OPERATOR_GATHER_ELEMENTS = 107,
+                        DML_OPERATOR_GATHER_ND = 108,
+                        DML_OPERATOR_SCATTER_ND = 109,
+                        DML_OPERATOR_MAX_POOLING2 = 110,
+                        DML_OPERATOR_SLICE1 = 111,
+                        DML_OPERATOR_TOP_K1 = 112,
+                        DML_OPERATOR_DEPTH_TO_SPACE1 = 113,
+                        DML_OPERATOR_SPACE_TO_DEPTH1 = 114,
+                        DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1 = 115,
+                        DML_OPERATOR_RESAMPLE1 = 116,
+                        DML_OPERATOR_MATRIX_MULTIPLY_INTEGER = 117,
+                        DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY = 118,
+                        DML_OPERATOR_CONVOLUTION_INTEGER = 119,
+                        DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION = 120,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_AND = 121,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_OR = 122,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_XOR = 123,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_NOT = 124,
+                        DML_OPERATOR_ELEMENT_WISE_BIT_COUNT = 125,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL = 126,
+                        DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL = 127,
+                        DML_OPERATOR_ACTIVATION_CELU = 128,
+                        DML_OPERATOR_ACTIVATION_RELU_GRAD = 129,
+                        DML_OPERATOR_AVERAGE_POOLING_GRAD = 130,
+                        DML_OPERATOR_MAX_POOLING_GRAD = 131,
+                        DML_OPERATOR_RANDOM_GENERATOR = 132,
+                        DML_OPERATOR_NONZERO_COORDINATES = 133,
+                        DML_OPERATOR_RESAMPLE_GRAD = 134,
+                        DML_OPERATOR_SLICE_GRAD = 135,
+                        DML_OPERATOR_ADAM_OPTIMIZER = 136,
+                        DML_OPERATOR_ARGMIN = 137,
+                        DML_OPERATOR_ARGMAX = 138,
+                        DML_OPERATOR_ROI_ALIGN = 139,
+                        DML_OPERATOR_GATHER_ND1 = 140,
+                        DML_OPERATOR_ELEMENT_WISE_ATAN_YX = 141,
+                        DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD = 142,
+                        DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE = 143,
+                        DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD = 144,
+                        DML_OPERATOR_CUMULATIVE_PRODUCT = 145,
+                        DML_OPERATOR_BATCH_NORMALIZATION_GRAD = 146,
+                        DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD = 147,
+                        DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR = 148,
+                        DML_OPERATOR_ROI_ALIGN1 = 149,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_output_graph_edge_desc")]
+                    struct DML_OUTPUT_GRAPH_EDGE_DESC {
+                        FromNodeIndex: u32,
+                        FromNodeOutputIndex: u32,
+                        GraphOutputIndex: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Name: super::super::super::Foundation::PSTR,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_padding_mode")]
+                    enum DML_PADDING_MODE {
+                        DML_PADDING_MODE_CONSTANT = 0,
+                        DML_PADDING_MODE_EDGE = 1,
+                        DML_PADDING_MODE_REFLECTION = 2,
+                        DML_PADDING_MODE_SYMMETRIC = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_padding_operator_desc")]
+                    struct DML_PADDING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        PaddingMode: DML_PADDING_MODE,
+                        PaddingValue: f32,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                    }
+                    const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_quantized_linear_convolution_operator_desc")]
+                    struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        FilterZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Dilations: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StartPadding: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        EndPadding: *mut u32,
+                        GroupCount: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_quantized_linear_matrix_multiply_operator_desc")]
+                    struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ATensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        AScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        AZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputScaleTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputZeroPointTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_random_generator_operator_desc")]
+                    struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputStateTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputStateTensor: *mut DML_TENSOR_DESC,
+                        Type: DML_RANDOM_GENERATOR_TYPE,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_random_generator_type")]
+                    enum DML_RANDOM_GENERATOR_TYPE {
+                        DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10 = 0,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_recurrent_network_direction")]
+                    enum DML_RECURRENT_NETWORK_DIRECTION {
+                        DML_RECURRENT_NETWORK_DIRECTION_FORWARD = 0,
+                        DML_RECURRENT_NETWORK_DIRECTION_BACKWARD = 1,
+                        DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_reduce_function")]
+                    enum DML_REDUCE_FUNCTION {
+                        DML_REDUCE_FUNCTION_ARGMAX = 0,
+                        DML_REDUCE_FUNCTION_ARGMIN = 1,
+                        DML_REDUCE_FUNCTION_AVERAGE = 2,
+                        DML_REDUCE_FUNCTION_L1 = 3,
+                        DML_REDUCE_FUNCTION_L2 = 4,
+                        DML_REDUCE_FUNCTION_LOG_SUM = 5,
+                        DML_REDUCE_FUNCTION_LOG_SUM_EXP = 6,
+                        DML_REDUCE_FUNCTION_MAX = 7,
+                        DML_REDUCE_FUNCTION_MIN = 8,
+                        DML_REDUCE_FUNCTION_MULTIPLY = 9,
+                        DML_REDUCE_FUNCTION_SUM = 10,
+                        DML_REDUCE_FUNCTION_SUM_SQUARE = 11,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_reduce_operator_desc")]
+                    struct DML_REDUCE_OPERATOR_DESC {
+                        Function: DML_REDUCE_FUNCTION,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        AxisCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Axes: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_resample1_operator_desc")]
+                    struct DML_RESAMPLE1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Scales: *mut f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputPixelOffsets: *mut f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputPixelOffsets: *mut f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_resample_grad_operator_desc")]
+                    struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Scales: *mut f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputPixelOffsets: *mut f32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputPixelOffsets: *mut f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_resample_operator_desc")]
+                    struct DML_RESAMPLE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                        ScaleCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Scales: *mut f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_reverse_subsequences_desc")]
+                    struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        SequenceLengthsTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_rnn_operator_desc")]
+                    struct DML_RNN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        WeightTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        RecurrenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BiasTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        HiddenInitTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        SequenceLengthsTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSequenceTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputSingleTensor: *mut DML_TENSOR_DESC,
+                        ActivationDescCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ActivationDescs: *mut DML_OPERATOR_DESC,
+                        Direction: DML_RECURRENT_NETWORK_DIRECTION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_roi_align1_operator_desc")]
+                    struct DML_ROI_ALIGN1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ROITensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BatchIndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        ReductionFunction: DML_REDUCE_FUNCTION,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                        SpatialScaleX: f32,
+                        SpatialScaleY: f32,
+                        InputPixelOffset: f32,
+                        OutputPixelOffset: f32,
+                        OutOfBoundsInputValue: f32,
+                        MinimumSamplesPerOutput: u32,
+                        MaximumSamplesPerOutput: u32,
+                        AlignRegionsToCorners: super::super::super::Foundation::BOOL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_roi_align_operator_desc")]
+                    struct DML_ROI_ALIGN_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ROITensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        BatchIndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        ReductionFunction: DML_REDUCE_FUNCTION,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                        SpatialScaleX: f32,
+                        SpatialScaleY: f32,
+                        OutOfBoundsInputValue: f32,
+                        MinimumSamplesPerOutput: u32,
+                        MaximumSamplesPerOutput: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_roi_pooling_operator_desc")]
+                    struct DML_ROI_POOLING_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ROITensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        SpatialScale: f32,
+                        PooledSize: DML_SIZE_2D,
+                    }
+                    #[repr(i32)]
+                    enum DML_ROUNDING_MODE {
+                        DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN = 0,
+                        DML_ROUNDING_MODE_TOWARD_ZERO = 1,
+                        DML_ROUNDING_MODE_TOWARD_INFINITY = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_scalar_union")]
+                    union DML_SCALAR_UNION {
+                        Bytes: [u8; 8],
+                        Int8: i8,
+                        UInt8: u8,
+                        Int16: i16,
+                        UInt16: u16,
+                        Int32: i32,
+                        UInt32: u32,
+                        Int64: i64,
+                        UInt64: u64,
+                        Float32: f32,
+                        Float64: f64,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_scale_bias")]
+                    struct DML_SCALE_BIAS {
+                        Scale: f32,
+                        Bias: f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_scatter_nd_operator_desc")]
+                    struct DML_SCATTER_ND_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        UpdatesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        InputDimensionCount: u32,
+                        IndicesDimensionCount: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_scatter_operator_desc")]
+                    struct DML_SCATTER_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        IndicesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        UpdatesTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_size_2d")]
+                    struct DML_SIZE_2D {
+                        Width: u32,
+                        Height: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_slice1_operator_desc")]
+                    struct DML_SLICE1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowOffsets: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowSizes: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowStrides: *mut i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_slice_grad_operator_desc")]
+                    struct DML_SLICE_GRAD_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputGradientTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputGradientTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowOffsets: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowSizes: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputWindowStrides: *mut i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_slice_operator_desc")]
+                    struct DML_SLICE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        DimensionCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Offsets: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Sizes: *mut u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Strides: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_space_to_depth1_operator_desc")]
+                    struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        BlockSize: u32,
+                        Order: DML_DEPTH_SPACE_ORDER,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_space_to_depth_operator_desc")]
+                    struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        BlockSize: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_split_operator_desc")]
+                    struct DML_SPLIT_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        OutputCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensors: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                    }
+                    const DML_TARGET_VERSION: u32 = 20480;
+                    const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256;
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_tensor_data_type")]
+                    enum DML_TENSOR_DATA_TYPE {
+                        DML_TENSOR_DATA_TYPE_UNKNOWN = 0,
+                        DML_TENSOR_DATA_TYPE_FLOAT32 = 1,
+                        DML_TENSOR_DATA_TYPE_FLOAT16 = 2,
+                        DML_TENSOR_DATA_TYPE_UINT32 = 3,
+                        DML_TENSOR_DATA_TYPE_UINT16 = 4,
+                        DML_TENSOR_DATA_TYPE_UINT8 = 5,
+                        DML_TENSOR_DATA_TYPE_INT32 = 6,
+                        DML_TENSOR_DATA_TYPE_INT16 = 7,
+                        DML_TENSOR_DATA_TYPE_INT8 = 8,
+                        DML_TENSOR_DATA_TYPE_FLOAT64 = 9,
+                        DML_TENSOR_DATA_TYPE_UINT64 = 10,
+                        DML_TENSOR_DATA_TYPE_INT64 = 11,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_tensor_desc")]
+                    struct DML_TENSOR_DESC {
+                        Type: DML_TENSOR_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Desc: *mut void,
+                    }
+                    const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5;
+                    const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8;
+                    #[repr(i32)]
+                    #[flags]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_tensor_flags")]
+                    enum DML_TENSOR_FLAGS {
+                        DML_TENSOR_FLAG_NONE = 0,
+                        DML_TENSOR_FLAG_OWNED_BY_DML = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ne-directml-dml_tensor_type")]
+                    enum DML_TENSOR_TYPE {
+                        DML_TENSOR_TYPE_INVALID = 0,
+                        DML_TENSOR_TYPE_BUFFER = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_tile_operator_desc")]
+                    struct DML_TILE_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        RepeatsCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Repeats: *mut u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_top_k1_operator_desc")]
+                    struct DML_TOP_K1_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputValueTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputIndexTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        K: u32,
+                        AxisDirection: DML_AXIS_DIRECTION,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_top_k_operator_desc")]
+                    struct DML_TOP_K_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputValueTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputIndexTensor: *mut DML_TENSOR_DESC,
+                        Axis: u32,
+                        K: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_upsample_2d_operator_desc")]
+                    struct DML_UPSAMPLE_2D_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        ScaleSize: DML_SIZE_2D,
+                        InterpolationMode: DML_INTERPOLATION_MODE,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/ns-directml-dml_value_scale_2d_operator_desc")]
+                    struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        InputTensor: *mut DML_TENSOR_DESC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        OutputTensor: *mut DML_TENSOR_DESC,
+                        Scale: f32,
+                        ChannelCount: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        Bias: *mut f32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmlbindingtable")]
+                    interface IDMLBindingTable: IDMLDeviceChild {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlbindingtable-bindinputs")]
+                        fn BindInputs(&self, bindingCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] bindings: *mut DML_BINDING_DESC);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlbindingtable-bindoutputs")]
+                        fn BindOutputs(&self, bindingCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] bindings: *mut DML_BINDING_DESC);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlbindingtable-bindtemporaryresource")]
+                        fn BindTemporaryResource(&self, #[Windows::Win32::Foundation::Metadata::Const] binding: *mut DML_BINDING_DESC);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlbindingtable-bindpersistentresource")]
+                        fn BindPersistentResource(&self, #[Windows::Win32::Foundation::Metadata::Const] binding: *mut DML_BINDING_DESC);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlbindingtable-reset")]
+                        fn Reset(&self, #[Windows::Win32::Foundation::Metadata::Const] desc: *mut DML_BINDING_TABLE_DESC) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmlcommandrecorder")]
+                    interface IDMLCommandRecorder: IDMLDeviceChild {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlcommandrecorder-recorddispatch")]
+                        fn RecordDispatch(&self, commandList: super::super::super::Graphics::Direct3D12::ID3D12CommandList, dispatchable: IDMLDispatchable, bindings: IDMLBindingTable);
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmlcompiledoperator")]
+                    interface IDMLCompiledOperator: IDMLDispatchable {}
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmldebugdevice")]
+                    interface IDMLDebugDevice: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldebugdevice-setmutedebugoutput")]
+                        fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmldevice")]
+                    interface IDMLDevice: IDMLObject {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-checkfeaturesupport")]
+                        fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] featureQueryData: *mut void, featureSupportDataSize: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] featureSupportData: *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-createoperator")]
+                        fn CreateOperator(&self, #[Windows::Win32::Foundation::Metadata::Const] desc: *mut DML_OPERATOR_DESC, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-compileoperator")]
+                        fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-createoperatorinitializer")]
+                        fn CreateOperatorInitializer(&self, operatorCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] operators: *mut IDMLCompiledOperator, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-createcommandrecorder")]
+                        fn CreateCommandRecorder(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-createbindingtable")]
+                        fn CreateBindingTable(&self, #[Windows::Win32::Foundation::Metadata::Const] desc: *mut DML_BINDING_TABLE_DESC, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-evict")]
+                        fn Evict(&self, count: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppObjects: *mut IDMLPageable) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-makeresident")]
+                        fn MakeResident(&self, count: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppObjects: *mut IDMLPageable) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-getdeviceremovedreason")]
+                        fn GetDeviceRemovedReason(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice-getparentdevice")]
+                        fn GetParentDevice(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmldevice1")]
+                    interface IDMLDevice1: IDMLDevice {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevice1-compilegraph")]
+                        fn CompileGraph(&self, #[Windows::Win32::Foundation::Metadata::Const] desc: *mut DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmldevicechild")]
+                    interface IDMLDeviceChild: IDMLObject {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldevicechild-getdevice")]
+                        fn GetDevice(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmldispatchable")]
+                    interface IDMLDispatchable: IDMLPageable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmldispatchable-getbindingproperties")]
+                        fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmlobject")]
+                    interface IDMLObject: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlobject-getprivatedata")]
+                        fn GetPrivateData(&self, #[Windows::Win32::Foundation::Metadata::Const] guid: *mut GUID, dataSize: *mut u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] data: *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlobject-setprivatedata")]
+                        fn SetPrivateData(&self, #[Windows::Win32::Foundation::Metadata::Const] guid: *mut GUID, dataSize: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] data: *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlobject-setprivatedatainterface")]
+                        fn SetPrivateDataInterface(&self, #[Windows::Win32::Foundation::Metadata::Const] guid: *mut GUID, data: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmlobject-setname")]
+                        fn SetName(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmloperator")]
+                    interface IDMLOperator: IDMLDeviceChild {}
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmloperatorinitializer")]
+                    interface IDMLOperatorInitializer: IDMLDispatchable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nf-directml-idmloperatorinitializer-reset")]
+                        fn Reset(&self, operatorCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] operators: *mut IDMLCompiledOperator) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directml/nn-directml-idmlpageable")]
+                    interface IDMLPageable: IDMLDeviceChild {}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,207 @@
+mod Windows {
+    mod Devices {
+        #[winrt]
+        mod Gpio {
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            struct GpioChangeCount {
+                Count: u64,
+                RelativeTime: super::super::Foundation::TimeSpan,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Activatable(IGpioChangeCounterFactory, 196608, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class GpioChangeCounter {
+                #[default]
+                IGpioChangeCounter,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            enum GpioChangePolarity {
+                Falling = 0,
+                Rising = 1,
+                Both = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Activatable(IGpioChangeReaderFactory, 196608, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class GpioChangeReader {
+                #[default]
+                IGpioChangeReader,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            struct GpioChangeRecord {
+                RelativeTime: super::super::Foundation::TimeSpan,
+                Edge: GpioPinEdge,
+            }
+            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            class GpioController {
+                #[default]
+                IGpioController,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum GpioOpenStatus {
+                PinOpened = 0,
+                PinUnavailable = 1,
+                SharingViolation = 2,
+                MuxingConflict = 3,
+                UnknownError = 4,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class GpioPin {
+                #[default]
+                IGpioPin,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum GpioPinDriveMode {
+                Input = 0,
+                Output = 1,
+                InputPullUp = 2,
+                InputPullDown = 3,
+                OutputOpenDrain = 4,
+                OutputOpenDrainPullUp = 5,
+                OutputOpenSource = 6,
+                OutputOpenSourcePullDown = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum GpioPinEdge {
+                FallingEdge = 0,
+                RisingEdge = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum GpioPinValue {
+                Low = 0,
+                High = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class GpioPinValueChangedEventArgs {
+                #[default]
+                IGpioPinValueChangedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum GpioSharingMode {
+                Exclusive = 0,
+                SharedReadOnly = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
+            interface IGpioChangeCounter: super::super::Foundation::IClosable {
+                #[special]
+                fn put_Polarity(&self, value: GpioChangePolarity);
+                #[special]
+                fn get_Polarity(&self) -> GpioChangePolarity;
+                #[special]
+                fn get_IsStarted(&self) -> bool;
+                fn Start(&self);
+                fn Stop(&self);
+                fn Read(&self) -> GpioChangeCount;
+                fn Reset(&self) -> GpioChangeCount;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
+            interface IGpioChangeCounterFactory {
+                fn Create(&self, pin: GpioPin) -> GpioChangeCounter;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
+            interface IGpioChangeReader: super::super::Foundation::IClosable {
+                #[special]
+                fn get_Capacity(&self) -> i32;
+                #[special]
+                fn get_Length(&self) -> i32;
+                #[special]
+                fn get_IsEmpty(&self) -> bool;
+                #[special]
+                fn get_IsOverflowed(&self) -> bool;
+                #[special]
+                fn put_Polarity(&self, value: GpioChangePolarity);
+                #[special]
+                fn get_Polarity(&self) -> GpioChangePolarity;
+                #[special]
+                fn get_IsStarted(&self) -> bool;
+                fn Start(&self);
+                fn Stop(&self);
+                fn Clear(&self);
+                fn GetNextItem(&self) -> GpioChangeRecord;
+                fn PeekNextItem(&self) -> GpioChangeRecord;
+                fn GetAllItems(&self) -> super::super::Foundation::Collections::IVector<GpioChangeRecord>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn WaitForItemsAsync(&self, count: i32) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
+            interface IGpioChangeReaderFactory {
+                fn Create(&self, pin: GpioPin) -> GpioChangeReader;
+                fn CreateWithCapacity(&self, pin: GpioPin, minCapacity: i32) -> GpioChangeReader;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IGpioController {
+                #[special]
+                fn get_PinCount(&self) -> i32;
+                #[Windows::Foundation::Metadata::Overload("OpenPin")]
+                fn OpenPin(&self, pinNumber: i32) -> GpioPin;
+                #[Windows::Foundation::Metadata::Overload("OpenPinWithSharingMode")]
+                fn OpenPin(&self, pinNumber: i32, sharingMode: GpioSharingMode) -> GpioPin;
+                fn TryOpenPin(&self, pinNumber: i32, sharingMode: GpioSharingMode, pin: &mut GpioPin, openStatus: &mut GpioOpenStatus) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IGpioControllerStatics {
+                fn GetDefault(&self) -> GpioController;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            interface IGpioControllerStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetControllersAsync(&self, provider: Provider::IGpioProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<GpioController>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioPin)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IGpioPin: super::super::Foundation::IClosable {
+                #[special]
+                fn add_ValueChanged(&self, handler: super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ValueChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_DebounceTimeout(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn put_DebounceTimeout(&self, value: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_PinNumber(&self) -> i32;
+                #[special]
+                fn get_SharingMode(&self) -> GpioSharingMode;
+                fn IsDriveModeSupported(&self, driveMode: GpioPinDriveMode) -> bool;
+                fn GetDriveMode(&self) -> GpioPinDriveMode;
+                fn SetDriveMode(&self, value: GpioPinDriveMode);
+                fn Write(&self, value: GpioPinValue);
+                fn Read(&self) -> GpioPinValue;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinValueChangedEventArgs)]
+            interface IGpioPinValueChangedEventArgs {
+                #[special]
+                fn get_Edge(&self) -> GpioPinEdge;
+            }
+        }
+    }
+}

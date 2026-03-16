@@ -1,0 +1,293 @@
+mod Windows {
+    mod UI {
+        #[winrt]
+        mod ApplicationSettings {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics3, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Static(IAccountsSettingsPaneStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            class AccountsSettingsPane {
+                #[default]
+                IAccountsSettingsPane,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            class AccountsSettingsPaneCommandsRequestedEventArgs {
+                #[default]
+                IAccountsSettingsPaneCommandsRequestedEventArgs,
+                IAccountsSettingsPaneCommandsRequestedEventArgs2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AccountsSettingsPaneEventDeferral {
+                #[default]
+                IAccountsSettingsPaneEventDeferral,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct ApplicationsSettingsContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::Activatable(ICredentialCommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class CredentialCommand {
+                #[default]
+                ICredentialCommand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn CredentialCommandCredentialDeletedHandler(command: CredentialCommand);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
+            interface IAccountsSettingsPane {
+                #[special]
+                fn add_AccountCommandsRequested(&self, handler: super::super::Foundation::TypedEventHandler<AccountsSettingsPane, AccountsSettingsPaneCommandsRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AccountCommandsRequested(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPaneCommandsRequestedEventArgs)]
+            interface IAccountsSettingsPaneCommandsRequestedEventArgs {
+                #[special]
+                fn get_WebAccountProviderCommands(&self) -> super::super::Foundation::Collections::IVector<WebAccountProviderCommand>;
+                #[special]
+                fn get_WebAccountCommands(&self) -> super::super::Foundation::Collections::IVector<WebAccountCommand>;
+                #[special]
+                fn get_CredentialCommands(&self) -> super::super::Foundation::Collections::IVector<CredentialCommand>;
+                #[special]
+                fn get_Commands(&self) -> super::super::Foundation::Collections::IVector<SettingsCommand>;
+                #[special]
+                fn get_HeaderText(&self) -> String;
+                #[special]
+                fn put_HeaderText(&self, value: String);
+                fn GetDeferral(&self) -> AccountsSettingsPaneEventDeferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPaneCommandsRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IAccountsSettingsPaneCommandsRequestedEventArgs2 {
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPaneEventDeferral)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAccountsSettingsPaneEventDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
+            interface IAccountsSettingsPaneStatics {
+                fn GetForCurrentView(&self) -> AccountsSettingsPane;
+                fn Show(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAccountsSettingsPaneStatics2: IAccountsSettingsPaneStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowManageAccountsAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAddAccountAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccountsSettingsPane)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IAccountsSettingsPaneStatics3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowManageAccountsForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAddAccountForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CredentialCommand)]
+            interface ICredentialCommand {
+                #[special]
+                fn get_PasswordCredential(&self) -> super::super::Security::Credentials::PasswordCredential;
+                #[special]
+                fn get_CredentialDeleted(&self) -> CredentialCommandCredentialDeletedHandler;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CredentialCommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICredentialCommandFactory {
+                fn CreateCredentialCommand(&self, passwordCredential: super::super::Security::Credentials::PasswordCredential) -> CredentialCommand;
+                fn CreateCredentialCommandWithHandler(&self, passwordCredential: super::super::Security::Credentials::PasswordCredential, deleted: CredentialCommandCredentialDeletedHandler) -> CredentialCommand;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsCommand)]
+            interface ISettingsCommandFactory {
+                fn CreateSettingsCommand(&self, #[Windows::Foundation::Metadata::Variant] settingsCommandId: Object, label: String, handler: super::Popups::UICommandInvokedHandler) -> SettingsCommand;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsCommand)]
+            interface ISettingsCommandStatics {
+                #[special]
+                fn get_AccountsCommand(&self) -> SettingsCommand;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPane)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            interface ISettingsPane {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn add_CommandsRequested(&self, handler: super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn remove_CommandsRequested(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPaneCommandsRequest)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequest is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            interface ISettingsPaneCommandsRequest {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequest is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn get_ApplicationCommands(&self) -> super::super::Foundation::Collections::IVector<SettingsCommand>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequestedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPaneCommandsRequestedEventArgs)]
+            interface ISettingsPaneCommandsRequestedEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequestedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn get_Request(&self) -> SettingsPaneCommandsRequest;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SettingsPane)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            interface ISettingsPaneStatics {
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn GetForCurrentView(&self) -> SettingsPane;
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn Show(&self);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+                fn get_Edge(&self) -> SettingsEdgeLocation;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountCommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IWebAccountCommand {
+                #[special]
+                fn get_WebAccount(&self) -> super::super::Security::Credentials::WebAccount;
+                #[special]
+                fn get_Invoked(&self) -> WebAccountCommandInvokedHandler;
+                #[special]
+                fn get_Actions(&self) -> SupportedWebAccountActions;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountCommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IWebAccountCommandFactory {
+                fn CreateWebAccountCommand(&self, webAccount: super::super::Security::Credentials::WebAccount, invoked: WebAccountCommandInvokedHandler, actions: SupportedWebAccountActions) -> WebAccountCommand;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountInvokedArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IWebAccountInvokedArgs {
+                #[special]
+                fn get_Action(&self) -> WebAccountAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountProviderCommand)]
+            interface IWebAccountProviderCommand {
+                #[special]
+                fn get_WebAccountProvider(&self) -> super::super::Security::Credentials::WebAccountProvider;
+                #[special]
+                fn get_Invoked(&self) -> WebAccountProviderCommandInvokedHandler;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountProviderCommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IWebAccountProviderCommandFactory {
+                fn CreateWebAccountProviderCommand(&self, webAccountProvider: super::super::Security::Credentials::WebAccountProvider, invoked: WebAccountProviderCommandInvokedHandler) -> WebAccountProviderCommand;
+            }
+            #[Windows::Foundation::Metadata::Static(ISettingsCommandStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ISettingsCommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            class SettingsCommand {
+                #[default]
+                super::Popups::IUICommand,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsEdgeLocation is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            enum SettingsEdgeLocation {
+                Right = 0,
+                Left = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPane is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(ISettingsPaneStatics, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            class SettingsPane {
+                #[default]
+                ISettingsPane,
+            }
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequest is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            class SettingsPaneCommandsRequest {
+                #[default]
+                ISettingsPaneCommandsRequest,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ApplicationsSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("SettingsPaneCommandsRequestedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 65536, "Windows.UI.ApplicationSettings.ApplicationsSettingsContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            class SettingsPaneCommandsRequestedEventArgs {
+                #[default]
+                ISettingsPaneCommandsRequestedEventArgs,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SupportedWebAccountActions {
+                None = 0,
+                Reconnect = 1,
+                Remove = 2,
+                ViewDetails = 4,
+                Manage = 8,
+                More = 16,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum WebAccountAction {
+                Reconnect = 0,
+                Remove = 1,
+                ViewDetails = 2,
+                Manage = 3,
+                More = 4,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IWebAccountCommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            class WebAccountCommand {
+                #[default]
+                IWebAccountCommand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn WebAccountCommandInvokedHandler(command: WebAccountCommand, args: WebAccountInvokedArgs);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            class WebAccountInvokedArgs {
+                #[default]
+                IWebAccountInvokedArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Activatable(IWebAccountProviderCommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class WebAccountProviderCommand {
+                #[default]
+                IWebAccountProviderCommand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn WebAccountProviderCommandInvokedHandler(command: WebAccountProviderCommand);
+        }
+    }
+}

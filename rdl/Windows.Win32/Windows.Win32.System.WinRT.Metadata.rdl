@@ -1,0 +1,1550 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                #[win32]
+                mod Metadata {
+                    struct ASSEMBLYMETADATA {
+                        usMajorVersion: u16,
+                        usMinorVersion: u16,
+                        usBuildNumber: u16,
+                        usRevisionNumber: u16,
+                        szLocale: super::super::super::Foundation::PWSTR,
+                        cbLocale: u32,
+                        rProcessor: *mut u32,
+                        ulProcessor: u32,
+                        rOS: *mut OSINFO,
+                        ulOS: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const ASSEMBLY_METADATA_TYPE: String = "System.Reflection.AssemblyMetadataAttribute";
+                    const ASSEMBLY_METADATA_TYPE_W: String = "System.Reflection.AssemblyMetadataAttribute";
+                    const CLSID_CLR_v1_MetaData: GUID = 0x005023ca_72b1_11d3_9fc4_00c04f79a0a3;
+                    const CLSID_CLR_v2_MetaData: GUID = 0xefea471a_44fd_4862_9292_0c58d46e1f3a;
+                    const CLSID_Cor: GUID = 0xbee00010_ee77_11d0_a015_00c04fbbb884;
+                    const CLSID_CorMetaDataDispenser: GUID = 0xe5cb7a31_7512_11d2_89ce_0080c792e5d8;
+                    const CLSID_CorMetaDataDispenserReg: GUID = 0x435755ff_7397_11d2_9771_00a0c9b4d50c;
+                    const CLSID_CorMetaDataDispenserRuntime: GUID = 0x1ec2de53_75cc_11d2_9775_00a0c9b4d50c;
+                    const CLSID_CorMetaDataReg: GUID = 0x87f3a1f5_7397_11d2_9771_00a0c9b4d50c;
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAMESPACE: String = "System.Runtime.CompilerServices";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAMESPACE_OLD: String = "System.Runtime.InteropServices";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAME_CDECL: String = "CallConvCdecl";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAME_FASTCALL: String = "CallConvFastcall";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAME_STDCALL: String = "CallConvStdcall";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const CMOD_CALLCONV_NAME_THISCALL: String = "CallConvThiscall";
+                    #[repr(i32)]
+                    enum COINITICOR {
+                        COINITCOR_DEFAULT = 0,
+                    }
+                    #[repr(i32)]
+                    enum COINITIEE {
+                        COINITEE_DEFAULT = 0,
+                        COINITEE_DLL = 1,
+                        COINITEE_MAIN = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COMPILATIONRELAXATIONS_TYPE: String = "System.Runtime.CompilerServices.CompilationRelaxationsAttribute";
+                    const COMPILATIONRELAXATIONS_TYPE_W: String = "System.Runtime.CompilerServices.CompilationRelaxationsAttribute";
+                    const COR_BASE_SECURITY_ATTRIBUTE_CLASS: String = "System.Security.Permissions.SecurityAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_BASE_SECURITY_ATTRIBUTE_CLASS_ANSI: String = "System.Security.Permissions.SecurityAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_CCTOR_METHOD_NAME: String = ".cctor";
+                    const COR_CCTOR_METHOD_NAME_W: String = ".cctor";
+                    const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE: String = "System.Runtime.CompilerServices.DiscardableAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_COMPILERSERVICE_DISCARDABLEATTRIBUTE_ASNI: String = "System.Runtime.CompilerServices.DiscardableAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_CTOR_METHOD_NAME: String = ".ctor";
+                    const COR_CTOR_METHOD_NAME_W: String = ".ctor";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_DELETED_NAME_A: String = "_Deleted";
+                    const COR_DELETED_NAME_W: String = "_Deleted";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_ENUM_FIELD_NAME: String = "value__";
+                    const COR_ENUM_FIELD_NAME_W: String = "value__";
+                    const COR_E_AMBIGUOUSMATCH: super::super::super::Foundation::HRESULT = -2147475171;
+                    const COR_E_ARGUMENT: i32 = -2147024809;
+                    const COR_E_BADIMAGEFORMAT: super::super::super::Foundation::HRESULT = -2147024885;
+                    const COR_E_DIVIDEBYZERO: super::super::super::Foundation::HRESULT = -2147352558;
+                    const COR_E_INVALIDCAST: i32 = -2147467262;
+                    const COR_E_NULLREFERENCE: i32 = -2147467261;
+                    const COR_E_OUTOFMEMORY: i32 = -2147024882;
+                    const COR_E_TARGETPARAMCOUNT: super::super::super::Foundation::HRESULT = -2147352562;
+                    const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891;
+                    struct COR_FIELD_OFFSET {
+                        ridOfField: u32,
+                        ulOffset: u32,
+                    }
+                    struct COR_NATIVE_LINK {
+                        m_linkType: u8,
+                        m_flags: u8,
+                        m_entryPoint: u32,
+                    }
+                    const COR_NATIVE_LINK_CUSTOM_VALUE: String = "COMPLUS_NativeLink";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: String = "COMPLUS_NativeLink";
+                    const COR_NATIVE_LINK_CUSTOM_VALUE_CC: u32 = 18;
+                    const COR_REQUIRES_SECOBJ_ATTRIBUTE: String = "System.Security.DynamicSecurityMethodAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_REQUIRES_SECOBJ_ATTRIBUTE_ANSI: String = "System.Security.DynamicSecurityMethodAttribute";
+                    struct COR_SECATTR {
+                        tkCtor: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCustomAttribute: *mut void,
+                        cbCustomAttribute: u32,
+                    }
+                    const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE: String = "System.Security.SuppressUnmanagedCodeSecurityAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_SUPPRESS_UNMANAGED_CODE_CHECK_ATTRIBUTE_ANSI: String = "System.Security.SuppressUnmanagedCodeSecurityAttribute";
+                    const COR_UNVER_CODE_ATTRIBUTE: String = "System.Security.UnverifiableCodeAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_UNVER_CODE_ATTRIBUTE_ANSI: String = "System.Security.UnverifiableCodeAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const COR_VTABLEGAP_NAME_A: String = "_VtblGap";
+                    const COR_VTABLEGAP_NAME_W: String = "_VtblGap";
+                    #[repr(i32)]
+                    enum COUNINITIEE {
+                        COUNINITEE_DEFAULT = 0,
+                        COUNINITEE_DLL = 1,
+                    }
+                    struct CVStruct {
+                        Major: i16,
+                        Minor: i16,
+                        Sub: i16,
+                        Build: i16,
+                    }
+                    #[repr(i64)]
+                    enum CeeSectionAttr {
+                        sdNone = 0,
+                        sdReadOnly = 1073741888,
+                        sdReadWrite = 3221225536,
+                        sdExecute = 1610612768,
+                    }
+                    union CeeSectionRelocExtra {
+                        highAdj: u16,
+                    }
+                    #[repr(i32)]
+                    enum CeeSectionRelocType {
+                        srRelocAbsolute = 0,
+                        srRelocHighLow = 3,
+                        srRelocHighAdj = 4,
+                        srRelocMapToken = 5,
+                        srRelocRelative = 6,
+                        srRelocFilePos = 7,
+                        srRelocCodeRelative = 8,
+                        srRelocIA64Imm64 = 9,
+                        srRelocDir64 = 10,
+                        srRelocIA64PcRel25 = 11,
+                        srRelocIA64PcRel64 = 12,
+                        srRelocAbsoluteTagged = 13,
+                        srRelocSentinel = 14,
+                        srNoBaseReloc = 16384,
+                        srRelocPtr = 32768,
+                        srRelocAbsolutePtr = 32768,
+                        srRelocHighLowPtr = 32771,
+                        srRelocRelativePtr = 32774,
+                        srRelocIA64Imm64Ptr = 32777,
+                        srRelocDir64Ptr = 32778,
+                    }
+                    #[repr(i32)]
+                    enum CompilationRelaxationsEnum {
+                        CompilationRelaxations_NoStringInterning = 8,
+                    }
+                    #[repr(i32)]
+                    enum CorArgType {
+                        IMAGE_CEE_CS_END = 0,
+                        IMAGE_CEE_CS_VOID = 1,
+                        IMAGE_CEE_CS_I4 = 2,
+                        IMAGE_CEE_CS_I8 = 3,
+                        IMAGE_CEE_CS_R4 = 4,
+                        IMAGE_CEE_CS_R8 = 5,
+                        IMAGE_CEE_CS_PTR = 6,
+                        IMAGE_CEE_CS_OBJECT = 7,
+                        IMAGE_CEE_CS_STRUCT4 = 8,
+                        IMAGE_CEE_CS_STRUCT32 = 9,
+                        IMAGE_CEE_CS_BYVALUE = 10,
+                    }
+                    #[repr(i32)]
+                    enum CorAssemblyFlags {
+                        afPublicKey = 1,
+                        afPA_None = 0,
+                        afPA_MSIL = 16,
+                        afPA_x86 = 32,
+                        afPA_IA64 = 48,
+                        afPA_AMD64 = 64,
+                        afPA_ARM = 80,
+                        afPA_NoPlatform = 112,
+                        afPA_Specified = 128,
+                        afPA_Mask = 112,
+                        afPA_FullMask = 240,
+                        afPA_Shift = 4,
+                        afEnableJITcompileTracking = 32768,
+                        afDisableJITcompileOptimizer = 16384,
+                        afRetargetable = 256,
+                        afContentType_Default = 0,
+                        afContentType_WindowsRuntime = 512,
+                        afContentType_Mask = 3584,
+                    }
+                    #[repr(i32)]
+                    enum CorAttributeTargets {
+                        catAssembly = 1,
+                        catModule = 2,
+                        catClass = 4,
+                        catStruct = 8,
+                        catEnum = 16,
+                        catConstructor = 32,
+                        catMethod = 64,
+                        catProperty = 128,
+                        catField = 256,
+                        catEvent = 512,
+                        catInterface = 1024,
+                        catParameter = 2048,
+                        catDelegate = 4096,
+                        catGenericParameter = 16384,
+                        catAll = 24575,
+                        catClassMembers = 6140,
+                    }
+                    #[repr(i32)]
+                    enum CorCallingConvention {
+                        IMAGE_CEE_CS_CALLCONV_DEFAULT = 0,
+                        IMAGE_CEE_CS_CALLCONV_VARARG = 5,
+                        IMAGE_CEE_CS_CALLCONV_FIELD = 6,
+                        IMAGE_CEE_CS_CALLCONV_LOCAL_SIG = 7,
+                        IMAGE_CEE_CS_CALLCONV_PROPERTY = 8,
+                        IMAGE_CEE_CS_CALLCONV_UNMGD = 9,
+                        IMAGE_CEE_CS_CALLCONV_GENERICINST = 10,
+                        IMAGE_CEE_CS_CALLCONV_NATIVEVARARG = 11,
+                        IMAGE_CEE_CS_CALLCONV_MAX = 12,
+                        IMAGE_CEE_CS_CALLCONV_MASK = 15,
+                        IMAGE_CEE_CS_CALLCONV_HASTHIS = 32,
+                        IMAGE_CEE_CS_CALLCONV_EXPLICITTHIS = 64,
+                        IMAGE_CEE_CS_CALLCONV_GENERIC = 16,
+                    }
+                    #[repr(i32)]
+                    enum CorCheckDuplicatesFor {
+                        MDDupAll = -1,
+                        MDDupENC = -1,
+                        MDNoDupChecks = 0,
+                        MDDupTypeDef = 1,
+                        MDDupInterfaceImpl = 2,
+                        MDDupMethodDef = 4,
+                        MDDupTypeRef = 8,
+                        MDDupMemberRef = 16,
+                        MDDupCustomAttribute = 32,
+                        MDDupParamDef = 64,
+                        MDDupPermission = 128,
+                        MDDupProperty = 256,
+                        MDDupEvent = 512,
+                        MDDupFieldDef = 1024,
+                        MDDupSignature = 2048,
+                        MDDupModuleRef = 4096,
+                        MDDupTypeSpec = 8192,
+                        MDDupImplMap = 16384,
+                        MDDupAssemblyRef = 32768,
+                        MDDupFile = 65536,
+                        MDDupExportedType = 131072,
+                        MDDupManifestResource = 262144,
+                        MDDupGenericParam = 524288,
+                        MDDupMethodSpec = 1048576,
+                        MDDupGenericParamConstraint = 2097152,
+                        MDDupAssembly = 268435456,
+                        MDDupDefault = 1058840,
+                    }
+                    #[repr(i32)]
+                    enum CorDeclSecurity {
+                        dclActionMask = 31,
+                        dclActionNil = 0,
+                        dclRequest = 1,
+                        dclDemand = 2,
+                        dclAssert = 3,
+                        dclDeny = 4,
+                        dclPermitOnly = 5,
+                        dclLinktimeCheck = 6,
+                        dclInheritanceCheck = 7,
+                        dclRequestMinimum = 8,
+                        dclRequestOptional = 9,
+                        dclRequestRefuse = 10,
+                        dclPrejitGrant = 11,
+                        dclPrejitDenied = 12,
+                        dclNonCasDemand = 13,
+                        dclNonCasLinkDemand = 14,
+                        dclNonCasInheritance = 15,
+                        dclMaximumValue = 15,
+                    }
+                    #[repr(u8)]
+                    enum CorElementType {
+                        ELEMENT_TYPE_END = 0,
+                        ELEMENT_TYPE_VOID = 1,
+                        ELEMENT_TYPE_BOOLEAN = 2,
+                        ELEMENT_TYPE_CHAR = 3,
+                        ELEMENT_TYPE_I1 = 4,
+                        ELEMENT_TYPE_U1 = 5,
+                        ELEMENT_TYPE_I2 = 6,
+                        ELEMENT_TYPE_U2 = 7,
+                        ELEMENT_TYPE_I4 = 8,
+                        ELEMENT_TYPE_U4 = 9,
+                        ELEMENT_TYPE_I8 = 10,
+                        ELEMENT_TYPE_U8 = 11,
+                        ELEMENT_TYPE_R4 = 12,
+                        ELEMENT_TYPE_R8 = 13,
+                        ELEMENT_TYPE_STRING = 14,
+                        ELEMENT_TYPE_PTR = 15,
+                        ELEMENT_TYPE_BYREF = 16,
+                        ELEMENT_TYPE_VALUETYPE = 17,
+                        ELEMENT_TYPE_CLASS = 18,
+                        ELEMENT_TYPE_VAR = 19,
+                        ELEMENT_TYPE_ARRAY = 20,
+                        ELEMENT_TYPE_GENERICINST = 21,
+                        ELEMENT_TYPE_TYPEDBYREF = 22,
+                        ELEMENT_TYPE_I = 24,
+                        ELEMENT_TYPE_U = 25,
+                        ELEMENT_TYPE_FNPTR = 27,
+                        ELEMENT_TYPE_OBJECT = 28,
+                        ELEMENT_TYPE_SZARRAY = 29,
+                        ELEMENT_TYPE_MVAR = 30,
+                        ELEMENT_TYPE_CMOD_REQD = 31,
+                        ELEMENT_TYPE_CMOD_OPT = 32,
+                        ELEMENT_TYPE_INTERNAL = 33,
+                        ELEMENT_TYPE_MAX = 34,
+                        ELEMENT_TYPE_MODIFIER = 64,
+                        ELEMENT_TYPE_SENTINEL = 65,
+                        ELEMENT_TYPE_PINNED = 69,
+                    }
+                    #[repr(i32)]
+                    enum CorErrorIfEmitOutOfOrder {
+                        MDErrorOutOfOrderDefault = 0,
+                        MDErrorOutOfOrderNone = 0,
+                        MDErrorOutOfOrderAll = -1,
+                        MDMethodOutOfOrder = 1,
+                        MDFieldOutOfOrder = 2,
+                        MDParamOutOfOrder = 4,
+                        MDPropertyOutOfOrder = 8,
+                        MDEventOutOfOrder = 16,
+                    }
+                    #[repr(i32)]
+                    enum CorEventAttr {
+                        evSpecialName = 512,
+                        evReservedMask = 1024,
+                        evRTSpecialName = 1024,
+                    }
+                    #[repr(i32)]
+                    enum CorExceptionFlag {
+                        COR_ILEXCEPTION_CLAUSE_NONE = 0,
+                        COR_ILEXCEPTION_CLAUSE_OFFSETLEN = 0,
+                        COR_ILEXCEPTION_CLAUSE_DEPRECATED = 0,
+                        COR_ILEXCEPTION_CLAUSE_FILTER = 1,
+                        COR_ILEXCEPTION_CLAUSE_FINALLY = 2,
+                        COR_ILEXCEPTION_CLAUSE_FAULT = 4,
+                        COR_ILEXCEPTION_CLAUSE_DUPLICATED = 8,
+                    }
+                    #[repr(i32)]
+                    enum CorFieldAttr {
+                        fdFieldAccessMask = 7,
+                        fdPrivateScope = 0,
+                        fdPrivate = 1,
+                        fdFamANDAssem = 2,
+                        fdAssembly = 3,
+                        fdFamily = 4,
+                        fdFamORAssem = 5,
+                        fdPublic = 6,
+                        fdStatic = 16,
+                        fdInitOnly = 32,
+                        fdLiteral = 64,
+                        fdNotSerialized = 128,
+                        fdSpecialName = 512,
+                        fdPinvokeImpl = 8192,
+                        fdReservedMask = 38144,
+                        fdRTSpecialName = 1024,
+                        fdHasFieldMarshal = 4096,
+                        fdHasDefault = 32768,
+                        fdHasFieldRVA = 256,
+                    }
+                    #[repr(i32)]
+                    enum CorFileFlags {
+                        ffContainsMetaData = 0,
+                        ffContainsNoMetaData = 1,
+                    }
+                    #[repr(i32)]
+                    enum CorFileMapping {
+                        fmFlat = 0,
+                        fmExecutableImage = 1,
+                    }
+                    #[repr(i32)]
+                    enum CorGenericParamAttr {
+                        gpVarianceMask = 3,
+                        gpNonVariant = 0,
+                        gpCovariant = 1,
+                        gpContravariant = 2,
+                        gpSpecialConstraintMask = 28,
+                        gpNoSpecialConstraint = 0,
+                        gpReferenceTypeConstraint = 4,
+                        gpNotNullableValueTypeConstraint = 8,
+                        gpDefaultConstructorConstraint = 16,
+                    }
+                    #[repr(i32)]
+                    enum CorILMethodFlags {
+                        CorILMethod_InitLocals = 16,
+                        CorILMethod_MoreSects = 8,
+                        CorILMethod_CompressedIL = 64,
+                        CorILMethod_FormatShift = 3,
+                        CorILMethod_FormatMask = 7,
+                        CorILMethod_TinyFormat = 2,
+                        CorILMethod_SmallFormat = 0,
+                        CorILMethod_FatFormat = 3,
+                        CorILMethod_TinyFormat1 = 6,
+                    }
+                    #[repr(i32)]
+                    enum CorILMethodSect {
+                        CorILMethod_Sect_Reserved = 0,
+                        CorILMethod_Sect_EHTable = 1,
+                        CorILMethod_Sect_OptILTable = 2,
+                        CorILMethod_Sect_KindMask = 63,
+                        CorILMethod_Sect_FatFormat = 64,
+                        CorILMethod_Sect_MoreSects = 128,
+                    }
+                    #[repr(i32)]
+                    enum CorImportOptions {
+                        MDImportOptionDefault = 0,
+                        MDImportOptionAll = -1,
+                        MDImportOptionAllTypeDefs = 1,
+                        MDImportOptionAllMethodDefs = 2,
+                        MDImportOptionAllFieldDefs = 4,
+                        MDImportOptionAllProperties = 8,
+                        MDImportOptionAllEvents = 16,
+                        MDImportOptionAllCustomAttributes = 32,
+                        MDImportOptionAllExportedTypes = 64,
+                    }
+                    #[repr(i32)]
+                    enum CorLinkerOptions {
+                        MDAssembly = 0,
+                        MDNetModule = 1,
+                    }
+                    #[repr(i32)]
+                    enum CorLocalRefPreservation {
+                        MDPreserveLocalRefsNone = 0,
+                        MDPreserveLocalTypeRef = 1,
+                        MDPreserveLocalMemberRef = 2,
+                    }
+                    #[repr(i32)]
+                    enum CorManifestResourceFlags {
+                        mrVisibilityMask = 7,
+                        mrPublic = 1,
+                        mrPrivate = 2,
+                    }
+                    #[repr(i32)]
+                    enum CorMethodAttr {
+                        mdMemberAccessMask = 7,
+                        mdPrivateScope = 0,
+                        mdPrivate = 1,
+                        mdFamANDAssem = 2,
+                        mdAssem = 3,
+                        mdFamily = 4,
+                        mdFamORAssem = 5,
+                        mdPublic = 6,
+                        mdStatic = 16,
+                        mdFinal = 32,
+                        mdVirtual = 64,
+                        mdHideBySig = 128,
+                        mdVtableLayoutMask = 256,
+                        mdReuseSlot = 0,
+                        mdNewSlot = 256,
+                        mdCheckAccessOnOverride = 512,
+                        mdAbstract = 1024,
+                        mdSpecialName = 2048,
+                        mdPinvokeImpl = 8192,
+                        mdUnmanagedExport = 8,
+                        mdReservedMask = 53248,
+                        mdRTSpecialName = 4096,
+                        mdHasSecurity = 16384,
+                        mdRequireSecObject = 32768,
+                    }
+                    #[repr(i32)]
+                    enum CorMethodImpl {
+                        miCodeTypeMask = 3,
+                        miIL = 0,
+                        miNative = 1,
+                        miOPTIL = 2,
+                        miRuntime = 3,
+                        miManagedMask = 4,
+                        miUnmanaged = 4,
+                        miManaged = 0,
+                        miForwardRef = 16,
+                        miPreserveSig = 128,
+                        miInternalCall = 4096,
+                        miSynchronized = 32,
+                        miNoInlining = 8,
+                        miAggressiveInlining = 256,
+                        miNoOptimization = 64,
+                        miSecurityMitigations = 1024,
+                        miUserMask = 5628,
+                        miMaxMethodImplVal = 65535,
+                    }
+                    #[repr(i32)]
+                    enum CorMethodSemanticsAttr {
+                        msSetter = 1,
+                        msGetter = 2,
+                        msOther = 4,
+                        msAddOn = 8,
+                        msRemoveOn = 16,
+                        msFire = 32,
+                    }
+                    #[repr(i32)]
+                    enum CorNativeLinkFlags {
+                        nlfNone = 0,
+                        nlfLastError = 1,
+                        nlfNoMangle = 2,
+                        nlfMaxValue = 3,
+                    }
+                    #[repr(i32)]
+                    enum CorNativeLinkType {
+                        nltNone = 1,
+                        nltAnsi = 2,
+                        nltUnicode = 3,
+                        nltAuto = 4,
+                        nltOle = 5,
+                        nltMaxValue = 7,
+                    }
+                    #[repr(i32)]
+                    enum CorNativeType {
+                        NATIVE_TYPE_END = 0,
+                        NATIVE_TYPE_VOID = 1,
+                        NATIVE_TYPE_BOOLEAN = 2,
+                        NATIVE_TYPE_I1 = 3,
+                        NATIVE_TYPE_U1 = 4,
+                        NATIVE_TYPE_I2 = 5,
+                        NATIVE_TYPE_U2 = 6,
+                        NATIVE_TYPE_I4 = 7,
+                        NATIVE_TYPE_U4 = 8,
+                        NATIVE_TYPE_I8 = 9,
+                        NATIVE_TYPE_U8 = 10,
+                        NATIVE_TYPE_R4 = 11,
+                        NATIVE_TYPE_R8 = 12,
+                        NATIVE_TYPE_SYSCHAR = 13,
+                        NATIVE_TYPE_VARIANT = 14,
+                        NATIVE_TYPE_CURRENCY = 15,
+                        NATIVE_TYPE_PTR = 16,
+                        NATIVE_TYPE_DECIMAL = 17,
+                        NATIVE_TYPE_DATE = 18,
+                        NATIVE_TYPE_BSTR = 19,
+                        NATIVE_TYPE_LPSTR = 20,
+                        NATIVE_TYPE_LPWSTR = 21,
+                        NATIVE_TYPE_LPTSTR = 22,
+                        NATIVE_TYPE_FIXEDSYSSTRING = 23,
+                        NATIVE_TYPE_OBJECTREF = 24,
+                        NATIVE_TYPE_IUNKNOWN = 25,
+                        NATIVE_TYPE_IDISPATCH = 26,
+                        NATIVE_TYPE_STRUCT = 27,
+                        NATIVE_TYPE_INTF = 28,
+                        NATIVE_TYPE_SAFEARRAY = 29,
+                        NATIVE_TYPE_FIXEDARRAY = 30,
+                        NATIVE_TYPE_INT = 31,
+                        NATIVE_TYPE_UINT = 32,
+                        NATIVE_TYPE_NESTEDSTRUCT = 33,
+                        NATIVE_TYPE_BYVALSTR = 34,
+                        NATIVE_TYPE_ANSIBSTR = 35,
+                        NATIVE_TYPE_TBSTR = 36,
+                        NATIVE_TYPE_VARIANTBOOL = 37,
+                        NATIVE_TYPE_FUNC = 38,
+                        NATIVE_TYPE_ASANY = 40,
+                        NATIVE_TYPE_ARRAY = 42,
+                        NATIVE_TYPE_LPSTRUCT = 43,
+                        NATIVE_TYPE_CUSTOMMARSHALER = 44,
+                        NATIVE_TYPE_ERROR = 45,
+                        NATIVE_TYPE_IINSPECTABLE = 46,
+                        NATIVE_TYPE_HSTRING = 47,
+                        NATIVE_TYPE_LPUTF8STR = 48,
+                        NATIVE_TYPE_MAX = 80,
+                    }
+                    #[repr(i32)]
+                    enum CorNotificationForTokenMovement {
+                        MDNotifyDefault = 15,
+                        MDNotifyAll = -1,
+                        MDNotifyNone = 0,
+                        MDNotifyMethodDef = 1,
+                        MDNotifyMemberRef = 2,
+                        MDNotifyFieldDef = 4,
+                        MDNotifyTypeRef = 8,
+                        MDNotifyTypeDef = 16,
+                        MDNotifyParamDef = 32,
+                        MDNotifyInterfaceImpl = 64,
+                        MDNotifyProperty = 128,
+                        MDNotifyEvent = 256,
+                        MDNotifySignature = 512,
+                        MDNotifyTypeSpec = 1024,
+                        MDNotifyCustomAttribute = 2048,
+                        MDNotifySecurityValue = 4096,
+                        MDNotifyPermission = 8192,
+                        MDNotifyModuleRef = 16384,
+                        MDNotifyNameSpace = 32768,
+                        MDNotifyAssemblyRef = 16777216,
+                        MDNotifyFile = 33554432,
+                        MDNotifyExportedType = 67108864,
+                        MDNotifyResource = 134217728,
+                    }
+                    #[repr(i32)]
+                    enum CorOpenFlags {
+                        ofRead = 0,
+                        ofWrite = 1,
+                        ofReadWriteMask = 1,
+                        ofCopyMemory = 2,
+                        ofReadOnly = 16,
+                        ofTakeOwnership = 32,
+                        ofNoTypeLib = 128,
+                        ofNoTransform = 4096,
+                        ofCheckIntegrity = 2048,
+                        ofReserved1 = 256,
+                        ofReserved2 = 512,
+                        ofReserved3 = 1024,
+                        ofReserved = -6336,
+                    }
+                    #[repr(i32)]
+                    enum CorPEKind {
+                        peNot = 0,
+                        peILonly = 1,
+                        pe32BitRequired = 2,
+                        pe32Plus = 4,
+                        pe32Unmanaged = 8,
+                        pe32BitPreferred = 16,
+                    }
+                    #[repr(i32)]
+                    enum CorParamAttr {
+                        pdIn = 1,
+                        pdOut = 2,
+                        pdOptional = 16,
+                        pdReservedMask = 61440,
+                        pdHasDefault = 4096,
+                        pdHasFieldMarshal = 8192,
+                        pdUnused = 53216,
+                    }
+                    #[repr(i32)]
+                    enum CorPinvokeMap {
+                        pmNoMangle = 1,
+                        pmCharSetMask = 6,
+                        pmCharSetNotSpec = 0,
+                        pmCharSetAnsi = 2,
+                        pmCharSetUnicode = 4,
+                        pmCharSetAuto = 6,
+                        pmBestFitUseAssem = 0,
+                        pmBestFitEnabled = 16,
+                        pmBestFitDisabled = 32,
+                        pmBestFitMask = 48,
+                        pmThrowOnUnmappableCharUseAssem = 0,
+                        pmThrowOnUnmappableCharEnabled = 4096,
+                        pmThrowOnUnmappableCharDisabled = 8192,
+                        pmThrowOnUnmappableCharMask = 12288,
+                        pmSupportsLastError = 64,
+                        pmCallConvMask = 1792,
+                        pmCallConvWinapi = 256,
+                        pmCallConvCdecl = 512,
+                        pmCallConvStdcall = 768,
+                        pmCallConvThiscall = 1024,
+                        pmCallConvFastcall = 1280,
+                        pmMaxValue = 65535,
+                    }
+                    #[repr(i32)]
+                    enum CorPropertyAttr {
+                        prSpecialName = 512,
+                        prReservedMask = 62464,
+                        prRTSpecialName = 1024,
+                        prHasDefault = 4096,
+                        prUnused = 59903,
+                    }
+                    #[repr(i32)]
+                    enum CorRefToDefCheck {
+                        MDRefToDefDefault = 3,
+                        MDRefToDefAll = -1,
+                        MDRefToDefNone = 0,
+                        MDTypeRefToDef = 1,
+                        MDMemberRefToDef = 2,
+                    }
+                    #[repr(i32)]
+                    enum CorRegFlags {
+                        regNoCopy = 1,
+                        regConfig = 2,
+                        regHasRefs = 4,
+                    }
+                    #[repr(i32)]
+                    enum CorSaveSize {
+                        cssAccurate = 0,
+                        cssQuick = 1,
+                        cssDiscardTransientCAs = 2,
+                    }
+                    #[repr(i32)]
+                    enum CorSerializationType {
+                        SERIALIZATION_TYPE_UNDEFINED = 0,
+                        SERIALIZATION_TYPE_BOOLEAN = 2,
+                        SERIALIZATION_TYPE_CHAR = 3,
+                        SERIALIZATION_TYPE_I1 = 4,
+                        SERIALIZATION_TYPE_U1 = 5,
+                        SERIALIZATION_TYPE_I2 = 6,
+                        SERIALIZATION_TYPE_U2 = 7,
+                        SERIALIZATION_TYPE_I4 = 8,
+                        SERIALIZATION_TYPE_U4 = 9,
+                        SERIALIZATION_TYPE_I8 = 10,
+                        SERIALIZATION_TYPE_U8 = 11,
+                        SERIALIZATION_TYPE_R4 = 12,
+                        SERIALIZATION_TYPE_R8 = 13,
+                        SERIALIZATION_TYPE_STRING = 14,
+                        SERIALIZATION_TYPE_SZARRAY = 29,
+                        SERIALIZATION_TYPE_TYPE = 80,
+                        SERIALIZATION_TYPE_TAGGED_OBJECT = 81,
+                        SERIALIZATION_TYPE_FIELD = 83,
+                        SERIALIZATION_TYPE_PROPERTY = 84,
+                        SERIALIZATION_TYPE_ENUM = 85,
+                    }
+                    #[repr(i32)]
+                    enum CorSetENC {
+                        MDSetENCOn = 1,
+                        MDSetENCOff = 2,
+                        MDUpdateENC = 1,
+                        MDUpdateFull = 2,
+                        MDUpdateExtension = 3,
+                        MDUpdateIncremental = 4,
+                        MDUpdateDelta = 5,
+                        MDUpdateMask = 7,
+                    }
+                    #[repr(i32)]
+                    enum CorThreadSafetyOptions {
+                        MDThreadSafetyDefault = 0,
+                        MDThreadSafetyOff = 0,
+                        MDThreadSafetyOn = 1,
+                    }
+                    #[repr(i32)]
+                    enum CorTokenType {
+                        mdtModule = 0,
+                        mdtTypeRef = 16777216,
+                        mdtTypeDef = 33554432,
+                        mdtFieldDef = 67108864,
+                        mdtMethodDef = 100663296,
+                        mdtParamDef = 134217728,
+                        mdtInterfaceImpl = 150994944,
+                        mdtMemberRef = 167772160,
+                        mdtCustomAttribute = 201326592,
+                        mdtPermission = 234881024,
+                        mdtSignature = 285212672,
+                        mdtEvent = 335544320,
+                        mdtProperty = 385875968,
+                        mdtMethodImpl = 419430400,
+                        mdtModuleRef = 436207616,
+                        mdtTypeSpec = 452984832,
+                        mdtAssembly = 536870912,
+                        mdtAssemblyRef = 587202560,
+                        mdtFile = 637534208,
+                        mdtExportedType = 654311424,
+                        mdtManifestResource = 671088640,
+                        mdtGenericParam = 704643072,
+                        mdtMethodSpec = 721420288,
+                        mdtGenericParamConstraint = 738197504,
+                        mdtString = 1879048192,
+                        mdtName = 1895825408,
+                        mdtBaseType = 1912602624,
+                    }
+                    #[repr(i32)]
+                    enum CorTypeAttr {
+                        tdVisibilityMask = 7,
+                        tdNotPublic = 0,
+                        tdPublic = 1,
+                        tdNestedPublic = 2,
+                        tdNestedPrivate = 3,
+                        tdNestedFamily = 4,
+                        tdNestedAssembly = 5,
+                        tdNestedFamANDAssem = 6,
+                        tdNestedFamORAssem = 7,
+                        tdLayoutMask = 24,
+                        tdAutoLayout = 0,
+                        tdSequentialLayout = 8,
+                        tdExplicitLayout = 16,
+                        tdClassSemanticsMask = 32,
+                        tdClass = 0,
+                        tdInterface = 32,
+                        tdAbstract = 128,
+                        tdSealed = 256,
+                        tdSpecialName = 1024,
+                        tdImport = 4096,
+                        tdSerializable = 8192,
+                        tdWindowsRuntime = 16384,
+                        tdStringFormatMask = 196608,
+                        tdAnsiClass = 0,
+                        tdUnicodeClass = 65536,
+                        tdAutoClass = 131072,
+                        tdCustomFormatClass = 196608,
+                        tdCustomFormatMask = 12582912,
+                        tdBeforeFieldInit = 1048576,
+                        tdForwarder = 2097152,
+                        tdReservedMask = 264192,
+                        tdRTSpecialName = 2048,
+                        tdHasSecurity = 262144,
+                    }
+                    #[repr(i32)]
+                    enum CorUnmanagedCallingConvention {
+                        IMAGE_CEE_UNMANAGED_CALLCONV_C = 1,
+                        IMAGE_CEE_UNMANAGED_CALLCONV_STDCALL = 2,
+                        IMAGE_CEE_UNMANAGED_CALLCONV_THISCALL = 3,
+                        IMAGE_CEE_UNMANAGED_CALLCONV_FASTCALL = 4,
+                        IMAGE_CEE_CS_CALLCONV_C = 1,
+                        IMAGE_CEE_CS_CALLCONV_STDCALL = 2,
+                        IMAGE_CEE_CS_CALLCONV_THISCALL = 3,
+                        IMAGE_CEE_CS_CALLCONV_FASTCALL = 4,
+                    }
+                    #[repr(i32)]
+                    enum CorValidatorModuleType {
+                        ValidatorModuleTypeInvalid = 0,
+                        ValidatorModuleTypeMin = 1,
+                        ValidatorModuleTypePE = 1,
+                        ValidatorModuleTypeObj = 2,
+                        ValidatorModuleTypeEnc = 3,
+                        ValidatorModuleTypeIncr = 4,
+                        ValidatorModuleTypeMax = 4,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DEFAULTDEPENDENCY_TYPE: String = "System.Runtime.CompilerServices.DefaultDependencyAttribute";
+                    const DEFAULTDEPENDENCY_TYPE_W: String = "System.Runtime.CompilerServices.DefaultDependencyAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE: String = "System.LoaderOptimizationAttribute";
+                    const DEFAULTDOMAIN_LOADEROPTIMIZATION_TYPE_W: String = "System.LoaderOptimizationAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DEFAULTDOMAIN_MTA_TYPE: String = "System.MTAThreadAttribute";
+                    const DEFAULTDOMAIN_MTA_TYPE_W: String = "System.MTAThreadAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DEFAULTDOMAIN_STA_TYPE: String = "System.STAThreadAttribute";
+                    const DEFAULTDOMAIN_STA_TYPE_W: String = "System.STAThreadAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DEPENDENCY_TYPE: String = "System.Runtime.CompilerServices.DependencyAttribute";
+                    const DEPENDENCY_TYPE_W: String = "System.Runtime.CompilerServices.DependencyAttribute";
+                    const DESCR_GROUP_METHODDEF: i32 = 0;
+                    const DESCR_GROUP_METHODIMPL: i32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const DISABLED_PRIVATE_REFLECTION_TYPE: String = "System.Runtime.CompilerServices.DisablePrivateReflectionAttribute";
+                    const DISABLED_PRIVATE_REFLECTION_TYPE_W: String = "System.Runtime.CompilerServices.DisablePrivateReflectionAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const FORWARD_INTEROP_STUB_METHOD_TYPE: String = "System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute";
+                    const FORWARD_INTEROP_STUB_METHOD_TYPE_W: String = "System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const FRAMEWORK_REGISTRY_KEY: String = "Software\\Microsoft\\.NETFramework";
+                    const FRAMEWORK_REGISTRY_KEY_W: String = "Software\\Microsoft\\.NETFramework";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE: String = "System.Runtime.CompilerServices.FriendAccessAllowedAttribute";
+                    const FRIEND_ACCESS_ALLOWED_ATTRIBUTE_TYPE_W: String = "System.Runtime.CompilerServices.FriendAccessAllowedAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const FRIEND_ASSEMBLY_TYPE: String = "System.Runtime.CompilerServices.InternalsVisibleToAttribute";
+                    const FRIEND_ASSEMBLY_TYPE_W: String = "System.Runtime.CompilerServices.InternalsVisibleToAttribute";
+                    const GUID_DispIdOverride: GUID = 0xcd2bc5c9_f452_4326_b714_f9c539d4da58;
+                    const GUID_ExportedFromComPlus: GUID = 0x90883f05_3d28_11d2_8f17_00a0c9a6186d;
+                    const GUID_ForceIEnumerable: GUID = 0xb64784eb_d8d4_4d9b_9acd_0e30806426f7;
+                    const GUID_Function2Getter: GUID = 0x54fc8f55_38de_4703_9c4e_250351302b1c;
+                    const GUID_ManagedName: GUID = 0x0f21f359_ab84_41e8_9a78_36d110e6d2f9;
+                    const GUID_PropGetCA: GUID = 0x2941ff83_88d8_4f73_b6a9_bdf8712d000d;
+                    const GUID_PropPutCA: GUID = 0x29533527_3683_4364_abc0_db1add822fa2;
+                    interface ICeeGen: super::super::Com::IUnknown {
+                        fn EmitString(&self, lpString: super::super::super::Foundation::PWSTR, RVA: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetString(&self, RVA: u32, lpString: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn AllocateMethodBuffer(&self, cchBuffer: u32, lpBuffer: *mut *mut u8, RVA: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetMethodBuffer(&self, RVA: u32, lpBuffer: *mut *mut u8) -> super::super::super::Foundation::HRESULT;
+                        fn GetIMapTokenIface(&self, pIMapToken: *mut super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn GenerateCeeFile(&self) -> super::super::super::Foundation::HRESULT;
+                        fn GetIlSection(&self, section: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        fn GetStringSection(&self, section: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        fn AddSectionReloc(&self, section: *mut void, offset: u32, relativeTo: *mut void, relocType: CeeSectionRelocType) -> super::super::super::Foundation::HRESULT;
+                        fn GetSectionCreate(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PSTR, flags: u32, section: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        fn GetSectionDataLen(&self, section: *mut void, dataLen: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetSectionBlock(&self, section: *mut void, len: u32, align: u32, ppBytes: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        fn TruncateSection(&self, section: *mut void, len: u32) -> super::super::super::Foundation::HRESULT;
+                        fn GenerateCeeMemoryImage(&self, ppImage: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        fn ComputePointer(&self, section: *mut void, RVA: u32, lpBuffer: *mut *mut u8) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IHostFilter: super::super::Com::IUnknown {
+                        fn MarkToken(&self, tk: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    union IMAGE_COR_ILMETHOD {
+                        Tiny: IMAGE_COR_ILMETHOD_TINY,
+                        Fat: IMAGE_COR_ILMETHOD_FAT,
+                    }
+                    struct IMAGE_COR_ILMETHOD_FAT {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Flags", 0, 12)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Size", 12, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MaxStack", 16, 16)]
+                        _bitfield: u32,
+                        CodeSize: u32,
+                        LocalVarSigTok: u32,
+                    }
+                    union IMAGE_COR_ILMETHOD_SECT_EH {
+                        Small: IMAGE_COR_ILMETHOD_SECT_EH_SMALL,
+                        Fat: IMAGE_COR_ILMETHOD_SECT_EH_FAT,
+                    }
+                    struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT {
+                        Flags: CorExceptionFlag,
+                        TryOffset: u32,
+                        TryLength: u32,
+                        HandlerOffset: u32,
+                        HandlerLength: u32,
+                        Anonymous: union {
+                            ClassToken: u32,
+                            FilterOffset: u32,
+                        },
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Flags", 0, 16)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TryOffset", 16, 16)]
+                        _bitfield1: i32,
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TryLength", 0, 8)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HandlerOffset", 8, 16)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HandlerLength", 24, 8)]
+                        _bitfield2: u32,
+                        Anonymous: union {
+                            ClassToken: u32,
+                            FilterOffset: u32,
+                        },
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Flags", 0, 16)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TryOffset", 16, 16)]
+                        _bitfield1: u32,
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TryLength", 0, 8)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HandlerOffset", 8, 16)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HandlerLength", 24, 8)]
+                        _bitfield2: u32,
+                        Anonymous: union {
+                            ClassToken: u32,
+                            FilterOffset: u32,
+                        },
+                    }
+                    struct IMAGE_COR_ILMETHOD_SECT_EH_FAT {
+                        SectFat: IMAGE_COR_ILMETHOD_SECT_FAT,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_FAT; 1],
+                    }
+                    struct IMAGE_COR_ILMETHOD_SECT_EH_SMALL {
+                        SectSmall: IMAGE_COR_ILMETHOD_SECT_SMALL,
+                        Reserved: u16,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        Clauses: [IMAGE_COR_ILMETHOD_SECT_EH_CLAUSE_SMALL; 1],
+                    }
+                    struct IMAGE_COR_ILMETHOD_SECT_FAT {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Kind", 0, 8)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DataSize", 8, 24)]
+                        _bitfield: u32,
+                    }
+                    struct IMAGE_COR_ILMETHOD_SECT_SMALL {
+                        Kind: u8,
+                        DataSize: u8,
+                    }
+                    struct IMAGE_COR_ILMETHOD_TINY {
+                        Flags_CodeSize: u8,
+                    }
+                    struct IMAGE_COR_VTABLEFIXUP {
+                        RVA: u32,
+                        Count: u16,
+                        Type: u16,
+                    }
+                    interface IMapToken: super::super::Com::IUnknown {
+                        fn Map(&self, tkImp: u32, tkEmit: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataAssemblyEmit: super::super::Com::IUnknown {
+                        fn DefineAssembly(&self, #[Windows::Win32::Foundation::Metadata::Const] pbPublicKey: *mut void, cbPublicKey: u32, ulHashAlgId: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pMetaData: *mut ASSEMBLYMETADATA, dwAssemblyFlags: u32, pma: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineAssemblyRef(&self, #[Windows::Win32::Foundation::Metadata::Const] pbPublicKeyOrToken: *mut void, cbPublicKeyOrToken: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pMetaData: *mut ASSEMBLYMETADATA, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, dwAssemblyRefFlags: u32, pmdar: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineFile(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, dwFileFlags: u32, pmdf: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineExportedType(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, tkImplementation: u32, tkTypeDef: u32, dwExportedTypeFlags: u32, pmdct: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineManifestResource(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, tkImplementation: u32, dwOffset: u32, dwResourceFlags: u32, pmdmr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetAssemblyProps(&self, pma: u32, #[Windows::Win32::Foundation::Metadata::Const] pbPublicKey: *mut void, cbPublicKey: u32, ulHashAlgId: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pMetaData: *mut ASSEMBLYMETADATA, dwAssemblyFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetAssemblyRefProps(&self, ar: u32, #[Windows::Win32::Foundation::Metadata::Const] pbPublicKeyOrToken: *mut void, cbPublicKeyOrToken: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pMetaData: *mut ASSEMBLYMETADATA, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, dwAssemblyRefFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetFileProps(&self, file: u32, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, dwFileFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetExportedTypeProps(&self, ct: u32, tkImplementation: u32, tkTypeDef: u32, dwExportedTypeFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetManifestResourceProps(&self, mr: u32, tkImplementation: u32, dwOffset: u32, dwResourceFlags: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadataassemblyimport")]
+                    interface IMetaDataAssemblyImport: super::super::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getassemblyprops")]
+                        fn GetAssemblyProps(&self, mda: u32, #[Windows::Win32::Foundation::Metadata::Const] ppbPublicKey: *mut *mut void, pcbPublicKey: *mut u32, pulHashAlgId: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, pMetaData: *mut ASSEMBLYMETADATA, pdwAssemblyFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getassemblyrefprops")]
+                        fn GetAssemblyRefProps(&self, mdar: u32, #[Windows::Win32::Foundation::Metadata::Const] ppbPublicKeyOrToken: *mut *mut void, pcbPublicKeyOrToken: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, pMetaData: *mut ASSEMBLYMETADATA, #[Windows::Win32::Foundation::Metadata::Const] ppbHashValue: *mut *mut void, pcbHashValue: *mut u32, pdwAssemblyRefFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getfileprops")]
+                        fn GetFileProps(&self, mdf: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppbHashValue: *mut *mut void, pcbHashValue: *mut u32, pdwFileFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getexportedtypeprops")]
+                        fn GetExportedTypeProps(&self, mdct: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, ptkImplementation: *mut u32, ptkTypeDef: *mut u32, pdwExportedTypeFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getmanifestresourceprops")]
+                        fn GetManifestResourceProps(&self, mdmr: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, ptkImplementation: *mut u32, pdwOffset: *mut u32, pdwResourceFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-enumassemblyrefs")]
+                        fn EnumAssemblyRefs(&self, phEnum: *mut *mut void, rAssemblyRefs: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-enumfiles")]
+                        fn EnumFiles(&self, phEnum: *mut *mut void, rFiles: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-enumexportedtypes")]
+                        fn EnumExportedTypes(&self, phEnum: *mut *mut void, rExportedTypes: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-enummanifestresources")]
+                        fn EnumManifestResources(&self, phEnum: *mut *mut void, rManifestResources: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-getassemblyfromscope")]
+                        fn GetAssemblyFromScope(&self, ptkAssembly: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-findexportedtypebyname")]
+                        fn FindExportedTypeByName(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, mdtExportedType: u32, ptkExportedType: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-findmanifestresourcebyname")]
+                        fn FindManifestResourceByName(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, ptkManifestResource: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-closeenum")]
+                        fn CloseEnum(&self, hEnum: *mut void);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataassemblyimport-findassembliesbyname")]
+                        fn FindAssembliesByName(&self, #[Windows::Win32::Foundation::Metadata::Const] szAppBase: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szPrivateBin: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szAssemblyName: super::super::super::Foundation::PWSTR, ppIUnk: *mut super::super::Com::IUnknown, cMax: u32, pcAssemblies: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadatadispenser")]
+                    interface IMetaDataDispenser: super::super::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenser-definescope")]
+                        fn DefineScope(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, dwCreateFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppIUnk: *mut super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenser-openscope")]
+                        fn OpenScope(&self, #[Windows::Win32::Foundation::Metadata::Const] szScope: super::super::super::Foundation::PWSTR, dwOpenFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppIUnk: *mut super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenser-openscopeonmemory")]
+                        fn OpenScopeOnMemory(&self, #[Windows::Win32::Foundation::Metadata::Const] pData: *mut void, cbData: u32, dwOpenFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppIUnk: *mut super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadatadispenserex")]
+                    interface IMetaDataDispenserEx: IMetaDataDispenser {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-setoption")]
+                        fn SetOption(&self, #[Windows::Win32::Foundation::Metadata::Const] optionid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] value: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-getoption")]
+                        fn GetOption(&self, #[Windows::Win32::Foundation::Metadata::Const] optionid: *mut GUID, pvalue: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-openscopeonitypeinfo")]
+                        fn OpenScopeOnITypeInfo(&self, pITI: super::super::Com::ITypeInfo, dwOpenFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppIUnk: *mut super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-getcorsystemdirectory")]
+                        fn GetCORSystemDirectory(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] szBuffer: super::super::super::Foundation::PWSTR, cchBuffer: u32, pchBuffer: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-findassembly")]
+                        fn FindAssembly(&self, #[Windows::Win32::Foundation::Metadata::Const] szAppBase: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szPrivateBin: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szGlobalBin: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szAssemblyName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, cchName: u32, pcName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatadispenserex-findassemblymodule")]
+                        fn FindAssemblyModule(&self, #[Windows::Win32::Foundation::Metadata::Const] szAppBase: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szPrivateBin: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szGlobalBin: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szAssemblyName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] szModuleName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pcName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataEmit: super::super::Com::IUnknown {
+                        fn SetModuleProps(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn Save(&self, #[Windows::Win32::Foundation::Metadata::Const] szFile: super::super::super::Foundation::PWSTR, dwSaveFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SaveToStream(&self, pIStream: super::super::Com::IStream, dwSaveFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetSaveSize(&self, fSave: CorSaveSize, pdwSaveSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineTypeDef(&self, #[Windows::Win32::Foundation::Metadata::Const] szTypeDef: super::super::super::Foundation::PWSTR, dwTypeDefFlags: u32, tkExtends: u32, rtkImplements: *mut u32, ptd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineNestedType(&self, #[Windows::Win32::Foundation::Metadata::Const] szTypeDef: super::super::super::Foundation::PWSTR, dwTypeDefFlags: u32, tkExtends: u32, rtkImplements: *mut u32, tdEncloser: u32, ptd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetHandler(&self, pUnk: super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn DefineMethod(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, dwMethodFlags: u32, pvSigBlob: *mut u8, cbSigBlob: u32, ulCodeRVA: u32, dwImplFlags: u32, pmd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineMethodImpl(&self, td: u32, tkBody: u32, tkDecl: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineTypeRefByName(&self, tkResolutionScope: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, ptr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineImportType(&self, pAssemImport: IMetaDataAssemblyImport, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, pImport: IMetaDataImport, tdImport: u32, pAssemEmit: IMetaDataAssemblyEmit, ptr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineMemberRef(&self, tkImport: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pvSigBlob: *mut u8, cbSigBlob: u32, pmr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineImportMember(&self, pAssemImport: IMetaDataAssemblyImport, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, pImport: IMetaDataImport, mbMember: u32, pAssemEmit: IMetaDataAssemblyEmit, tkParent: u32, pmr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineEvent(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szEvent: super::super::super::Foundation::PWSTR, dwEventFlags: u32, tkEventType: u32, mdAddOn: u32, mdRemoveOn: u32, mdFire: u32, rmdOtherMethods: *mut u32, pmdEvent: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetClassLayout(&self, td: u32, dwPackSize: u32, rFieldOffsets: *mut COR_FIELD_OFFSET, ulClassSize: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DeleteClassLayout(&self, td: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetFieldMarshal(&self, tk: u32, pvNativeType: *mut u8, cbNativeType: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DeleteFieldMarshal(&self, tk: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefinePermissionSet(&self, tk: u32, dwAction: u32, #[Windows::Win32::Foundation::Metadata::Const] pvPermission: *mut void, cbPermission: u32, ppm: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetRVA(&self, md: u32, ulRVA: u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetTokenFromSig(&self, pvSig: *mut u8, cbSig: u32, pmsig: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineModuleRef(&self, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pmur: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetParent(&self, mr: u32, tk: u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetTokenFromTypeSpec(&self, pvSig: *mut u8, cbSig: u32, ptypespec: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SaveToMemory(&self, pbData: *mut void, cbData: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineUserString(&self, #[Windows::Win32::Foundation::Metadata::Const] szString: super::super::super::Foundation::PWSTR, cchString: u32, pstk: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DeleteToken(&self, tkObj: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetMethodProps(&self, md: u32, dwMethodFlags: u32, ulCodeRVA: u32, dwImplFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetTypeDefProps(&self, td: u32, dwTypeDefFlags: u32, tkExtends: u32, rtkImplements: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetEventProps(&self, ev: u32, dwEventFlags: u32, tkEventType: u32, mdAddOn: u32, mdRemoveOn: u32, mdFire: u32, rmdOtherMethods: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetPermissionSetProps(&self, tk: u32, dwAction: u32, #[Windows::Win32::Foundation::Metadata::Const] pvPermission: *mut void, cbPermission: u32, ppm: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefinePinvokeMap(&self, tk: u32, dwMappingFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] szImportName: super::super::super::Foundation::PWSTR, mrImportDLL: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetPinvokeMap(&self, tk: u32, dwMappingFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] szImportName: super::super::super::Foundation::PWSTR, mrImportDLL: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DeletePinvokeMap(&self, tk: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineCustomAttribute(&self, tkOwner: u32, tkCtor: u32, #[Windows::Win32::Foundation::Metadata::Const] pCustomAttribute: *mut void, cbCustomAttribute: u32, pcv: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetCustomAttributeValue(&self, pcv: u32, #[Windows::Win32::Foundation::Metadata::Const] pCustomAttribute: *mut void, cbCustomAttribute: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineField(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, dwFieldFlags: u32, pvSigBlob: *mut u8, cbSigBlob: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32, pmd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineProperty(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szProperty: super::super::super::Foundation::PWSTR, dwPropFlags: u32, pvSig: *mut u8, cbSig: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32, mdSetter: u32, mdGetter: u32, rmdOtherMethods: *mut u32, pmdProp: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineParam(&self, md: u32, ulParamSeq: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, dwParamFlags: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32, ppd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetFieldProps(&self, fd: u32, dwFieldFlags: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetPropertyProps(&self, pr: u32, dwPropFlags: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32, mdSetter: u32, mdGetter: u32, rmdOtherMethods: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetParamProps(&self, pd: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, dwParamFlags: u32, dwCPlusTypeFlag: u32, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut void, cchValue: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineSecurityAttributeSet(&self, tkObj: u32, rSecAttrs: *mut COR_SECATTR, cSecAttrs: u32, pulErrorAttr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn ApplyEditAndContinue(&self, pImport: super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn TranslateSigWithScope(&self, pAssemImport: IMetaDataAssemblyImport, #[Windows::Win32::Foundation::Metadata::Const] pbHashValue: *mut void, cbHashValue: u32, import: IMetaDataImport, pbSigBlob: *mut u8, cbSigBlob: u32, pAssemEmit: IMetaDataAssemblyEmit, emit: IMetaDataEmit, pvTranslatedSig: *mut u8, cbTranslatedSigMax: u32, pcbTranslatedSig: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetMethodImplFlags(&self, md: u32, dwImplFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetFieldRVA(&self, fd: u32, ulRVA: u32) -> super::super::super::Foundation::HRESULT;
+                        fn Merge(&self, pImport: IMetaDataImport, pHostMapToken: IMapToken, pHandler: super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn MergeEnd(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataEmit2: IMetaDataEmit {
+                        fn DefineMethodSpec(&self, tkParent: u32, pvSigBlob: *mut u8, cbSigBlob: u32, pmi: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetDeltaSaveSize(&self, fSave: CorSaveSize, pdwSaveSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SaveDelta(&self, #[Windows::Win32::Foundation::Metadata::Const] szFile: super::super::super::Foundation::PWSTR, dwSaveFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SaveDeltaToStream(&self, pIStream: super::super::Com::IStream, dwSaveFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SaveDeltaToMemory(&self, pbData: *mut void, cbData: u32) -> super::super::super::Foundation::HRESULT;
+                        fn DefineGenericParam(&self, tk: u32, ulParamSeq: u32, dwParamFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] szname: super::super::super::Foundation::PWSTR, reserved: u32, rtkConstraints: *mut u32, pgp: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetGenericParamProps(&self, gp: u32, dwParamFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, reserved: u32, rtkConstraints: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn ResetENCLog(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataError: super::super::Com::IUnknown {
+                        fn OnError(&self, hrError: super::super::super::Foundation::HRESULT, token: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataFilter: super::super::Com::IUnknown {
+                        fn UnmarkAll(&self) -> super::super::super::Foundation::HRESULT;
+                        fn MarkToken(&self, tk: u32) -> super::super::super::Foundation::HRESULT;
+                        fn IsTokenMarked(&self, tk: u32, pIsMarked: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadataimport")]
+                    interface IMetaDataImport: super::super::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-closeenum")]
+                        fn CloseEnum(&self, hEnum: *mut void);
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-countenum")]
+                        fn CountEnum(&self, hEnum: *mut void, pulCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-resetenum")]
+                        fn ResetEnum(&self, hEnum: *mut void, ulPos: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumtypedefs")]
+                        fn EnumTypeDefs(&self, phEnum: *mut *mut void, rTypeDefs: *mut u32, cMax: u32, pcTypeDefs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enuminterfaceimpls")]
+                        fn EnumInterfaceImpls(&self, phEnum: *mut *mut void, td: u32, rImpls: *mut u32, cMax: u32, pcImpls: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumtyperefs")]
+                        fn EnumTypeRefs(&self, phEnum: *mut *mut void, rTypeRefs: *mut u32, cMax: u32, pcTypeRefs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-findtypedefbyname")]
+                        fn FindTypeDefByName(&self, #[Windows::Win32::Foundation::Metadata::Const] szTypeDef: super::super::super::Foundation::PWSTR, tkEnclosingClass: u32, ptd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getscopeprops")]
+                        fn GetScopeProps(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, pmvid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmodulefromscope")]
+                        fn GetModuleFromScope(&self, pmd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-gettypedefprops")]
+                        fn GetTypeDefProps(&self, td: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szTypeDef: super::super::super::Foundation::PWSTR, cchTypeDef: u32, pchTypeDef: *mut u32, pdwTypeDefFlags: *mut u32, ptkExtends: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getinterfaceimplprops")]
+                        fn GetInterfaceImplProps(&self, iiImpl: u32, pClass: *mut u32, ptkIface: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-gettyperefprops")]
+                        fn GetTypeRefProps(&self, tr: u32, ptkResolutionScope: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-resolvetyperef")]
+                        fn ResolveTypeRef(&self, tr: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppIScope: *mut super::super::Com::IUnknown, ptd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummembers")]
+                        fn EnumMembers(&self, phEnum: *mut *mut void, cl: u32, rMembers: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummemberswithname")]
+                        fn EnumMembersWithName(&self, phEnum: *mut *mut void, cl: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, rMembers: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummethods")]
+                        fn EnumMethods(&self, phEnum: *mut *mut void, cl: u32, rMethods: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummethodswithname")]
+                        fn EnumMethodsWithName(&self, phEnum: *mut *mut void, cl: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, rMethods: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumfields")]
+                        fn EnumFields(&self, phEnum: *mut *mut void, cl: u32, rFields: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumfieldswithname")]
+                        fn EnumFieldsWithName(&self, phEnum: *mut *mut void, cl: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, rFields: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumparams")]
+                        fn EnumParams(&self, phEnum: *mut *mut void, mb: u32, rParams: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummemberrefs")]
+                        fn EnumMemberRefs(&self, phEnum: *mut *mut void, tkParent: u32, rMemberRefs: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummethodimpls")]
+                        fn EnumMethodImpls(&self, phEnum: *mut *mut void, td: u32, rMethodBody: *mut u32, rMethodDecl: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumpermissionsets")]
+                        fn EnumPermissionSets(&self, phEnum: *mut *mut void, tk: u32, dwActions: u32, rPermission: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn FindMember(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pvSigBlob: *mut u8, cbSigBlob: u32, pmb: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn FindMethod(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pvSigBlob: *mut u8, cbSigBlob: u32, pmb: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn FindField(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pvSigBlob: *mut u8, cbSigBlob: u32, pmb: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-findmemberref")]
+                        fn FindMemberRef(&self, td: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, pvSigBlob: *mut u8, cbSigBlob: u32, pmr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmethodprops")]
+                        fn GetMethodProps(&self, mb: u32, pClass: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szMethod: super::super::super::Foundation::PWSTR, cchMethod: u32, pchMethod: *mut u32, pdwAttr: *mut u32, ppvSigBlob: *mut *mut u8, pcbSigBlob: *mut u32, pulCodeRVA: *mut u32, pdwImplFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmemberrefprops")]
+                        fn GetMemberRefProps(&self, mr: u32, ptk: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szMember: super::super::super::Foundation::PWSTR, cchMember: u32, pchMember: *mut u32, ppvSigBlob: *mut *mut u8, pbSig: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumproperties")]
+                        fn EnumProperties(&self, phEnum: *mut *mut void, td: u32, rProperties: *mut u32, cMax: u32, pcProperties: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumevents")]
+                        fn EnumEvents(&self, phEnum: *mut *mut void, td: u32, rEvents: *mut u32, cMax: u32, pcEvents: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetEventProps(&self, ev: u32, pClass: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] szEvent: super::super::super::Foundation::PWSTR, cchEvent: u32, pchEvent: *mut u32, pdwEventFlags: *mut u32, ptkEventType: *mut u32, pmdAddOn: *mut u32, pmdRemoveOn: *mut u32, pmdFire: *mut u32, rmdOtherMethod: *mut u32, cMax: u32, pcOtherMethod: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummethodsemantics")]
+                        fn EnumMethodSemantics(&self, phEnum: *mut *mut void, mb: u32, rEventProp: *mut u32, cMax: u32, pcEventProp: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmethodsemantics")]
+                        fn GetMethodSemantics(&self, mb: u32, tkEventProp: u32, pdwSemanticsFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetClassLayout(&self, td: u32, pdwPackSize: *mut u32, rFieldOffset: *mut COR_FIELD_OFFSET, cMax: u32, pcFieldOffset: *mut u32, pulClassSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getfieldmarshal")]
+                        fn GetFieldMarshal(&self, tk: u32, ppvNativeType: *mut *mut u8, pcbNativeType: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getrva")]
+                        fn GetRVA(&self, tk: u32, pulCodeRVA: *mut u32, pdwImplFlags: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getpermissionsetprops")]
+                        fn GetPermissionSetProps(&self, pm: u32, pdwAction: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppvPermission: *mut *mut void, pcbPermission: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getsigfromtoken")]
+                        fn GetSigFromToken(&self, mdSig: u32, ppvSig: *mut *mut u8, pcbSig: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmodulerefprops")]
+                        fn GetModuleRefProps(&self, mur: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enummodulerefs")]
+                        fn EnumModuleRefs(&self, phEnum: *mut *mut void, rModuleRefs: *mut u32, cmax: u32, pcModuleRefs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-gettypespecfromtoken")]
+                        fn GetTypeSpecFromToken(&self, typespec: u32, ppvSig: *mut *mut u8, pcbSig: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getnamefromtoken")]
+                        fn GetNameFromToken(&self, tk: u32, pszUtf8NamePtr: *mut *mut i8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumunresolvedmethods")]
+                        fn EnumUnresolvedMethods(&self, phEnum: *mut *mut void, rMethods: *mut u32, cMax: u32, pcTokens: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getuserstring")]
+                        fn GetUserString(&self, stk: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] szString: super::super::super::Foundation::PWSTR, cchString: u32, pchString: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getpinvokemap")]
+                        fn GetPinvokeMap(&self, tk: u32, pdwMappingFlags: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szImportName: super::super::super::Foundation::PWSTR, cchImportName: u32, pchImportName: *mut u32, pmrImportDLL: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumsignatures")]
+                        fn EnumSignatures(&self, phEnum: *mut *mut void, rSignatures: *mut u32, cmax: u32, pcSignatures: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumtypespecs")]
+                        fn EnumTypeSpecs(&self, phEnum: *mut *mut void, rTypeSpecs: *mut u32, cmax: u32, pcTypeSpecs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumuserstrings")]
+                        fn EnumUserStrings(&self, phEnum: *mut *mut void, rStrings: *mut u32, cmax: u32, pcStrings: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getparamformethodindex")]
+                        fn GetParamForMethodIndex(&self, md: u32, ulParamSeq: u32, ppd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-enumcustomattributes")]
+                        fn EnumCustomAttributes(&self, phEnum: *mut *mut void, tk: u32, tkType: u32, rCustomAttributes: *mut u32, cMax: u32, pcCustomAttributes: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getcustomattributeprops")]
+                        fn GetCustomAttributeProps(&self, cv: u32, ptkObj: *mut u32, ptkType: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppBlob: *mut *mut void, pcbSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-findtyperef")]
+                        fn FindTypeRef(&self, tkResolutionScope: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, ptr: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getmemberprops")]
+                        fn GetMemberProps(&self, mb: u32, pClass: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szMember: super::super::super::Foundation::PWSTR, cchMember: u32, pchMember: *mut u32, pdwAttr: *mut u32, ppvSigBlob: *mut *mut u8, pcbSigBlob: *mut u32, pulCodeRVA: *mut u32, pdwImplFlags: *mut u32, pdwCPlusTypeFlag: *mut u32, ppValue: *mut *mut void, pcchValue: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getfieldprops")]
+                        fn GetFieldProps(&self, mb: u32, pClass: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szField: super::super::super::Foundation::PWSTR, cchField: u32, pchField: *mut u32, pdwAttr: *mut u32, ppvSigBlob: *mut *mut u8, pcbSigBlob: *mut u32, pdwCPlusTypeFlag: *mut u32, ppValue: *mut *mut void, pcchValue: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetPropertyProps(&self, prop: u32, pClass: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] szProperty: super::super::super::Foundation::PWSTR, cchProperty: u32, pchProperty: *mut u32, pdwPropFlags: *mut u32, ppvSig: *mut *mut u8, pbSig: *mut u32, pdwCPlusTypeFlag: *mut u32, ppDefaultValue: *mut *mut void, pcchDefaultValue: *mut u32, pmdSetter: *mut u32, pmdGetter: *mut u32, rmdOtherMethod: *mut u32, cMax: u32, pcOtherMethod: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getparamprops")]
+                        fn GetParamProps(&self, tk: u32, pmd: *mut u32, pulSequence: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32, pdwAttr: *mut u32, pdwCPlusTypeFlag: *mut u32, ppValue: *mut *mut void, pcchValue: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getcustomattributebyname")]
+                        fn GetCustomAttributeByName(&self, tkObj: u32, #[Windows::Win32::Foundation::Metadata::Const] szName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] ppData: *mut *mut void, pcbData: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-isvalidtoken")]
+                        fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getnestedclassprops")]
+                        fn GetNestedClassProps(&self, tdNestedClass: u32, ptdEnclosingClass: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-getnativecallconvfromsig")]
+                        fn GetNativeCallConvFromSig(&self, #[Windows::Win32::Foundation::Metadata::Const] pvSig: *mut void, cbSig: u32, pCallConv: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport-isglobal")]
+                        fn IsGlobal(&self, pd: u32, pbGlobal: *mut i32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadataimport2")]
+                    interface IMetaDataImport2: IMetaDataImport {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-enumgenericparams")]
+                        fn EnumGenericParams(&self, phEnum: *mut *mut void, tk: u32, rGenericParams: *mut u32, cMax: u32, pcGenericParams: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-getgenericparamprops")]
+                        fn GetGenericParamProps(&self, gp: u32, pulParamSeq: *mut u32, pdwParamFlags: *mut u32, ptOwner: *mut u32, reserved: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] #[out] wzname: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-getmethodspecprops")]
+                        fn GetMethodSpecProps(&self, mi: u32, tkParent: *mut u32, ppvSigBlob: *mut *mut u8, pcbSigBlob: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-enumgenericparamconstraints")]
+                        fn EnumGenericParamConstraints(&self, phEnum: *mut *mut void, tk: u32, rGenericParamConstraints: *mut u32, cMax: u32, pcGenericParamConstraints: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-getgenericparamconstraintprops")]
+                        fn GetGenericParamConstraintProps(&self, gpc: u32, ptGenericParam: *mut u32, ptkConstraintType: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-getpekind")]
+                        fn GetPEKind(&self, pdwPEKind: *mut u32, pdwMAchine: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-getversionstring")]
+                        fn GetVersionString(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pwzBuf: super::super::super::Foundation::PWSTR, ccBufSize: u32, pccBufSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadataimport2-enummethodspecs")]
+                        fn EnumMethodSpecs(&self, phEnum: *mut *mut void, tk: u32, rMethodSpecs: *mut u32, cMax: u32, pcMethodSpecs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataInfo: super::super::Com::IUnknown {
+                        fn GetFileMapping(&self, #[Windows::Win32::Foundation::Metadata::Const] ppvData: *mut *mut void, pcbData: *mut u64, pdwMappingType: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadatatables")]
+                    interface IMetaDataTables: super::super::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getstringheapsize")]
+                        fn GetStringHeapSize(&self, pcbStrings: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getblobheapsize")]
+                        fn GetBlobHeapSize(&self, pcbBlobs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getguidheapsize")]
+                        fn GetGuidHeapSize(&self, pcbGuids: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getuserstringheapsize")]
+                        fn GetUserStringHeapSize(&self, pcbBlobs: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getnumtables")]
+                        fn GetNumTables(&self, pcTables: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-gettableindex")]
+                        fn GetTableIndex(&self, token: u32, pixTbl: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-gettableinfo")]
+                        fn GetTableInfo(&self, ixTbl: u32, pcbRow: *mut u32, pcRows: *mut u32, pcCols: *mut u32, piKey: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppName: *mut *mut i8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getcolumninfo")]
+                        fn GetColumnInfo(&self, ixTbl: u32, ixCol: u32, poCol: *mut u32, pcbCol: *mut u32, pType: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppName: *mut *mut i8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getcodedtokeninfo")]
+                        fn GetCodedTokenInfo(&self, ixCdTkn: u32, pcTokens: *mut u32, ppTokens: *mut *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppName: *mut *mut i8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getrow")]
+                        fn GetRow(&self, ixTbl: u32, rid: u32, ppRow: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getcolumn")]
+                        fn GetColumn(&self, ixTbl: u32, ixCol: u32, rid: u32, pVal: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getstring")]
+                        fn GetString(&self, ixString: u32, #[Windows::Win32::Foundation::Metadata::Const] ppString: *mut *mut i8) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getblob")]
+                        fn GetBlob(&self, ixBlob: u32, pcbData: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppData: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getguid")]
+                        fn GetGuid(&self, ixGuid: u32, #[Windows::Win32::Foundation::Metadata::Const] ppGUID: *mut *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getuserstring")]
+                        fn GetUserString(&self, ixUserString: u32, pcbData: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] ppData: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getnextstring")]
+                        fn GetNextString(&self, ixString: u32, pNext: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getnextblob")]
+                        fn GetNextBlob(&self, ixBlob: u32, pNext: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getnextguid")]
+                        fn GetNextGuid(&self, ixGuid: u32, pNext: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables-getnextuserstring")]
+                        fn GetNextUserString(&self, ixUserString: u32, pNext: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nn-rometadataapi-imetadatatables2")]
+                    interface IMetaDataTables2: IMetaDataTables {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables2-getmetadatastorage")]
+                        fn GetMetaDataStorage(&self, #[Windows::Win32::Foundation::Metadata::Const] ppvMd: *mut *mut void, pcbMd: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataapi/nf-rometadataapi-imetadatatables2-getmetadatastreaminfo")]
+                        fn GetMetaDataStreamInfo(&self, ix: u32, #[Windows::Win32::Foundation::Metadata::Const] ppchName: *mut *mut i8, #[Windows::Win32::Foundation::Metadata::Const] ppv: *mut *mut void, pcb: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataValidate: super::super::Com::IUnknown {
+                        fn ValidatorInit(&self, dwModuleType: u32, pUnk: super::super::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn ValidateMetaData(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IMetaDataWinMDImport: super::super::Com::IUnknown {
+                        fn GetUntransformedTypeRefProps(&self, tr: u32, ptkResolutionScope: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] szName: super::super::super::Foundation::PWSTR, cchName: u32, pchName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_AUTOPROXY_TYPE: String = "System.Runtime.InteropServices.AutomationProxyAttribute";
+                    const INTEROP_AUTOPROXY_TYPE_W: String = "System.Runtime.InteropServices.AutomationProxyAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_BESTFITMAPPING_TYPE: String = "System.Runtime.InteropServices.BestFitMappingAttribute";
+                    const INTEROP_BESTFITMAPPING_TYPE_W: String = "System.Runtime.InteropServices.BestFitMappingAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_CLASSINTERFACE_TYPE: String = "System.Runtime.InteropServices.ClassInterfaceAttribute";
+                    const INTEROP_CLASSINTERFACE_TYPE_W: String = "System.Runtime.InteropServices.ClassInterfaceAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COCLASS_TYPE: String = "System.Runtime.InteropServices.CoClassAttribute";
+                    const INTEROP_COCLASS_TYPE_W: String = "System.Runtime.InteropServices.CoClassAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMALIASNAME_TYPE: String = "System.Runtime.InteropServices.ComAliasNameAttribute";
+                    const INTEROP_COMALIASNAME_TYPE_W: String = "System.Runtime.InteropServices.ComAliasNameAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMCOMPATIBLEVERSION_TYPE: String = "System.Runtime.InteropServices.ComCompatibleVersionAttribute";
+                    const INTEROP_COMCOMPATIBLEVERSION_TYPE_W: String = "System.Runtime.InteropServices.ComCompatibleVersionAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMCONVERSIONLOSS_TYPE: String = "System.Runtime.InteropServices.ComConversionLossAttribute";
+                    const INTEROP_COMCONVERSIONLOSS_TYPE_W: String = "System.Runtime.InteropServices.ComConversionLossAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMDEFAULTINTERFACE_TYPE: String = "System.Runtime.InteropServices.ComDefaultInterfaceAttribute";
+                    const INTEROP_COMDEFAULTINTERFACE_TYPE_W: String = "System.Runtime.InteropServices.ComDefaultInterfaceAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMEMULATE_TYPE: String = "System.Runtime.InteropServices.ComEmulateAttribute";
+                    const INTEROP_COMEMULATE_TYPE_W: String = "System.Runtime.InteropServices.ComEmulateAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMEVENTINTERFACE_TYPE: String = "System.Runtime.InteropServices.ComEventInterfaceAttribute";
+                    const INTEROP_COMEVENTINTERFACE_TYPE_W: String = "System.Runtime.InteropServices.ComEventInterfaceAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMIMPORT_TYPE: String = "System.Runtime.InteropServices.ComImportAttribute";
+                    const INTEROP_COMIMPORT_TYPE_W: String = "System.Runtime.InteropServices.ComImportAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMREGISTERFUNCTION_TYPE: String = "System.Runtime.InteropServices.ComRegisterFunctionAttribute";
+                    const INTEROP_COMREGISTERFUNCTION_TYPE_W: String = "System.Runtime.InteropServices.ComRegisterFunctionAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMSOURCEINTERFACES_TYPE: String = "System.Runtime.InteropServices.ComSourceInterfacesAttribute";
+                    const INTEROP_COMSOURCEINTERFACES_TYPE_W: String = "System.Runtime.InteropServices.ComSourceInterfacesAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE: String = "System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute";
+                    const INTEROP_COMSUBSTITUTABLEINTERFACE_TYPE_W: String = "System.Runtime.InteropServices.ComSubstitutableInterfaceAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMUNREGISTERFUNCTION_TYPE: String = "System.Runtime.InteropServices.ComUnregisterFunctionAttribute";
+                    const INTEROP_COMUNREGISTERFUNCTION_TYPE_W: String = "System.Runtime.InteropServices.ComUnregisterFunctionAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_COMVISIBLE_TYPE: String = "System.Runtime.InteropServices.ComVisibleAttribute";
+                    const INTEROP_COMVISIBLE_TYPE_W: String = "System.Runtime.InteropServices.ComVisibleAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_DATETIMEVALUE_TYPE: String = "System.Runtime.CompilerServices.DateTimeConstantAttribute";
+                    const INTEROP_DATETIMEVALUE_TYPE_W: String = "System.Runtime.CompilerServices.DateTimeConstantAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_DECIMALVALUE_TYPE: String = "System.Runtime.CompilerServices.DecimalConstantAttribute";
+                    const INTEROP_DECIMALVALUE_TYPE_W: String = "System.Runtime.CompilerServices.DecimalConstantAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_DEFAULTMEMBER_TYPE: String = "System.Reflection.DefaultMemberAttribute";
+                    const INTEROP_DEFAULTMEMBER_TYPE_W: String = "System.Reflection.DefaultMemberAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_DISPID_TYPE: String = "System.Runtime.InteropServices.DispIdAttribute";
+                    const INTEROP_DISPID_TYPE_W: String = "System.Runtime.InteropServices.DispIdAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_GUID_TYPE: String = "System.Runtime.InteropServices.GuidAttribute";
+                    const INTEROP_GUID_TYPE_W: String = "System.Runtime.InteropServices.GuidAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_IDISPATCHIMPL_TYPE: String = "System.Runtime.InteropServices.IDispatchImplAttribute";
+                    const INTEROP_IDISPATCHIMPL_TYPE_W: String = "System.Runtime.InteropServices.IDispatchImplAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_IDISPATCHVALUE_TYPE: String = "System.Runtime.CompilerServices.IDispatchConstantAttribute";
+                    const INTEROP_IDISPATCHVALUE_TYPE_W: String = "System.Runtime.CompilerServices.IDispatchConstantAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_IMPORTEDFROMTYPELIB_TYPE: String = "System.Runtime.InteropServices.ImportedFromTypeLibAttribute";
+                    const INTEROP_IMPORTEDFROMTYPELIB_TYPE_W: String = "System.Runtime.InteropServices.ImportedFromTypeLibAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_INTERFACETYPE_TYPE: String = "System.Runtime.InteropServices.InterfaceTypeAttribute";
+                    const INTEROP_INTERFACETYPE_TYPE_W: String = "System.Runtime.InteropServices.InterfaceTypeAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_IN_TYPE: String = "System.Runtime.InteropServices.InAttribute";
+                    const INTEROP_IN_TYPE_W: String = "System.Runtime.InteropServices.InAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_IUNKNOWNVALUE_TYPE: String = "System.Runtime.CompilerServices.IUnknownConstantAttribute";
+                    const INTEROP_IUNKNOWNVALUE_TYPE_W: String = "System.Runtime.CompilerServices.IUnknownConstantAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_LCIDCONVERSION_TYPE: String = "System.Runtime.InteropServices.LCIDConversionAttribute";
+                    const INTEROP_LCIDCONVERSION_TYPE_W: String = "System.Runtime.InteropServices.LCIDConversionAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_MARSHALAS_TYPE: String = "System.Runtime.InteropServices.MarshalAsAttribute";
+                    const INTEROP_MARSHALAS_TYPE_W: String = "System.Runtime.InteropServices.MarshalAsAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_OUT_TYPE: String = "System.Runtime.InteropServices.OutAttribute";
+                    const INTEROP_OUT_TYPE_W: String = "System.Runtime.InteropServices.OutAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_PARAMARRAY_TYPE: String = "System.ParamArrayAttribute";
+                    const INTEROP_PARAMARRAY_TYPE_W: String = "System.ParamArrayAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_PRESERVESIG_TYPE: String = "System.Runtime.InteropServices.PreserveSigAttribure";
+                    const INTEROP_PRESERVESIG_TYPE_W: String = "System.Runtime.InteropServices.PreserveSigAttribure";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE: String = "System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute";
+                    const INTEROP_PRIMARYINTEROPASSEMBLY_TYPE_W: String = "System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_SERIALIZABLE_TYPE: String = "System.SerializableAttribute";
+                    const INTEROP_SERIALIZABLE_TYPE_W: String = "System.SerializableAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE: String = "System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute";
+                    const INTEROP_SETWIN32CONTEXTINIDISPATCHATTRIBUTE_TYPE_W: String = "System.Runtime.InteropServices.SetWin32ContextInIDispatchAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_TYPELIBFUNC_TYPE: String = "System.Runtime.InteropServices.TypeLibFuncAttribute";
+                    const INTEROP_TYPELIBFUNC_TYPE_W: String = "System.Runtime.InteropServices.TypeLibFuncAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_TYPELIBIMPORTCLASS_TYPE: String = "System.Runtime.InteropServices.TypeLibImportClassAttribute";
+                    const INTEROP_TYPELIBIMPORTCLASS_TYPE_W: String = "System.Runtime.InteropServices.TypeLibImportClassAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_TYPELIBTYPE_TYPE: String = "System.Runtime.InteropServices.TypeLibTypeAttribute";
+                    const INTEROP_TYPELIBTYPE_TYPE_W: String = "System.Runtime.InteropServices.TypeLibTypeAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_TYPELIBVAR_TYPE: String = "System.Runtime.InteropServices.TypeLibVarAttribute";
+                    const INTEROP_TYPELIBVAR_TYPE_W: String = "System.Runtime.InteropServices.TypeLibVarAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const INTEROP_TYPELIBVERSION_TYPE: String = "System.Runtime.InteropServices.TypeLibVersionAttribute";
+                    const INTEROP_TYPELIBVERSION_TYPE_W: String = "System.Runtime.InteropServices.TypeLibVersionAttribute";
+                    const INVALID_CONNECTION_ID: u32 = 0;
+                    const INVALID_TASK_ID: u32 = 0;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/roparameterizediid/ns-roparameterizediid-irometadatalocator")]
+                    interface IRoMetaDataLocator {
+                        fn Locate(&self, #[Windows::Win32::Foundation::Metadata::Const] nameElement: super::super::super::Foundation::PWSTR, metaDataDestination: IRoSimpleMetaDataBuilder) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/roparameterizediid/ns-roparameterizediid-irosimplemetadatabuilder")]
+                    interface IRoSimpleMetaDataBuilder {
+                        fn SetWinRtInterface(&self, iid: GUID) -> super::super::super::Foundation::HRESULT;
+                        fn SetDelegate(&self, iid: GUID) -> super::super::super::Foundation::HRESULT;
+                        fn SetInterfaceGroupSimpleDefault(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] defaultInterfaceName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] defaultInterfaceIID: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        fn SetInterfaceGroupParameterizedDefault(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, elementCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] defaultInterfaceNameElements: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn SetRuntimeClassSimpleDefault(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] defaultInterfaceName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] defaultInterfaceIID: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        fn SetRuntimeClassParameterizedDefault(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, elementCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] defaultInterfaceNameElements: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn SetStruct(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, numFields: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] fieldTypeNames: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn SetEnum(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] baseType: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn SetParameterizedInterface(&self, piid: GUID, numArgs: u32) -> super::super::super::Foundation::HRESULT;
+                        fn SetParameterizedDelegate(&self, piid: GUID, numArgs: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    const LIBID_ComPlusRuntime: GUID = 0xbed7f4ea_1a96_11d2_8f08_00a0c9a6186d;
+                    #[repr(i32)]
+                    enum LoadHintEnum {
+                        LoadDefault = 0,
+                        LoadAlways = 1,
+                        LoadSometimes = 2,
+                        LoadNever = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const MAIN_CLR_MODULE_NAME_A: String = "coreclr";
+                    const MAIN_CLR_MODULE_NAME_W: String = "coreclr";
+                    const MAX_CONNECTION_NAME: u32 = 260;
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const MSCOREE_SHIM_A: String = "mscoree.dll";
+                    const MSCOREE_SHIM_W: String = "mscoree.dll";
+                    #[repr(i32)]
+                    enum MergeFlags {
+                        MergeFlagsNone = 0,
+                        MergeManifest = 1,
+                        DropMemberRefCAs = 2,
+                        NoDupCheck = 4,
+                        MergeExportedTypes = 8,
+                    }
+                    const MetaDataCheckDuplicatesFor: GUID = 0x30fe7be8_d7d9_11d2_9f80_00c04f79a0a3;
+                    const MetaDataErrorIfEmitOutOfOrder: GUID = 0x1547872d_dc03_11d2_9420_0000f8083460;
+                    const MetaDataGenerateTCEAdapters: GUID = 0xdcc9de90_4151_11d3_88d6_00902754c43a;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadata/nf-rometadata-metadatagetdispenser")]
+                    #[library("RoMetadata.dll")]
+                    extern fn MetaDataGetDispenser(rclsid: *mut GUID, riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    const MetaDataImportOption: GUID = 0x79700f36_4aac_11d3_84c3_009027868cb1;
+                    const MetaDataLinkerOptions: GUID = 0x47e099b6_ae7c_4797_8317_b48aa645b8f9;
+                    const MetaDataMergerOptions: GUID = 0x132d3a6e_b35d_464e_951a_42efb9fb6601;
+                    const MetaDataNotificationForTokenMovement: GUID = 0xe5d71a4c_d7da_11d2_9f80_00c04f79a0a3;
+                    const MetaDataPreserveLocalRefs: GUID = 0xa55c0354_e91b_468b_8648_7cc31035d533;
+                    const MetaDataRefToDefCheck: GUID = 0xde3856f8_d7d9_11d2_9f80_00c04f79a0a3;
+                    const MetaDataRuntimeVersion: GUID = 0x47e099b7_ae7c_4797_8317_b48aa645b8f9;
+                    const MetaDataSetUpdate: GUID = 0x2eee315c_d7db_11d2_9f80_00c04f79a0a3;
+                    const MetaDataThreadSafetyOptions: GUID = 0xf7559806_f266_42ea_8c63_0adb45e8b234;
+                    const MetaDataTypeLibImportNamespace: GUID = 0xf17ff889_5a63_11d3_9ff2_00c04ff7431a;
+                    #[repr(i32)]
+                    enum NGenHintEnum {
+                        NGenDefault = 0,
+                        NGenEager = 1,
+                        NGenLazy = 2,
+                        NGenNever = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const NONVERSIONABLE_TYPE: String = "System.Runtime.Versioning.NonVersionableAttribute";
+                    const NONVERSIONABLE_TYPE_W: String = "System.Runtime.Versioning.NonVersionableAttribute";
+                    #[repr(i32)]
+                    enum NativeTypeArrayFlags {
+                        ntaSizeParamIndexSpecified = 1,
+                        ntaReserved = 65534,
+                    }
+                    struct OSINFO {
+                        dwOSPlatformId: u32,
+                        dwOSMajorVersion: u32,
+                        dwOSMinorVersion: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::RAIIFree("RoFreeParameterizedTypeExtra")]
+                    #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                    #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                    #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                    struct ROPARAMIIDHANDLE {
+                        Value: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const RUNTIMECOMPATIBILITY_TYPE: String = "System.Runtime.CompilerServices.RuntimeCompatibilityAttribute";
+                    const RUNTIMECOMPATIBILITY_TYPE_W: String = "System.Runtime.CompilerServices.RuntimeCompatibilityAttribute";
+                    #[repr(i32)]
+                    enum ReplacesGeneralNumericDefines {
+                        IMAGE_DIRECTORY_ENTRY_COMHEADER = 14,
+                    }
+                    #[library("api-ms-win-ro-typeresolution-l1-1-1.dll")]
+                    extern fn RoCreateNonAgilePropertySet(ppPropertySet: *mut super::super::super::super::Foundation::Collections::IPropertySet) -> super::super::super::Foundation::HRESULT;
+                    #[library("api-ms-win-ro-typeresolution-l1-1-1.dll")]
+                    extern fn RoCreatePropertySetSerializer(ppPropertySetSerializer: *mut super::super::super::super::Storage::Streams::IPropertySetSerializer) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/roparameterizediid/nf-roparameterizediid-rofreeparameterizedtypeextra")]
+                    #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+                    extern fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE);
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataresolution/nf-rometadataresolution-rogetmetadatafile")]
+                    #[library("api-ms-win-ro-typeresolution-l1-1-0.dll")]
+                    extern fn RoGetMetaDataFile(name: super::HSTRING, metaDataDispenser: IMetaDataDispenserEx, metaDataFilePath: *mut super::HSTRING, metaDataImport: *mut IMetaDataImport2, typeDefToken: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/roparameterizediid/nf-roparameterizediid-rogetparameterizedtypeinstanceiid")]
+                    #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+                    extern fn RoGetParameterizedTypeInstanceIID(nameElementCount: u32, nameElements: *mut super::super::super::Foundation::PWSTR, metaDataLocator: IRoMetaDataLocator, iid: *mut GUID, pExtra: *mut ROPARAMIIDHANDLE) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataresolution/nf-rometadataresolution-roisapicontractmajorversionpresent")]
+                    #[library("api-ms-win-ro-typeresolution-l1-1-1.dll")]
+                    extern fn RoIsApiContractMajorVersionPresent(name: super::super::super::Foundation::PWSTR, majorVersion: u16, present: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataresolution/nf-rometadataresolution-roisapicontractpresent")]
+                    #[library("api-ms-win-ro-typeresolution-l1-1-1.dll")]
+                    extern fn RoIsApiContractPresent(name: super::super::super::Foundation::PWSTR, majorVersion: u16, minorVersion: u16, present: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/roparameterizediid/nf-roparameterizediid-roparameterizedtypeextragettypesignature")]
+                    #[library("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll")]
+                    extern fn RoParameterizedTypeExtraGetTypeSignature(extra: ROPARAMIIDHANDLE) -> super::super::super::Foundation::PSTR;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataresolution/nf-rometadataresolution-roparsetypename")]
+                    #[library("api-ms-win-ro-typeresolution-l1-1-0.dll")]
+                    extern fn RoParseTypeName(typeName: super::HSTRING, partsCount: *mut u32, typeNameParts: *mut *mut super::HSTRING) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rometadataresolution/nf-rometadataresolution-roresolvenamespace")]
+                    #[library("api-ms-win-ro-typeresolution-l1-1-0.dll")]
+                    extern fn RoResolveNamespace(name: super::HSTRING, windowsMetaDataDir: super::HSTRING, packageGraphDirsCount: u32, packageGraphDirs: *mut super::HSTRING, metaDataFilePathsCount: *mut u32, metaDataFilePaths: *mut *mut super::HSTRING, subNamespacesCount: *mut u32, subNamespaces: *mut *mut super::HSTRING) -> super::super::super::Foundation::HRESULT;
+                    const SIGN_MASK_FOURBYTE: i32 = -268435456;
+                    const SIGN_MASK_ONEBYTE: i32 = -64;
+                    const SIGN_MASK_TWOBYTE: i32 = -8192;
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const SUBJECT_ASSEMBLY_TYPE: String = "System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute";
+                    const SUBJECT_ASSEMBLY_TYPE_W: String = "System.Runtime.CompilerServices.IgnoresAccessChecksToAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const TARGET_FRAMEWORK_TYPE: String = "System.Runtime.Versioning.TargetFrameworkAttribute";
+                    const TARGET_FRAMEWORK_TYPE_W: String = "System.Runtime.Versioning.TargetFrameworkAttribute";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const USER_FRAMEWORK_REGISTRY_KEY: String = "Software\\Microsoft\\.NETFramework64";
+                    const USER_FRAMEWORK_REGISTRY_KEY_W: String = "Software\\Microsoft\\.NETFramework64";
+                }
+            }
+        }
+    }
+}

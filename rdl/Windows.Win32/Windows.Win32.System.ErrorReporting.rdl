@@ -1,0 +1,529 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod ErrorReporting {
+                const APPCRASH_EVENT: String = "APPCRASH";
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errorrep/nf-errorrep-adderexcludedapplicationa")]
+                #[library("faultrep.dll")]
+                extern fn AddERExcludedApplicationA(szApplication: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errorrep/nf-errorrep-adderexcludedapplicationw")]
+                #[library("faultrep.dll")]
+                extern fn AddERExcludedApplicationW(wszApplication: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[repr(i32)]
+                enum EFaultRepRetVal {
+                    frrvOk = 0,
+                    frrvOkManifest = 1,
+                    frrvOkQueued = 2,
+                    frrvErr = 3,
+                    frrvErrNoDW = 4,
+                    frrvErrTimeout = 5,
+                    frrvLaunchDebugger = 6,
+                    frrvOkHeadless = 7,
+                    frrvErrAnotherInstance = 8,
+                    frrvErrNoMemory = 9,
+                    frrvErrDoubleFault = 10,
+                }
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("WerReportCloseHandle")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HREPORT {
+                    Value: *mut void,
+                }
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("WerStoreClose")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HREPORTSTORE {
+                    Value: *mut void,
+                }
+                const PACKAGED_APPCRASH_EVENT: String = "MoAppCrash";
+                extern fn PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH(pContext: *mut void, pExceptionInformation: *mut WER_RUNTIME_EXCEPTION_INFORMATION, pbIsCustomDebugger: *mut super::super::Foundation::BOOL, pwszDebuggerLaunch: super::super::Foundation::PWSTR, pchDebuggerLaunch: *mut u32, pbIsDebuggerAutolaunch: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT(pContext: *mut void, pExceptionInformation: *mut WER_RUNTIME_EXCEPTION_INFORMATION, pbOwnershipClaimed: *mut super::super::Foundation::BOOL, pwszEventName: super::super::Foundation::PWSTR, pchSize: *mut u32, pdwSignatureCount: *mut u32) -> super::super::Foundation::HRESULT;
+                extern fn PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE(pContext: *mut void, pExceptionInformation: *mut WER_RUNTIME_EXCEPTION_INFORMATION, dwIndex: u32, pwszName: super::super::Foundation::PWSTR, pchName: *mut u32, pwszValue: super::super::Foundation::PWSTR, pchValue: *mut u32) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum REPORT_STORE_TYPES {
+                    E_STORE_USER_ARCHIVE = 0,
+                    E_STORE_USER_QUEUE = 1,
+                    E_STORE_MACHINE_ARCHIVE = 2,
+                    E_STORE_MACHINE_QUEUE = 3,
+                    E_STORE_INVALID = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errorrep/nf-errorrep-reportfault")]
+                #[library("faultrep.dll")]
+                extern fn ReportFault(pep: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, dwOpt: u32) -> EFaultRepRetVal;
+                #[repr(i32)]
+                enum WER_CONSENT {
+                    WerConsentNotAsked = 1,
+                    WerConsentApproved = 2,
+                    WerConsentDenied = 3,
+                    WerConsentAlwaysPrompt = 4,
+                    WerConsentMax = 5,
+                }
+                const WER_DUMP_AUXILIARY: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/ns-werapi-wer_dump_custom_options")]
+                struct WER_DUMP_CUSTOM_OPTIONS {
+                    dwSize: u32,
+                    dwMask: u32,
+                    dwDumpFlags: u32,
+                    bOnlyThisThread: super::super::Foundation::BOOL,
+                    dwExceptionThreadFlags: u32,
+                    dwOtherThreadFlags: u32,
+                    dwExceptionThreadExFlags: u32,
+                    dwOtherThreadExFlags: u32,
+                    dwPreferredModuleFlags: u32,
+                    dwOtherModuleFlags: u32,
+                    wzPreferredModuleList: [u16; 256],
+                }
+                struct WER_DUMP_CUSTOM_OPTIONS_V2 {
+                    dwSize: u32,
+                    dwMask: u32,
+                    dwDumpFlags: u32,
+                    bOnlyThisThread: super::super::Foundation::BOOL,
+                    dwExceptionThreadFlags: u32,
+                    dwOtherThreadFlags: u32,
+                    dwExceptionThreadExFlags: u32,
+                    dwOtherThreadExFlags: u32,
+                    dwPreferredModuleFlags: u32,
+                    dwOtherModuleFlags: u32,
+                    wzPreferredModuleList: [u16; 256],
+                    dwPreferredModuleResetFlags: u32,
+                    dwOtherModuleResetFlags: u32,
+                }
+                struct WER_DUMP_CUSTOM_OPTIONS_V3 {
+                    dwSize: u32,
+                    dwMask: u32,
+                    dwDumpFlags: u32,
+                    bOnlyThisThread: super::super::Foundation::BOOL,
+                    dwExceptionThreadFlags: u32,
+                    dwOtherThreadFlags: u32,
+                    dwExceptionThreadExFlags: u32,
+                    dwOtherThreadExFlags: u32,
+                    dwPreferredModuleFlags: u32,
+                    dwOtherModuleFlags: u32,
+                    wzPreferredModuleList: [u16; 256],
+                    dwPreferredModuleResetFlags: u32,
+                    dwOtherModuleResetFlags: u32,
+                    pvDumpKey: *mut void,
+                    hSnapshot: super::super::Foundation::HANDLE,
+                    dwThreadID: u32,
+                }
+                const WER_DUMP_MASK_START: u32 = 1;
+                const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1;
+                #[repr(i32)]
+                enum WER_DUMP_TYPE {
+                    WerDumpTypeNone = 0,
+                    WerDumpTypeMicroDump = 1,
+                    WerDumpTypeMiniDump = 2,
+                    WerDumpTypeHeapDump = 3,
+                    WerDumpTypeTriageDump = 4,
+                    WerDumpTypeMax = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/ns-werapi-wer_exception_information")]
+                struct WER_EXCEPTION_INFORMATION {
+                    pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
+                    bClientPointers: super::super::Foundation::BOOL,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum WER_FAULT_REPORTING {
+                    WER_FAULT_REPORTING_FLAG_DISABLE_THREAD_SUSPENSION = 4,
+                    WER_FAULT_REPORTING_FLAG_NOHEAP = 1,
+                    WER_FAULT_REPORTING_FLAG_QUEUE = 2,
+                    WER_FAULT_REPORTING_FLAG_QUEUE_UPLOAD = 8,
+                    WER_FAULT_REPORTING_ALWAYS_SHOW_UI = 16,
+                }
+                const WER_FAULT_REPORTING_CRITICAL: u32 = 512;
+                const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_CRASH: u32 = 128;
+                const WER_FAULT_REPORTING_DISABLE_SNAPSHOT_HANG: u32 = 256;
+                const WER_FAULT_REPORTING_DURABLE: u32 = 1024;
+                const WER_FAULT_REPORTING_FLAG_NO_HEAP_ON_QUEUE: u32 = 64;
+                const WER_FAULT_REPORTING_NO_UI: u32 = 32;
+                #[repr(u32)]
+                #[flags]
+                enum WER_FILE {
+                    WER_FILE_ANONYMOUS_DATA = 2,
+                    WER_FILE_DELETE_WHEN_DONE = 1,
+                }
+                const WER_FILE_COMPRESSED: u32 = 4;
+                #[repr(i32)]
+                enum WER_FILE_TYPE {
+                    WerFileTypeMicrodump = 1,
+                    WerFileTypeMinidump = 2,
+                    WerFileTypeHeapdump = 3,
+                    WerFileTypeUserDocument = 4,
+                    WerFileTypeOther = 5,
+                    WerFileTypeTriagedump = 6,
+                    WerFileTypeCustomDump = 7,
+                    WerFileTypeAuxiliaryDump = 8,
+                    WerFileTypeEtlTrace = 9,
+                    WerFileTypeMax = 10,
+                }
+                const WER_MAX_APPLICATION_NAME_LENGTH: u32 = 128;
+                const WER_MAX_BUCKET_ID_STRING_LENGTH: u32 = 260;
+                const WER_MAX_DESCRIPTION_LENGTH: u32 = 512;
+                const WER_MAX_EVENT_NAME_LENGTH: u32 = 64;
+                const WER_MAX_FRIENDLY_EVENT_NAME_LENGTH: u32 = 128;
+                const WER_MAX_LOCAL_DUMP_SUBPATH_LENGTH: u32 = 64;
+                const WER_MAX_PARAM_COUNT: u32 = 10;
+                const WER_MAX_PARAM_LENGTH: u32 = 260;
+                const WER_MAX_PREFERRED_MODULES: u32 = 128;
+                const WER_MAX_PREFERRED_MODULES_BUFFER: u32 = 256;
+                const WER_MAX_REGISTERED_DUMPCOLLECTION: u32 = 4;
+                const WER_MAX_REGISTERED_ENTRIES: u32 = 512;
+                const WER_MAX_REGISTERED_METADATA: u32 = 8;
+                const WER_MAX_REGISTERED_RUNTIME_EXCEPTION_MODULES: u32 = 16;
+                const WER_MAX_SIGNATURE_NAME_LENGTH: u32 = 128;
+                const WER_MAX_TOTAL_PARAM_LENGTH: u32 = 1720;
+                const WER_METADATA_KEY_MAX_LENGTH: u32 = 64;
+                const WER_METADATA_VALUE_MAX_LENGTH: u32 = 128;
+                const WER_P0: u32 = 0;
+                const WER_P1: u32 = 1;
+                const WER_P2: u32 = 2;
+                const WER_P3: u32 = 3;
+                const WER_P4: u32 = 4;
+                const WER_P5: u32 = 5;
+                const WER_P6: u32 = 6;
+                const WER_P7: u32 = 7;
+                const WER_P8: u32 = 8;
+                const WER_P9: u32 = 9;
+                #[repr(i32)]
+                enum WER_REGISTER_FILE_TYPE {
+                    WerRegFileTypeUserDocument = 1,
+                    WerRegFileTypeOther = 2,
+                    WerRegFileTypeMax = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/ns-werapi-wer_report_information")]
+                struct WER_REPORT_INFORMATION {
+                    dwSize: u32,
+                    hProcess: super::super::Foundation::HANDLE,
+                    wzConsentKey: [u16; 64],
+                    wzFriendlyEventName: [u16; 128],
+                    wzApplicationName: [u16; 128],
+                    wzApplicationPath: [u16; 260],
+                    wzDescription: [u16; 512],
+                    hwndParent: super::super::Foundation::HWND,
+                }
+                struct WER_REPORT_INFORMATION_V3 {
+                    dwSize: u32,
+                    hProcess: super::super::Foundation::HANDLE,
+                    wzConsentKey: [u16; 64],
+                    wzFriendlyEventName: [u16; 128],
+                    wzApplicationName: [u16; 128],
+                    wzApplicationPath: [u16; 260],
+                    wzDescription: [u16; 512],
+                    hwndParent: super::super::Foundation::HWND,
+                    wzNamespacePartner: [u16; 64],
+                    wzNamespaceGroup: [u16; 64],
+                }
+                struct WER_REPORT_INFORMATION_V4 {
+                    dwSize: u32,
+                    hProcess: super::super::Foundation::HANDLE,
+                    wzConsentKey: [u16; 64],
+                    wzFriendlyEventName: [u16; 128],
+                    wzApplicationName: [u16; 128],
+                    wzApplicationPath: [u16; 260],
+                    wzDescription: [u16; 512],
+                    hwndParent: super::super::Foundation::HWND,
+                    wzNamespacePartner: [u16; 64],
+                    wzNamespaceGroup: [u16; 64],
+                    rgbApplicationIdentity: [u8; 16],
+                    hSnapshot: super::super::Foundation::HANDLE,
+                    hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
+                }
+                struct WER_REPORT_INFORMATION_V5 {
+                    dwSize: u32,
+                    hProcess: super::super::Foundation::HANDLE,
+                    wzConsentKey: [u16; 64],
+                    wzFriendlyEventName: [u16; 128],
+                    wzApplicationName: [u16; 128],
+                    wzApplicationPath: [u16; 260],
+                    wzDescription: [u16; 512],
+                    hwndParent: super::super::Foundation::HWND,
+                    wzNamespacePartner: [u16; 64],
+                    wzNamespaceGroup: [u16; 64],
+                    rgbApplicationIdentity: [u8; 16],
+                    hSnapshot: super::super::Foundation::HANDLE,
+                    hDeleteFilesImpersonationToken: super::super::Foundation::HANDLE,
+                    submitResultMax: WER_SUBMIT_RESULT,
+                }
+                struct WER_REPORT_METADATA_V1 {
+                    Signature: WER_REPORT_SIGNATURE,
+                    BucketId: GUID,
+                    ReportId: GUID,
+                    CreationTime: super::super::Foundation::FILETIME,
+                    SizeInBytes: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/ns-werapi-wer_report_metadata_v2")]
+                struct WER_REPORT_METADATA_V2 {
+                    Signature: WER_REPORT_SIGNATURE,
+                    BucketId: GUID,
+                    ReportId: GUID,
+                    CreationTime: super::super::Foundation::FILETIME,
+                    SizeInBytes: u64,
+                    CabId: [u16; 260],
+                    ReportStatus: u32,
+                    ReportIntegratorId: GUID,
+                    NumberOfFiles: u32,
+                    SizeOfFileNames: u32,
+                    FileNames: super::super::Foundation::PWSTR,
+                }
+                struct WER_REPORT_METADATA_V3 {
+                    Signature: WER_REPORT_SIGNATURE,
+                    BucketId: GUID,
+                    ReportId: GUID,
+                    CreationTime: super::super::Foundation::FILETIME,
+                    SizeInBytes: u64,
+                    CabId: [u16; 260],
+                    ReportStatus: u32,
+                    ReportIntegratorId: GUID,
+                    NumberOfFiles: u32,
+                    SizeOfFileNames: u32,
+                    FileNames: super::super::Foundation::PWSTR,
+                    FriendlyEventName: [u16; 128],
+                    ApplicationName: [u16; 128],
+                    ApplicationPath: [u16; 260],
+                    Description: [u16; 512],
+                    BucketIdString: [u16; 260],
+                    LegacyBucketId: u64,
+                }
+                struct WER_REPORT_PARAMETER {
+                    Name: [u16; 129],
+                    Value: [u16; 260],
+                }
+                struct WER_REPORT_SIGNATURE {
+                    EventName: [u16; 65],
+                    Parameters: [WER_REPORT_PARAMETER; 10],
+                }
+                #[repr(i32)]
+                enum WER_REPORT_TYPE {
+                    WerReportNonCritical = 0,
+                    WerReportCritical = 1,
+                    WerReportApplicationCrash = 2,
+                    WerReportApplicationHang = 3,
+                    WerReportKernel = 4,
+                    WerReportInvalid = 5,
+                }
+                #[repr(i32)]
+                enum WER_REPORT_UI {
+                    WerUIAdditionalDataDlgHeader = 1,
+                    WerUIIconFilePath = 2,
+                    WerUIConsentDlgHeader = 3,
+                    WerUIConsentDlgBody = 4,
+                    WerUIOnlineSolutionCheckText = 5,
+                    WerUIOfflineSolutionCheckText = 6,
+                    WerUICloseText = 7,
+                    WerUICloseDlgHeader = 8,
+                    WerUICloseDlgBody = 9,
+                    WerUICloseDlgButtonText = 10,
+                    WerUIMax = 11,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: String = "OutOfProcessExceptionEventDebuggerLaunchCallback";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: String = "OutOfProcessExceptionEventCallback";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: String = "OutOfProcessExceptionEventSignatureCallback";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/ns-werapi-wer_runtime_exception_information")]
+                struct WER_RUNTIME_EXCEPTION_INFORMATION {
+                    dwSize: u32,
+                    hProcess: super::super::Foundation::HANDLE,
+                    hThread: super::super::Foundation::HANDLE,
+                    exceptionRecord: super::Diagnostics::Debug::EXCEPTION_RECORD,
+                    context: super::Diagnostics::Debug::CONTEXT,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pwszReportId: super::super::Foundation::PWSTR,
+                    bIsFatal: super::super::Foundation::BOOL,
+                    dwReserved: u32,
+                }
+                const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768;
+                const WER_SUBMIT_BYPASS_POWER_THROTTLING: u32 = 16384;
+                #[repr(u32)]
+                #[flags]
+                enum WER_SUBMIT_FLAGS {
+                    WER_SUBMIT_ADD_REGISTERED_DATA = 16,
+                    WER_SUBMIT_HONOR_RECOVERY = 1,
+                    WER_SUBMIT_HONOR_RESTART = 2,
+                    WER_SUBMIT_NO_ARCHIVE = 256,
+                    WER_SUBMIT_NO_CLOSE_UI = 64,
+                    WER_SUBMIT_NO_QUEUE = 128,
+                    WER_SUBMIT_OUTOFPROCESS = 32,
+                    WER_SUBMIT_OUTOFPROCESS_ASYNC = 1024,
+                    WER_SUBMIT_QUEUE = 4,
+                    WER_SUBMIT_SHOW_DEBUG = 8,
+                    WER_SUBMIT_START_MINIMIZED = 512,
+                    WER_SUBMIT_BYPASS_DATA_THROTTLING = 2048,
+                    WER_SUBMIT_ARCHIVE_PARAMETERS_ONLY = 4096,
+                    WER_SUBMIT_REPORT_MACHINE_ID = 8192,
+                }
+                #[repr(i32)]
+                enum WER_SUBMIT_RESULT {
+                    WerReportQueued = 1,
+                    WerReportUploaded = 2,
+                    WerReportDebug = 3,
+                    WerReportFailed = 4,
+                    WerDisabled = 5,
+                    WerReportCancelled = 6,
+                    WerDisabledQueue = 7,
+                    WerReportAsync = 8,
+                    WerCustomAction = 9,
+                    WerThrottled = 10,
+                    WerReportUploadedCab = 11,
+                    WerStorageLocationNotFound = 12,
+                    WerSubmitResultMax = 13,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-weraddexcludedapplication")]
+                #[library("wer.dll")]
+                extern fn WerAddExcludedApplication(pwzExeName: super::super::Foundation::PWSTR, bAllUsers: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werfreestring")]
+                #[library("wer.dll")]
+                extern fn WerFreeString(pwszStr: super::super::Foundation::PWSTR);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-wergetflags")]
+                #[library("KERNEL32.dll")]
+                extern fn WerGetFlags(hProcess: super::super::Foundation::HANDLE, pdwFlags: *mut WER_FAULT_REPORTING) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregisteradditionalprocess")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterAdditionalProcess(processId: u32, captureExtraInfoForThreadId: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregisterapplocaldump")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterAppLocalDump(localAppDataRelativePath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregistercustommetadata")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterCustomMetadata(key: super::super::Foundation::PWSTR, value: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregisterexcludedmemoryblock")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterExcludedMemoryBlock(address: *mut void, size: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregisterfile")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterFile(pwzFile: super::super::Foundation::PWSTR, regFileType: WER_REGISTER_FILE_TYPE, dwFlags: WER_FILE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregistermemoryblock")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterMemoryBlock(pvAddress: *mut void, dwSize: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werregisterruntimeexceptionmodule")]
+                #[library("KERNEL32.dll")]
+                extern fn WerRegisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: super::super::Foundation::PWSTR, pContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werremoveexcludedapplication")]
+                #[library("wer.dll")]
+                extern fn WerRemoveExcludedApplication(pwzExeName: super::super::Foundation::PWSTR, bAllUsers: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportadddump")]
+                #[library("wer.dll")]
+                extern fn WerReportAddDump(hReportHandle: HREPORT, hProcess: super::super::Foundation::HANDLE, hThread: super::super::Foundation::HANDLE, dumpType: WER_DUMP_TYPE, pExceptionParam: *mut WER_EXCEPTION_INFORMATION, pDumpCustomOptions: *mut WER_DUMP_CUSTOM_OPTIONS, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportaddfile")]
+                #[library("wer.dll")]
+                extern fn WerReportAddFile(hReportHandle: HREPORT, pwzPath: super::super::Foundation::PWSTR, repFileType: WER_FILE_TYPE, dwFileFlags: WER_FILE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportclosehandle")]
+                #[library("wer.dll")]
+                extern fn WerReportCloseHandle(hReportHandle: HREPORT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportcreate")]
+                #[library("wer.dll")]
+                extern fn WerReportCreate(pwzEventType: super::super::Foundation::PWSTR, repType: WER_REPORT_TYPE, pReportInformation: *mut WER_REPORT_INFORMATION, phReportHandle: *mut HREPORT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/errorrep/nf-errorrep-werreporthang")]
+                #[library("faultrep.dll")]
+                extern fn WerReportHang(hwndHungApp: super::super::Foundation::HWND, pwzHungApplicationName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportsetparameter")]
+                #[library("wer.dll")]
+                extern fn WerReportSetParameter(hReportHandle: HREPORT, dwparamID: u32, pwzName: super::super::Foundation::PWSTR, pwzValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportsetuioption")]
+                #[library("wer.dll")]
+                extern fn WerReportSetUIOption(hReportHandle: HREPORT, repUITypeID: WER_REPORT_UI, pwzValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werreportsubmit")]
+                #[library("wer.dll")]
+                extern fn WerReportSubmit(hReportHandle: HREPORT, consent: WER_CONSENT, dwFlags: WER_SUBMIT_FLAGS, pSubmitResult: *mut WER_SUBMIT_RESULT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-wersetflags")]
+                #[library("KERNEL32.dll")]
+                extern fn WerSetFlags(dwFlags: WER_FAULT_REPORTING) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werstoreclose")]
+                #[library("wer.dll")]
+                extern fn WerStoreClose(hReportStore: HREPORTSTORE);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werstoregetfirstreportkey")]
+                #[library("wer.dll")]
+                extern fn WerStoreGetFirstReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werstoregetnextreportkey")]
+                #[library("wer.dll")]
+                extern fn WerStoreGetNextReportKey(hReportStore: HREPORTSTORE, ppszReportKey: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStoreGetReportCount(hReportStore: HREPORTSTORE, pdwReportCount: *mut u32) -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStoreGetSizeOnDisk(hReportStore: HREPORTSTORE, pqwSizeInBytes: *mut u64) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werstoreopen")]
+                #[library("wer.dll")]
+                extern fn WerStoreOpen(repStoreType: REPORT_STORE_TYPES, phReportStore: *mut HREPORTSTORE) -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStorePurge() -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStoreQueryReportMetadataV1(hReportStore: HREPORTSTORE, pszReportKey: super::super::Foundation::PWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V1) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werstorequeryreportmetadatav2")]
+                #[library("wer.dll")]
+                extern fn WerStoreQueryReportMetadataV2(hReportStore: HREPORTSTORE, pszReportKey: super::super::Foundation::PWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V2) -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStoreQueryReportMetadataV3(hReportStore: HREPORTSTORE, pszReportKey: super::super::Foundation::PWSTR, pReportMetadata: *mut WER_REPORT_METADATA_V3) -> super::super::Foundation::HRESULT;
+                #[library("wer.dll")]
+                extern fn WerStoreUploadReport(hReportStore: HREPORTSTORE, pszReportKey: super::super::Foundation::PWSTR, dwFlags: u32, pSubmitResult: *mut WER_SUBMIT_RESULT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregisteradditionalprocess")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterAdditionalProcess(processId: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregisterapplocaldump")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterAppLocalDump() -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregistercustommetadata")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterCustomMetadata(key: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.15063")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregisterexcludedmemoryblock")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterExcludedMemoryBlock(address: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregisterfile")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterFile(pwzFilePath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregistermemoryblock")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterMemoryBlock(pvAddress: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/werapi/nf-werapi-werunregisterruntimeexceptionmodule")]
+                #[library("KERNEL32.dll")]
+                extern fn WerUnregisterRuntimeExceptionModule(pwszOutOfProcessCallbackDll: super::super::Foundation::PWSTR, pContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                extern fn pfn_ADDEREXCLUDEDAPPLICATIONA(param0: super::super::Foundation::PSTR) -> EFaultRepRetVal;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                extern fn pfn_ADDEREXCLUDEDAPPLICATIONW(param0: super::super::Foundation::PWSTR) -> EFaultRepRetVal;
+                extern fn pfn_REPORTFAULT(param0: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal;
+            }
+        }
+    }
+}

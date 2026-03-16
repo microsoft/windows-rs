@@ -1,0 +1,123 @@
+mod Windows {
+    mod Win32 {
+        mod Media {
+            #[win32]
+            mod LibrarySharingServices {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nn-wmlss-iwindowsmedialibrarysharingdevice")]
+                interface IWindowsMediaLibrarySharingDevice: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevice-get_deviceid")]
+                    fn get_DeviceID(&self, #[Windows::Win32::Foundation::Metadata::RetVal] deviceID: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevice-get_authorization")]
+                    fn get_Authorization(&self, #[Windows::Win32::Foundation::Metadata::RetVal] authorization: *mut WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevice-put_authorization")]
+                    fn put_Authorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevice-get_properties")]
+                    fn get_Properties(&self, #[Windows::Win32::Foundation::Metadata::RetVal] deviceProperties: *mut IWindowsMediaLibrarySharingDeviceProperties) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nn-wmlss-iwindowsmedialibrarysharingdeviceproperties")]
+                interface IWindowsMediaLibrarySharingDeviceProperties: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdeviceproperties-get_item")]
+                    fn get_Item(&self, index: i32, #[Windows::Win32::Foundation::Metadata::RetVal] property: *mut IWindowsMediaLibrarySharingDeviceProperty) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdeviceproperties-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdeviceproperties-getproperty")]
+                    fn GetProperty(&self, name: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] property: *mut IWindowsMediaLibrarySharingDeviceProperty) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nn-wmlss-iwindowsmedialibrarysharingdeviceproperty")]
+                interface IWindowsMediaLibrarySharingDeviceProperty: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdeviceproperty-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdeviceproperty-get_value")]
+                    fn get_Value(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nn-wmlss-iwindowsmedialibrarysharingdevices")]
+                interface IWindowsMediaLibrarySharingDevices: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevices-get_item")]
+                    fn get_Item(&self, index: i32, #[Windows::Win32::Foundation::Metadata::RetVal] device: *mut IWindowsMediaLibrarySharingDevice) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevices-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingdevices-getdevice")]
+                    fn GetDevice(&self, deviceID: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] device: *mut IWindowsMediaLibrarySharingDevice) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nn-wmlss-iwindowsmedialibrarysharingservices")]
+                interface IWindowsMediaLibrarySharingServices: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-showsharemediacpl")]
+                    fn showShareMediaCPL(&self, device: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_userhomemediasharingstate")]
+                    fn get_userHomeMediaSharingState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] sharingEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_userhomemediasharingstate")]
+                    fn put_userHomeMediaSharingState(&self, sharingEnabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_userhomemediasharinglibraryname")]
+                    fn get_userHomeMediaSharingLibraryName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] libraryName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_userhomemediasharinglibraryname")]
+                    fn put_userHomeMediaSharingLibraryName(&self, libraryName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_computerhomemediasharingallowedstate")]
+                    fn get_computerHomeMediaSharingAllowedState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] sharingAllowed: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_computerhomemediasharingallowedstate")]
+                    fn put_computerHomeMediaSharingAllowedState(&self, sharingAllowed: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_userinternetmediasharingstate")]
+                    fn get_userInternetMediaSharingState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] sharingEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_userinternetmediasharingstate")]
+                    fn put_userInternetMediaSharingState(&self, sharingEnabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_computerinternetmediasharingallowedstate")]
+                    fn get_computerInternetMediaSharingAllowedState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] sharingAllowed: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_computerinternetmediasharingallowedstate")]
+                    fn put_computerInternetMediaSharingAllowedState(&self, sharingAllowed: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_internetmediasharingsecuritygroup")]
+                    fn get_internetMediaSharingSecurityGroup(&self, #[Windows::Win32::Foundation::Metadata::RetVal] securityGroup: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_internetmediasharingsecuritygroup")]
+                    fn put_internetMediaSharingSecurityGroup(&self, securityGroup: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_allowsharingtoalldevices")]
+                    fn get_allowSharingToAllDevices(&self, #[Windows::Win32::Foundation::Metadata::RetVal] sharingEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-put_allowsharingtoalldevices")]
+                    fn put_allowSharingToAllDevices(&self, sharingEnabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-setdefaultauthorization")]
+                    fn setDefaultAuthorization(&self, MACAddresses: super::super::Foundation::BSTR, friendlyName: super::super::Foundation::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-setauthorizationstate")]
+                    fn setAuthorizationState(&self, MACAddress: super::super::Foundation::BSTR, authorizationState: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-getalldevices")]
+                    fn getAllDevices(&self, #[Windows::Win32::Foundation::Metadata::RetVal] devices: *mut IWindowsMediaLibrarySharingDevices) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/nf-wmlss-iwindowsmedialibrarysharingservices-get_customsettingsapplied")]
+                    fn get_customSettingsApplied(&self, #[Windows::Win32::Foundation::Metadata::RetVal] customSettingsApplied: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wmlss/ne-wmlss-windowsmedialibrarysharingdeviceauthorizationstatus")]
+                enum WindowsMediaLibrarySharingDeviceAuthorizationStatus {
+                    DEVICE_AUTHORIZATION_UNKNOWN = 0,
+                    DEVICE_AUTHORIZATION_ALLOWED = 1,
+                    DEVICE_AUTHORIZATION_DENIED = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2908232448, 31588, 20057, 163, 141, 210, 197, 191, 81, 221, 179)]
+                struct WindowsMediaLibrarySharingServices {}
+            }
+        }
+    }
+}

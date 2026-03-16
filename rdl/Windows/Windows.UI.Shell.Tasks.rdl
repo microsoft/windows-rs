@@ -1,0 +1,122 @@
+mod Windows {
+    mod UI {
+        mod Shell {
+            #[winrt]
+            mod Tasks {
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IAppTaskContentStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
+                #[Windows::Foundation::Metadata::Experimental]
+                class AppTaskContent {
+                    #[default]
+                    IAppTaskContent,
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(131072)]
+                struct AppTaskContract {}
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::Static(IAppTaskInfoStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppTaskInfo {
+                    #[default]
+                    IAppTaskInfo,
+                    IAppTaskInfo2,
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(IAppTaskResultAssetFactory, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                class AppTaskResultAsset {
+                    #[default]
+                    IAppTaskResultAsset,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::Experimental]
+                enum AppTaskState {
+                    Running = 0,
+                    Completed = 1,
+                    NeedsAttention = 2,
+                    Paused = 3,
+                    Error = 4,
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskContent)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                interface IAppTaskContent {
+                    fn AddButton(&self, text: String, actionUri: super::super::super::Foundation::Uri);
+                    fn SetTextInput(&self, placeholderText: String, actionUriTemplate: String);
+                    fn SetQuestion(&self, question: String);
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskContent)]
+                interface IAppTaskContentStatics {
+                    fn CreateSequenceOfSteps(&self, completedSteps: [String], executingStep: String) -> AppTaskContent;
+                    fn CreatePreviewThumbnail(&self, imageUri: super::super::super::Foundation::Uri, executingStep: String) -> AppTaskContent;
+                    fn CreateTextSummaryResult(&self, text: String) -> AppTaskContent;
+                    fn CreateGeneratedAssetsResult(&self, assets: [AppTaskResultAsset]) -> AppTaskContent;
+                    #[special]
+                    fn get_MaxButtons(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                interface IAppTaskInfo {
+                    fn Remove(&self);
+                    fn Update(&self, state: AppTaskState, content: AppTaskContent);
+                    fn UpdateState(&self, state: AppTaskState);
+                    fn UpdateTitles(&self, title: String, subtitle: String);
+                    fn GetCompletedSteps(&self) -> [String];
+                    fn GetExecutingStep(&self) -> String;
+                    #[special]
+                    fn get_Title(&self) -> String;
+                    #[special]
+                    fn get_Subtitle(&self) -> String;
+                    #[special]
+                    fn get_DeepLink(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_IconUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_State(&self) -> AppTaskState;
+                    #[special]
+                    fn get_StartTime(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn get_EndTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskInfo)]
+                interface IAppTaskInfo2 {
+                    #[special]
+                    fn get_Id(&self) -> String;
+                    #[special]
+                    fn get_HiddenByUser(&self) -> bool;
+                    fn UpdateDeepLink(&self, deepLink: super::super::super::Foundation::Uri);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskInfo)]
+                #[Windows::Foundation::Metadata::Experimental]
+                interface IAppTaskInfoStatics {
+                    fn IsSupported(&self) -> bool;
+                    fn FindAll(&self) -> [AppTaskInfo];
+                    fn Create(&self, title: String, subtitle: String, deepLink: super::super::super::Foundation::Uri, iconUri: super::super::super::Foundation::Uri, content: AppTaskContent) -> AppTaskInfo;
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskResultAsset)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                interface IAppTaskResultAsset {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskResultAsset)]
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::Experimental]
+                interface IAppTaskResultAssetFactory {
+                    fn CreateInstance(&self, name: String, context: String, iconUri: super::super::super::Foundation::Uri, assetUri: super::super::super::Foundation::Uri) -> AppTaskResultAsset;
+                }
+            }
+        }
+    }
+}

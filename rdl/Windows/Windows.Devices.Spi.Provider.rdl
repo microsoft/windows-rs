@@ -1,0 +1,80 @@
+mod Windows {
+    mod Devices {
+        mod Spi {
+            #[winrt]
+            mod Provider {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProviderSpiConnectionSettings)]
+                interface IProviderSpiConnectionSettings {
+                    #[special]
+                    fn get_ChipSelectLine(&self) -> i32;
+                    #[special]
+                    fn put_ChipSelectLine(&self, value: i32);
+                    #[special]
+                    fn get_Mode(&self) -> ProviderSpiMode;
+                    #[special]
+                    fn put_Mode(&self, value: ProviderSpiMode);
+                    #[special]
+                    fn get_DataBitLength(&self) -> i32;
+                    #[special]
+                    fn put_DataBitLength(&self, value: i32);
+                    #[special]
+                    fn get_ClockFrequency(&self) -> i32;
+                    #[special]
+                    fn put_ClockFrequency(&self, value: i32);
+                    #[special]
+                    fn get_SharingMode(&self) -> ProviderSpiSharingMode;
+                    #[special]
+                    fn put_SharingMode(&self, value: ProviderSpiSharingMode);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProviderSpiConnectionSettings)]
+                interface IProviderSpiConnectionSettingsFactory {
+                    fn Create(&self, chipSelectLine: i32) -> ProviderSpiConnectionSettings;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiControllerProvider {
+                    fn GetDeviceProvider(&self, settings: ProviderSpiConnectionSettings) -> ISpiDeviceProvider;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiDeviceProvider: super::super::super::Foundation::IClosable {
+                    #[special]
+                    fn get_DeviceId(&self) -> String;
+                    #[special]
+                    fn get_ConnectionSettings(&self) -> ProviderSpiConnectionSettings;
+                    fn Write(&self, buffer: [u8]);
+                    fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
+                    fn TransferSequential(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                    fn TransferFullDuplex(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiProvider {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetControllersAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Activatable(IProviderSpiConnectionSettingsFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                class ProviderSpiConnectionSettings {
+                    #[default]
+                    IProviderSpiConnectionSettings,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderSpiMode {
+                    Mode0 = 0,
+                    Mode1 = 1,
+                    Mode2 = 2,
+                    Mode3 = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderSpiSharingMode {
+                    Exclusive = 0,
+                    Shared = 1,
+                }
+            }
+        }
+    }
+}

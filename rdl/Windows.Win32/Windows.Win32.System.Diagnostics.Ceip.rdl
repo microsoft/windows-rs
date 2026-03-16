@@ -1,0 +1,15 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Diagnostics {
+                #[win32]
+                mod Ceip {
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windowsceip/nf-windowsceip-ceipisoptedin")]
+                    #[library("KERNEL32.dll")]
+                    extern fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
+                }
+            }
+        }
+    }
+}

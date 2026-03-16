@@ -1,0 +1,73 @@
+mod Windows {
+    mod ApplicationModel {
+        mod DataTransfer {
+            #[winrt]
+            mod ShareTarget {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(QuickLink)]
+                interface IQuickLink {
+                    #[special]
+                    fn get_Title(&self) -> String;
+                    #[special]
+                    fn put_Title(&self, value: String);
+                    #[special]
+                    fn get_Thumbnail(&self) -> super::super::super::Storage::Streams::RandomAccessStreamReference;
+                    #[special]
+                    fn put_Thumbnail(&self, value: super::super::super::Storage::Streams::RandomAccessStreamReference);
+                    #[special]
+                    fn get_Id(&self) -> String;
+                    #[special]
+                    fn put_Id(&self, value: String);
+                    #[special]
+                    fn get_SupportedDataFormats(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                    #[special]
+                    fn get_SupportedFileTypes(&self) -> super::super::super::Foundation::Collections::IVector<String>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                interface IShareOperation {
+                    #[special]
+                    fn get_Data(&self) -> super::DataPackageView;
+                    #[special]
+                    fn get_QuickLinkId(&self) -> String;
+                    fn RemoveThisQuickLink(&self);
+                    fn ReportStarted(&self);
+                    fn ReportDataRetrieved(&self);
+                    fn ReportSubmittedBackgroundTask(&self);
+                    #[Windows::Foundation::Metadata::Overload("ReportCompletedWithQuickLink")]
+                    fn ReportCompleted(&self, quicklink: QuickLink);
+                    #[Windows::Foundation::Metadata::Overload("ReportCompleted")]
+                    fn ReportCompleted(&self);
+                    fn ReportError(&self, value: String);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                interface IShareOperation2 {
+                    fn DismissUI(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IShareOperation3 {
+                    #[special]
+                    fn get_Contacts(&self) -> super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>;
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                class QuickLink {
+                    #[default]
+                    IQuickLink,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ShareOperation {
+                    #[default]
+                    IShareOperation,
+                    IShareOperation2,
+                    IShareOperation3,
+                }
+            }
+        }
+    }
+}

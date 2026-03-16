@@ -1,0 +1,948 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod SystemInformation {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-cache_descriptor")]
+                struct CACHE_DESCRIPTOR {
+                    Level: u8,
+                    Associativity: u8,
+                    LineSize: u16,
+                    Size: u32,
+                    Type: PROCESSOR_CACHE_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-cache_relationship")]
+                struct CACHE_RELATIONSHIP {
+                    Level: u8,
+                    Associativity: u8,
+                    LineSize: u16,
+                    CacheSize: u32,
+                    Type: PROCESSOR_CACHE_TYPE,
+                    Reserved: [u8; 18],
+                    GroupCount: u16,
+                    Anonymous: union {
+                        GroupMask: GROUP_AFFINITY,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        GroupMasks: [GROUP_AFFINITY; 1],
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/ne-sysinfoapi-computer_name_format")]
+                enum COMPUTER_NAME_FORMAT {
+                    ComputerNameNetBIOS = 0,
+                    ComputerNameDnsHostname = 1,
+                    ComputerNameDnsDomain = 2,
+                    ComputerNameDnsFullyQualified = 3,
+                    ComputerNamePhysicalNetBIOS = 4,
+                    ComputerNamePhysicalDnsHostname = 5,
+                    ComputerNamePhysicalDnsDomain = 6,
+                    ComputerNamePhysicalDnsFullyQualified = 7,
+                    ComputerNameMax = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/ProcThread/cpu-set-information-type")]
+                enum CPU_SET_INFORMATION_TYPE {
+                    CpuSetInformation = 0,
+                }
+                #[repr(i32)]
+                enum DEP_SYSTEM_POLICY_TYPE {
+                    DEPPolicyAlwaysOff = 0,
+                    DEPPolicyAlwaysOn = 1,
+                    DEPPolicyOptIn = 2,
+                    DEPPolicyOptOut = 3,
+                    DEPTotalPolicyCount = 4,
+                }
+                #[repr(i32)]
+                enum DEVELOPER_DRIVE_ENABLEMENT_STATE {
+                    DeveloperDriveEnablementStateError = 0,
+                    DeveloperDriveEnabled = 1,
+                    DeveloperDriveDisabledBySystemPolicy = 2,
+                    DeveloperDriveDisabledByGroupPolicy = 3,
+                }
+                #[repr(u32)]
+                enum DEVICEFAMILYDEVICEFORM {
+                    DEVICEFAMILYDEVICEFORM_UNKNOWN = 0,
+                    DEVICEFAMILYDEVICEFORM_PHONE = 1,
+                    DEVICEFAMILYDEVICEFORM_TABLET = 2,
+                    DEVICEFAMILYDEVICEFORM_DESKTOP = 3,
+                    DEVICEFAMILYDEVICEFORM_NOTEBOOK = 4,
+                    DEVICEFAMILYDEVICEFORM_CONVERTIBLE = 5,
+                    DEVICEFAMILYDEVICEFORM_DETACHABLE = 6,
+                    DEVICEFAMILYDEVICEFORM_ALLINONE = 7,
+                    DEVICEFAMILYDEVICEFORM_STICKPC = 8,
+                    DEVICEFAMILYDEVICEFORM_PUCK = 9,
+                    DEVICEFAMILYDEVICEFORM_LARGESCREEN = 10,
+                    DEVICEFAMILYDEVICEFORM_HMD = 11,
+                    DEVICEFAMILYDEVICEFORM_INDUSTRY_HANDHELD = 12,
+                    DEVICEFAMILYDEVICEFORM_INDUSTRY_TABLET = 13,
+                    DEVICEFAMILYDEVICEFORM_BANKING = 14,
+                    DEVICEFAMILYDEVICEFORM_BUILDING_AUTOMATION = 15,
+                    DEVICEFAMILYDEVICEFORM_DIGITAL_SIGNAGE = 16,
+                    DEVICEFAMILYDEVICEFORM_GAMING = 17,
+                    DEVICEFAMILYDEVICEFORM_HOME_AUTOMATION = 18,
+                    DEVICEFAMILYDEVICEFORM_INDUSTRIAL_AUTOMATION = 19,
+                    DEVICEFAMILYDEVICEFORM_KIOSK = 20,
+                    DEVICEFAMILYDEVICEFORM_MAKER_BOARD = 21,
+                    DEVICEFAMILYDEVICEFORM_MEDICAL = 22,
+                    DEVICEFAMILYDEVICEFORM_NETWORKING = 23,
+                    DEVICEFAMILYDEVICEFORM_POINT_OF_SERVICE = 24,
+                    DEVICEFAMILYDEVICEFORM_PRINTING = 25,
+                    DEVICEFAMILYDEVICEFORM_THIN_CLIENT = 26,
+                    DEVICEFAMILYDEVICEFORM_TOY = 27,
+                    DEVICEFAMILYDEVICEFORM_VENDING = 28,
+                    DEVICEFAMILYDEVICEFORM_INDUSTRY_OTHER = 29,
+                    DEVICEFAMILYDEVICEFORM_XBOX_ONE = 30,
+                    DEVICEFAMILYDEVICEFORM_XBOX_ONE_S = 31,
+                    DEVICEFAMILYDEVICEFORM_XBOX_ONE_X = 32,
+                    DEVICEFAMILYDEVICEFORM_XBOX_ONE_X_DEVKIT = 33,
+                    DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X = 34,
+                    DEVICEFAMILYDEVICEFORM_XBOX_SERIES_X_DEVKIT = 35,
+                    DEVICEFAMILYDEVICEFORM_XBOX_SERIES_S = 36,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_01 = 37,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_02 = 38,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_03 = 39,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_04 = 40,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_05 = 41,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_06 = 42,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07 = 43,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08 = 44,
+                    DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09 = 45,
+                    DEVICEFAMILYDEVICEFORM_MAX = 45,
+                }
+                #[repr(u32)]
+                enum DEVICEFAMILYINFOENUM {
+                    DEVICEFAMILYINFOENUM_UAP = 0,
+                    DEVICEFAMILYINFOENUM_WINDOWS_8X = 1,
+                    DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X = 2,
+                    DEVICEFAMILYINFOENUM_DESKTOP = 3,
+                    DEVICEFAMILYINFOENUM_MOBILE = 4,
+                    DEVICEFAMILYINFOENUM_XBOX = 5,
+                    DEVICEFAMILYINFOENUM_TEAM = 6,
+                    DEVICEFAMILYINFOENUM_IOT = 7,
+                    DEVICEFAMILYINFOENUM_IOT_HEADLESS = 8,
+                    DEVICEFAMILYINFOENUM_SERVER = 9,
+                    DEVICEFAMILYINFOENUM_HOLOGRAPHIC = 10,
+                    DEVICEFAMILYINFOENUM_XBOXSRA = 11,
+                    DEVICEFAMILYINFOENUM_XBOXERA = 12,
+                    DEVICEFAMILYINFOENUM_SERVER_NANO = 13,
+                    DEVICEFAMILYINFOENUM_8828080 = 14,
+                    DEVICEFAMILYINFOENUM_7067329 = 15,
+                    DEVICEFAMILYINFOENUM_WINDOWS_CORE = 16,
+                    DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS = 17,
+                    DEVICEFAMILYINFOENUM_MAX = 17,
+                }
+                #[library("KERNEL32.dll")]
+                extern fn DnsHostnameToComputerNameExW(Hostname: super::super::Foundation::PWSTR, ComputerName: super::super::Foundation::PWSTR, nSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-enumsystemfirmwaretables")]
+                #[library("KERNEL32.dll")]
+                extern fn EnumSystemFirmwareTables(FirmwareTableProviderSignature: FIRMWARE_TABLE_PROVIDER, pFirmwareTableEnumBuffer: *mut u8, BufferSize: u32) -> u32;
+                #[repr(u32)]
+                enum FIRMWARE_TABLE_PROVIDER {
+                    ACPI = 1094930505,
+                    FIRM = 1179210317,
+                    RSMB = 1381190978,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-firmware_type")]
+                enum FIRMWARE_TYPE {
+                    FirmwareTypeUnknown = 0,
+                    FirmwareTypeBios = 1,
+                    FirmwareTypeUefi = 2,
+                    FirmwareTypeMax = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-group_affinity")]
+                struct GROUP_AFFINITY {
+                    Mask: usize,
+                    Group: u16,
+                    Reserved: [u16; 3],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-group_relationship")]
+                struct GROUP_RELATIONSHIP {
+                    MaximumGroupCount: u16,
+                    ActiveGroupCount: u16,
+                    Reserved: [u8; 20],
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getcomputernameexa")]
+                #[library("KERNEL32.dll")]
+                extern fn GetComputerNameExA(NameType: COMPUTER_NAME_FORMAT, lpBuffer: super::super::Foundation::PSTR, nSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getcomputernameexw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetComputerNameExW(NameType: COMPUTER_NAME_FORMAT, lpBuffer: super::super::Foundation::PWSTR, nSize: *mut u32) -> super::super::Foundation::BOOL;
+                #[library("api-ms-win-core-sysinfo-l1-2-6.dll")]
+                extern fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getfirmwaretype")]
+                #[library("KERNEL32.dll")]
+                extern fn GetFirmwareType(FirmwareType: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getintegrateddisplaysize")]
+                #[library("api-ms-win-core-sysinfo-l1-2-3.dll")]
+                extern fn GetIntegratedDisplaySize(sizeInInches: *mut f64) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlocaltime")]
+                #[library("KERNEL32.dll")]
+                extern fn GetLocalTime(lpSystemTime: *mut super::super::Foundation::SYSTEMTIME);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformation")]
+                #[library("KERNEL32.dll")]
+                extern fn GetLogicalProcessorInformation(Buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, ReturnedLength: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformationex")]
+                #[library("KERNEL32.dll")]
+                extern fn GetLogicalProcessorInformationEx(RelationshipType: LOGICAL_PROCESSOR_RELATIONSHIP, Buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, ReturnedLength: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getnativesysteminfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNativeSystemInfo(lpSystemInfo: *mut SYSTEM_INFO);
+                #[library("api-ms-win-core-sysinfo-l1-2-3.dll")]
+                extern fn GetOsManufacturingMode(pbEnabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[library("api-ms-win-core-sysinfo-l1-2-0.dll")]
+                extern fn GetOsSafeBootMode(Flags: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getphysicallyinstalledsystemmemory")]
+                #[library("KERNEL32.dll")]
+                extern fn GetPhysicallyInstalledSystemMemory(TotalMemoryInKilobytes: *mut u64) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getprocessorsystemcycletime")]
+                #[library("KERNEL32.dll")]
+                extern fn GetProcessorSystemCycleTime(Group: u16, Buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, ReturnedLength: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetProductInfo(dwOSMajorVersion: u32, dwOSMinorVersion: u32, dwSpMajorVersion: u32, dwSpMinorVersion: u32, pdwReturnedProductType: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/ProcThread/getsystemcpusetinformation")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemCpuSetInformation(Information: *mut SYSTEM_CPU_SET_INFORMATION, BufferLength: u32, ReturnedLength: *mut u32, Process: super::super::Foundation::HANDLE, Flags: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getsystemdeppolicy")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemdirectorya")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemDirectoryA(lpBuffer: super::super::Foundation::PSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemdirectoryw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemDirectoryW(lpBuffer: super::super::Foundation::PWSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemfirmwaretable")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemFirmwareTable(FirmwareTableProviderSignature: FIRMWARE_TABLE_PROVIDER, FirmwareTableID: u32, pFirmwareTableBuffer: *mut u8, BufferSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsysteminfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemInfo(lpSystemInfo: *mut SYSTEM_INFO);
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemLeapSecondInformation(Enabled: *mut super::super::Foundation::BOOL, Flags: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtime")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemTime(lpSystemTime: *mut super::super::Foundation::SYSTEMTIME);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimeadjustment")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemTimeAdjustment(lpTimeAdjustment: *mut u32, lpTimeIncrement: *mut u32, lpTimeAdjustmentDisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimeadjustmentprecise")]
+                #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
+                extern fn GetSystemTimeAdjustmentPrecise(lpTimeAdjustment: *mut u64, lpTimeIncrement: *mut u64, lpTimeAdjustmentDisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimeasfiletime")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemTimeAsFileTime(lpSystemTimeAsFileTime: *mut super::super::Foundation::FILETIME);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemtimepreciseasfiletime")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemTimePreciseAsFileTime(lpSystemTimeAsFileTime: *mut super::super::Foundation::FILETIME);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemwindowsdirectorya")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemWindowsDirectoryA(lpBuffer: super::super::Foundation::PSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemwindowsdirectoryw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemWindowsDirectoryW(lpBuffer: super::super::Foundation::PWSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10586")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wow64apiset/nf-wow64apiset-getsystemwow64directory2a")]
+                #[library("api-ms-win-core-wow64-l1-1-1.dll")]
+                extern fn GetSystemWow64Directory2A(lpBuffer: super::super::Foundation::PSTR, uSize: u32, ImageFileMachineType: IMAGE_FILE_MACHINE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10586")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wow64apiset/nf-wow64apiset-getsystemwow64directory2w")]
+                #[library("api-ms-win-core-wow64-l1-1-1.dll")]
+                extern fn GetSystemWow64Directory2W(lpBuffer: super::super::Foundation::PWSTR, uSize: u32, ImageFileMachineType: IMAGE_FILE_MACHINE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wow64apiset/nf-wow64apiset-getsystemwow64directorya")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemWow64DirectoryA(lpBuffer: super::super::Foundation::PSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wow64apiset/nf-wow64apiset-getsystemwow64directoryw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemWow64DirectoryW(lpBuffer: super::super::Foundation::PWSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount")]
+                #[library("KERNEL32.dll")]
+                extern fn GetTickCount() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount64")]
+                #[library("KERNEL32.dll")]
+                extern fn GetTickCount64() -> u64;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[System::Obsolete]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversion")]
+                #[library("KERNEL32.dll")]
+                extern fn GetVersion() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[System::Obsolete]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexa")]
+                #[library("KERNEL32.dll")]
+                extern fn GetVersionExA(lpVersionInformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[System::Obsolete]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetVersionExW(lpVersionInformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getwindowsdirectorya")]
+                #[library("KERNEL32.dll")]
+                extern fn GetWindowsDirectoryA(lpBuffer: super::super::Foundation::PSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getwindowsdirectoryw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetWindowsDirectoryW(lpBuffer: super::super::Foundation::PWSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-globalmemorystatus")]
+                #[library("KERNEL32.dll")]
+                extern fn GlobalMemoryStatus(lpBuffer: *mut MEMORYSTATUS);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-globalmemorystatusex")]
+                #[library("KERNEL32.dll")]
+                extern fn GlobalMemoryStatusEx(lpBuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL;
+                #[repr(u16)]
+                enum IMAGE_FILE_MACHINE {
+                    IMAGE_FILE_MACHINE_AXP64 = 644,
+                    IMAGE_FILE_MACHINE_I386 = 332,
+                    IMAGE_FILE_MACHINE_IA64 = 512,
+                    IMAGE_FILE_MACHINE_AMD64 = 34404,
+                    IMAGE_FILE_MACHINE_UNKNOWN = 0,
+                    IMAGE_FILE_MACHINE_TARGET_HOST = 1,
+                    IMAGE_FILE_MACHINE_R3000 = 354,
+                    IMAGE_FILE_MACHINE_R4000 = 358,
+                    IMAGE_FILE_MACHINE_R10000 = 360,
+                    IMAGE_FILE_MACHINE_WCEMIPSV2 = 361,
+                    IMAGE_FILE_MACHINE_ALPHA = 388,
+                    IMAGE_FILE_MACHINE_SH3 = 418,
+                    IMAGE_FILE_MACHINE_SH3DSP = 419,
+                    IMAGE_FILE_MACHINE_SH3E = 420,
+                    IMAGE_FILE_MACHINE_SH4 = 422,
+                    IMAGE_FILE_MACHINE_SH5 = 424,
+                    IMAGE_FILE_MACHINE_ARM = 448,
+                    IMAGE_FILE_MACHINE_THUMB = 450,
+                    IMAGE_FILE_MACHINE_ARMNT = 452,
+                    IMAGE_FILE_MACHINE_AM33 = 467,
+                    IMAGE_FILE_MACHINE_POWERPC = 496,
+                    IMAGE_FILE_MACHINE_POWERPCFP = 497,
+                    IMAGE_FILE_MACHINE_MIPS16 = 614,
+                    IMAGE_FILE_MACHINE_ALPHA64 = 644,
+                    IMAGE_FILE_MACHINE_MIPSFPU = 870,
+                    IMAGE_FILE_MACHINE_MIPSFPU16 = 1126,
+                    IMAGE_FILE_MACHINE_TRICORE = 1312,
+                    IMAGE_FILE_MACHINE_CEF = 3311,
+                    IMAGE_FILE_MACHINE_EBC = 3772,
+                    IMAGE_FILE_MACHINE_M32R = 36929,
+                    IMAGE_FILE_MACHINE_ARM64 = 43620,
+                    IMAGE_FILE_MACHINE_CEE = 49390,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-isusercetavailableinenvironment")]
+                #[library("KERNEL32.dll")]
+                extern fn IsUserCetAvailableInEnvironment(UserCetEnvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wow64apiset/nf-wow64apiset-iswow64guestmachinesupported")]
+                #[library("KERNEL32.dll")]
+                extern fn IsWow64GuestMachineSupported(WowGuestMachine: IMAGE_FILE_MACHINE, MachineIsSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-logical_processor_relationship")]
+                enum LOGICAL_PROCESSOR_RELATIONSHIP {
+                    RelationProcessorCore = 0,
+                    RelationNumaNode = 1,
+                    RelationCache = 2,
+                    RelationProcessorPackage = 3,
+                    RelationGroup = 4,
+                    RelationProcessorDie = 5,
+                    RelationNumaNodeEx = 6,
+                    RelationProcessorModule = 7,
+                    RelationAll = 65535,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-memorystatus")]
+                struct MEMORYSTATUS {
+                    dwLength: u32,
+                    dwMemoryLoad: u32,
+                    dwTotalPhys: usize,
+                    dwAvailPhys: usize,
+                    dwTotalPageFile: usize,
+                    dwAvailPageFile: usize,
+                    dwTotalVirtual: usize,
+                    dwAvailVirtual: usize,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/ns-sysinfoapi-memorystatusex")]
+                struct MEMORYSTATUSEX {
+                    dwLength: u32,
+                    dwMemoryLoad: u32,
+                    ullTotalPhys: u64,
+                    ullAvailPhys: u64,
+                    ullTotalPageFile: u64,
+                    ullAvailPageFile: u64,
+                    ullTotalVirtual: u64,
+                    ullAvailVirtual: u64,
+                    ullAvailExtendedVirtual: u64,
+                }
+                const NTDDI_LONGHORN: u32 = 100663296;
+                const NTDDI_VERSION: u32 = 167772172;
+                const NTDDI_VISTA: u32 = 100663296;
+                const NTDDI_VISTASP1: u32 = 100663552;
+                const NTDDI_VISTASP2: u32 = 100663808;
+                const NTDDI_VISTASP3: u32 = 100664064;
+                const NTDDI_VISTASP4: u32 = 100664320;
+                const NTDDI_WIN10: u32 = 167772160;
+                const NTDDI_WIN10_19H1: u32 = 167772167;
+                const NTDDI_WIN10_CO: u32 = 167772171;
+                const NTDDI_WIN10_FE: u32 = 167772170;
+                const NTDDI_WIN10_MN: u32 = 167772169;
+                const NTDDI_WIN10_NI: u32 = 167772172;
+                const NTDDI_WIN10_RS1: u32 = 167772162;
+                const NTDDI_WIN10_RS2: u32 = 167772163;
+                const NTDDI_WIN10_RS3: u32 = 167772164;
+                const NTDDI_WIN10_RS4: u32 = 167772165;
+                const NTDDI_WIN10_RS5: u32 = 167772166;
+                const NTDDI_WIN10_TH2: u32 = 167772161;
+                const NTDDI_WIN10_VB: u32 = 167772168;
+                const NTDDI_WIN2K: u32 = 83886080;
+                const NTDDI_WIN2KSP1: u32 = 83886336;
+                const NTDDI_WIN2KSP2: u32 = 83886592;
+                const NTDDI_WIN2KSP3: u32 = 83886848;
+                const NTDDI_WIN2KSP4: u32 = 83887104;
+                const NTDDI_WIN4: u32 = 67108864;
+                const NTDDI_WIN6: u32 = 100663296;
+                const NTDDI_WIN6SP1: u32 = 100663552;
+                const NTDDI_WIN6SP2: u32 = 100663808;
+                const NTDDI_WIN6SP3: u32 = 100664064;
+                const NTDDI_WIN6SP4: u32 = 100664320;
+                const NTDDI_WIN7: u32 = 100728832;
+                const NTDDI_WIN8: u32 = 100794368;
+                const NTDDI_WINBLUE: u32 = 100859904;
+                const NTDDI_WINTHRESHOLD: u32 = 167772160;
+                const NTDDI_WINXP: u32 = 83951616;
+                const NTDDI_WINXPSP1: u32 = 83951872;
+                const NTDDI_WINXPSP2: u32 = 83952128;
+                const NTDDI_WINXPSP3: u32 = 83952384;
+                const NTDDI_WINXPSP4: u32 = 83952640;
+                const NTDDI_WS03: u32 = 84017152;
+                const NTDDI_WS03SP1: u32 = 84017408;
+                const NTDDI_WS03SP2: u32 = 84017664;
+                const NTDDI_WS03SP3: u32 = 84017920;
+                const NTDDI_WS03SP4: u32 = 84018176;
+                const NTDDI_WS08: u32 = 100663552;
+                const NTDDI_WS08SP2: u32 = 100663808;
+                const NTDDI_WS08SP3: u32 = 100664064;
+                const NTDDI_WS08SP4: u32 = 100664320;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-numa_node_relationship")]
+                struct NUMA_NODE_RELATIONSHIP {
+                    NodeNumber: u32,
+                    Reserved: [u8; 18],
+                    GroupCount: u16,
+                    Anonymous: union {
+                        GroupMask: GROUP_AFFINITY,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        GroupMasks: [GROUP_AFFINITY; 1],
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-osversioninfoa")]
+                struct OSVERSIONINFOA {
+                    dwOSVersionInfoSize: u32,
+                    dwMajorVersion: u32,
+                    dwMinorVersion: u32,
+                    dwBuildNumber: u32,
+                    dwPlatformId: u32,
+                    szCSDVersion: [super::super::Foundation::CHAR; 128],
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-osversioninfoexa")]
+                struct OSVERSIONINFOEXA {
+                    dwOSVersionInfoSize: u32,
+                    dwMajorVersion: u32,
+                    dwMinorVersion: u32,
+                    dwBuildNumber: u32,
+                    dwPlatformId: u32,
+                    szCSDVersion: [super::super::Foundation::CHAR; 128],
+                    wServicePackMajor: u16,
+                    wServicePackMinor: u16,
+                    wSuiteMask: u16,
+                    wProductType: u8,
+                    wReserved: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-osversioninfoexw")]
+                struct OSVERSIONINFOEXW {
+                    dwOSVersionInfoSize: u32,
+                    dwMajorVersion: u32,
+                    dwMinorVersion: u32,
+                    dwBuildNumber: u32,
+                    dwPlatformId: u32,
+                    szCSDVersion: [u16; 128],
+                    wServicePackMajor: u16,
+                    wServicePackMinor: u16,
+                    wSuiteMask: u16,
+                    wProductType: u8,
+                    wReserved: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-osversioninfow")]
+                struct OSVERSIONINFOW {
+                    dwOSVersionInfoSize: u32,
+                    dwMajorVersion: u32,
+                    dwMinorVersion: u32,
+                    dwBuildNumber: u32,
+                    dwPlatformId: u32,
+                    szCSDVersion: [u16; 128],
+                }
+                const OSVERSION_MASK: u32 = 4294901760;
+                #[repr(i32)]
+                enum OS_DEPLOYEMENT_STATE_VALUES {
+                    OS_DEPLOYMENT_STANDARD = 1,
+                    OS_DEPLOYMENT_COMPACT = 2,
+                }
+                #[repr(u32)]
+                enum OS_PRODUCT_TYPE {
+                    PRODUCT_BUSINESS = 6,
+                    PRODUCT_BUSINESS_N = 16,
+                    PRODUCT_CLUSTER_SERVER = 18,
+                    PRODUCT_CLUSTER_SERVER_V = 64,
+                    PRODUCT_CORE = 101,
+                    PRODUCT_CORE_COUNTRYSPECIFIC = 99,
+                    PRODUCT_CORE_N = 98,
+                    PRODUCT_CORE_SINGLELANGUAGE = 100,
+                    PRODUCT_DATACENTER_EVALUATION_SERVER = 80,
+                    PRODUCT_DATACENTER_A_SERVER_CORE = 145,
+                    PRODUCT_STANDARD_A_SERVER_CORE = 146,
+                    PRODUCT_DATACENTER_SERVER = 8,
+                    PRODUCT_DATACENTER_SERVER_CORE = 12,
+                    PRODUCT_DATACENTER_SERVER_CORE_V = 39,
+                    PRODUCT_DATACENTER_SERVER_V = 37,
+                    PRODUCT_EDUCATION = 121,
+                    PRODUCT_EDUCATION_N = 122,
+                    PRODUCT_ENTERPRISE = 4,
+                    PRODUCT_ENTERPRISE_E = 70,
+                    PRODUCT_ENTERPRISE_EVALUATION = 72,
+                    PRODUCT_ENTERPRISE_N = 27,
+                    PRODUCT_ENTERPRISE_N_EVALUATION = 84,
+                    PRODUCT_ENTERPRISE_S = 125,
+                    PRODUCT_ENTERPRISE_S_EVALUATION = 129,
+                    PRODUCT_ENTERPRISE_S_N = 126,
+                    PRODUCT_ENTERPRISE_S_N_EVALUATION = 130,
+                    PRODUCT_ENTERPRISE_SERVER = 10,
+                    PRODUCT_ENTERPRISE_SERVER_CORE = 14,
+                    PRODUCT_ENTERPRISE_SERVER_CORE_V = 41,
+                    PRODUCT_ENTERPRISE_SERVER_IA64 = 15,
+                    PRODUCT_ENTERPRISE_SERVER_V = 38,
+                    PRODUCT_ESSENTIALBUSINESS_SERVER_ADDL = 60,
+                    PRODUCT_ESSENTIALBUSINESS_SERVER_ADDLSVC = 62,
+                    PRODUCT_ESSENTIALBUSINESS_SERVER_MGMT = 59,
+                    PRODUCT_ESSENTIALBUSINESS_SERVER_MGMTSVC = 61,
+                    PRODUCT_HOME_BASIC = 2,
+                    PRODUCT_HOME_BASIC_E = 67,
+                    PRODUCT_HOME_BASIC_N = 5,
+                    PRODUCT_HOME_PREMIUM = 3,
+                    PRODUCT_HOME_PREMIUM_E = 68,
+                    PRODUCT_HOME_PREMIUM_N = 26,
+                    PRODUCT_HOME_PREMIUM_SERVER = 34,
+                    PRODUCT_HOME_SERVER = 19,
+                    PRODUCT_HYPERV = 42,
+                    PRODUCT_IOTUAP = 123,
+                    PRODUCT_IOTUAPCOMMERCIAL = 131,
+                    PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT = 30,
+                    PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING = 32,
+                    PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY = 31,
+                    PRODUCT_MOBILE_CORE = 104,
+                    PRODUCT_MOBILE_ENTERPRISE = 133,
+                    PRODUCT_MULTIPOINT_PREMIUM_SERVER = 77,
+                    PRODUCT_MULTIPOINT_STANDARD_SERVER = 76,
+                    PRODUCT_PRO_WORKSTATION = 161,
+                    PRODUCT_PRO_WORKSTATION_N = 162,
+                    PRODUCT_PROFESSIONAL = 48,
+                    PRODUCT_PROFESSIONAL_E = 69,
+                    PRODUCT_PROFESSIONAL_N = 49,
+                    PRODUCT_PROFESSIONAL_WMC = 103,
+                    PRODUCT_SB_SOLUTION_SERVER = 50,
+                    PRODUCT_SB_SOLUTION_SERVER_EM = 54,
+                    PRODUCT_SERVER_FOR_SB_SOLUTIONS = 51,
+                    PRODUCT_SERVER_FOR_SB_SOLUTIONS_EM = 55,
+                    PRODUCT_SERVER_FOR_SMALLBUSINESS = 24,
+                    PRODUCT_SERVER_FOR_SMALLBUSINESS_V = 35,
+                    PRODUCT_SERVER_FOUNDATION = 33,
+                    PRODUCT_SMALLBUSINESS_SERVER = 9,
+                    PRODUCT_SMALLBUSINESS_SERVER_PREMIUM = 25,
+                    PRODUCT_SMALLBUSINESS_SERVER_PREMIUM_CORE = 63,
+                    PRODUCT_SOLUTION_EMBEDDEDSERVER = 56,
+                    PRODUCT_STANDARD_EVALUATION_SERVER = 79,
+                    PRODUCT_STANDARD_SERVER = 7,
+                    PRODUCT_STANDARD_SERVER_CORE_ = 13,
+                    PRODUCT_STANDARD_SERVER_CORE_V = 40,
+                    PRODUCT_STANDARD_SERVER_V = 36,
+                    PRODUCT_STANDARD_SERVER_SOLUTIONS = 52,
+                    PRODUCT_STANDARD_SERVER_SOLUTIONS_CORE = 53,
+                    PRODUCT_STARTER = 11,
+                    PRODUCT_STARTER_E = 66,
+                    PRODUCT_STARTER_N = 47,
+                    PRODUCT_STORAGE_ENTERPRISE_SERVER = 23,
+                    PRODUCT_STORAGE_ENTERPRISE_SERVER_CORE = 46,
+                    PRODUCT_STORAGE_EXPRESS_SERVER = 20,
+                    PRODUCT_STORAGE_EXPRESS_SERVER_CORE = 43,
+                    PRODUCT_STORAGE_STANDARD_EVALUATION_SERVER = 96,
+                    PRODUCT_STORAGE_STANDARD_SERVER = 21,
+                    PRODUCT_STORAGE_STANDARD_SERVER_CORE = 44,
+                    PRODUCT_STORAGE_WORKGROUP_EVALUATION_SERVER = 95,
+                    PRODUCT_STORAGE_WORKGROUP_SERVER = 22,
+                    PRODUCT_STORAGE_WORKGROUP_SERVER_CORE = 45,
+                    PRODUCT_ULTIMATE = 1,
+                    PRODUCT_ULTIMATE_E = 71,
+                    PRODUCT_ULTIMATE_N = 28,
+                    PRODUCT_UNDEFINED = 0,
+                    PRODUCT_WEB_SERVER = 17,
+                    PRODUCT_WEB_SERVER_CORE = 29,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                extern fn PGET_SYSTEM_WOW64_DIRECTORY_A(lpBuffer: super::super::Foundation::PSTR, uSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                extern fn PGET_SYSTEM_WOW64_DIRECTORY_W(lpBuffer: super::super::Foundation::PWSTR, uSize: u32) -> u32;
+                #[repr(u16)]
+                enum PROCESSOR_ARCHITECTURE {
+                    PROCESSOR_ARCHITECTURE_INTEL = 0,
+                    PROCESSOR_ARCHITECTURE_MIPS = 1,
+                    PROCESSOR_ARCHITECTURE_ALPHA = 2,
+                    PROCESSOR_ARCHITECTURE_PPC = 3,
+                    PROCESSOR_ARCHITECTURE_SHX = 4,
+                    PROCESSOR_ARCHITECTURE_ARM = 5,
+                    PROCESSOR_ARCHITECTURE_IA64 = 6,
+                    PROCESSOR_ARCHITECTURE_ALPHA64 = 7,
+                    PROCESSOR_ARCHITECTURE_MSIL = 8,
+                    PROCESSOR_ARCHITECTURE_AMD64 = 9,
+                    PROCESSOR_ARCHITECTURE_IA32_ON_WIN64 = 10,
+                    PROCESSOR_ARCHITECTURE_NEUTRAL = 11,
+                    PROCESSOR_ARCHITECTURE_ARM64 = 12,
+                    PROCESSOR_ARCHITECTURE_ARM32_ON_WIN64 = 13,
+                    PROCESSOR_ARCHITECTURE_IA32_ON_ARM64 = 14,
+                    PROCESSOR_ARCHITECTURE_UNKNOWN = 65535,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-processor_cache_type")]
+                enum PROCESSOR_CACHE_TYPE {
+                    CacheUnified = 0,
+                    CacheInstruction = 1,
+                    CacheData = 2,
+                    CacheTrace = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-processor_group_info")]
+                struct PROCESSOR_GROUP_INFO {
+                    MaximumProcessorCount: u8,
+                    ActiveProcessorCount: u8,
+                    Reserved: [u8; 38],
+                    ActiveProcessorMask: usize,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-processor_relationship")]
+                struct PROCESSOR_RELATIONSHIP {
+                    Flags: u8,
+                    EfficiencyClass: u8,
+                    Reserved: [u8; 20],
+                    GroupCount: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    GroupMask: [GROUP_AFFINITY; 1],
+                }
+                #[repr(i32)]
+                enum RTL_SYSTEM_GLOBAL_DATA_ID {
+                    GlobalDataIdUnknown = 0,
+                    GlobalDataIdRngSeedVersion = 1,
+                    GlobalDataIdInterruptTime = 2,
+                    GlobalDataIdTimeZoneBias = 3,
+                    GlobalDataIdImageNumberLow = 4,
+                    GlobalDataIdImageNumberHigh = 5,
+                    GlobalDataIdTimeZoneId = 6,
+                    GlobalDataIdNtMajorVersion = 7,
+                    GlobalDataIdNtMinorVersion = 8,
+                    GlobalDataIdSystemExpirationDate = 9,
+                    GlobalDataIdKdDebuggerEnabled = 10,
+                    GlobalDataIdCyclesPerYield = 11,
+                    GlobalDataIdSafeBootMode = 12,
+                    GlobalDataIdLastSystemRITEventTickCount = 13,
+                    GlobalDataIdConsoleSharedDataFlags = 14,
+                    GlobalDataIdNtSystemRootDrive = 15,
+                    GlobalDataIdQpcShift = 16,
+                    GlobalDataIdQpcBypassEnabled = 17,
+                    GlobalDataIdQpcData = 18,
+                    GlobalDataIdQpcBias = 19,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-rtlconvertdevicefamilyinfotostring")]
+                #[library("ntdll.dll")]
+                extern fn RtlConvertDeviceFamilyInfoToString(pulDeviceFamilyBufferSize: *mut u32, pulDeviceFormBufferSize: *mut u32, DeviceFamily: super::super::Foundation::PWSTR, DeviceForm: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/DevNotes/rtlgetdevicefamilyinfoenum")]
+                #[library("ntdll.dll")]
+                extern fn RtlGetDeviceFamilyInfoEnum(pullUAPInfo: *mut u64, pulDeviceFamily: *mut DEVICEFAMILYINFOENUM, pulDeviceForm: *mut DEVICEFAMILYDEVICEFORM);
+                #[library("ntdll.dll")]
+                extern fn RtlGetProductInfo(OSMajorVersion: u32, OSMinorVersion: u32, SpMajorVersion: u32, SpMinorVersion: u32, ReturnedProductType: *mut u32) -> super::super::Foundation::BOOLEAN;
+                #[library("ntdllk.dll")]
+                extern fn RtlGetSystemGlobalData(DataId: RTL_SYSTEM_GLOBAL_DATA_ID, Buffer: *mut void, Size: u32) -> u32;
+                #[library("ntdll.dll")]
+                extern fn RtlOsDeploymentState(Flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
+                #[library("ntdll.dll")]
+                extern fn RtlSwitchedVVI(VersionInfo: *mut OSVERSIONINFOEXW, TypeMask: u32, ConditionMask: u64) -> u32;
+                const SCEX2_ALT_NETBIOS_NAME: u32 = 1;
+                const SPVERSION_MASK: u32 = 65280;
+                const SUBVERSION_MASK: u32 = 255;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_cpu_set_information")]
+                struct SYSTEM_CPU_SET_INFORMATION {
+                    Size: u32,
+                    Type: CPU_SET_INFORMATION_TYPE,
+                    Anonymous: union {
+                        CpuSet: struct {
+                            Id: u32,
+                            Group: u16,
+                            LogicalProcessorIndex: u8,
+                            CoreIndex: u8,
+                            LastLevelCacheIndex: u8,
+                            NumaNodeIndex: u8,
+                            EfficiencyClass: u8,
+                            Anonymous1: union {
+                                AllFlags: u8,
+                                Anonymous: struct {
+                                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Parked", 0, 1)]
+                                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Allocated", 1, 1)]
+                                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("AllocatedToTargetProcess", 2, 1)]
+                                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("RealTime", 3, 1)]
+                                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedFlags", 4, 4)]
+                                    _bitfield: u8,
+                                },
+                            },
+                            Anonymous2: union {
+                                Reserved: u32,
+                                SchedulingClass: u8,
+                            },
+                            AllocationTag: u64,
+                        },
+                    },
+                }
+                const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2;
+                const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4;
+                const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1;
+                const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/ns-sysinfoapi-system_info")]
+                struct SYSTEM_INFO {
+                    Anonymous: union {
+                        dwOemId: u32,
+                        Anonymous: struct {
+                            wProcessorArchitecture: PROCESSOR_ARCHITECTURE,
+                            wReserved: u16,
+                        },
+                    },
+                    dwPageSize: u32,
+                    lpMinimumApplicationAddress: *mut void,
+                    lpMaximumApplicationAddress: *mut void,
+                    dwActiveProcessorMask: usize,
+                    dwNumberOfProcessors: u32,
+                    dwProcessorType: u32,
+                    dwAllocationGranularity: u32,
+                    wProcessorLevel: u16,
+                    wProcessorRevision: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_logical_processor_information")]
+                struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+                    ProcessorMask: usize,
+                    Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+                    Anonymous: union {
+                        ProcessorCore: struct {
+                            Flags: u8,
+                        },
+                        NumaNode: struct {
+                            NodeNumber: u32,
+                        },
+                        Cache: CACHE_DESCRIPTOR,
+                        Reserved: [u64; 2],
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_logical_processor_information_ex")]
+                struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+                    Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+                    Size: u32,
+                    Anonymous: union {
+                        Processor: PROCESSOR_RELATIONSHIP,
+                        NumaNode: NUMA_NODE_RELATIONSHIP,
+                        Cache: CACHE_RELATIONSHIP,
+                        Group: GROUP_RELATIONSHIP,
+                    },
+                }
+                struct SYSTEM_POOL_ZEROING_INFORMATION {
+                    PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+                }
+                struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+                    CycleTime: u64,
+                }
+                struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Machine", 0, 16)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("KernelMode", 16, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("UserMode", 17, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Native", 18, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Process", 19, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("WoW64Container", 20, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedZero0", 21, 11)]
+                    _bitfield: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setcomputernamea")]
+                #[library("KERNEL32.dll")]
+                extern fn SetComputerNameA(lpComputerName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[library("KERNEL32.dll")]
+                extern fn SetComputerNameEx2W(NameType: COMPUTER_NAME_FORMAT, Flags: u32, lpBuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setcomputernameexa")]
+                #[library("KERNEL32.dll")]
+                extern fn SetComputerNameExA(NameType: COMPUTER_NAME_FORMAT, lpBuffer: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setcomputernameexw")]
+                #[library("KERNEL32.dll")]
+                extern fn SetComputerNameExW(NameType: COMPUTER_NAME_FORMAT, lpBuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setcomputernamew")]
+                #[library("KERNEL32.dll")]
+                extern fn SetComputerNameW(lpComputerName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setlocaltime")]
+                #[library("KERNEL32.dll")]
+                extern fn SetLocalTime(lpSystemTime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setsystemtime")]
+                #[library("KERNEL32.dll")]
+                extern fn SetSystemTime(lpSystemTime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setsystemtimeadjustment")]
+                #[library("KERNEL32.dll")]
+                extern fn SetSystemTimeAdjustment(dwTimeAdjustment: u32, bTimeAdjustmentDisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-setsystemtimeadjustmentprecise")]
+                #[library("api-ms-win-core-sysinfo-l1-2-4.dll")]
+                extern fn SetSystemTimeAdjustmentPrecise(dwTimeAdjustment: u64, bTimeAdjustmentDisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[repr(u32)]
+                enum USER_CET_ENVIRONMENT {
+                    USER_CET_ENVIRONMENT_WIN32_PROCESS = 0,
+                    USER_CET_ENVIRONMENT_SGX2_ENCLAVE = 2,
+                    USER_CET_ENVIRONMENT_VBS_ENCLAVE = 16,
+                    USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE = 17,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum VER_FLAGS {
+                    VER_MINORVERSION = 1,
+                    VER_MAJORVERSION = 2,
+                    VER_BUILDNUMBER = 4,
+                    VER_PLATFORMID = 8,
+                    VER_SERVICEPACKMINOR = 16,
+                    VER_SERVICEPACKMAJOR = 32,
+                    VER_SUITENAME = 64,
+                    VER_PRODUCT_TYPE = 128,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/nf-winnt-versetconditionmask")]
+                #[library("KERNEL32.dll")]
+                extern fn VerSetConditionMask(ConditionMask: u64, TypeMask: VER_FLAGS, Condition: u8) -> u64;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-verifyversioninfoa")]
+                #[library("KERNEL32.dll")]
+                extern fn VerifyVersionInfoA(lpVersionInformation: *mut OSVERSIONINFOEXA, dwTypeMask: VER_FLAGS, dwlConditionMask: u64) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-verifyversioninfow")]
+                #[library("KERNEL32.dll")]
+                extern fn VerifyVersionInfoW(lpVersionInformation: *mut OSVERSIONINFOEXW, dwTypeMask: VER_FLAGS, dwlConditionMask: u64) -> super::super::Foundation::BOOL;
+                const WDK_NTDDI_VERSION: u32 = 167772172;
+                const _WIN32_IE_IE100: u32 = 2560;
+                const _WIN32_IE_IE110: u32 = 2560;
+                const _WIN32_IE_IE20: u32 = 512;
+                const _WIN32_IE_IE30: u32 = 768;
+                const _WIN32_IE_IE302: u32 = 770;
+                const _WIN32_IE_IE40: u32 = 1024;
+                const _WIN32_IE_IE401: u32 = 1025;
+                const _WIN32_IE_IE50: u32 = 1280;
+                const _WIN32_IE_IE501: u32 = 1281;
+                const _WIN32_IE_IE55: u32 = 1360;
+                const _WIN32_IE_IE60: u32 = 1536;
+                const _WIN32_IE_IE60SP1: u32 = 1537;
+                const _WIN32_IE_IE60SP2: u32 = 1539;
+                const _WIN32_IE_IE70: u32 = 1792;
+                const _WIN32_IE_IE80: u32 = 2048;
+                const _WIN32_IE_IE90: u32 = 2304;
+                const _WIN32_IE_LONGHORN: u32 = 1792;
+                const _WIN32_IE_NT4: u32 = 512;
+                const _WIN32_IE_NT4SP1: u32 = 512;
+                const _WIN32_IE_NT4SP2: u32 = 512;
+                const _WIN32_IE_NT4SP3: u32 = 770;
+                const _WIN32_IE_NT4SP4: u32 = 1025;
+                const _WIN32_IE_NT4SP5: u32 = 1025;
+                const _WIN32_IE_NT4SP6: u32 = 1280;
+                const _WIN32_IE_WIN10: u32 = 2560;
+                const _WIN32_IE_WIN2K: u32 = 1281;
+                const _WIN32_IE_WIN2KSP1: u32 = 1281;
+                const _WIN32_IE_WIN2KSP2: u32 = 1281;
+                const _WIN32_IE_WIN2KSP3: u32 = 1281;
+                const _WIN32_IE_WIN2KSP4: u32 = 1281;
+                const _WIN32_IE_WIN6: u32 = 1792;
+                const _WIN32_IE_WIN7: u32 = 2048;
+                const _WIN32_IE_WIN8: u32 = 2560;
+                const _WIN32_IE_WIN98: u32 = 1025;
+                const _WIN32_IE_WIN98SE: u32 = 1280;
+                const _WIN32_IE_WINBLUE: u32 = 2560;
+                const _WIN32_IE_WINME: u32 = 1360;
+                const _WIN32_IE_WINTHRESHOLD: u32 = 2560;
+                const _WIN32_IE_WS03: u32 = 1538;
+                const _WIN32_IE_WS03SP1: u32 = 1539;
+                const _WIN32_IE_XP: u32 = 1536;
+                const _WIN32_IE_XPSP1: u32 = 1537;
+                const _WIN32_IE_XPSP2: u32 = 1539;
+                const _WIN32_WINNT_LONGHORN: u32 = 1536;
+                const _WIN32_WINNT_NT4: u32 = 1024;
+                const _WIN32_WINNT_VISTA: u32 = 1536;
+                const _WIN32_WINNT_WIN10: u32 = 2560;
+                const _WIN32_WINNT_WIN2K: u32 = 1280;
+                const _WIN32_WINNT_WIN6: u32 = 1536;
+                const _WIN32_WINNT_WIN7: u32 = 1537;
+                const _WIN32_WINNT_WIN8: u32 = 1538;
+                const _WIN32_WINNT_WINBLUE: u32 = 1539;
+                const _WIN32_WINNT_WINTHRESHOLD: u32 = 2560;
+                const _WIN32_WINNT_WINXP: u32 = 1281;
+                const _WIN32_WINNT_WS03: u32 = 1282;
+                const _WIN32_WINNT_WS08: u32 = 1536;
+            }
+        }
+    }
+}

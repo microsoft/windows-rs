@@ -1,0 +1,193 @@
+mod Windows {
+    mod Devices {
+        #[winrt]
+        mod Lights {
+            #[Windows::Foundation::Metadata::ExclusiveTo(Lamp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILamp: super::super::Foundation::IClosable {
+                #[special]
+                fn get_DeviceId(&self) -> String;
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn put_IsEnabled(&self, value: bool);
+                #[special]
+                fn get_BrightnessLevel(&self) -> f32;
+                #[special]
+                fn put_BrightnessLevel(&self, value: f32);
+                #[special]
+                fn get_IsColorSettable(&self) -> bool;
+                #[special]
+                fn get_Color(&self) -> super::super::UI::Color;
+                #[special]
+                fn put_Color(&self, value: super::super::UI::Color);
+                #[special]
+                fn add_AvailabilityChanged(&self, handler: super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ILampArray {
+                #[special]
+                fn get_DeviceId(&self) -> String;
+                #[special]
+                fn get_HardwareVendorId(&self) -> u16;
+                #[special]
+                fn get_HardwareProductId(&self) -> u16;
+                #[special]
+                fn get_HardwareVersion(&self) -> u16;
+                #[special]
+                fn get_LampArrayKind(&self) -> LampArrayKind;
+                #[special]
+                fn get_LampCount(&self) -> i32;
+                #[special]
+                fn get_MinUpdateInterval(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_BoundingBox(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn put_IsEnabled(&self, value: bool);
+                #[special]
+                fn get_BrightnessLevel(&self) -> f64;
+                #[special]
+                fn put_BrightnessLevel(&self, value: f64);
+                #[special]
+                fn get_IsConnected(&self) -> bool;
+                #[special]
+                fn get_SupportsVirtualKeys(&self) -> bool;
+                fn GetLampInfo(&self, lampIndex: i32) -> LampInfo;
+                fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> [i32];
+                fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> [i32];
+                fn SetColor(&self, desiredColor: super::super::UI::Color);
+                fn SetColorForIndex(&self, lampIndex: i32, desiredColor: super::super::UI::Color);
+                fn SetSingleColorForIndices(&self, desiredColor: super::super::UI::Color, lampIndexes: [i32]);
+                fn SetColorsForIndices(&self, desiredColors: [super::super::UI::Color], lampIndexes: [i32]);
+                fn SetColorsForKey(&self, desiredColor: super::super::UI::Color, key: super::super::System::VirtualKey);
+                fn SetColorsForKeys(&self, desiredColors: [super::super::UI::Color], keys: [super::super::System::VirtualKey]);
+                fn SetColorsForPurposes(&self, desiredColor: super::super::UI::Color, purposes: LampPurposes);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendMessageAsync(&self, messageId: i32, message: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestMessageAsync(&self, messageId: i32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface ILampArray2 {
+                #[special]
+                fn get_IsAvailable(&self) -> bool;
+                #[special]
+                fn add_AvailabilityChanged(&self, handler: super::super::Foundation::TypedEventHandler<LampArray, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampArray)]
+            interface ILampArrayStatics {
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LampArray>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampAvailabilityChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILampAvailabilityChangedEventArgs {
+                #[special]
+                fn get_IsAvailable(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LampInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ILampInfo {
+                #[special]
+                fn get_Index(&self) -> i32;
+                #[special]
+                fn get_Purposes(&self) -> LampPurposes;
+                #[special]
+                fn get_Position(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn get_RedLevelCount(&self) -> i32;
+                #[special]
+                fn get_GreenLevelCount(&self) -> i32;
+                #[special]
+                fn get_BlueLevelCount(&self) -> i32;
+                #[special]
+                fn get_GainLevelCount(&self) -> i32;
+                #[special]
+                fn get_FixedColor(&self) -> super::super::Foundation::IReference<super::super::UI::Color>;
+                fn GetNearestSupportedColor(&self, desiredColor: super::super::UI::Color) -> super::super::UI::Color;
+                #[special]
+                fn get_UpdateLatency(&self) -> super::super::Foundation::TimeSpan;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Lamp)]
+            interface ILampStatics {
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Lamp>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<Lamp>;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ILampStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class Lamp {
+                #[default]
+                ILamp,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Static(ILampArrayStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class LampArray {
+                #[default]
+                ILampArray,
+                ILampArray2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum LampArrayKind {
+                Undefined = 0,
+                Keyboard = 1,
+                Mouse = 2,
+                GameController = 3,
+                Peripheral = 4,
+                Scene = 5,
+                Notification = 6,
+                Chassis = 7,
+                Wearable = 8,
+                Furniture = 9,
+                Art = 10,
+                Headset = 11,
+                Microphone = 12,
+                Speaker = 13,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class LampAvailabilityChangedEventArgs {
+                #[default]
+                ILampAvailabilityChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            class LampInfo {
+                #[default]
+                ILampInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum LampPurposes {
+                Undefined = 0,
+                Control = 1,
+                Accent = 2,
+                Branding = 4,
+                Status = 8,
+                Illumination = 16,
+                Presentation = 32,
+            }
+        }
+    }
+}

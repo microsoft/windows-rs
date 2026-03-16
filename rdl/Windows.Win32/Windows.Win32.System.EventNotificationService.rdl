@@ -1,0 +1,110 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod EventNotificationService {
+                const CONNECTION_AOL: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nn-sensevts-isenslogon")]
+                interface ISensLogon: super::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-logon")]
+                    fn Logon(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-logoff")]
+                    fn Logoff(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-startshell")]
+                    fn StartShell(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-displaylock")]
+                    fn DisplayLock(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-displayunlock")]
+                    fn DisplayUnlock(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-startscreensaver")]
+                    fn StartScreenSaver(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon-stopscreensaver")]
+                    fn StopScreenSaver(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nn-sensevts-isenslogon2")]
+                interface ISensLogon2: super::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon2-logon")]
+                    fn Logon(&self, bstrUserName: super::super::Foundation::BSTR, dwSessionId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon2-logoff")]
+                    fn Logoff(&self, bstrUserName: super::super::Foundation::BSTR, dwSessionId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon2-sessiondisconnect")]
+                    fn SessionDisconnect(&self, bstrUserName: super::super::Foundation::BSTR, dwSessionId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon2-sessionreconnect")]
+                    fn SessionReconnect(&self, bstrUserName: super::super::Foundation::BSTR, dwSessionId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isenslogon2-postshell")]
+                    fn PostShell(&self, bstrUserName: super::super::Foundation::BSTR, dwSessionId: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nn-sensevts-isensnetwork")]
+                interface ISensNetwork: super::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensnetwork-connectionmade")]
+                    fn ConnectionMade(&self, bstrConnection: super::super::Foundation::BSTR, ulType: u32, lpQOCInfo: *mut SENS_QOCINFO) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensnetwork-connectionmadenoqocinfo")]
+                    fn ConnectionMadeNoQOCInfo(&self, bstrConnection: super::super::Foundation::BSTR, ulType: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensnetwork-connectionlost")]
+                    fn ConnectionLost(&self, bstrConnection: super::super::Foundation::BSTR, ulType: SENS_CONNECTION_TYPE) -> super::super::Foundation::HRESULT;
+                    fn DestinationReachable(&self, bstrDestination: super::super::Foundation::BSTR, bstrConnection: super::super::Foundation::BSTR, ulType: u32, lpQOCInfo: *mut SENS_QOCINFO) -> super::super::Foundation::HRESULT;
+                    fn DestinationReachableNoQOCInfo(&self, bstrDestination: super::super::Foundation::BSTR, bstrConnection: super::super::Foundation::BSTR, ulType: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nn-sensevts-isensonnow")]
+                interface ISensOnNow: super::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensonnow-onacpower")]
+                    fn OnACPower(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensonnow-onbatterypower")]
+                    fn OnBatteryPower(&self, dwBatteryLifePercent: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/nf-sensevts-isensonnow-batterylow")]
+                    fn BatteryLow(&self, dwBatteryLifePercent: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensapi/nf-sensapi-isdestinationreachablea")]
+                #[library("SensApi.dll")]
+                extern fn IsDestinationReachableA(lpszDestination: super::super::Foundation::PSTR, lpQOCInfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensapi/nf-sensapi-isdestinationreachablew")]
+                #[library("SensApi.dll")]
+                extern fn IsDestinationReachableW(lpszDestination: super::super::Foundation::PWSTR, lpQOCInfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensapi/nf-sensapi-isnetworkalive")]
+                #[library("SensApi.dll")]
+                extern fn IsNetworkAlive(lpdwFlags: *mut u32) -> super::super::Foundation::BOOL;
+                const NETWORK_ALIVE_AOL: u32 = 4;
+                const NETWORK_ALIVE_INTERNET: u32 = 8;
+                const NETWORK_ALIVE_LAN: u32 = 1;
+                const NETWORK_ALIVE_WAN: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensapi/ns-sensapi-qocinfo")]
+                struct QOCINFO {
+                    dwSize: u32,
+                    dwFlags: u32,
+                    dwInSpeed: u32,
+                    dwOutSpeed: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3583494910, 23455, 4561, 141, 210, 0, 170, 0, 74, 189, 94)]
+                struct SENS {}
+                const SENSGUID_EVENTCLASS_LOGON: GUID = 0xd5978630_5b9f_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_EVENTCLASS_LOGON2: GUID = 0xd5978650_5b9f_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_EVENTCLASS_NETWORK: GUID = 0xd5978620_5b9f_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_EVENTCLASS_ONNOW: GUID = 0xd5978640_5b9f_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_PUBLISHER: GUID = 0x5fee1bd6_5b9b_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_SUBSCRIBER_LCE: GUID = 0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e;
+                const SENSGUID_SUBSCRIBER_WININET: GUID = 0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e;
+                #[repr(u32)]
+                enum SENS_CONNECTION_TYPE {
+                    CONNECTION_LAN = 0,
+                    CONNECTION_WAN = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/sensevts/ns-sensevts-sens_qocinfo")]
+                struct SENS_QOCINFO {
+                    dwSize: u32,
+                    dwFlags: u32,
+                    dwOutSpeed: u32,
+                    dwInSpeed: u32,
+                }
+            }
+        }
+    }
+}

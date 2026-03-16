@@ -1,0 +1,1255 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod RealTimeCommunications {
+                const FACILITY_PINT_STATUS_CODE: u32 = 240;
+                const FACILITY_RTC_INTERFACE: u32 = 238;
+                const FACILITY_SIP_STATUS_CODE: u32 = 239;
+                interface INetworkTransportSettings: super::Com::IUnknown {
+                    fn ApplySetting(&self, #[Windows::Win32::Foundation::Metadata::Const] SettingId: *mut super::super::Networking::WinSock::TRANSPORT_SETTING_ID, LengthIn: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ValueIn: *mut u8, LengthOut: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ValueOut: *mut *mut u8) -> super::super::Foundation::HRESULT;
+                    fn QuerySetting(&self, #[Windows::Win32::Foundation::Metadata::Const] SettingId: *mut super::super::Networking::WinSock::TRANSPORT_SETTING_ID, LengthIn: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ValueIn: *mut u8, LengthOut: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ValueOut: *mut *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                interface INotificationTransportSync: super::Com::IUnknown {
+                    fn CompleteDelivery(&self) -> super::super::Foundation::HRESULT;
+                    fn Flush(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddy: IRTCPresenceContact {
+                    #[special]
+                    fn get_Status(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penStatus: *mut RTC_PRESENCE_STATUS) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Notes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrNotes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddy2: IRTCBuddy {
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile2) -> super::super::Foundation::HRESULT;
+                    fn Refresh(&self) -> super::super::Foundation::HRESULT;
+                    fn EnumerateGroups(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumGroups) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Groups(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn get_PresenceProperty(&self, enProperty: RTC_PRESENCE_PROPERTY, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrProperty: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn EnumeratePresenceDevices(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumDevices: *mut IRTCEnumPresenceDevices) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PresenceDevices(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppDevicesCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SubscriptionType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penSubscriptionType: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddyEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Buddy(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppBuddy: *mut IRTCBuddy) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddyEvent2: IRTCBuddyEvent {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pEventType: *mut RTC_BUDDY_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddyGroup: super::Com::IUnknown {
+                    #[special]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrGroupName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Name(&self, bstrGroupName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn AddBuddy(&self, pBuddy: IRTCBuddy) -> super::super::Foundation::HRESULT;
+                    fn RemoveBuddy(&self, pBuddy: IRTCBuddy) -> super::super::Foundation::HRESULT;
+                    fn EnumerateBuddies(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumBuddies) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Buddies(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Data(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Data(&self, bstrData: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile2) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCBuddyGroupEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pEventType: *mut RTC_GROUP_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Group(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IRTCBuddyGroup) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Buddy(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppBuddy: *mut IRTCBuddy2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClient: super::Com::IUnknown {
+                    fn Initialize(&self) -> super::super::Foundation::HRESULT;
+                    fn Shutdown(&self) -> super::super::Foundation::HRESULT;
+                    fn PrepareForShutdown(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_EventFilter(&self, lFilter: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_EventFilter(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plFilter: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn SetPreferredMediaTypes(&self, lMediaTypes: i32, fPersistent: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PreferredMediaTypes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMediaTypes: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_MediaCapabilities(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMediaTypes: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn CreateSession(&self, enType: RTC_SESSION_TYPE, bstrLocalPhoneURI: super::super::Foundation::BSTR, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ListenForIncomingSessions(&self, enListen: RTC_LISTEN_MODE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ListenForIncomingSessions(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penListen: *mut RTC_LISTEN_MODE) -> super::super::Foundation::HRESULT;
+                    fn get_NetworkAddresses(&self, fTCP: super::super::Foundation::VARIANT_BOOL, fExternal: super::super::Foundation::VARIANT_BOOL, #[Windows::Win32::Foundation::Metadata::RetVal] pvAddresses: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn put_Volume(&self, enDevice: RTC_AUDIO_DEVICE, lVolume: i32) -> super::super::Foundation::HRESULT;
+                    fn get_Volume(&self, enDevice: RTC_AUDIO_DEVICE, #[Windows::Win32::Foundation::Metadata::RetVal] plVolume: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn put_AudioMuted(&self, enDevice: RTC_AUDIO_DEVICE, fMuted: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn get_AudioMuted(&self, enDevice: RTC_AUDIO_DEVICE, #[Windows::Win32::Foundation::Metadata::RetVal] pfMuted: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn get_IVideoWindow(&self, enDevice: RTC_VIDEO_DEVICE, #[Windows::Win32::Foundation::Metadata::RetVal] ppIVideoWindow: *mut super::super::Media::DirectShow::IVideoWindow) -> super::super::Foundation::HRESULT;
+                    fn put_PreferredAudioDevice(&self, enDevice: RTC_AUDIO_DEVICE, bstrDeviceName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn get_PreferredAudioDevice(&self, enDevice: RTC_AUDIO_DEVICE, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDeviceName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn put_PreferredVolume(&self, enDevice: RTC_AUDIO_DEVICE, lVolume: i32) -> super::super::Foundation::HRESULT;
+                    fn get_PreferredVolume(&self, enDevice: RTC_AUDIO_DEVICE, #[Windows::Win32::Foundation::Metadata::RetVal] plVolume: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_PreferredAEC(&self, bEnable: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PreferredAEC(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_PreferredVideoDevice(&self, bstrDeviceName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PreferredVideoDevice(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDeviceName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ActiveMedia(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMediaType: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_MaxBitrate(&self, lMaxBitrate: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_MaxBitrate(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMaxBitrate: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_TemporalSpatialTradeOff(&self, lValue: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_TemporalSpatialTradeOff(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plValue: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_NetworkQuality(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plNetworkQuality: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn StartT120Applet(&self, enApplet: RTC_T120_APPLET) -> super::super::Foundation::HRESULT;
+                    fn StopT120Applets(&self) -> super::super::Foundation::HRESULT;
+                    fn get_IsT120AppletRunning(&self, enApplet: RTC_T120_APPLET, #[Windows::Win32::Foundation::Metadata::RetVal] pfRunning: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_LocalUserURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_LocalUserURI(&self, bstrUserURI: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_LocalUserName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_LocalUserName(&self, bstrUserName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn PlayRing(&self, enType: RTC_RING_TYPE, bPlay: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn SendDTMF(&self, enDTMF: RTC_DTMF) -> super::super::Foundation::HRESULT;
+                    fn InvokeTuningWizard(&self, hwndParent: isize) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsTuned(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfTuned: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClient2: IRTCClient {
+                    fn put_AnswerMode(&self, enType: RTC_SESSION_TYPE, enMode: RTC_ANSWER_MODE) -> super::super::Foundation::HRESULT;
+                    fn get_AnswerMode(&self, enType: RTC_SESSION_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] penMode: *mut RTC_ANSWER_MODE) -> super::super::Foundation::HRESULT;
+                    fn InvokeTuningWizardEx(&self, hwndParent: isize, fAllowAudio: super::super::Foundation::VARIANT_BOOL, fAllowVideo: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Version(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plVersion: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ClientName(&self, bstrClientName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ClientCurVer(&self, bstrClientCurVer: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn InitializeEx(&self, lFlags: i32) -> super::super::Foundation::HRESULT;
+                    fn CreateSessionWithDescription(&self, bstrContentType: super::super::Foundation::BSTR, bstrSessionDescription: super::super::Foundation::BSTR, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession2: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    fn SetSessionDescriptionManager(&self, pSessionDescriptionManager: IRTCSessionDescriptionManager) -> super::super::Foundation::HRESULT;
+                    fn put_PreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, enSecurityLevel: RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    fn get_PreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] penSecurityLevel: *mut RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    fn put_AllowedPorts(&self, lTransport: i32, enListenMode: RTC_LISTEN_MODE) -> super::super::Foundation::HRESULT;
+                    fn get_AllowedPorts(&self, lTransport: i32, #[Windows::Win32::Foundation::Metadata::RetVal] penListenMode: *mut RTC_LISTEN_MODE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penEventType: *mut RTC_CLIENT_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Client(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppClient: *mut IRTCClient) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientPortManagement: super::Com::IUnknown {
+                    fn StartListenAddressAndPort(&self, bstrInternalLocalAddress: super::super::Foundation::BSTR, lInternalLocalPort: i32) -> super::super::Foundation::HRESULT;
+                    fn StopListenAddressAndPort(&self, bstrInternalLocalAddress: super::super::Foundation::BSTR, lInternalLocalPort: i32) -> super::super::Foundation::HRESULT;
+                    fn GetPortRange(&self, enPortType: RTC_PORT_TYPE, plMinValue: *mut i32, plMaxValue: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientPresence: super::Com::IUnknown {
+                    fn EnablePresence(&self, fUseStorage: super::super::Foundation::VARIANT_BOOL, varStorage: super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn Export(&self, varStorage: super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn Import(&self, varStorage: super::Variant::VARIANT, fReplaceAll: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn EnumerateBuddies(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumBuddies) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Buddies(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn get_Buddy(&self, bstrPresentityURI: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppBuddy: *mut IRTCBuddy) -> super::super::Foundation::HRESULT;
+                    fn AddBuddy(&self, bstrPresentityURI: super::super::Foundation::BSTR, bstrUserName: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR, fPersistent: super::super::Foundation::VARIANT_BOOL, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppBuddy: *mut IRTCBuddy) -> super::super::Foundation::HRESULT;
+                    fn RemoveBuddy(&self, pBuddy: IRTCBuddy) -> super::super::Foundation::HRESULT;
+                    fn EnumerateWatchers(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumWatchers) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Watchers(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn get_Watcher(&self, bstrPresentityURI: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppWatcher: *mut IRTCWatcher) -> super::super::Foundation::HRESULT;
+                    fn AddWatcher(&self, bstrPresentityURI: super::super::Foundation::BSTR, bstrUserName: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR, fBlocked: super::super::Foundation::VARIANT_BOOL, fPersistent: super::super::Foundation::VARIANT_BOOL, #[Windows::Win32::Foundation::Metadata::RetVal] ppWatcher: *mut IRTCWatcher) -> super::super::Foundation::HRESULT;
+                    fn RemoveWatcher(&self, pWatcher: IRTCWatcher) -> super::super::Foundation::HRESULT;
+                    fn SetLocalPresenceInfo(&self, enStatus: RTC_PRESENCE_STATUS, bstrNotes: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_OfferWatcherMode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penMode: *mut RTC_OFFER_WATCHER_MODE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_OfferWatcherMode(&self, enMode: RTC_OFFER_WATCHER_MODE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PrivacyMode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penMode: *mut RTC_PRIVACY_MODE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_PrivacyMode(&self, enMode: RTC_PRIVACY_MODE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientPresence2: IRTCClientPresence {
+                    fn EnablePresenceEx(&self, pProfile: IRTCProfile, varStorage: super::Variant::VARIANT, lFlags: i32) -> super::super::Foundation::HRESULT;
+                    fn DisablePresence(&self) -> super::super::Foundation::HRESULT;
+                    fn AddGroup(&self, bstrGroupName: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IRTCBuddyGroup) -> super::super::Foundation::HRESULT;
+                    fn RemoveGroup(&self, pGroup: IRTCBuddyGroup) -> super::super::Foundation::HRESULT;
+                    fn EnumerateGroups(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumGroups) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Groups(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn get_Group(&self, bstrGroupName: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IRTCBuddyGroup) -> super::super::Foundation::HRESULT;
+                    fn AddWatcherEx(&self, bstrPresentityURI: super::super::Foundation::BSTR, bstrUserName: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR, enState: RTC_WATCHER_STATE, fPersistent: super::super::Foundation::VARIANT_BOOL, enScope: RTC_ACE_SCOPE, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppWatcher: *mut IRTCWatcher2) -> super::super::Foundation::HRESULT;
+                    fn get_WatcherEx(&self, enMode: RTC_WATCHER_MATCH_MODE, bstrPresentityURI: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppWatcher: *mut IRTCWatcher2) -> super::super::Foundation::HRESULT;
+                    fn put_PresenceProperty(&self, enProperty: RTC_PRESENCE_PROPERTY, bstrProperty: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn get_PresenceProperty(&self, enProperty: RTC_PRESENCE_PROPERTY, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrProperty: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn SetPresenceData(&self, bstrNamespace: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetPresenceData(&self, pbstrNamespace: *mut super::super::Foundation::BSTR, pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetLocalPresenceInfo(&self, penStatus: *mut RTC_PRESENCE_STATUS, pbstrNotes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn AddBuddyEx(&self, bstrPresentityURI: super::super::Foundation::BSTR, bstrUserName: super::super::Foundation::BSTR, bstrData: super::super::Foundation::BSTR, fPersistent: super::super::Foundation::VARIANT_BOOL, enSubscriptionType: RTC_BUDDY_SUBSCRIPTION_TYPE, pProfile: IRTCProfile, lFlags: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppBuddy: *mut IRTCBuddy2) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientProvisioning: super::Com::IUnknown {
+                    fn CreateProfile(&self, bstrProfileXML: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile) -> super::super::Foundation::HRESULT;
+                    fn EnableProfile(&self, pProfile: IRTCProfile, lRegisterFlags: i32) -> super::super::Foundation::HRESULT;
+                    fn DisableProfile(&self, pProfile: IRTCProfile) -> super::super::Foundation::HRESULT;
+                    fn EnumerateProfiles(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumProfiles) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Profiles(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn GetProfile(&self, bstrUserAccount: super::super::Foundation::BSTR, bstrUserPassword: super::super::Foundation::BSTR, bstrUserURI: super::super::Foundation::BSTR, bstrServer: super::super::Foundation::BSTR, lTransport: i32, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SessionCapabilities(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plSupportedSessions: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCClientProvisioning2: IRTCClientProvisioning {
+                    fn EnableProfileEx(&self, pProfile: IRTCProfile, lRegisterFlags: i32, lRoamingFlags: i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCCollection: super::Com::IDispatch {
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] lCount: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn get_Item(&self, Index: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pVariant: *mut super::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNewEnum: *mut super::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCDispatchEventNotification: super::Com::IDispatch {}
+                interface IRTCEnumBuddies: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCBuddy, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumBuddies) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumGroups: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCBuddyGroup, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumGroups) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumParticipants: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCParticipant, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumParticipants) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumPresenceDevices: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCPresenceDevice, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumPresenceDevices) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumProfiles: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCProfile, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumProfiles) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumUserSearchResults: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCUserSearchResult, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumUserSearchResults) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEnumWatchers: super::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppElements: *mut IRTCWatcher, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumWatchers) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCEventNotification: super::Com::IUnknown {
+                    fn Event(&self, RTCEvent: RTC_EVENT, pEvent: super::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCInfoEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Participant(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppParticipant: *mut IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Info(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrInfo: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_InfoHeader(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrInfoHeader: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCIntensityEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Level(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plLevel: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Min(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMin: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Max(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMax: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Direction(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penDirection: *mut RTC_AUDIO_DEVICE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCMediaEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_MediaType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pMediaType: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penEventType: *mut RTC_MEDIA_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_EventReason(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penEventReason: *mut RTC_MEDIA_EVENT_REASON) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCMediaRequestEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ProposedMedia(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMediaTypes: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_CurrentMedia(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plMediaTypes: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn Accept(&self, lMediaTypes: i32) -> super::super::Foundation::HRESULT;
+                    fn get_RemotePreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] penSecurityLevel: *mut RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    fn Reject(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pState: *mut RTC_REINVITE_STATE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCMessagingEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Participant(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppParticipant: *mut IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penEventType: *mut RTC_MESSAGING_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Message(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrMessage: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_MessageHeader(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrMessageHeader: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_UserStatus(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penUserStatus: *mut RTC_MESSAGING_USER_STATUS) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCParticipant: super::Com::IUnknown {
+                    #[special]
+                    fn get_UserURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Removable(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfRemovable: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_PARTICIPANT_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCParticipantStateChangeEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Participant(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppParticipant: *mut IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_PARTICIPANT_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPortManager: super::Com::IUnknown {
+                    fn GetMapping(&self, bstrRemoteAddress: super::super::Foundation::BSTR, enPortType: RTC_PORT_TYPE, pbstrInternalLocalAddress: *mut super::super::Foundation::BSTR, plInternalLocalPort: *mut i32, pbstrExternalLocalAddress: *mut super::super::Foundation::BSTR, plExternalLocalPort: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn UpdateRemoteAddress(&self, bstrRemoteAddress: super::super::Foundation::BSTR, bstrInternalLocalAddress: super::super::Foundation::BSTR, lInternalLocalPort: i32, bstrExternalLocalAddress: super::super::Foundation::BSTR, lExternalLocalPort: i32) -> super::super::Foundation::HRESULT;
+                    fn ReleaseMapping(&self, bstrInternalLocalAddress: super::super::Foundation::BSTR, lInternalLocalPort: i32, bstrExternalLocalAddress: super::super::Foundation::BSTR, lExternalLocalAddress: i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPresenceContact: super::Com::IUnknown {
+                    #[special]
+                    fn get_PresentityURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrPresentityURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_PresentityURI(&self, bstrPresentityURI: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Name(&self, bstrName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Data(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Data(&self, bstrData: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Persistent(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfPersistent: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Persistent(&self, fPersistent: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPresenceDataEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetPresenceData(&self, pbstrNamespace: *mut super::super::Foundation::BSTR, pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPresenceDevice: super::Com::IUnknown {
+                    #[special]
+                    fn get_Status(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penStatus: *mut RTC_PRESENCE_STATUS) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Notes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrNotes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn get_PresenceProperty(&self, enProperty: RTC_PRESENCE_PROPERTY, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrProperty: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetPresenceData(&self, pbstrNamespace: *mut super::super::Foundation::BSTR, pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPresencePropertyEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PresenceProperty(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penPresProp: *mut RTC_PRESENCE_PROPERTY) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Value(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrValue: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCPresenceStatusEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetLocalPresenceInfo(&self, penStatus: *mut RTC_PRESENCE_STATUS, pbstrNotes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCProfile: super::Com::IUnknown {
+                    #[special]
+                    fn get_Key(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrKey: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_XML(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrXML: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ProviderName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn get_ProviderURI(&self, enURI: RTC_PROVIDER_URI, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ProviderData(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientBanner(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfBanner: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientMinVer(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrMinVer: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientCurVer(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrCurVer: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientUpdateURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUpdateURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ClientData(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_UserURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_UserName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_UserAccount(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserAccount: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn SetCredentials(&self, bstrUserURI: super::super::Foundation::BSTR, bstrUserAccount: super::super::Foundation::BSTR, bstrPassword: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SessionCapabilities(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plSupportedSessions: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_REGISTRATION_STATE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCProfile2: IRTCProfile {
+                    #[special]
+                    fn get_Realm(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrRealm: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Realm(&self, bstrRealm: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AllowedAuth(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plAllowedAuth: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AllowedAuth(&self, lAllowedAuth: i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCProfileEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Cookie(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plCookie: *mut isize) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCProfileEvent2: IRTCProfileEvent {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pEventType: *mut RTC_PROFILE_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCReInviteEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession2: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    fn Accept(&self, bstrContentType: super::super::Foundation::BSTR, bstrSessionDescription: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn Reject(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pState: *mut RTC_REINVITE_STATE) -> super::super::Foundation::HRESULT;
+                    fn GetRemoteSessionDescription(&self, pbstrContentType: *mut super::super::Foundation::BSTR, pbstrSessionDescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCRegistrationStateChangeEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_REGISTRATION_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCRoamingEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pEventType: *mut RTC_ROAMING_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSession: super::Com::IUnknown {
+                    #[special]
+                    fn get_Client(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppClient: *mut IRTCClient) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_SESSION_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Type(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penType: *mut RTC_SESSION_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Participants(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    fn Answer(&self) -> super::super::Foundation::HRESULT;
+                    fn Terminate(&self, enReason: RTC_TERMINATE_REASON) -> super::super::Foundation::HRESULT;
+                    fn Redirect(&self, enType: RTC_SESSION_TYPE, bstrLocalPhoneURI: super::super::Foundation::BSTR, pProfile: IRTCProfile, lFlags: i32) -> super::super::Foundation::HRESULT;
+                    fn AddParticipant(&self, bstrAddress: super::super::Foundation::BSTR, bstrName: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppParticipant: *mut IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    fn RemoveParticipant(&self, pParticipant: IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    fn EnumerateParticipants(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumParticipants) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_CanAddParticipants(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfCanAdd: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_RedirectedUserURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_RedirectedUserName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrUserName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn NextRedirectedUser(&self) -> super::super::Foundation::HRESULT;
+                    fn SendMessage(&self, bstrMessageHeader: super::super::Foundation::BSTR, bstrMessage: super::super::Foundation::BSTR, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn SendMessageStatus(&self, enUserStatus: RTC_MESSAGING_USER_STATUS, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn AddStream(&self, lMediaType: i32, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn RemoveStream(&self, lMediaType: i32, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn put_EncryptionKey(&self, lMediaType: i32, EncryptionKey: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSession2: IRTCSession {
+                    fn SendInfo(&self, bstrInfoHeader: super::super::Foundation::BSTR, bstrInfo: super::super::Foundation::BSTR, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn put_PreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, enSecurityLevel: RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    fn get_PreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] penSecurityLevel: *mut RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    fn IsSecurityEnabled(&self, enSecurityType: RTC_SECURITY_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] pfSecurityEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn AnswerWithSessionDescription(&self, bstrContentType: super::super::Foundation::BSTR, bstrSessionDescription: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn ReInviteWithSessionDescription(&self, bstrContentType: super::super::Foundation::BSTR, bstrSessionDescription: super::super::Foundation::BSTR, lCookie: isize) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionCallControl: super::Com::IUnknown {
+                    fn Hold(&self, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn UnHold(&self, lCookie: isize) -> super::super::Foundation::HRESULT;
+                    fn Forward(&self, bstrForwardToURI: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn Refer(&self, bstrReferToURI: super::super::Foundation::BSTR, bstrReferCookie: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ReferredByURI(&self, bstrReferredByURI: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferredByURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrReferredByURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ReferCookie(&self, bstrReferCookie: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferCookie(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrReferCookie: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsReferred(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfIsReferred: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionDescriptionManager: super::Com::IUnknown {
+                    fn EvaluateSessionDescription(&self, bstrContentType: super::super::Foundation::BSTR, bstrSessionDescription: super::super::Foundation::BSTR, pfApplicationSession: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionOperationCompleteEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Cookie(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plCookie: *mut isize) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionOperationCompleteEvent2: IRTCSessionOperationCompleteEvent {
+                    #[special]
+                    fn get_Participant(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppParticipant: *mut IRTCParticipant) -> super::super::Foundation::HRESULT;
+                    fn GetRemoteSessionDescription(&self, pbstrContentType: *mut super::super::Foundation::BSTR, pbstrSessionDescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionPortManagement: super::Com::IUnknown {
+                    fn SetPortManager(&self, pPortManager: IRTCPortManager) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionReferStatusEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferStatus(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penReferStatus: *mut RTC_SESSION_REFER_STATUS) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionReferredEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferredByURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrReferredByURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferToURI(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrReferoURI: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReferCookie(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrReferCookie: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn Accept(&self) -> super::super::Foundation::HRESULT;
+                    fn Reject(&self) -> super::super::Foundation::HRESULT;
+                    fn SetReferredSessionState(&self, enState: RTC_SESSION_STATE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionStateChangeEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Session(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSession: *mut IRTCSession) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_SESSION_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusText(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCSessionStateChangeEvent2: IRTCSessionStateChangeEvent {
+                    #[special]
+                    fn get_MediaTypes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pMediaTypes: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn get_RemotePreferredSecurityLevel(&self, enSecurityType: RTC_SECURITY_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] penSecurityLevel: *mut RTC_SECURITY_LEVEL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsForked(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfIsForked: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetRemoteSessionDescription(&self, pbstrContentType: *mut super::super::Foundation::BSTR, pbstrSessionDescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCUserSearch: super::Com::IUnknown {
+                    fn CreateQuery(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppQuery: *mut IRTCUserSearchQuery) -> super::super::Foundation::HRESULT;
+                    fn ExecuteSearch(&self, pQuery: IRTCUserSearchQuery, pProfile: IRTCProfile, lCookie: isize) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCUserSearchQuery: super::Com::IUnknown {
+                    fn put_SearchTerm(&self, bstrName: super::super::Foundation::BSTR, bstrValue: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn get_SearchTerm(&self, bstrName: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrValue: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SearchTerms(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrNames: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn put_SearchPreference(&self, enPreference: RTC_USER_SEARCH_PREFERENCE, lValue: i32) -> super::super::Foundation::HRESULT;
+                    fn get_SearchPreference(&self, enPreference: RTC_USER_SEARCH_PREFERENCE, #[Windows::Win32::Foundation::Metadata::RetVal] plValue: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_SearchDomain(&self, bstrDomain: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SearchDomain(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDomain: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCUserSearchResult: super::Com::IUnknown {
+                    fn get_Value(&self, enColumn: RTC_USER_SEARCH_COLUMN, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrValue: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCUserSearchResultsEvent: super::Com::IDispatch {
+                    fn EnumerateResults(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IRTCEnumUserSearchResults) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Results(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppCollection: *mut IRTCCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Query(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppQuery: *mut IRTCUserSearchQuery) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Cookie(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plCookie: *mut isize) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_MoreAvailable(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfMoreAvailable: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCWatcher: IRTCPresenceContact {
+                    #[special]
+                    fn get_State(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penState: *mut RTC_WATCHER_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_State(&self, enState: RTC_WATCHER_STATE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCWatcher2: IRTCWatcher {
+                    #[special]
+                    fn get_Profile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppProfile: *mut IRTCProfile2) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Scope(&self, #[Windows::Win32::Foundation::Metadata::RetVal] penScope: *mut RTC_ACE_SCOPE) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCWatcherEvent: super::Com::IDispatch {
+                    #[special]
+                    fn get_Watcher(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppWatcher: *mut IRTCWatcher) -> super::super::Foundation::HRESULT;
+                }
+                interface IRTCWatcherEvent2: IRTCWatcherEvent {
+                    #[special]
+                    fn get_EventType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pEventType: *mut RTC_WATCHER_EVENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StatusCode(&self, #[Windows::Win32::Foundation::Metadata::RetVal] plStatusCode: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface ITransportSettingsInternal: super::Com::IUnknown {
+                    fn ApplySetting(&self, Setting: *mut TRANSPORT_SETTING) -> super::super::Foundation::HRESULT;
+                    fn QuerySetting(&self, Setting: *mut TRANSPORT_SETTING) -> super::super::Foundation::HRESULT;
+                }
+                const RTCAU_BASIC: u32 = 1;
+                const RTCAU_DIGEST: u32 = 2;
+                const RTCAU_KERBEROS: u32 = 8;
+                const RTCAU_NTLM: u32 = 4;
+                const RTCAU_USE_LOGON_CRED: u32 = 65536;
+                const RTCCS_FAIL_ON_REDIRECT: u32 = 2;
+                const RTCCS_FORCE_PROFILE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Guid(2051205673, 41655, 16580, 176, 145, 246, 240, 36, 170, 137, 190)]
+                struct RTCClient {}
+                const RTCEF_ALL: u32 = 33554431;
+                const RTCEF_BUDDY: u32 = 256;
+                const RTCEF_BUDDY2: u32 = 262144;
+                const RTCEF_CLIENT: u32 = 1;
+                const RTCEF_GROUP: u32 = 8192;
+                const RTCEF_INFO: u32 = 4096;
+                const RTCEF_INTENSITY: u32 = 64;
+                const RTCEF_MEDIA: u32 = 32;
+                const RTCEF_MEDIA_REQUEST: u32 = 16384;
+                const RTCEF_MESSAGING: u32 = 128;
+                const RTCEF_PARTICIPANT_STATE_CHANGE: u32 = 16;
+                const RTCEF_PRESENCE_DATA: u32 = 8388608;
+                const RTCEF_PRESENCE_PROPERTY: u32 = 131072;
+                const RTCEF_PRESENCE_STATUS: u32 = 16777216;
+                const RTCEF_PROFILE: u32 = 1024;
+                const RTCEF_REGISTRATION_STATE_CHANGE: u32 = 2;
+                const RTCEF_REINVITE: u32 = 4194304;
+                const RTCEF_ROAMING: u32 = 65536;
+                const RTCEF_SESSION_OPERATION_COMPLETE: u32 = 8;
+                const RTCEF_SESSION_REFERRED: u32 = 2097152;
+                const RTCEF_SESSION_REFER_STATUS: u32 = 1048576;
+                const RTCEF_SESSION_STATE_CHANGE: u32 = 4;
+                const RTCEF_USERSEARCH: u32 = 2048;
+                const RTCEF_WATCHER: u32 = 512;
+                const RTCEF_WATCHER2: u32 = 524288;
+                const RTCIF_DISABLE_MEDIA: u32 = 1;
+                const RTCIF_DISABLE_STRICT_DNS: u32 = 8;
+                const RTCIF_DISABLE_UPNP: u32 = 2;
+                const RTCIF_ENABLE_SERVER_CLASS: u32 = 4;
+                const RTCMT_AUDIO_RECEIVE: u32 = 2;
+                const RTCMT_AUDIO_SEND: u32 = 1;
+                const RTCMT_T120_SENDRECV: u32 = 16;
+                const RTCMT_VIDEO_RECEIVE: u32 = 8;
+                const RTCMT_VIDEO_SEND: u32 = 4;
+                const RTCRF_REGISTER_ALL: u32 = 15;
+                const RTCRF_REGISTER_INVITE_SESSIONS: u32 = 1;
+                const RTCRF_REGISTER_MESSAGE_SESSIONS: u32 = 2;
+                const RTCRF_REGISTER_NOTIFY: u32 = 8;
+                const RTCRF_REGISTER_PRESENCE: u32 = 4;
+                const RTCRMF_ALL_ROAMING: u32 = 15;
+                const RTCRMF_BUDDY_ROAMING: u32 = 1;
+                const RTCRMF_PRESENCE_ROAMING: u32 = 4;
+                const RTCRMF_PROFILE_ROAMING: u32 = 8;
+                const RTCRMF_WATCHER_ROAMING: u32 = 2;
+                const RTCSI_APPLICATION: u32 = 32;
+                const RTCSI_IM: u32 = 8;
+                const RTCSI_MULTIPARTY_IM: u32 = 16;
+                const RTCSI_PC_TO_PC: u32 = 1;
+                const RTCSI_PC_TO_PHONE: u32 = 2;
+                const RTCSI_PHONE_TO_PHONE: u32 = 4;
+                const RTCTR_TCP: u32 = 2;
+                const RTCTR_TLS: u32 = 4;
+                const RTCTR_UDP: u32 = 1;
+                #[repr(i32)]
+                enum RTC_ACE_SCOPE {
+                    RTCAS_SCOPE_USER = 0,
+                    RTCAS_SCOPE_DOMAIN = 1,
+                    RTCAS_SCOPE_ALL = 2,
+                }
+                #[repr(i32)]
+                enum RTC_ANSWER_MODE {
+                    RTCAM_OFFER_SESSION_EVENT = 0,
+                    RTCAM_AUTOMATICALLY_ACCEPT = 1,
+                    RTCAM_AUTOMATICALLY_REJECT = 2,
+                    RTCAM_NOT_SUPPORTED = 3,
+                }
+                #[repr(i32)]
+                enum RTC_AUDIO_DEVICE {
+                    RTCAD_SPEAKER = 0,
+                    RTCAD_MICROPHONE = 1,
+                }
+                #[repr(i32)]
+                enum RTC_BUDDY_EVENT_TYPE {
+                    RTCBET_BUDDY_ADD = 0,
+                    RTCBET_BUDDY_REMOVE = 1,
+                    RTCBET_BUDDY_UPDATE = 2,
+                    RTCBET_BUDDY_STATE_CHANGE = 3,
+                    RTCBET_BUDDY_ROAMED = 4,
+                    RTCBET_BUDDY_SUBSCRIBED = 5,
+                }
+                #[repr(i32)]
+                enum RTC_BUDDY_SUBSCRIPTION_TYPE {
+                    RTCBT_SUBSCRIBED = 0,
+                    RTCBT_ALWAYS_OFFLINE = 1,
+                    RTCBT_ALWAYS_ONLINE = 2,
+                    RTCBT_POLL = 3,
+                }
+                #[repr(i32)]
+                enum RTC_CLIENT_EVENT_TYPE {
+                    RTCCET_VOLUME_CHANGE = 0,
+                    RTCCET_DEVICE_CHANGE = 1,
+                    RTCCET_NETWORK_QUALITY_CHANGE = 2,
+                    RTCCET_ASYNC_CLEANUP_DONE = 3,
+                }
+                #[repr(i32)]
+                enum RTC_DTMF {
+                    RTC_DTMF_0 = 0,
+                    RTC_DTMF_1 = 1,
+                    RTC_DTMF_2 = 2,
+                    RTC_DTMF_3 = 3,
+                    RTC_DTMF_4 = 4,
+                    RTC_DTMF_5 = 5,
+                    RTC_DTMF_6 = 6,
+                    RTC_DTMF_7 = 7,
+                    RTC_DTMF_8 = 8,
+                    RTC_DTMF_9 = 9,
+                    RTC_DTMF_STAR = 10,
+                    RTC_DTMF_POUND = 11,
+                    RTC_DTMF_A = 12,
+                    RTC_DTMF_B = 13,
+                    RTC_DTMF_C = 14,
+                    RTC_DTMF_D = 15,
+                    RTC_DTMF_FLASH = 16,
+                }
+                #[repr(i32)]
+                enum RTC_EVENT {
+                    RTCE_CLIENT = 0,
+                    RTCE_REGISTRATION_STATE_CHANGE = 1,
+                    RTCE_SESSION_STATE_CHANGE = 2,
+                    RTCE_SESSION_OPERATION_COMPLETE = 3,
+                    RTCE_PARTICIPANT_STATE_CHANGE = 4,
+                    RTCE_MEDIA = 5,
+                    RTCE_INTENSITY = 6,
+                    RTCE_MESSAGING = 7,
+                    RTCE_BUDDY = 8,
+                    RTCE_WATCHER = 9,
+                    RTCE_PROFILE = 10,
+                    RTCE_USERSEARCH = 11,
+                    RTCE_INFO = 12,
+                    RTCE_GROUP = 13,
+                    RTCE_MEDIA_REQUEST = 14,
+                    RTCE_ROAMING = 15,
+                    RTCE_PRESENCE_PROPERTY = 16,
+                    RTCE_PRESENCE_DATA = 17,
+                    RTCE_PRESENCE_STATUS = 18,
+                    RTCE_SESSION_REFER_STATUS = 19,
+                    RTCE_SESSION_REFERRED = 20,
+                    RTCE_REINVITE = 21,
+                }
+                const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: super::super::Foundation::HRESULT = -2131885961;
+                const RTC_E_BASIC_AUTH_SET_TLS: super::super::Foundation::HRESULT = -2131886017;
+                const RTC_E_CLIENT_ALREADY_INITIALIZED: super::super::Foundation::HRESULT = -2131886042;
+                const RTC_E_CLIENT_ALREADY_SHUT_DOWN: super::super::Foundation::HRESULT = -2131886041;
+                const RTC_E_CLIENT_NOT_INITIALIZED: super::super::Foundation::HRESULT = -2131886043;
+                const RTC_E_DESTINATION_ADDRESS_LOCAL: super::super::Foundation::HRESULT = -2131886061;
+                const RTC_E_DESTINATION_ADDRESS_MULTICAST: super::super::Foundation::HRESULT = -2131886059;
+                const RTC_E_DUPLICATE_BUDDY: super::super::Foundation::HRESULT = -2131886006;
+                const RTC_E_DUPLICATE_GROUP: super::super::Foundation::HRESULT = -2131885998;
+                const RTC_E_DUPLICATE_REALM: super::super::Foundation::HRESULT = -2131886013;
+                const RTC_E_DUPLICATE_WATCHER: super::super::Foundation::HRESULT = -2131886005;
+                const RTC_E_INVALID_ACL_LIST: super::super::Foundation::HRESULT = -2131886000;
+                const RTC_E_INVALID_ADDRESS_LOCAL: super::super::Foundation::HRESULT = -2131886060;
+                const RTC_E_INVALID_BUDDY_LIST: super::super::Foundation::HRESULT = -2131886001;
+                const RTC_E_INVALID_LISTEN_SOCKET: super::super::Foundation::HRESULT = -2131885957;
+                const RTC_E_INVALID_OBJECT_STATE: super::super::Foundation::HRESULT = -2131885983;
+                const RTC_E_INVALID_PORTRANGE: super::super::Foundation::HRESULT = -2131885988;
+                const RTC_E_INVALID_PREFERENCE_LIST: super::super::Foundation::HRESULT = -2131885991;
+                const RTC_E_INVALID_PROFILE: super::super::Foundation::HRESULT = -2131886034;
+                const RTC_E_INVALID_PROXY_ADDRESS: super::super::Foundation::HRESULT = -2131886058;
+                const RTC_E_INVALID_REGISTRATION_STATE: super::super::Foundation::HRESULT = -2131885971;
+                const RTC_E_INVALID_SESSION_STATE: super::super::Foundation::HRESULT = -2131886038;
+                const RTC_E_INVALID_SESSION_TYPE: super::super::Foundation::HRESULT = -2131886039;
+                const RTC_E_INVALID_SIP_URL: super::super::Foundation::HRESULT = -2131886062;
+                const RTC_E_LISTENING_SOCKET_NOT_EXIST: super::super::Foundation::HRESULT = -2131885958;
+                const RTC_E_LOCAL_PHONE_NEEDED: super::super::Foundation::HRESULT = -2131886036;
+                const RTC_E_MALFORMED_XML: super::super::Foundation::HRESULT = -2131886004;
+                const RTC_E_MAX_PENDING_OPERATIONS: super::super::Foundation::HRESULT = -2131885990;
+                const RTC_E_MAX_REDIRECTS: super::super::Foundation::HRESULT = -2131885960;
+                const RTC_E_MEDIA_AEC: super::super::Foundation::HRESULT = -2131886044;
+                const RTC_E_MEDIA_AUDIO_DEVICE_NOT_AVAILABLE: super::super::Foundation::HRESULT = -2131886047;
+                const RTC_E_MEDIA_CONTROLLER_STATE: super::super::Foundation::HRESULT = -2131886049;
+                const RTC_E_MEDIA_DISABLED: super::super::Foundation::HRESULT = -2131885970;
+                const RTC_E_MEDIA_ENABLED: super::super::Foundation::HRESULT = -2131885969;
+                const RTC_E_MEDIA_NEED_TERMINAL: super::super::Foundation::HRESULT = -2131886048;
+                const RTC_E_MEDIA_SESSION_IN_HOLD: super::super::Foundation::HRESULT = -2131885962;
+                const RTC_E_MEDIA_SESSION_NOT_EXIST: super::super::Foundation::HRESULT = -2131885963;
+                const RTC_E_MEDIA_VIDEO_DEVICE_NOT_AVAILABLE: super::super::Foundation::HRESULT = -2131886046;
+                const RTC_E_NOT_ALLOWED: super::super::Foundation::HRESULT = -2131885950;
+                const RTC_E_NOT_EXIST: super::super::Foundation::HRESULT = -2131885992;
+                const RTC_E_NOT_PRESENCE_PROFILE: super::super::Foundation::HRESULT = -2131885974;
+                const RTC_E_NO_BUDDY: super::super::Foundation::HRESULT = -2131885996;
+                const RTC_E_NO_DEVICE: super::super::Foundation::HRESULT = -2131886035;
+                const RTC_E_NO_GROUP: super::super::Foundation::HRESULT = -2131885999;
+                const RTC_E_NO_PROFILE: super::super::Foundation::HRESULT = -2131886037;
+                const RTC_E_NO_REALM: super::super::Foundation::HRESULT = -2131885994;
+                const RTC_E_NO_TRANSPORT: super::super::Foundation::HRESULT = -2131885993;
+                const RTC_E_NO_WATCHER: super::super::Foundation::HRESULT = -2131885995;
+                const RTC_E_OPERATION_WITH_TOO_MANY_PARTICIPANTS: super::super::Foundation::HRESULT = -2131886018;
+                const RTC_E_PINT_STATUS_REJECTED_ALL_BUSY: super::super::Foundation::HRESULT = -2131755001;
+                const RTC_E_PINT_STATUS_REJECTED_BADNUMBER: super::super::Foundation::HRESULT = -2131754997;
+                const RTC_E_PINT_STATUS_REJECTED_BUSY: super::super::Foundation::HRESULT = -2131755003;
+                const RTC_E_PINT_STATUS_REJECTED_CANCELLED: super::super::Foundation::HRESULT = -2131754998;
+                const RTC_E_PINT_STATUS_REJECTED_NO_ANSWER: super::super::Foundation::HRESULT = -2131755002;
+                const RTC_E_PINT_STATUS_REJECTED_PL_FAILED: super::super::Foundation::HRESULT = -2131755000;
+                const RTC_E_PINT_STATUS_REJECTED_SW_FAILED: super::super::Foundation::HRESULT = -2131754999;
+                const RTC_E_PLATFORM_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2131885952;
+                const RTC_E_POLICY_NOT_ALLOW: super::super::Foundation::HRESULT = -2131886012;
+                const RTC_E_PORT_MANAGER_ALREADY_SET: super::super::Foundation::HRESULT = -2131885956;
+                const RTC_E_PORT_MAPPING_FAILED: super::super::Foundation::HRESULT = -2131886010;
+                const RTC_E_PORT_MAPPING_UNAVAILABLE: super::super::Foundation::HRESULT = -2131886011;
+                const RTC_E_PRESENCE_ENABLED: super::super::Foundation::HRESULT = -2131885982;
+                const RTC_E_PRESENCE_NOT_ENABLED: super::super::Foundation::HRESULT = -2131886040;
+                const RTC_E_PROFILE_INVALID_SERVER_AUTHMETHOD: super::super::Foundation::HRESULT = -2131886024;
+                const RTC_E_PROFILE_INVALID_SERVER_PROTOCOL: super::super::Foundation::HRESULT = -2131886025;
+                const RTC_E_PROFILE_INVALID_SERVER_ROLE: super::super::Foundation::HRESULT = -2131886023;
+                const RTC_E_PROFILE_INVALID_SESSION: super::super::Foundation::HRESULT = -2131886021;
+                const RTC_E_PROFILE_INVALID_SESSION_PARTY: super::super::Foundation::HRESULT = -2131886020;
+                const RTC_E_PROFILE_INVALID_SESSION_TYPE: super::super::Foundation::HRESULT = -2131886019;
+                const RTC_E_PROFILE_MULTIPLE_REGISTRARS: super::super::Foundation::HRESULT = -2131886022;
+                const RTC_E_PROFILE_NO_KEY: super::super::Foundation::HRESULT = -2131886032;
+                const RTC_E_PROFILE_NO_NAME: super::super::Foundation::HRESULT = -2131886031;
+                const RTC_E_PROFILE_NO_PROVISION: super::super::Foundation::HRESULT = -2131886033;
+                const RTC_E_PROFILE_NO_SERVER: super::super::Foundation::HRESULT = -2131886028;
+                const RTC_E_PROFILE_NO_SERVER_ADDRESS: super::super::Foundation::HRESULT = -2131886027;
+                const RTC_E_PROFILE_NO_SERVER_PROTOCOL: super::super::Foundation::HRESULT = -2131886026;
+                const RTC_E_PROFILE_NO_USER: super::super::Foundation::HRESULT = -2131886030;
+                const RTC_E_PROFILE_NO_USER_URI: super::super::Foundation::HRESULT = -2131886029;
+                const RTC_E_PROFILE_SERVER_UNAUTHORIZED: super::super::Foundation::HRESULT = -2131886014;
+                const RTC_E_REDIRECT_PROCESSING_FAILED: super::super::Foundation::HRESULT = -2131885959;
+                const RTC_E_REFER_NOT_ACCEPTED: super::super::Foundation::HRESULT = -2131885968;
+                const RTC_E_REFER_NOT_ALLOWED: super::super::Foundation::HRESULT = -2131885967;
+                const RTC_E_REFER_NOT_EXIST: super::super::Foundation::HRESULT = -2131885966;
+                const RTC_E_REGISTRATION_DEACTIVATED: super::super::Foundation::HRESULT = -2131885949;
+                const RTC_E_REGISTRATION_REJECTED: super::super::Foundation::HRESULT = -2131885948;
+                const RTC_E_REGISTRATION_UNREGISTERED: super::super::Foundation::HRESULT = -2131885947;
+                const RTC_E_ROAMING_ENABLED: super::super::Foundation::HRESULT = -2131885981;
+                const RTC_E_ROAMING_FAILED: super::super::Foundation::HRESULT = -2131886002;
+                const RTC_E_ROAMING_OPERATION_INTERRUPTED: super::super::Foundation::HRESULT = -2131886003;
+                const RTC_E_SDP_CONNECTION_ADDR: super::super::Foundation::HRESULT = -2131886070;
+                const RTC_E_SDP_FAILED_TO_BUILD: super::super::Foundation::HRESULT = -2131886067;
+                const RTC_E_SDP_MULTICAST: super::super::Foundation::HRESULT = -2131886071;
+                const RTC_E_SDP_NOT_PRESENT: super::super::Foundation::HRESULT = -2131886074;
+                const RTC_E_SDP_NO_MEDIA: super::super::Foundation::HRESULT = -2131886069;
+                const RTC_E_SDP_PARSE_FAILED: super::super::Foundation::HRESULT = -2131886073;
+                const RTC_E_SDP_UPDATE_FAILED: super::super::Foundation::HRESULT = -2131886072;
+                const RTC_E_SECURITY_LEVEL_ALREADY_SET: super::super::Foundation::HRESULT = -2131885955;
+                const RTC_E_SECURITY_LEVEL_NOT_COMPATIBLE: super::super::Foundation::HRESULT = -2131886009;
+                const RTC_E_SECURITY_LEVEL_NOT_DEFINED: super::super::Foundation::HRESULT = -2131886008;
+                const RTC_E_SECURITY_LEVEL_NOT_SUPPORTED_BY_PARTICIPANT: super::super::Foundation::HRESULT = -2131886007;
+                const RTC_E_SIP_ADDITIONAL_PARTY_IN_TWO_PARTY_SESSION: super::super::Foundation::HRESULT = -2131885986;
+                const RTC_E_SIP_AUTH_FAILED: super::super::Foundation::HRESULT = -2131886063;
+                const RTC_E_SIP_AUTH_HEADER_SENT: super::super::Foundation::HRESULT = -2131886065;
+                const RTC_E_SIP_AUTH_TIME_SKEW: super::super::Foundation::HRESULT = -2131885972;
+                const RTC_E_SIP_AUTH_TYPE_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2131886064;
+                const RTC_E_SIP_CALL_CONNECTION_NOT_ESTABLISHED: super::super::Foundation::HRESULT = -2131885987;
+                const RTC_E_SIP_CALL_DISCONNECTED: super::super::Foundation::HRESULT = -2131886055;
+                const RTC_E_SIP_CODECS_DO_NOT_MATCH: super::super::Foundation::HRESULT = -2131886080;
+                const RTC_E_SIP_DNS_FAIL: super::super::Foundation::HRESULT = -2131885978;
+                const RTC_E_SIP_HEADER_NOT_PRESENT: super::super::Foundation::HRESULT = -2131886075;
+                const RTC_E_SIP_HIGH_SECURITY_SET_TLS: super::super::Foundation::HRESULT = -2131886016;
+                const RTC_E_SIP_HOLD_OPERATION_PENDING: super::super::Foundation::HRESULT = -2131885965;
+                const RTC_E_SIP_INVALID_CERTIFICATE: super::super::Foundation::HRESULT = -2131885979;
+                const RTC_E_SIP_INVITEE_PARTY_TIMEOUT: super::super::Foundation::HRESULT = -2131885973;
+                const RTC_E_SIP_INVITE_TRANSACTION_PENDING: super::super::Foundation::HRESULT = -2131886066;
+                const RTC_E_SIP_NEED_MORE_DATA: super::super::Foundation::HRESULT = -2131886056;
+                const RTC_E_SIP_NO_STREAM: super::super::Foundation::HRESULT = -2131886077;
+                const RTC_E_SIP_OTHER_PARTY_JOIN_IN_PROGRESS: super::super::Foundation::HRESULT = -2131885984;
+                const RTC_E_SIP_PARSE_FAILED: super::super::Foundation::HRESULT = -2131886076;
+                const RTC_E_SIP_PARTY_ALREADY_IN_SESSION: super::super::Foundation::HRESULT = -2131885985;
+                const RTC_E_SIP_PEER_PARTICIPANT_IN_MULTIPARTY_SESSION: super::super::Foundation::HRESULT = -2131885951;
+                const RTC_E_SIP_REFER_OPERATION_PENDING: super::super::Foundation::HRESULT = -2131885953;
+                const RTC_E_SIP_REQUEST_DESTINATION_ADDR_NOT_PRESENT: super::super::Foundation::HRESULT = -2131886054;
+                const RTC_E_SIP_SSL_NEGOTIATION_TIMEOUT: super::super::Foundation::HRESULT = -2131886051;
+                const RTC_E_SIP_SSL_TUNNEL_FAILED: super::super::Foundation::HRESULT = -2131886052;
+                const RTC_E_SIP_STACK_SHUTDOWN: super::super::Foundation::HRESULT = -2131886050;
+                const RTC_E_SIP_STREAM_NOT_PRESENT: super::super::Foundation::HRESULT = -2131886078;
+                const RTC_E_SIP_STREAM_PRESENT: super::super::Foundation::HRESULT = -2131886079;
+                const RTC_E_SIP_TCP_FAIL: super::super::Foundation::HRESULT = -2131885977;
+                const RTC_E_SIP_TIMEOUT: super::super::Foundation::HRESULT = -2131886068;
+                const RTC_E_SIP_TLS_FAIL: super::super::Foundation::HRESULT = -2131885975;
+                const RTC_E_SIP_TLS_INCOMPATIBLE_ENCRYPTION: super::super::Foundation::HRESULT = -2131885980;
+                const RTC_E_SIP_TRANSPORT_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2131886057;
+                const RTC_E_SIP_UDP_SIZE_EXCEEDED: super::super::Foundation::HRESULT = -2131886053;
+                const RTC_E_SIP_UNHOLD_OPERATION_PENDING: super::super::Foundation::HRESULT = -2131885964;
+                const RTC_E_START_STREAM: super::super::Foundation::HRESULT = -2131886045;
+                const RTC_E_STATUS_CLIENT_ADDRESS_INCOMPLETE: super::super::Foundation::HRESULT = -2131820060;
+                const RTC_E_STATUS_CLIENT_AMBIGUOUS: super::super::Foundation::HRESULT = -2131820059;
+                const RTC_E_STATUS_CLIENT_BAD_EXTENSION: super::super::Foundation::HRESULT = -2131820124;
+                const RTC_E_STATUS_CLIENT_BAD_REQUEST: super::super::Foundation::HRESULT = -2131820144;
+                const RTC_E_STATUS_CLIENT_BUSY_HERE: super::super::Foundation::HRESULT = -2131820058;
+                const RTC_E_STATUS_CLIENT_CONFLICT: super::super::Foundation::HRESULT = -2131820135;
+                const RTC_E_STATUS_CLIENT_FORBIDDEN: super::super::Foundation::HRESULT = -2131820141;
+                const RTC_E_STATUS_CLIENT_GONE: super::super::Foundation::HRESULT = -2131820134;
+                const RTC_E_STATUS_CLIENT_LENGTH_REQUIRED: super::super::Foundation::HRESULT = -2131820133;
+                const RTC_E_STATUS_CLIENT_LOOP_DETECTED: super::super::Foundation::HRESULT = -2131820062;
+                const RTC_E_STATUS_CLIENT_METHOD_NOT_ALLOWED: super::super::Foundation::HRESULT = -2131820139;
+                const RTC_E_STATUS_CLIENT_NOT_ACCEPTABLE: super::super::Foundation::HRESULT = -2131820138;
+                const RTC_E_STATUS_CLIENT_NOT_FOUND: super::super::Foundation::HRESULT = -2131820140;
+                const RTC_E_STATUS_CLIENT_PAYMENT_REQUIRED: super::super::Foundation::HRESULT = -2131820142;
+                const RTC_E_STATUS_CLIENT_PROXY_AUTHENTICATION_REQUIRED: super::super::Foundation::HRESULT = -2131820137;
+                const RTC_E_STATUS_CLIENT_REQUEST_ENTITY_TOO_LARGE: super::super::Foundation::HRESULT = -2131820131;
+                const RTC_E_STATUS_CLIENT_REQUEST_TIMEOUT: super::super::Foundation::HRESULT = -2131820136;
+                const RTC_E_STATUS_CLIENT_REQUEST_URI_TOO_LARGE: super::super::Foundation::HRESULT = -2131820130;
+                const RTC_E_STATUS_CLIENT_TEMPORARILY_NOT_AVAILABLE: super::super::Foundation::HRESULT = -2131820064;
+                const RTC_E_STATUS_CLIENT_TOO_MANY_HOPS: super::super::Foundation::HRESULT = -2131820061;
+                const RTC_E_STATUS_CLIENT_TRANSACTION_DOES_NOT_EXIST: super::super::Foundation::HRESULT = -2131820063;
+                const RTC_E_STATUS_CLIENT_UNAUTHORIZED: super::super::Foundation::HRESULT = -2131820143;
+                const RTC_E_STATUS_CLIENT_UNSUPPORTED_MEDIA_TYPE: super::super::Foundation::HRESULT = -2131820129;
+                const RTC_E_STATUS_GLOBAL_BUSY_EVERYWHERE: super::super::Foundation::HRESULT = -2131819944;
+                const RTC_E_STATUS_GLOBAL_DECLINE: super::super::Foundation::HRESULT = -2131819941;
+                const RTC_E_STATUS_GLOBAL_DOES_NOT_EXIST_ANYWHERE: super::super::Foundation::HRESULT = -2131819940;
+                const RTC_E_STATUS_GLOBAL_NOT_ACCEPTABLE: super::super::Foundation::HRESULT = -2131819938;
+                const RTC_E_STATUS_INFO_CALL_FORWARDING: super::super::Foundation::HRESULT = 15663285;
+                const RTC_E_STATUS_INFO_QUEUED: super::super::Foundation::HRESULT = 15663286;
+                const RTC_E_STATUS_INFO_RINGING: super::super::Foundation::HRESULT = 15663284;
+                const RTC_E_STATUS_INFO_TRYING: super::super::Foundation::HRESULT = 15663204;
+                const RTC_E_STATUS_NOT_ACCEPTABLE_HERE: super::super::Foundation::HRESULT = -2131820056;
+                const RTC_E_STATUS_REDIRECT_ALTERNATIVE_SERVICE: super::super::Foundation::HRESULT = -2131820164;
+                const RTC_E_STATUS_REDIRECT_MOVED_PERMANENTLY: super::super::Foundation::HRESULT = -2131820243;
+                const RTC_E_STATUS_REDIRECT_MOVED_TEMPORARILY: super::super::Foundation::HRESULT = -2131820242;
+                const RTC_E_STATUS_REDIRECT_MULTIPLE_CHOICES: super::super::Foundation::HRESULT = -2131820244;
+                const RTC_E_STATUS_REDIRECT_SEE_OTHER: super::super::Foundation::HRESULT = -2131820241;
+                const RTC_E_STATUS_REDIRECT_USE_PROXY: super::super::Foundation::HRESULT = -2131820239;
+                const RTC_E_STATUS_REQUEST_TERMINATED: super::super::Foundation::HRESULT = -2131820057;
+                const RTC_E_STATUS_SERVER_BAD_GATEWAY: super::super::Foundation::HRESULT = -2131820042;
+                const RTC_E_STATUS_SERVER_INTERNAL_ERROR: super::super::Foundation::HRESULT = -2131820044;
+                const RTC_E_STATUS_SERVER_NOT_IMPLEMENTED: super::super::Foundation::HRESULT = -2131820043;
+                const RTC_E_STATUS_SERVER_SERVER_TIMEOUT: super::super::Foundation::HRESULT = -2131820040;
+                const RTC_E_STATUS_SERVER_SERVICE_UNAVAILABLE: super::super::Foundation::HRESULT = -2131820041;
+                const RTC_E_STATUS_SERVER_VERSION_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2131820039;
+                const RTC_E_STATUS_SESSION_PROGRESS: super::super::Foundation::HRESULT = 15663287;
+                const RTC_E_STATUS_SUCCESS: super::super::Foundation::HRESULT = 15663304;
+                const RTC_E_TOO_MANY_GROUPS: super::super::Foundation::HRESULT = -2131885997;
+                const RTC_E_TOO_MANY_RETRIES: super::super::Foundation::HRESULT = -2131885989;
+                const RTC_E_TOO_SMALL_EXPIRES_VALUE: super::super::Foundation::HRESULT = -2131885976;
+                const RTC_E_UDP_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2131885954;
+                #[repr(i32)]
+                enum RTC_GROUP_EVENT_TYPE {
+                    RTCGET_GROUP_ADD = 0,
+                    RTCGET_GROUP_REMOVE = 1,
+                    RTCGET_GROUP_UPDATE = 2,
+                    RTCGET_GROUP_BUDDY_ADD = 3,
+                    RTCGET_GROUP_BUDDY_REMOVE = 4,
+                    RTCGET_GROUP_ROAMED = 5,
+                }
+                #[repr(i32)]
+                enum RTC_LISTEN_MODE {
+                    RTCLM_NONE = 0,
+                    RTCLM_DYNAMIC = 1,
+                    RTCLM_BOTH = 2,
+                }
+                #[repr(i32)]
+                enum RTC_MEDIA_EVENT_REASON {
+                    RTCMER_NORMAL = 0,
+                    RTCMER_HOLD = 1,
+                    RTCMER_TIMEOUT = 2,
+                    RTCMER_BAD_DEVICE = 3,
+                    RTCMER_NO_PORT = 4,
+                    RTCMER_PORT_MAPPING_FAILED = 5,
+                    RTCMER_REMOTE_REQUEST = 6,
+                }
+                #[repr(i32)]
+                enum RTC_MEDIA_EVENT_TYPE {
+                    RTCMET_STOPPED = 0,
+                    RTCMET_STARTED = 1,
+                    RTCMET_FAILED = 2,
+                }
+                #[repr(i32)]
+                enum RTC_MESSAGING_EVENT_TYPE {
+                    RTCMSET_MESSAGE = 0,
+                    RTCMSET_STATUS = 1,
+                }
+                #[repr(i32)]
+                enum RTC_MESSAGING_USER_STATUS {
+                    RTCMUS_IDLE = 0,
+                    RTCMUS_TYPING = 1,
+                }
+                #[repr(i32)]
+                enum RTC_OFFER_WATCHER_MODE {
+                    RTCOWM_OFFER_WATCHER_EVENT = 0,
+                    RTCOWM_AUTOMATICALLY_ADD_WATCHER = 1,
+                }
+                #[repr(i32)]
+                enum RTC_PARTICIPANT_STATE {
+                    RTCPS_IDLE = 0,
+                    RTCPS_PENDING = 1,
+                    RTCPS_INCOMING = 2,
+                    RTCPS_ANSWERING = 3,
+                    RTCPS_INPROGRESS = 4,
+                    RTCPS_ALERTING = 5,
+                    RTCPS_CONNECTED = 6,
+                    RTCPS_DISCONNECTING = 7,
+                    RTCPS_DISCONNECTED = 8,
+                }
+                #[repr(i32)]
+                enum RTC_PORT_TYPE {
+                    RTCPT_AUDIO_RTP = 0,
+                    RTCPT_AUDIO_RTCP = 1,
+                    RTCPT_VIDEO_RTP = 2,
+                    RTCPT_VIDEO_RTCP = 3,
+                    RTCPT_SIP = 4,
+                }
+                #[repr(i32)]
+                enum RTC_PRESENCE_PROPERTY {
+                    RTCPP_PHONENUMBER = 0,
+                    RTCPP_DISPLAYNAME = 1,
+                    RTCPP_EMAIL = 2,
+                    RTCPP_DEVICE_NAME = 3,
+                    RTCPP_MULTIPLE = 4,
+                }
+                #[repr(i32)]
+                enum RTC_PRESENCE_STATUS {
+                    RTCXS_PRESENCE_OFFLINE = 0,
+                    RTCXS_PRESENCE_ONLINE = 1,
+                    RTCXS_PRESENCE_AWAY = 2,
+                    RTCXS_PRESENCE_IDLE = 3,
+                    RTCXS_PRESENCE_BUSY = 4,
+                    RTCXS_PRESENCE_BE_RIGHT_BACK = 5,
+                    RTCXS_PRESENCE_ON_THE_PHONE = 6,
+                    RTCXS_PRESENCE_OUT_TO_LUNCH = 7,
+                }
+                #[repr(i32)]
+                enum RTC_PRIVACY_MODE {
+                    RTCPM_BLOCK_LIST_EXCLUDED = 0,
+                    RTCPM_ALLOW_LIST_ONLY = 1,
+                }
+                #[repr(i32)]
+                enum RTC_PROFILE_EVENT_TYPE {
+                    RTCPFET_PROFILE_GET = 0,
+                    RTCPFET_PROFILE_UPDATE = 1,
+                }
+                #[repr(i32)]
+                enum RTC_PROVIDER_URI {
+                    RTCPU_URIHOMEPAGE = 0,
+                    RTCPU_URIHELPDESK = 1,
+                    RTCPU_URIPERSONALACCOUNT = 2,
+                    RTCPU_URIDISPLAYDURINGCALL = 3,
+                    RTCPU_URIDISPLAYDURINGIDLE = 4,
+                }
+                #[repr(i32)]
+                enum RTC_REGISTRATION_STATE {
+                    RTCRS_NOT_REGISTERED = 0,
+                    RTCRS_REGISTERING = 1,
+                    RTCRS_REGISTERED = 2,
+                    RTCRS_REJECTED = 3,
+                    RTCRS_UNREGISTERING = 4,
+                    RTCRS_ERROR = 5,
+                    RTCRS_LOGGED_OFF = 6,
+                    RTCRS_LOCAL_PA_LOGGED_OFF = 7,
+                    RTCRS_REMOTE_PA_LOGGED_OFF = 8,
+                }
+                #[repr(i32)]
+                enum RTC_REINVITE_STATE {
+                    RTCRIN_INCOMING = 0,
+                    RTCRIN_SUCCEEDED = 1,
+                    RTCRIN_FAIL = 2,
+                }
+                #[repr(i32)]
+                enum RTC_RING_TYPE {
+                    RTCRT_PHONE = 0,
+                    RTCRT_MESSAGE = 1,
+                    RTCRT_RINGBACK = 2,
+                }
+                #[repr(i32)]
+                enum RTC_ROAMING_EVENT_TYPE {
+                    RTCRET_BUDDY_ROAMING = 0,
+                    RTCRET_WATCHER_ROAMING = 1,
+                    RTCRET_PRESENCE_ROAMING = 2,
+                    RTCRET_PROFILE_ROAMING = 3,
+                    RTCRET_WPENDING_ROAMING = 4,
+                }
+                #[repr(i32)]
+                enum RTC_SECURITY_LEVEL {
+                    RTCSECL_UNSUPPORTED = 1,
+                    RTCSECL_SUPPORTED = 2,
+                    RTCSECL_REQUIRED = 3,
+                }
+                #[repr(i32)]
+                enum RTC_SECURITY_TYPE {
+                    RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION = 0,
+                    RTCSECT_T120_MEDIA_ENCRYPTION = 1,
+                }
+                #[repr(i32)]
+                enum RTC_SESSION_REFER_STATUS {
+                    RTCSRS_REFERRING = 0,
+                    RTCSRS_ACCEPTED = 1,
+                    RTCSRS_ERROR = 2,
+                    RTCSRS_REJECTED = 3,
+                    RTCSRS_DROPPED = 4,
+                    RTCSRS_DONE = 5,
+                }
+                #[repr(i32)]
+                enum RTC_SESSION_STATE {
+                    RTCSS_IDLE = 0,
+                    RTCSS_INCOMING = 1,
+                    RTCSS_ANSWERING = 2,
+                    RTCSS_INPROGRESS = 3,
+                    RTCSS_CONNECTED = 4,
+                    RTCSS_DISCONNECTED = 5,
+                    RTCSS_HOLD = 6,
+                    RTCSS_REFER = 7,
+                }
+                #[repr(i32)]
+                enum RTC_SESSION_TYPE {
+                    RTCST_PC_TO_PC = 0,
+                    RTCST_PC_TO_PHONE = 1,
+                    RTCST_PHONE_TO_PHONE = 2,
+                    RTCST_IM = 3,
+                    RTCST_MULTIPARTY_IM = 4,
+                    RTCST_APPLICATION = 5,
+                }
+                const RTC_S_ROAMING_NOT_SUPPORTED: super::super::Foundation::HRESULT = 15597633;
+                #[repr(i32)]
+                enum RTC_T120_APPLET {
+                    RTCTA_WHITEBOARD = 0,
+                    RTCTA_APPSHARING = 1,
+                }
+                #[repr(i32)]
+                enum RTC_TERMINATE_REASON {
+                    RTCTR_NORMAL = 0,
+                    RTCTR_DND = 1,
+                    RTCTR_BUSY = 2,
+                    RTCTR_REJECT = 3,
+                    RTCTR_TIMEOUT = 4,
+                    RTCTR_SHUTDOWN = 5,
+                    RTCTR_INSUFFICIENT_SECURITY_LEVEL = 6,
+                    RTCTR_NOT_SUPPORTED = 7,
+                }
+                #[repr(i32)]
+                enum RTC_USER_SEARCH_COLUMN {
+                    RTCUSC_URI = 0,
+                    RTCUSC_DISPLAYNAME = 1,
+                    RTCUSC_TITLE = 2,
+                    RTCUSC_OFFICE = 3,
+                    RTCUSC_PHONE = 4,
+                    RTCUSC_COMPANY = 5,
+                    RTCUSC_CITY = 6,
+                    RTCUSC_STATE = 7,
+                    RTCUSC_COUNTRY = 8,
+                    RTCUSC_EMAIL = 9,
+                }
+                #[repr(i32)]
+                enum RTC_USER_SEARCH_PREFERENCE {
+                    RTCUSP_MAX_MATCHES = 0,
+                    RTCUSP_TIME_LIMIT = 1,
+                }
+                #[repr(i32)]
+                enum RTC_VIDEO_DEVICE {
+                    RTCVD_RECEIVE = 0,
+                    RTCVD_PREVIEW = 1,
+                }
+                #[repr(i32)]
+                enum RTC_WATCHER_EVENT_TYPE {
+                    RTCWET_WATCHER_ADD = 0,
+                    RTCWET_WATCHER_REMOVE = 1,
+                    RTCWET_WATCHER_UPDATE = 2,
+                    RTCWET_WATCHER_OFFERING = 3,
+                    RTCWET_WATCHER_ROAMED = 4,
+                }
+                #[repr(i32)]
+                enum RTC_WATCHER_MATCH_MODE {
+                    RTCWMM_EXACT_MATCH = 0,
+                    RTCWMM_BEST_ACE_MATCH = 1,
+                }
+                #[repr(i32)]
+                enum RTC_WATCHER_STATE {
+                    RTCWS_UNKNOWN = 0,
+                    RTCWS_OFFERING = 1,
+                    RTCWS_ALLOWED = 2,
+                    RTCWS_BLOCKED = 3,
+                    RTCWS_DENIED = 4,
+                    RTCWS_PROMPT = 5,
+                }
+                const STATUS_SEVERITY_RTC_ERROR: u32 = 2;
+                struct TRANSPORT_SETTING {
+                    SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
+                    Length: *mut u32,
+                    Value: *mut u8,
+                }
+            }
+        }
+    }
+}

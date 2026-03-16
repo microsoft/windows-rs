@@ -1,0 +1,816 @@
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            #[win32]
+            mod Geolocation {
+                const BREADCRUMBING_UNSUPPORTED: u32 = 0;
+                const BREADCRUMBING_VERSION_1: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Guid(3550378973, 32005, 18104, 135, 33, 128, 207, 3, 95, 87, 215)]
+                struct CivicAddressReport {}
+                #[Windows::Win32::Foundation::Metadata::Guid(705819692, 16001, 19156, 156, 190, 69, 87, 157, 137, 103, 26)]
+                struct CivicAddressReportFactory {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2340405216, 23767, 18762, 175, 140, 40, 58, 101, 112, 117, 6)]
+                struct DefaultLocation {}
+                #[Windows::Win32::Foundation::Metadata::Guid(1280928492, 34116, 16514, 186, 159, 235, 10, 125, 142, 101, 198)]
+                struct DispCivicAddressReport {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2054959735, 36740, 17974, 149, 178, 235, 181, 80, 127, 247, 126)]
+                struct DispLatLongReport {}
+                const GNSS_AGNSSFORMAT_LTO: u32 = 4;
+                const GNSS_AGNSSFORMAT_XTRA1: u32 = 1;
+                const GNSS_AGNSSFORMAT_XTRA2: u32 = 2;
+                const GNSS_AGNSSFORMAT_XTRA3: u32 = 8;
+                const GNSS_AGNSSFORMAT_XTRA3_1: u32 = 16;
+                const GNSS_AGNSSFORMAT_XTRA3_2: u32 = 32;
+                const GNSS_AGNSSFORMAT_XTRA_INT: u32 = 64;
+                struct GNSS_AGNSS_INJECT {
+                    Size: u32,
+                    Version: u32,
+                    InjectionType: GNSS_AGNSS_REQUEST_TYPE,
+                    InjectionStatus: super::super::Foundation::NTSTATUS,
+                    InjectionDataSize: u32,
+                    Unused: [u8; 512],
+                    Anonymous: union {
+                        Time: GNSS_AGNSS_INJECTTIME,
+                        Position: GNSS_AGNSS_INJECTPOSITION,
+                        BlobData: GNSS_AGNSS_INJECTBLOB,
+                    },
+                }
+                struct GNSS_AGNSS_INJECTBLOB {
+                    Size: u32,
+                    Version: u32,
+                    BlobOui: u32,
+                    BlobVersion: u32,
+                    AgnssFormat: u32,
+                    BlobSize: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    BlobData: [u8; 1],
+                }
+                struct GNSS_AGNSS_INJECTPOSITION {
+                    Size: u32,
+                    Version: u32,
+                    Age: u32,
+                    BasicData: GNSS_FIXDATA_BASIC,
+                    AccuracyData: GNSS_FIXDATA_ACCURACY,
+                }
+                struct GNSS_AGNSS_INJECTTIME {
+                    Size: u32,
+                    Version: u32,
+                    UtcTime: super::super::Foundation::FILETIME,
+                    TimeUncertainty: u32,
+                }
+                struct GNSS_AGNSS_REQUEST_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    RequestType: GNSS_AGNSS_REQUEST_TYPE,
+                    BlobFormat: u32,
+                }
+                #[repr(i32)]
+                enum GNSS_AGNSS_REQUEST_TYPE {
+                    GNSS_AGNSS_TimeInjection = 1,
+                    GNSS_AGNSS_PositionInjection = 2,
+                    GNSS_AGNSS_BlobInjection = 3,
+                }
+                struct GNSS_BREADCRUMBING_ALERT_DATA {
+                    Size: u32,
+                    Version: u32,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_BREADCRUMBING_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    MaximumHorizontalUncertainty: u32,
+                    MinDistanceBetweenFixes: u32,
+                    MaximumErrorTimeoutMs: u32,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_BREADCRUMB_LIST {
+                    Size: u32,
+                    Version: u32,
+                    NumCrumbs: u32,
+                    Anonymous: union {
+                        v1: [GNSS_BREADCRUMB_V1; 50],
+                    },
+                }
+                struct GNSS_BREADCRUMB_V1 {
+                    FixTimeStamp: super::super::Foundation::FILETIME,
+                    Latitude: f64,
+                    Longitude: f64,
+                    HorizontalAccuracy: u32,
+                    Speed: u16,
+                    SpeedAccuracy: u16,
+                    Altitude: i16,
+                    AltitudeAccuracy: u16,
+                    Heading: i16,
+                    HeadingAccuracy: u8,
+                    FixSuccess: u8,
+                }
+                struct GNSS_CHIPSETINFO {
+                    Size: u32,
+                    Version: u32,
+                    ManufacturerID: [u16; 25],
+                    HardwareID: [u16; 25],
+                    FirmwareVersion: [u16; 20],
+                    Unused: [u8; 512],
+                }
+                struct GNSS_CONTINUOUSTRACKING_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    PreferredInterval: u32,
+                }
+                struct GNSS_CP_NI_INFO {
+                    Size: u32,
+                    Version: u32,
+                    RequestorId: [u16; 260],
+                    NotificationText: [u16; 260],
+                }
+                struct GNSS_CWTESTDATA {
+                    Size: u32,
+                    Version: u32,
+                    TestResultStatus: super::super::Foundation::NTSTATUS,
+                    SignalToNoiseRatio: f64,
+                    Frequency: f64,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_DEVICE_CAPABILITY {
+                    Size: u32,
+                    Version: u32,
+                    SupportMultipleFixSessions: super::super::Foundation::BOOL,
+                    SupportMultipleAppSessions: super::super::Foundation::BOOL,
+                    RequireAGnssInjection: super::super::Foundation::BOOL,
+                    AgnssFormatSupported: u32,
+                    AgnssFormatPreferred: u32,
+                    SupportDistanceTracking: super::super::Foundation::BOOL,
+                    SupportContinuousTracking: super::super::Foundation::BOOL,
+                    Reserved1: u32,
+                    Reserved2: super::super::Foundation::BOOL,
+                    Reserved3: super::super::Foundation::BOOL,
+                    Reserved4: super::super::Foundation::BOOL,
+                    Reserved5: super::super::Foundation::BOOL,
+                    GeofencingSupport: u32,
+                    Reserved6: super::super::Foundation::BOOL,
+                    Reserved7: super::super::Foundation::BOOL,
+                    SupportCpLocation: super::super::Foundation::BOOL,
+                    SupportUplV2: super::super::Foundation::BOOL,
+                    SupportSuplV1: super::super::Foundation::BOOL,
+                    SupportSuplV2: super::super::Foundation::BOOL,
+                    SupportedSuplVersion: GNSS_SUPL_VERSION,
+                    MaxGeofencesSupported: u32,
+                    SupportMultipleSuplRootCert: super::super::Foundation::BOOL,
+                    GnssBreadCrumbPayloadVersion: u32,
+                    MaxGnssBreadCrumbFixes: u32,
+                    Unused: [u8; 496],
+                }
+                struct GNSS_DISTANCETRACKING_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    MovementThreshold: u32,
+                }
+                struct GNSS_DRIVERCOMMAND_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    CommandType: GNSS_DRIVERCOMMAND_TYPE,
+                    Reserved: u32,
+                    CommandDataSize: u32,
+                    Unused: [u8; 512],
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    CommandData: [u8; 1],
+                }
+                #[repr(i32)]
+                enum GNSS_DRIVERCOMMAND_TYPE {
+                    GNSS_SetLocationServiceEnabled = 1,
+                    GNSS_SetLocationNIRequestAllowed = 2,
+                    GNSS_ForceSatelliteSystem = 3,
+                    GNSS_ForceOperationMode = 4,
+                    GNSS_ResetEngine = 9,
+                    GNSS_ClearAgnssData = 10,
+                    GNSS_SetSuplVersion = 12,
+                    GNSS_SetNMEALogging = 13,
+                    GNSS_SetUplServerAccessInterval = 14,
+                    GNSS_SetNiTimeoutInterval = 15,
+                    GNSS_ResetGeofencesTracking = 16,
+                    GNSS_SetSuplVersion2 = 17,
+                    GNSS_CustomCommand = 256,
+                }
+                #[repr(i32)]
+                enum GNSS_DRIVER_REQUEST {
+                    SUPL_CONFIG_DATA = 1,
+                }
+                struct GNSS_DRIVER_REQUEST_DATA {
+                    Size: u32,
+                    Version: u32,
+                    Request: GNSS_DRIVER_REQUEST,
+                    RequestFlag: u32,
+                }
+                const GNSS_DRIVER_VERSION_1: u32 = 1;
+                const GNSS_DRIVER_VERSION_2: u32 = 2;
+                const GNSS_DRIVER_VERSION_3: u32 = 3;
+                const GNSS_DRIVER_VERSION_4: u32 = 4;
+                const GNSS_DRIVER_VERSION_5: u32 = 5;
+                const GNSS_DRIVER_VERSION_6: u32 = 6;
+                struct GNSS_ERRORINFO {
+                    Size: u32,
+                    Version: u32,
+                    ErrorCode: u32,
+                    IsRecoverable: super::super::Foundation::BOOL,
+                    ErrorDescription: [u16; 256],
+                    Unused: [u8; 512],
+                }
+                struct GNSS_EVENT {
+                    Size: u32,
+                    Version: u32,
+                    EventType: GNSS_EVENT_TYPE,
+                    EventDataSize: u32,
+                    Unused: [u8; 512],
+                    Anonymous: union {
+                        FixData: GNSS_FIXDATA,
+                        AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
+                        NiRequest: GNSS_NI_REQUEST_PARAM,
+                        ErrorInformation: GNSS_ERRORINFO,
+                        NmeaData: GNSS_NMEA_DATA,
+                        GeofenceAlertData: GNSS_GEOFENCE_ALERT_DATA,
+                        BreadcrumbAlertData: GNSS_BREADCRUMBING_ALERT_DATA,
+                        GeofencesTrackingStatus: GNSS_GEOFENCES_TRACKINGSTATUS_DATA,
+                        DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        CustomData: [u8; 1],
+                    },
+                }
+                struct GNSS_EVENT_2 {
+                    Size: u32,
+                    Version: u32,
+                    EventType: GNSS_EVENT_TYPE,
+                    EventDataSize: u32,
+                    Unused: [u8; 512],
+                    Anonymous: union {
+                        FixData: GNSS_FIXDATA,
+                        FixData2: GNSS_FIXDATA_2,
+                        AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
+                        NiRequest: GNSS_NI_REQUEST_PARAM,
+                        ErrorInformation: GNSS_ERRORINFO,
+                        NmeaData: GNSS_NMEA_DATA,
+                        GeofenceAlertData: GNSS_GEOFENCE_ALERT_DATA,
+                        BreadcrumbAlertData: GNSS_BREADCRUMBING_ALERT_DATA,
+                        GeofencesTrackingStatus: GNSS_GEOFENCES_TRACKINGSTATUS_DATA,
+                        DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        CustomData: [u8; 1],
+                    },
+                }
+                #[repr(i32)]
+                enum GNSS_EVENT_TYPE {
+                    GNSS_Event_FixAvailable = 1,
+                    GNSS_Event_RequireAgnss = 2,
+                    GNSS_Event_Error = 3,
+                    GNSS_Event_NiRequest = 12,
+                    GNSS_Event_NmeaData = 13,
+                    GNSS_Event_GeofenceAlertData = 14,
+                    GNSS_Event_GeofencesTrackingStatus = 15,
+                    GNSS_Event_DriverRequest = 16,
+                    GNSS_Event_BreadcrumbAlertEvent = 17,
+                    GNSS_Event_FixAvailable_2 = 18,
+                    GNSS_Event_Custom = 32768,
+                }
+                struct GNSS_FIXDATA {
+                    Size: u32,
+                    Version: u32,
+                    FixSessionID: u32,
+                    FixTimeStamp: super::super::Foundation::FILETIME,
+                    IsFinalFix: super::super::Foundation::BOOL,
+                    FixStatus: super::super::Foundation::NTSTATUS,
+                    FixLevelOfDetails: u32,
+                    BasicData: GNSS_FIXDATA_BASIC,
+                    AccuracyData: GNSS_FIXDATA_ACCURACY,
+                    SatelliteData: GNSS_FIXDATA_SATELLITE,
+                }
+                struct GNSS_FIXDATA_2 {
+                    Size: u32,
+                    Version: u32,
+                    FixSessionID: u32,
+                    FixTimeStamp: super::super::Foundation::FILETIME,
+                    IsFinalFix: super::super::Foundation::BOOL,
+                    FixStatus: super::super::Foundation::NTSTATUS,
+                    FixLevelOfDetails: u32,
+                    BasicData: GNSS_FIXDATA_BASIC_2,
+                    AccuracyData: GNSS_FIXDATA_ACCURACY_2,
+                    SatelliteData: GNSS_FIXDATA_SATELLITE,
+                }
+                struct GNSS_FIXDATA_ACCURACY {
+                    Size: u32,
+                    Version: u32,
+                    HorizontalAccuracy: u32,
+                    HorizontalErrorMajorAxis: u32,
+                    HorizontalErrorMinorAxis: u32,
+                    HorizontalErrorAngle: u32,
+                    HeadingAccuracy: u32,
+                    AltitudeAccuracy: u32,
+                    SpeedAccuracy: u32,
+                    HorizontalConfidence: u32,
+                    HeadingConfidence: u32,
+                    AltitudeConfidence: u32,
+                    SpeedConfidence: u32,
+                    PositionDilutionOfPrecision: f32,
+                    HorizontalDilutionOfPrecision: f32,
+                    VerticalDilutionOfPrecision: f32,
+                }
+                struct GNSS_FIXDATA_ACCURACY_2 {
+                    Size: u32,
+                    Version: u32,
+                    HorizontalAccuracy: f64,
+                    HorizontalErrorMajorAxis: f64,
+                    HorizontalErrorMinorAxis: f64,
+                    HorizontalErrorAngle: f64,
+                    HeadingAccuracy: f64,
+                    AltitudeAccuracy: f64,
+                    SpeedAccuracy: f64,
+                    HorizontalConfidence: u32,
+                    HeadingConfidence: u32,
+                    AltitudeConfidence: u32,
+                    SpeedConfidence: u32,
+                    PositionDilutionOfPrecision: f64,
+                    HorizontalDilutionOfPrecision: f64,
+                    VerticalDilutionOfPrecision: f64,
+                    GeometricDilutionOfPrecision: f64,
+                    TimeDilutionOfPrecision: f64,
+                }
+                struct GNSS_FIXDATA_BASIC {
+                    Size: u32,
+                    Version: u32,
+                    Latitude: f64,
+                    Longitude: f64,
+                    Altitude: f64,
+                    Speed: f64,
+                    Heading: f64,
+                }
+                struct GNSS_FIXDATA_BASIC_2 {
+                    Size: u32,
+                    Version: u32,
+                    Latitude: f64,
+                    Longitude: f64,
+                    Altitude: f64,
+                    Speed: f64,
+                    Heading: f64,
+                    AltitudeEllipsoid: f64,
+                }
+                struct GNSS_FIXDATA_SATELLITE {
+                    Size: u32,
+                    Version: u32,
+                    SatelliteCount: u32,
+                    SatelliteArray: [GNSS_SATELLITEINFO; 64],
+                }
+                const GNSS_FIXDETAIL_ACCURACY: u32 = 2;
+                const GNSS_FIXDETAIL_BASIC: u32 = 1;
+                const GNSS_FIXDETAIL_SATELLITE: u32 = 4;
+                #[repr(i32)]
+                enum GNSS_FIXSESSIONTYPE {
+                    GNSS_FixSession_SingleShot = 1,
+                    GNSS_FixSession_DistanceTracking = 2,
+                    GNSS_FixSession_ContinuousTracking = 3,
+                    GNSS_FixSession_LKG = 4,
+                }
+                struct GNSS_FIXSESSION_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    FixSessionID: u32,
+                    SessionType: GNSS_FIXSESSIONTYPE,
+                    HorizontalAccuracy: u32,
+                    HorizontalConfidence: u32,
+                    Reserved: [u32; 9],
+                    FixLevelOfDetails: u32,
+                    Anonymous: union {
+                        SingleShotParam: GNSS_SINGLESHOT_PARAM,
+                        DistanceParam: GNSS_DISTANCETRACKING_PARAM,
+                        ContinuousParam: GNSS_CONTINUOUSTRACKING_PARAM,
+                        LkgFixParam: GNSS_LKGFIX_PARAM,
+                        UnusedParam: [u8; 268],
+                    },
+                    Unused: [u8; 256],
+                }
+                const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2;
+                const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1;
+                struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
+                    Size: u32,
+                    Version: u32,
+                    Status: super::super::Foundation::NTSTATUS,
+                    StatusTimeStamp: super::super::Foundation::FILETIME,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_GEOFENCE_ALERT_DATA {
+                    Size: u32,
+                    Version: u32,
+                    GeofenceID: u32,
+                    GeofenceState: GNSS_GEOFENCE_STATE,
+                    FixBasicData: GNSS_FIXDATA_BASIC,
+                    FixAccuracyData: GNSS_FIXDATA_ACCURACY,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_GEOFENCE_CREATE_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    AlertTypes: u32,
+                    InitialState: GNSS_GEOFENCE_STATE,
+                    Boundary: GNSS_GEOREGION,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_GEOFENCE_CREATE_RESPONSE {
+                    Size: u32,
+                    Version: u32,
+                    CreationStatus: super::super::Foundation::NTSTATUS,
+                    GeofenceID: u32,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_GEOFENCE_DELETE_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    GeofenceID: u32,
+                    Unused: [u8; 512],
+                }
+                #[repr(i32)]
+                enum GNSS_GEOFENCE_STATE {
+                    GNSS_GeofenceState_Unknown = 0,
+                    GNSS_GeofenceState_Entered = 1,
+                    GNSS_GeofenceState_Exited = 2,
+                }
+                struct GNSS_GEOREGION {
+                    Size: u32,
+                    Version: u32,
+                    GeoRegionType: GNSS_GEOREGIONTYPE,
+                    Anonymous: union {
+                        Circle: GNSS_GEOREGION_CIRCLE,
+                        Unused: [u8; 512],
+                    },
+                }
+                #[repr(i32)]
+                enum GNSS_GEOREGIONTYPE {
+                    GNSS_GeoRegion_Circle = 1,
+                }
+                struct GNSS_GEOREGION_CIRCLE {
+                    Latitude: f64,
+                    Longitude: f64,
+                    RadiusInMeters: f64,
+                }
+                struct GNSS_LKGFIX_PARAM {
+                    Size: u32,
+                    Version: u32,
+                }
+                const GNSS_MAXSATELLITE: u32 = 64;
+                #[repr(i32)]
+                enum GNSS_NI_NOTIFICATION_TYPE {
+                    GNSS_NI_NoNotifyNoVerify = 1,
+                    GNSS_NI_NotifyOnly = 2,
+                    GNSS_NI_NotifyVerifyDefaultAllow = 3,
+                    GNSS_NI_NotifyVerifyDefaultNotAllow = 4,
+                    GNSS_NI_PrivacyOverride = 5,
+                }
+                #[repr(i32)]
+                enum GNSS_NI_PLANE_TYPE {
+                    GNSS_NI_SUPL = 1,
+                    GNSS_NI_CP = 2,
+                    GNSS_NI_V2UPL = 3,
+                }
+                struct GNSS_NI_REQUEST_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    RequestId: u32,
+                    RequestType: GNSS_NI_REQUEST_TYPE,
+                    NotificationType: GNSS_NI_NOTIFICATION_TYPE,
+                    RequestPlaneType: GNSS_NI_PLANE_TYPE,
+                    Anonymous: union {
+                        SuplNiInfo: GNSS_SUPL_NI_INFO,
+                        CpNiInfo: GNSS_CP_NI_INFO,
+                        V2UplNiInfo: GNSS_V2UPL_NI_INFO,
+                    },
+                    ResponseTimeInSec: u32,
+                    EmergencyLocation: super::super::Foundation::BOOL,
+                }
+                #[repr(i32)]
+                enum GNSS_NI_REQUEST_TYPE {
+                    GNSS_NI_Request_SingleShot = 1,
+                    GNSS_NI_Request_AreaTrigger = 2,
+                }
+                struct GNSS_NI_RESPONSE {
+                    Size: u32,
+                    Version: u32,
+                    RequestId: u32,
+                    UserResponse: GNSS_NI_USER_RESPONSE,
+                }
+                #[repr(i32)]
+                enum GNSS_NI_USER_RESPONSE {
+                    GNSS_Ni_UserResponseAccept = 1,
+                    GNSS_Ni_UserResponseDeny = 2,
+                    GNSS_Ni_UserResponseTimeout = 3,
+                }
+                const GNSS_NMEALOGGING_ALL: u32 = 255;
+                const GNSS_NMEALOGGING_NONE: u32 = 0;
+                struct GNSS_NMEA_DATA {
+                    Size: u32,
+                    Version: u32,
+                    NmeaSentences: [super::super::Foundation::CHAR; 256],
+                }
+                const GNSS_OPERMODE_AFLT: u32 = 16;
+                const GNSS_OPERMODE_ANY: u32 = 0;
+                const GNSS_OPERMODE_CELLID: u32 = 8;
+                const GNSS_OPERMODE_MSA: u32 = 1;
+                const GNSS_OPERMODE_MSB: u32 = 2;
+                const GNSS_OPERMODE_MSS: u32 = 4;
+                const GNSS_OPERMODE_OTDOA: u32 = 32;
+                struct GNSS_PLATFORM_CAPABILITY {
+                    Size: u32,
+                    Version: u32,
+                    SupportAgnssInjection: super::super::Foundation::BOOL,
+                    AgnssFormatSupported: u32,
+                    Unused: [u8; 516],
+                }
+                struct GNSS_SATELLITEINFO {
+                    SatelliteId: u32,
+                    UsedInPositiong: super::super::Foundation::BOOL,
+                    Elevation: f64,
+                    Azimuth: f64,
+                    SignalToNoiseRatio: f64,
+                }
+                const GNSS_SATELLITE_ANY: u32 = 0;
+                const GNSS_SATELLITE_BEIDOU: u32 = 4;
+                const GNSS_SATELLITE_GALILEO: u32 = 8;
+                const GNSS_SATELLITE_GLONASS: u32 = 2;
+                const GNSS_SATELLITE_GPS: u32 = 1;
+                struct GNSS_SELFTESTCONFIG {
+                    Size: u32,
+                    Version: u32,
+                    TestType: u32,
+                    Unused: [u8; 512],
+                    InBufLen: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    InBuffer: [u8; 1],
+                }
+                struct GNSS_SELFTESTRESULT {
+                    Size: u32,
+                    Version: u32,
+                    TestResultStatus: super::super::Foundation::NTSTATUS,
+                    Result: u32,
+                    PinFailedBitMask: u32,
+                    Unused: [u8; 512],
+                    OutBufLen: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    OutBuffer: [u8; 1],
+                }
+                struct GNSS_SINGLESHOT_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    ResponseTime: u32,
+                }
+                struct GNSS_STOPFIXSESSION_PARAM {
+                    Size: u32,
+                    Version: u32,
+                    FixSessionID: u32,
+                    Unused: [u8; 512],
+                }
+                #[repr(i32)]
+                enum GNSS_SUPL_CERT_ACTION {
+                    GNSS_Supl_Cert_Inject = 1,
+                    GNSS_Supl_Cert_Delete = 2,
+                    GNSS_Supl_Cert_Purge = 3,
+                }
+                struct GNSS_SUPL_CERT_CONFIG {
+                    Size: u32,
+                    Version: u32,
+                    CertAction: GNSS_SUPL_CERT_ACTION,
+                    SuplCertName: [super::super::Foundation::CHAR; 260],
+                    CertSize: u32,
+                    Unused: [u8; 512],
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    CertData: [u8; 1],
+                }
+                struct GNSS_SUPL_HSLP_CONFIG {
+                    Size: u32,
+                    Version: u32,
+                    SuplHslp: [super::super::Foundation::CHAR; 260],
+                    SuplHslpFromImsi: [super::super::Foundation::CHAR; 260],
+                    Reserved: u32,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_SUPL_NI_INFO {
+                    Size: u32,
+                    Version: u32,
+                    RequestorId: [u16; 260],
+                    ClientName: [u16; 260],
+                    SuplNiUrl: [super::super::Foundation::CHAR; 260],
+                }
+                struct GNSS_SUPL_VERSION {
+                    MajorVersion: u32,
+                    MinorVersion: u32,
+                }
+                struct GNSS_SUPL_VERSION_2 {
+                    MajorVersion: u32,
+                    MinorVersion: u32,
+                    ServiceIndicator: u32,
+                }
+                struct GNSS_V2UPL_CONFIG {
+                    Size: u32,
+                    Version: u32,
+                    MPC: [super::super::Foundation::CHAR; 260],
+                    PDE: [super::super::Foundation::CHAR; 260],
+                    ApplicationTypeIndicator_MR: u8,
+                    Unused: [u8; 512],
+                }
+                struct GNSS_V2UPL_NI_INFO {
+                    Size: u32,
+                    Version: u32,
+                    RequestorId: [u16; 260],
+                }
+                const GUID_DEVINTERFACE_GNSS: GUID = 0x3336e5e4_018a_4669_84c5_bd05f3bd368b;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-icivicaddressreport")]
+                interface ICivicAddressReport: ILocationReport {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getaddressline1")]
+                    fn GetAddressLine1(&self, pbstrAddress1: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getaddressline2")]
+                    fn GetAddressLine2(&self, pbstrAddress2: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getcity")]
+                    fn GetCity(&self, pbstrCity: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getstateprovince")]
+                    fn GetStateProvince(&self, pbstrStateProvince: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getpostalcode")]
+                    fn GetPostalCode(&self, pbstrPostalCode: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getcountryregion")]
+                    fn GetCountryRegion(&self, pbstrCountryRegion: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-icivicaddressreport-getdetaillevel")]
+                    fn GetDetailLevel(&self, pDetailLevel: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface ICivicAddressReportFactory: ILocationReportFactory {
+                    #[special]
+                    fn get_CivicAddressReport(&self, pVal: *mut IDispCivicAddressReport) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-idefaultlocation")]
+                interface IDefaultLocation: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-idefaultlocation-setreport")]
+                    fn SetReport(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, pLocationReport: ILocationReport) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-idefaultlocation-getreport")]
+                    fn GetReport(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, ppLocationReport: *mut ILocationReport) -> super::super::Foundation::HRESULT;
+                }
+                interface IDispCivicAddressReport: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_AddressLine1(&self, pAddress1: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AddressLine2(&self, pAddress2: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_City(&self, pCity: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_StateProvince(&self, pStateProvince: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_PostalCode(&self, pPostalCode: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_CountryRegion(&self, pCountryRegion: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_DetailLevel(&self, pDetailLevel: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Timestamp(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                }
+                interface IDispLatLongReport: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_Latitude(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Longitude(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ErrorRadius(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Altitude(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AltitudeError(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Timestamp(&self, pVal: *mut f64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-ilatlongreport")]
+                interface ILatLongReport: ILocationReport {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilatlongreport-getlatitude")]
+                    fn GetLatitude(&self, pLatitude: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilatlongreport-getlongitude")]
+                    fn GetLongitude(&self, pLongitude: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilatlongreport-geterrorradius")]
+                    fn GetErrorRadius(&self, pErrorRadius: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilatlongreport-getaltitude")]
+                    fn GetAltitude(&self, pAltitude: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilatlongreport-getaltitudeerror")]
+                    fn GetAltitudeError(&self, pAltitudeError: *mut f64) -> super::super::Foundation::HRESULT;
+                }
+                interface ILatLongReportFactory: ILocationReportFactory {
+                    #[special]
+                    fn get_LatLongReport(&self, pVal: *mut IDispLatLongReport) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-ilocation")]
+                interface ILocation: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-registerforreport")]
+                    fn RegisterForReport(&self, pEvents: ILocationEvents, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, dwRequestedReportInterval: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-unregisterforreport")]
+                    fn UnregisterForReport(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-getreport")]
+                    fn GetReport(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, ppLocationReport: *mut ILocationReport) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-getreportstatus")]
+                    fn GetReportStatus(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, pStatus: *mut LOCATION_REPORT_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-getreportinterval")]
+                    fn GetReportInterval(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, pMilliseconds: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-setreportinterval")]
+                    fn SetReportInterval(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, millisecondsRequested: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-getdesiredaccuracy")]
+                    fn GetDesiredAccuracy(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, pDesiredAccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-setdesiredaccuracy")]
+                    fn SetDesiredAccuracy(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, desiredAccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocation-requestpermissions")]
+                    fn RequestPermissions(&self, hParent: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pReportTypes: *mut GUID, count: u32, fModal: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-ilocationevents")]
+                interface ILocationEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationevents-onlocationchanged")]
+                    fn OnLocationChanged(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, pLocationReport: ILocationReport) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationevents-onstatuschanged")]
+                    fn OnStatusChanged(&self, #[Windows::Win32::Foundation::Metadata::Const] reportType: *mut GUID, newStatus: LOCATION_REPORT_STATUS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-ilocationpower")]
+                interface ILocationPower: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationpower-connect")]
+                    fn Connect(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationpower-disconnect")]
+                    fn Disconnect(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nn-locationapi-ilocationreport")]
+                interface ILocationReport: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationreport-getsensorid")]
+                    fn GetSensorID(&self, pSensorID: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationreport-gettimestamp")]
+                    fn GetTimestamp(&self, pCreationTime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/nf-locationapi-ilocationreport-getvalue")]
+                    fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] pKey: *mut super::super::Foundation::PROPERTYKEY, pValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                }
+                interface ILocationReportFactory: super::super::System::Com::IDispatch {
+                    fn ListenForReports(&self, requestedReportInterval: u32) -> super::super::Foundation::HRESULT;
+                    fn StopListeningForReports(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Status(&self, pVal: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ReportInterval(&self, pMilliseconds: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ReportInterval(&self, millisecondsRequested: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_DesiredAccuracy(&self, pDesiredAccuracy: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_DesiredAccuracy(&self, desiredAccuracy: u32) -> super::super::Foundation::HRESULT;
+                    fn RequestPermissions(&self, hWnd: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488;
+                const IOCTL_GNSS_CREATE_GEOFENCE: u32 = 2228544;
+                const IOCTL_GNSS_DELETE_GEOFENCE: u32 = 2228548;
+                const IOCTL_GNSS_EXECUTE_CWTEST: u32 = 2228496;
+                const IOCTL_GNSS_EXECUTE_SELFTEST: u32 = 2228500;
+                const IOCTL_GNSS_GET_CHIPSETINFO: u32 = 2228504;
+                const IOCTL_GNSS_GET_DEVICE_CAPABILITY: u32 = 2228232;
+                const IOCTL_GNSS_GET_FIXDATA: u32 = 2228300;
+                const IOCTL_GNSS_INJECT_AGNSS: u32 = 2228352;
+                const IOCTL_GNSS_LISTEN_AGNSS: u32 = 2228416;
+                const IOCTL_GNSS_LISTEN_BREADCRUMBING_ALERT: u32 = 2228680;
+                const IOCTL_GNSS_LISTEN_DRIVER_REQUEST: u32 = 2228608;
+                const IOCTL_GNSS_LISTEN_ERROR: u32 = 2228420;
+                const IOCTL_GNSS_LISTEN_GEOFENCES_TRACKINGSTATUS: u32 = 2228556;
+                const IOCTL_GNSS_LISTEN_GEOFENCE_ALERT: u32 = 2228552;
+                const IOCTL_GNSS_LISTEN_NI: u32 = 2228480;
+                const IOCTL_GNSS_LISTEN_NMEA: u32 = 2228508;
+                const IOCTL_GNSS_MODIFY_FIXSESSION: u32 = 2228292;
+                const IOCTL_GNSS_POP_BREADCRUMBS: u32 = 2228684;
+                const IOCTL_GNSS_RESPOND_NI: u32 = 2228492;
+                const IOCTL_GNSS_SEND_DRIVERCOMMAND: u32 = 2228236;
+                const IOCTL_GNSS_SEND_PLATFORM_CAPABILITY: u32 = 2228228;
+                const IOCTL_GNSS_SET_SUPL_HSLP: u32 = 2228484;
+                const IOCTL_GNSS_SET_V2UPL_CONFIG: u32 = 2228512;
+                const IOCTL_GNSS_START_BREADCRUMBING: u32 = 2228672;
+                const IOCTL_GNSS_START_FIXSESSION: u32 = 2228288;
+                const IOCTL_GNSS_STOP_BREADCRUMBING: u32 = 2228676;
+                const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296;
+                const LOCATION_API_VERSION: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/locationapi/ne-locationapi-location_report_status")]
+                enum LOCATION_REPORT_STATUS {
+                    REPORT_NOT_SUPPORTED = 0,
+                    REPORT_ERROR = 1,
+                    REPORT_ACCESS_DENIED = 2,
+                    REPORT_INITIALIZING = 3,
+                    REPORT_RUNNING = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3984703603, 8068, 19624, 161, 97, 24, 60, 119, 107, 198, 81)]
+                struct LatLongReport {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2647407816, 34313, 18531, 186, 212, 3, 96, 31, 76, 101, 232)]
+                struct LatLongReportFactory {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3854098553, 61037, 20019, 164, 56, 200, 127, 46, 149, 146, 84)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WMP/location-attribute")]
+                struct Location {}
+                const MAX_SERVER_URL_NAME: u32 = 260;
+                const MIN_BREADCRUMBS_SUPPORTED: u32 = 120;
+                const MIN_GEOFENCES_REQUIRED: u32 = 100;
+                interface _ICivicAddressReportFactoryEvents: super::super::System::Com::IDispatch {}
+                interface _ILatLongReportFactoryEvents: super::super::System::Com::IDispatch {}
+            }
+        }
+    }
+}

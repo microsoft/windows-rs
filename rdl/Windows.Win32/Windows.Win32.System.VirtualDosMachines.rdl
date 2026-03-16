@@ -1,0 +1,273 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod VirtualDosMachines {
+                const DBG_ATTACH: u32 = 14;
+                const DBG_BREAK: u32 = 6;
+                const DBG_DIVOVERFLOW: u32 = 8;
+                const DBG_DLLSTART: u32 = 12;
+                const DBG_DLLSTOP: u32 = 13;
+                const DBG_GPFAULT: u32 = 7;
+                const DBG_GPFAULT2: u32 = 21;
+                const DBG_INIT: u32 = 20;
+                const DBG_INSTRFAULT: u32 = 9;
+                const DBG_MODFREE: u32 = 4;
+                const DBG_MODLOAD: u32 = 3;
+                const DBG_MODMOVE: u32 = 19;
+                const DBG_SEGFREE: u32 = 2;
+                const DBG_SEGLOAD: u32 = 0;
+                const DBG_SEGMOVE: u32 = 1;
+                const DBG_SINGLESTEP: u32 = 5;
+                const DBG_STACKFAULT: u32 = 16;
+                const DBG_TASKSTART: u32 = 10;
+                const DBG_TASKSTOP: u32 = 11;
+                const DBG_TEMPBP: u32 = 18;
+                const DBG_TOOLHELP: u32 = 15;
+                const DBG_WOWINIT: u32 = 17;
+                extern fn DEBUGEVENTPROC(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT, param1: *mut void) -> u32;
+                const GD_ACCELERATORS: u32 = 9;
+                const GD_BITMAP: u32 = 2;
+                const GD_CURSOR: u32 = 12;
+                const GD_CURSORCOMPONENT: u32 = 1;
+                const GD_DIALOG: u32 = 5;
+                const GD_ERRTABLE: u32 = 11;
+                const GD_FONT: u32 = 8;
+                const GD_FONTDIR: u32 = 7;
+                const GD_ICON: u32 = 14;
+                const GD_ICONCOMPONENT: u32 = 3;
+                const GD_MAX_RESOURCE: u32 = 15;
+                const GD_MENU: u32 = 4;
+                const GD_NAMETABLE: u32 = 15;
+                const GD_RCDATA: u32 = 10;
+                const GD_STRING: u32 = 6;
+                const GD_USERDEFINED: u32 = 0;
+                struct GLOBALENTRY {
+                    dwSize: u32,
+                    dwAddress: u32,
+                    dwBlockSize: u32,
+                    hBlock: super::super::Foundation::HANDLE,
+                    wcLock: u16,
+                    wcPageLock: u16,
+                    wFlags: u16,
+                    wHeapPresent: super::super::Foundation::BOOL,
+                    hOwner: super::super::Foundation::HANDLE,
+                    wType: u16,
+                    wData: u16,
+                    dwNext: u32,
+                    dwNextAlt: u32,
+                }
+                const GLOBAL_ALL: u32 = 0;
+                const GLOBAL_FREE: u32 = 2;
+                const GLOBAL_LRU: u32 = 1;
+                const GT_BURGERMASTER: u32 = 10;
+                const GT_CODE: u32 = 3;
+                const GT_DATA: u32 = 2;
+                const GT_DGROUP: u32 = 1;
+                const GT_FREE: u32 = 7;
+                const GT_INTERNAL: u32 = 8;
+                const GT_MODULE: u32 = 6;
+                const GT_RESOURCE: u32 = 5;
+                const GT_SENTINEL: u32 = 9;
+                const GT_TASK: u32 = 4;
+                const GT_UNKNOWN: u32 = 0;
+                struct IMAGE_NOTE {
+                    Module: [super::super::Foundation::CHAR; 10],
+                    FileName: [super::super::Foundation::CHAR; 256],
+                    hModule: u16,
+                    hTask: u16,
+                }
+                const MAX_MODULE_NAME: u32 = 9;
+                const MAX_PATH16: u32 = 255;
+                struct MODULEENTRY {
+                    dwSize: u32,
+                    szModule: [super::super::Foundation::CHAR; 10],
+                    hModule: super::super::Foundation::HANDLE,
+                    wcUsage: u16,
+                    szExePath: [super::super::Foundation::CHAR; 256],
+                    wNext: u16,
+                }
+                extern fn PROCESSENUMPROC(dwProcessId: u32, dwAttributes: u32, lpUserDefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                struct SEGMENT_NOTE {
+                    Selector1: u16,
+                    Selector2: u16,
+                    Segment: u16,
+                    Module: [super::super::Foundation::CHAR; 10],
+                    FileName: [super::super::Foundation::CHAR; 256],
+                    Type: u16,
+                    Length: u32,
+                }
+                const SN_CODE: u32 = 0;
+                const SN_DATA: u32 = 1;
+                const SN_V86: u32 = 2;
+                const STATUS_VDM_EVENT: i32 = 1073741829;
+                extern fn TASKENUMPROC(dwThreadId: u32, hMod16: u16, hTask16: u16, lpUserDefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                extern fn TASKENUMPROCEX(dwThreadId: u32, hMod16: u16, hTask16: u16, pszModName: *mut i8, pszFileName: *mut i8, lpUserDefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+                struct TEMP_BP_NOTE {
+                    Seg: u16,
+                    Offset: u32,
+                    bPM: super::super::Foundation::BOOL,
+                }
+                const V86FLAGS_ALIGNMENT: u32 = 262144;
+                const V86FLAGS_AUXCARRY: u32 = 16;
+                const V86FLAGS_CARRY: u32 = 1;
+                const V86FLAGS_DIRECTION: u32 = 1024;
+                const V86FLAGS_INTERRUPT: u32 = 512;
+                const V86FLAGS_IOPL: u32 = 12288;
+                const V86FLAGS_IOPL_BITS: u32 = 18;
+                const V86FLAGS_OVERFLOW: u32 = 2048;
+                const V86FLAGS_PARITY: u32 = 4;
+                const V86FLAGS_RESUME: u32 = 65536;
+                const V86FLAGS_SIGN: u32 = 128;
+                const V86FLAGS_TRACE: u32 = 256;
+                const V86FLAGS_V86: u32 = 131072;
+                const V86FLAGS_ZERO: u32 = 64;
+                const VDMADDR_PM16: u32 = 4;
+                const VDMADDR_PM32: u32 = 16;
+                const VDMADDR_V86: u32 = 2;
+                extern fn VDMBREAKTHREADPROC(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                struct VDMCONTEXT {
+                    ContextFlags: u32,
+                    Dr0: u32,
+                    Dr1: u32,
+                    Dr2: u32,
+                    Dr3: u32,
+                    Dr6: u32,
+                    Dr7: u32,
+                    FloatSave: super::Kernel::FLOATING_SAVE_AREA,
+                    SegGs: u32,
+                    SegFs: u32,
+                    SegEs: u32,
+                    SegDs: u32,
+                    Edi: u32,
+                    Esi: u32,
+                    Ebx: u32,
+                    Edx: u32,
+                    Ecx: u32,
+                    Eax: u32,
+                    Ebp: u32,
+                    Eip: u32,
+                    SegCs: u32,
+                    EFlags: u32,
+                    Esp: u32,
+                    SegSs: u32,
+                    ExtendedRegisters: [u8; 512],
+                }
+                struct VDMCONTEXT_WITHOUT_XSAVE {
+                    ContextFlags: u32,
+                    Dr0: u32,
+                    Dr1: u32,
+                    Dr2: u32,
+                    Dr3: u32,
+                    Dr6: u32,
+                    Dr7: u32,
+                    FloatSave: super::Kernel::FLOATING_SAVE_AREA,
+                    SegGs: u32,
+                    SegFs: u32,
+                    SegEs: u32,
+                    SegDs: u32,
+                    Edi: u32,
+                    Esi: u32,
+                    Ebx: u32,
+                    Edx: u32,
+                    Ecx: u32,
+                    Eax: u32,
+                    Ebp: u32,
+                    Eip: u32,
+                    SegCs: u32,
+                    EFlags: u32,
+                    Esp: u32,
+                    SegSs: u32,
+                }
+                const VDMCONTEXT_i386: u32 = 65536;
+                const VDMCONTEXT_i486: u32 = 65536;
+                const VDMDBG_BREAK_DEBUGGER: u32 = 16;
+                const VDMDBG_BREAK_DIVIDEBYZERO: u32 = 256;
+                const VDMDBG_BREAK_DOSTASK: u32 = 1;
+                const VDMDBG_BREAK_EXCEPTIONS: u32 = 8;
+                const VDMDBG_BREAK_LOADDLL: u32 = 4;
+                const VDMDBG_BREAK_WOWTASK: u32 = 2;
+                const VDMDBG_INITIAL_FLAGS: u32 = 256;
+                const VDMDBG_MAX_SYMBOL_BUFFER: u32 = 256;
+                const VDMDBG_TRACE_HISTORY: u32 = 128;
+                extern fn VDMDETECTWOWPROC() -> super::super::Foundation::BOOL;
+                extern fn VDMENUMPROCESSWOWPROC(param0: PROCESSENUMPROC, param1: super::super::Foundation::LPARAM) -> i32;
+                extern fn VDMENUMTASKWOWEXPROC(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32;
+                extern fn VDMENUMTASKWOWPROC(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32;
+                const VDMEVENT_ALLFLAGS: u32 = 57344;
+                const VDMEVENT_NEEDS_INTERACTIVE: u32 = 32768;
+                const VDMEVENT_PE: u32 = 8192;
+                const VDMEVENT_PM16: u32 = 2;
+                const VDMEVENT_V86: u32 = 1;
+                const VDMEVENT_VERBOSE: u32 = 16384;
+                extern fn VDMGETADDREXPRESSIONPROC(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VDMGETCONTEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VDMGETCONTEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
+                extern fn VDMGETDBGFLAGSPROC(param0: super::super::Foundation::HANDLE) -> u32;
+                extern fn VDMGETMODULESELECTORPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut u16) -> super::super::Foundation::BOOL;
+                extern fn VDMGETPOINTERPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: super::super::Foundation::BOOL) -> u32;
+                extern fn VDMGETSEGMENTINFOPROC(param0: u16, param1: u32, param2: super::super::Foundation::BOOL, param3: VDM_SEGINFO) -> super::super::Foundation::BOOL;
+                extern fn VDMGETSELECTORMODULEPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: super::super::Foundation::PSTR, param5: u32, param6: super::super::Foundation::PSTR, param7: u32) -> super::super::Foundation::BOOL;
+                extern fn VDMGETSYMBOLPROC(param0: super::super::Foundation::PSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: super::super::Foundation::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VDMGETTHREADSELECTORENTRYPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VDMGETTHREADSELECTORENTRYPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL;
+                extern fn VDMGLOBALFIRSTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut void) -> super::super::Foundation::BOOL;
+                extern fn VDMGLOBALNEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut void) -> super::super::Foundation::BOOL;
+                extern fn VDMISMODULELOADEDPROC(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                extern fn VDMKILLWOWPROC() -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                struct VDMLDT_ENTRY {
+                    LimitLow: u16,
+                    BaseLow: u16,
+                    HighWord: union {
+                        Bytes: struct {
+                            BaseMid: u8,
+                            Flags1: u8,
+                            Flags2: u8,
+                            BaseHi: u8,
+                        },
+                        Bits: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BaseMid", 0, 8)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Type", 8, 5)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dpl", 13, 2)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Pres", 15, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("LimitHi", 16, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Sys", 20, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved_0", 21, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Default_Big", 22, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Granularity", 23, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BaseHi", 24, 8)]
+                            _bitfield: u32,
+                        },
+                    },
+                }
+                extern fn VDMMODULEFIRSTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut void) -> super::super::Foundation::BOOL;
+                extern fn VDMMODULENEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut void) -> super::super::Foundation::BOOL;
+                extern fn VDMPROCESSEXCEPTIONPROC(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VDMSETCONTEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VDMSETCONTEXTPROC(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
+                extern fn VDMSETDBGFLAGSPROC(param0: super::super::Foundation::HANDLE, param1: u32) -> super::super::Foundation::BOOL;
+                extern fn VDMSTARTTASKINWOWPROC(param0: u32, param1: super::super::Foundation::PSTR, param2: u16) -> super::super::Foundation::BOOL;
+                extern fn VDMTERMINATETASKINWOWPROC(param0: u32, param1: u16) -> super::super::Foundation::BOOL;
+                const VDM_KGDT_R3_CODE: u32 = 24;
+                const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512;
+                struct VDM_SEGINFO {
+                    Selector: u16,
+                    SegNumber: u16,
+                    Length: u32,
+                    Type: u16,
+                    ModuleName: [super::super::Foundation::CHAR; 9],
+                    FileName: [super::super::Foundation::CHAR; 255],
+                }
+                const WOW_SYSTEM: u32 = 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,710 @@
+mod Windows {
+    mod Services {
+        #[winrt]
+        mod Maps {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Activatable(IEnhancedWaypointFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            class EnhancedWaypoint {
+                #[default]
+                IEnhancedWaypoint,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(196608)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct GuidanceContract {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(EnhancedWaypoint)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IEnhancedWaypoint {
+                #[special]
+                fn get_Point(&self) -> super::super::Devices::Geolocation::Geopoint;
+                #[special]
+                fn get_Kind(&self) -> WaypointKind;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EnhancedWaypoint)]
+            interface IEnhancedWaypointFactory {
+                fn Create(&self, point: super::super::Devices::Geolocation::Geopoint, kind: WaypointKind) -> EnhancedWaypoint;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ManeuverWarning)]
+            interface IManeuverWarning {
+                #[special]
+                fn get_Kind(&self) -> ManeuverWarningKind;
+                #[special]
+                fn get_Severity(&self) -> ManeuverWarningSeverity;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapAddress)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapAddress {
+                #[special]
+                fn get_BuildingName(&self) -> String;
+                #[special]
+                fn get_BuildingFloor(&self) -> String;
+                #[special]
+                fn get_BuildingRoom(&self) -> String;
+                #[special]
+                fn get_BuildingWing(&self) -> String;
+                #[special]
+                fn get_StreetNumber(&self) -> String;
+                #[special]
+                fn get_Street(&self) -> String;
+                #[special]
+                fn get_Neighborhood(&self) -> String;
+                #[special]
+                fn get_District(&self) -> String;
+                #[special]
+                fn get_Town(&self) -> String;
+                #[special]
+                fn get_Region(&self) -> String;
+                #[special]
+                fn get_RegionCode(&self) -> String;
+                #[special]
+                fn get_Country(&self) -> String;
+                #[special]
+                fn get_CountryCode(&self) -> String;
+                #[special]
+                fn get_PostCode(&self) -> String;
+                #[special]
+                fn get_Continent(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapAddress)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapAddress2 {
+                #[special]
+                fn get_FormattedAddress(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapLocation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapLocation {
+                #[special]
+                fn get_Point(&self) -> super::super::Devices::Geolocation::Geopoint;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn get_Address(&self) -> MapAddress;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapLocationFinderResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapLocationFinderResult {
+                #[special]
+                fn get_Locations(&self) -> super::super::Foundation::Collections::IVectorView<MapLocation>;
+                #[special]
+                fn get_Status(&self) -> MapLocationFinderStatus;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapLocationFinder)]
+            interface IMapLocationFinderStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindLocationsAtAsync")]
+                fn FindLocationsAtAsync(&self, queryPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindLocationsAsync")]
+                fn FindLocationsAsync(&self, searchText: String, referencePoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("FindLocationsWithMaxCountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindLocationsAsync(&self, searchText: String, referencePoint: super::super::Devices::Geolocation::Geopoint, maxCount: u32) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapLocationFinder)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapLocationFinderStatics2 {
+                #[Windows::Foundation::Metadata::Overload("FindLocationsAtWithAccuracyAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindLocationsAtAsync(&self, queryPoint: super::super::Devices::Geolocation::Geopoint, accuracy: MapLocationDesiredAccuracy) -> super::super::Foundation::IAsyncOperation<MapLocationFinderResult>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapManagerStatics {
+                fn ShowDownloadedMapsUI(&self);
+                fn ShowMapsUpdateUI(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRoute)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRoute {
+                #[special]
+                fn get_BoundingBox(&self) -> super::super::Devices::Geolocation::GeoboundingBox;
+                #[special]
+                fn get_LengthInMeters(&self) -> f64;
+                #[special]
+                fn get_EstimatedDuration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Path(&self) -> super::super::Devices::Geolocation::Geopath;
+                #[special]
+                fn get_Legs(&self) -> super::super::Foundation::Collections::IVectorView<MapRouteLeg>;
+                #[special]
+                fn get_IsTrafficBased(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRoute)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapRoute2 {
+                #[special]
+                fn get_ViolatedRestrictions(&self) -> MapRouteRestrictions;
+                #[special]
+                fn get_HasBlockedRoads(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRoute)]
+            interface IMapRoute3 {
+                #[special]
+                fn get_DurationWithoutTraffic(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_TrafficCongestion(&self) -> TrafficCongestion;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRoute)]
+            interface IMapRoute4 {
+                #[special]
+                fn get_IsScenic(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteDrivingOptions)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteDrivingOptions {
+                #[special]
+                fn get_MaxAlternateRouteCount(&self) -> u32;
+                #[special]
+                fn put_MaxAlternateRouteCount(&self, value: u32);
+                #[special]
+                fn get_InitialHeading(&self) -> super::super::Foundation::IReference<f64>;
+                #[special]
+                fn put_InitialHeading(&self, value: super::super::Foundation::IReference<f64>);
+                #[special]
+                fn get_RouteOptimization(&self) -> MapRouteOptimization;
+                #[special]
+                fn put_RouteOptimization(&self, value: MapRouteOptimization);
+                #[special]
+                fn get_RouteRestrictions(&self) -> MapRouteRestrictions;
+                #[special]
+                fn put_RouteRestrictions(&self, value: MapRouteRestrictions);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteDrivingOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IMapRouteDrivingOptions2 {
+                #[special]
+                fn get_DepartureTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_DepartureTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinderResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteFinderResult {
+                #[special]
+                fn get_Route(&self) -> MapRoute;
+                #[special]
+                fn get_Status(&self) -> MapRouteFinderStatus;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinderResult)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapRouteFinderResult2 {
+                #[special]
+                fn get_AlternateRoutes(&self) -> super::super::Foundation::Collections::IVectorView<MapRoute>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteFinderStatics {
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationAndRestrictionsAsync")]
+                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync")]
+                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsAsync")]
+                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsAndOptimizationAsync")]
+                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync")]
+                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync")]
+                fn GetDrivingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: f64) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetWalkingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                fn GetWalkingRouteFromWaypointsAsync(&self, wayPoints: super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapRouteFinderStatics2 {
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                fn GetDrivingRouteAsync(&self, startPoint: super::super::Devices::Geolocation::Geopoint, endPoint: super::super::Devices::Geolocation::Geopoint, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteFinder)]
+            interface IMapRouteFinderStatics3 {
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromEnhancedWaypointsAsync")]
+                fn GetDrivingRouteFromEnhancedWaypointsAsync(&self, waypoints: super::super::Foundation::Collections::IIterable<EnhancedWaypoint>) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+                #[Windows::Foundation::Metadata::Overload("GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync")]
+                fn GetDrivingRouteFromEnhancedWaypointsAsync(&self, waypoints: super::super::Foundation::Collections::IIterable<EnhancedWaypoint>, options: MapRouteDrivingOptions) -> super::super::Foundation::IAsyncOperation<MapRouteFinderResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteLeg)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteLeg {
+                #[special]
+                fn get_BoundingBox(&self) -> super::super::Devices::Geolocation::GeoboundingBox;
+                #[special]
+                fn get_Path(&self) -> super::super::Devices::Geolocation::Geopath;
+                #[special]
+                fn get_LengthInMeters(&self) -> f64;
+                #[special]
+                fn get_EstimatedDuration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Maneuvers(&self) -> super::super::Foundation::Collections::IVectorView<MapRouteManeuver>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteLeg)]
+            interface IMapRouteLeg2 {
+                #[special]
+                fn get_DurationWithoutTraffic(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_TrafficCongestion(&self) -> TrafficCongestion;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteManeuver)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteManeuver {
+                #[special]
+                fn get_StartingPoint(&self) -> super::super::Devices::Geolocation::Geopoint;
+                #[special]
+                fn get_LengthInMeters(&self) -> f64;
+                #[special]
+                fn get_InstructionText(&self) -> String;
+                #[special]
+                fn get_Kind(&self) -> MapRouteManeuverKind;
+                #[special]
+                fn get_ExitNumber(&self) -> String;
+                #[special]
+                fn get_ManeuverNotices(&self) -> MapManeuverNotices;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteManeuver)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMapRouteManeuver2 {
+                #[special]
+                fn get_StartHeading(&self) -> f64;
+                #[special]
+                fn get_EndHeading(&self) -> f64;
+                #[special]
+                fn get_StreetName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteManeuver)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IMapRouteManeuver3 {
+                #[special]
+                fn get_Warnings(&self) -> super::super::Foundation::Collections::IVectorView<ManeuverWarning>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapService)]
+            interface IMapServiceStatics {
+                #[special]
+                fn put_ServiceToken(&self, value: String);
+                #[special]
+                fn get_ServiceToken(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapService)]
+            interface IMapServiceStatics2 {
+                #[special]
+                fn get_WorldViewRegionCode(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapService)]
+            interface IMapServiceStatics3 {
+                #[special]
+                fn get_DataAttributions(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapService)]
+            interface IMapServiceStatics4 {
+                #[special]
+                fn put_DataUsagePreference(&self, value: MapServiceDataUsagePreference);
+                #[special]
+                fn get_DataUsagePreference(&self) -> MapServiceDataUsagePreference;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IPlaceInfo {
+                #[Windows::Foundation::Metadata::Overload("Show")]
+                fn Show(&self, selection: super::super::Foundation::Rect);
+                #[Windows::Foundation::Metadata::Overload("ShowWithPreferredPlacement")]
+                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[special]
+                fn get_Identifier(&self) -> String;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn get_DisplayAddress(&self) -> String;
+                #[special]
+                fn get_Geoshape(&self) -> super::super::Devices::Geolocation::IGeoshape;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfoCreateOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IPlaceInfoCreateOptions {
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayAddress(&self, value: String);
+                #[special]
+                fn get_DisplayAddress(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IPlaceInfoStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self, referencePoint: super::super::Devices::Geolocation::Geopoint) -> PlaceInfo;
+                #[Windows::Foundation::Metadata::Overload("CreateWithGeopointAndOptions")]
+                fn Create(&self, referencePoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
+                #[Windows::Foundation::Metadata::Overload("CreateFromIdentifier")]
+                fn CreateFromIdentifier(&self, identifier: String) -> PlaceInfo;
+                #[Windows::Foundation::Metadata::Overload("CreateFromIdentifierWithOptions")]
+                fn CreateFromIdentifier(&self, identifier: String, defaultPoint: super::super::Devices::Geolocation::Geopoint, options: PlaceInfoCreateOptions) -> PlaceInfo;
+                fn CreateFromMapLocation(&self, location: MapLocation) -> PlaceInfo;
+                #[special]
+                fn get_IsShowSupported(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfo)]
+            interface IPlaceInfoStatics2 {
+                #[Windows::Foundation::Metadata::Overload("CreateFromAddress")]
+                fn CreateFromAddress(&self, displayAddress: String) -> PlaceInfo;
+                #[Windows::Foundation::Metadata::Overload("CreateFromAddressWithName")]
+                fn CreateFromAddress(&self, displayAddress: String, displayName: String) -> PlaceInfo;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(262144)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct LocalSearchContract {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class ManeuverWarning {
+                #[default]
+                IManeuverWarning,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum ManeuverWarningKind {
+                None = 0,
+                Accident = 1,
+                AdministrativeDivisionChange = 2,
+                Alert = 3,
+                BlockedRoad = 4,
+                CheckTimetable = 5,
+                Congestion = 6,
+                Construction = 7,
+                CountryChange = 8,
+                DisabledVehicle = 9,
+                GateAccess = 10,
+                GetOffTransit = 11,
+                GetOnTransit = 12,
+                IllegalUTurn = 13,
+                MassTransit = 14,
+                Miscellaneous = 15,
+                NoIncident = 16,
+                Other = 17,
+                OtherNews = 18,
+                OtherTrafficIncidents = 19,
+                PlannedEvent = 20,
+                PrivateRoad = 21,
+                RestrictedTurn = 22,
+                RoadClosures = 23,
+                RoadHazard = 24,
+                ScheduledConstruction = 25,
+                SeasonalClosures = 26,
+                Tollbooth = 27,
+                TollRoad = 28,
+                TollZoneEnter = 29,
+                TollZoneExit = 30,
+                TrafficFlow = 31,
+                TransitLineChange = 32,
+                UnpavedRoad = 33,
+                UnscheduledConstruction = 34,
+                Weather = 35,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum ManeuverWarningSeverity {
+                None = 0,
+                LowImpact = 1,
+                Minor = 2,
+                Moderate = 3,
+                Serious = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class MapAddress {
+                #[default]
+                IMapAddress,
+                IMapAddress2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MapLocation {
+                #[default]
+                IMapLocation,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum MapLocationDesiredAccuracy {
+                High = 0,
+                Low = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IMapLocationFinderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMapLocationFinderStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MapLocationFinder {}
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MapLocationFinderResult {
+                #[default]
+                IMapLocationFinderResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum MapLocationFinderStatus {
+                Success = 0,
+                UnknownError = 1,
+                InvalidCredentials = 2,
+                BadLocation = 3,
+                IndexFailure = 4,
+                NetworkFailure = 5,
+                NotSupported = 6,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMapManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MapManager {}
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum MapManeuverNotices {
+                None = 0,
+                Toll = 1,
+                Unpaved = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MapRoute {
+                #[default]
+                IMapRoute,
+                IMapRoute2,
+                IMapRoute3,
+                IMapRoute4,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MapRouteDrivingOptions {
+                #[default]
+                IMapRouteDrivingOptions,
+                IMapRouteDrivingOptions2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IMapRouteFinderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMapRouteFinderStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IMapRouteFinderStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+            class MapRouteFinder {}
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class MapRouteFinderResult {
+                #[default]
+                IMapRouteFinderResult,
+                IMapRouteFinderResult2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MapRouteFinderStatus {
+                Success = 0,
+                UnknownError = 1,
+                InvalidCredentials = 2,
+                NoRouteFound = 3,
+                NoRouteFoundWithGivenOptions = 4,
+                StartPointNotFound = 5,
+                EndPointNotFound = 6,
+                NoPedestrianRouteFound = 7,
+                NetworkFailure = 8,
+                NotSupported = 9,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class MapRouteLeg {
+                #[default]
+                IMapRouteLeg,
+                IMapRouteLeg2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class MapRouteManeuver {
+                #[default]
+                IMapRouteManeuver,
+                IMapRouteManeuver2,
+                IMapRouteManeuver3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MapRouteManeuverKind {
+                None = 0,
+                Start = 1,
+                Stopover = 2,
+                StopoverResume = 3,
+                End = 4,
+                GoStraight = 5,
+                UTurnLeft = 6,
+                UTurnRight = 7,
+                TurnKeepLeft = 8,
+                TurnKeepRight = 9,
+                TurnLightLeft = 10,
+                TurnLightRight = 11,
+                TurnLeft = 12,
+                TurnRight = 13,
+                TurnHardLeft = 14,
+                TurnHardRight = 15,
+                FreewayEnterLeft = 16,
+                FreewayEnterRight = 17,
+                FreewayLeaveLeft = 18,
+                FreewayLeaveRight = 19,
+                FreewayContinueLeft = 20,
+                FreewayContinueRight = 21,
+                TrafficCircleLeft = 22,
+                TrafficCircleRight = 23,
+                TakeFerry = 24,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum MapRouteOptimization {
+                Time = 0,
+                Distance = 1,
+                TimeWithTraffic = 2,
+                Scenic = 3,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum MapRouteRestrictions {
+                None = 0,
+                Highways = 1,
+                TollRoads = 2,
+                Ferries = 4,
+                Tunnels = 8,
+                DirtRoads = 16,
+                Motorail = 32,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Static(IMapServiceStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMapServiceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMapServiceStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMapServiceStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MapService {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum MapServiceDataUsagePreference {
+                Default = 0,
+                OfflineMapDataOnly = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPlaceInfoStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPlaceInfoStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PlaceInfo {
+                #[default]
+                IPlaceInfo,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class PlaceInfoCreateOptions {
+                #[default]
+                IPlaceInfoCreateOptions,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum TrafficCongestion {
+                Unknown = 0,
+                Light = 1,
+                Mild = 2,
+                Medium = 3,
+                Heavy = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum WaypointKind {
+                Stop = 0,
+                Via = 1,
+            }
+        }
+    }
+}

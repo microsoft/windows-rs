@@ -1,0 +1,172 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            mod Direct3D {
+                #[win32]
+                mod Fxc {
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const D3DCOMPILER_DLL_A: String = "d3dcompiler_47.dll";
+                    const D3DCOMPILER_DLL_W: String = "d3dcompiler_47.dll";
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/ne-d3dcompiler-d3dcompiler_strip_flags")]
+                    enum D3DCOMPILER_STRIP_FLAGS {
+                        D3DCOMPILER_STRIP_REFLECTION_DATA = 1,
+                        D3DCOMPILER_STRIP_DEBUG_INFO = 2,
+                        D3DCOMPILER_STRIP_TEST_BLOBS = 4,
+                        D3DCOMPILER_STRIP_PRIVATE_DATA = 8,
+                        D3DCOMPILER_STRIP_ROOT_SIGNATURE = 16,
+                    }
+                    const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152;
+                    const D3DCOMPILE_AVOID_FLOW_CONTROL: u32 = 512;
+                    const D3DCOMPILE_DEBUG: u32 = 1;
+                    const D3DCOMPILE_DEBUG_NAME_FOR_BINARY: u32 = 8388608;
+                    const D3DCOMPILE_DEBUG_NAME_FOR_SOURCE: u32 = 4194304;
+                    const D3DCOMPILE_EFFECT_ALLOW_SLOW_OPS: u32 = 2;
+                    const D3DCOMPILE_EFFECT_CHILD_EFFECT: u32 = 1;
+                    const D3DCOMPILE_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096;
+                    const D3DCOMPILE_ENABLE_STRICTNESS: u32 = 2048;
+                    const D3DCOMPILE_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576;
+                    const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16;
+                    const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_1_1: u32 = 32;
+                    const D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST: u32 = 0;
+                    const D3DCOMPILE_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128;
+                    const D3DCOMPILE_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64;
+                    const D3DCOMPILE_IEEE_STRICTNESS: u32 = 8192;
+                    const D3DCOMPILE_NO_PRESHADER: u32 = 256;
+                    const D3DCOMPILE_OPTIMIZATION_LEVEL0: u32 = 16384;
+                    const D3DCOMPILE_OPTIMIZATION_LEVEL1: u32 = 0;
+                    const D3DCOMPILE_OPTIMIZATION_LEVEL3: u32 = 32768;
+                    const D3DCOMPILE_PACK_MATRIX_COLUMN_MAJOR: u32 = 16;
+                    const D3DCOMPILE_PACK_MATRIX_ROW_MAJOR: u32 = 8;
+                    const D3DCOMPILE_PARTIAL_PRECISION: u32 = 32;
+                    const D3DCOMPILE_PREFER_FLOW_CONTROL: u32 = 1024;
+                    const D3DCOMPILE_RESERVED16: u32 = 65536;
+                    const D3DCOMPILE_RESERVED17: u32 = 131072;
+                    const D3DCOMPILE_RESOURCES_MAY_ALIAS: u32 = 524288;
+                    const D3DCOMPILE_SECDATA_MERGE_UAV_SLOTS: u32 = 1;
+                    const D3DCOMPILE_SECDATA_PRESERVE_TEMPLATE_SLOTS: u32 = 2;
+                    const D3DCOMPILE_SECDATA_REQUIRE_TEMPLATE_MATCH: u32 = 4;
+                    const D3DCOMPILE_SKIP_OPTIMIZATION: u32 = 4;
+                    const D3DCOMPILE_SKIP_VALIDATION: u32 = 2;
+                    const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcompile")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCompile(pSrcData: *mut void, SrcDataSize: usize, pSourceName: super::super::super::Foundation::PSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, pEntrypoint: super::super::super::Foundation::PSTR, pTarget: super::super::super::Foundation::PSTR, Flags1: u32, Flags2: u32, ppCode: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcompile2")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCompile2(pSrcData: *mut void, SrcDataSize: usize, pSourceName: super::super::super::Foundation::PSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, pEntrypoint: super::super::super::Foundation::PSTR, pTarget: super::super::super::Foundation::PSTR, Flags1: u32, Flags2: u32, SecondaryDataFlags: u32, pSecondaryData: *mut void, SecondaryDataSize: usize, ppCode: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcompilefromfile")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCompileFromFile(pFileName: super::super::super::Foundation::PWSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, pEntrypoint: super::super::super::Foundation::PSTR, pTarget: super::super::super::Foundation::PSTR, Flags1: u32, Flags2: u32, ppCode: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcompressshaders")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCompressShaders(uNumShaders: u32, pShaderData: *mut D3D_SHADER_DATA, uFlags: u32, ppCompressedData: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcreateblob")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCreateBlob(Size: usize, ppBlob: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcreatefunctionlinkinggraph")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCreateFunctionLinkingGraph(uFlags: u32, ppFunctionLinkingGraph: *mut super::super::Direct3D11::ID3D11FunctionLinkingGraph) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dcreatelinker")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DCreateLinker(ppLinker: *mut super::super::Direct3D11::ID3D11Linker) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3ddecompressshaders")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DDecompressShaders(pSrcData: *mut void, SrcDataSize: usize, uNumShaders: u32, uStartIndex: u32, pIndices: *mut u32, uFlags: u32, ppShaders: *mut super::ID3DBlob, pTotalShaders: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3ddisassemble")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DDisassemble(pSrcData: *mut void, SrcDataSize: usize, Flags: u32, szComments: super::super::super::Foundation::PSTR, ppDisassembly: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3ddisassemble10effect")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DDisassemble10Effect(pEffect: super::super::Direct3D10::ID3D10Effect, Flags: u32, ppDisassembly: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3ddisassembleregion")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DDisassembleRegion(pSrcData: *mut void, SrcDataSize: usize, Flags: u32, szComments: super::super::super::Foundation::PSTR, StartByteOffset: usize, NumInsts: usize, pFinishByteOffset: *mut usize, ppDisassembly: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgetblobpart")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetBlobPart(pSrcData: *mut void, SrcDataSize: usize, Part: D3D_BLOB_PART, Flags: u32, ppPart: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgetdebuginfo")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetDebugInfo(pSrcData: *mut void, SrcDataSize: usize, ppDebugInfo: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgetinputandoutputsignatureblob")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetInputAndOutputSignatureBlob(pSrcData: *mut void, SrcDataSize: usize, ppSignatureBlob: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgetinputsignatureblob")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetInputSignatureBlob(pSrcData: *mut void, SrcDataSize: usize, ppSignatureBlob: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgetoutputsignatureblob")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetOutputSignatureBlob(pSrcData: *mut void, SrcDataSize: usize, ppSignatureBlob: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dgettraceinstructionoffsets")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DGetTraceInstructionOffsets(pSrcData: *mut void, SrcDataSize: usize, Flags: u32, StartInstIndex: usize, NumInsts: usize, pOffsets: *mut usize, pTotalInsts: *mut usize) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dloadmodule")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DLoadModule(pSrcData: *mut void, cbSrcDataSize: usize, ppModule: *mut super::super::Direct3D11::ID3D11Module) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dpreprocess")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DPreprocess(pSrcData: *mut void, SrcDataSize: usize, pSourceName: super::super::super::Foundation::PSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, ppCodeText: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dreadfiletoblob")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DReadFileToBlob(pFileName: super::super::super::Foundation::PWSTR, ppContents: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dreflect")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DReflect(pSrcData: *mut void, SrcDataSize: usize, pInterface: *mut GUID, ppReflector: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dreflectlibrary")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DReflectLibrary(pSrcData: *mut void, SrcDataSize: usize, riid: *mut GUID, ppReflector: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dsetblobpart")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DSetBlobPart(pSrcData: *mut void, SrcDataSize: usize, Part: D3D_BLOB_PART, Flags: u32, pPart: *mut void, PartSize: usize, ppNewShader: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dstripshader")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DStripShader(pShaderBytecode: *mut void, BytecodeLength: usize, uStripFlags: u32, ppStrippedBlob: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/nf-d3dcompiler-d3dwriteblobtofile")]
+                    #[library("D3DCOMPILER_47.dll")]
+                    extern fn D3DWriteBlobToFile(pBlob: super::ID3DBlob, pFileName: super::super::super::Foundation::PWSTR, bOverwrite: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/ne-d3dcompiler-d3d_blob_part")]
+                    enum D3D_BLOB_PART {
+                        D3D_BLOB_INPUT_SIGNATURE_BLOB = 0,
+                        D3D_BLOB_OUTPUT_SIGNATURE_BLOB = 1,
+                        D3D_BLOB_INPUT_AND_OUTPUT_SIGNATURE_BLOB = 2,
+                        D3D_BLOB_PATCH_CONSTANT_SIGNATURE_BLOB = 3,
+                        D3D_BLOB_ALL_SIGNATURE_BLOB = 4,
+                        D3D_BLOB_DEBUG_INFO = 5,
+                        D3D_BLOB_LEGACY_SHADER = 6,
+                        D3D_BLOB_XNA_PREPASS_SHADER = 7,
+                        D3D_BLOB_XNA_SHADER = 8,
+                        D3D_BLOB_PDB = 9,
+                        D3D_BLOB_PRIVATE_DATA = 10,
+                        D3D_BLOB_ROOT_SIGNATURE = 11,
+                        D3D_BLOB_DEBUG_NAME = 12,
+                        D3D_BLOB_TEST_ALTERNATE_SHADER = 32768,
+                        D3D_BLOB_TEST_COMPILE_DETAILS = 32769,
+                        D3D_BLOB_TEST_COMPILE_PERF = 32770,
+                        D3D_BLOB_TEST_COMPILE_REPORT = 32771,
+                    }
+                    const D3D_COMPILER_VERSION: u32 = 47;
+                    const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: u32 = 1;
+                    const D3D_DISASM_DISABLE_DEBUG_INFO: u32 = 16;
+                    const D3D_DISASM_ENABLE_COLOR_CODE: u32 = 1;
+                    const D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS: u32 = 2;
+                    const D3D_DISASM_ENABLE_INSTRUCTION_CYCLE: u32 = 8;
+                    const D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING: u32 = 4;
+                    const D3D_DISASM_ENABLE_INSTRUCTION_OFFSET: u32 = 32;
+                    const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64;
+                    const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128;
+                    const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d3dcompiler/ns-d3dcompiler-d3d_shader_data")]
+                    struct D3D_SHADER_DATA {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pBytecode: *mut void,
+                        BytecodeLength: usize,
+                    }
+                    extern fn pD3DCompile(pSrcData: *mut void, SrcDataSize: usize, pFileName: super::super::super::Foundation::PSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, pEntrypoint: super::super::super::Foundation::PSTR, pTarget: super::super::super::Foundation::PSTR, Flags1: u32, Flags2: u32, ppCode: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    extern fn pD3DDisassemble(pSrcData: *mut void, SrcDataSize: usize, Flags: u32, szComments: super::super::super::Foundation::PSTR, ppDisassembly: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                    extern fn pD3DPreprocess(pSrcData: *mut void, SrcDataSize: usize, pFileName: super::super::super::Foundation::PSTR, pDefines: *mut super::D3D_SHADER_MACRO, pInclude: super::ID3DInclude, ppCodeText: *mut super::ID3DBlob, ppErrorMsgs: *mut super::ID3DBlob) -> super::super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1679 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod Contacts {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AggregateContactManager {
+                #[default]
+                IAggregateContactManager,
+                IAggregateContactManager2,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class Contact {
+                #[default]
+                IContact,
+                IContact2,
+                IContactName,
+                IContact3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactAddress {
+                #[default]
+                IContactAddress,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactAddressKind {
+                Home = 0,
+                Work = 1,
+                Other = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactAnnotation {
+                #[default]
+                IContactAnnotation,
+                IContactAnnotation2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactAnnotationList {
+                #[default]
+                IContactAnnotationList,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactAnnotationOperations {
+                None = 0,
+                ContactProfile = 1,
+                Message = 2,
+                AudioCall = 4,
+                VideoCall = 8,
+                SocialFeeds = 16,
+                Share = 32,
+                Activity = 64,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactAnnotationStore {
+                #[default]
+                IContactAnnotationStore,
+                IContactAnnotationStore2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactAnnotationStoreAccessType {
+                AppAnnotationsReadWrite = 0,
+                AllAnnotationsReadWrite = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactBatch {
+                #[default]
+                IContactBatch,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactBatchStatus {
+                Success = 0,
+                ServerSearchSyncManagerError = 1,
+                ServerSearchUnknownError = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactCardDelayedDataLoader {
+                #[default]
+                IContactCardDelayedDataLoader,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactCardHeaderKind {
+                Default = 0,
+                Basic = 1,
+                Enterprise = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class ContactCardOptions {
+                #[default]
+                IContactCardOptions,
+                IContactCardOptions2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactCardTabKind {
+                Default = 0,
+                Email = 1,
+                Messaging = 2,
+                Phone = 3,
+                Video = 4,
+                OrganizationalHierarchy = 5,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactChange {
+                #[default]
+                IContactChange,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactChangeReader {
+                #[default]
+                IContactChangeReader,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactChangeTracker {
+                #[default]
+                IContactChangeTracker,
+                IContactChangeTracker2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactChangeType {
+                Created = 0,
+                Modified = 1,
+                Deleted = 2,
+                ChangeTrackingLost = 3,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactChangedDeferral {
+                #[default]
+                IContactChangedDeferral,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactChangedEventArgs {
+                #[default]
+                IContactChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactConnectedServiceAccount {
+                #[default]
+                IContactConnectedServiceAccount,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class ContactDate {
+                #[default]
+                IContactDate,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactDateKind {
+                Birthday = 0,
+                Anniversary = 1,
+                Other = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class ContactEmail {
+                #[default]
+                IContactEmail,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactEmailKind {
+                Personal = 0,
+                Work = 1,
+                Other = 2,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IContactFieldFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactField {
+                #[default]
+                IContactField,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactFieldCategory {
+                None = 0,
+                Home = 1,
+                Work = 2,
+                Mobile = 3,
+                Other = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactFieldFactory {
+                #[default]
+                IContactFieldFactory,
+                IContactLocationFieldFactory,
+                IContactInstantMessageFieldFactory,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactFieldType {
+                Email = 0,
+                PhoneNumber = 1,
+                Location = 2,
+                InstantMessage = 3,
+                Custom = 4,
+                ConnectedServiceAccount = 5,
+                ImportantDate = 6,
+                Address = 7,
+                SignificantOther = 8,
+                Notes = 9,
+                Website = 10,
+                JobInfo = 11,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactGroup {
+                #[default]
+                IContactGroup,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactInformation {
+                #[default]
+                IContactInformation,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IContactInstantMessageFieldFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactInstantMessageField {
+                #[default]
+                IContactInstantMessageField,
+                IContactField,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactJobInfo {
+                #[default]
+                IContactJobInfo,
+            }
+            #[Windows::Foundation::Metadata::Static(IContactLaunchActionVerbsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactLaunchActionVerbs {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactList {
+                #[default]
+                IContactList,
+                IContactList2,
+                IContactList3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class ContactListLimitedWriteOperations {
+                #[default]
+                IContactListLimitedWriteOperations,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactListOtherAppReadAccess {
+                SystemOnly = 0,
+                Limited = 1,
+                Full = 2,
+                None = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactListOtherAppWriteAccess {
+                None = 0,
+                SystemOnly = 1,
+                Limited = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class ContactListSyncConstraints {
+                #[default]
+                IContactListSyncConstraints,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactListSyncManager {
+                #[default]
+                IContactListSyncManager,
+                IContactListSyncManager2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactListSyncStatus {
+                Idle = 0,
+                Syncing = 1,
+                UpToDate = 2,
+                AuthenticationError = 3,
+                PolicyError = 4,
+                UnknownError = 5,
+                ManualAccountRemovalRequired = 6,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IContactLocationFieldFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactLocationField {
+                #[default]
+                IContactLocationField,
+                IContactField,
+            }
+            #[Windows::Foundation::Metadata::Static(IContactManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IContactManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IContactManagerStatics5, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IContactManagerStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IContactManagerStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
+            class ContactManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactManagerForUser {
+                #[default]
+                IContactManagerForUser,
+                IContactManagerForUser2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactMatchReason {
+                #[default]
+                IContactMatchReason,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactMatchReasonKind {
+                Name = 0,
+                EmailAddress = 1,
+                PhoneNumber = 2,
+                JobInfo = 3,
+                YomiName = 4,
+                Other = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactNameOrder {
+                FirstNameLastName = 0,
+                LastNameFirstName = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactPanel {
+                #[default]
+                IContactPanel,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class ContactPanelClosingEventArgs {
+                #[default]
+                IContactPanelClosingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class ContactPanelLaunchFullAppRequestedEventArgs {
+                #[default]
+                IContactPanelLaunchFullAppRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactPhone {
+                #[default]
+                IContactPhone,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactPhoneKind {
+                Home = 0,
+                Mobile = 1,
+                Work = 2,
+                Other = 3,
+                Pager = 4,
+                BusinessFax = 5,
+                HomeFax = 6,
+                Company = 7,
+                Assistant = 8,
+                Radio = 9,
+            }
+            #[Windows::Foundation::Metadata::Static(IContactPickerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class ContactPicker {
+                #[default]
+                IContactPicker,
+                IContactPicker2,
+                IContactPicker3,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactQueryDesiredFields {
+                None = 0,
+                PhoneNumber = 1,
+                EmailAddress = 2,
+                PostalAddress = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IContactQueryOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactQueryOptions {
+                #[default]
+                IContactQueryOptions,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactQuerySearchFields {
+                None = 0,
+                Name = 1,
+                Email = 2,
+                Phone = 4,
+                All = 4294967295,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactQuerySearchScope {
+                Local = 0,
+                Server = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContactQueryTextSearch {
+                #[default]
+                IContactQueryTextSearch,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ContactReader {
+                #[default]
+                IContactReader,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactRelationship {
+                Other = 0,
+                Spouse = 1,
+                Partner = 2,
+                Sibling = 3,
+                Parent = 4,
+                Child = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactSelectionMode {
+                Contacts = 0,
+                Fields = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class ContactSignificantOther {
+                #[default]
+                IContactSignificantOther,
+                IContactSignificantOther2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactStore {
+                #[default]
+                IContactStore,
+                IContactStore2,
+                IContactStore3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContactStoreAccessType {
+                AppContactsReadWrite = 0,
+                AllContactsReadOnly = 1,
+                AllContactsReadWrite = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactStoreNotificationTriggerDetails {
+                #[default]
+                IContactStoreNotificationTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactWebsite {
+                #[default]
+                IContactWebsite,
+                IContactWebsite2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FullContactCardOptions {
+                #[default]
+                IFullContactCardOptions,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AggregateContactManager)]
+            interface IAggregateContactManager {
+                fn FindRawContactsAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
+                fn TryLinkContactsAsync(&self, primaryContact: Contact, secondaryContact: Contact) -> super::super::Foundation::IAsyncOperation<Contact>;
+                fn UnlinkRawContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncAction;
+                fn TrySetPreferredSourceForPictureAsync(&self, aggregateContact: Contact, rawContact: Contact) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AggregateContactManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAggregateContactManager2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetRemoteIdentificationInformationAsync(&self, contactListId: String, remoteSourceId: String, accountId: String) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(Contact)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContact {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_Thumbnail(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn put_Thumbnail(&self, value: super::super::Storage::Streams::IRandomAccessStreamReference);
+                #[special]
+                fn get_Fields(&self) -> super::super::Foundation::Collections::IVector<IContactField>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Contact)]
+            interface IContact2: IContact {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn put_Id(&self, value: String);
+                #[special]
+                fn get_Notes(&self) -> String;
+                #[special]
+                fn put_Notes(&self, value: String);
+                #[special]
+                fn get_Phones(&self) -> super::super::Foundation::Collections::IVector<ContactPhone>;
+                #[special]
+                fn get_Emails(&self) -> super::super::Foundation::Collections::IVector<ContactEmail>;
+                #[special]
+                fn get_Addresses(&self) -> super::super::Foundation::Collections::IVector<ContactAddress>;
+                #[special]
+                fn get_ConnectedServiceAccounts(&self) -> super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>;
+                #[special]
+                fn get_ImportantDates(&self) -> super::super::Foundation::Collections::IVector<ContactDate>;
+                #[special]
+                fn get_DataSuppliers(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_JobInfo(&self) -> super::super::Foundation::Collections::IVector<ContactJobInfo>;
+                #[special]
+                fn get_SignificantOthers(&self) -> super::super::Foundation::Collections::IVector<ContactSignificantOther>;
+                #[special]
+                fn get_Websites(&self) -> super::super::Foundation::Collections::IVector<ContactWebsite>;
+                #[special]
+                fn get_ProviderProperties(&self) -> super::super::Foundation::Collections::IPropertySet;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(Contact)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContact3: IContact2 + IContact {
+                #[special]
+                fn get_ContactListId(&self) -> String;
+                #[special]
+                fn get_DisplayPictureUserUpdateTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn put_DisplayPictureUserUpdateTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn get_IsMe(&self) -> bool;
+                #[special]
+                fn get_AggregateId(&self) -> String;
+                #[special]
+                fn get_RemoteId(&self) -> String;
+                #[special]
+                fn put_RemoteId(&self, value: String);
+                #[special]
+                fn get_RingToneToken(&self) -> String;
+                #[special]
+                fn put_RingToneToken(&self, value: String);
+                #[special]
+                fn get_IsDisplayPictureManuallySet(&self) -> bool;
+                #[special]
+                fn get_LargeDisplayPicture(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn get_SmallDisplayPicture(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn get_SourceDisplayPicture(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn put_SourceDisplayPicture(&self, value: super::super::Storage::Streams::IRandomAccessStreamReference);
+                #[special]
+                fn get_TextToneToken(&self) -> String;
+                #[special]
+                fn put_TextToneToken(&self, value: String);
+                #[special]
+                fn get_IsAggregate(&self) -> bool;
+                #[special]
+                fn get_FullName(&self) -> String;
+                #[special]
+                fn get_DisplayNameOverride(&self) -> String;
+                #[special]
+                fn put_DisplayNameOverride(&self, value: String);
+                #[special]
+                fn get_Nickname(&self) -> String;
+                #[special]
+                fn put_Nickname(&self, value: String);
+                #[special]
+                fn get_SortName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAddress)]
+            interface IContactAddress {
+                #[special]
+                fn get_StreetAddress(&self) -> String;
+                #[special]
+                fn put_StreetAddress(&self, value: String);
+                #[special]
+                fn get_Locality(&self) -> String;
+                #[special]
+                fn put_Locality(&self, value: String);
+                #[special]
+                fn get_Region(&self) -> String;
+                #[special]
+                fn put_Region(&self, value: String);
+                #[special]
+                fn get_Country(&self) -> String;
+                #[special]
+                fn put_Country(&self, value: String);
+                #[special]
+                fn get_PostalCode(&self) -> String;
+                #[special]
+                fn put_PostalCode(&self, value: String);
+                #[special]
+                fn get_Kind(&self) -> ContactAddressKind;
+                #[special]
+                fn put_Kind(&self, value: ContactAddressKind);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAnnotation)]
+            interface IContactAnnotation {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_AnnotationListId(&self) -> String;
+                #[special]
+                fn get_ContactId(&self) -> String;
+                #[special]
+                fn put_ContactId(&self, value: String);
+                #[special]
+                fn get_RemoteId(&self) -> String;
+                #[special]
+                fn put_RemoteId(&self, value: String);
+                #[special]
+                fn get_SupportedOperations(&self) -> ContactAnnotationOperations;
+                #[special]
+                fn put_SupportedOperations(&self, value: ContactAnnotationOperations);
+                #[special]
+                fn get_IsDisabled(&self) -> bool;
+                #[special]
+                fn get_ProviderProperties(&self) -> super::super::Foundation::Collections::ValueSet;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAnnotation)]
+            interface IContactAnnotation2 {
+                #[special]
+                fn get_ContactListId(&self) -> String;
+                #[special]
+                fn put_ContactListId(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAnnotationList)]
+            interface IContactAnnotationList {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_ProviderPackageFamilyName(&self) -> String;
+                #[special]
+                fn get_UserDataAccountId(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn TrySaveAnnotationAsync(&self, annotation: ContactAnnotation) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAnnotationAsync(&self, annotationId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAnnotationsByRemoteIdAsync(&self, remoteId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAnnotationsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>;
+                fn DeleteAnnotationAsync(&self, annotation: ContactAnnotation) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAnnotationStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactAnnotationStore {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindContactIdsByEmailAsync(&self, emailAddress: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindContactIdsByPhoneNumberAsync(&self, phoneNumber: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                fn FindAnnotationsForContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>;
+                fn DisableAnnotationAsync(&self, annotation: ContactAnnotation) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateAnnotationListAsync")]
+                fn CreateAnnotationListAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
+                #[Windows::Foundation::Metadata::Overload("CreateAnnotationListInAccountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAnnotationListAsync(&self, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAnnotationListAsync(&self, annotationListId: String) -> super::super::Foundation::IAsyncOperation<ContactAnnotationList>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAnnotationListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactAnnotationStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IContactAnnotationStore2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAnnotationsForContactListAsync(&self, contactListId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactBatch)]
+            interface IContactBatch {
+                #[special]
+                fn get_Contacts(&self) -> super::super::Foundation::Collections::IVectorView<Contact>;
+                #[special]
+                fn get_Status(&self) -> ContactBatchStatus;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactCardDelayedDataLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactCardDelayedDataLoader: super::super::Foundation::IClosable {
+                fn SetData(&self, contact: Contact);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactCardOptions)]
+            interface IContactCardOptions {
+                #[special]
+                fn get_HeaderKind(&self) -> ContactCardHeaderKind;
+                #[special]
+                fn put_HeaderKind(&self, value: ContactCardHeaderKind);
+                #[special]
+                fn get_InitialTabKind(&self) -> ContactCardTabKind;
+                #[special]
+                fn put_InitialTabKind(&self, value: ContactCardTabKind);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactCardOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IContactCardOptions2: IContactCardOptions {
+                #[special]
+                fn get_ServerSearchContactListIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChange)]
+            interface IContactChange {
+                #[special]
+                fn get_ChangeType(&self) -> ContactChangeType;
+                #[special]
+                fn get_Contact(&self) -> Contact;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChangeReader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactChangeReader {
+                fn AcceptChanges(&self);
+                fn AcceptChangesThrough(&self, lastChangeToAccept: ContactChange);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChangeTracker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactChangeTracker {
+                fn Enable(&self);
+                fn GetChangeReader(&self) -> ContactChangeReader;
+                fn Reset(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChangeTracker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IContactChangeTracker2 {
+                #[special]
+                fn get_IsTracking(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChangedDeferral)]
+            interface IContactChangedDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactChangedEventArgs {
+                fn GetDeferral(&self) -> ContactChangedDeferral;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactConnectedServiceAccount)]
+            interface IContactConnectedServiceAccount {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn put_Id(&self, value: String);
+                #[special]
+                fn get_ServiceName(&self) -> String;
+                #[special]
+                fn put_ServiceName(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactDate)]
+            interface IContactDate {
+                #[special]
+                fn get_Day(&self) -> super::super::Foundation::IReference<u32>;
+                #[special]
+                fn put_Day(&self, value: super::super::Foundation::IReference<u32>);
+                #[special]
+                fn get_Month(&self) -> super::super::Foundation::IReference<u32>;
+                #[special]
+                fn put_Month(&self, value: super::super::Foundation::IReference<u32>);
+                #[special]
+                fn get_Year(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_Year(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_Kind(&self) -> ContactDateKind;
+                #[special]
+                fn put_Kind(&self, value: ContactDateKind);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactEmail)]
+            interface IContactEmail {
+                #[special]
+                fn get_Address(&self) -> String;
+                #[special]
+                fn put_Address(&self, value: String);
+                #[special]
+                fn get_Kind(&self) -> ContactEmailKind;
+                #[special]
+                fn put_Kind(&self, value: ContactEmailKind);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactField {
+                #[special]
+                fn get_Type(&self) -> ContactFieldType;
+                #[special]
+                fn get_Category(&self) -> ContactFieldCategory;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_Value(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactFieldFactory {
+                #[Windows::Foundation::Metadata::Overload("CreateField_Default")]
+                fn CreateField(&self, value: String, r#type: ContactFieldType) -> ContactField;
+                #[Windows::Foundation::Metadata::Overload("CreateField_Category")]
+                fn CreateField(&self, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
+                #[Windows::Foundation::Metadata::Overload("CreateField_Custom")]
+                fn CreateField(&self, name: String, value: String, r#type: ContactFieldType, category: ContactFieldCategory) -> ContactField;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactGroup)]
+            interface IContactGroup {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactInformation {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetThumbnailAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+                #[special]
+                fn get_Emails(&self) -> super::super::Foundation::Collections::IVectorView<ContactField>;
+                #[special]
+                fn get_PhoneNumbers(&self) -> super::super::Foundation::Collections::IVectorView<ContactField>;
+                #[special]
+                fn get_Locations(&self) -> super::super::Foundation::Collections::IVectorView<ContactLocationField>;
+                #[special]
+                fn get_InstantMessages(&self) -> super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>;
+                #[special]
+                fn get_CustomFields(&self) -> super::super::Foundation::Collections::IVectorView<ContactField>;
+                fn QueryCustomFields(&self, customName: String) -> super::super::Foundation::Collections::IVectorView<ContactField>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactInstantMessageField)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactInstantMessageField: IContactField {
+                #[special]
+                fn get_UserName(&self) -> String;
+                #[special]
+                fn get_Service(&self) -> String;
+                #[special]
+                fn get_DisplayText(&self) -> String;
+                #[special]
+                fn get_LaunchUri(&self) -> super::super::Foundation::Uri;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactInstantMessageFieldFactory {
+                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_Default")]
+                fn CreateInstantMessage(&self, userName: String) -> ContactInstantMessageField;
+                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_Category")]
+                fn CreateInstantMessage(&self, userName: String, category: ContactFieldCategory) -> ContactInstantMessageField;
+                #[Windows::Foundation::Metadata::Overload("CreateInstantMessage_All")]
+                fn CreateInstantMessage(&self, userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: super::super::Foundation::Uri) -> ContactInstantMessageField;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactJobInfo)]
+            interface IContactJobInfo {
+                #[special]
+                fn get_CompanyName(&self) -> String;
+                #[special]
+                fn put_CompanyName(&self, value: String);
+                #[special]
+                fn get_CompanyYomiName(&self) -> String;
+                #[special]
+                fn put_CompanyYomiName(&self, value: String);
+                #[special]
+                fn get_Department(&self) -> String;
+                #[special]
+                fn put_Department(&self, value: String);
+                #[special]
+                fn get_Title(&self) -> String;
+                #[special]
+                fn put_Title(&self, value: String);
+                #[special]
+                fn get_Manager(&self) -> String;
+                #[special]
+                fn put_Manager(&self, value: String);
+                #[special]
+                fn get_Office(&self) -> String;
+                #[special]
+                fn put_Office(&self, value: String);
+                #[special]
+                fn get_CompanyAddress(&self) -> String;
+                #[special]
+                fn put_CompanyAddress(&self, value: String);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactLaunchActionVerbs)]
+            interface IContactLaunchActionVerbsStatics {
+                #[special]
+                fn get_Call(&self) -> String;
+                #[special]
+                fn get_Message(&self) -> String;
+                #[special]
+                fn get_Map(&self) -> String;
+                #[special]
+                fn get_Post(&self) -> String;
+                #[special]
+                fn get_VideoCall(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactList)]
+            interface IContactList {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_SourceDisplayName(&self) -> String;
+                #[special]
+                fn get_IsHidden(&self) -> bool;
+                #[special]
+                fn put_IsHidden(&self, value: bool);
+                #[special]
+                fn get_OtherAppReadAccess(&self) -> ContactListOtherAppReadAccess;
+                #[special]
+                fn put_OtherAppReadAccess(&self, value: ContactListOtherAppReadAccess);
+                #[special]
+                fn get_OtherAppWriteAccess(&self) -> ContactListOtherAppWriteAccess;
+                #[special]
+                fn put_OtherAppWriteAccess(&self, value: ContactListOtherAppWriteAccess);
+                #[special]
+                fn get_ChangeTracker(&self) -> ContactChangeTracker;
+                #[special]
+                fn get_SyncManager(&self) -> ContactListSyncManager;
+                #[special]
+                fn get_SupportsServerSearch(&self) -> bool;
+                #[special]
+                fn get_UserDataAccountId(&self) -> String;
+                #[special]
+                fn add_ContactChanged(&self, value: super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ContactChanged(&self, value: super::super::Foundation::EventRegistrationToken);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetContactFromRemoteIdAsync(&self, remoteId: String) -> super::super::Foundation::IAsyncOperation<Contact>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMeContactAsync(&self) -> super::super::Foundation::IAsyncOperation<Contact>;
+                #[Windows::Foundation::Metadata::Overload("GetContactReader")]
+                fn GetContactReader(&self) -> ContactReader;
+                #[Windows::Foundation::Metadata::Overload("GetContactReaderWithOptions")]
+                fn GetContactReader(&self, options: ContactQueryOptions) -> ContactReader;
+                fn SaveContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncAction;
+                fn DeleteContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetContactAsync(&self, contactId: String) -> super::super::Foundation::IAsyncOperation<Contact>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactList)]
+            interface IContactList2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterSyncManagerAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn put_SupportsServerSearch(&self, value: bool);
+                #[special]
+                fn get_SyncConstraints(&self) -> ContactListSyncConstraints;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactList)]
+            interface IContactList3 {
+                #[special]
+                fn get_LimitedWriteOperations(&self) -> ContactListLimitedWriteOperations;
+                fn GetChangeTracker(&self, identity: String) -> ContactChangeTracker;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactListLimitedWriteOperations)]
+            interface IContactListLimitedWriteOperations {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryCreateOrUpdateContactAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryDeleteContactAsync(&self, contactId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncConstraints)]
+            interface IContactListSyncConstraints {
+                #[special]
+                fn get_CanSyncDescriptions(&self) -> bool;
+                #[special]
+                fn put_CanSyncDescriptions(&self, value: bool);
+                #[special]
+                fn get_MaxHomePhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxHomePhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxMobilePhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxMobilePhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxWorkPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxWorkPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxOtherPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxOtherPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxPagerPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxPagerPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxBusinessFaxPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxBusinessFaxPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxHomeFaxPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxHomeFaxPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxCompanyPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxCompanyPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxAssistantPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxAssistantPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxRadioPhoneNumbers(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxRadioPhoneNumbers(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxPersonalEmailAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxPersonalEmailAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxWorkEmailAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxWorkEmailAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxOtherEmailAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxOtherEmailAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxHomeAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxHomeAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxWorkAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxWorkAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxOtherAddresses(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxOtherAddresses(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxBirthdayDates(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxBirthdayDates(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxAnniversaryDates(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxAnniversaryDates(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxOtherDates(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxOtherDates(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxOtherRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxOtherRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxSpouseRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxSpouseRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxPartnerRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxPartnerRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxSiblingRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxSiblingRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxParentRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxParentRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxChildRelationships(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxChildRelationships(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxJobInfo(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxJobInfo(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_MaxWebsites(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_MaxWebsites(&self, value: super::super::Foundation::IReference<i32>);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactListSyncManager {
+                #[special]
+                fn get_Status(&self) -> ContactListSyncStatus;
+                #[special]
+                fn get_LastSuccessfulSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_LastAttemptedSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SyncAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn add_SyncStatusChanged(&self, handler: super::super::Foundation::TypedEventHandler<ContactListSyncManager, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_SyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IContactListSyncManager2 {
+                #[special]
+                fn put_Status(&self, value: ContactListSyncStatus);
+                #[special]
+                fn put_LastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn put_LastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactLocationField)]
+            interface IContactLocationField: IContactField {
+                #[special]
+                fn get_UnstructuredAddress(&self) -> String;
+                #[special]
+                fn get_Street(&self) -> String;
+                #[special]
+                fn get_City(&self) -> String;
+                #[special]
+                fn get_Region(&self) -> String;
+                #[special]
+                fn get_Country(&self) -> String;
+                #[special]
+                fn get_PostalCode(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactLocationFieldFactory {
+                #[Windows::Foundation::Metadata::Overload("CreateLocation_Default")]
+                fn CreateLocation(&self, unstructuredAddress: String) -> ContactLocationField;
+                #[Windows::Foundation::Metadata::Overload("CreateLocation_Category")]
+                fn CreateLocation(&self, unstructuredAddress: String, category: ContactFieldCategory) -> ContactLocationField;
+                #[Windows::Foundation::Metadata::Overload("CreateLocation_All")]
+                fn CreateLocation(&self, unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String) -> ContactLocationField;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManagerForUser)]
+            interface IContactManagerForUser {
+                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConvertContactToVCardAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsyncWithMaxBytes")]
+                fn ConvertContactToVCardAsync(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConvertVCardToContactAsync(&self, vCard: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<Contact>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, accessType: ContactStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactStore>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAnnotationStoreAsync(&self, accessType: ContactAnnotationStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactAnnotationStore>;
+                #[special]
+                fn get_SystemDisplayNameOrder(&self) -> ContactNameOrder;
+                #[special]
+                fn put_SystemDisplayNameOrder(&self, value: ContactNameOrder);
+                #[special]
+                fn get_SystemSortOrder(&self) -> ContactNameOrder;
+                #[special]
+                fn put_SystemSortOrder(&self, value: ContactNameOrder);
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManagerForUser)]
+            interface IContactManagerForUser2 {
+                fn ShowFullContactCard(&self, contact: Contact, fullContactCardOptions: FullContactCardOptions);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("ShowContactCard")]
+                fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect);
+                #[Windows::Foundation::Metadata::Overload("ShowContactCardWithPlacement")]
+                fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[Windows::Foundation::Metadata::Overload("ShowDelayLoadedContactCard")]
+                fn ShowDelayLoadedContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> ContactCardDelayedDataLoader;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactManagerStatics2: IContactManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestStoreAsync")]
+                fn RequestStoreAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactStore>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
+            interface IContactManagerStatics3: IContactManagerStatics2 + IContactManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsync")]
+                fn ConvertContactToVCardAsync(&self, contact: Contact) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ConvertContactToVCardAsyncWithMaxBytes")]
+                fn ConvertContactToVCardAsync(&self, contact: Contact, maxBytes: u32) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConvertVCardToContactAsync(&self, vCard: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<Contact>;
+                #[Windows::Foundation::Metadata::Overload("RequestStoreAsyncWithAccessType")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, accessType: ContactStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactStore>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAnnotationStoreAsync(&self, accessType: ContactAnnotationStoreAccessType) -> super::super::Foundation::IAsyncOperation<ContactAnnotationStore>;
+                fn IsShowContactCardSupported(&self) -> bool;
+                #[Windows::Foundation::Metadata::Overload("ShowContactCardWithOptions")]
+                fn ShowContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions);
+                fn IsShowDelayLoadedContactCardSupported(&self) -> bool;
+                #[Windows::Foundation::Metadata::Overload("ShowDelayLoadedContactCardWithOptions")]
+                fn ShowDelayLoadedContactCard(&self, contact: Contact, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, contactCardOptions: ContactCardOptions) -> ContactCardDelayedDataLoader;
+                fn ShowFullContactCard(&self, contact: Contact, fullContactCardOptions: FullContactCardOptions);
+                #[special]
+                fn get_SystemDisplayNameOrder(&self) -> ContactNameOrder;
+                #[special]
+                fn put_SystemDisplayNameOrder(&self, value: ContactNameOrder);
+                #[special]
+                fn get_SystemSortOrder(&self) -> ContactNameOrder;
+                #[special]
+                fn put_SystemSortOrder(&self, value: ContactNameOrder);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IContactManagerStatics4 {
+                fn GetForUser(&self, user: super::super::System::User) -> ContactManagerForUser;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IContactManagerStatics5 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsShowFullContactCardSupportedAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn get_IncludeMiddleNameInSystemDisplayAndSort(&self) -> bool;
+                #[special]
+                fn put_IncludeMiddleNameInSystemDisplayAndSort(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactMatchReason)]
+            interface IContactMatchReason {
+                #[special]
+                fn get_Field(&self) -> ContactMatchReasonKind;
+                #[special]
+                fn get_Segments(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>;
+                #[special]
+                fn get_Text(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Contact)]
+            interface IContactName {
+                #[special]
+                fn get_FirstName(&self) -> String;
+                #[special]
+                fn put_FirstName(&self, value: String);
+                #[special]
+                fn get_LastName(&self) -> String;
+                #[special]
+                fn put_LastName(&self, value: String);
+                #[special]
+                fn get_MiddleName(&self) -> String;
+                #[special]
+                fn put_MiddleName(&self, value: String);
+                #[special]
+                fn get_YomiGivenName(&self) -> String;
+                #[special]
+                fn put_YomiGivenName(&self, value: String);
+                #[special]
+                fn get_YomiFamilyName(&self) -> String;
+                #[special]
+                fn put_YomiFamilyName(&self, value: String);
+                #[special]
+                fn get_HonorificNameSuffix(&self) -> String;
+                #[special]
+                fn put_HonorificNameSuffix(&self, value: String);
+                #[special]
+                fn get_HonorificNamePrefix(&self) -> String;
+                #[special]
+                fn put_HonorificNamePrefix(&self, value: String);
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn get_YomiDisplayName(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPanel)]
+            interface IContactPanel {
+                fn ClosePanel(&self);
+                #[special]
+                fn get_HeaderColor(&self) -> super::super::Foundation::IReference<super::super::UI::Color>;
+                #[special]
+                fn put_HeaderColor(&self, value: super::super::Foundation::IReference<super::super::UI::Color>);
+                #[special]
+                fn add_LaunchFullAppRequested(&self, handler: super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_LaunchFullAppRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Closing(&self, handler: super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Closing(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPanelClosingEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IContactPanelClosingEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPanelLaunchFullAppRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IContactPanelLaunchFullAppRequestedEventArgs {
+                #[special]
+                fn get_Handled(&self) -> bool;
+                #[special]
+                fn put_Handled(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPhone)]
+            interface IContactPhone {
+                #[special]
+                fn get_Number(&self) -> String;
+                #[special]
+                fn put_Number(&self, value: String);
+                #[special]
+                fn get_Kind(&self) -> ContactPhoneKind;
+                #[special]
+                fn put_Kind(&self, value: ContactPhoneKind);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactPicker {
+                #[special]
+                fn get_CommitButtonText(&self) -> String;
+                #[special]
+                fn put_CommitButtonText(&self, value: String);
+                #[special]
+                fn get_SelectionMode(&self) -> ContactSelectionMode;
+                #[special]
+                fn put_SelectionMode(&self, value: ContactSelectionMode);
+                #[special]
+                fn get_DesiredFields(&self) -> super::super::Foundation::Collections::IVector<String>;
+                fn PickSingleContactAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactInformation>;
+                fn PickMultipleContactsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPicker)]
+            interface IContactPicker2 {
+                #[special]
+                fn get_DesiredFieldsWithContactFieldType(&self) -> super::super::Foundation::Collections::IVector<ContactFieldType>;
+                fn PickContactAsync(&self) -> super::super::Foundation::IAsyncOperation<Contact>;
+                fn PickContactsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IContactPicker3 {
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactPicker)]
+            interface IContactPickerStatics {
+                fn CreateForUser(&self, user: super::super::System::User) -> ContactPicker;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsSupportedAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactQueryOptions)]
+            interface IContactQueryOptions {
+                #[special]
+                fn get_TextSearch(&self) -> ContactQueryTextSearch;
+                #[special]
+                fn get_ContactListIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_IncludeContactsFromHiddenLists(&self) -> bool;
+                #[special]
+                fn put_IncludeContactsFromHiddenLists(&self, value: bool);
+                #[special]
+                fn get_DesiredFields(&self) -> ContactQueryDesiredFields;
+                #[special]
+                fn put_DesiredFields(&self, value: ContactQueryDesiredFields);
+                #[special]
+                fn get_DesiredOperations(&self) -> ContactAnnotationOperations;
+                #[special]
+                fn put_DesiredOperations(&self, value: ContactAnnotationOperations);
+                #[special]
+                fn get_AnnotationListIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactQueryOptions)]
+            interface IContactQueryOptionsFactory {
+                fn CreateWithText(&self, text: String) -> ContactQueryOptions;
+                fn CreateWithTextAndFields(&self, text: String, fields: ContactQuerySearchFields) -> ContactQueryOptions;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactQueryTextSearch)]
+            interface IContactQueryTextSearch {
+                #[special]
+                fn get_Fields(&self) -> ContactQuerySearchFields;
+                #[special]
+                fn put_Fields(&self, value: ContactQuerySearchFields);
+                #[special]
+                fn get_Text(&self) -> String;
+                #[special]
+                fn put_Text(&self, value: String);
+                #[special]
+                fn get_SearchScope(&self) -> ContactQuerySearchScope;
+                #[special]
+                fn put_SearchScope(&self, value: ContactQuerySearchScope);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactReader)]
+            interface IContactReader {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<ContactBatch>;
+                fn GetMatchingPropertiesWithMatchReason(&self, contact: Contact) -> super::super::Foundation::Collections::IVectorView<ContactMatchReason>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactSignificantOther)]
+            interface IContactSignificantOther {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactSignificantOther)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactSignificantOther2: IContactSignificantOther {
+                #[special]
+                fn get_Relationship(&self) -> ContactRelationship;
+                #[special]
+                fn put_Relationship(&self, value: ContactRelationship);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactStore {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindContactsAsync")]
+                fn FindContactsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindContactsWithSearchTextAsync")]
+                fn FindContactsAsync(&self, searchText: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetContactAsync(&self, contactId: String) -> super::super::Foundation::IAsyncOperation<Contact>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStore)]
+            interface IContactStore2: IContactStore {
+                #[special]
+                fn get_ChangeTracker(&self) -> ContactChangeTracker;
+                #[special]
+                fn add_ContactChanged(&self, value: super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ContactChanged(&self, value: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_AggregateContactManager(&self) -> AggregateContactManager;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindContactListsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetContactListAsync(&self, contactListId: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateContactListAsync")]
+                fn CreateContactListAsync(&self, displayName: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMeContactAsync(&self) -> super::super::Foundation::IAsyncOperation<Contact>;
+                #[Windows::Foundation::Metadata::Overload("GetContactReader")]
+                fn GetContactReader(&self) -> ContactReader;
+                #[Windows::Foundation::Metadata::Overload("GetContactReaderWithOptions")]
+                fn GetContactReader(&self, options: ContactQueryOptions) -> ContactReader;
+                #[Windows::Foundation::Metadata::Overload("CreateContactListInAccountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateContactListAsync(&self, displayName: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<ContactList>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IContactStore3 {
+                fn GetChangeTracker(&self, identity: String) -> ContactChangeTracker;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactStoreNotificationTriggerDetails)]
+            interface IContactStoreNotificationTriggerDetails {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactWebsite)]
+            interface IContactWebsite {
+                #[special]
+                fn get_Uri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_Uri(&self, value: super::super::Foundation::Uri);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactWebsite)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IContactWebsite2: IContactWebsite {
+                #[special]
+                fn get_RawValue(&self) -> String;
+                #[special]
+                fn put_RawValue(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(FullContactCardOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFullContactCardOptions {
+                #[special]
+                fn get_DesiredRemainingView(&self) -> super::super::UI::ViewManagement::ViewSizePreference;
+                #[special]
+                fn put_DesiredRemainingView(&self, value: super::super::UI::ViewManagement::ViewSizePreference);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownContactField)]
+            #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IKnownContactFieldStatics {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Email(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_PhoneNumber(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Location(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_InstantMessage(&self) -> String;
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn ConvertNameToType(&self, name: String) -> ContactFieldType;
+                #[Windows::Foundation::Metadata::Deprecated("IKnownContactFieldStatics may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn ConvertTypeToName(&self, r#type: ContactFieldType) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PinnedContactIdsQueryResult)]
+            interface IPinnedContactIdsQueryResult {
+                #[special]
+                fn get_ContactIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PinnedContactManager)]
+            interface IPinnedContactManager {
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+                fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> bool;
+                fn IsContactPinned(&self, contact: Contact, surface: PinnedContactSurface) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestPinContactAsync(&self, contact: Contact, surface: PinnedContactSurface) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestPinContactsAsync(&self, contacts: super::super::Foundation::Collections::IIterable<Contact>, surface: PinnedContactSurface) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestUnpinContactAsync(&self, contact: Contact, surface: PinnedContactSurface) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn SignalContactActivity(&self, contact: Contact);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetPinnedContactIdsAsync(&self) -> super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PinnedContactManager)]
+            interface IPinnedContactManagerStatics {
+                fn GetDefault(&self) -> PinnedContactManager;
+                fn GetForUser(&self, user: super::super::System::User) -> PinnedContactManager;
+                fn IsSupported(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::Deprecated("KnownContactField  may be altered or unavailable for releases after Windows 8.1. Instead, use ContactAddress, ContactPhone, ContactConnectedServiceAccount or ContactEmail.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IKnownContactFieldStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class KnownContactField {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PinnedContactIdsQueryResult {
+                #[default]
+                IPinnedContactIdsQueryResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPinnedContactManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            class PinnedContactManager {
+                #[default]
+                IPinnedContactManager,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum PinnedContactSurface {
+                StartMenu = 0,
+                Taskbar = 1,
+            }
+        }
+    }
+}

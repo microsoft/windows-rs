@@ -1,0 +1,109 @@
+mod Windows {
+    mod ApplicationModel {
+        mod Search {
+            #[winrt]
+            mod Core {
+                #[Windows::Foundation::Metadata::ExclusiveTo(RequestingFocusOnKeyboardInputEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                interface IRequestingFocusOnKeyboardInputEventArgs {}
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestion)]
+                interface ISearchSuggestion {
+                    #[special]
+                    fn get_Kind(&self) -> SearchSuggestionKind;
+                    #[special]
+                    fn get_Text(&self) -> String;
+                    #[special]
+                    fn get_Tag(&self) -> String;
+                    #[special]
+                    fn get_DetailText(&self) -> String;
+                    #[special]
+                    fn get_Image(&self) -> super::super::super::Storage::Streams::IRandomAccessStreamReference;
+                    #[special]
+                    fn get_ImageAlternateText(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                interface ISearchSuggestionManager {
+                    #[special]
+                    fn get_SearchHistoryEnabled(&self) -> bool;
+                    #[special]
+                    fn put_SearchHistoryEnabled(&self, value: bool);
+                    #[special]
+                    fn get_SearchHistoryContext(&self) -> String;
+                    #[special]
+                    fn put_SearchHistoryContext(&self, value: String);
+                    fn SetLocalContentSuggestionSettings(&self, settings: super::LocalContentSuggestionSettings);
+                    #[Windows::Foundation::Metadata::Overload("SetQuery")]
+                    fn SetQuery(&self, queryText: String);
+                    #[Windows::Foundation::Metadata::Overload("SetQueryWithLanguage")]
+                    fn SetQuery(&self, queryText: String, language: String);
+                    #[Windows::Foundation::Metadata::Overload("SetQueryWithSearchQueryLinguisticDetails")]
+                    fn SetQuery(&self, queryText: String, language: String, linguisticDetails: super::SearchQueryLinguisticDetails);
+                    #[special]
+                    fn get_Suggestions(&self) -> super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>;
+                    #[Windows::Foundation::Metadata::Overload("AddToHistory")]
+                    fn AddToHistory(&self, queryText: String);
+                    #[Windows::Foundation::Metadata::Overload("AddToHistoryWithLanguage")]
+                    fn AddToHistory(&self, queryText: String, language: String);
+                    fn ClearHistory(&self);
+                    #[special]
+                    fn add_SuggestionsRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SuggestionsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_RequestingFocusOnKeyboardInput(&self, handler: super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_RequestingFocusOnKeyboardInput(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionsRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                interface ISearchSuggestionsRequestedEventArgs {
+                    #[special]
+                    fn get_QueryText(&self) -> String;
+                    #[special]
+                    fn get_Language(&self) -> String;
+                    #[special]
+                    fn get_LinguisticDetails(&self) -> super::SearchQueryLinguisticDetails;
+                    #[special]
+                    fn get_Request(&self) -> super::SearchSuggestionsRequest;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class RequestingFocusOnKeyboardInputEventArgs {
+                    #[default]
+                    IRequestingFocusOnKeyboardInputEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
+                struct SearchCoreContract {}
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                class SearchSuggestion {
+                    #[default]
+                    ISearchSuggestion,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                enum SearchSuggestionKind {
+                    Query = 0,
+                    Result = 1,
+                    Separator = 2,
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.ApplicationModel.Search.Core.SearchCoreContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                class SearchSuggestionManager {
+                    #[default]
+                    ISearchSuggestionManager,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                class SearchSuggestionsRequestedEventArgs {
+                    #[default]
+                    ISearchSuggestionsRequestedEventArgs,
+                }
+            }
+        }
+    }
+}

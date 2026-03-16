@@ -1,0 +1,281 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            #[win32]
+            mod Ribbon {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuiapplication")]
+                interface IUIApplication: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiapplication-onviewchanged")]
+                    fn OnViewChanged(&self, viewId: u32, typeID: UI_VIEWTYPE, view: super::super::System::Com::IUnknown, verb: UI_VIEWVERB, uReasonCode: i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiapplication-oncreateuicommand")]
+                    fn OnCreateUICommand(&self, commandId: u32, typeID: UI_COMMANDTYPE, commandHandler: *mut IUICommandHandler) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiapplication-ondestroyuicommand")]
+                    fn OnDestroyUICommand(&self, commandId: u32, typeID: UI_COMMANDTYPE, commandHandler: IUICommandHandler) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuicollection")]
+                interface IUICollection: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-getcount")]
+                    fn GetCount(&self, count: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-getitem")]
+                    fn GetItem(&self, index: u32, item: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-add")]
+                    fn Add(&self, item: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-insert")]
+                    fn Insert(&self, index: u32, item: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-removeat")]
+                    fn RemoveAt(&self, index: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-replace")]
+                    fn Replace(&self, indexReplaced: u32, itemReplaceWith: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollection-clear")]
+                    fn Clear(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuicollectionchangedevent")]
+                interface IUICollectionChangedEvent: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicollectionchangedevent-onchanged")]
+                    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldIndex: u32, oldItem: super::super::System::Com::IUnknown, newIndex: u32, newItem: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuicommandhandler")]
+                interface IUICommandHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicommandhandler-execute")]
+                    fn Execute(&self, commandId: u32, verb: UI_EXECUTIONVERB, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY, #[Windows::Win32::Foundation::Metadata::Const] currentValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, commandExecutionProperties: IUISimplePropertySet) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicommandhandler-updateproperty")]
+                    fn UpdateProperty(&self, commandId: u32, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY, #[Windows::Win32::Foundation::Metadata::Const] currentValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, newValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuicontextualui")]
+                interface IUIContextualUI: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuicontextualui-showatlocation")]
+                    fn ShowAtLocation(&self, x: i32, y: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuieventlogger")]
+                interface IUIEventLogger: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuieventlogger-onuievent")]
+                    fn OnUIEvent(&self, pEventParams: *mut UI_EVENTPARAMS);
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuieventingmanager")]
+                interface IUIEventingManager: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuieventingmanager-seteventlogger")]
+                    fn SetEventLogger(&self, eventLogger: IUIEventLogger) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuiframework")]
+                interface IUIFramework: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-initialize")]
+                    fn Initialize(&self, frameWnd: super::super::Foundation::HWND, application: IUIApplication) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-destroy")]
+                    fn Destroy(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-loadui")]
+                    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, #[Windows::Win32::Foundation::Metadata::Const] resourceName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-getview")]
+                    fn GetView(&self, viewId: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppv: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-getuicommandproperty")]
+                    fn GetUICommandProperty(&self, commandId: u32, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY, value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-setuicommandproperty")]
+                    fn SetUICommandProperty(&self, commandId: u32, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY, #[Windows::Win32::Foundation::Metadata::Const] value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-invalidateuicommand")]
+                    fn InvalidateUICommand(&self, commandId: u32, flags: UI_INVALIDATIONS, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-flushpendinginvalidations")]
+                    fn FlushPendingInvalidations(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiframework-setmodes")]
+                    fn SetModes(&self, iModes: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuiimage")]
+                interface IUIImage: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiimage-getbitmap")]
+                    fn GetBitmap(&self, bitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuiimagefrombitmap")]
+                interface IUIImageFromBitmap: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiimagefrombitmap-createimage")]
+                    fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP, image: *mut IUIImage) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuiribbon")]
+                interface IUIRibbon: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiribbon-getheight")]
+                    fn GetHeight(&self, cy: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiribbon-loadsettingsfromstream")]
+                    fn LoadSettingsFromStream(&self, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuiribbon-savesettingstostream")]
+                    fn SaveSettingsToStream(&self, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nn-uiribbon-iuisimplepropertyset")]
+                interface IUISimplePropertySet: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/nf-uiribbon-iuisimplepropertyset-getvalue")]
+                    fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] key: *mut super::super::Foundation::PROPERTYKEY, value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                }
+                const LIBID_UIRibbon: GUID = 0x942f35c2_e83b_45ef_b085_ac295dd63d5b;
+                #[Windows::Win32::Foundation::Metadata::Guid(2456242682, 9749, 18823, 136, 69, 195, 62, 101, 242, 185, 87)]
+                struct UIRibbonFramework {}
+                #[Windows::Win32::Foundation::Metadata::Guid(259273910, 22966, 16976, 153, 158, 209, 104, 214, 174, 66, 147)]
+                struct UIRibbonImageFromBitmapFactory {}
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/windowsribbon/windowsribbon-ui-all-commands")]
+                const UI_ALL_COMMANDS: u32 = 0;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_collectionchange")]
+                enum UI_COLLECTIONCHANGE {
+                    UI_COLLECTIONCHANGE_INSERT = 0,
+                    UI_COLLECTIONCHANGE_REMOVE = 1,
+                    UI_COLLECTIONCHANGE_REPLACE = 2,
+                    UI_COLLECTIONCHANGE_RESET = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/windowsribbon/windowsribbon-ui-collection-invalidindex")]
+                const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_commandtype")]
+                enum UI_COMMANDTYPE {
+                    UI_COMMANDTYPE_UNKNOWN = 0,
+                    UI_COMMANDTYPE_GROUP = 1,
+                    UI_COMMANDTYPE_ACTION = 2,
+                    UI_COMMANDTYPE_ANCHOR = 3,
+                    UI_COMMANDTYPE_CONTEXT = 4,
+                    UI_COMMANDTYPE_COLLECTION = 5,
+                    UI_COMMANDTYPE_COMMANDCOLLECTION = 6,
+                    UI_COMMANDTYPE_DECIMAL = 7,
+                    UI_COMMANDTYPE_BOOLEAN = 8,
+                    UI_COMMANDTYPE_FONT = 9,
+                    UI_COMMANDTYPE_RECENTITEMS = 10,
+                    UI_COMMANDTYPE_COLORANCHOR = 11,
+                    UI_COMMANDTYPE_COLORCOLLECTION = 12,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_contextavailability")]
+                enum UI_CONTEXTAVAILABILITY {
+                    UI_CONTEXTAVAILABILITY_NOTAVAILABLE = 0,
+                    UI_CONTEXTAVAILABILITY_AVAILABLE = 1,
+                    UI_CONTEXTAVAILABILITY_ACTIVE = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_controldock")]
+                enum UI_CONTROLDOCK {
+                    UI_CONTROLDOCK_TOP = 1,
+                    UI_CONTROLDOCK_BOTTOM = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_eventlocation")]
+                enum UI_EVENTLOCATION {
+                    UI_EVENTLOCATION_Ribbon = 0,
+                    UI_EVENTLOCATION_QAT = 1,
+                    UI_EVENTLOCATION_ApplicationMenu = 2,
+                    UI_EVENTLOCATION_ContextPopup = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ns-uiribbon-ui_eventparams")]
+                struct UI_EVENTPARAMS {
+                    EventType: UI_EVENTTYPE,
+                    Anonymous: union {
+                        Modes: i32,
+                        Params: UI_EVENTPARAMS_COMMAND,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ns-uiribbon-ui_eventparams_command")]
+                struct UI_EVENTPARAMS_COMMAND {
+                    CommandID: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    CommandName: super::super::Foundation::PWSTR,
+                    ParentCommandID: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    ParentCommandName: super::super::Foundation::PWSTR,
+                    SelectionIndex: u32,
+                    Location: UI_EVENTLOCATION,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_eventtype")]
+                enum UI_EVENTTYPE {
+                    UI_EVENTTYPE_ApplicationMenuOpened = 0,
+                    UI_EVENTTYPE_RibbonMinimized = 1,
+                    UI_EVENTTYPE_RibbonExpanded = 2,
+                    UI_EVENTTYPE_ApplicationModeSwitched = 3,
+                    UI_EVENTTYPE_TabActivated = 4,
+                    UI_EVENTTYPE_MenuOpened = 5,
+                    UI_EVENTTYPE_CommandExecuted = 6,
+                    UI_EVENTTYPE_TooltipShown = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_executionverb")]
+                enum UI_EXECUTIONVERB {
+                    UI_EXECUTIONVERB_EXECUTE = 0,
+                    UI_EXECUTIONVERB_PREVIEW = 1,
+                    UI_EXECUTIONVERB_CANCELPREVIEW = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_fontdeltasize")]
+                enum UI_FONTDELTASIZE {
+                    UI_FONTDELTASIZE_GROW = 0,
+                    UI_FONTDELTASIZE_SHRINK = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_fontproperties")]
+                enum UI_FONTPROPERTIES {
+                    UI_FONTPROPERTIES_NOTAVAILABLE = 0,
+                    UI_FONTPROPERTIES_NOTSET = 1,
+                    UI_FONTPROPERTIES_SET = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_fontunderline")]
+                enum UI_FONTUNDERLINE {
+                    UI_FONTUNDERLINE_NOTAVAILABLE = 0,
+                    UI_FONTUNDERLINE_NOTSET = 1,
+                    UI_FONTUNDERLINE_SET = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_fontverticalposition")]
+                enum UI_FONTVERTICALPOSITION {
+                    UI_FONTVERTICALPOSITION_NOTAVAILABLE = 0,
+                    UI_FONTVERTICALPOSITION_NOTSET = 1,
+                    UI_FONTVERTICALPOSITION_SUPERSCRIPT = 2,
+                    UI_FONTVERTICALPOSITION_SUBSCRIPT = 3,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_invalidations")]
+                enum UI_INVALIDATIONS {
+                    UI_INVALIDATIONS_STATE = 1,
+                    UI_INVALIDATIONS_VALUE = 2,
+                    UI_INVALIDATIONS_PROPERTY = 4,
+                    UI_INVALIDATIONS_ALLPROPERTIES = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_ownership")]
+                enum UI_OWNERSHIP {
+                    UI_OWNERSHIP_TRANSFER = 0,
+                    UI_OWNERSHIP_COPY = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_swatchcolormode")]
+                enum UI_SWATCHCOLORMODE {
+                    UI_SWATCHCOLORMODE_NORMAL = 0,
+                    UI_SWATCHCOLORMODE_MONOCHROME = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_swatchcolortype")]
+                enum UI_SWATCHCOLORTYPE {
+                    UI_SWATCHCOLORTYPE_NOCOLOR = 0,
+                    UI_SWATCHCOLORTYPE_AUTOMATIC = 1,
+                    UI_SWATCHCOLORTYPE_RGB = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_viewtype")]
+                enum UI_VIEWTYPE {
+                    UI_VIEWTYPE_RIBBON = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/uiribbon/ne-uiribbon-ui_viewverb")]
+                enum UI_VIEWVERB {
+                    UI_VIEWVERB_CREATE = 0,
+                    UI_VIEWVERB_DESTROY = 1,
+                    UI_VIEWVERB_SIZE = 2,
+                    UI_VIEWVERB_ERROR = 3,
+                }
+            }
+        }
+    }
+}

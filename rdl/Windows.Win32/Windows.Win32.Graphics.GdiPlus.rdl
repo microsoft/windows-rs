@@ -1,0 +1,2967 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            #[win32]
+            mod GdiPlus {
+                const ALPHA_SHIFT: u32 = 24;
+                const BLUE_SHIFT: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/gdiplusheaders/nl-gdiplusheaders-bitmap")]
+                struct Bitmap {
+                    Value: isize,
+                }
+                struct BitmapData {
+                    Width: u32,
+                    Height: u32,
+                    Stride: i32,
+                    PixelFormat: i32,
+                    Scan0: *mut void,
+                    Reserved: usize,
+                }
+                struct Blur {
+                    Base: Effect,
+                }
+                const BlurEffectGuid: GUID = 0x633c80a4_1843_482b_9ef2_be2834c5fdd4;
+                struct BlurParams {
+                    radius: f32,
+                    expandEdge: super::super::Foundation::BOOL,
+                }
+                struct BrightnessContrast {
+                    Base: Effect,
+                }
+                const BrightnessContrastEffectGuid: GUID = 0xd3a1dbe1_8ec4_4c17_9f4c_ea97ad1c343d;
+                struct BrightnessContrastParams {
+                    brightnessLevel: i32,
+                    contrastLevel: i32,
+                }
+                #[repr(i32)]
+                enum BrushType {
+                    BrushTypeSolidColor = 0,
+                    BrushTypeHatchFill = 1,
+                    BrushTypeTextureFill = 2,
+                    BrushTypePathGradient = 3,
+                    BrushTypeLinearGradient = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct CGpEffect {
+                    Value: isize,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct CachedBitmap {
+                    Value: isize,
+                }
+                struct CharacterRange {
+                    First: i32,
+                    Length: i32,
+                }
+                const CodecIImageBytes: GUID = 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WMP/color-element")]
+                struct Color {
+                    Argb: u32,
+                    AliceBlue: i32,
+                    AntiqueWhite: i32,
+                    Aqua: i32,
+                    Aquamarine: i32,
+                    Azure: i32,
+                    Beige: i32,
+                    Bisque: i32,
+                    Black: i32,
+                    BlanchedAlmond: i32,
+                    Blue: i32,
+                    BlueViolet: i32,
+                    Brown: i32,
+                    BurlyWood: i32,
+                    CadetBlue: i32,
+                    Chartreuse: i32,
+                    Chocolate: i32,
+                    Coral: i32,
+                    CornflowerBlue: i32,
+                    Cornsilk: i32,
+                    Crimson: i32,
+                    Cyan: i32,
+                    DarkBlue: i32,
+                    DarkCyan: i32,
+                    DarkGoldenrod: i32,
+                    DarkGray: i32,
+                    DarkGreen: i32,
+                    DarkKhaki: i32,
+                    DarkMagenta: i32,
+                    DarkOliveGreen: i32,
+                    DarkOrange: i32,
+                    DarkOrchid: i32,
+                    DarkRed: i32,
+                    DarkSalmon: i32,
+                    DarkSeaGreen: i32,
+                    DarkSlateBlue: i32,
+                    DarkSlateGray: i32,
+                    DarkTurquoise: i32,
+                    DarkViolet: i32,
+                    DeepPink: i32,
+                    DeepSkyBlue: i32,
+                    DimGray: i32,
+                    DodgerBlue: i32,
+                    Firebrick: i32,
+                    FloralWhite: i32,
+                    ForestGreen: i32,
+                    Fuchsia: i32,
+                    Gainsboro: i32,
+                    GhostWhite: i32,
+                    Gold: i32,
+                    Goldenrod: i32,
+                    Gray: i32,
+                    Green: i32,
+                    GreenYellow: i32,
+                    Honeydew: i32,
+                    HotPink: i32,
+                    IndianRed: i32,
+                    Indigo: i32,
+                    Ivory: i32,
+                    Khaki: i32,
+                    Lavender: i32,
+                    LavenderBlush: i32,
+                    LawnGreen: i32,
+                    LemonChiffon: i32,
+                    LightBlue: i32,
+                    LightCoral: i32,
+                    LightCyan: i32,
+                    LightGoldenrodYellow: i32,
+                    LightGray: i32,
+                    LightGreen: i32,
+                    LightPink: i32,
+                    LightSalmon: i32,
+                    LightSeaGreen: i32,
+                    LightSkyBlue: i32,
+                    LightSlateGray: i32,
+                    LightSteelBlue: i32,
+                    LightYellow: i32,
+                    Lime: i32,
+                    LimeGreen: i32,
+                    Linen: i32,
+                    Magenta: i32,
+                    Maroon: i32,
+                    MediumAquamarine: i32,
+                    MediumBlue: i32,
+                    MediumOrchid: i32,
+                    MediumPurple: i32,
+                    MediumSeaGreen: i32,
+                    MediumSlateBlue: i32,
+                    MediumSpringGreen: i32,
+                    MediumTurquoise: i32,
+                    MediumVioletRed: i32,
+                    MidnightBlue: i32,
+                    MintCream: i32,
+                    MistyRose: i32,
+                    Moccasin: i32,
+                    NavajoWhite: i32,
+                    Navy: i32,
+                    OldLace: i32,
+                    Olive: i32,
+                    OliveDrab: i32,
+                    Orange: i32,
+                    OrangeRed: i32,
+                    Orchid: i32,
+                    PaleGoldenrod: i32,
+                    PaleGreen: i32,
+                    PaleTurquoise: i32,
+                    PaleVioletRed: i32,
+                    PapayaWhip: i32,
+                    PeachPuff: i32,
+                    Peru: i32,
+                    Pink: i32,
+                    Plum: i32,
+                    PowderBlue: i32,
+                    Purple: i32,
+                    Red: i32,
+                    RosyBrown: i32,
+                    RoyalBlue: i32,
+                    SaddleBrown: i32,
+                    Salmon: i32,
+                    SandyBrown: i32,
+                    SeaGreen: i32,
+                    SeaShell: i32,
+                    Sienna: i32,
+                    Silver: i32,
+                    SkyBlue: i32,
+                    SlateBlue: i32,
+                    SlateGray: i32,
+                    Snow: i32,
+                    SpringGreen: i32,
+                    SteelBlue: i32,
+                    Tan: i32,
+                    Teal: i32,
+                    Thistle: i32,
+                    Tomato: i32,
+                    Transparent: i32,
+                    Turquoise: i32,
+                    Violet: i32,
+                    Wheat: i32,
+                    White: i32,
+                    WhiteSmoke: i32,
+                    Yellow: i32,
+                    YellowGreen: i32,
+                    AlphaShift: i32,
+                    RedShift: i32,
+                    GreenShift: i32,
+                    BlueShift: i32,
+                    AlphaMask: i32,
+                    RedMask: i32,
+                    GreenMask: i32,
+                    BlueMask: i32,
+                }
+                #[repr(i32)]
+                enum ColorAdjustType {
+                    ColorAdjustTypeDefault = 0,
+                    ColorAdjustTypeBitmap = 1,
+                    ColorAdjustTypeBrush = 2,
+                    ColorAdjustTypePen = 3,
+                    ColorAdjustTypeText = 4,
+                    ColorAdjustTypeCount = 5,
+                    ColorAdjustTypeAny = 6,
+                }
+                struct ColorBalance {
+                    Base: Effect,
+                }
+                const ColorBalanceEffectGuid: GUID = 0x537e597d_251e_48da_9664_29ca496b70f8;
+                struct ColorBalanceParams {
+                    cyanRed: i32,
+                    magentaGreen: i32,
+                    yellowBlue: i32,
+                }
+                #[repr(i32)]
+                enum ColorChannelFlags {
+                    ColorChannelFlagsC = 0,
+                    ColorChannelFlagsM = 1,
+                    ColorChannelFlagsY = 2,
+                    ColorChannelFlagsK = 3,
+                    ColorChannelFlagsLast = 4,
+                }
+                struct ColorCurve {
+                    Base: Effect,
+                }
+                const ColorCurveEffectGuid: GUID = 0xdd6a0022_58e4_4a67_9d9b_d48eb881a53d;
+                struct ColorCurveParams {
+                    adjustment: CurveAdjustments,
+                    channel: CurveChannel,
+                    adjustValue: i32,
+                }
+                struct ColorLUT {
+                    Base: Effect,
+                }
+                const ColorLUTEffectGuid: GUID = 0xa7ce72a9_0f7f_40d7_b3cc_d0c02d5c3212;
+                struct ColorLUTParams {
+                    lutB: [u8; 256],
+                    lutG: [u8; 256],
+                    lutR: [u8; 256],
+                    lutA: [u8; 256],
+                }
+                struct ColorMap {
+                    oldColor: Color,
+                    newColor: Color,
+                }
+                struct ColorMatrix {
+                    m: [f32; 25],
+                }
+                struct ColorMatrixEffect {
+                    Base: Effect,
+                }
+                const ColorMatrixEffectGuid: GUID = 0x718f2615_7933_40e3_a511_5f68fe14dd74;
+                #[repr(i32)]
+                enum ColorMatrixFlags {
+                    ColorMatrixFlagsDefault = 0,
+                    ColorMatrixFlagsSkipGrays = 1,
+                    ColorMatrixFlagsAltGray = 2,
+                }
+                #[repr(i32)]
+                enum ColorMode {
+                    ColorModeARGB32 = 0,
+                    ColorModeARGB64 = 1,
+                }
+                struct ColorPalette {
+                    Flags: u32,
+                    Count: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Entries: [u32; 1],
+                }
+                #[repr(i32)]
+                enum CombineMode {
+                    CombineModeReplace = 0,
+                    CombineModeIntersect = 1,
+                    CombineModeUnion = 2,
+                    CombineModeXor = 3,
+                    CombineModeExclude = 4,
+                    CombineModeComplement = 5,
+                }
+                #[repr(i32)]
+                enum CompositingMode {
+                    CompositingModeSourceOver = 0,
+                    CompositingModeSourceCopy = 1,
+                }
+                #[repr(i32)]
+                enum CompositingQuality {
+                    CompositingQualityInvalid = -1,
+                    CompositingQualityDefault = 0,
+                    CompositingQualityHighSpeed = 1,
+                    CompositingQualityHighQuality = 2,
+                    CompositingQualityGammaCorrected = 3,
+                    CompositingQualityAssumeLinear = 4,
+                }
+                #[repr(i32)]
+                enum ConvertToEmfPlusFlags {
+                    ConvertToEmfPlusFlagsDefault = 0,
+                    ConvertToEmfPlusFlagsRopUsed = 1,
+                    ConvertToEmfPlusFlagsText = 2,
+                    ConvertToEmfPlusFlagsInvalidRecord = 4,
+                }
+                #[repr(i32)]
+                enum CoordinateSpace {
+                    CoordinateSpaceWorld = 0,
+                    CoordinateSpacePage = 1,
+                    CoordinateSpaceDevice = 2,
+                }
+                #[repr(i32)]
+                enum CurveAdjustments {
+                    AdjustExposure = 0,
+                    AdjustDensity = 1,
+                    AdjustContrast = 2,
+                    AdjustHighlight = 3,
+                    AdjustShadow = 4,
+                    AdjustMidtone = 5,
+                    AdjustWhiteSaturation = 6,
+                    AdjustBlackSaturation = 7,
+                }
+                #[repr(i32)]
+                enum CurveChannel {
+                    CurveChannelAll = 0,
+                    CurveChannelRed = 1,
+                    CurveChannelGreen = 2,
+                    CurveChannelBlue = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct CustomLineCap {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum CustomLineCapType {
+                    CustomLineCapTypeDefault = 0,
+                    CustomLineCapTypeAdjustableArrow = 1,
+                }
+                #[repr(i32)]
+                enum DashCap {
+                    DashCapFlat = 0,
+                    DashCapRound = 2,
+                    DashCapTriangle = 3,
+                }
+                #[repr(i32)]
+                enum DashStyle {
+                    DashStyleSolid = 0,
+                    DashStyleDash = 1,
+                    DashStyleDot = 2,
+                    DashStyleDashDot = 3,
+                    DashStyleDashDotDot = 4,
+                    DashStyleCustom = 5,
+                }
+                #[repr(i32)]
+                enum DebugEventLevel {
+                    DebugEventLevelFatal = 0,
+                    DebugEventLevelWarning = 1,
+                }
+                extern fn DebugEventProc(level: DebugEventLevel, message: super::super::Foundation::PSTR);
+                #[repr(i32)]
+                enum DitherType {
+                    DitherTypeNone = 0,
+                    DitherTypeSolid = 1,
+                    DitherTypeOrdered4x4 = 2,
+                    DitherTypeOrdered8x8 = 3,
+                    DitherTypeOrdered16x16 = 4,
+                    DitherTypeSpiral4x4 = 5,
+                    DitherTypeSpiral8x8 = 6,
+                    DitherTypeDualSpiral4x4 = 7,
+                    DitherTypeDualSpiral8x8 = 8,
+                    DitherTypeErrorDiffusion = 9,
+                    DitherTypeMax = 10,
+                }
+                extern fn DrawImageAbort() -> super::super::Foundation::BOOL;
+                #[repr(i32)]
+                enum DriverStringOptions {
+                    DriverStringOptionsCmapLookup = 1,
+                    DriverStringOptionsVertical = 2,
+                    DriverStringOptionsRealizedAdvance = 4,
+                    DriverStringOptionsLimitSubpixel = 8,
+                }
+                struct ENHMETAHEADER3 {
+                    iType: u32,
+                    nSize: u32,
+                    rclBounds: super::super::Foundation::RECTL,
+                    rclFrame: super::super::Foundation::RECTL,
+                    dSignature: u32,
+                    nVersion: u32,
+                    nBytes: u32,
+                    nRecords: u32,
+                    nHandles: u16,
+                    sReserved: u16,
+                    nDescription: u32,
+                    offDescription: u32,
+                    nPalEntries: u32,
+                    szlDevice: super::super::Foundation::SIZE,
+                    szlMillimeters: super::super::Foundation::SIZE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/direct3d9/functions")]
+                struct Effect {
+                    lpVtbl: *mut *mut void,
+                    nativeEffect: *mut CGpEffect,
+                    auxDataSize: i32,
+                    auxData: *mut void,
+                    useAuxData: super::super::Foundation::BOOL,
+                }
+                #[repr(i32)]
+                enum EmfPlusRecordType {
+                    WmfRecordTypeSetBkColor = 66049,
+                    WmfRecordTypeSetBkMode = 65794,
+                    WmfRecordTypeSetMapMode = 65795,
+                    WmfRecordTypeSetROP2 = 65796,
+                    WmfRecordTypeSetRelAbs = 65797,
+                    WmfRecordTypeSetPolyFillMode = 65798,
+                    WmfRecordTypeSetStretchBltMode = 65799,
+                    WmfRecordTypeSetTextCharExtra = 65800,
+                    WmfRecordTypeSetTextColor = 66057,
+                    WmfRecordTypeSetTextJustification = 66058,
+                    WmfRecordTypeSetWindowOrg = 66059,
+                    WmfRecordTypeSetWindowExt = 66060,
+                    WmfRecordTypeSetViewportOrg = 66061,
+                    WmfRecordTypeSetViewportExt = 66062,
+                    WmfRecordTypeOffsetWindowOrg = 66063,
+                    WmfRecordTypeScaleWindowExt = 66576,
+                    WmfRecordTypeOffsetViewportOrg = 66065,
+                    WmfRecordTypeScaleViewportExt = 66578,
+                    WmfRecordTypeLineTo = 66067,
+                    WmfRecordTypeMoveTo = 66068,
+                    WmfRecordTypeExcludeClipRect = 66581,
+                    WmfRecordTypeIntersectClipRect = 66582,
+                    WmfRecordTypeArc = 67607,
+                    WmfRecordTypeEllipse = 66584,
+                    WmfRecordTypeFloodFill = 66585,
+                    WmfRecordTypePie = 67610,
+                    WmfRecordTypeRectangle = 66587,
+                    WmfRecordTypeRoundRect = 67100,
+                    WmfRecordTypePatBlt = 67101,
+                    WmfRecordTypeSaveDC = 65566,
+                    WmfRecordTypeSetPixel = 66591,
+                    WmfRecordTypeOffsetClipRgn = 66080,
+                    WmfRecordTypeTextOut = 66849,
+                    WmfRecordTypeBitBlt = 67874,
+                    WmfRecordTypeStretchBlt = 68387,
+                    WmfRecordTypePolygon = 66340,
+                    WmfRecordTypePolyline = 66341,
+                    WmfRecordTypeEscape = 67110,
+                    WmfRecordTypeRestoreDC = 65831,
+                    WmfRecordTypeFillRegion = 66088,
+                    WmfRecordTypeFrameRegion = 66601,
+                    WmfRecordTypeInvertRegion = 65834,
+                    WmfRecordTypePaintRegion = 65835,
+                    WmfRecordTypeSelectClipRegion = 65836,
+                    WmfRecordTypeSelectObject = 65837,
+                    WmfRecordTypeSetTextAlign = 65838,
+                    WmfRecordTypeDrawText = 67119,
+                    WmfRecordTypeChord = 67632,
+                    WmfRecordTypeSetMapperFlags = 66097,
+                    WmfRecordTypeExtTextOut = 68146,
+                    WmfRecordTypeSetDIBToDev = 68915,
+                    WmfRecordTypeSelectPalette = 66100,
+                    WmfRecordTypeRealizePalette = 65589,
+                    WmfRecordTypeAnimatePalette = 66614,
+                    WmfRecordTypeSetPalEntries = 65591,
+                    WmfRecordTypePolyPolygon = 66872,
+                    WmfRecordTypeResizePalette = 65849,
+                    WmfRecordTypeDIBBitBlt = 67904,
+                    WmfRecordTypeDIBStretchBlt = 68417,
+                    WmfRecordTypeDIBCreatePatternBrush = 65858,
+                    WmfRecordTypeStretchDIB = 69443,
+                    WmfRecordTypeExtFloodFill = 66888,
+                    WmfRecordTypeSetLayout = 65865,
+                    WmfRecordTypeResetDC = 65868,
+                    WmfRecordTypeStartDoc = 65869,
+                    WmfRecordTypeStartPage = 65615,
+                    WmfRecordTypeEndPage = 65616,
+                    WmfRecordTypeAbortDoc = 65618,
+                    WmfRecordTypeEndDoc = 65630,
+                    WmfRecordTypeDeleteObject = 66032,
+                    WmfRecordTypeCreatePalette = 65783,
+                    WmfRecordTypeCreateBrush = 65784,
+                    WmfRecordTypeCreatePatternBrush = 66041,
+                    WmfRecordTypeCreatePenIndirect = 66298,
+                    WmfRecordTypeCreateFontIndirect = 66299,
+                    WmfRecordTypeCreateBrushIndirect = 66300,
+                    WmfRecordTypeCreateBitmapIndirect = 66301,
+                    WmfRecordTypeCreateBitmap = 67326,
+                    WmfRecordTypeCreateRegion = 67327,
+                    EmfRecordTypeHeader = 1,
+                    EmfRecordTypePolyBezier = 2,
+                    EmfRecordTypePolygon = 3,
+                    EmfRecordTypePolyline = 4,
+                    EmfRecordTypePolyBezierTo = 5,
+                    EmfRecordTypePolyLineTo = 6,
+                    EmfRecordTypePolyPolyline = 7,
+                    EmfRecordTypePolyPolygon = 8,
+                    EmfRecordTypeSetWindowExtEx = 9,
+                    EmfRecordTypeSetWindowOrgEx = 10,
+                    EmfRecordTypeSetViewportExtEx = 11,
+                    EmfRecordTypeSetViewportOrgEx = 12,
+                    EmfRecordTypeSetBrushOrgEx = 13,
+                    EmfRecordTypeEOF = 14,
+                    EmfRecordTypeSetPixelV = 15,
+                    EmfRecordTypeSetMapperFlags = 16,
+                    EmfRecordTypeSetMapMode = 17,
+                    EmfRecordTypeSetBkMode = 18,
+                    EmfRecordTypeSetPolyFillMode = 19,
+                    EmfRecordTypeSetROP2 = 20,
+                    EmfRecordTypeSetStretchBltMode = 21,
+                    EmfRecordTypeSetTextAlign = 22,
+                    EmfRecordTypeSetColorAdjustment = 23,
+                    EmfRecordTypeSetTextColor = 24,
+                    EmfRecordTypeSetBkColor = 25,
+                    EmfRecordTypeOffsetClipRgn = 26,
+                    EmfRecordTypeMoveToEx = 27,
+                    EmfRecordTypeSetMetaRgn = 28,
+                    EmfRecordTypeExcludeClipRect = 29,
+                    EmfRecordTypeIntersectClipRect = 30,
+                    EmfRecordTypeScaleViewportExtEx = 31,
+                    EmfRecordTypeScaleWindowExtEx = 32,
+                    EmfRecordTypeSaveDC = 33,
+                    EmfRecordTypeRestoreDC = 34,
+                    EmfRecordTypeSetWorldTransform = 35,
+                    EmfRecordTypeModifyWorldTransform = 36,
+                    EmfRecordTypeSelectObject = 37,
+                    EmfRecordTypeCreatePen = 38,
+                    EmfRecordTypeCreateBrushIndirect = 39,
+                    EmfRecordTypeDeleteObject = 40,
+                    EmfRecordTypeAngleArc = 41,
+                    EmfRecordTypeEllipse = 42,
+                    EmfRecordTypeRectangle = 43,
+                    EmfRecordTypeRoundRect = 44,
+                    EmfRecordTypeArc = 45,
+                    EmfRecordTypeChord = 46,
+                    EmfRecordTypePie = 47,
+                    EmfRecordTypeSelectPalette = 48,
+                    EmfRecordTypeCreatePalette = 49,
+                    EmfRecordTypeSetPaletteEntries = 50,
+                    EmfRecordTypeResizePalette = 51,
+                    EmfRecordTypeRealizePalette = 52,
+                    EmfRecordTypeExtFloodFill = 53,
+                    EmfRecordTypeLineTo = 54,
+                    EmfRecordTypeArcTo = 55,
+                    EmfRecordTypePolyDraw = 56,
+                    EmfRecordTypeSetArcDirection = 57,
+                    EmfRecordTypeSetMiterLimit = 58,
+                    EmfRecordTypeBeginPath = 59,
+                    EmfRecordTypeEndPath = 60,
+                    EmfRecordTypeCloseFigure = 61,
+                    EmfRecordTypeFillPath = 62,
+                    EmfRecordTypeStrokeAndFillPath = 63,
+                    EmfRecordTypeStrokePath = 64,
+                    EmfRecordTypeFlattenPath = 65,
+                    EmfRecordTypeWidenPath = 66,
+                    EmfRecordTypeSelectClipPath = 67,
+                    EmfRecordTypeAbortPath = 68,
+                    EmfRecordTypeReserved_069 = 69,
+                    EmfRecordTypeGdiComment = 70,
+                    EmfRecordTypeFillRgn = 71,
+                    EmfRecordTypeFrameRgn = 72,
+                    EmfRecordTypeInvertRgn = 73,
+                    EmfRecordTypePaintRgn = 74,
+                    EmfRecordTypeExtSelectClipRgn = 75,
+                    EmfRecordTypeBitBlt = 76,
+                    EmfRecordTypeStretchBlt = 77,
+                    EmfRecordTypeMaskBlt = 78,
+                    EmfRecordTypePlgBlt = 79,
+                    EmfRecordTypeSetDIBitsToDevice = 80,
+                    EmfRecordTypeStretchDIBits = 81,
+                    EmfRecordTypeExtCreateFontIndirect = 82,
+                    EmfRecordTypeExtTextOutA = 83,
+                    EmfRecordTypeExtTextOutW = 84,
+                    EmfRecordTypePolyBezier16 = 85,
+                    EmfRecordTypePolygon16 = 86,
+                    EmfRecordTypePolyline16 = 87,
+                    EmfRecordTypePolyBezierTo16 = 88,
+                    EmfRecordTypePolylineTo16 = 89,
+                    EmfRecordTypePolyPolyline16 = 90,
+                    EmfRecordTypePolyPolygon16 = 91,
+                    EmfRecordTypePolyDraw16 = 92,
+                    EmfRecordTypeCreateMonoBrush = 93,
+                    EmfRecordTypeCreateDIBPatternBrushPt = 94,
+                    EmfRecordTypeExtCreatePen = 95,
+                    EmfRecordTypePolyTextOutA = 96,
+                    EmfRecordTypePolyTextOutW = 97,
+                    EmfRecordTypeSetICMMode = 98,
+                    EmfRecordTypeCreateColorSpace = 99,
+                    EmfRecordTypeSetColorSpace = 100,
+                    EmfRecordTypeDeleteColorSpace = 101,
+                    EmfRecordTypeGLSRecord = 102,
+                    EmfRecordTypeGLSBoundedRecord = 103,
+                    EmfRecordTypePixelFormat = 104,
+                    EmfRecordTypeDrawEscape = 105,
+                    EmfRecordTypeExtEscape = 106,
+                    EmfRecordTypeStartDoc = 107,
+                    EmfRecordTypeSmallTextOut = 108,
+                    EmfRecordTypeForceUFIMapping = 109,
+                    EmfRecordTypeNamedEscape = 110,
+                    EmfRecordTypeColorCorrectPalette = 111,
+                    EmfRecordTypeSetICMProfileA = 112,
+                    EmfRecordTypeSetICMProfileW = 113,
+                    EmfRecordTypeAlphaBlend = 114,
+                    EmfRecordTypeSetLayout = 115,
+                    EmfRecordTypeTransparentBlt = 116,
+                    EmfRecordTypeReserved_117 = 117,
+                    EmfRecordTypeGradientFill = 118,
+                    EmfRecordTypeSetLinkedUFIs = 119,
+                    EmfRecordTypeSetTextJustification = 120,
+                    EmfRecordTypeColorMatchToTargetW = 121,
+                    EmfRecordTypeCreateColorSpaceW = 122,
+                    EmfRecordTypeMax = 122,
+                    EmfRecordTypeMin = 1,
+                    EmfPlusRecordTypeInvalid = 16384,
+                    EmfPlusRecordTypeHeader = 16385,
+                    EmfPlusRecordTypeEndOfFile = 16386,
+                    EmfPlusRecordTypeComment = 16387,
+                    EmfPlusRecordTypeGetDC = 16388,
+                    EmfPlusRecordTypeMultiFormatStart = 16389,
+                    EmfPlusRecordTypeMultiFormatSection = 16390,
+                    EmfPlusRecordTypeMultiFormatEnd = 16391,
+                    EmfPlusRecordTypeObject = 16392,
+                    EmfPlusRecordTypeClear = 16393,
+                    EmfPlusRecordTypeFillRects = 16394,
+                    EmfPlusRecordTypeDrawRects = 16395,
+                    EmfPlusRecordTypeFillPolygon = 16396,
+                    EmfPlusRecordTypeDrawLines = 16397,
+                    EmfPlusRecordTypeFillEllipse = 16398,
+                    EmfPlusRecordTypeDrawEllipse = 16399,
+                    EmfPlusRecordTypeFillPie = 16400,
+                    EmfPlusRecordTypeDrawPie = 16401,
+                    EmfPlusRecordTypeDrawArc = 16402,
+                    EmfPlusRecordTypeFillRegion = 16403,
+                    EmfPlusRecordTypeFillPath = 16404,
+                    EmfPlusRecordTypeDrawPath = 16405,
+                    EmfPlusRecordTypeFillClosedCurve = 16406,
+                    EmfPlusRecordTypeDrawClosedCurve = 16407,
+                    EmfPlusRecordTypeDrawCurve = 16408,
+                    EmfPlusRecordTypeDrawBeziers = 16409,
+                    EmfPlusRecordTypeDrawImage = 16410,
+                    EmfPlusRecordTypeDrawImagePoints = 16411,
+                    EmfPlusRecordTypeDrawString = 16412,
+                    EmfPlusRecordTypeSetRenderingOrigin = 16413,
+                    EmfPlusRecordTypeSetAntiAliasMode = 16414,
+                    EmfPlusRecordTypeSetTextRenderingHint = 16415,
+                    EmfPlusRecordTypeSetTextContrast = 16416,
+                    EmfPlusRecordTypeSetInterpolationMode = 16417,
+                    EmfPlusRecordTypeSetPixelOffsetMode = 16418,
+                    EmfPlusRecordTypeSetCompositingMode = 16419,
+                    EmfPlusRecordTypeSetCompositingQuality = 16420,
+                    EmfPlusRecordTypeSave = 16421,
+                    EmfPlusRecordTypeRestore = 16422,
+                    EmfPlusRecordTypeBeginContainer = 16423,
+                    EmfPlusRecordTypeBeginContainerNoParams = 16424,
+                    EmfPlusRecordTypeEndContainer = 16425,
+                    EmfPlusRecordTypeSetWorldTransform = 16426,
+                    EmfPlusRecordTypeResetWorldTransform = 16427,
+                    EmfPlusRecordTypeMultiplyWorldTransform = 16428,
+                    EmfPlusRecordTypeTranslateWorldTransform = 16429,
+                    EmfPlusRecordTypeScaleWorldTransform = 16430,
+                    EmfPlusRecordTypeRotateWorldTransform = 16431,
+                    EmfPlusRecordTypeSetPageTransform = 16432,
+                    EmfPlusRecordTypeResetClip = 16433,
+                    EmfPlusRecordTypeSetClipRect = 16434,
+                    EmfPlusRecordTypeSetClipPath = 16435,
+                    EmfPlusRecordTypeSetClipRegion = 16436,
+                    EmfPlusRecordTypeOffsetClip = 16437,
+                    EmfPlusRecordTypeDrawDriverString = 16438,
+                    EmfPlusRecordTypeStrokeFillPath = 16439,
+                    EmfPlusRecordTypeSerializableObject = 16440,
+                    EmfPlusRecordTypeSetTSGraphics = 16441,
+                    EmfPlusRecordTypeSetTSClip = 16442,
+                    EmfPlusRecordTotal = 16443,
+                    EmfPlusRecordTypeMax = 16442,
+                    EmfPlusRecordTypeMin = 16385,
+                }
+                #[repr(i32)]
+                enum EmfToWmfBitsFlags {
+                    EmfToWmfBitsFlagsDefault = 0,
+                    EmfToWmfBitsFlagsEmbedEmf = 1,
+                    EmfToWmfBitsFlagsIncludePlaceable = 2,
+                    EmfToWmfBitsFlagsNoXORClip = 4,
+                }
+                #[repr(i32)]
+                enum EmfType {
+                    EmfTypeEmfOnly = 3,
+                    EmfTypeEmfPlusOnly = 4,
+                    EmfTypeEmfPlusDual = 5,
+                }
+                const EncoderChrominanceTable: GUID = 0xf2e455dc_09b3_4316_8260_676ada32481c;
+                const EncoderColorDepth: GUID = 0x66087055_ad66_4c7c_9a18_38a2310b8337;
+                const EncoderColorSpace: GUID = 0xae7a62a0_ee2c_49d8_9d07_1ba8a927596e;
+                const EncoderCompression: GUID = 0xe09d739d_ccd4_44ee_8eba_3fbf8be4fc58;
+                const EncoderImageItems: GUID = 0x63875e13_1f1d_45ab_9195_a29b6066a650;
+                const EncoderLuminanceTable: GUID = 0xedb33bce_0266_4a77_b904_27216099e717;
+                struct EncoderParameter {
+                    Guid: GUID,
+                    NumberOfValues: u32,
+                    Type: u32,
+                    Value: *mut void,
+                }
+                #[repr(i32)]
+                enum EncoderParameterValueType {
+                    EncoderParameterValueTypeByte = 1,
+                    EncoderParameterValueTypeASCII = 2,
+                    EncoderParameterValueTypeShort = 3,
+                    EncoderParameterValueTypeLong = 4,
+                    EncoderParameterValueTypeRational = 5,
+                    EncoderParameterValueTypeLongRange = 6,
+                    EncoderParameterValueTypeUndefined = 7,
+                    EncoderParameterValueTypeRationalRange = 8,
+                    EncoderParameterValueTypePointer = 9,
+                }
+                struct EncoderParameters {
+                    Count: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Parameter: [EncoderParameter; 1],
+                }
+                const EncoderQuality: GUID = 0x1d5be4b5_fa4a_452d_9cdd_5db35105e7eb;
+                const EncoderRenderMethod: GUID = 0x6d42c53a_229a_4825_8bb7_5c99e2b9a8b8;
+                const EncoderSaveAsCMYK: GUID = 0xa219bbc9_0a9d_4005_a3ee_3a421b8bb06c;
+                const EncoderSaveFlag: GUID = 0x292266fc_ac40_47bf_8cfc_a85b89a655de;
+                const EncoderScanMethod: GUID = 0x3a4e2661_3109_4e56_8536_42c156e7dcfa;
+                const EncoderTransformation: GUID = 0x8d0eb2d1_a58e_4ea8_aa14_108074b7b6f9;
+                #[repr(i32)]
+                enum EncoderValue {
+                    EncoderValueColorTypeCMYK = 0,
+                    EncoderValueColorTypeYCCK = 1,
+                    EncoderValueCompressionLZW = 2,
+                    EncoderValueCompressionCCITT3 = 3,
+                    EncoderValueCompressionCCITT4 = 4,
+                    EncoderValueCompressionRle = 5,
+                    EncoderValueCompressionNone = 6,
+                    EncoderValueScanMethodInterlaced = 7,
+                    EncoderValueScanMethodNonInterlaced = 8,
+                    EncoderValueVersionGif87 = 9,
+                    EncoderValueVersionGif89 = 10,
+                    EncoderValueRenderProgressive = 11,
+                    EncoderValueRenderNonProgressive = 12,
+                    EncoderValueTransformRotate90 = 13,
+                    EncoderValueTransformRotate180 = 14,
+                    EncoderValueTransformRotate270 = 15,
+                    EncoderValueTransformFlipHorizontal = 16,
+                    EncoderValueTransformFlipVertical = 17,
+                    EncoderValueMultiFrame = 18,
+                    EncoderValueLastFrame = 19,
+                    EncoderValueFlush = 20,
+                    EncoderValueFrameDimensionTime = 21,
+                    EncoderValueFrameDimensionResolution = 22,
+                    EncoderValueFrameDimensionPage = 23,
+                    EncoderValueColorTypeGray = 24,
+                    EncoderValueColorTypeRGB = 25,
+                }
+                const EncoderVersion: GUID = 0x24d18c76_814a_41a4_bf53_1c219cccf797;
+                extern fn EnumerateMetafileProc(param0: EmfPlusRecordType, param1: u32, param2: u32, param3: *mut u8, param4: *mut void) -> super::super::Foundation::BOOL;
+                #[repr(i32)]
+                enum FillMode {
+                    FillModeAlternate = 0,
+                    FillModeWinding = 1,
+                }
+                const FlatnessDefault: f32 = 0.25;
+                #[repr(i32)]
+                enum FlushIntention {
+                    FlushIntentionFlush = 0,
+                    FlushIntentionSync = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct Font {
+                    Value: isize,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct FontCollection {
+                    Value: isize,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct FontFamily {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum FontStyle {
+                    FontStyleRegular = 0,
+                    FontStyleBold = 1,
+                    FontStyleItalic = 2,
+                    FontStyleBoldItalic = 3,
+                    FontStyleUnderline = 4,
+                    FontStyleStrikeout = 8,
+                }
+                const FormatIDImageInformation: GUID = 0xe5836cbe_5eef_4f1d_acde_ae4c43b608ce;
+                const FormatIDJpegAppHeaders: GUID = 0x1c4afdcd_6177_43cf_abc7_5f51af39ee85;
+                const FrameDimensionPage: GUID = 0x7462dc86_6180_4c7e_8e3f_ee7333a7a483;
+                const FrameDimensionResolution: GUID = 0x84236f7b_3bd3_428f_8dab_4ea1439ca315;
+                const FrameDimensionTime: GUID = 0x6aedbd6d_3fb5_418a_83a6_7f45229dc872;
+                const GDIP_EMFPLUSFLAGS_DISPLAY: u32 = 1;
+                const GDIP_EMFPLUS_RECORD_BASE: u32 = 16384;
+                const GDIP_WMF_RECORD_BASE: u32 = 65536;
+                const GREEN_SHIFT: u32 = 8;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathArc(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathArcI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathBezier(path: *mut GpPath, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32, x4: f32, y4: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathBezierI(path: *mut GpPath, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathBeziers(path: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathBeziersI(path: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathClosedCurve(path: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathClosedCurve2(path: *mut GpPath, points: *mut PointF, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathClosedCurve2I(path: *mut GpPath, points: *mut Point, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathClosedCurveI(path: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurve(path: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurve2(path: *mut GpPath, points: *mut PointF, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurve2I(path: *mut GpPath, points: *mut Point, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurve3(path: *mut GpPath, points: *mut PointF, count: i32, offset: i32, numberOfSegments: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurve3I(path: *mut GpPath, points: *mut Point, count: i32, offset: i32, numberOfSegments: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathCurveI(path: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathEllipse(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathEllipseI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathLine(path: *mut GpPath, x1: f32, y1: f32, x2: f32, y2: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathLine2(path: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathLine2I(path: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathLineI(path: *mut GpPath, x1: i32, y1: i32, x2: i32, y2: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathPath(path: *mut GpPath, addingPath: *mut GpPath, connect: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathPie(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathPieI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathPolygon(path: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathPolygonI(path: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathRectangle(path: *mut GpPath, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathRectangleI(path: *mut GpPath, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathRectangles(path: *mut GpPath, rects: *mut RectF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathRectanglesI(path: *mut GpPath, rects: *mut Rect, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathString(path: *mut GpPath, string: super::super::Foundation::PWSTR, length: i32, family: *mut GpFontFamily, style: i32, emSize: f32, layoutRect: *mut RectF, format: *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAddPathStringI(path: *mut GpPath, string: super::super::Foundation::PWSTR, length: i32, family: *mut GpFontFamily, style: i32, emSize: f32, layoutRect: *mut Rect, format: *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipAlloc(size: usize) -> *mut void;
+                #[library("gdiplus.dll")]
+                extern fn GdipBeginContainer(graphics: *mut GpGraphics, dstrect: *mut RectF, srcrect: *mut RectF, unit: Unit, state: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBeginContainer2(graphics: *mut GpGraphics, state: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBeginContainerI(graphics: *mut GpGraphics, dstrect: *mut Rect, srcrect: *mut Rect, unit: Unit, state: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapApplyEffect(bitmap: *mut GpBitmap, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, useAuxData: super::super::Foundation::BOOL, auxData: *mut *mut void, auxDataSize: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapConvertFormat(pInputBitmap: *mut GpBitmap, format: i32, dithertype: DitherType, palettetype: PaletteType, palette: *mut ColorPalette, alphaThresholdPercent: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapCreateApplyEffect(inputBitmaps: *mut *mut GpBitmap, numInputs: i32, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, outputRect: *mut super::super::Foundation::RECT, outputBitmap: *mut *mut GpBitmap, useAuxData: super::super::Foundation::BOOL, auxData: *mut *mut void, auxDataSize: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapGetHistogram(bitmap: *mut GpBitmap, format: HistogramFormat, NumberOfEntries: u32, channel0: *mut u32, channel1: *mut u32, channel2: *mut u32, channel3: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapGetHistogramSize(format: HistogramFormat, NumberOfEntries: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapGetPixel(bitmap: *mut GpBitmap, x: i32, y: i32, color: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapLockBits(bitmap: *mut GpBitmap, rect: *mut Rect, flags: u32, format: i32, lockedBitmapData: *mut BitmapData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapSetPixel(bitmap: *mut GpBitmap, x: i32, y: i32, color: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapSetResolution(bitmap: *mut GpBitmap, xdpi: f32, ydpi: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipBitmapUnlockBits(bitmap: *mut GpBitmap, lockedBitmapData: *mut BitmapData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipClearPathMarkers(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneBitmapArea(x: f32, y: f32, width: f32, height: f32, format: i32, srcBitmap: *mut GpBitmap, dstBitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneBitmapAreaI(x: i32, y: i32, width: i32, height: i32, format: i32, srcBitmap: *mut GpBitmap, dstBitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneBrush(brush: *mut GpBrush, cloneBrush: *mut *mut GpBrush) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneCustomLineCap(customCap: *mut GpCustomLineCap, clonedCap: *mut *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneFont(font: *mut GpFont, cloneFont: *mut *mut GpFont) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneFontFamily(fontFamily: *mut GpFontFamily, clonedFontFamily: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneImage(image: *mut GpImage, cloneImage: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneImageAttributes(imageattr: *mut GpImageAttributes, cloneImageattr: *mut *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneMatrix(matrix: *mut Matrix, cloneMatrix: *mut *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipClonePath(path: *mut GpPath, clonePath: *mut *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipClonePen(pen: *mut GpPen, clonepen: *mut *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneRegion(region: *mut GpRegion, cloneRegion: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCloneStringFormat(format: *mut GpStringFormat, newFormat: *mut *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipClosePathFigure(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipClosePathFigures(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCombineRegionPath(region: *mut GpRegion, path: *mut GpPath, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCombineRegionRect(region: *mut GpRegion, rect: *mut RectF, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCombineRegionRectI(region: *mut GpRegion, rect: *mut Rect, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCombineRegionRegion(region: *mut GpRegion, region2: *mut GpRegion, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipComment(graphics: *mut GpGraphics, sizeData: u32, data: *mut u8) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipConvertToEmfPlus(refGraphics: *mut GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut i32, emfType: EmfType, description: super::super::Foundation::PWSTR, out_metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipConvertToEmfPlusToFile(refGraphics: *mut GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut i32, filename: super::super::Foundation::PWSTR, emfType: EmfType, description: super::super::Foundation::PWSTR, out_metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipConvertToEmfPlusToStream(refGraphics: *mut GpGraphics, metafile: *mut GpMetafile, conversionFailureFlag: *mut i32, stream: super::super::System::Com::IStream, emfType: EmfType, description: super::super::Foundation::PWSTR, out_metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateAdjustableArrowCap(height: f32, width: f32, isFilled: super::super::Foundation::BOOL, cap: *mut *mut GpAdjustableArrowCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromDirectDrawSurface(surface: super::DirectDraw::IDirectDrawSurface7, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromFile(filename: super::super::Foundation::PWSTR, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromFileICM(filename: super::super::Foundation::PWSTR, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromGdiDib(gdiBitmapInfo: *mut super::Gdi::BITMAPINFO, gdiBitmapData: *mut void, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromGraphics(width: i32, height: i32, target: *mut GpGraphics, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromHBITMAP(hbm: super::Gdi::HBITMAP, hpal: super::Gdi::HPALETTE, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromHICON(hicon: super::super::UI::WindowsAndMessaging::HICON, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromResource(hInstance: super::super::Foundation::HINSTANCE, lpBitmapName: super::super::Foundation::PWSTR, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromScan0(width: i32, height: i32, stride: i32, format: i32, scan0: *mut u8, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromStream(stream: super::super::System::Com::IStream, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateBitmapFromStreamICM(stream: super::super::System::Com::IStream, bitmap: *mut *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateCachedBitmap(bitmap: *mut GpBitmap, graphics: *mut GpGraphics, cachedBitmap: *mut *mut GpCachedBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateCustomLineCap(fillPath: *mut GpPath, strokePath: *mut GpPath, baseCap: LineCap, baseInset: f32, customCap: *mut *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateEffect(guid: GUID, effect: *mut *mut CGpEffect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFont(fontFamily: *mut GpFontFamily, emSize: f32, style: i32, unit: Unit, font: *mut *mut GpFont) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFontFamilyFromName(name: super::super::Foundation::PWSTR, fontCollection: *mut GpFontCollection, fontFamily: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFontFromDC(hdc: super::Gdi::HDC, font: *mut *mut GpFont) -> Status;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFontFromLogfontA(hdc: super::Gdi::HDC, logfont: *mut super::Gdi::LOGFONTA, font: *mut *mut GpFont) -> Status;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFontFromLogfontW(hdc: super::Gdi::HDC, logfont: *mut super::Gdi::LOGFONTW, font: *mut *mut GpFont) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFromHDC(hdc: super::Gdi::HDC, graphics: *mut *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFromHDC2(hdc: super::Gdi::HDC, hDevice: super::super::Foundation::HANDLE, graphics: *mut *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFromHWND(hwnd: super::super::Foundation::HWND, graphics: *mut *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateFromHWNDICM(hwnd: super::super::Foundation::HWND, graphics: *mut *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateHBITMAPFromBitmap(bitmap: *mut GpBitmap, hbmReturn: *mut super::Gdi::HBITMAP, background: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateHICONFromBitmap(bitmap: *mut GpBitmap, hbmReturn: *mut super::super::UI::WindowsAndMessaging::HICON) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateHalftonePalette() -> super::Gdi::HPALETTE;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: u32, backcol: u32, brush: *mut *mut GpHatch) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateImageAttributes(imageattr: *mut *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrush(point1: *mut PointF, point2: *mut PointF, color1: u32, color2: u32, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrushFromRect(rect: *mut RectF, color1: u32, color2: u32, mode: LinearGradientMode, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrushFromRectI(rect: *mut Rect, color1: u32, color2: u32, mode: LinearGradientMode, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrushFromRectWithAngle(rect: *mut RectF, color1: u32, color2: u32, angle: f32, isAngleScalable: super::super::Foundation::BOOL, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrushFromRectWithAngleI(rect: *mut Rect, color1: u32, color2: u32, angle: f32, isAngleScalable: super::super::Foundation::BOOL, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateLineBrushI(point1: *mut Point, point2: *mut Point, color1: u32, color2: u32, wrapMode: WrapMode, lineGradient: *mut *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMatrix(matrix: *mut *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMatrix2(m11: f32, m12: f32, m21: f32, m22: f32, dx: f32, dy: f32, matrix: *mut *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMatrix3(rect: *mut RectF, dstplg: *mut PointF, matrix: *mut *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMatrix3I(rect: *mut Rect, dstplg: *mut Point, matrix: *mut *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMetafileFromEmf(hEmf: super::Gdi::HENHMETAFILE, deleteEmf: super::super::Foundation::BOOL, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMetafileFromFile(file: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMetafileFromStream(stream: super::super::System::Com::IStream, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMetafileFromWmf(hWmf: super::Gdi::HMETAFILE, deleteWmf: super::super::Foundation::BOOL, wmfPlaceableFileHeader: *mut WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateMetafileFromWmfFile(file: super::super::Foundation::PWSTR, wmfPlaceableFileHeader: *mut WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePath(brushMode: FillMode, path: *mut *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePath2(param0: *mut PointF, param1: *mut u8, param2: i32, param3: FillMode, path: *mut *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePath2I(param0: *mut Point, param1: *mut u8, param2: i32, param3: FillMode, path: *mut *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePathGradient(points: *mut PointF, count: i32, wrapMode: WrapMode, polyGradient: *mut *mut GpPathGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePathGradientFromPath(path: *mut GpPath, polyGradient: *mut *mut GpPathGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePathGradientI(points: *mut Point, count: i32, wrapMode: WrapMode, polyGradient: *mut *mut GpPathGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePathIter(iterator: *mut *mut GpPathIterator, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePen1(color: u32, width: f32, unit: Unit, pen: *mut *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreatePen2(brush: *mut GpBrush, width: f32, unit: Unit, pen: *mut *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegion(region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegionHrgn(hRgn: super::Gdi::HRGN, region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegionPath(path: *mut GpPath, region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegionRect(rect: *mut RectF, region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegionRectI(rect: *mut Rect, region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateRegionRgnData(regionData: *mut u8, size: i32, region: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateSolidFill(color: u32, brush: *mut *mut GpSolidFill) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateStreamOnFile(filename: super::super::Foundation::PWSTR, access: u32, stream: *mut super::super::System::Com::IStream) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateStringFormat(formatAttributes: i32, language: u16, format: *mut *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateTexture(image: *mut GpImage, wrapmode: WrapMode, texture: *mut *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateTexture2(image: *mut GpImage, wrapmode: WrapMode, x: f32, y: f32, width: f32, height: f32, texture: *mut *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateTexture2I(image: *mut GpImage, wrapmode: WrapMode, x: i32, y: i32, width: i32, height: i32, texture: *mut *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateTextureIA(image: *mut GpImage, imageAttributes: *mut GpImageAttributes, x: f32, y: f32, width: f32, height: f32, texture: *mut *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipCreateTextureIAI(image: *mut GpImage, imageAttributes: *mut GpImageAttributes, x: i32, y: i32, width: i32, height: i32, texture: *mut *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteBrush(brush: *mut GpBrush) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteCachedBitmap(cachedBitmap: *mut GpCachedBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteCustomLineCap(customCap: *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteEffect(effect: *mut CGpEffect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteFont(font: *mut GpFont) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteFontFamily(fontFamily: *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteGraphics(graphics: *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteMatrix(matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeletePath(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeletePathIter(iterator: *mut GpPathIterator) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeletePen(pen: *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeletePrivateFontCollection(fontCollection: *mut *mut GpFontCollection) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteRegion(region: *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDeleteStringFormat(format: *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDisposeImage(image: *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDisposeImageAttributes(imageattr: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawArc(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawArcI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawBezier(graphics: *mut GpGraphics, pen: *mut GpPen, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32, x4: f32, y4: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawBezierI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawBeziers(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawBeziersI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCachedBitmap(graphics: *mut GpGraphics, cachedBitmap: *mut GpCachedBitmap, x: i32, y: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawClosedCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawClosedCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawClosedCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawClosedCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurve(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurve2(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurve2I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurve3(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32, offset: i32, numberOfSegments: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurve3I(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32, offset: i32, numberOfSegments: i32, tension: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawCurveI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawDriverString(graphics: *mut GpGraphics, text: *mut u16, length: i32, font: *mut GpFont, brush: *mut GpBrush, positions: *mut PointF, flags: i32, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawEllipse(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawEllipseI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImage(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageFX(graphics: *mut GpGraphics, image: *mut GpImage, source: *mut RectF, xForm: *mut Matrix, effect: *mut CGpEffect, imageAttributes: *mut GpImageAttributes, srcUnit: Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePointRect(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcUnit: Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePointRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcUnit: Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePoints(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePointsI(graphics: *mut GpGraphics, image: *mut GpImage, dstpoints: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePointsRect(graphics: *mut GpGraphics, image: *mut GpImage, points: *mut PointF, count: i32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcUnit: Unit, imageAttributes: *mut GpImageAttributes, callback: isize, callbackData: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImagePointsRectI(graphics: *mut GpGraphics, image: *mut GpImage, points: *mut Point, count: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcUnit: Unit, imageAttributes: *mut GpImageAttributes, callback: isize, callbackData: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageRect(graphics: *mut GpGraphics, image: *mut GpImage, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageRectI(graphics: *mut GpGraphics, image: *mut GpImage, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageRectRect(graphics: *mut GpGraphics, image: *mut GpImage, dstx: f32, dsty: f32, dstwidth: f32, dstheight: f32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, srcUnit: Unit, imageAttributes: *mut GpImageAttributes, callback: isize, callbackData: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawImageRectRectI(graphics: *mut GpGraphics, image: *mut GpImage, dstx: i32, dsty: i32, dstwidth: i32, dstheight: i32, srcx: i32, srcy: i32, srcwidth: i32, srcheight: i32, srcUnit: Unit, imageAttributes: *mut GpImageAttributes, callback: isize, callbackData: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawLine(graphics: *mut GpGraphics, pen: *mut GpPen, x1: f32, y1: f32, x2: f32, y2: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawLineI(graphics: *mut GpGraphics, pen: *mut GpPen, x1: i32, y1: i32, x2: i32, y2: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawLines(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawLinesI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawPath(graphics: *mut GpGraphics, pen: *mut GpPen, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawPie(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawPieI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawPolygon(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawPolygonI(graphics: *mut GpGraphics, pen: *mut GpPen, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawRectangle(graphics: *mut GpGraphics, pen: *mut GpPen, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawRectangleI(graphics: *mut GpGraphics, pen: *mut GpPen, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawRectangles(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *mut RectF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawRectanglesI(graphics: *mut GpGraphics, pen: *mut GpPen, rects: *mut Rect, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipDrawString(graphics: *mut GpGraphics, string: super::super::Foundation::PWSTR, length: i32, font: *mut GpFont, layoutRect: *mut RectF, stringFormat: *mut GpStringFormat, brush: *mut GpBrush) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEmfToWmfBits(hemf: super::Gdi::HENHMETAFILE, cbData16: u32, pData16: *mut u8, iMapMode: i32, eFlags: i32) -> u32;
+                #[library("gdiplus.dll")]
+                extern fn GdipEndContainer(graphics: *mut GpGraphics, state: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestPoint(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoint: *mut PointF, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestPointI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoint: *mut Point, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestPoints(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoints: *mut PointF, count: i32, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestPointsI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoints: *mut Point, count: i32, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestRect(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destRect: *mut RectF, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileDestRectI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destRect: *mut Rect, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestPoint(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoint: *mut PointF, srcRect: *mut RectF, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestPointI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoint: *mut Point, srcRect: *mut Rect, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestPoints(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoints: *mut PointF, count: i32, srcRect: *mut RectF, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestPointsI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destPoints: *mut Point, count: i32, srcRect: *mut Rect, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestRect(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destRect: *mut RectF, srcRect: *mut RectF, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipEnumerateMetafileSrcRectDestRectI(graphics: *mut GpGraphics, metafile: *mut GpMetafile, destRect: *mut Rect, srcRect: *mut Rect, srcUnit: Unit, callback: isize, callbackData: *mut void, imageAttributes: *mut GpImageAttributes) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillClosedCurve(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillClosedCurve2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut PointF, count: i32, tension: f32, fillMode: FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillClosedCurve2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut Point, count: i32, tension: f32, fillMode: FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillClosedCurveI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillEllipse(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillEllipseI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPath(graphics: *mut GpGraphics, brush: *mut GpBrush, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPie(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPieI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32, startAngle: f32, sweepAngle: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPolygon(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut PointF, count: i32, fillMode: FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPolygon2(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPolygon2I(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillPolygonI(graphics: *mut GpGraphics, brush: *mut GpBrush, points: *mut Point, count: i32, fillMode: FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillRectangle(graphics: *mut GpGraphics, brush: *mut GpBrush, x: f32, y: f32, width: f32, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillRectangleI(graphics: *mut GpGraphics, brush: *mut GpBrush, x: i32, y: i32, width: i32, height: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillRectangles(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *mut RectF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillRectanglesI(graphics: *mut GpGraphics, brush: *mut GpBrush, rects: *mut Rect, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFillRegion(graphics: *mut GpGraphics, brush: *mut GpBrush, region: *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFindFirstImageItem(image: *mut GpImage, item: *mut ImageItemData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFindNextImageItem(image: *mut GpImage, item: *mut ImageItemData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFlattenPath(path: *mut GpPath, matrix: *mut Matrix, flatness: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFlush(graphics: *mut GpGraphics, intention: FlushIntention) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipFree(ptr: *mut void);
+                #[library("gdiplus.dll")]
+                extern fn GdipGetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillState: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleInset: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetAllPropertyItems(image: *mut GpImage, totalBufferSize: u32, numProperties: u32, allItems: *mut PropertyItem) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetBrushType(brush: *mut GpBrush, r#type: *mut BrushType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCellAscent(family: *mut GpFontFamily, style: i32, CellAscent: *mut u16) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCellDescent(family: *mut GpFontFamily, style: i32, CellDescent: *mut u16) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetClip(graphics: *mut GpGraphics, region: *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetClipBounds(graphics: *mut GpGraphics, rect: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetClipBoundsI(graphics: *mut GpGraphics, rect: *mut Rect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCompositingMode(graphics: *mut GpGraphics, compositingMode: *mut CompositingMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCompositingQuality(graphics: *mut GpGraphics, compositingQuality: *mut CompositingQuality) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapBaseCap(customCap: *mut GpCustomLineCap, baseCap: *mut LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapBaseInset(customCap: *mut GpCustomLineCap, inset: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapStrokeCaps(customCap: *mut GpCustomLineCap, startCap: *mut LineCap, endCap: *mut LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapStrokeJoin(customCap: *mut GpCustomLineCap, lineJoin: *mut LineJoin) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapType(customCap: *mut GpCustomLineCap, capType: *mut CustomLineCapType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetCustomLineCapWidthScale(customCap: *mut GpCustomLineCap, widthScale: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetDC(graphics: *mut GpGraphics, hdc: *mut super::Gdi::HDC) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetDpiX(graphics: *mut GpGraphics, dpi: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetDpiY(graphics: *mut GpGraphics, dpi: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetEffectParameterSize(effect: *mut CGpEffect, size: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetEffectParameters(effect: *mut CGpEffect, size: *mut u32, params: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetEmHeight(family: *mut GpFontFamily, style: i32, EmHeight: *mut u16) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetEncoderParameterList(image: *mut GpImage, clsidEncoder: *mut GUID, size: u32, buffer: *mut EncoderParameters) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetEncoderParameterListSize(image: *mut GpImage, clsidEncoder: *mut GUID, size: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFamily(font: *mut GpFont, family: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFamilyName(family: *mut GpFontFamily, name: super::super::Foundation::PWSTR, language: u16) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontCollectionFamilyCount(fontCollection: *mut GpFontCollection, numFound: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontCollectionFamilyList(fontCollection: *mut GpFontCollection, numSought: i32, gpfamilies: *mut *mut GpFontFamily, numFound: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontHeight(font: *mut GpFont, graphics: *mut GpGraphics, height: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontHeightGivenDPI(font: *mut GpFont, dpi: f32, height: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontSize(font: *mut GpFont, size: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontStyle(font: *mut GpFont, style: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetFontUnit(font: *mut GpFont, unit: *mut Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetGenericFontFamilyMonospace(nativeFamily: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetGenericFontFamilySansSerif(nativeFamily: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetGenericFontFamilySerif(nativeFamily: *mut *mut GpFontFamily) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetHatchBackgroundColor(brush: *mut GpHatch, backcol: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetHatchForegroundColor(brush: *mut GpHatch, forecol: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetHatchStyle(brush: *mut GpHatch, hatchstyle: *mut HatchStyle) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetHemfFromMetafile(metafile: *mut GpMetafile, hEmf: *mut super::Gdi::HENHMETAFILE) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageAttributesAdjustedPalette(imageAttr: *mut GpImageAttributes, colorPalette: *mut ColorPalette, colorAdjustType: ColorAdjustType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageBounds(image: *mut GpImage, srcRect: *mut RectF, srcUnit: *mut Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageDecoders(numDecoders: u32, size: u32, decoders: *mut ImageCodecInfo) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageDecodersSize(numDecoders: *mut u32, size: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageDimension(image: *mut GpImage, width: *mut f32, height: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageEncoders(numEncoders: u32, size: u32, encoders: *mut ImageCodecInfo) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageEncodersSize(numEncoders: *mut u32, size: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageFlags(image: *mut GpImage, flags: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageGraphicsContext(image: *mut GpImage, graphics: *mut *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageHeight(image: *mut GpImage, height: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageHorizontalResolution(image: *mut GpImage, resolution: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageItemData(image: *mut GpImage, item: *mut ImageItemData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImagePalette(image: *mut GpImage, palette: *mut ColorPalette, size: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImagePaletteSize(image: *mut GpImage, size: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImagePixelFormat(image: *mut GpImage, format: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageRawFormat(image: *mut GpImage, format: *mut GUID) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageThumbnail(image: *mut GpImage, thumbWidth: u32, thumbHeight: u32, thumbImage: *mut *mut GpImage, callback: isize, callbackData: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageType(image: *mut GpImage, r#type: *mut ImageType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageVerticalResolution(image: *mut GpImage, resolution: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetImageWidth(image: *mut GpImage, width: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetInterpolationMode(graphics: *mut GpGraphics, interpolationMode: *mut InterpolationMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineBlend(brush: *mut GpLineGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineBlendCount(brush: *mut GpLineGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineColors(brush: *mut GpLineGradient, colors: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineGammaCorrection(brush: *mut GpLineGradient, useGammaCorrection: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLinePresetBlend(brush: *mut GpLineGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLinePresetBlendCount(brush: *mut GpLineGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineRect(brush: *mut GpLineGradient, rect: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineRectI(brush: *mut GpLineGradient, rect: *mut Rect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineSpacing(family: *mut GpFontFamily, style: i32, LineSpacing: *mut u16) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineTransform(brush: *mut GpLineGradient, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLineWrapMode(brush: *mut GpLineGradient, wrapmode: *mut WrapMode) -> Status;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLogFontA(font: *mut GpFont, graphics: *mut GpGraphics, logfontA: *mut super::Gdi::LOGFONTA) -> Status;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("gdiplus.dll")]
+                extern fn GdipGetLogFontW(font: *mut GpFont, graphics: *mut GpGraphics, logfontW: *mut super::Gdi::LOGFONTW) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMatrixElements(matrix: *mut Matrix, matrixOut: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileDownLevelRasterizationLimit(metafile: *mut GpMetafile, metafileRasterizationLimitDpi: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileHeaderFromEmf(hEmf: super::Gdi::HENHMETAFILE, header: *mut MetafileHeader) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileHeaderFromFile(filename: super::super::Foundation::PWSTR, header: *mut MetafileHeader) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileHeaderFromMetafile(metafile: *mut GpMetafile, header: *mut MetafileHeader) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileHeaderFromStream(stream: super::super::System::Com::IStream, header: *mut MetafileHeader) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetMetafileHeaderFromWmf(hWmf: super::Gdi::HMETAFILE, wmfPlaceableFileHeader: *mut WmfPlaceableFileHeader, header: *mut MetafileHeader) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetNearestColor(graphics: *mut GpGraphics, argb: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPageScale(graphics: *mut GpGraphics, scale: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPageUnit(graphics: *mut GpGraphics, unit: *mut Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathData(path: *mut GpPath, pathData: *mut PathData) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathFillMode(path: *mut GpPath, fillmode: *mut FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientBlend(brush: *mut GpPathGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientBlendCount(brush: *mut GpPathGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientCenterColor(brush: *mut GpPathGradient, colors: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *mut PointF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *mut Point) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientFocusScales(brush: *mut GpPathGradient, xScale: *mut f32, yScale: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientGammaCorrection(brush: *mut GpPathGradient, useGammaCorrection: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientPath(brush: *mut GpPathGradient, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientPointCount(brush: *mut GpPathGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientPresetBlendCount(brush: *mut GpPathGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientRect(brush: *mut GpPathGradient, rect: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientRectI(brush: *mut GpPathGradient, rect: *mut Rect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientSurroundColorCount(brush: *mut GpPathGradient, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientSurroundColorsWithCount(brush: *mut GpPathGradient, color: *mut u32, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: *mut WrapMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathLastPoint(path: *mut GpPath, lastPoint: *mut PointF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathPoints(param0: *mut GpPath, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathTypes(path: *mut GpPath, types: *mut u8, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut RectF, matrix: *mut Matrix, pen: *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPathWorldBoundsI(path: *mut GpPath, bounds: *mut Rect, matrix: *mut Matrix, pen: *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenBrushFill(pen: *mut GpPen, brush: *mut *mut GpBrush) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenColor(pen: *mut GpPen, argb: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenCompoundArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenCompoundCount(pen: *mut GpPen, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenCustomEndCap(pen: *mut GpPen, customCap: *mut *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenCustomStartCap(pen: *mut GpPen, customCap: *mut *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenDashArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenDashCap197819(pen: *mut GpPen, dashCap: *mut DashCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenDashCount(pen: *mut GpPen, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenDashOffset(pen: *mut GpPen, offset: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenDashStyle(pen: *mut GpPen, dashstyle: *mut DashStyle) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenEndCap(pen: *mut GpPen, endCap: *mut LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenFillType(pen: *mut GpPen, r#type: *mut PenType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenLineJoin(pen: *mut GpPen, lineJoin: *mut LineJoin) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenMiterLimit(pen: *mut GpPen, miterLimit: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenMode(pen: *mut GpPen, penMode: *mut PenAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenStartCap(pen: *mut GpPen, startCap: *mut LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenTransform(pen: *mut GpPen, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenUnit(pen: *mut GpPen, unit: *mut Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPenWidth(pen: *mut GpPen, width: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPixelOffsetMode(graphics: *mut GpGraphics, pixelOffsetMode: *mut PixelOffsetMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPointCount(path: *mut GpPath, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPropertyCount(image: *mut GpImage, numOfProperty: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPropertyIdList(image: *mut GpImage, numOfProperty: u32, list: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPropertyItem(image: *mut GpImage, propId: u32, propSize: u32, buffer: *mut PropertyItem) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPropertyItemSize(image: *mut GpImage, propId: u32, size: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetPropertySize(image: *mut GpImage, totalBufferSize: *mut u32, numProperties: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionBounds(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraphics, rect: *mut Rect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionData(region: *mut GpRegion, buffer: *mut u8, bufferSize: u32, sizeFilled: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionDataSize(region: *mut GpRegion, bufferSize: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionHRgn(region: *mut GpRegion, graphics: *mut GpGraphics, hRgn: *mut super::Gdi::HRGN) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionScans(region: *mut GpRegion, rects: *mut RectF, count: *mut i32, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionScansCount(region: *mut GpRegion, count: *mut u32, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRegionScansI(region: *mut GpRegion, rects: *mut Rect, count: *mut i32, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetRenderingOrigin(graphics: *mut GpGraphics, x: *mut i32, y: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetSmoothingMode(graphics: *mut GpGraphics, smoothingMode: *mut SmoothingMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetSolidFillColor(brush: *mut GpSolidFill, color: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatAlign(format: *mut GpStringFormat, align: *mut StringAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatDigitSubstitution(format: *mut GpStringFormat, language: *mut u16, substitute: *mut StringDigitSubstitute) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatFlags(format: *mut GpStringFormat, flags: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatHotkeyPrefix(format: *mut GpStringFormat, hotkeyPrefix: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatLineAlign(format: *mut GpStringFormat, align: *mut StringAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatMeasurableCharacterRangeCount(format: *mut GpStringFormat, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatTabStopCount(format: *mut GpStringFormat, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatTabStops(format: *mut GpStringFormat, count: i32, firstTabOffset: *mut f32, tabStops: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetStringFormatTrimming(format: *mut GpStringFormat, trimming: *mut StringTrimming) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetTextContrast(graphics: *mut GpGraphics, contrast: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetTextRenderingHint(graphics: *mut GpGraphics, mode: *mut TextRenderingHint) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetTextureImage(brush: *mut GpTexture, image: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetTextureTransform(brush: *mut GpTexture, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetTextureWrapMode(brush: *mut GpTexture, wrapmode: *mut WrapMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetVisibleClipBounds(graphics: *mut GpGraphics, rect: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetVisibleClipBoundsI(graphics: *mut GpGraphics, rect: *mut Rect) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGetWorldTransform(graphics: *mut GpGraphics, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGraphicsClear(graphics: *mut GpGraphics, color: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipGraphicsSetAbort(pGraphics: *mut GpGraphics, pIAbort: GdiplusAbort) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageForceValidation(image: *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageGetFrameCount(image: *mut GpImage, dimensionID: *mut GUID, count: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageGetFrameDimensionsCount(image: *mut GpImage, count: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageGetFrameDimensionsList(image: *mut GpImage, dimensionIDs: *mut GUID, count: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageRotateFlip(image: *mut GpImage, rfType: RotateFlipType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageSelectActiveFrame(image: *mut GpImage, dimensionID: *mut GUID, frameIndex: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipImageSetAbort(pImage: *mut GpImage, pIAbort: GdiplusAbort) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipInitializePalette(palette: *mut ColorPalette, palettetype: PaletteType, optimalColors: i32, useTransparentColor: super::super::Foundation::BOOL, bitmap: *mut GpBitmap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipInvertMatrix(matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsClipEmpty(graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsEmptyRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsEqualRegion(region: *mut GpRegion, region2: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsInfiniteRegion(region: *mut GpRegion, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsMatrixEqual(matrix: *mut Matrix, matrix2: *mut Matrix, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsMatrixIdentity(matrix: *mut Matrix, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsMatrixInvertible(matrix: *mut Matrix, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsOutlineVisiblePathPoint(path: *mut GpPath, x: f32, y: f32, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsOutlineVisiblePathPointI(path: *mut GpPath, x: i32, y: i32, pen: *mut GpPen, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsStyleAvailable(family: *mut GpFontFamily, style: i32, IsStyleAvailable: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleClipEmpty(graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisiblePathPoint(path: *mut GpPath, x: f32, y: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisiblePathPointI(path: *mut GpPath, x: i32, y: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisiblePoint(graphics: *mut GpGraphics, x: f32, y: f32, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisiblePointI(graphics: *mut GpGraphics, x: i32, y: i32, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRect(graphics: *mut GpGraphics, x: f32, y: f32, width: f32, height: f32, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRectI(graphics: *mut GpGraphics, x: i32, y: i32, width: i32, height: i32, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRegionPoint(region: *mut GpRegion, x: f32, y: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRegionPointI(region: *mut GpRegion, x: i32, y: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRegionRect(region: *mut GpRegion, x: f32, y: f32, width: f32, height: f32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipIsVisibleRegionRectI(region: *mut GpRegion, x: i32, y: i32, width: i32, height: i32, graphics: *mut GpGraphics, result: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipLoadImageFromFile(filename: super::super::Foundation::PWSTR, image: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipLoadImageFromFileICM(filename: super::super::Foundation::PWSTR, image: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipLoadImageFromStream(stream: super::super::System::Com::IStream, image: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipLoadImageFromStreamICM(stream: super::super::System::Com::IStream, image: *mut *mut GpImage) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMeasureCharacterRanges(graphics: *mut GpGraphics, string: super::super::Foundation::PWSTR, length: i32, font: *mut GpFont, layoutRect: *mut RectF, stringFormat: *mut GpStringFormat, regionCount: i32, regions: *mut *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMeasureDriverString(graphics: *mut GpGraphics, text: *mut u16, length: i32, font: *mut GpFont, positions: *mut PointF, flags: i32, matrix: *mut Matrix, boundingBox: *mut RectF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMeasureString(graphics: *mut GpGraphics, string: super::super::Foundation::PWSTR, length: i32, font: *mut GpFont, layoutRect: *mut RectF, stringFormat: *mut GpStringFormat, boundingBox: *mut RectF, codepointsFitted: *mut i32, linesFilled: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyLineTransform(brush: *mut GpLineGradient, matrix: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyMatrix(matrix: *mut Matrix, matrix2: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyPenTransform(pen: *mut GpPen, matrix: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyTextureTransform(brush: *mut GpTexture, matrix: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipMultiplyWorldTransform(graphics: *mut GpGraphics, matrix: *mut Matrix, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipNewInstalledFontCollection(fontCollection: *mut *mut GpFontCollection) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipNewPrivateFontCollection(fontCollection: *mut *mut GpFontCollection) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterCopyData(iterator: *mut GpPathIterator, resultCount: *mut i32, points: *mut PointF, types: *mut u8, startIndex: i32, endIndex: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterEnumerate(iterator: *mut GpPathIterator, resultCount: *mut i32, points: *mut PointF, types: *mut u8, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterGetCount(iterator: *mut GpPathIterator, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterGetSubpathCount(iterator: *mut GpPathIterator, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterHasCurve(iterator: *mut GpPathIterator, hasCurve: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterIsValid(iterator: *mut GpPathIterator, valid: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterNextMarker(iterator: *mut GpPathIterator, resultCount: *mut i32, startIndex: *mut i32, endIndex: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterNextMarkerPath(iterator: *mut GpPathIterator, resultCount: *mut i32, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterNextPathType(iterator: *mut GpPathIterator, resultCount: *mut i32, pathType: *mut u8, startIndex: *mut i32, endIndex: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterNextSubpath(iterator: *mut GpPathIterator, resultCount: *mut i32, startIndex: *mut i32, endIndex: *mut i32, isClosed: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterNextSubpathPath(iterator: *mut GpPathIterator, resultCount: *mut i32, path: *mut GpPath, isClosed: *mut super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPathIterRewind(iterator: *mut GpPathIterator) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPlayMetafileRecord(metafile: *mut GpMetafile, recordType: EmfPlusRecordType, flags: u32, dataSize: u32, data: *mut u8) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPrivateAddFontFile(fontCollection: *mut GpFontCollection, filename: super::super::Foundation::PWSTR) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipPrivateAddMemoryFont(fontCollection: *mut GpFontCollection, memory: *mut void, length: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafile(referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut RectF, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafileFileName(fileName: super::super::Foundation::PWSTR, referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut RectF, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafileFileNameI(fileName: super::super::Foundation::PWSTR, referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut Rect, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafileI(referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut Rect, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafileStream(stream: super::super::System::Com::IStream, referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut RectF, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRecordMetafileStreamI(stream: super::super::System::Com::IStream, referenceHdc: super::Gdi::HDC, r#type: EmfType, frameRect: *mut Rect, frameUnit: MetafileFrameUnit, description: super::super::Foundation::PWSTR, metafile: *mut *mut GpMetafile) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipReleaseDC(graphics: *mut GpGraphics, hdc: super::Gdi::HDC) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRemovePropertyItem(image: *mut GpImage, propId: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetClip(graphics: *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetImageAttributes(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetLineTransform(brush: *mut GpLineGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetPageTransform(graphics: *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetPath(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetPathGradientTransform(brush: *mut GpPathGradient) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetPenTransform(pen: *mut GpPen) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetTextureTransform(brush: *mut GpTexture) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipResetWorldTransform(graphics: *mut GpGraphics) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRestoreGraphics(graphics: *mut GpGraphics, state: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipReversePath(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotateLineTransform(brush: *mut GpLineGradient, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotateMatrix(matrix: *mut Matrix, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotatePathGradientTransform(brush: *mut GpPathGradient, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotatePenTransform(pen: *mut GpPen, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotateTextureTransform(brush: *mut GpTexture, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipRotateWorldTransform(graphics: *mut GpGraphics, angle: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSaveAdd(image: *mut GpImage, encoderParams: *mut EncoderParameters) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSaveAddImage(image: *mut GpImage, newImage: *mut GpImage, encoderParams: *mut EncoderParameters) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSaveGraphics(graphics: *mut GpGraphics, state: *mut u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSaveImageToFile(image: *mut GpImage, filename: super::super::Foundation::PWSTR, clsidEncoder: *mut GUID, encoderParams: *mut EncoderParameters) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSaveImageToStream(image: *mut GpImage, stream: super::super::System::Com::IStream, clsidEncoder: *mut GUID, encoderParams: *mut EncoderParameters) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScaleLineTransform(brush: *mut GpLineGradient, sx: f32, sy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScaleMatrix(matrix: *mut Matrix, scaleX: f32, scaleY: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScalePathGradientTransform(brush: *mut GpPathGradient, sx: f32, sy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScalePenTransform(pen: *mut GpPen, sx: f32, sy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScaleTextureTransform(brush: *mut GpTexture, sx: f32, sy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipScaleWorldTransform(graphics: *mut GpGraphics, sx: f32, sy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetAdjustableArrowCapFillState(cap: *mut GpAdjustableArrowCap, fillState: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetAdjustableArrowCapHeight(cap: *mut GpAdjustableArrowCap, height: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetAdjustableArrowCapMiddleInset(cap: *mut GpAdjustableArrowCap, middleInset: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetAdjustableArrowCapWidth(cap: *mut GpAdjustableArrowCap, width: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipGraphics(graphics: *mut GpGraphics, srcgraphics: *mut GpGraphics, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipHrgn(graphics: *mut GpGraphics, hRgn: super::Gdi::HRGN, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipPath(graphics: *mut GpGraphics, path: *mut GpPath, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipRect(graphics: *mut GpGraphics, x: f32, y: f32, width: f32, height: f32, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipRectI(graphics: *mut GpGraphics, x: i32, y: i32, width: i32, height: i32, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetClipRegion(graphics: *mut GpGraphics, region: *mut GpRegion, combineMode: CombineMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCompositingMode(graphics: *mut GpGraphics, compositingMode: CompositingMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCompositingQuality(graphics: *mut GpGraphics, compositingQuality: CompositingQuality) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCustomLineCapBaseCap(customCap: *mut GpCustomLineCap, baseCap: LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCustomLineCapBaseInset(customCap: *mut GpCustomLineCap, inset: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCustomLineCapStrokeCaps(customCap: *mut GpCustomLineCap, startCap: LineCap, endCap: LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCustomLineCapStrokeJoin(customCap: *mut GpCustomLineCap, lineJoin: LineJoin) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetCustomLineCapWidthScale(customCap: *mut GpCustomLineCap, widthScale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetEffectParameters(effect: *mut CGpEffect, params: *mut void, size: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetEmpty(region: *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesCachedBackground(imageattr: *mut GpImageAttributes, enableFlag: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesColorKeys(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, colorLow: u32, colorHigh: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesColorMatrix(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, colorMatrix: *mut ColorMatrix, grayMatrix: *mut ColorMatrix, flags: ColorMatrixFlags) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesGamma(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, gamma: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesNoOp(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesOutputChannel(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, channelFlags: ColorChannelFlags) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesOutputChannelColorProfile(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, colorProfileFilename: super::super::Foundation::PWSTR) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesRemapTable(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, mapSize: u32, map: *mut ColorMap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesThreshold(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType, enableFlag: super::super::Foundation::BOOL, threshold: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesToIdentity(imageattr: *mut GpImageAttributes, r#type: ColorAdjustType) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImageAttributesWrapMode(imageAttr: *mut GpImageAttributes, wrap: WrapMode, argb: u32, clamp: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetImagePalette(image: *mut GpImage, palette: *mut ColorPalette) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetInfinite(region: *mut GpRegion) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetInterpolationMode(graphics: *mut GpGraphics, interpolationMode: InterpolationMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineBlend(brush: *mut GpLineGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineColors(brush: *mut GpLineGradient, color1: u32, color2: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineGammaCorrection(brush: *mut GpLineGradient, useGammaCorrection: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineLinearBlend(brush: *mut GpLineGradient, focus: f32, scale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLinePresetBlend(brush: *mut GpLineGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineSigmaBlend(brush: *mut GpLineGradient, focus: f32, scale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineTransform(brush: *mut GpLineGradient, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetLineWrapMode(brush: *mut GpLineGradient, wrapmode: WrapMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetMatrixElements(matrix: *mut Matrix, m11: f32, m12: f32, m21: f32, m22: f32, dx: f32, dy: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetMetafileDownLevelRasterizationLimit(metafile: *mut GpMetafile, metafileRasterizationLimitDpi: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPageScale(graphics: *mut GpGraphics, scale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPageUnit(graphics: *mut GpGraphics, unit: Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathFillMode(path: *mut GpPath, fillmode: FillMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientBlend(brush: *mut GpPathGradient, blend: *mut f32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientCenterColor(brush: *mut GpPathGradient, colors: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientCenterPoint(brush: *mut GpPathGradient, points: *mut PointF) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientCenterPointI(brush: *mut GpPathGradient, points: *mut Point) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientFocusScales(brush: *mut GpPathGradient, xScale: f32, yScale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientGammaCorrection(brush: *mut GpPathGradient, useGammaCorrection: super::super::Foundation::BOOL) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientLinearBlend(brush: *mut GpPathGradient, focus: f32, scale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientPath(brush: *mut GpPathGradient, path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientPresetBlend(brush: *mut GpPathGradient, blend: *mut u32, positions: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientSigmaBlend(brush: *mut GpPathGradient, focus: f32, scale: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientSurroundColorsWithCount(brush: *mut GpPathGradient, color: *mut u32, count: *mut i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientTransform(brush: *mut GpPathGradient, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathGradientWrapMode(brush: *mut GpPathGradient, wrapmode: WrapMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPathMarker(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenBrushFill(pen: *mut GpPen, brush: *mut GpBrush) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenColor(pen: *mut GpPen, argb: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenCompoundArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenCustomEndCap(pen: *mut GpPen, customCap: *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenCustomStartCap(pen: *mut GpPen, customCap: *mut GpCustomLineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenDashArray(pen: *mut GpPen, dash: *mut f32, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenDashCap197819(pen: *mut GpPen, dashCap: DashCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenDashOffset(pen: *mut GpPen, offset: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenDashStyle(pen: *mut GpPen, dashstyle: DashStyle) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenEndCap(pen: *mut GpPen, endCap: LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenLineCap197819(pen: *mut GpPen, startCap: LineCap, endCap: LineCap, dashCap: DashCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenLineJoin(pen: *mut GpPen, lineJoin: LineJoin) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenMiterLimit(pen: *mut GpPen, miterLimit: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenMode(pen: *mut GpPen, penMode: PenAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenStartCap(pen: *mut GpPen, startCap: LineCap) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenTransform(pen: *mut GpPen, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenUnit(pen: *mut GpPen, unit: Unit) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPenWidth(pen: *mut GpPen, width: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPixelOffsetMode(graphics: *mut GpGraphics, pixelOffsetMode: PixelOffsetMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetPropertyItem(image: *mut GpImage, item: *mut PropertyItem) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetRenderingOrigin(graphics: *mut GpGraphics, x: i32, y: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetSmoothingMode(graphics: *mut GpGraphics, smoothingMode: SmoothingMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetSolidFillColor(brush: *mut GpSolidFill, color: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatAlign(format: *mut GpStringFormat, align: StringAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatDigitSubstitution(format: *mut GpStringFormat, language: u16, substitute: StringDigitSubstitute) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatFlags(format: *mut GpStringFormat, flags: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatHotkeyPrefix(format: *mut GpStringFormat, hotkeyPrefix: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatLineAlign(format: *mut GpStringFormat, align: StringAlignment) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatMeasurableCharacterRanges(format: *mut GpStringFormat, rangeCount: i32, ranges: *mut CharacterRange) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatTabStops(format: *mut GpStringFormat, firstTabOffset: f32, count: i32, tabStops: *mut f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetStringFormatTrimming(format: *mut GpStringFormat, trimming: StringTrimming) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetTextContrast(graphics: *mut GpGraphics, contrast: u32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetTextRenderingHint(graphics: *mut GpGraphics, mode: TextRenderingHint) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetTextureTransform(brush: *mut GpTexture, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetTextureWrapMode(brush: *mut GpTexture, wrapmode: WrapMode) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipSetWorldTransform(graphics: *mut GpGraphics, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipShearMatrix(matrix: *mut Matrix, shearX: f32, shearY: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipStartPathFigure(path: *mut GpPath) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipStringFormatGetGenericDefault(format: *mut *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipStringFormatGetGenericTypographic(format: *mut *mut GpStringFormat) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTestControl(control: GpTestControlEnum, param1: *mut void) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformMatrixPoints(matrix: *mut Matrix, pts: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformMatrixPointsI(matrix: *mut Matrix, pts: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformPath(path: *mut GpPath, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformPoints(graphics: *mut GpGraphics, destSpace: CoordinateSpace, srcSpace: CoordinateSpace, points: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformPointsI(graphics: *mut GpGraphics, destSpace: CoordinateSpace, srcSpace: CoordinateSpace, points: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTransformRegion(region: *mut GpRegion, matrix: *mut Matrix) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateClip(graphics: *mut GpGraphics, dx: f32, dy: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateClipI(graphics: *mut GpGraphics, dx: i32, dy: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateLineTransform(brush: *mut GpLineGradient, dx: f32, dy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateMatrix(matrix: *mut Matrix, offsetX: f32, offsetY: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslatePathGradientTransform(brush: *mut GpPathGradient, dx: f32, dy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslatePenTransform(pen: *mut GpPen, dx: f32, dy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateRegion(region: *mut GpRegion, dx: f32, dy: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateRegionI(region: *mut GpRegion, dx: i32, dy: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateTextureTransform(brush: *mut GpTexture, dx: f32, dy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipTranslateWorldTransform(graphics: *mut GpGraphics, dx: f32, dy: f32, order: MatrixOrder) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipVectorTransformMatrixPoints(matrix: *mut Matrix, pts: *mut PointF, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipVectorTransformMatrixPointsI(matrix: *mut Matrix, pts: *mut Point, count: i32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipWarpPath(path: *mut GpPath, matrix: *mut Matrix, points: *mut PointF, count: i32, srcx: f32, srcy: f32, srcwidth: f32, srcheight: f32, warpMode: WarpMode, flatness: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipWidenPath(nativePath: *mut GpPath, pen: *mut GpPen, matrix: *mut Matrix, flatness: f32) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdipWindingModeOutline(path: *mut GpPath, matrix: *mut Matrix, flatness: f32) -> Status;
+                interface GdiplusAbort {
+                    fn Abort(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[library("gdiplus.dll")]
+                extern fn GdiplusNotificationHook(token: *mut usize) -> Status;
+                #[library("gdiplus.dll")]
+                extern fn GdiplusNotificationUnhook(token: usize);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[library("gdiplus.dll")]
+                extern fn GdiplusShutdown(token: usize);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[library("gdiplus.dll")]
+                extern fn GdiplusStartup(token: *mut usize, input: *mut GdiplusStartupInput, output: *mut GdiplusStartupOutput) -> Status;
+                struct GdiplusStartupInput {
+                    GdiplusVersion: u32,
+                    DebugEventCallback: isize,
+                    SuppressBackgroundThread: super::super::Foundation::BOOL,
+                    SuppressExternalCodecs: super::super::Foundation::BOOL,
+                }
+                struct GdiplusStartupInputEx {
+                    Base: GdiplusStartupInput,
+                    StartupParameters: i32,
+                }
+                struct GdiplusStartupOutput {
+                    NotificationHook: isize,
+                    NotificationUnhook: isize,
+                }
+                #[repr(i32)]
+                enum GdiplusStartupParams {
+                    GdiplusStartupDefault = 0,
+                    GdiplusStartupNoSetRound = 1,
+                    GdiplusStartupSetPSValue = 2,
+                    GdiplusStartupTransparencyMask = -16777216,
+                }
+                #[repr(i32)]
+                enum GenericFontFamily {
+                    GenericFontFamilySerif = 0,
+                    GenericFontFamilySansSerif = 1,
+                    GenericFontFamilyMonospace = 2,
+                }
+                extern fn GetThumbnailImageAbort() -> super::super::Foundation::BOOL;
+                struct GpAdjustableArrowCap {}
+                struct GpBitmap {}
+                struct GpBrush {}
+                struct GpCachedBitmap {}
+                struct GpCustomLineCap {}
+                struct GpFont {}
+                struct GpFontCollection {}
+                struct GpFontFamily {}
+                struct GpGraphics {}
+                struct GpHatch {}
+                struct GpImage {}
+                struct GpImageAttributes {}
+                struct GpInstalledFontCollection {}
+                struct GpLineGradient {}
+                struct GpMetafile {}
+                struct GpPath {}
+                struct GpPathGradient {}
+                struct GpPathIterator {}
+                struct GpPen {}
+                struct GpPrivateFontCollection {}
+                struct GpRegion {}
+                struct GpSolidFill {}
+                struct GpStringFormat {}
+                #[repr(i32)]
+                enum GpTestControlEnum {
+                    TestControlForceBilinear = 0,
+                    TestControlNoICM = 1,
+                    TestControlGetBuildNumber = 2,
+                }
+                struct GpTexture {}
+                #[repr(i32)]
+                enum HatchStyle {
+                    HatchStyleHorizontal = 0,
+                    HatchStyleVertical = 1,
+                    HatchStyleForwardDiagonal = 2,
+                    HatchStyleBackwardDiagonal = 3,
+                    HatchStyleCross = 4,
+                    HatchStyleDiagonalCross = 5,
+                    HatchStyle05Percent = 6,
+                    HatchStyle10Percent = 7,
+                    HatchStyle20Percent = 8,
+                    HatchStyle25Percent = 9,
+                    HatchStyle30Percent = 10,
+                    HatchStyle40Percent = 11,
+                    HatchStyle50Percent = 12,
+                    HatchStyle60Percent = 13,
+                    HatchStyle70Percent = 14,
+                    HatchStyle75Percent = 15,
+                    HatchStyle80Percent = 16,
+                    HatchStyle90Percent = 17,
+                    HatchStyleLightDownwardDiagonal = 18,
+                    HatchStyleLightUpwardDiagonal = 19,
+                    HatchStyleDarkDownwardDiagonal = 20,
+                    HatchStyleDarkUpwardDiagonal = 21,
+                    HatchStyleWideDownwardDiagonal = 22,
+                    HatchStyleWideUpwardDiagonal = 23,
+                    HatchStyleLightVertical = 24,
+                    HatchStyleLightHorizontal = 25,
+                    HatchStyleNarrowVertical = 26,
+                    HatchStyleNarrowHorizontal = 27,
+                    HatchStyleDarkVertical = 28,
+                    HatchStyleDarkHorizontal = 29,
+                    HatchStyleDashedDownwardDiagonal = 30,
+                    HatchStyleDashedUpwardDiagonal = 31,
+                    HatchStyleDashedHorizontal = 32,
+                    HatchStyleDashedVertical = 33,
+                    HatchStyleSmallConfetti = 34,
+                    HatchStyleLargeConfetti = 35,
+                    HatchStyleZigZag = 36,
+                    HatchStyleWave = 37,
+                    HatchStyleDiagonalBrick = 38,
+                    HatchStyleHorizontalBrick = 39,
+                    HatchStyleWeave = 40,
+                    HatchStylePlaid = 41,
+                    HatchStyleDivot = 42,
+                    HatchStyleDottedGrid = 43,
+                    HatchStyleDottedDiamond = 44,
+                    HatchStyleShingle = 45,
+                    HatchStyleTrellis = 46,
+                    HatchStyleSphere = 47,
+                    HatchStyleSmallGrid = 48,
+                    HatchStyleSmallCheckerBoard = 49,
+                    HatchStyleLargeCheckerBoard = 50,
+                    HatchStyleOutlinedDiamond = 51,
+                    HatchStyleSolidDiamond = 52,
+                    HatchStyleTotal = 53,
+                    HatchStyleLargeGrid = 4,
+                    HatchStyleMin = 0,
+                    HatchStyleMax = 52,
+                }
+                #[repr(i32)]
+                enum HistogramFormat {
+                    HistogramFormatARGB = 0,
+                    HistogramFormatPARGB = 1,
+                    HistogramFormatRGB = 2,
+                    HistogramFormatGray = 3,
+                    HistogramFormatB = 4,
+                    HistogramFormatG = 5,
+                    HistogramFormatR = 6,
+                    HistogramFormatA = 7,
+                }
+                #[repr(i32)]
+                enum HotkeyPrefix {
+                    HotkeyPrefixNone = 0,
+                    HotkeyPrefixShow = 1,
+                    HotkeyPrefixHide = 2,
+                }
+                struct HueSaturationLightness {
+                    Base: Effect,
+                }
+                const HueSaturationLightnessEffectGuid: GUID = 0x8b2dd6c3_eb07_4d87_a5f0_7108e26a9c5f;
+                struct HueSaturationLightnessParams {
+                    hueLevel: i32,
+                    saturationLevel: i32,
+                    lightnessLevel: i32,
+                }
+                interface IImageBytes: super::super::System::Com::IUnknown {
+                    fn CountBytes(&self, pcb: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn LockBytes(&self, cb: u32, ulOffset: u32, #[Windows::Win32::Foundation::Metadata::Const] ppvBytes: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn UnlockBytes(&self, #[Windows::Win32::Foundation::Metadata::Const] pvBytes: *mut void, cb: u32, ulOffset: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/gdiplusheaders/nl-gdiplusheaders-image")]
+                struct Image {
+                    Value: isize,
+                }
+                extern fn ImageAbort(param0: *mut void) -> super::super::Foundation::BOOL;
+                #[repr(i32)]
+                enum ImageCodecFlags {
+                    ImageCodecFlagsEncoder = 1,
+                    ImageCodecFlagsDecoder = 2,
+                    ImageCodecFlagsSupportBitmap = 4,
+                    ImageCodecFlagsSupportVector = 8,
+                    ImageCodecFlagsSeekableEncode = 16,
+                    ImageCodecFlagsBlockingDecode = 32,
+                    ImageCodecFlagsBuiltin = 65536,
+                    ImageCodecFlagsSystem = 131072,
+                    ImageCodecFlagsUser = 262144,
+                }
+                struct ImageCodecInfo {
+                    Clsid: GUID,
+                    FormatID: GUID,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    CodecName: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    DllName: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    FormatDescription: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    FilenameExtension: super::super::Foundation::PWSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    MimeType: super::super::Foundation::PWSTR,
+                    Flags: u32,
+                    Version: u32,
+                    SigCount: u32,
+                    SigSize: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    SigPattern: *mut u8,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    SigMask: *mut u8,
+                }
+                #[repr(i32)]
+                enum ImageFlags {
+                    ImageFlagsNone = 0,
+                    ImageFlagsScalable = 1,
+                    ImageFlagsHasAlpha = 2,
+                    ImageFlagsHasTranslucent = 4,
+                    ImageFlagsPartiallyScalable = 8,
+                    ImageFlagsColorSpaceRGB = 16,
+                    ImageFlagsColorSpaceCMYK = 32,
+                    ImageFlagsColorSpaceGRAY = 64,
+                    ImageFlagsColorSpaceYCBCR = 128,
+                    ImageFlagsColorSpaceYCCK = 256,
+                    ImageFlagsHasRealDPI = 4096,
+                    ImageFlagsHasRealPixelSize = 8192,
+                    ImageFlagsReadOnly = 65536,
+                    ImageFlagsCaching = 131072,
+                }
+                const ImageFormatBMP: GUID = 0xb96b3cab_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatEMF: GUID = 0xb96b3cac_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatEXIF: GUID = 0xb96b3cb2_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatGIF: GUID = 0xb96b3cb0_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatHEIF: GUID = 0xb96b3cb6_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatIcon: GUID = 0xb96b3cb5_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatJPEG: GUID = 0xb96b3cae_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatMemoryBMP: GUID = 0xb96b3caa_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatPNG: GUID = 0xb96b3caf_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatTIFF: GUID = 0xb96b3cb1_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatUndefined: GUID = 0xb96b3ca9_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatWEBP: GUID = 0xb96b3cb7_0728_11d3_9d7b_0000f81ef32e;
+                const ImageFormatWMF: GUID = 0xb96b3cad_0728_11d3_9d7b_0000f81ef32e;
+                struct ImageItemData {
+                    Size: u32,
+                    Position: u32,
+                    Desc: *mut void,
+                    DescSize: u32,
+                    Data: *mut void,
+                    DataSize: u32,
+                    Cookie: u32,
+                }
+                #[repr(i32)]
+                enum ImageLockMode {
+                    ImageLockModeRead = 1,
+                    ImageLockModeWrite = 2,
+                    ImageLockModeUserInputBuf = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/tablet/imagetype-complex-type")]
+                enum ImageType {
+                    ImageTypeUnknown = 0,
+                    ImageTypeBitmap = 1,
+                    ImageTypeMetafile = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct InstalledFontCollection {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum InterpolationMode {
+                    InterpolationModeInvalid = -1,
+                    InterpolationModeDefault = 0,
+                    InterpolationModeLowQuality = 1,
+                    InterpolationModeHighQuality = 2,
+                    InterpolationModeBilinear = 3,
+                    InterpolationModeBicubic = 4,
+                    InterpolationModeNearestNeighbor = 5,
+                    InterpolationModeHighQualityBilinear = 6,
+                    InterpolationModeHighQualityBicubic = 7,
+                }
+                #[repr(i32)]
+                enum ItemDataPosition {
+                    ItemDataPositionAfterHeader = 0,
+                    ItemDataPositionAfterPalette = 1,
+                    ItemDataPositionAfterBits = 2,
+                }
+                struct Levels {
+                    Base: Effect,
+                }
+                const LevelsEffectGuid: GUID = 0x99c354ec_2a31_4f3a_8c34_17a803b33a25;
+                struct LevelsParams {
+                    highlight: i32,
+                    midtone: i32,
+                    shadow: i32,
+                }
+                #[repr(i32)]
+                enum LineCap {
+                    LineCapFlat = 0,
+                    LineCapSquare = 1,
+                    LineCapRound = 2,
+                    LineCapTriangle = 3,
+                    LineCapNoAnchor = 16,
+                    LineCapSquareAnchor = 17,
+                    LineCapRoundAnchor = 18,
+                    LineCapDiamondAnchor = 19,
+                    LineCapArrowAnchor = 20,
+                    LineCapCustom = 255,
+                    LineCapAnchorMask = 240,
+                }
+                #[repr(i32)]
+                enum LineJoin {
+                    LineJoinMiter = 0,
+                    LineJoinBevel = 1,
+                    LineJoinRound = 2,
+                    LineJoinMiterClipped = 3,
+                }
+                #[repr(i32)]
+                enum LinearGradientMode {
+                    LinearGradientModeHorizontal = 0,
+                    LinearGradientModeVertical = 1,
+                    LinearGradientModeForwardDiagonal = 2,
+                    LinearGradientModeBackwardDiagonal = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-matrix")]
+                struct Matrix {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum MatrixOrder {
+                    MatrixOrderPrepend = 0,
+                    MatrixOrderAppend = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct Metafile {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum MetafileFrameUnit {
+                    MetafileFrameUnitPixel = 2,
+                    MetafileFrameUnitPoint = 3,
+                    MetafileFrameUnitInch = 4,
+                    MetafileFrameUnitDocument = 5,
+                    MetafileFrameUnitMillimeter = 6,
+                    MetafileFrameUnitGdi = 7,
+                }
+                struct MetafileHeader {
+                    Type: MetafileType,
+                    Size: u32,
+                    Version: u32,
+                    EmfPlusFlags: u32,
+                    DpiX: f32,
+                    DpiY: f32,
+                    X: i32,
+                    Y: i32,
+                    Width: i32,
+                    Height: i32,
+                    Anonymous: union {
+                        WmfHeader: super::Gdi::METAHEADER,
+                        EmfHeader: ENHMETAHEADER3,
+                    },
+                    EmfPlusHeaderSize: i32,
+                    LogicalDpiX: i32,
+                    LogicalDpiY: i32,
+                }
+                #[repr(i32)]
+                enum MetafileType {
+                    MetafileTypeInvalid = 0,
+                    MetafileTypeWmf = 1,
+                    MetafileTypeWmfPlaceable = 2,
+                    MetafileTypeEmf = 3,
+                    MetafileTypeEmfPlusOnly = 4,
+                    MetafileTypeEmfPlusDual = 5,
+                }
+                extern fn NotificationHookProc(token: *mut usize) -> Status;
+                extern fn NotificationUnhookProc(token: usize);
+                #[repr(i32)]
+                enum ObjectType {
+                    ObjectTypeInvalid = 0,
+                    ObjectTypeBrush = 1,
+                    ObjectTypePen = 2,
+                    ObjectTypePath = 3,
+                    ObjectTypeRegion = 4,
+                    ObjectTypeImage = 5,
+                    ObjectTypeFont = 6,
+                    ObjectTypeStringFormat = 7,
+                    ObjectTypeImageAttributes = 8,
+                    ObjectTypeCustomLineCap = 9,
+                    ObjectTypeGraphics = 10,
+                    ObjectTypeMax = 10,
+                    ObjectTypeMin = 1,
+                }
+                struct PWMFRect16 {
+                    Left: i16,
+                    Top: i16,
+                    Right: i16,
+                    Bottom: i16,
+                }
+                #[repr(i32)]
+                enum PaletteFlags {
+                    PaletteFlagsHasAlpha = 1,
+                    PaletteFlagsGrayScale = 2,
+                    PaletteFlagsHalftone = 4,
+                }
+                #[repr(i32)]
+                enum PaletteType {
+                    PaletteTypeCustom = 0,
+                    PaletteTypeOptimal = 1,
+                    PaletteTypeFixedBW = 2,
+                    PaletteTypeFixedHalftone8 = 3,
+                    PaletteTypeFixedHalftone27 = 4,
+                    PaletteTypeFixedHalftone64 = 5,
+                    PaletteTypeFixedHalftone125 = 6,
+                    PaletteTypeFixedHalftone216 = 7,
+                    PaletteTypeFixedHalftone252 = 8,
+                    PaletteTypeFixedHalftone256 = 9,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct PathData {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum PathPointType {
+                    PathPointTypeStart = 0,
+                    PathPointTypeLine = 1,
+                    PathPointTypeBezier = 3,
+                    PathPointTypePathTypeMask = 7,
+                    PathPointTypeDashMode = 16,
+                    PathPointTypePathMarker = 32,
+                    PathPointTypeCloseSubpath = 128,
+                    PathPointTypeBezier3 = 3,
+                }
+                #[repr(i32)]
+                enum PenAlignment {
+                    PenAlignmentCenter = 0,
+                    PenAlignmentInset = 1,
+                }
+                #[repr(i32)]
+                enum PenType {
+                    PenTypeSolidColor = 0,
+                    PenTypeHatchFill = 1,
+                    PenTypeTextureFill = 2,
+                    PenTypePathGradient = 3,
+                    PenTypeLinearGradient = 4,
+                    PenTypeUnknown = -1,
+                }
+                const PixelFormatAlpha: u32 = 262144;
+                const PixelFormatCanonical: u32 = 2097152;
+                const PixelFormatDontCare: u32 = 0;
+                const PixelFormatExtended: u32 = 1048576;
+                const PixelFormatGDI: u32 = 131072;
+                const PixelFormatIndexed: u32 = 65536;
+                const PixelFormatMax: u32 = 16;
+                const PixelFormatPAlpha: u32 = 524288;
+                const PixelFormatUndefined: u32 = 0;
+                #[repr(i32)]
+                enum PixelOffsetMode {
+                    PixelOffsetModeInvalid = -1,
+                    PixelOffsetModeDefault = 0,
+                    PixelOffsetModeHighSpeed = 1,
+                    PixelOffsetModeHighQuality = 2,
+                    PixelOffsetModeNone = 3,
+                    PixelOffsetModeHalf = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.foundation/ns-windows-foundation-point")]
+                struct Point {
+                    X: i32,
+                    Y: i32,
+                }
+                struct PointF {
+                    X: f32,
+                    Y: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct PrivateFontCollection {
+                    Value: isize,
+                }
+                struct PropertyItem {
+                    id: u32,
+                    length: u32,
+                    r#type: u16,
+                    value: *mut void,
+                }
+                const PropertyTagArtist: u32 = 315;
+                const PropertyTagBitsPerSample: u32 = 258;
+                const PropertyTagCellHeight: u32 = 265;
+                const PropertyTagCellWidth: u32 = 264;
+                const PropertyTagChrominanceTable: u32 = 20625;
+                const PropertyTagColorMap: u32 = 320;
+                const PropertyTagColorTransferFunction: u32 = 20506;
+                const PropertyTagCompression: u32 = 259;
+                const PropertyTagCopyright: u32 = 33432;
+                const PropertyTagDateTime: u32 = 306;
+                const PropertyTagDocumentName: u32 = 269;
+                const PropertyTagDotRange: u32 = 336;
+                const PropertyTagEquipMake: u32 = 271;
+                const PropertyTagEquipModel: u32 = 272;
+                const PropertyTagExifAperture: u32 = 37378;
+                const PropertyTagExifBrightness: u32 = 37379;
+                const PropertyTagExifCfaPattern: u32 = 41730;
+                const PropertyTagExifColorSpace: u32 = 40961;
+                const PropertyTagExifCompBPP: u32 = 37122;
+                const PropertyTagExifCompConfig: u32 = 37121;
+                const PropertyTagExifContrast: u32 = 41992;
+                const PropertyTagExifCustomRendered: u32 = 41985;
+                const PropertyTagExifDTDigSS: u32 = 37522;
+                const PropertyTagExifDTDigitized: u32 = 36868;
+                const PropertyTagExifDTOrig: u32 = 36867;
+                const PropertyTagExifDTOrigSS: u32 = 37521;
+                const PropertyTagExifDTSubsec: u32 = 37520;
+                const PropertyTagExifDeviceSettingDesc: u32 = 41995;
+                const PropertyTagExifDigitalZoomRatio: u32 = 41988;
+                const PropertyTagExifExposureBias: u32 = 37380;
+                const PropertyTagExifExposureIndex: u32 = 41493;
+                const PropertyTagExifExposureMode: u32 = 41986;
+                const PropertyTagExifExposureProg: u32 = 34850;
+                const PropertyTagExifExposureTime: u32 = 33434;
+                const PropertyTagExifFNumber: u32 = 33437;
+                const PropertyTagExifFPXVer: u32 = 40960;
+                const PropertyTagExifFileSource: u32 = 41728;
+                const PropertyTagExifFlash: u32 = 37385;
+                const PropertyTagExifFlashEnergy: u32 = 41483;
+                const PropertyTagExifFocalLength: u32 = 37386;
+                const PropertyTagExifFocalLengthIn35mmFilm: u32 = 41989;
+                const PropertyTagExifFocalResUnit: u32 = 41488;
+                const PropertyTagExifFocalXRes: u32 = 41486;
+                const PropertyTagExifFocalYRes: u32 = 41487;
+                const PropertyTagExifGainControl: u32 = 41991;
+                const PropertyTagExifIFD: u32 = 34665;
+                const PropertyTagExifISOSpeed: u32 = 34855;
+                const PropertyTagExifInterop: u32 = 40965;
+                const PropertyTagExifLightSource: u32 = 37384;
+                const PropertyTagExifMakerNote: u32 = 37500;
+                const PropertyTagExifMaxAperture: u32 = 37381;
+                const PropertyTagExifMeteringMode: u32 = 37383;
+                const PropertyTagExifOECF: u32 = 34856;
+                const PropertyTagExifPixXDim: u32 = 40962;
+                const PropertyTagExifPixYDim: u32 = 40963;
+                const PropertyTagExifRelatedWav: u32 = 40964;
+                const PropertyTagExifSaturation: u32 = 41993;
+                const PropertyTagExifSceneCaptureType: u32 = 41990;
+                const PropertyTagExifSceneType: u32 = 41729;
+                const PropertyTagExifSensingMethod: u32 = 41495;
+                const PropertyTagExifSharpness: u32 = 41994;
+                const PropertyTagExifShutterSpeed: u32 = 37377;
+                const PropertyTagExifSpatialFR: u32 = 41484;
+                const PropertyTagExifSpectralSense: u32 = 34852;
+                const PropertyTagExifSubjectArea: u32 = 37396;
+                const PropertyTagExifSubjectDist: u32 = 37382;
+                const PropertyTagExifSubjectDistanceRange: u32 = 41996;
+                const PropertyTagExifSubjectLoc: u32 = 41492;
+                const PropertyTagExifUniqueImageID: u32 = 42016;
+                const PropertyTagExifUserComment: u32 = 37510;
+                const PropertyTagExifVer: u32 = 36864;
+                const PropertyTagExifWhiteBalance: u32 = 41987;
+                const PropertyTagExtraSamples: u32 = 338;
+                const PropertyTagFillOrder: u32 = 266;
+                const PropertyTagFrameDelay: u32 = 20736;
+                const PropertyTagFreeByteCounts: u32 = 289;
+                const PropertyTagFreeOffset: u32 = 288;
+                const PropertyTagGamma: u32 = 769;
+                const PropertyTagGlobalPalette: u32 = 20738;
+                const PropertyTagGpsAltitude: u32 = 6;
+                const PropertyTagGpsAltitudeRef: u32 = 5;
+                const PropertyTagGpsAreaInformation: u32 = 28;
+                const PropertyTagGpsDate: u32 = 29;
+                const PropertyTagGpsDestBear: u32 = 24;
+                const PropertyTagGpsDestBearRef: u32 = 23;
+                const PropertyTagGpsDestDist: u32 = 26;
+                const PropertyTagGpsDestDistRef: u32 = 25;
+                const PropertyTagGpsDestLat: u32 = 20;
+                const PropertyTagGpsDestLatRef: u32 = 19;
+                const PropertyTagGpsDestLong: u32 = 22;
+                const PropertyTagGpsDestLongRef: u32 = 21;
+                const PropertyTagGpsDifferential: u32 = 30;
+                const PropertyTagGpsGpsDop: u32 = 11;
+                const PropertyTagGpsGpsMeasureMode: u32 = 10;
+                const PropertyTagGpsGpsSatellites: u32 = 8;
+                const PropertyTagGpsGpsStatus: u32 = 9;
+                const PropertyTagGpsGpsTime: u32 = 7;
+                const PropertyTagGpsIFD: u32 = 34853;
+                const PropertyTagGpsImgDir: u32 = 17;
+                const PropertyTagGpsImgDirRef: u32 = 16;
+                const PropertyTagGpsLatitude: u32 = 2;
+                const PropertyTagGpsLatitudeRef: u32 = 1;
+                const PropertyTagGpsLongitude: u32 = 4;
+                const PropertyTagGpsLongitudeRef: u32 = 3;
+                const PropertyTagGpsMapDatum: u32 = 18;
+                const PropertyTagGpsProcessingMethod: u32 = 27;
+                const PropertyTagGpsSpeed: u32 = 13;
+                const PropertyTagGpsSpeedRef: u32 = 12;
+                const PropertyTagGpsTrack: u32 = 15;
+                const PropertyTagGpsTrackRef: u32 = 14;
+                const PropertyTagGpsVer: u32 = 0;
+                const PropertyTagGrayResponseCurve: u32 = 291;
+                const PropertyTagGrayResponseUnit: u32 = 290;
+                const PropertyTagGridSize: u32 = 20497;
+                const PropertyTagHalftoneDegree: u32 = 20492;
+                const PropertyTagHalftoneHints: u32 = 321;
+                const PropertyTagHalftoneLPI: u32 = 20490;
+                const PropertyTagHalftoneLPIUnit: u32 = 20491;
+                const PropertyTagHalftoneMisc: u32 = 20494;
+                const PropertyTagHalftoneScreen: u32 = 20495;
+                const PropertyTagHalftoneShape: u32 = 20493;
+                const PropertyTagHostComputer: u32 = 316;
+                const PropertyTagICCProfile: u32 = 34675;
+                const PropertyTagICCProfileDescriptor: u32 = 770;
+                const PropertyTagImageDescription: u32 = 270;
+                const PropertyTagImageHeight: u32 = 257;
+                const PropertyTagImageTitle: u32 = 800;
+                const PropertyTagImageWidth: u32 = 256;
+                const PropertyTagIndexBackground: u32 = 20739;
+                const PropertyTagIndexTransparent: u32 = 20740;
+                const PropertyTagInkNames: u32 = 333;
+                const PropertyTagInkSet: u32 = 332;
+                const PropertyTagJPEGACTables: u32 = 521;
+                const PropertyTagJPEGDCTables: u32 = 520;
+                const PropertyTagJPEGInterFormat: u32 = 513;
+                const PropertyTagJPEGInterLength: u32 = 514;
+                const PropertyTagJPEGLosslessPredictors: u32 = 517;
+                const PropertyTagJPEGPointTransforms: u32 = 518;
+                const PropertyTagJPEGProc: u32 = 512;
+                const PropertyTagJPEGQTables: u32 = 519;
+                const PropertyTagJPEGQuality: u32 = 20496;
+                const PropertyTagJPEGRestartInterval: u32 = 515;
+                const PropertyTagLoopCount: u32 = 20737;
+                const PropertyTagLuminanceTable: u32 = 20624;
+                const PropertyTagMaxSampleValue: u32 = 281;
+                const PropertyTagMinSampleValue: u32 = 280;
+                const PropertyTagNewSubfileType: u32 = 254;
+                const PropertyTagNumberOfInks: u32 = 334;
+                const PropertyTagOrientation: u32 = 274;
+                const PropertyTagPageName: u32 = 285;
+                const PropertyTagPageNumber: u32 = 297;
+                const PropertyTagPaletteHistogram: u32 = 20755;
+                const PropertyTagPhotometricInterp: u32 = 262;
+                const PropertyTagPixelPerUnitX: u32 = 20753;
+                const PropertyTagPixelPerUnitY: u32 = 20754;
+                const PropertyTagPixelUnit: u32 = 20752;
+                const PropertyTagPlanarConfig: u32 = 284;
+                const PropertyTagPredictor: u32 = 317;
+                const PropertyTagPrimaryChromaticities: u32 = 319;
+                const PropertyTagPrintFlags: u32 = 20485;
+                const PropertyTagPrintFlagsBleedWidth: u32 = 20488;
+                const PropertyTagPrintFlagsBleedWidthScale: u32 = 20489;
+                const PropertyTagPrintFlagsCrop: u32 = 20487;
+                const PropertyTagPrintFlagsVersion: u32 = 20486;
+                const PropertyTagREFBlackWhite: u32 = 532;
+                const PropertyTagResolutionUnit: u32 = 296;
+                const PropertyTagResolutionXLengthUnit: u32 = 20483;
+                const PropertyTagResolutionXUnit: u32 = 20481;
+                const PropertyTagResolutionYLengthUnit: u32 = 20484;
+                const PropertyTagResolutionYUnit: u32 = 20482;
+                const PropertyTagRowsPerStrip: u32 = 278;
+                const PropertyTagSMaxSampleValue: u32 = 341;
+                const PropertyTagSMinSampleValue: u32 = 340;
+                const PropertyTagSRGBRenderingIntent: u32 = 771;
+                const PropertyTagSampleFormat: u32 = 339;
+                const PropertyTagSamplesPerPixel: u32 = 277;
+                const PropertyTagSoftwareUsed: u32 = 305;
+                const PropertyTagStripBytesCount: u32 = 279;
+                const PropertyTagStripOffsets: u32 = 273;
+                const PropertyTagSubfileType: u32 = 255;
+                const PropertyTagT4Option: u32 = 292;
+                const PropertyTagT6Option: u32 = 293;
+                const PropertyTagTargetPrinter: u32 = 337;
+                const PropertyTagThreshHolding: u32 = 263;
+                const PropertyTagThumbnailArtist: u32 = 20532;
+                const PropertyTagThumbnailBitsPerSample: u32 = 20514;
+                const PropertyTagThumbnailColorDepth: u32 = 20501;
+                const PropertyTagThumbnailCompressedSize: u32 = 20505;
+                const PropertyTagThumbnailCompression: u32 = 20515;
+                const PropertyTagThumbnailCopyRight: u32 = 20539;
+                const PropertyTagThumbnailData: u32 = 20507;
+                const PropertyTagThumbnailDateTime: u32 = 20531;
+                const PropertyTagThumbnailEquipMake: u32 = 20518;
+                const PropertyTagThumbnailEquipModel: u32 = 20519;
+                const PropertyTagThumbnailFormat: u32 = 20498;
+                const PropertyTagThumbnailHeight: u32 = 20500;
+                const PropertyTagThumbnailImageDescription: u32 = 20517;
+                const PropertyTagThumbnailImageHeight: u32 = 20513;
+                const PropertyTagThumbnailImageWidth: u32 = 20512;
+                const PropertyTagThumbnailOrientation: u32 = 20521;
+                const PropertyTagThumbnailPhotometricInterp: u32 = 20516;
+                const PropertyTagThumbnailPlanarConfig: u32 = 20527;
+                const PropertyTagThumbnailPlanes: u32 = 20502;
+                const PropertyTagThumbnailPrimaryChromaticities: u32 = 20534;
+                const PropertyTagThumbnailRawBytes: u32 = 20503;
+                const PropertyTagThumbnailRefBlackWhite: u32 = 20538;
+                const PropertyTagThumbnailResolutionUnit: u32 = 20528;
+                const PropertyTagThumbnailResolutionX: u32 = 20525;
+                const PropertyTagThumbnailResolutionY: u32 = 20526;
+                const PropertyTagThumbnailRowsPerStrip: u32 = 20523;
+                const PropertyTagThumbnailSamplesPerPixel: u32 = 20522;
+                const PropertyTagThumbnailSize: u32 = 20504;
+                const PropertyTagThumbnailSoftwareUsed: u32 = 20530;
+                const PropertyTagThumbnailStripBytesCount: u32 = 20524;
+                const PropertyTagThumbnailStripOffsets: u32 = 20520;
+                const PropertyTagThumbnailTransferFunction: u32 = 20529;
+                const PropertyTagThumbnailWhitePoint: u32 = 20533;
+                const PropertyTagThumbnailWidth: u32 = 20499;
+                const PropertyTagThumbnailYCbCrCoefficients: u32 = 20535;
+                const PropertyTagThumbnailYCbCrPositioning: u32 = 20537;
+                const PropertyTagThumbnailYCbCrSubsampling: u32 = 20536;
+                const PropertyTagTileByteCounts: u32 = 325;
+                const PropertyTagTileLength: u32 = 323;
+                const PropertyTagTileOffset: u32 = 324;
+                const PropertyTagTileWidth: u32 = 322;
+                const PropertyTagTransferFuncition: u32 = 301;
+                const PropertyTagTransferRange: u32 = 342;
+                const PropertyTagTypeASCII: u32 = 2;
+                const PropertyTagTypeByte: u32 = 1;
+                const PropertyTagTypeLong: u32 = 4;
+                const PropertyTagTypeRational: u32 = 5;
+                const PropertyTagTypeSLONG: u32 = 9;
+                const PropertyTagTypeSRational: u32 = 10;
+                const PropertyTagTypeShort: u32 = 3;
+                const PropertyTagTypeUndefined: u32 = 7;
+                const PropertyTagWhitePoint: u32 = 318;
+                const PropertyTagXPosition: u32 = 286;
+                const PropertyTagXResolution: u32 = 282;
+                const PropertyTagYCbCrCoefficients: u32 = 529;
+                const PropertyTagYCbCrPositioning: u32 = 531;
+                const PropertyTagYCbCrSubsampling: u32 = 530;
+                const PropertyTagYPosition: u32 = 287;
+                const PropertyTagYResolution: u32 = 283;
+                #[repr(i32)]
+                enum QualityMode {
+                    QualityModeInvalid = -1,
+                    QualityModeDefault = 0,
+                    QualityModeLow = 1,
+                    QualityModeHigh = 2,
+                }
+                const RED_SHIFT: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.foundation/ns-windows-foundation-rect")]
+                struct Rect {
+                    X: i32,
+                    Y: i32,
+                    Width: i32,
+                    Height: i32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d2d1helper/nf-d2d1helper-rectf")]
+                struct RectF {
+                    X: f32,
+                    Y: f32,
+                    Width: f32,
+                    Height: f32,
+                }
+                struct RedEyeCorrection {
+                    Base: Effect,
+                }
+                const RedEyeCorrectionEffectGuid: GUID = 0x74d29d05_69a4_4266_9549_3cc52836b632;
+                struct RedEyeCorrectionParams {
+                    numberOfAreas: u32,
+                    areas: *mut super::super::Foundation::RECT,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct Region {
+                    Value: isize,
+                }
+                #[repr(i32)]
+                enum RotateFlipType {
+                    RotateNoneFlipNone = 0,
+                    Rotate90FlipNone = 1,
+                    Rotate180FlipNone = 2,
+                    Rotate270FlipNone = 3,
+                    RotateNoneFlipX = 4,
+                    Rotate90FlipX = 5,
+                    Rotate180FlipX = 6,
+                    Rotate270FlipX = 7,
+                    RotateNoneFlipY = 6,
+                    Rotate90FlipY = 7,
+                    Rotate180FlipY = 4,
+                    Rotate270FlipY = 5,
+                    RotateNoneFlipXY = 2,
+                    Rotate90FlipXY = 3,
+                    Rotate180FlipXY = 0,
+                    Rotate270FlipXY = 1,
+                }
+                struct Sharpen {
+                    Base: Effect,
+                }
+                const SharpenEffectGuid: GUID = 0x63cbf3ee_c526_402c_8f71_62c540bf5142;
+                struct SharpenParams {
+                    radius: f32,
+                    amount: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.foundation/ns-windows-foundation-size")]
+                struct Size {
+                    Width: i32,
+                    Height: i32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/d2d1helper/nf-d2d1helper-sizef")]
+                struct SizeF {
+                    Width: f32,
+                    Height: f32,
+                }
+                #[repr(i32)]
+                enum SmoothingMode {
+                    SmoothingModeInvalid = -1,
+                    SmoothingModeDefault = 0,
+                    SmoothingModeHighSpeed = 1,
+                    SmoothingModeHighQuality = 2,
+                    SmoothingModeNone = 3,
+                    SmoothingModeAntiAlias = 4,
+                    SmoothingModeAntiAlias8x4 = 4,
+                    SmoothingModeAntiAlias8x8 = 5,
+                }
+                #[repr(i32)]
+                enum Status {
+                    Ok = 0,
+                    GenericError = 1,
+                    InvalidParameter = 2,
+                    OutOfMemory = 3,
+                    ObjectBusy = 4,
+                    InsufficientBuffer = 5,
+                    NotImplemented = 6,
+                    Win32Error = 7,
+                    WrongState = 8,
+                    Aborted = 9,
+                    FileNotFound = 10,
+                    ValueOverflow = 11,
+                    AccessDenied = 12,
+                    UnknownImageFormat = 13,
+                    FontFamilyNotFound = 14,
+                    FontStyleNotFound = 15,
+                    NotTrueTypeFont = 16,
+                    UnsupportedGdiplusVersion = 17,
+                    GdiplusNotInitialized = 18,
+                    PropertyNotFound = 19,
+                    PropertyNotSupported = 20,
+                    ProfileNotFound = 21,
+                }
+                #[repr(i32)]
+                enum StringAlignment {
+                    StringAlignmentNear = 0,
+                    StringAlignmentCenter = 1,
+                    StringAlignmentFar = 2,
+                }
+                #[repr(i32)]
+                enum StringDigitSubstitute {
+                    StringDigitSubstituteUser = 0,
+                    StringDigitSubstituteNone = 1,
+                    StringDigitSubstituteNational = 2,
+                    StringDigitSubstituteTraditional = 3,
+                }
+                #[repr(i32)]
+                enum StringFormatFlags {
+                    StringFormatFlagsDirectionRightToLeft = 1,
+                    StringFormatFlagsDirectionVertical = 2,
+                    StringFormatFlagsNoFitBlackBox = 4,
+                    StringFormatFlagsDisplayFormatControl = 32,
+                    StringFormatFlagsNoFontFallback = 1024,
+                    StringFormatFlagsMeasureTrailingSpaces = 2048,
+                    StringFormatFlagsNoWrap = 4096,
+                    StringFormatFlagsLineLimit = 8192,
+                    StringFormatFlagsNoClip = 16384,
+                    StringFormatFlagsBypassGDI = -2147483648,
+                }
+                #[repr(i32)]
+                enum StringTrimming {
+                    StringTrimmingNone = 0,
+                    StringTrimmingCharacter = 1,
+                    StringTrimmingWord = 2,
+                    StringTrimmingEllipsisCharacter = 3,
+                    StringTrimmingEllipsisWord = 4,
+                    StringTrimmingEllipsisPath = 5,
+                }
+                #[repr(i32)]
+                enum TextRenderingHint {
+                    TextRenderingHintSystemDefault = 0,
+                    TextRenderingHintSingleBitPerPixelGridFit = 1,
+                    TextRenderingHintSingleBitPerPixel = 2,
+                    TextRenderingHintAntiAliasGridFit = 3,
+                    TextRenderingHintAntiAlias = 4,
+                    TextRenderingHintClearTypeGridFit = 5,
+                }
+                struct Tint {
+                    Base: Effect,
+                }
+                const TintEffectGuid: GUID = 0x1077af00_2848_4441_9489_44ad4c2d7a2c;
+                struct TintParams {
+                    hue: i32,
+                    amount: i32,
+                }
+                #[repr(i32)]
+                enum Unit {
+                    UnitWorld = 0,
+                    UnitDisplay = 1,
+                    UnitPixel = 2,
+                    UnitPoint = 3,
+                    UnitInch = 4,
+                    UnitDocument = 5,
+                    UnitMillimeter = 6,
+                }
+                #[repr(i32)]
+                enum WarpMode {
+                    WarpModePerspective = 0,
+                    WarpModeBilinear = 1,
+                }
+                struct WmfPlaceableFileHeader {
+                    Key: u32,
+                    Hmf: i16,
+                    BoundingBox: PWMFRect16,
+                    Inch: i16,
+                    Reserved: u32,
+                    Checksum: i16,
+                }
+                #[repr(i32)]
+                enum WrapMode {
+                    WrapModeTile = 0,
+                    WrapModeTileFlipX = 1,
+                    WrapModeTileFlipY = 2,
+                    WrapModeTileFlipXY = 3,
+                    WrapModeClamp = 4,
+                }
+            }
+        }
+    }
+}

@@ -192,10 +192,6 @@ jobs:
         run:  cargo clippy -p test_debug --tests
       - name: Check test_deprecated
         run:  cargo clippy -p test_deprecated --tests
-      - name: Check test_dispatch
-        run:  cargo clippy -p test_dispatch --tests
-      - name: Check test_does_not_return
-        run:  cargo clippy -p test_does_not_return --tests
       - name: Check test_enums
         run:  cargo clippy -p test_enums --tests
       - name: Check test_error
@@ -326,8 +322,6 @@ jobs:
         run:  cargo clippy -p test_win32 --tests
       - name: Check test_win32_arrays
         run:  cargo clippy -p test_win32_arrays --tests
-      - name: Check test_window_long
-        run:  cargo clippy -p test_window_long --tests
       - name: Check test_windows_std
         run:  cargo clippy -p test_windows_std --tests
       - name: Check test_winrt

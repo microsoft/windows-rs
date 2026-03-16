@@ -1,0 +1,127 @@
+mod Windows {
+    mod Gaming {
+        #[winrt]
+        mod UI {
+            #[Windows::Foundation::Metadata::Static(IGameBarStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            class GameBar {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum GameChatMessageOrigin {
+                Voice = 0,
+                Text = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class GameChatMessageReceivedEventArgs {
+                #[default]
+                IGameChatMessageReceivedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGameChatOverlayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            class GameChatOverlay {
+                #[default]
+                IGameChatOverlay,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct GameChatOverlayContract {}
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Gaming.UI.GameChatOverlayContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
+            class GameChatOverlayMessageSource {
+                #[default]
+                IGameChatOverlayMessageSource,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum GameChatOverlayPosition {
+                BottomCenter = 0,
+                BottomLeft = 1,
+                BottomRight = 2,
+                MiddleRight = 3,
+                MiddleLeft = 4,
+                TopCenter = 5,
+                TopLeft = 6,
+                TopRight = 7,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(GamingUIProviderContract, 65536)]
+            class GameUIProviderActivatedEventArgs {
+                #[default]
+                IGameUIProviderActivatedEventArgs,
+                super::super::ApplicationModel::Activation::IActivatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct GamingUIProviderContract {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameBar)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IGameBarStatics {
+                #[special]
+                fn add_VisibilityChanged(&self, handler: super::super::Foundation::EventHandler<Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_VisibilityChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_IsInputRedirectedChanged(&self, handler: super::super::Foundation::EventHandler<Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_IsInputRedirectedChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_Visible(&self) -> bool;
+                #[special]
+                fn get_IsInputRedirected(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatMessageReceivedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
+            interface IGameChatMessageReceivedEventArgs {
+                #[special]
+                fn get_AppId(&self) -> String;
+                #[special]
+                fn get_AppDisplayName(&self) -> String;
+                #[special]
+                fn get_SenderName(&self) -> String;
+                #[special]
+                fn get_Message(&self) -> String;
+                #[special]
+                fn get_Origin(&self) -> GameChatMessageOrigin;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IGameChatOverlay {
+                #[special]
+                fn get_DesiredPosition(&self) -> GameChatOverlayPosition;
+                #[special]
+                fn put_DesiredPosition(&self, value: GameChatOverlayPosition);
+                fn AddMessage(&self, sender: String, message: String, origin: GameChatMessageOrigin);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlayMessageSource)]
+            #[Windows::Foundation::Metadata::ContractVersion(GameChatOverlayContract, 65536)]
+            interface IGameChatOverlayMessageSource {
+                #[special]
+                fn add_MessageReceived(&self, handler: super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_MessageReceived(&self, token: super::super::Foundation::EventRegistrationToken);
+                fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameChatOverlay)]
+            interface IGameChatOverlayStatics {
+                fn GetDefault(&self) -> GameChatOverlay;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(GamingUIProviderContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GameUIProviderActivatedEventArgs)]
+            interface IGameUIProviderActivatedEventArgs: super::super::ApplicationModel::Activation::IActivatedEventArgs {
+                #[special]
+                fn get_GameUIArgs(&self) -> super::super::Foundation::Collections::ValueSet;
+                fn ReportCompleted(&self, results: super::super::Foundation::Collections::ValueSet);
+            }
+        }
+    }
+}

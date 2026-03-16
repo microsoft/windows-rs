@@ -1,0 +1,2405 @@
+mod Windows {
+    mod Win32 {
+        mod NetworkManagement {
+            #[win32]
+            mod Dhcp {
+                const ADDRESS_TYPE_IANA: u32 = 0;
+                const ADDRESS_TYPE_IATA: u32 = 1;
+                const CHANGESTATE: u32 = 4;
+                const CLIENT_TYPE_BOOTP: u32 = 2;
+                const CLIENT_TYPE_DHCP: u32 = 1;
+                const CLIENT_TYPE_NONE: u32 = 100;
+                const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4;
+                const CLIENT_TYPE_UNSPECIFIED: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-date_time")]
+                struct DATE_TIME {
+                    dwLowDateTime: u32,
+                    dwHighDateTime: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/ns-dhcpcsdk-dhcpapi_params")]
+                struct DHCPAPI_PARAMS {
+                    Flags: u32,
+                    OptionId: u32,
+                    IsVendor: super::super::Foundation::BOOL,
+                    Data: *mut u8,
+                    nBytesData: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/ns-dhcpcsdk-dhcpcapi_classid")]
+                struct DHCPCAPI_CLASSID {
+                    Flags: u32,
+                    Data: *mut u8,
+                    nBytesData: u32,
+                }
+                const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/ns-dhcpcsdk-dhcpcapi_params_array")]
+                struct DHCPCAPI_PARAMS_ARRAY {
+                    nParams: u32,
+                    Params: *mut DHCPAPI_PARAMS,
+                }
+                const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1;
+                const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4;
+                const DHCPCAPI_REQUEST_CANCEL: u32 = 8;
+                const DHCPCAPI_REQUEST_MASK: u32 = 15;
+                const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1;
+                const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpds_server")]
+                struct DHCPDS_SERVER {
+                    Version: u32,
+                    ServerName: super::super::Foundation::PWSTR,
+                    ServerAddress: u32,
+                    Flags: u32,
+                    State: u32,
+                    DsLocation: super::super::Foundation::PWSTR,
+                    DsLocType: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpds_servers")]
+                struct DHCPDS_SERVERS {
+                    Flags: u32,
+                    NumElements: u32,
+                    Servers: *mut DHCPDS_SERVER,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv4_failover_client_info")]
+                struct DHCPV4_FAILOVER_CLIENT_INFO {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                    SentPotExpTime: u32,
+                    AckPotExpTime: u32,
+                    RecvPotExpTime: u32,
+                    StartTime: u32,
+                    CltLastTransTime: u32,
+                    LastBndUpdTime: u32,
+                    BndMsgStatus: u32,
+                    PolicyName: super::super::Foundation::PWSTR,
+                    Flags: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv4_failover_client_info_array")]
+                struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
+                }
+                struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                    SentPotExpTime: u32,
+                    AckPotExpTime: u32,
+                    RecvPotExpTime: u32,
+                    StartTime: u32,
+                    CltLastTransTime: u32,
+                    LastBndUpdTime: u32,
+                    BndMsgStatus: u32,
+                    PolicyName: super::super::Foundation::PWSTR,
+                    Flags: u8,
+                    AddressStateEx: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ns-dhcpv6csdk-dhcpv6capi_classid")]
+                struct DHCPV6CAPI_CLASSID {
+                    Flags: u32,
+                    Data: *mut u8,
+                    nBytesData: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ns-dhcpv6csdk-dhcpv6capi_params")]
+                struct DHCPV6CAPI_PARAMS {
+                    Flags: u32,
+                    OptionId: u32,
+                    IsVendor: super::super::Foundation::BOOL,
+                    Data: *mut u8,
+                    nBytesData: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ns-dhcpv6csdk-dhcpv6capi_params_array")]
+                struct DHCPV6CAPI_PARAMS_ARRAY {
+                    nParams: u32,
+                    Params: *mut DHCPV6CAPI_PARAMS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ns-dhcpv6csdk-dhcpv6prefix")]
+                struct DHCPV6Prefix {
+                    prefix: [u8; 16],
+                    prefixLength: u32,
+                    preferredLifeTime: u32,
+                    validLifeTime: u32,
+                    status: StatusCode,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ns-dhcpv6csdk-dhcpv6prefixleaseinformation")]
+                struct DHCPV6PrefixLeaseInformation {
+                    nPrefixes: u32,
+                    prefixArray: *mut DHCPV6Prefix,
+                    iaid: u32,
+                    T1: i64,
+                    T2: i64,
+                    MaxLeaseExpirationTime: i64,
+                    LastRenewalTime: i64,
+                    status: StatusCode,
+                    ServerId: *mut u8,
+                    ServerIdLen: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_bind_element")]
+                struct DHCPV6_BIND_ELEMENT {
+                    Flags: u32,
+                    fBoundToDHCPServer: super::super::Foundation::BOOL,
+                    AdapterPrimaryAddress: DHCP_IPV6_ADDRESS,
+                    AdapterSubnetAddress: DHCP_IPV6_ADDRESS,
+                    IfDescription: super::super::Foundation::PWSTR,
+                    IpV6IfIndex: u32,
+                    IfIdSize: u32,
+                    IfId: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_bind_element_array")]
+                struct DHCPV6_BIND_ELEMENT_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCPV6_BIND_ELEMENT,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_ip_array")]
+                struct DHCPV6_IP_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_IPV6_ADDRESS,
+                }
+                const DHCPV6_OPTION_CLIENTID: u32 = 1;
+                const DHCPV6_OPTION_DNS_SERVERS: u32 = 23;
+                const DHCPV6_OPTION_DOMAIN_LIST: u32 = 24;
+                const DHCPV6_OPTION_IA_NA: u32 = 3;
+                const DHCPV6_OPTION_IA_PD: u32 = 25;
+                const DHCPV6_OPTION_IA_TA: u32 = 4;
+                const DHCPV6_OPTION_NISP_DOMAIN_NAME: u32 = 30;
+                const DHCPV6_OPTION_NISP_SERVERS: u32 = 28;
+                const DHCPV6_OPTION_NIS_DOMAIN_NAME: u32 = 29;
+                const DHCPV6_OPTION_NIS_SERVERS: u32 = 27;
+                const DHCPV6_OPTION_ORO: u32 = 6;
+                const DHCPV6_OPTION_PREFERENCE: u32 = 7;
+                const DHCPV6_OPTION_RAPID_COMMIT: u32 = 14;
+                const DHCPV6_OPTION_RECONF_MSG: u32 = 19;
+                const DHCPV6_OPTION_SERVERID: u32 = 2;
+                const DHCPV6_OPTION_SIP_SERVERS_ADDRS: u32 = 22;
+                const DHCPV6_OPTION_SIP_SERVERS_NAMES: u32 = 21;
+                const DHCPV6_OPTION_UNICAST: u32 = 12;
+                const DHCPV6_OPTION_USER_CLASS: u32 = 15;
+                const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16;
+                const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_stateless_params")]
+                struct DHCPV6_STATELESS_PARAMS {
+                    Status: super::super::Foundation::BOOL,
+                    PurgeInterval: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcpv6_stateless_param_type")]
+                enum DHCPV6_STATELESS_PARAM_TYPE {
+                    DhcpStatelessPurgeInterval = 1,
+                    DhcpStatelessStatus = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_stateless_scope_stats")]
+                struct DHCPV6_STATELESS_SCOPE_STATS {
+                    SubnetAddress: DHCP_IPV6_ADDRESS,
+                    NumStatelessClientsAdded: u64,
+                    NumStatelessClientsRemoved: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcpv6_stateless_stats")]
+                struct DHCPV6_STATELESS_STATS {
+                    NumScopes: u32,
+                    ScopeStats: *mut DHCPV6_STATELESS_SCOPE_STATS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_addr_pattern")]
+                struct DHCP_ADDR_PATTERN {
+                    MatchHWType: super::super::Foundation::BOOL,
+                    HWType: u8,
+                    IsWildcard: super::super::Foundation::BOOL,
+                    Length: u8,
+                    Pattern: [u8; 255],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_all_options")]
+                struct DHCP_ALL_OPTIONS {
+                    Flags: u32,
+                    NonVendorOptions: *mut DHCP_OPTION_ARRAY,
+                    NumVendorOptions: u32,
+                    VendorOptions: *mut _Anonymous_e__Struct,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_all_option_values")]
+                struct DHCP_ALL_OPTION_VALUES {
+                    Flags: u32,
+                    NumElements: u32,
+                    Options: *mut _Anonymous_e__Struct,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_all_option_values_pb")]
+                struct DHCP_ALL_OPTION_VALUES_PB {
+                    Flags: u32,
+                    NumElements: u32,
+                    Options: *mut _Anonymous_e__Struct,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_attrib")]
+                struct DHCP_ATTRIB {
+                    DhcpAttribId: u32,
+                    DhcpAttribType: u32,
+                    Anonymous: union {
+                        DhcpAttribBool: super::super::Foundation::BOOL,
+                        DhcpAttribUlong: u32,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_attrib_array")]
+                struct DHCP_ATTRIB_ARRAY {
+                    NumElements: u32,
+                    DhcpAttribs: *mut DHCP_ATTRIB,
+                }
+                const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5;
+                const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4;
+                const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2;
+                const DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC: u32 = 3;
+                const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1;
+                const DHCP_ATTRIB_TYPE_BOOL: u32 = 1;
+                const DHCP_ATTRIB_TYPE_ULONG: u32 = 2;
+                const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_binary_data")]
+                struct DHCP_BINARY_DATA {
+                    DataLength: u32,
+                    Data: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_bind_element")]
+                struct DHCP_BIND_ELEMENT {
+                    Flags: u32,
+                    fBoundToDHCPServer: super::super::Foundation::BOOL,
+                    AdapterPrimaryAddress: u32,
+                    AdapterSubnetAddress: u32,
+                    IfDescription: super::super::Foundation::PWSTR,
+                    IfIdSize: u32,
+                    IfId: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_bind_element_array")]
+                struct DHCP_BIND_ELEMENT_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_BIND_ELEMENT,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_bootp_ip_range")]
+                struct DHCP_BOOTP_IP_RANGE {
+                    StartAddress: u32,
+                    EndAddress: u32,
+                    BootpAllocated: u32,
+                    MaxBootpAllowed: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const DHCP_CALLOUT_ENTRY_POINT: String = "DhcpServerCalloutEntry";
+                const DHCP_CALLOUT_LIST_KEY: String = "System\\CurrentControlSet\\Services\\DHCPServer\\Parameters";
+                const DHCP_CALLOUT_LIST_VALUE: String = "CalloutDlls";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpssdk/ns-dhcpssdk-dhcp_callout_table")]
+                struct DHCP_CALLOUT_TABLE {
+                    DhcpControlHook: LPDHCP_CONTROL,
+                    DhcpNewPktHook: LPDHCP_NEWPKT,
+                    DhcpPktDropHook: LPDHCP_DROP_SEND,
+                    DhcpPktSendHook: LPDHCP_DROP_SEND,
+                    DhcpAddressDelHook: LPDHCP_PROB,
+                    DhcpAddressOfferHook: LPDHCP_GIVE_ADDRESS,
+                    DhcpHandleOptionsHook: LPDHCP_HANDLE_OPTIONS,
+                    DhcpDeleteClientHook: LPDHCP_DELETE_CLIENT,
+                    DhcpExtensionHook: *mut void,
+                    DhcpReservedHook: *mut void,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_class_info")]
+                struct DHCP_CLASS_INFO {
+                    ClassName: super::super::Foundation::PWSTR,
+                    ClassComment: super::super::Foundation::PWSTR,
+                    ClassDataLength: u32,
+                    IsVendor: super::super::Foundation::BOOL,
+                    Flags: u32,
+                    ClassData: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_class_info_array")]
+                struct DHCP_CLASS_INFO_ARRAY {
+                    NumElements: u32,
+                    Classes: *mut DHCP_CLASS_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_class_info_array_v6")]
+                struct DHCP_CLASS_INFO_ARRAY_V6 {
+                    NumElements: u32,
+                    Classes: *mut DHCP_CLASS_INFO_V6,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_class_info_v6")]
+                struct DHCP_CLASS_INFO_V6 {
+                    ClassName: super::super::Foundation::PWSTR,
+                    ClassComment: super::super::Foundation::PWSTR,
+                    ClassDataLength: u32,
+                    IsVendor: super::super::Foundation::BOOL,
+                    EnterpriseNumber: u32,
+                    Flags: u32,
+                    ClassData: *mut u8,
+                }
+                const DHCP_CLIENT_BOOTP: u32 = 805306371;
+                const DHCP_CLIENT_DHCP: u32 = 805306372;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_filter_status_info")]
+                struct DHCP_CLIENT_FILTER_STATUS_INFO {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                    FilterStatus: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_filter_status_info_array")]
+                struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info")]
+                struct DHCP_CLIENT_INFO {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_array")]
+                struct DHCP_CLIENT_INFO_ARRAY {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_array_v4")]
+                struct DHCP_CLIENT_INFO_ARRAY_V4 {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_V4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_array_v5")]
+                struct DHCP_CLIENT_INFO_ARRAY_V5 {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_V5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_array_v6")]
+                struct DHCP_CLIENT_INFO_ARRAY_V6 {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_V6,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_array_vq")]
+                struct DHCP_CLIENT_INFO_ARRAY_VQ {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_VQ,
+                }
+                struct DHCP_CLIENT_INFO_EX {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                    FilterStatus: u32,
+                    PolicyName: super::super::Foundation::PWSTR,
+                    Properties: *mut DHCP_PROPERTY_ARRAY,
+                }
+                struct DHCP_CLIENT_INFO_EX_ARRAY {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_EX,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_pb")]
+                struct DHCP_CLIENT_INFO_PB {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                    FilterStatus: u32,
+                    PolicyName: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_pb_array")]
+                struct DHCP_CLIENT_INFO_PB_ARRAY {
+                    NumElements: u32,
+                    Clients: *mut *mut DHCP_CLIENT_INFO_PB,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_v4")]
+                struct DHCP_CLIENT_INFO_V4 {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_v5")]
+                struct DHCP_CLIENT_INFO_V5 {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_v6")]
+                struct DHCP_CLIENT_INFO_V6 {
+                    ClientIpAddress: DHCP_IPV6_ADDRESS,
+                    ClientDUID: DHCP_BINARY_DATA,
+                    AddressType: u32,
+                    IAID: u32,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientValidLeaseExpires: DATE_TIME,
+                    ClientPrefLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO_V6,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_client_info_vq")]
+                struct DHCP_CLIENT_INFO_VQ {
+                    ClientIpAddress: u32,
+                    SubnetMask: u32,
+                    ClientHardwareAddress: DHCP_BINARY_DATA,
+                    ClientName: super::super::Foundation::PWSTR,
+                    ClientComment: super::super::Foundation::PWSTR,
+                    ClientLeaseExpires: DATE_TIME,
+                    OwnerHost: DHCP_HOST_INFO,
+                    bClientType: u8,
+                    AddressState: u8,
+                    Status: QuarantineStatus,
+                    ProbationEnds: DATE_TIME,
+                    QuarantineCapable: super::super::Foundation::BOOL,
+                }
+                const DHCP_CONTROL_CONTINUE: u32 = 4;
+                const DHCP_CONTROL_PAUSE: u32 = 3;
+                const DHCP_CONTROL_START: u32 = 1;
+                const DHCP_CONTROL_STOP: u32 = 2;
+                const DHCP_DROP_DUPLICATE: u32 = 1;
+                const DHCP_DROP_GEN_FAILURE: u32 = 256;
+                const DHCP_DROP_INTERNAL_ERROR: u32 = 3;
+                const DHCP_DROP_INVALID: u32 = 8;
+                const DHCP_DROP_NOADDRESS: u32 = 10;
+                const DHCP_DROP_NOMEM: u32 = 2;
+                const DHCP_DROP_NO_SUBNETS: u32 = 7;
+                const DHCP_DROP_PAUSED: u32 = 6;
+                const DHCP_DROP_PROCESSED: u32 = 11;
+                const DHCP_DROP_TIMEOUT: u32 = 4;
+                const DHCP_DROP_UNAUTH: u32 = 5;
+                const DHCP_DROP_WRONG_SERVER: u32 = 9;
+                const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1;
+                const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1;
+                const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400;
+                const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_failover_mode")]
+                enum DHCP_FAILOVER_MODE {
+                    LoadBalance = 0,
+                    HotStandby = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_failover_relationship")]
+                struct DHCP_FAILOVER_RELATIONSHIP {
+                    PrimaryServer: u32,
+                    SecondaryServer: u32,
+                    Mode: DHCP_FAILOVER_MODE,
+                    ServerType: DHCP_FAILOVER_SERVER,
+                    State: FSM_STATE,
+                    PrevState: FSM_STATE,
+                    Mclt: u32,
+                    SafePeriod: u32,
+                    RelationshipName: super::super::Foundation::PWSTR,
+                    PrimaryServerName: super::super::Foundation::PWSTR,
+                    SecondaryServerName: super::super::Foundation::PWSTR,
+                    pScopes: *mut DHCP_IP_ARRAY,
+                    Percentage: u8,
+                    SharedSecret: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_failover_relationship_array")]
+                struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
+                    NumElements: u32,
+                    pRelationships: *mut DHCP_FAILOVER_RELATIONSHIP,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_failover_server")]
+                enum DHCP_FAILOVER_SERVER {
+                    PrimaryServer = 0,
+                    SecondaryServer = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_failover_statistics")]
+                struct DHCP_FAILOVER_STATISTICS {
+                    NumAddr: u32,
+                    AddrFree: u32,
+                    AddrInUse: u32,
+                    PartnerAddrFree: u32,
+                    ThisAddrFree: u32,
+                    PartnerAddrInUse: u32,
+                    ThisAddrInUse: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_filter_add_info")]
+                struct DHCP_FILTER_ADD_INFO {
+                    AddrPatt: DHCP_ADDR_PATTERN,
+                    Comment: super::super::Foundation::PWSTR,
+                    ListType: DHCP_FILTER_LIST_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_filter_enum_info")]
+                struct DHCP_FILTER_ENUM_INFO {
+                    NumElements: u32,
+                    pEnumRecords: *mut DHCP_FILTER_RECORD,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_filter_global_info")]
+                struct DHCP_FILTER_GLOBAL_INFO {
+                    EnforceAllowList: super::super::Foundation::BOOL,
+                    EnforceDenyList: super::super::Foundation::BOOL,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_filter_list_type")]
+                enum DHCP_FILTER_LIST_TYPE {
+                    Deny = 0,
+                    Allow = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_filter_record")]
+                struct DHCP_FILTER_RECORD {
+                    AddrPatt: DHCP_ADDR_PATTERN,
+                    Comment: super::super::Foundation::PWSTR,
+                }
+                const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1;
+                const DHCP_FLAGS_DONT_DO_RPC: u32 = 2;
+                const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_force_flag")]
+                enum DHCP_FORCE_FLAG {
+                    DhcpFullForce = 0,
+                    DhcpNoForce = 1,
+                    DhcpFailoverForce = 2,
+                }
+                const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369;
+                const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_host_info")]
+                struct DHCP_HOST_INFO {
+                    IpAddress: u32,
+                    NetBiosName: super::super::Foundation::PWSTR,
+                    HostName: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_host_info_v6")]
+                struct DHCP_HOST_INFO_V6 {
+                    IpAddress: DHCP_IPV6_ADDRESS,
+                    NetBiosName: super::super::Foundation::PWSTR,
+                    HostName: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ipv6_address")]
+                struct DHCP_IPV6_ADDRESS {
+                    HighOrderBits: u64,
+                    LowOrderBits: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_array")]
+                struct DHCP_IP_ARRAY {
+                    NumElements: u32,
+                    #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)]
+                    Elements: *mut u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_cluster")]
+                struct DHCP_IP_CLUSTER {
+                    ClusterAddress: u32,
+                    ClusterMask: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_range")]
+                struct DHCP_IP_RANGE {
+                    StartAddress: u32,
+                    EndAddress: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_range_array")]
+                struct DHCP_IP_RANGE_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_IP_RANGE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_range_v6")]
+                struct DHCP_IP_RANGE_V6 {
+                    StartAddress: DHCP_IPV6_ADDRESS,
+                    EndAddress: DHCP_IPV6_ADDRESS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_reservation")]
+                struct DHCP_IP_RESERVATION {
+                    ReservedIpAddress: u32,
+                    ReservedForClient: *mut DHCP_BINARY_DATA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_reservation_info")]
+                struct DHCP_IP_RESERVATION_INFO {
+                    ReservedIpAddress: u32,
+                    ReservedForClient: DHCP_BINARY_DATA,
+                    ReservedClientName: super::super::Foundation::PWSTR,
+                    ReservedClientDesc: super::super::Foundation::PWSTR,
+                    bAllowedClientTypes: u8,
+                    fOptionsPresent: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_reservation_v4")]
+                struct DHCP_IP_RESERVATION_V4 {
+                    ReservedIpAddress: u32,
+                    ReservedForClient: *mut DHCP_BINARY_DATA,
+                    bAllowedClientTypes: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_ip_reservation_v6")]
+                struct DHCP_IP_RESERVATION_V6 {
+                    ReservedIpAddress: DHCP_IPV6_ADDRESS,
+                    ReservedForClient: *mut DHCP_BINARY_DATA,
+                    InterfaceId: u32,
+                }
+                const DHCP_MAX_DELAY: u32 = 1000;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_mib_info")]
+                struct DHCP_MIB_INFO {
+                    Discovers: u32,
+                    Offers: u32,
+                    Requests: u32,
+                    Acks: u32,
+                    Naks: u32,
+                    Declines: u32,
+                    Releases: u32,
+                    ServerStartTime: DATE_TIME,
+                    Scopes: u32,
+                    ScopeInfo: *mut SCOPE_MIB_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_mib_info_v5")]
+                struct DHCP_MIB_INFO_V5 {
+                    Discovers: u32,
+                    Offers: u32,
+                    Requests: u32,
+                    Acks: u32,
+                    Naks: u32,
+                    Declines: u32,
+                    Releases: u32,
+                    ServerStartTime: DATE_TIME,
+                    QtnNumLeases: u32,
+                    QtnPctQtnLeases: u32,
+                    QtnProbationLeases: u32,
+                    QtnNonQtnLeases: u32,
+                    QtnExemptLeases: u32,
+                    QtnCapableClients: u32,
+                    QtnIASErrors: u32,
+                    DelayedOffers: u32,
+                    ScopesWithDelayedOffers: u32,
+                    Scopes: u32,
+                    ScopeInfo: *mut SCOPE_MIB_INFO_V5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_mib_info_v6")]
+                struct DHCP_MIB_INFO_V6 {
+                    Solicits: u32,
+                    Advertises: u32,
+                    Requests: u32,
+                    Renews: u32,
+                    Rebinds: u32,
+                    Replies: u32,
+                    Confirms: u32,
+                    Declines: u32,
+                    Releases: u32,
+                    Informs: u32,
+                    ServerStartTime: DATE_TIME,
+                    Scopes: u32,
+                    ScopeInfo: *mut SCOPE_MIB_INFO_V6,
+                }
+                struct DHCP_MIB_INFO_VQ {
+                    Discovers: u32,
+                    Offers: u32,
+                    Requests: u32,
+                    Acks: u32,
+                    Naks: u32,
+                    Declines: u32,
+                    Releases: u32,
+                    ServerStartTime: DATE_TIME,
+                    QtnNumLeases: u32,
+                    QtnPctQtnLeases: u32,
+                    QtnProbationLeases: u32,
+                    QtnNonQtnLeases: u32,
+                    QtnExemptLeases: u32,
+                    QtnCapableClients: u32,
+                    QtnIASErrors: u32,
+                    Scopes: u32,
+                    ScopeInfo: *mut SCOPE_MIB_INFO_VQ,
+                }
+                const DHCP_MIN_DELAY: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option")]
+                struct DHCP_OPTION {
+                    OptionID: u32,
+                    OptionName: super::super::Foundation::PWSTR,
+                    OptionComment: super::super::Foundation::PWSTR,
+                    DefaultValue: DHCP_OPTION_DATA,
+                    OptionType: DHCP_OPTION_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_array")]
+                struct DHCP_OPTION_ARRAY {
+                    NumElements: u32,
+                    Options: *mut DHCP_OPTION,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_data")]
+                struct DHCP_OPTION_DATA {
+                    NumElements: u32,
+                    Elements: *mut DHCP_OPTION_DATA_ELEMENT,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_data_element")]
+                struct DHCP_OPTION_DATA_ELEMENT {
+                    OptionType: DHCP_OPTION_DATA_TYPE,
+                    Element: union {
+                        ByteOption: u8,
+                        WordOption: u16,
+                        DWordOption: u32,
+                        DWordDWordOption: DWORD_DWORD,
+                        IpAddressOption: u32,
+                        StringDataOption: super::super::Foundation::PWSTR,
+                        BinaryDataOption: DHCP_BINARY_DATA,
+                        EncapsulatedDataOption: DHCP_BINARY_DATA,
+                        Ipv6AddressDataOption: super::super::Foundation::PWSTR,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_option_data_type")]
+                enum DHCP_OPTION_DATA_TYPE {
+                    DhcpByteOption = 0,
+                    DhcpWordOption = 1,
+                    DhcpDWordOption = 2,
+                    DhcpDWordDWordOption = 3,
+                    DhcpIpAddressOption = 4,
+                    DhcpStringDataOption = 5,
+                    DhcpBinaryDataOption = 6,
+                    DhcpEncapsulatedDataOption = 7,
+                    DhcpIpv6AddressOption = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_list")]
+                struct DHCP_OPTION_LIST {
+                    NumOptions: u32,
+                    Options: *mut DHCP_OPTION_VALUE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_scope_info")]
+                struct DHCP_OPTION_SCOPE_INFO {
+                    ScopeType: DHCP_OPTION_SCOPE_TYPE,
+                    ScopeInfo: union {
+                        DefaultScopeInfo: *mut void,
+                        GlobalScopeInfo: *mut void,
+                        SubnetScopeInfo: u32,
+                        ReservedScopeInfo: DHCP_RESERVED_SCOPE,
+                        MScopeInfo: super::super::Foundation::PWSTR,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_scope_info6")]
+                struct DHCP_OPTION_SCOPE_INFO6 {
+                    ScopeType: DHCP_OPTION_SCOPE_TYPE6,
+                    ScopeInfo: union {
+                        DefaultScopeInfo: *mut void,
+                        SubnetScopeInfo: DHCP_IPV6_ADDRESS,
+                        ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_option_scope_type")]
+                enum DHCP_OPTION_SCOPE_TYPE {
+                    DhcpDefaultOptions = 0,
+                    DhcpGlobalOptions = 1,
+                    DhcpSubnetOptions = 2,
+                    DhcpReservedOptions = 3,
+                    DhcpMScopeOptions = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_option_scope_type6")]
+                enum DHCP_OPTION_SCOPE_TYPE6 {
+                    DhcpDefaultOptions6 = 0,
+                    DhcpScopeOptions6 = 1,
+                    DhcpReservedOptions6 = 2,
+                    DhcpGlobalOptions6 = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_option_type")]
+                enum DHCP_OPTION_TYPE {
+                    DhcpUnaryElementTypeOption = 0,
+                    DhcpArrayTypeOption = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_value")]
+                struct DHCP_OPTION_VALUE {
+                    OptionID: u32,
+                    Value: DHCP_OPTION_DATA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_option_value_array")]
+                struct DHCP_OPTION_VALUE_ARRAY {
+                    NumElements: u32,
+                    Values: *mut DHCP_OPTION_VALUE,
+                }
+                const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1;
+                const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2;
+                struct DHCP_PERF_STATS {
+                    dwNumPacketsReceived: u32,
+                    dwNumPacketsDuplicate: u32,
+                    dwNumPacketsExpired: u32,
+                    dwNumMilliSecondsProcessed: u32,
+                    dwNumPacketsInActiveQueue: u32,
+                    dwNumPacketsInPingQueue: u32,
+                    dwNumDiscoversReceived: u32,
+                    dwNumOffersSent: u32,
+                    dwNumRequestsReceived: u32,
+                    dwNumInformsReceived: u32,
+                    dwNumAcksSent: u32,
+                    dwNumNacksSent: u32,
+                    dwNumDeclinesReceived: u32,
+                    dwNumReleasesReceived: u32,
+                    dwNumDelayedOfferInQueue: u32,
+                    dwNumPacketsProcessed: u32,
+                    dwNumPacketsInQuarWaitingQueue: u32,
+                    dwNumPacketsInQuarReadyQueue: u32,
+                    dwNumPacketsInQuarDecisionQueue: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_policy")]
+                struct DHCP_POLICY {
+                    PolicyName: super::super::Foundation::PWSTR,
+                    IsGlobalPolicy: super::super::Foundation::BOOL,
+                    Subnet: u32,
+                    ProcessingOrder: u32,
+                    Conditions: *mut DHCP_POL_COND_ARRAY,
+                    Expressions: *mut DHCP_POL_EXPR_ARRAY,
+                    Ranges: *mut DHCP_IP_RANGE_ARRAY,
+                    Description: super::super::Foundation::PWSTR,
+                    Enabled: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_policy_array")]
+                struct DHCP_POLICY_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_POLICY,
+                }
+                struct DHCP_POLICY_EX {
+                    PolicyName: super::super::Foundation::PWSTR,
+                    IsGlobalPolicy: super::super::Foundation::BOOL,
+                    Subnet: u32,
+                    ProcessingOrder: u32,
+                    Conditions: *mut DHCP_POL_COND_ARRAY,
+                    Expressions: *mut DHCP_POL_EXPR_ARRAY,
+                    Ranges: *mut DHCP_IP_RANGE_ARRAY,
+                    Description: super::super::Foundation::PWSTR,
+                    Enabled: super::super::Foundation::BOOL,
+                    Properties: *mut DHCP_PROPERTY_ARRAY,
+                }
+                struct DHCP_POLICY_EX_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_POLICY_EX,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_policy_fields_to_update")]
+                enum DHCP_POLICY_FIELDS_TO_UPDATE {
+                    DhcpUpdatePolicyName = 1,
+                    DhcpUpdatePolicyOrder = 2,
+                    DhcpUpdatePolicyExpr = 4,
+                    DhcpUpdatePolicyRanges = 8,
+                    DhcpUpdatePolicyDescr = 16,
+                    DhcpUpdatePolicyStatus = 32,
+                    DhcpUpdatePolicyDnsSuffix = 64,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_pol_attr_type")]
+                enum DHCP_POL_ATTR_TYPE {
+                    DhcpAttrHWAddr = 0,
+                    DhcpAttrOption = 1,
+                    DhcpAttrSubOption = 2,
+                    DhcpAttrFqdn = 3,
+                    DhcpAttrFqdnSingleLabel = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_pol_comparator")]
+                enum DHCP_POL_COMPARATOR {
+                    DhcpCompEqual = 0,
+                    DhcpCompNotEqual = 1,
+                    DhcpCompBeginsWith = 2,
+                    DhcpCompNotBeginWith = 3,
+                    DhcpCompEndsWith = 4,
+                    DhcpCompNotEndWith = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_pol_cond")]
+                struct DHCP_POL_COND {
+                    ParentExpr: u32,
+                    Type: DHCP_POL_ATTR_TYPE,
+                    OptionID: u32,
+                    SubOptionID: u32,
+                    VendorName: super::super::Foundation::PWSTR,
+                    Operator: DHCP_POL_COMPARATOR,
+                    Value: *mut u8,
+                    ValueLength: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_pol_cond_array")]
+                struct DHCP_POL_COND_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_POL_COND,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_pol_expr")]
+                struct DHCP_POL_EXPR {
+                    ParentExpr: u32,
+                    Operator: DHCP_POL_LOGIC_OPER,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_pol_expr_array")]
+                struct DHCP_POL_EXPR_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_POL_EXPR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_pol_logic_oper")]
+                enum DHCP_POL_LOGIC_OPER {
+                    DhcpLogicalOr = 0,
+                    DhcpLogicalAnd = 1,
+                }
+                const DHCP_PROB_CONFLICT: u32 = 536870913;
+                const DHCP_PROB_DECLINE: u32 = 536870914;
+                const DHCP_PROB_NACKED: u32 = 536870916;
+                const DHCP_PROB_RELEASE: u32 = 536870915;
+                struct DHCP_PROPERTY {
+                    ID: DHCP_PROPERTY_ID,
+                    Type: DHCP_PROPERTY_TYPE,
+                    Value: union {
+                        ByteValue: u8,
+                        WordValue: u16,
+                        DWordValue: u32,
+                        StringValue: super::super::Foundation::PWSTR,
+                        BinaryValue: DHCP_BINARY_DATA,
+                    },
+                }
+                struct DHCP_PROPERTY_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_PROPERTY,
+                }
+                #[repr(i32)]
+                enum DHCP_PROPERTY_ID {
+                    DhcpPropIdPolicyDnsSuffix = 0,
+                    DhcpPropIdClientAddressStateEx = 1,
+                }
+                #[repr(i32)]
+                enum DHCP_PROPERTY_TYPE {
+                    DhcpPropTypeByte = 0,
+                    DhcpPropTypeWord = 1,
+                    DhcpPropTypeDword = 2,
+                    DhcpPropTypeString = 3,
+                    DhcpPropTypeBinary = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_reservation_info_array")]
+                struct DHCP_RESERVATION_INFO_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut *mut DHCP_IP_RESERVATION_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_reserved_scope")]
+                struct DHCP_RESERVED_SCOPE {
+                    ReservedIpAddress: u32,
+                    ReservedIpSubnetAddress: u32,
+                }
+                struct DHCP_RESERVED_SCOPE6 {
+                    ReservedIpAddress: DHCP_IPV6_ADDRESS,
+                    ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_scan_flag")]
+                enum DHCP_SCAN_FLAG {
+                    DhcpRegistryFix = 0,
+                    DhcpDatabaseFix = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_scan_item")]
+                struct DHCP_SCAN_ITEM {
+                    IpAddress: u32,
+                    ScanFlag: DHCP_SCAN_FLAG,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_scan_list")]
+                struct DHCP_SCAN_LIST {
+                    NumScanItems: u32,
+                    ScanItems: *mut DHCP_SCAN_ITEM,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_search_info")]
+                struct DHCP_SEARCH_INFO {
+                    SearchType: DHCP_SEARCH_INFO_TYPE,
+                    SearchInfo: union {
+                        ClientIpAddress: u32,
+                        ClientHardwareAddress: DHCP_BINARY_DATA,
+                        ClientName: super::super::Foundation::PWSTR,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_search_info_type")]
+                enum DHCP_SEARCH_INFO_TYPE {
+                    DhcpClientIpAddress = 0,
+                    DhcpClientHardwareAddress = 1,
+                    DhcpClientName = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_search_info_type_v6")]
+                enum DHCP_SEARCH_INFO_TYPE_V6 {
+                    Dhcpv6ClientIpAddress = 0,
+                    Dhcpv6ClientDUID = 1,
+                    Dhcpv6ClientName = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_search_info_v6")]
+                struct DHCP_SEARCH_INFO_V6 {
+                    SearchType: DHCP_SEARCH_INFO_TYPE_V6,
+                    SearchInfo: union {
+                        ClientIpAddress: DHCP_IPV6_ADDRESS,
+                        ClientDUID: DHCP_BINARY_DATA,
+                        ClientName: super::super::Foundation::PWSTR,
+                    },
+                }
+                const DHCP_SEND_PACKET: u32 = 268435456;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_server_config_info")]
+                struct DHCP_SERVER_CONFIG_INFO {
+                    APIProtocolSupport: u32,
+                    DatabaseName: super::super::Foundation::PWSTR,
+                    DatabasePath: super::super::Foundation::PWSTR,
+                    BackupPath: super::super::Foundation::PWSTR,
+                    BackupInterval: u32,
+                    DatabaseLoggingFlag: u32,
+                    RestoreFlag: u32,
+                    DatabaseCleanupInterval: u32,
+                    DebugFlag: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_server_config_info_v4")]
+                struct DHCP_SERVER_CONFIG_INFO_V4 {
+                    APIProtocolSupport: u32,
+                    DatabaseName: super::super::Foundation::PWSTR,
+                    DatabasePath: super::super::Foundation::PWSTR,
+                    BackupPath: super::super::Foundation::PWSTR,
+                    BackupInterval: u32,
+                    DatabaseLoggingFlag: u32,
+                    RestoreFlag: u32,
+                    DatabaseCleanupInterval: u32,
+                    DebugFlag: u32,
+                    dwPingRetries: u32,
+                    cbBootTableString: u32,
+                    wszBootTableString: super::super::Foundation::PWSTR,
+                    fAuditLog: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_server_config_info_v6")]
+                struct DHCP_SERVER_CONFIG_INFO_V6 {
+                    UnicastFlag: super::super::Foundation::BOOL,
+                    RapidCommitFlag: super::super::Foundation::BOOL,
+                    PreferredLifetime: u32,
+                    ValidLifetime: u32,
+                    T1: u32,
+                    T2: u32,
+                    PreferredLifetimeIATA: u32,
+                    ValidLifetimeIATA: u32,
+                    fAuditLog: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_server_config_info_vq")]
+                struct DHCP_SERVER_CONFIG_INFO_VQ {
+                    APIProtocolSupport: u32,
+                    DatabaseName: super::super::Foundation::PWSTR,
+                    DatabasePath: super::super::Foundation::PWSTR,
+                    BackupPath: super::super::Foundation::PWSTR,
+                    BackupInterval: u32,
+                    DatabaseLoggingFlag: u32,
+                    RestoreFlag: u32,
+                    DatabaseCleanupInterval: u32,
+                    DebugFlag: u32,
+                    dwPingRetries: u32,
+                    cbBootTableString: u32,
+                    wszBootTableString: super::super::Foundation::PWSTR,
+                    fAuditLog: super::super::Foundation::BOOL,
+                    QuarantineOn: super::super::Foundation::BOOL,
+                    QuarDefFail: u32,
+                    QuarRuntimeStatus: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpssdk/ns-dhcpssdk-dhcp_server_options")]
+                struct DHCP_SERVER_OPTIONS {
+                    MessageType: *mut u8,
+                    SubnetMask: *mut u32,
+                    RequestedAddress: *mut u32,
+                    RequestLeaseTime: *mut u32,
+                    OverlayFields: *mut u8,
+                    RouterAddress: *mut u32,
+                    Server: *mut u32,
+                    ParameterRequestList: *mut u8,
+                    ParameterRequestListLength: u32,
+                    MachineName: super::super::Foundation::PSTR,
+                    MachineNameLength: u32,
+                    ClientHardwareAddressType: u8,
+                    ClientHardwareAddressLength: u8,
+                    ClientHardwareAddress: *mut u8,
+                    ClassIdentifier: super::super::Foundation::PSTR,
+                    ClassIdentifierLength: u32,
+                    VendorClass: *mut u8,
+                    VendorClassLength: u32,
+                    DNSFlags: u32,
+                    DNSNameLength: u32,
+                    DNSName: *mut u8,
+                    DSDomainNameRequested: super::super::Foundation::BOOLEAN,
+                    DSDomainName: super::super::Foundation::PSTR,
+                    DSDomainNameLen: u32,
+                    ScopeId: *mut u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_server_specific_strings")]
+                struct DHCP_SERVER_SPECIFIC_STRINGS {
+                    DefaultVendorClassName: super::super::Foundation::PWSTR,
+                    DefaultUserClassName: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_data")]
+                struct DHCP_SUBNET_ELEMENT_DATA {
+                    ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+                    Element: union {
+                        IpRange: *mut DHCP_IP_RANGE,
+                        SecondaryHost: *mut DHCP_HOST_INFO,
+                        ReservedIp: *mut DHCP_IP_RESERVATION,
+                        ExcludeIpRange: *mut DHCP_IP_RANGE,
+                        IpUsedCluster: *mut DHCP_IP_CLUSTER,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_data_v4")]
+                struct DHCP_SUBNET_ELEMENT_DATA_V4 {
+                    ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+                    Element: union {
+                        IpRange: *mut DHCP_IP_RANGE,
+                        SecondaryHost: *mut DHCP_HOST_INFO,
+                        ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+                        ExcludeIpRange: *mut DHCP_IP_RANGE,
+                        IpUsedCluster: *mut DHCP_IP_CLUSTER,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_data_v5")]
+                struct DHCP_SUBNET_ELEMENT_DATA_V5 {
+                    ElementType: DHCP_SUBNET_ELEMENT_TYPE,
+                    Element: union {
+                        IpRange: *mut DHCP_BOOTP_IP_RANGE,
+                        SecondaryHost: *mut DHCP_HOST_INFO,
+                        ReservedIp: *mut DHCP_IP_RESERVATION_V4,
+                        ExcludeIpRange: *mut DHCP_IP_RANGE,
+                        IpUsedCluster: *mut DHCP_IP_CLUSTER,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_data_v6")]
+                struct DHCP_SUBNET_ELEMENT_DATA_V6 {
+                    ElementType: DHCP_SUBNET_ELEMENT_TYPE_V6,
+                    Element: union {
+                        IpRange: *mut DHCP_IP_RANGE_V6,
+                        ReservedIp: *mut DHCP_IP_RESERVATION_V6,
+                        ExcludeIpRange: *mut DHCP_IP_RANGE_V6,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_info_array")]
+                struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
+                    NumElements: u32,
+                    Elements: *mut DHCP_SUBNET_ELEMENT_DATA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_info_array_v4")]
+                struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
+                    NumElements: u32,
+                    Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_info_array_v5")]
+                struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
+                    NumElements: u32,
+                    Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_element_info_array_v6")]
+                struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
+                    NumElements: u32,
+                    Elements: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_subnet_element_type")]
+                enum DHCP_SUBNET_ELEMENT_TYPE {
+                    DhcpIpRanges = 0,
+                    DhcpSecondaryHosts = 1,
+                    DhcpReservedIps = 2,
+                    DhcpExcludedIpRanges = 3,
+                    DhcpIpUsedClusters = 4,
+                    DhcpIpRangesDhcpOnly = 5,
+                    DhcpIpRangesDhcpBootp = 6,
+                    DhcpIpRangesBootpOnly = 7,
+                }
+                #[repr(i32)]
+                enum DHCP_SUBNET_ELEMENT_TYPE_V6 {
+                    Dhcpv6IpRanges = 0,
+                    Dhcpv6ReservedIps = 1,
+                    Dhcpv6ExcludedIpRanges = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_info")]
+                struct DHCP_SUBNET_INFO {
+                    SubnetAddress: u32,
+                    SubnetMask: u32,
+                    SubnetName: super::super::Foundation::PWSTR,
+                    SubnetComment: super::super::Foundation::PWSTR,
+                    PrimaryHost: DHCP_HOST_INFO,
+                    SubnetState: DHCP_SUBNET_STATE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_info_v6")]
+                struct DHCP_SUBNET_INFO_V6 {
+                    SubnetAddress: DHCP_IPV6_ADDRESS,
+                    Prefix: u32,
+                    Preference: u16,
+                    SubnetName: super::super::Foundation::PWSTR,
+                    SubnetComment: super::super::Foundation::PWSTR,
+                    State: u32,
+                    ScopeId: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_subnet_info_vq")]
+                struct DHCP_SUBNET_INFO_VQ {
+                    SubnetAddress: u32,
+                    SubnetMask: u32,
+                    SubnetName: super::super::Foundation::PWSTR,
+                    SubnetComment: super::super::Foundation::PWSTR,
+                    PrimaryHost: DHCP_HOST_INFO,
+                    SubnetState: DHCP_SUBNET_STATE,
+                    QuarantineOn: u32,
+                    Reserved1: u32,
+                    Reserved2: u32,
+                    Reserved3: i64,
+                    Reserved4: i64,
+                }
+                const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-dhcp_subnet_state")]
+                enum DHCP_SUBNET_STATE {
+                    DhcpSubnetEnabled = 0,
+                    DhcpSubnetDisabled = 1,
+                    DhcpSubnetEnabledSwitched = 2,
+                    DhcpSubnetDisabledSwitched = 3,
+                    DhcpSubnetInvalidState = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_super_scope_table")]
+                struct DHCP_SUPER_SCOPE_TABLE {
+                    cEntries: u32,
+                    pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dhcp_super_scope_table_entry")]
+                struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
+                    SubnetAddress: u32,
+                    SuperScopeNumber: u32,
+                    NextInSuperScope: u32,
+                    SuperScopeName: super::super::Foundation::PWSTR,
+                }
+                const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4;
+                const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64;
+                const DNS_FLAG_ENABLED: u32 = 1;
+                const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128;
+                const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16;
+                const DNS_FLAG_UPDATE_DHCID: u32 = 32;
+                const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-dword_dword")]
+                struct DWORD_DWORD {
+                    DWord1: u32,
+                    DWord2: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddfilterv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddFilterV4(ServerIpAddress: super::super::Foundation::PWSTR, AddFilterInfo: *mut DHCP_FILTER_ADD_INFO, ForceFlag: super::super::Foundation::BOOL) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddSecurityGroup(pServer: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddserver")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddServer(Flags: u32, IdInfo: *mut void, NewServer: *mut DHCPDS_SERVER, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddsubnetelement")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddSubnetElement(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, AddElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddsubnetelementv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddSubnetElementV4(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, AddElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddsubnetelementv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddSubnetElementV5(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, AddElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpaddsubnetelementv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAddSubnetElementV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpauditloggetparams")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAuditLogGetParams(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, AuditLogDir: *mut super::super::Foundation::PWSTR, DiskCheckInterval: *mut u32, MaxLogFilesSize: *mut u32, MinSpaceOnDisk: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpauditlogsetparams")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpAuditLogSetParams(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, AuditLogDir: super::super::Foundation::PWSTR, DiskCheckInterval: u32, MaxLogFilesSize: u32, MinSpaceOnDisk: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpcapicleanup")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpCApiCleanup();
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpcapiinitialize")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpCApiInitialize(Version: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateclass")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateClass(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateclassv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateClassV6(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateclientinfov4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateClientInfoV4(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateclientinfovq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateClientInfoVQ(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateoption")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateOption(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateoptionv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateOptionV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionId: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreateoptionv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateOptionV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionId: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreatesubnet")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateSubnet(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut DHCP_SUBNET_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreatesubnetv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateSubnetV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpcreatesubnetvq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpCreateSubnetVQ(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut DHCP_SUBNET_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpderegisterparamchange")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpDeRegisterParamChange(Flags: u32, Reserved: *mut void, Event: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeleteclass")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteClass(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeleteclassv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteClassV6(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeleteclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_SEARCH_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeleteclientinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteClientInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_SEARCH_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeletefilterv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteFilterV4(ServerIpAddress: super::super::Foundation::PWSTR, DeleteFilterInfo: *mut DHCP_ADDR_PATTERN) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeleteserver")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteServer(Flags: u32, IdInfo: *mut void, NewServer: *mut DHCPDS_SERVER, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeletesubnet")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteSubnet(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeletesubnetv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteSubnetV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdeletesuperscopev4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDeleteSuperScopeV4(ServerIpAddress: super::super::Foundation::PWSTR, SuperScopeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdscleanup")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDsCleanup();
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpdsinit")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpDsInit() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumclasses")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumClasses(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClassInfoArray: *mut *mut DHCP_CLASS_INFO_ARRAY, nRead: *mut u32, nTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumclassesv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumClassesV6(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClassInfoArray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nRead: *mut u32, nTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumfilterv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumFilterV4(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut DHCP_ADDR_PATTERN, PreferredMaximum: u32, ListType: DHCP_FILTER_LIST_TYPE, EnumFilterInfo: *mut *mut DHCP_FILTER_ENUM_INFO, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptionvalues")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptionValues(ServerIpAddress: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut u32, PreferredMaximum: u32, OptionValues: *mut *mut DHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptionvaluesv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptionValuesV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut u32, PreferredMaximum: u32, OptionValues: *mut *mut DHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptionvaluesv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptionValuesV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut u32, PreferredMaximum: u32, OptionValues: *mut *mut DHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptions")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptions(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, Options: *mut *mut DHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptionsv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptionsV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, Options: *mut *mut DHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumoptionsv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumOptionsV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, Options: *mut *mut DHCP_OPTION_ARRAY, OptionsRead: *mut u32, OptionsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumservers")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumServers(Flags: u32, IdInfo: *mut void, Servers: *mut *mut DHCPDS_SERVERS, CallbackFn: *mut void, CallbackData: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclients")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClients(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclientsfilterstatusinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClientsFilterStatusInfo(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclientsv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClientsV4(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclientsv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClientsV5(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclientsv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClientsV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_IPV6_ADDRESS, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetclientsvq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetClientsVQ(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetelements")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetElements(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumElementInfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetelementsv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetElementsV4(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumElementInfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetelementsv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetElementsV5(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumElementInfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetelementsv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetElementsV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE_V6, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumElementInfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnets")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnets(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumInfo: *mut *mut DHCP_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpenumsubnetsv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpEnumSubnetsV6(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumInfo: *mut *mut DHCPV6_IP_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetalloptionvalues")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetAllOptionValues(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, Values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetalloptionvaluesv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetAllOptionValuesV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, Values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetalloptions")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetAllOptions(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionStruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetalloptionsv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetAllOptionsV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionStruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclassinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClassInfo(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, PartialClassInfo: *mut DHCP_CLASS_INFO, FilledClassInfo: *mut *mut DHCP_CLASS_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCP_CLIENT_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclientinfov4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClientInfoV4(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclientinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClientInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO_V6, ClientInfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclientinfovq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClientInfoVQ(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetclientoptions")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetClientOptions(ServerIpAddress: super::super::Foundation::PWSTR, ClientIpAddress: u32, ClientSubnetMask: u32, ClientOptions: *mut *mut DHCP_OPTION_LIST) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetfilterv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetFilterV4(ServerIpAddress: super::super::Foundation::PWSTR, GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetMibInfo(ServerIpAddress: super::super::Foundation::PWSTR, MibInfo: *mut *mut DHCP_MIB_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetmibinfov5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetMibInfoV5(ServerIpAddress: super::super::Foundation::PWSTR, MibInfo: *mut *mut DHCP_MIB_INFO_V5) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetmibinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetMibInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, MibInfo: *mut *mut DHCP_MIB_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptioninfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionInfo(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, OptionInfo: *mut *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptioninfov5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionInfoV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptioninfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut *mut DHCP_OPTION_VALUE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptionvaluev5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionValueV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut *mut DHCP_OPTION_VALUE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetoptionvaluev6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetOptionValueV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, OptionValue: *mut *mut DHCP_OPTION_VALUE) -> u32;
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpGetOriginalSubnetMask(sAdapterName: super::super::Foundation::PWSTR, dwSubnetMask: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetserverbindinginfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetServerBindingInfo(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, BindElementsInfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetserverbindinginfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetServerBindingInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, BindElementsInfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetserverspecificstrings")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetServerSpecificStrings(ServerIpAddress: super::super::Foundation::PWSTR, ServerSpecificStrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetsubnetdelayoffer")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetSubnetDelayOffer(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, TimeDelayInMilliseconds: *mut u16) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetsubnetinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetSubnetInfo(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut *mut DHCP_SUBNET_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetsubnetinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetSubnetInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetsubnetinfovq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetSubnetInfoVQ(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetsuperscopeinfov4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetSuperScopeInfoV4(ServerIpAddress: super::super::Foundation::PWSTR, SuperScopeTable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetthreadoptions")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetThreadOptions(pFlags: *mut u32, Reserved: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpgetversion")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpGetVersion(ServerIpAddress: super::super::Foundation::PWSTR, MajorVersion: *mut u32, MinorVersion: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlpraddv4policycondition")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprAddV4PolicyCondition(Policy: *mut DHCP_POLICY, ParentExpr: u32, Type: DHCP_POL_ATTR_TYPE, OptionID: u32, SubOptionID: u32, VendorName: super::super::Foundation::PWSTR, Operator: DHCP_POL_COMPARATOR, Value: *mut u8, ValueLength: u32, ConditionIndex: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlpraddv4policyexpr")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprAddV4PolicyExpr(Policy: *mut DHCP_POLICY, ParentExpr: u32, Operator: DHCP_POL_LOGIC_OPER, ExprIndex: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlpraddv4policyrange")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprAddV4PolicyRange(Policy: *mut DHCP_POLICY, Range: *mut DHCP_IP_RANGE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprcreatev4policy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprCreateV4Policy(PolicyName: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, Subnet: u32, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: super::super::Foundation::PWSTR, Enabled: super::super::Foundation::BOOL, Policy: *mut *mut DHCP_POLICY) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprCreateV4PolicyEx(PolicyName: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, Subnet: u32, ProcessingOrder: u32, RootOperator: DHCP_POL_LOGIC_OPER, Description: super::super::Foundation::PWSTR, Enabled: super::super::Foundation::BOOL, Policy: *mut *mut DHCP_POLICY_EX) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFindV4DhcpProperty(PropertyArray: *mut DHCP_PROPERTY_ARRAY, ID: DHCP_PROPERTY_ID, Type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4DhcpProperty(Property: *mut DHCP_PROPERTY);
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4DhcpPropertyArray(PropertyArray: *mut DHCP_PROPERTY_ARRAY);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprfreev4policy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4Policy(Policy: *mut DHCP_POLICY);
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4PolicyArray(PolicyArray: *mut DHCP_POLICY_ARRAY);
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4PolicyEx(PolicyEx: *mut DHCP_POLICY_EX);
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprFreeV4PolicyExArray(PolicyExArray: *mut DHCP_POLICY_EX_ARRAY);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprisv4policysingleuc")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprIsV4PolicySingleUC(Policy: *mut DHCP_POLICY) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprisv4policyvalid")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprIsV4PolicyValid(pPolicy: *mut DHCP_POLICY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprisv4policywellformed")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprIsV4PolicyWellFormed(pPolicy: *mut DHCP_POLICY) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprmodifyv4policyexpr")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprModifyV4PolicyExpr(Policy: *mut DHCP_POLICY, Operator: DHCP_POL_LOGIC_OPER) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcphlprresetv4policyexpr")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpHlprResetV4PolicyExpr(Policy: *mut DHCP_POLICY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpmodifyclass")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpModifyClass(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpmodifyclassv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpModifyClassV6(ServerIpAddress: super::super::Foundation::PWSTR, ReservedMustBeZero: u32, ClassInfo: *mut DHCP_CLASS_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpregisterparamchange")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpRegisterParamChange(Flags: u32, Reserved: *mut void, AdapterName: super::super::Foundation::PWSTR, ClassId: *mut DHCPCAPI_CLASSID, Params: DHCPCAPI_PARAMS_ARRAY, Handle: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpremovednsregistrations")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpRemoveDNSRegistrations() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoption")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOption(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoptionv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOptionV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoptionv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOptionV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoptionvaluev5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOptionValueV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremoveoptionvaluev6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveOptionValueV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremovesubnetelement")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveSubnetElement(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, RemoveElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremovesubnetelementv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveSubnetElementV4(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, RemoveElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremovesubnetelementv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveSubnetElementV5(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, RemoveElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpremovesubnetelementv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRemoveSubnetElementV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, RemoveElementInfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, ForceFlag: DHCP_FORCE_FLAG) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcprequestparams")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpRequestParams(Flags: u32, Reserved: *mut void, AdapterName: super::super::Foundation::PWSTR, ClassId: *mut DHCPCAPI_CLASSID, SendParams: DHCPCAPI_PARAMS_ARRAY, RecdParams: DHCPCAPI_PARAMS_ARRAY, Buffer: *mut u8, pSize: *mut u32, RequestIdStr: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcprpcfreememory")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpRpcFreeMemory(BufferPointer: *mut void);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpscandatabase")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpScanDatabase(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, FixFlag: u32, ScanList: *mut *mut DHCP_SCAN_LIST) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerAuditlogParamsFree(ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverbackupdatabase")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerBackupDatabase(ServerIpAddress: super::super::Foundation::PWSTR, Path: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpservergetconfig")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerGetConfig(ServerIpAddress: super::super::Foundation::PWSTR, ConfigInfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpservergetconfigv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerGetConfigV4(ServerIpAddress: super::super::Foundation::PWSTR, ConfigInfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpservergetconfigv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerGetConfigV6(ServerIpAddress: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpservergetconfigvq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerGetConfigVQ(ServerIpAddress: super::super::Foundation::PWSTR, ConfigInfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverqueryattribute")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerQueryAttribute(ServerIpAddr: super::super::Foundation::PWSTR, dwReserved: u32, DhcpAttribId: u32, pDhcpAttrib: *mut *mut DHCP_ATTRIB) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverqueryattributes")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerQueryAttributes(ServerIpAddr: super::super::Foundation::PWSTR, dwReserved: u32, dwAttribCount: u32, pDhcpAttribs: *mut u32, pDhcpAttribArr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverquerydnsregcredentials")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerQueryDnsRegCredentials(ServerIpAddress: super::super::Foundation::PWSTR, UnameSize: u32, Uname: super::super::Foundation::PWSTR, DomainSize: u32, Domain: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverredoauthorization")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerRedoAuthorization(ServerIpAddr: super::super::Foundation::PWSTR, dwReserved: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserverrestoredatabase")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerRestoreDatabase(ServerIpAddress: super::super::Foundation::PWSTR, Path: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserversetconfig")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetConfig(ServerIpAddress: super::super::Foundation::PWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserversetconfigv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetConfigV4(ServerIpAddress: super::super::Foundation::PWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserversetconfigv6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetConfigV6(ServerIpAddress: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserversetconfigvq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetConfigVQ(ServerIpAddress: super::super::Foundation::PWSTR, FieldsToSet: u32, ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetDnsRegCredentials(ServerIpAddress: super::super::Foundation::PWSTR, Uname: super::super::Foundation::PWSTR, Domain: super::super::Foundation::PWSTR, Passwd: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpserversetdnsregcredentialsv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpServerSetDnsRegCredentialsV5(ServerIpAddress: super::super::Foundation::PWSTR, Uname: super::super::Foundation::PWSTR, Domain: super::super::Foundation::PWSTR, Passwd: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetclientinfov4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetClientInfoV4(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_V4) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetclientinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetClientInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetclientinfovq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetClientInfoVQ(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetfilterv4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetFilterV4(ServerIpAddress: super::super::Foundation::PWSTR, GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptioninfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionInfo(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptioninfov5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionInfoV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptioninfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, OptionInfo: *mut DHCP_OPTION) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, OptionID: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptionvaluev5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionValueV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionId: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptionvaluev6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionValueV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionId: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO6, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptionvalues")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionValues(ServerIpAddress: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetoptionvaluesv5")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetOptionValuesV5(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ClassName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetserverbindinginfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetServerBindingInfo(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, BindElementInfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetserverbindinginfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetServerBindingInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, BindElementInfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetsubnetdelayoffer")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetSubnetDelayOffer(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, TimeDelayInMilliseconds: u16) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetsubnetinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetSubnetInfo(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut DHCP_SUBNET_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetsubnetinfov6")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetSubnetInfoV6(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetsubnetinfovq")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetSubnetInfoVQ(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SubnetInfo: *mut DHCP_SUBNET_INFO_VQ) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetsuperscopev4")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetSuperScopeV4(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, SuperScopeName: super::super::Foundation::PWSTR, ChangeExisting: super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpsetthreadoptions")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpSetThreadOptions(Flags: u32, Reserved: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpcsdk/nf-dhcpcsdk-dhcpundorequestparams")]
+                #[library("dhcpcsvc.dll")]
+                extern fn DhcpUndoRequestParams(Flags: u32, Reserved: *mut void, AdapterName: super::super::Foundation::PWSTR, RequestIdStr: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4addpolicyrange")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4AddPolicyRange(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Range: *mut DHCP_IP_RANGE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4createclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4CreateClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_PB) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4CreateClientInfoEx(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_EX) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4createpolicy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4CreatePolicy(ServerIpAddress: super::super::Foundation::PWSTR, pPolicy: *mut DHCP_POLICY) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4CreatePolicyEx(ServerIpAddress: super::super::Foundation::PWSTR, PolicyEx: *mut DHCP_POLICY_EX) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4deletepolicy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4DeletePolicy(ServerIpAddress: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4enumpolicies")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4EnumPolicies(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, EnumInfo: *mut *mut DHCP_POLICY_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4EnumPoliciesEx(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, GlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, EnumInfo: *mut *mut DHCP_POLICY_EX_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4enumsubnetclients")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4EnumSubnetClients(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4EnumSubnetClientsEx(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, ClientInfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, ClientsRead: *mut u32, ClientsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4enumsubnetreservations")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4EnumSubnetReservations(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, ResumeHandle: *mut u32, PreferredMaximum: u32, EnumElementInfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, ElementsRead: *mut u32, ElementsTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failoveraddscopetorelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverAddScopeToRelationship(ServerIpAddress: super::super::Foundation::PWSTR, pRelationship: *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovercreaterelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverCreateRelationship(ServerIpAddress: super::super::Foundation::PWSTR, pRelationship: *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failoverdeleterelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverDeleteRelationship(ServerIpAddress: super::super::Foundation::PWSTR, pRelationshipName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failoverdeletescopefromrelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverDeleteScopeFromRelationship(ServerIpAddress: super::super::Foundation::PWSTR, pRelationship: *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failoverenumrelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverEnumRelationship(ServerIpAddress: super::super::Foundation::PWSTR, ResumeHandle: *mut u32, PreferredMaximum: u32, pRelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, RelationshipRead: *mut u32, RelationshipTotal: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetaddressstatus")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetAddressStatus(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, pStatus: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetrelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetRelationship(ServerIpAddress: super::super::Foundation::PWSTR, pRelationshipName: super::super::Foundation::PWSTR, pRelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetscoperelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetScopeRelationship(ServerIpAddress: super::super::Foundation::PWSTR, ScopeId: u32, pRelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetscopestatistics")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetScopeStatistics(ServerIpAddress: super::super::Foundation::PWSTR, ScopeId: u32, pStats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovergetsystemtime")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverGetSystemTime(ServerIpAddress: super::super::Foundation::PWSTR, pTime: *mut u32, pMaxAllowedDeltaTime: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failoversetrelationship")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverSetRelationship(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, pRelationship: *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4failovertriggeraddrallocation")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4FailoverTriggerAddrAllocation(ServerIpAddress: super::super::Foundation::PWSTR, pFailRelName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4getalloptionvalues")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetAllOptionValues(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, Values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4getclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetClientInfoEx(ServerIpAddress: super::super::Foundation::PWSTR, SearchInfo: *mut DHCP_SEARCH_INFO, ClientInfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4getfreeipaddress")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetFreeIPAddress(ServerIpAddress: super::super::Foundation::PWSTR, ScopeId: u32, StartIP: u32, EndIP: u32, NumFreeAddrReq: u32, IPAddrList: *mut *mut DHCP_IP_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4getoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, PolicyName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut *mut DHCP_OPTION_VALUE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4getpolicy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetPolicy(ServerIpAddress: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Policy: *mut *mut DHCP_POLICY) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4GetPolicyEx(ServerIpAddress: super::super::Foundation::PWSTR, GlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Policy: *mut *mut DHCP_POLICY_EX) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4querypolicyenforcement")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4QueryPolicyEnforcement(ServerIpAddress: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, Enabled: *mut super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4removeoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4RemoveOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionID: u32, PolicyName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4removepolicyrange")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4RemovePolicyRange(ServerIpAddress: super::super::Foundation::PWSTR, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Range: *mut DHCP_IP_RANGE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4setoptionvalue")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4SetOptionValue(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, OptionId: u32, PolicyName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValue: *mut DHCP_OPTION_DATA) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4setoptionvalues")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4SetOptionValues(ServerIpAddress: super::super::Foundation::PWSTR, Flags: u32, PolicyName: super::super::Foundation::PWSTR, VendorName: super::super::Foundation::PWSTR, ScopeInfo: *mut DHCP_OPTION_SCOPE_INFO, OptionValues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4setpolicy")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4SetPolicy(ServerIpAddress: super::super::Foundation::PWSTR, FieldsModified: u32, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Policy: *mut DHCP_POLICY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv4setpolicyenforcement")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4SetPolicyEnforcement(ServerIpAddress: super::super::Foundation::PWSTR, fGlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, Enable: super::super::Foundation::BOOL) -> u32;
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV4SetPolicyEx(ServerIpAddress: super::super::Foundation::PWSTR, FieldsModified: u32, GlobalPolicy: super::super::Foundation::BOOL, SubnetAddress: u32, PolicyName: super::super::Foundation::PWSTR, Policy: *mut DHCP_POLICY_EX) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv6createclientinfo")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV6CreateClientInfo(ServerIpAddress: super::super::Foundation::PWSTR, ClientInfo: *mut DHCP_CLIENT_INFO_V6) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv6getfreeipaddress")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV6GetFreeIPAddress(ServerIpAddress: super::super::Foundation::PWSTR, ScopeId: DHCP_IPV6_ADDRESS, StartIP: DHCP_IPV6_ADDRESS, EndIP: DHCP_IPV6_ADDRESS, NumFreeAddrReq: u32, IPAddrList: *mut *mut DHCPV6_IP_ARRAY) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv6getstatelessstatistics")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV6GetStatelessStatistics(ServerIpAddress: super::super::Foundation::PWSTR, StatelessStats: *mut *mut DHCPV6_STATELESS_STATS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv6getstatelessstoreparams")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV6GetStatelessStoreParams(ServerIpAddress: super::super::Foundation::PWSTR, fServerLevel: super::super::Foundation::BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, Params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/nf-dhcpsapi-dhcpv6setstatelessstoreparams")]
+                #[library("DHCPSAPI.dll")]
+                extern fn DhcpV6SetStatelessStoreParams(ServerIpAddress: super::super::Foundation::PWSTR, fServerLevel: super::super::Foundation::BOOL, SubnetAddress: DHCP_IPV6_ADDRESS, FieldModified: u32, Params: *mut DHCPV6_STATELESS_PARAMS) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6capicleanup")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6CApiCleanup();
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6capiinitialize")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6CApiInitialize(Version: *mut u32);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6releaseprefix")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6ReleasePrefix(adapterName: super::super::Foundation::PWSTR, classId: *mut DHCPV6CAPI_CLASSID, leaseInfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6renewprefix")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6RenewPrefix(adapterName: super::super::Foundation::PWSTR, pclassId: *mut DHCPV6CAPI_CLASSID, prefixleaseInfo: *mut DHCPV6PrefixLeaseInformation, pdwTimeToWait: *mut u32, bValidatePrefix: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6requestparams")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6RequestParams(forceNewInform: super::super::Foundation::BOOL, reserved: *mut void, adapterName: super::super::Foundation::PWSTR, classId: *mut DHCPV6CAPI_CLASSID, recdParams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, pSize: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/nf-dhcpv6csdk-dhcpv6requestprefix")]
+                #[library("dhcpcsvc6.dll")]
+                extern fn Dhcpv6RequestPrefix(adapterName: super::super::Foundation::PWSTR, pclassId: *mut DHCPV6CAPI_CLASSID, prefixleaseInfo: *mut DHCPV6PrefixLeaseInformation, pdwTimeToWait: *mut u32) -> u32;
+                const ERROR_DDS_CLASS_DOES_NOT_EXIST: u32 = 20078;
+                const ERROR_DDS_CLASS_EXISTS: u32 = 20077;
+                const ERROR_DDS_DHCP_SERVER_NOT_FOUND: u32 = 20074;
+                const ERROR_DDS_NO_DHCP_ROOT: u32 = 20071;
+                const ERROR_DDS_NO_DS_AVAILABLE: u32 = 20070;
+                const ERROR_DDS_OPTION_ALREADY_EXISTS: u32 = 20075;
+                const ERROR_DDS_OPTION_DOES_NOT_EXIST: u32 = 20076;
+                const ERROR_DDS_POSSIBLE_RANGE_CONFLICT: u32 = 20087;
+                const ERROR_DDS_RANGE_DOES_NOT_EXIST: u32 = 20088;
+                const ERROR_DDS_RESERVATION_CONFLICT: u32 = 20086;
+                const ERROR_DDS_RESERVATION_NOT_PRESENT: u32 = 20085;
+                const ERROR_DDS_SERVER_ADDRESS_MISMATCH: u32 = 20081;
+                const ERROR_DDS_SERVER_ALREADY_EXISTS: u32 = 20079;
+                const ERROR_DDS_SERVER_DOES_NOT_EXIST: u32 = 20080;
+                const ERROR_DDS_SUBNET_EXISTS: u32 = 20082;
+                const ERROR_DDS_SUBNET_HAS_DIFF_SSCOPE: u32 = 20083;
+                const ERROR_DDS_SUBNET_NOT_PRESENT: u32 = 20084;
+                const ERROR_DDS_TOO_MANY_ERRORS: u32 = 20073;
+                const ERROR_DDS_UNEXPECTED_ERROR: u32 = 20072;
+                const ERROR_DHCP_ADDRESS_NOT_AVAILABLE: u32 = 20011;
+                const ERROR_DHCP_CANNOT_MODIFY_BINDINGS: u32 = 20051;
+                const ERROR_DHCP_CANT_CHANGE_ATTRIBUTE: u32 = 20048;
+                const ERROR_DHCP_CLASS_ALREADY_EXISTS: u32 = 20045;
+                const ERROR_DHCP_CLASS_NOT_FOUND: u32 = 20044;
+                const ERROR_DHCP_CLIENT_EXISTS: u32 = 20014;
+                const ERROR_DHCP_DATABASE_INIT_FAILED: u32 = 20001;
+                const ERROR_DHCP_DEFAULT_SCOPE_EXITS: u32 = 20047;
+                const ERROR_DHCP_DELETE_BUILTIN_CLASS: u32 = 20089;
+                const ERROR_DHCP_ELEMENT_CANT_REMOVE: u32 = 20007;
+                const ERROR_DHCP_EXEMPTION_EXISTS: u32 = 20055;
+                const ERROR_DHCP_EXEMPTION_NOT_PRESENT: u32 = 20056;
+                const ERROR_DHCP_FO_ADDSCOPE_LEASES_NOT_SYNCED: u32 = 20127;
+                const ERROR_DHCP_FO_BOOT_NOT_SUPPORTED: u32 = 20131;
+                const ERROR_DHCP_FO_FEATURE_NOT_SUPPORTED: u32 = 20134;
+                const ERROR_DHCP_FO_IPRANGE_TYPE_CONV_ILLEGAL: u32 = 20129;
+                const ERROR_DHCP_FO_MAX_ADD_SCOPES: u32 = 20130;
+                const ERROR_DHCP_FO_MAX_RELATIONSHIPS: u32 = 20128;
+                const ERROR_DHCP_FO_NOT_SUPPORTED: u32 = 20118;
+                const ERROR_DHCP_FO_RANGE_PART_OF_REL: u32 = 20132;
+                const ERROR_DHCP_FO_RELATIONSHIP_DOES_NOT_EXIST: u32 = 20115;
+                const ERROR_DHCP_FO_RELATIONSHIP_EXISTS: u32 = 20114;
+                const ERROR_DHCP_FO_RELATIONSHIP_NAME_TOO_LONG: u32 = 20125;
+                const ERROR_DHCP_FO_RELATION_IS_SECONDARY: u32 = 20117;
+                const ERROR_DHCP_FO_SCOPE_ALREADY_IN_RELATIONSHIP: u32 = 20113;
+                const ERROR_DHCP_FO_SCOPE_NOT_IN_RELATIONSHIP: u32 = 20116;
+                const ERROR_DHCP_FO_SCOPE_SYNC_IN_PROGRESS: u32 = 20133;
+                const ERROR_DHCP_FO_STATE_NOT_NORMAL: u32 = 20120;
+                const ERROR_DHCP_FO_TIME_OUT_OF_SYNC: u32 = 20119;
+                const ERROR_DHCP_HARDWARE_ADDRESS_TYPE_ALREADY_EXEMPT: u32 = 20101;
+                const ERROR_DHCP_INVALID_DELAY: u32 = 20092;
+                const ERROR_DHCP_INVALID_DHCP_CLIENT: u32 = 20016;
+                const ERROR_DHCP_INVALID_DHCP_MESSAGE: u32 = 20015;
+                const ERROR_DHCP_INVALID_PARAMETER_OPTION32: u32 = 20057;
+                const ERROR_DHCP_INVALID_POLICY_EXPRESSION: u32 = 20109;
+                const ERROR_DHCP_INVALID_PROCESSING_ORDER: u32 = 20110;
+                const ERROR_DHCP_INVALID_RANGE: u32 = 20023;
+                const ERROR_DHCP_INVALID_SUBNET_PREFIX: u32 = 20091;
+                const ERROR_DHCP_IPRANGE_CONV_ILLEGAL: u32 = 20049;
+                const ERROR_DHCP_IPRANGE_EXITS: u32 = 20021;
+                const ERROR_DHCP_IP_ADDRESS_IN_USE: u32 = 20032;
+                const ERROR_DHCP_JET97_CONV_REQUIRED: u32 = 20036;
+                const ERROR_DHCP_JET_CONV_REQUIRED: u32 = 20027;
+                const ERROR_DHCP_JET_ERROR: u32 = 20013;
+                const ERROR_DHCP_LINKLAYER_ADDRESS_DOES_NOT_EXIST: u32 = 20095;
+                const ERROR_DHCP_LINKLAYER_ADDRESS_EXISTS: u32 = 20093;
+                const ERROR_DHCP_LINKLAYER_ADDRESS_RESERVATION_EXISTS: u32 = 20094;
+                const ERROR_DHCP_LOG_FILE_PATH_TOO_LONG: u32 = 20033;
+                const ERROR_DHCP_MSCOPE_EXISTS: u32 = 20053;
+                const ERROR_DHCP_NAP_NOT_SUPPORTED: u32 = 20138;
+                const ERROR_DHCP_NETWORK_CHANGED: u32 = 20050;
+                const ERROR_DHCP_NETWORK_INIT_FAILED: u32 = 20003;
+                const ERROR_DHCP_NOT_RESERVED_CLIENT: u32 = 20018;
+                const ERROR_DHCP_NO_ADMIN_PERMISSION: u32 = 20121;
+                const ERROR_DHCP_OPTION_EXITS: u32 = 20009;
+                const ERROR_DHCP_OPTION_NOT_PRESENT: u32 = 20010;
+                const ERROR_DHCP_OPTION_TYPE_MISMATCH: u32 = 20103;
+                const ERROR_DHCP_POLICY_BAD_PARENT_EXPR: u32 = 20104;
+                const ERROR_DHCP_POLICY_EDIT_FQDN_UNSUPPORTED: u32 = 20137;
+                const ERROR_DHCP_POLICY_EXISTS: u32 = 20105;
+                const ERROR_DHCP_POLICY_FQDN_OPTION_UNSUPPORTED: u32 = 20136;
+                const ERROR_DHCP_POLICY_FQDN_RANGE_UNSUPPORTED: u32 = 20135;
+                const ERROR_DHCP_POLICY_NOT_FOUND: u32 = 20111;
+                const ERROR_DHCP_POLICY_RANGE_BAD: u32 = 20107;
+                const ERROR_DHCP_POLICY_RANGE_EXISTS: u32 = 20106;
+                const ERROR_DHCP_PRIMARY_NOT_FOUND: u32 = 20006;
+                const ERROR_DHCP_RANGE_EXTENDED: u32 = 20024;
+                const ERROR_DHCP_RANGE_FULL: u32 = 20012;
+                const ERROR_DHCP_RANGE_INVALID_IN_SERVER_POLICY: u32 = 20108;
+                const ERROR_DHCP_RANGE_TOO_SMALL: u32 = 20020;
+                const ERROR_DHCP_REACHED_END_OF_SELECTION: u32 = 20126;
+                const ERROR_DHCP_REGISTRY_INIT_FAILED: u32 = 20000;
+                const ERROR_DHCP_RESERVEDIP_EXITS: u32 = 20022;
+                const ERROR_DHCP_RESERVED_CLIENT: u32 = 20019;
+                const ERROR_DHCP_ROGUE_DS_CONFLICT: u32 = 20041;
+                const ERROR_DHCP_ROGUE_DS_UNREACHABLE: u32 = 20040;
+                const ERROR_DHCP_ROGUE_INIT_FAILED: u32 = 20037;
+                const ERROR_DHCP_ROGUE_NOT_AUTHORIZED: u32 = 20039;
+                const ERROR_DHCP_ROGUE_NOT_OUR_ENTERPRISE: u32 = 20042;
+                const ERROR_DHCP_ROGUE_SAMSHUTDOWN: u32 = 20038;
+                const ERROR_DHCP_ROGUE_STANDALONE_IN_DS: u32 = 20043;
+                const ERROR_DHCP_RPC_INIT_FAILED: u32 = 20002;
+                const ERROR_DHCP_SCOPE_NAME_TOO_LONG: u32 = 20046;
+                const ERROR_DHCP_SERVER_NAME_NOT_RESOLVED: u32 = 20124;
+                const ERROR_DHCP_SERVER_NOT_REACHABLE: u32 = 20122;
+                const ERROR_DHCP_SERVER_NOT_RUNNING: u32 = 20123;
+                const ERROR_DHCP_SERVICE_PAUSED: u32 = 20017;
+                const ERROR_DHCP_SUBNET_EXISTS: u32 = 20052;
+                const ERROR_DHCP_SUBNET_EXITS: u32 = 20004;
+                const ERROR_DHCP_SUBNET_NOT_PRESENT: u32 = 20005;
+                const ERROR_DHCP_SUPER_SCOPE_NAME_TOO_LONG: u32 = 20030;
+                const ERROR_DHCP_UNDEFINED_HARDWARE_ADDRESS_TYPE: u32 = 20102;
+                const ERROR_DHCP_UNSUPPORTED_CLIENT: u32 = 20034;
+                const ERROR_EXTEND_TOO_SMALL: u32 = 20025;
+                const ERROR_LAST_DHCP_SERVER_ERROR: u32 = 20139;
+                const ERROR_MSCOPE_RANGE_TOO_SMALL: u32 = 20054;
+                const ERROR_SCOPE_RANGE_POLICY_RANGE_CONFLICT: u32 = 20112;
+                const ERROR_SERVER_INVALID_BOOT_FILE_TABLE: u32 = 20028;
+                const ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME: u32 = 20029;
+                const FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST: u32 = 2;
+                const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4;
+                const FILTER_STATUS_NONE: u32 = 1;
+                const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8;
+                const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-fsm_state")]
+                enum FSM_STATE {
+                    NO_STATE = 0,
+                    INIT = 1,
+                    STARTUP = 2,
+                    NORMAL = 3,
+                    COMMUNICATION_INT = 4,
+                    PARTNER_DOWN = 5,
+                    POTENTIAL_CONFLICT = 6,
+                    CONFLICT_DONE = 7,
+                    RESOLUTION_INT = 8,
+                    RECOVER = 9,
+                    RECOVER_WAIT = 10,
+                    RECOVER_DONE = 11,
+                    PAUSED = 12,
+                    SHUTDOWN = 13,
+                }
+                const HWTYPE_ETHERNET_10MB: u32 = 1;
+                extern fn LPDHCP_CONTROL(dwControlCode: u32, lpReserved: *mut void) -> u32;
+                extern fn LPDHCP_DELETE_CLIENT(IpAddress: u32, HwAddress: *mut u8, HwAddressLength: u32, Reserved: u32, ClientType: u32) -> u32;
+                extern fn LPDHCP_DROP_SEND(Packet: *mut *mut u8, PacketSize: *mut u32, ControlCode: u32, IpAddress: u32, Reserved: *mut void, PktContext: *mut void) -> u32;
+                extern fn LPDHCP_ENTRY_POINT_FUNC(ChainDlls: super::super::Foundation::PWSTR, CalloutVersion: u32, CalloutTbl: *mut DHCP_CALLOUT_TABLE) -> u32;
+                extern fn LPDHCP_GIVE_ADDRESS(Packet: *mut u8, PacketSize: u32, ControlCode: u32, IpAddress: u32, AltAddress: u32, AddrType: u32, LeaseTime: u32, Reserved: *mut void, PktContext: *mut void) -> u32;
+                extern fn LPDHCP_HANDLE_OPTIONS(Packet: *mut u8, PacketSize: u32, Reserved: *mut void, PktContext: *mut void, ServerOptions: *mut DHCP_SERVER_OPTIONS) -> u32;
+                extern fn LPDHCP_NEWPKT(Packet: *mut *mut u8, PacketSize: *mut u32, IpAddress: u32, Reserved: *mut void, PktContext: *mut *mut void, ProcessIt: *mut super::super::Foundation::BOOL) -> u32;
+                extern fn LPDHCP_PROB(Packet: *mut u8, PacketSize: u32, ControlCode: u32, IpAddress: u32, AltAddress: u32, Reserved: *mut void, PktContext: *mut void) -> u32;
+                const MAC_ADDRESS_LENGTH: u32 = 6;
+                const MAX_PATTERN_LENGTH: u32 = 255;
+                const MCLT: u32 = 1;
+                const MODE: u32 = 16;
+                const OPTION_ALL_SUBNETS_MTU: u32 = 27;
+                const OPTION_ARP_CACHE_TIMEOUT: u32 = 35;
+                const OPTION_BE_A_MASK_SUPPLIER: u32 = 30;
+                const OPTION_BE_A_ROUTER: u32 = 19;
+                const OPTION_BOOTFILE_NAME: u32 = 67;
+                const OPTION_BOOT_FILE_SIZE: u32 = 13;
+                const OPTION_BROADCAST_ADDRESS: u32 = 28;
+                const OPTION_CLIENT_CLASS_INFO: u32 = 60;
+                const OPTION_CLIENT_ID: u32 = 61;
+                const OPTION_COOKIE_SERVERS: u32 = 8;
+                const OPTION_DEFAULT_TTL: u32 = 23;
+                const OPTION_DOMAIN_NAME: u32 = 15;
+                const OPTION_DOMAIN_NAME_SERVERS: u32 = 6;
+                const OPTION_END: u32 = 255;
+                const OPTION_ETHERNET_ENCAPSULATION: u32 = 36;
+                const OPTION_EXTENSIONS_PATH: u32 = 18;
+                const OPTION_HOST_NAME: u32 = 12;
+                const OPTION_IEN116_NAME_SERVERS: u32 = 5;
+                const OPTION_IMPRESS_SERVERS: u32 = 10;
+                const OPTION_KEEP_ALIVE_DATA_SIZE: u32 = 39;
+                const OPTION_KEEP_ALIVE_INTERVAL: u32 = 38;
+                const OPTION_LEASE_TIME: u32 = 51;
+                const OPTION_LOG_SERVERS: u32 = 7;
+                const OPTION_LPR_SERVERS: u32 = 9;
+                const OPTION_MAX_REASSEMBLY_SIZE: u32 = 22;
+                const OPTION_MERIT_DUMP_FILE: u32 = 14;
+                const OPTION_MESSAGE: u32 = 56;
+                const OPTION_MESSAGE_LENGTH: u32 = 57;
+                const OPTION_MESSAGE_TYPE: u32 = 53;
+                const OPTION_MSFT_IE_PROXY: u32 = 252;
+                const OPTION_MTU: u32 = 26;
+                const OPTION_NETBIOS_DATAGRAM_SERVER: u32 = 45;
+                const OPTION_NETBIOS_NAME_SERVER: u32 = 44;
+                const OPTION_NETBIOS_NODE_TYPE: u32 = 46;
+                const OPTION_NETBIOS_SCOPE_OPTION: u32 = 47;
+                const OPTION_NETWORK_INFO_SERVERS: u32 = 41;
+                const OPTION_NETWORK_INFO_SERVICE_DOM: u32 = 40;
+                const OPTION_NETWORK_TIME_SERVERS: u32 = 42;
+                const OPTION_NON_LOCAL_SOURCE_ROUTING: u32 = 20;
+                const OPTION_OK_TO_OVERLAY: u32 = 52;
+                const OPTION_PAD: u32 = 0;
+                const OPTION_PARAMETER_REQUEST_LIST: u32 = 55;
+                const OPTION_PERFORM_MASK_DISCOVERY: u32 = 29;
+                const OPTION_PERFORM_ROUTER_DISCOVERY: u32 = 31;
+                const OPTION_PMTU_AGING_TIMEOUT: u32 = 24;
+                const OPTION_PMTU_PLATEAU_TABLE: u32 = 25;
+                const OPTION_POLICY_FILTER_FOR_NLSR: u32 = 21;
+                const OPTION_REBIND_TIME: u32 = 59;
+                const OPTION_RENEWAL_TIME: u32 = 58;
+                const OPTION_REQUESTED_ADDRESS: u32 = 50;
+                const OPTION_RLP_SERVERS: u32 = 11;
+                const OPTION_ROOT_DISK: u32 = 17;
+                const OPTION_ROUTER_ADDRESS: u32 = 3;
+                const OPTION_ROUTER_SOLICITATION_ADDR: u32 = 32;
+                const OPTION_SERVER_IDENTIFIER: u32 = 54;
+                const OPTION_STATIC_ROUTES: u32 = 33;
+                const OPTION_SUBNET_MASK: u32 = 1;
+                const OPTION_SWAP_SERVER: u32 = 16;
+                const OPTION_TFTP_SERVER_NAME: u32 = 66;
+                const OPTION_TIME_OFFSET: u32 = 2;
+                const OPTION_TIME_SERVERS: u32 = 4;
+                const OPTION_TRAILERS: u32 = 34;
+                const OPTION_TTL: u32 = 37;
+                const OPTION_VENDOR_SPEC_INFO: u32 = 43;
+                const OPTION_XWINDOW_DISPLAY_MANAGER: u32 = 49;
+                const OPTION_XWINDOW_FONT_SERVER: u32 = 48;
+                const PERCENTAGE: u32 = 8;
+                const PREVSTATE: u32 = 32;
+                const QUARANTINE_CONFIG_OPTION: u32 = 43222;
+                const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221;
+                const QUARANTIN_OPTION_BASE: u32 = 43220;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ne-dhcpsapi-quarantinestatus")]
+                enum QuarantineStatus {
+                    NOQUARANTINE = 0,
+                    RESTRICTEDACCESS = 1,
+                    DROPPACKET = 2,
+                    PROBATION = 3,
+                    EXEMPT = 4,
+                    DEFAULTQUARSETTING = 5,
+                    NOQUARINFO = 6,
+                }
+                const SAFEPERIOD: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-scope_mib_info")]
+                struct SCOPE_MIB_INFO {
+                    Subnet: u32,
+                    NumAddressesInuse: u32,
+                    NumAddressesFree: u32,
+                    NumPendingOffers: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpsapi/ns-dhcpsapi-scope_mib_info_v5")]
+                struct SCOPE_MIB_INFO_V5 {
+                    Subnet: u32,
+                    NumAddressesInuse: u32,
+                    NumAddressesFree: u32,
+                    NumPendingOffers: u32,
+                }
+                struct SCOPE_MIB_INFO_V6 {
+                    Subnet: DHCP_IPV6_ADDRESS,
+                    NumAddressesInuse: u64,
+                    NumAddressesFree: u64,
+                    NumPendingAdvertises: u64,
+                }
+                struct SCOPE_MIB_INFO_VQ {
+                    Subnet: u32,
+                    NumAddressesInuse: u32,
+                    NumAddressesFree: u32,
+                    NumPendingOffers: u32,
+                    QtnNumLeases: u32,
+                    QtnPctQtnLeases: u32,
+                    QtnProbationLeases: u32,
+                    QtnNonQtnLeases: u32,
+                    QtnExemptLeases: u32,
+                    QtnCapableClients: u32,
+                }
+                const SHAREDSECRET: u32 = 64;
+                const Set_APIProtocolSupport: u32 = 1;
+                const Set_AuditLogState: u32 = 2048;
+                const Set_BackupInterval: u32 = 16;
+                const Set_BackupPath: u32 = 8;
+                const Set_BootFileTable: u32 = 1024;
+                const Set_DatabaseCleanupInterval: u32 = 128;
+                const Set_DatabaseLoggingFlag: u32 = 32;
+                const Set_DatabaseName: u32 = 2;
+                const Set_DatabasePath: u32 = 4;
+                const Set_DebugFlag: u32 = 256;
+                const Set_PingRetries: u32 = 512;
+                const Set_PreferredLifetime: u32 = 4;
+                const Set_PreferredLifetimeIATA: u32 = 64;
+                const Set_QuarantineDefFail: u32 = 8192;
+                const Set_QuarantineON: u32 = 4096;
+                const Set_RapidCommitFlag: u32 = 2;
+                const Set_RestoreFlag: u32 = 64;
+                const Set_T1: u32 = 16;
+                const Set_T2: u32 = 32;
+                const Set_UnicastFlag: u32 = 1;
+                const Set_ValidLifetime: u32 = 8;
+                const Set_ValidLifetimeIATA: u32 = 128;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dhcpv6csdk/ne-dhcpv6csdk-statuscode")]
+                enum StatusCode {
+                    STATUS_NO_ERROR = 0,
+                    STATUS_UNSPECIFIED_FAILURE = 1,
+                    STATUS_NO_BINDING = 3,
+                    STATUS_NOPREFIX_AVAIL = 6,
+                }
+                const V5_ADDRESS_BIT_BOTH_REC: u32 = 32;
+                const V5_ADDRESS_BIT_DELETED: u32 = 128;
+                const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64;
+                const V5_ADDRESS_EX_BIT_DISABLE_PTR_RR: u32 = 1;
+                const V5_ADDRESS_STATE_ACTIVE: u32 = 1;
+                const V5_ADDRESS_STATE_DECLINED: u32 = 2;
+                const V5_ADDRESS_STATE_DOOM: u32 = 3;
+                const V5_ADDRESS_STATE_OFFERED: u32 = 0;
+                const WARNING_EXTENDED_LESS: i32 = 20026;
+            }
+        }
+    }
+}

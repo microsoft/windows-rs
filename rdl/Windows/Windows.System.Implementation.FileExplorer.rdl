@@ -1,0 +1,45 @@
+mod Windows {
+    mod System {
+        mod Implementation {
+            #[winrt]
+            mod FileExplorer {
+                #[Windows::Foundation::Metadata::ExclusiveTo(SysStorageProviderEventReceivedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                interface ISysStorageProviderEventReceivedEventArgs {
+                    #[special]
+                    fn get_Json(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SysStorageProviderEventReceivedEventArgs)]
+                interface ISysStorageProviderEventReceivedEventArgsFactory {
+                    fn CreateInstance(&self, json: String) -> SysStorageProviderEventReceivedEventArgs;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                interface ISysStorageProviderEventSource {
+                    #[special]
+                    fn add_EventReceived(&self, handler: super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_EventReceived(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                interface ISysStorageProviderHandlerFactory {
+                    fn GetHttpRequestProvider(&self, syncRootId: String) -> ISysStorageProviderHttpRequestProvider;
+                    fn GetEventSource(&self, syncRootId: String, eventName: String) -> ISysStorageProviderEventSource;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                interface ISysStorageProviderHttpRequestProvider {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SendRequestAsync(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                #[Windows::Foundation::Metadata::Activatable(ISysStorageProviderEventReceivedEventArgsFactory, 327680, "Windows.Storage.Provider.CloudFilesContract")]
+                class SysStorageProviderEventReceivedEventArgs {
+                    #[default]
+                    ISysStorageProviderEventReceivedEventArgs,
+                }
+            }
+        }
+    }
+}

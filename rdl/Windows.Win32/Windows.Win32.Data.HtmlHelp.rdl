@@ -1,0 +1,559 @@
+mod Windows {
+    mod Win32 {
+        mod Data {
+            #[win32]
+            mod HtmlHelp {
+                const CLSID_IITCmdInt: GUID = 0x4662daa2_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITDatabase: GUID = 0x66673452_8c23_11d0_a84e_00aa006c7d01;
+                const CLSID_IITDatabaseLocal: GUID = 0x4662daa9_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITGroupUpdate: GUID = 0x4662daa4_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITIndexBuild: GUID = 0x8fa0d5aa_dedf_11d0_9a61_00c04fb68bf7;
+                const CLSID_IITPropList: GUID = 0x4662daae_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITResultSet: GUID = 0x4662daa7_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITSvMgr: GUID = 0x4662daa3_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITWWFilterBuild: GUID = 0x8fa0d5ab_dedf_11d0_9a61_00c04fb68bf7;
+                const CLSID_IITWordWheel: GUID = 0xd73725c2_8c12_11d0_a84e_00aa006c7d01;
+                const CLSID_IITWordWheelLocal: GUID = 0x4662daa8_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_IITWordWheelUpdate: GUID = 0x4662daa5_d393_11d0_9a56_00c04fb68bf7;
+                const CLSID_ITEngStemmer: GUID = 0x8fa0d5a8_dedf_11d0_9a61_00c04fb68bf7;
+                const CLSID_ITStdBreaker: GUID = 0x4662daaf_d393_11d0_9a56_00c04fb68bf7;
+                struct COLUMNSTATUS {
+                    cPropCount: i32,
+                    cPropsLoaded: i32,
+                }
+                struct CProperty {
+                    dwPropID: u32,
+                    cbData: u32,
+                    dwType: u32,
+                    Anonymous: union {
+                        lpszwData: super::super::Foundation::PWSTR,
+                        lpvData: *mut void,
+                        dwValue: u32,
+                    },
+                    fPersist: super::super::Foundation::BOOL,
+                }
+                const E_ALL_WILD: super::super::Foundation::HRESULT = -2147479467;
+                const E_ALREADYINIT: super::super::Foundation::HRESULT = -2147479421;
+                const E_ALREADYOPEN: super::super::Foundation::HRESULT = -2147479533;
+                const E_ASSERT: super::super::Foundation::HRESULT = -2147479546;
+                const E_BADBREAKER: super::super::Foundation::HRESULT = -2147479469;
+                const E_BADFILE: super::super::Foundation::HRESULT = -2147479549;
+                const E_BADFILTERSIZE: super::super::Foundation::HRESULT = -2147479528;
+                const E_BADFORMAT: super::super::Foundation::HRESULT = -2147479548;
+                const E_BADINDEXFLAGS: super::super::Foundation::HRESULT = -2147479456;
+                const E_BADPARAM: super::super::Foundation::HRESULT = -2147479535;
+                const E_BADRANGEOP: super::super::Foundation::HRESULT = -2147479459;
+                const E_BADVALUE: super::super::Foundation::HRESULT = -2147479468;
+                const E_BADVERSION: super::super::Foundation::HRESULT = -2147479550;
+                const E_CANTFINDDLL: super::super::Foundation::HRESULT = -2147479538;
+                const E_DISKFULL: super::super::Foundation::HRESULT = -2147479496;
+                const E_DUPLICATE: super::super::Foundation::HRESULT = -2147479551;
+                const E_EXPECTEDTERM: super::super::Foundation::HRESULT = -2147479465;
+                const E_FILECLOSE: super::super::Foundation::HRESULT = -2147479503;
+                const E_FILECREATE: super::super::Foundation::HRESULT = -2147479504;
+                const E_FILEDELETE: super::super::Foundation::HRESULT = -2147479499;
+                const E_FILEINVALID: super::super::Foundation::HRESULT = -2147479498;
+                const E_FILENOTFOUND: super::super::Foundation::HRESULT = -2147479497;
+                const E_FILEREAD: super::super::Foundation::HRESULT = -2147479502;
+                const E_FILESEEK: super::super::Foundation::HRESULT = -2147479501;
+                const E_FILEWRITE: super::super::Foundation::HRESULT = -2147479500;
+                const E_GETLASTERROR: super::super::Foundation::HRESULT = -2147479536;
+                const E_GROUPIDTOOBIG: super::super::Foundation::HRESULT = -2147479542;
+                const E_INTERRUPT: super::super::Foundation::HRESULT = -2147479545;
+                const E_INVALIDSTATE: super::super::Foundation::HRESULT = -2147479534;
+                const E_MISSINGPROP: super::super::Foundation::HRESULT = -2147479424;
+                const E_MISSLPAREN: super::super::Foundation::HRESULT = -2147479464;
+                const E_MISSQUOTE: super::super::Foundation::HRESULT = -2147479462;
+                const E_MISSRPAREN: super::super::Foundation::HRESULT = -2147479463;
+                const E_NAMETOOLONG: super::super::Foundation::HRESULT = -2147479520;
+                const E_NOHANDLE: super::super::Foundation::HRESULT = -2147479537;
+                const E_NOKEYPROP: super::super::Foundation::HRESULT = -2147479417;
+                const E_NOMERGEDDATA: super::super::Foundation::HRESULT = -2147479540;
+                const E_NOPERMISSION: super::super::Foundation::HRESULT = -2147479547;
+                const E_NOSTEMMER: super::super::Foundation::HRESULT = -2147479454;
+                const E_NOTEXIST: super::super::Foundation::HRESULT = -2147479552;
+                const E_NOTFOUND: super::super::Foundation::HRESULT = -2147479539;
+                const E_NOTINIT: super::super::Foundation::HRESULT = -2147479420;
+                const E_NOTOPEN: super::super::Foundation::HRESULT = -2147479533;
+                const E_NOTSUPPORTED: super::super::Foundation::HRESULT = -2147479544;
+                const E_NULLQUERY: super::super::Foundation::HRESULT = -2147479461;
+                const E_OUTOFRANGE: super::super::Foundation::HRESULT = -2147479543;
+                const E_PROPLISTEMPTY: super::super::Foundation::HRESULT = -2147479422;
+                const E_PROPLISTNOTEMPTY: super::super::Foundation::HRESULT = -2147479423;
+                const E_RESULTSETEMPTY: super::super::Foundation::HRESULT = -2147479419;
+                const E_STOPWORD: super::super::Foundation::HRESULT = -2147479460;
+                const E_TOODEEP: super::super::Foundation::HRESULT = -2147479466;
+                const E_TOOMANYCOLUMNS: super::super::Foundation::HRESULT = -2147479418;
+                const E_TOOMANYDUPS: super::super::Foundation::HRESULT = -2147479471;
+                const E_TOOMANYOBJECTS: super::super::Foundation::HRESULT = -2147479527;
+                const E_TOOMANYTITLES: super::super::Foundation::HRESULT = -2147479541;
+                const E_TOOMANYTOPICS: super::super::Foundation::HRESULT = -2147479472;
+                const E_TREETOOBIG: super::super::Foundation::HRESULT = -2147479470;
+                const E_UNKNOWN_TRANSPORT: super::super::Foundation::HRESULT = -2147479530;
+                const E_UNMATCHEDTYPE: super::super::Foundation::HRESULT = -2147479458;
+                const E_UNSUPPORTED_TRANSPORT: super::super::Foundation::HRESULT = -2147479529;
+                const E_WILD_IN_DTYPE: super::super::Foundation::HRESULT = -2147479455;
+                const E_WORDTOOLONG: super::super::Foundation::HRESULT = -2147479457;
+                const HHACT_BACK: i32 = 7;
+                const HHACT_CONTRACT: i32 = 6;
+                const HHACT_CUSTOMIZE: i32 = 16;
+                const HHACT_EXPAND: i32 = 5;
+                const HHACT_FORWARD: i32 = 8;
+                const HHACT_HIGHLIGHT: i32 = 15;
+                const HHACT_HOME: i32 = 11;
+                const HHACT_JUMP1: i32 = 17;
+                const HHACT_JUMP2: i32 = 18;
+                const HHACT_LAST_ENUM: i32 = 23;
+                const HHACT_NOTES: i32 = 22;
+                const HHACT_OPTIONS: i32 = 13;
+                const HHACT_PRINT: i32 = 14;
+                const HHACT_REFRESH: i32 = 10;
+                const HHACT_STOP: i32 = 9;
+                const HHACT_SYNC: i32 = 12;
+                const HHACT_TAB_CONTENTS: i32 = 0;
+                const HHACT_TAB_FAVORITES: i32 = 4;
+                const HHACT_TAB_HISTORY: i32 = 3;
+                const HHACT_TAB_INDEX: i32 = 1;
+                const HHACT_TAB_SEARCH: i32 = 2;
+                const HHACT_TOC_NEXT: i32 = 20;
+                const HHACT_TOC_PREV: i32 = 21;
+                const HHACT_ZOOM: i32 = 19;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hhntrack")]
+                struct HHNTRACK {
+                    hdr: super::super::UI::Controls::NMHDR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszCurUrl: super::super::Foundation::PSTR,
+                    idAction: i32,
+                    phhWinType: *mut HH_WINTYPE,
+                }
+                const HHN_FIRST: u32 = 4294966436;
+                const HHN_LAST: u32 = 4294966417;
+                const HHN_NAVCOMPLETE: u32 = 4294966436;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hhn_notify")]
+                struct HHN_NOTIFY {
+                    hdr: super::super::UI::Controls::NMHDR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszUrl: super::super::Foundation::PSTR,
+                }
+                const HHN_TRACK: u32 = 4294966435;
+                const HHN_WINDOW_CREATE: u32 = 4294966434;
+                const HHWIN_BUTTON_BACK: u32 = 4;
+                const HHWIN_BUTTON_BROWSE_BCK: u32 = 256;
+                const HHWIN_BUTTON_BROWSE_FWD: u32 = 128;
+                const HHWIN_BUTTON_CONTENTS: u32 = 1024;
+                const HHWIN_BUTTON_EXPAND: u32 = 2;
+                const HHWIN_BUTTON_FAVORITES: u32 = 131072;
+                const HHWIN_BUTTON_FORWARD: u32 = 8;
+                const HHWIN_BUTTON_HISTORY: u32 = 65536;
+                const HHWIN_BUTTON_HOME: u32 = 64;
+                const HHWIN_BUTTON_INDEX: u32 = 16384;
+                const HHWIN_BUTTON_JUMP1: u32 = 262144;
+                const HHWIN_BUTTON_JUMP2: u32 = 524288;
+                const HHWIN_BUTTON_NOTES: u32 = 512;
+                const HHWIN_BUTTON_OPTIONS: u32 = 4096;
+                const HHWIN_BUTTON_PRINT: u32 = 8192;
+                const HHWIN_BUTTON_REFRESH: u32 = 32;
+                const HHWIN_BUTTON_SEARCH: u32 = 32768;
+                const HHWIN_BUTTON_STOP: u32 = 16;
+                const HHWIN_BUTTON_SYNC: u32 = 2048;
+                const HHWIN_BUTTON_TOC_NEXT: u32 = 2097152;
+                const HHWIN_BUTTON_TOC_PREV: u32 = 4194304;
+                const HHWIN_BUTTON_ZOOM: u32 = 1048576;
+                const HHWIN_NAVTAB_BOTTOM: i32 = 2;
+                const HHWIN_NAVTAB_LEFT: i32 = 1;
+                const HHWIN_NAVTAB_TOP: i32 = 0;
+                const HHWIN_NAVTYPE_AUTHOR: i32 = 5;
+                const HHWIN_NAVTYPE_CUSTOM_FIRST: i32 = 11;
+                const HHWIN_NAVTYPE_FAVORITES: i32 = 3;
+                const HHWIN_NAVTYPE_HISTORY: i32 = 4;
+                const HHWIN_NAVTYPE_INDEX: i32 = 1;
+                const HHWIN_NAVTYPE_SEARCH: i32 = 2;
+                const HHWIN_NAVTYPE_TOC: i32 = 0;
+                const HHWIN_PARAM_CUR_TAB: u32 = 8192;
+                const HHWIN_PARAM_EXPANSION: u32 = 512;
+                const HHWIN_PARAM_EXSTYLES: u32 = 8;
+                const HHWIN_PARAM_HISTORY_COUNT: u32 = 4096;
+                const HHWIN_PARAM_INFOTYPES: u32 = 128;
+                const HHWIN_PARAM_NAV_WIDTH: u32 = 32;
+                const HHWIN_PARAM_PROPERTIES: u32 = 2;
+                const HHWIN_PARAM_RECT: u32 = 16;
+                const HHWIN_PARAM_SHOWSTATE: u32 = 64;
+                const HHWIN_PARAM_STYLES: u32 = 4;
+                const HHWIN_PARAM_TABORDER: u32 = 2048;
+                const HHWIN_PARAM_TABPOS: u32 = 1024;
+                const HHWIN_PARAM_TB_FLAGS: u32 = 256;
+                const HHWIN_PROP_AUTO_SYNC: u32 = 256;
+                const HHWIN_PROP_CHANGE_TITLE: u32 = 8192;
+                const HHWIN_PROP_MENU: u32 = 65536;
+                const HHWIN_PROP_NAV_ONLY_WIN: u32 = 16384;
+                const HHWIN_PROP_NODEF_EXSTYLES: u32 = 16;
+                const HHWIN_PROP_NODEF_STYLES: u32 = 8;
+                const HHWIN_PROP_NOTB_TEXT: u32 = 64;
+                const HHWIN_PROP_NOTITLEBAR: u32 = 4;
+                const HHWIN_PROP_NO_TOOLBAR: u32 = 32768;
+                const HHWIN_PROP_ONTOP: u32 = 2;
+                const HHWIN_PROP_POST_QUIT: u32 = 128;
+                const HHWIN_PROP_TAB_ADVSEARCH: u32 = 131072;
+                const HHWIN_PROP_TAB_AUTOHIDESHOW: u32 = 1;
+                const HHWIN_PROP_TAB_CUSTOM1: u32 = 524288;
+                const HHWIN_PROP_TAB_CUSTOM2: u32 = 1048576;
+                const HHWIN_PROP_TAB_CUSTOM3: u32 = 2097152;
+                const HHWIN_PROP_TAB_CUSTOM4: u32 = 4194304;
+                const HHWIN_PROP_TAB_CUSTOM5: u32 = 8388608;
+                const HHWIN_PROP_TAB_CUSTOM6: u32 = 16777216;
+                const HHWIN_PROP_TAB_CUSTOM7: u32 = 33554432;
+                const HHWIN_PROP_TAB_CUSTOM8: u32 = 67108864;
+                const HHWIN_PROP_TAB_CUSTOM9: u32 = 134217728;
+                const HHWIN_PROP_TAB_FAVORITES: u32 = 4096;
+                const HHWIN_PROP_TAB_HISTORY: u32 = 2048;
+                const HHWIN_PROP_TAB_SEARCH: u32 = 1024;
+                const HHWIN_PROP_TRACKING: u32 = 512;
+                const HHWIN_PROP_TRI_PANE: u32 = 32;
+                const HHWIN_PROP_USER_POS: u32 = 262144;
+                const HHWIN_TB_MARGIN: u32 = 268435456;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hh_aklink")]
+                struct HH_AKLINK {
+                    cbStruct: i32,
+                    fReserved: super::super::Foundation::BOOL,
+                    pszKeywords: *mut i8,
+                    pszUrl: *mut i8,
+                    pszMsgText: *mut i8,
+                    pszMsgTitle: *mut i8,
+                    pszWindow: *mut i8,
+                    fIndexOnFail: super::super::Foundation::BOOL,
+                }
+                struct HH_ENUM_CAT {
+                    cbStruct: i32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszCatName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszCatDescription: super::super::Foundation::PSTR,
+                }
+                struct HH_ENUM_IT {
+                    cbStruct: i32,
+                    iType: i32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszCatName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszITName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszITDescription: super::super::Foundation::PSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hh_fts_query")]
+                struct HH_FTS_QUERY {
+                    cbStruct: i32,
+                    fUniCodeStrings: super::super::Foundation::BOOL,
+                    pszSearchQuery: *mut i8,
+                    iProximity: i32,
+                    fStemmedSearch: super::super::Foundation::BOOL,
+                    fTitleOnly: super::super::Foundation::BOOL,
+                    fExecute: super::super::Foundation::BOOL,
+                    pszWindow: *mut i8,
+                }
+                struct HH_GLOBAL_PROPERTY {
+                    id: HH_GPROPID,
+                    var: super::super::System::Variant::VARIANT,
+                }
+                #[repr(i32)]
+                enum HH_GPROPID {
+                    HH_GPROPID_SINGLETHREAD = 1,
+                    HH_GPROPID_TOOLBAR_MARGIN = 2,
+                    HH_GPROPID_UI_LANGUAGE = 3,
+                    HH_GPROPID_CURRENT_SUBSET = 4,
+                    HH_GPROPID_CONTENT_LANGUAGE = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hh_popup")]
+                struct HH_POPUP {
+                    cbStruct: i32,
+                    hinst: super::super::Foundation::HINSTANCE,
+                    idString: u32,
+                    pszText: *mut i8,
+                    pt: super::super::Foundation::POINT,
+                    clrForeground: super::super::Foundation::COLORREF,
+                    clrBackground: super::super::Foundation::COLORREF,
+                    rcMargins: super::super::Foundation::RECT,
+                    pszFont: *mut i8,
+                }
+                struct HH_SET_INFOTYPE {
+                    cbStruct: i32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszCatName: super::super::Foundation::PSTR,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pszInfoTypeName: super::super::Foundation::PSTR,
+                }
+                const HH_TAB_AUTHOR: i32 = 5;
+                const HH_TAB_CONTENTS: i32 = 0;
+                const HH_TAB_CUSTOM_FIRST: i32 = 11;
+                const HH_TAB_CUSTOM_LAST: i32 = 19;
+                const HH_TAB_FAVORITES: i32 = 3;
+                const HH_TAB_HISTORY: i32 = 4;
+                const HH_TAB_INDEX: i32 = 1;
+                const HH_TAB_SEARCH: i32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/ns-htmlhelp-hh_wintype")]
+                struct HH_WINTYPE {
+                    cbStruct: i32,
+                    fUniCodeStrings: super::super::Foundation::BOOL,
+                    pszType: *mut i8,
+                    fsValidMembers: u32,
+                    fsWinProperties: u32,
+                    pszCaption: *mut i8,
+                    dwStyles: u32,
+                    dwExStyles: u32,
+                    rcWindowPos: super::super::Foundation::RECT,
+                    nShowState: i32,
+                    hwndHelp: super::super::Foundation::HWND,
+                    hwndCaller: super::super::Foundation::HWND,
+                    paInfoTypes: *mut u32,
+                    hwndToolBar: super::super::Foundation::HWND,
+                    hwndNavigation: super::super::Foundation::HWND,
+                    hwndHTML: super::super::Foundation::HWND,
+                    iNavWidth: i32,
+                    rcHTML: super::super::Foundation::RECT,
+                    pszToc: *mut i8,
+                    pszIndex: *mut i8,
+                    pszFile: *mut i8,
+                    pszHome: *mut i8,
+                    fsToolBarFlags: u32,
+                    fNotExpanded: super::super::Foundation::BOOL,
+                    curNavType: i32,
+                    tabpos: i32,
+                    idNotify: i32,
+                    tabOrder: [u8; 20],
+                    cHistory: i32,
+                    pszJump1: *mut i8,
+                    pszJump2: *mut i8,
+                    pszUrlJump1: *mut i8,
+                    pszUrlJump2: *mut i8,
+                    rcMinSize: super::super::Foundation::RECT,
+                    cbInfoTypes: i32,
+                    pszCustomTabs: *mut i8,
+                }
+                #[repr(i32)]
+                enum HTML_HELP_COMMAND {
+                    HH_DISPLAY_TOPIC = 0,
+                    HH_HELP_FINDER = 0,
+                    HH_DISPLAY_TOC = 1,
+                    HH_DISPLAY_INDEX = 2,
+                    HH_DISPLAY_SEARCH = 3,
+                    HH_SET_WIN_TYPE = 4,
+                    HH_GET_WIN_TYPE = 5,
+                    HH_GET_WIN_HANDLE = 6,
+                    HH_ENUM_INFO_TYPE = 7,
+                    HH_SET_INFO_TYPE = 8,
+                    HH_SYNC = 9,
+                    HH_RESERVED1 = 10,
+                    HH_RESERVED2 = 11,
+                    HH_RESERVED3 = 12,
+                    HH_KEYWORD_LOOKUP = 13,
+                    HH_DISPLAY_TEXT_POPUP = 14,
+                    HH_HELP_CONTEXT = 15,
+                    HH_TP_HELP_CONTEXTMENU = 16,
+                    HH_TP_HELP_WM_HELP = 17,
+                    HH_CLOSE_ALL = 18,
+                    HH_ALINK_LOOKUP = 19,
+                    HH_GET_LAST_ERROR = 20,
+                    HH_ENUM_CATEGORY = 21,
+                    HH_ENUM_CATEGORY_IT = 22,
+                    HH_RESET_IT_FILTER = 23,
+                    HH_SET_INCLUSIVE_FILTER = 24,
+                    HH_SET_EXCLUSIVE_FILTER = 25,
+                    HH_INITIALIZE = 28,
+                    HH_UNINITIALIZE = 29,
+                    HH_SET_QUERYSERVICE = 30,
+                    HH_PRETRANSLATEMESSAGE = 253,
+                    HH_SET_GLOBAL_PROPERTY = 252,
+                    HH_SAFE_DISPLAY_TOPIC = 32,
+                    HH_MAX_TABS = 19,
+                    HH_MAX_TABS_CUSTOM = 9,
+                    HH_FTS_DEFAULT_PROXIMITY = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/nf-htmlhelp-htmlhelpa")]
+                #[library("hhctrl.ocx")]
+                extern fn HtmlHelpA(hwndCaller: super::super::Foundation::HWND, pszFile: super::super::Foundation::PSTR, uCommand: u32, dwData: usize) -> super::super::Foundation::HWND;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/htmlhelp/nf-htmlhelp-htmlhelpw")]
+                #[library("hhctrl.ocx")]
+                extern fn HtmlHelpW(hwndCaller: super::super::Foundation::HWND, pszFile: super::super::Foundation::PWSTR, uCommand: u32, dwData: usize) -> super::super::Foundation::HWND;
+                const IDTB_BACK: u32 = 204;
+                const IDTB_BROWSE_BACK: u32 = 212;
+                const IDTB_BROWSE_FWD: u32 = 211;
+                const IDTB_CONTENTS: u32 = 213;
+                const IDTB_CONTRACT: u32 = 201;
+                const IDTB_CUSTOMIZE: u32 = 221;
+                const IDTB_EXPAND: u32 = 200;
+                const IDTB_FAVORITES: u32 = 217;
+                const IDTB_FORWARD: u32 = 209;
+                const IDTB_HISTORY: u32 = 216;
+                const IDTB_HOME: u32 = 205;
+                const IDTB_INDEX: u32 = 214;
+                const IDTB_JUMP1: u32 = 218;
+                const IDTB_JUMP2: u32 = 219;
+                const IDTB_NOTES: u32 = 210;
+                const IDTB_OPTIONS: u32 = 208;
+                const IDTB_PRINT: u32 = 207;
+                const IDTB_REFRESH: u32 = 203;
+                const IDTB_SEARCH: u32 = 215;
+                const IDTB_STOP: u32 = 202;
+                const IDTB_SYNC: u32 = 206;
+                const IDTB_TOC_NEXT: u32 = 223;
+                const IDTB_TOC_PREV: u32 = 224;
+                const IDTB_ZOOM: u32 = 222;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nn-infotech-iitdatabase")]
+                interface IITDatabase: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitdatabase-open")]
+                    fn Open(&self, #[Windows::Win32::Foundation::Metadata::Const] lpszHost: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] lpszMoniker: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitdatabase-close")]
+                    fn Close(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitdatabase-createobject")]
+                    fn CreateObject(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, pdwObjInstance: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitdatabase-getobject")]
+                    fn GetObject(&self, dwObjInstance: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppvObj: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn GetObjectPersistence(&self, #[Windows::Win32::Foundation::Metadata::Const] lpwszObject: super::super::Foundation::PWSTR, dwObjInstance: u32, ppvPersistence: *mut *mut void, fStream: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nn-infotech-iitproplist")]
+                interface IITPropList: super::super::System::Com::IPersistStreamInit {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-set(propid_lpvoid_dword_dword)")]
+                    fn Set(&self, PropID: u32, #[Windows::Win32::Foundation::Metadata::Const] lpszwString: super::super::Foundation::PWSTR, dwOperation: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-set(propid_lpvoid_dword_dword)")]
+                    fn Set(&self, PropID: u32, lpvData: *mut void, cbData: u32, dwOperation: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-set(propid_lpvoid_dword_dword)")]
+                    fn Set(&self, PropID: u32, dwData: u32, dwOperation: u32) -> super::super::Foundation::HRESULT;
+                    fn Add(&self, Prop: *mut CProperty) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-get")]
+                    fn Get(&self, PropID: u32, Property: *mut CProperty) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-clear")]
+                    fn Clear(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-setpersist(propid_bool)")]
+                    fn SetPersist(&self, fPersist: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-setpersist(propid_bool)")]
+                    fn SetPersist(&self, PropID: u32, fPersist: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-getfirst")]
+                    fn GetFirst(&self, Property: *mut CProperty) -> super::super::Foundation::HRESULT;
+                    fn GetNext(&self, Property: *mut CProperty) -> super::super::Foundation::HRESULT;
+                    fn GetPropCount(&self, cProp: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-saveheader")]
+                    fn SaveHeader(&self, lpvData: *mut void, dwHdrSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-savedata")]
+                    fn SaveData(&self, lpvHeader: *mut void, dwHdrSize: u32, lpvData: *mut void, dwBufSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-getheadersize")]
+                    fn GetHeaderSize(&self, dwHdrSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitproplist-getdatasize")]
+                    fn GetDataSize(&self, lpvHeader: *mut void, dwHdrSize: u32, dwDataSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SaveDataToStream(&self, lpvHeader: *mut void, dwHdrSize: u32, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    fn LoadFromMem(&self, lpvData: *mut void, dwBufSize: u32) -> super::super::Foundation::HRESULT;
+                    fn SaveToMem(&self, lpvData: *mut void, dwBufSize: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nn-infotech-iitresultset")]
+                interface IITResultSet: super::super::System::Com::IUnknown {
+                    fn SetColumnPriority(&self, lColumnIndex: i32, ColumnPriority: PRIORITY) -> super::super::Foundation::HRESULT;
+                    fn SetColumnHeap(&self, lColumnIndex: i32, lpvHeap: *mut void, pfnColHeapFree: PFNCOLHEAPFREE) -> super::super::Foundation::HRESULT;
+                    fn SetKeyProp(&self, PropID: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-add(propid_lpvoid_dword_priority)")]
+                    fn Add(&self, PropID: u32, dwDefaultData: u32, Priority: PRIORITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-add(propid_lpvoid_dword_priority)")]
+                    fn Add(&self, PropID: u32, #[Windows::Win32::Foundation::Metadata::Const] lpszwDefault: super::super::Foundation::PWSTR, Priority: PRIORITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-add(propid_lpvoid_dword_priority)")]
+                    fn Add(&self, PropID: u32, lpvDefaultData: *mut void, cbData: u32, Priority: PRIORITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-add(propid_lpvoid_dword_priority)")]
+                    fn Add(&self, lpvHdr: *mut void) -> super::super::Foundation::HRESULT;
+                    fn Append(&self, lpvHdr: *mut void, lpvData: *mut void) -> super::super::Foundation::HRESULT;
+                    fn Set(&self, lRowIndex: i32, lColumnIndex: i32, lpvData: *mut void, cbData: u32) -> super::super::Foundation::HRESULT;
+                    fn Set(&self, lRowIndex: i32, lColumnIndex: i32, #[Windows::Win32::Foundation::Metadata::Const] lpwStr: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn Set(&self, lRowIndex: i32, lColumnIndex: i32, dwData: usize) -> super::super::Foundation::HRESULT;
+                    fn Set(&self, lRowIndex: i32, lpvHdr: *mut void, lpvData: *mut void) -> super::super::Foundation::HRESULT;
+                    fn Copy(&self, pRSCopy: IITResultSet) -> super::super::Foundation::HRESULT;
+                    fn AppendRows(&self, pResSrc: IITResultSet, lRowSrcFirst: i32, cSrcRows: i32, lRowFirstDest: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-get")]
+                    fn Get(&self, lRowIndex: i32, lColumnIndex: i32, Prop: *mut CProperty) -> super::super::Foundation::HRESULT;
+                    fn GetKeyProp(&self, KeyPropID: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn GetColumnPriority(&self, lColumnIndex: i32, ColumnPriority: *mut PRIORITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-iitresultset-getrowcount")]
+                    fn GetRowCount(&self, lNumberOfRows: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn GetColumnCount(&self, lNumberOfColumns: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn GetColumn(&self, lColumnIndex: i32, PropID: *mut u32, dwType: *mut u32, lpvDefaultValue: *mut *mut void, cbSize: *mut u32, ColumnPriority: *mut PRIORITY) -> super::super::Foundation::HRESULT;
+                    fn GetColumn(&self, lColumnIndex: i32, PropID: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn GetColumnFromPropID(&self, PropID: u32, lColumnIndex: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn Clear(&self) -> super::super::Foundation::HRESULT;
+                    fn ClearRows(&self) -> super::super::Foundation::HRESULT;
+                    fn Free(&self) -> super::super::Foundation::HRESULT;
+                    fn IsCompleted(&self) -> super::super::Foundation::HRESULT;
+                    fn Cancel(&self) -> super::super::Foundation::HRESULT;
+                    fn Pause(&self, fPause: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetRowStatus(&self, lRowFirst: i32, cRows: i32, lpRowStatus: *mut ROWSTATUS) -> super::super::Foundation::HRESULT;
+                    fn GetColumnStatus(&self, lpColStatus: *mut COLUMNSTATUS) -> super::super::Foundation::HRESULT;
+                }
+                const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1;
+                const IITWBC_BREAK_AND_STEM: u32 = 2;
+                interface IStemSink: super::super::System::Com::IUnknown {
+                    fn PutAltWord(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcInBuf: super::super::Foundation::PWSTR, cwc: u32) -> super::super::Foundation::HRESULT;
+                    fn PutWord(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcInBuf: super::super::Foundation::PWSTR, cwc: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nn-infotech-istemmerconfig")]
+                interface IStemmerConfig: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/infotech/nf-infotech-istemmerconfig-setlocaleinfo")]
+                    fn SetLocaleInfo(&self, dwCodePageID: u32, lcid: u32) -> super::super::Foundation::HRESULT;
+                    fn GetLocaleInfo(&self, pdwCodePageID: *mut u32, plcid: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SetControlInfo(&self, grfStemFlags: u32, dwReserved: u32) -> super::super::Foundation::HRESULT;
+                    fn GetControlInfo(&self, pgrfStemFlags: *mut u32, pdwReserved: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn LoadExternalStemmerData(&self, pStream: super::super::System::Com::IStream, dwExtDataType: u32) -> super::super::Foundation::HRESULT;
+                }
+                const ITWW_CBKEY_MAX: u32 = 1024;
+                const ITWW_OPEN_NOCONNECT: u32 = 1;
+                const IT_EXCLUSIVE: i32 = 1;
+                const IT_HIDDEN: i32 = 2;
+                const IT_INCLUSIVE: i32 = 0;
+                interface IWordBreakerConfig: super::super::System::Com::IUnknown {
+                    fn SetLocaleInfo(&self, dwCodePageID: u32, lcid: u32) -> super::super::Foundation::HRESULT;
+                    fn GetLocaleInfo(&self, pdwCodePageID: *mut u32, plcid: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SetBreakWordType(&self, dwBreakWordType: u32) -> super::super::Foundation::HRESULT;
+                    fn GetBreakWordType(&self, pdwBreakWordType: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SetControlInfo(&self, grfBreakFlags: u32, dwReserved: u32) -> super::super::Foundation::HRESULT;
+                    fn GetControlInfo(&self, pgrfBreakFlags: *mut u32, pdwReserved: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn LoadExternalBreakerData(&self, pStream: super::super::System::Com::IStream, dwExtDataType: u32) -> super::super::Foundation::HRESULT;
+                    fn SetWordStemmer(&self, #[Windows::Win32::Foundation::Metadata::Const] rclsid: *mut GUID, pStemmer: super::super::System::Search::IStemmer) -> super::super::Foundation::HRESULT;
+                    fn GetWordStemmer(&self, ppStemmer: *mut super::super::System::Search::IStemmer) -> super::super::Foundation::HRESULT;
+                }
+                const MAX_COLUMNS: u32 = 256;
+                extern fn PFNCOLHEAPFREE(param0: *mut void) -> i32;
+                #[repr(i32)]
+                enum PRIORITY {
+                    PRIORITY_LOW = 0,
+                    PRIORITY_NORMAL = 1,
+                    PRIORITY_HIGH = 2,
+                }
+                const PROP_ADD: u32 = 0;
+                const PROP_DELETE: u32 = 1;
+                const PROP_UPDATE: u32 = 2;
+                struct ROWSTATUS {
+                    lRowFirst: i32,
+                    cRows: i32,
+                    cProperties: i32,
+                    cRowsTotal: i32,
+                }
+                const STDPROP_DISPLAYKEY: u32 = 101;
+                const STDPROP_INDEX_BREAK: u32 = 204;
+                const STDPROP_INDEX_DTYPE: u32 = 202;
+                const STDPROP_INDEX_LENGTH: u32 = 203;
+                const STDPROP_INDEX_TERM: u32 = 210;
+                const STDPROP_INDEX_TERM_RAW_LENGTH: u32 = 211;
+                const STDPROP_INDEX_TEXT: u32 = 200;
+                const STDPROP_INDEX_VFLD: u32 = 201;
+                const STDPROP_KEY: u32 = 4;
+                const STDPROP_SORTKEY: u32 = 100;
+                const STDPROP_SORTORDINAL: u32 = 102;
+                const STDPROP_TITLE: u32 = 2;
+                const STDPROP_UID: u32 = 1;
+                const STDPROP_USERDATA: u32 = 3;
+                const STDPROP_USERPROP_BASE: u32 = 65536;
+                const STDPROP_USERPROP_MAX: u32 = 2147483647;
+                const SZ_WWDEST_GLOBAL: String = "GLOBAL";
+                const SZ_WWDEST_KEY: String = "KEY";
+                const SZ_WWDEST_OCC: String = "OCC";
+                const TYPE_POINTER: u32 = 1;
+                const TYPE_STRING: u32 = 2;
+                const TYPE_VALUE: u32 = 0;
+            }
+        }
+    }
+}

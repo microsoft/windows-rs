@@ -1,0 +1,1360 @@
+mod Windows {
+    mod Win32 {
+        mod NetworkManagement {
+            #[win32]
+            mod WindowsFirewall {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-fw_dynamic_keyword_address0")]
+                struct FW_DYNAMIC_KEYWORD_ADDRESS0 {
+                    id: GUID,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    keyword: super::super::Foundation::PWSTR,
+                    flags: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    addresses: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-fw_dynamic_keyword_address_data0")]
+                struct FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+                    dynamicKeywordAddress: FW_DYNAMIC_KEYWORD_ADDRESS0,
+                    next: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+                    schemaVersion: u16,
+                    originType: FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-fw_dynamic_keyword_address_enum_flags")]
+                enum FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+                    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE = 1,
+                    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE = 2,
+                    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL = 3,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-fw_dynamic_keyword_address_flags")]
+                enum FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+                    FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-fw_dynamic_keyword_origin_type")]
+                enum FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+                    FW_DYNAMIC_KEYWORD_ORIGIN_INVALID = 0,
+                    FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL = 1,
+                    FW_DYNAMIC_KEYWORD_ORIGIN_MDM = 2,
+                }
+                #[repr(i32)]
+                enum ICS_TARGETTYPE {
+                    ICSTT_NAME = 0,
+                    ICSTT_IPADDRESS = 1,
+                }
+                interface IDynamicPortMapping: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_ExternalIPAddress(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_RemoteHost(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ExternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Protocol(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_InternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_InternalClient(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Description(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_LeaseDuration(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn RenewLease(&self, lLeaseDurationDesired: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pLeaseDurationReturned: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn EditInternalClient(&self, bstrInternalClient: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn Enable(&self, vb: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn EditDescription(&self, bstrDescription: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn EditInternalPort(&self, lInternalPort: i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IDynamicPortMappingCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn get_Item(&self, bstrRemoteHost: super::super::Foundation::BSTR, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppDPM: *mut IDynamicPortMapping) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn Remove(&self, bstrRemoteHost: super::super::Foundation::BSTR, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn Add(&self, bstrRemoteHost: super::super::Foundation::BSTR, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR, lInternalPort: i32, bstrInternalClient: super::super::Foundation::BSTR, bEnabled: super::super::Foundation::VARIANT_BOOL, bstrDescription: super::super::Foundation::BSTR, lLeaseDuration: i32, #[Windows::Win32::Foundation::Metadata::RetVal] ppDPM: *mut IDynamicPortMapping) -> super::super::Foundation::HRESULT;
+                }
+                interface IEnumNetConnection: super::super::System::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut INetConnection, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, ppenum: *mut IEnumNetConnection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-ienumnetsharingeveryconnection")]
+                interface IEnumNetSharingEveryConnection: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingeveryconnection-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgVar: *mut super::super::System::Variant::VARIANT, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingeveryconnection-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingeveryconnection-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingeveryconnection-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumNetSharingEveryConnection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-ienumnetsharingportmapping")]
+                interface IEnumNetSharingPortMapping: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingportmapping-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgVar: *mut super::super::System::Variant::VARIANT, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingportmapping-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingportmapping-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingportmapping-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumNetSharingPortMapping) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-ienumnetsharingprivateconnection")]
+                interface IEnumNetSharingPrivateConnection: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingprivateconnection-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgVar: *mut super::super::System::Variant::VARIANT, pCeltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingprivateconnection-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingprivateconnection-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingprivateconnection-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumNetSharingPrivateConnection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-ienumnetsharingpublicconnection")]
+                interface IEnumNetSharingPublicConnection: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingpublicconnection-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgVar: *mut super::super::System::Variant::VARIANT, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingpublicconnection-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingpublicconnection-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ienumnetsharingpublicconnection-clone")]
+                    fn Clone(&self, ppenum: *mut IEnumNetSharingPublicConnection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-inateventmanager")]
+                interface INATEventManager: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-inateventmanager-put_externalipaddresscallback")]
+                    fn put_ExternalIPAddressCallback(&self, pUnk: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-inateventmanager-put_numberofentriescallback")]
+                    fn put_NumberOfEntriesCallback(&self, pUnk: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-inatexternalipaddresscallback")]
+                interface INATExternalIPAddressCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-inatexternalipaddresscallback-newexternalipaddress")]
+                    fn NewExternalIPAddress(&self, bstrNewExternalIPAddress: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-inatnumberofentriescallback")]
+                interface INATNumberOfEntriesCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-inatnumberofentriescallback-newnumberofentries")]
+                    fn NewNumberOfEntries(&self, lNewNumberOfEntries: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-inet_firewall_ac_binaries")]
+                struct INET_FIREWALL_AC_BINARIES {
+                    count: u32,
+                    binaries: *mut super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-inet_firewall_ac_capabilities")]
+                struct INET_FIREWALL_AC_CAPABILITIES {
+                    count: u32,
+                    capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-inet_firewall_ac_change")]
+                struct INET_FIREWALL_AC_CHANGE {
+                    changeType: INET_FIREWALL_AC_CHANGE_TYPE,
+                    createType: INET_FIREWALL_AC_CREATION_TYPE,
+                    appContainerSid: *mut super::super::Security::SID,
+                    userSid: *mut super::super::Security::SID,
+                    displayName: super::super::Foundation::PWSTR,
+                    Anonymous: union {
+                        capabilities: INET_FIREWALL_AC_CAPABILITIES,
+                        binaries: INET_FIREWALL_AC_BINARIES,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-inet_firewall_ac_change_type")]
+                enum INET_FIREWALL_AC_CHANGE_TYPE {
+                    INET_FIREWALL_AC_CHANGE_INVALID = 0,
+                    INET_FIREWALL_AC_CHANGE_CREATE = 1,
+                    INET_FIREWALL_AC_CHANGE_DELETE = 2,
+                    INET_FIREWALL_AC_CHANGE_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-inet_firewall_ac_creation_type")]
+                enum INET_FIREWALL_AC_CREATION_TYPE {
+                    INET_FIREWALL_AC_NONE = 0,
+                    INET_FIREWALL_AC_PACKAGE_ID_ONLY = 1,
+                    INET_FIREWALL_AC_BINARY = 2,
+                    INET_FIREWALL_AC_MAX = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ns-netfw-inet_firewall_app_container")]
+                struct INET_FIREWALL_APP_CONTAINER {
+                    appContainerSid: *mut super::super::Security::SID,
+                    userSid: *mut super::super::Security::SID,
+                    appContainerName: super::super::Foundation::PWSTR,
+                    displayName: super::super::Foundation::PWSTR,
+                    description: super::super::Foundation::PWSTR,
+                    capabilities: INET_FIREWALL_AC_CAPABILITIES,
+                    binaries: INET_FIREWALL_AC_BINARIES,
+                    workingDirectory: super::super::Foundation::PWSTR,
+                    packageFullName: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetconnection")]
+                interface INetConnection: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-connect")]
+                    fn Connect(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-disconnect")]
+                    fn Disconnect(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-delete")]
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-duplicate")]
+                    fn Duplicate(&self, #[Windows::Win32::Foundation::Metadata::Const] pszwDuplicateName: super::super::Foundation::PWSTR, ppCon: *mut INetConnection) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-getproperties")]
+                    fn GetProperties(&self, ppProps: *mut *mut NETCON_PROPERTIES) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-getuiobjectclassid")]
+                    fn GetUiObjectClassId(&self, pclsid: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnection-rename")]
+                    fn Rename(&self, #[Windows::Win32::Foundation::Metadata::Const] pszwNewName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface INetConnectionConnectUi: super::super::System::Com::IUnknown {
+                    fn SetConnection(&self, pCon: INetConnection) -> super::super::Foundation::HRESULT;
+                    fn Connect(&self, hwndParent: super::super::Foundation::HWND, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn Disconnect(&self, hwndParent: super::super::Foundation::HWND, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface INetConnectionManager: super::super::System::Com::IUnknown {
+                    fn EnumConnections(&self, Flags: NETCONMGR_ENUM_FLAGS, ppEnum: *mut IEnumNetConnection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetconnectionprops")]
+                interface INetConnectionProps: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_guid")]
+                    fn get_Guid(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrGuid: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_devicename")]
+                    fn get_DeviceName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrDeviceName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_status")]
+                    fn get_Status(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pStatus: *mut NETCON_STATUS) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_mediatype")]
+                    fn get_MediaType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pMediaType: *mut NETCON_MEDIATYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetconnectionprops-get_characteristics")]
+                    fn get_Characteristics(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwauthorizedapplication")]
+                interface INetFwAuthorizedApplication: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_name")]
+                    fn put_Name(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_processimagefilename")]
+                    fn get_ProcessImageFileName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] imageFileName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_processimagefilename")]
+                    fn put_ProcessImageFileName(&self, imageFileName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_ipversion")]
+                    fn get_IpVersion(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ipVersion: *mut NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_ipversion")]
+                    fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_scope")]
+                    fn get_Scope(&self, #[Windows::Win32::Foundation::Metadata::RetVal] scope: *mut NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_scope")]
+                    fn put_Scope(&self, scope: NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_remoteaddresses")]
+                    fn get_RemoteAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_remoteaddresses")]
+                    fn put_RemoteAddresses(&self, remoteAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplication-put_enabled")]
+                    fn put_Enabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwauthorizedapplications")]
+                interface INetFwAuthorizedApplications: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplications-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplications-add")]
+                    fn Add(&self, app: INetFwAuthorizedApplication) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplications-remove")]
+                    fn Remove(&self, imageFileName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplications-item")]
+                    fn Item(&self, imageFileName: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] app: *mut INetFwAuthorizedApplication) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwauthorizedapplications-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] newEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwicmpsettings")]
+                interface INetFwIcmpSettings: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowoutbounddestinationunreachable")]
+                    fn get_AllowOutboundDestinationUnreachable(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowoutbounddestinationunreachable")]
+                    fn put_AllowOutboundDestinationUnreachable(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowredirect")]
+                    fn get_AllowRedirect(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowredirect")]
+                    fn put_AllowRedirect(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowinboundechorequest")]
+                    fn get_AllowInboundEchoRequest(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowinboundechorequest")]
+                    fn put_AllowInboundEchoRequest(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowoutboundtimeexceeded")]
+                    fn get_AllowOutboundTimeExceeded(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowoutboundtimeexceeded")]
+                    fn put_AllowOutboundTimeExceeded(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowoutboundparameterproblem")]
+                    fn get_AllowOutboundParameterProblem(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowoutboundparameterproblem")]
+                    fn put_AllowOutboundParameterProblem(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowoutboundsourcequench")]
+                    fn get_AllowOutboundSourceQuench(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowoutboundsourcequench")]
+                    fn put_AllowOutboundSourceQuench(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowinboundrouterrequest")]
+                    fn get_AllowInboundRouterRequest(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowinboundrouterrequest")]
+                    fn put_AllowInboundRouterRequest(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowinboundtimestamprequest")]
+                    fn get_AllowInboundTimestampRequest(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowinboundtimestamprequest")]
+                    fn put_AllowInboundTimestampRequest(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowinboundmaskrequest")]
+                    fn get_AllowInboundMaskRequest(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowinboundmaskrequest")]
+                    fn put_AllowInboundMaskRequest(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-get_allowoutboundpackettoobig")]
+                    fn get_AllowOutboundPacketTooBig(&self, #[Windows::Win32::Foundation::Metadata::RetVal] allow: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwicmpsettings-put_allowoutboundpackettoobig")]
+                    fn put_AllowOutboundPacketTooBig(&self, allow: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwmgr")]
+                interface INetFwMgr: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwmgr-get_localpolicy")]
+                    fn get_LocalPolicy(&self, #[Windows::Win32::Foundation::Metadata::RetVal] localPolicy: *mut INetFwPolicy) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwmgr-get_currentprofiletype")]
+                    fn get_CurrentProfileType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] profileType: *mut NET_FW_PROFILE_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwmgr-restoredefaults")]
+                    fn RestoreDefaults(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwmgr-isportallowed")]
+                    fn IsPortAllowed(&self, imageFileName: super::super::Foundation::BSTR, ipVersion: NET_FW_IP_VERSION, portNumber: i32, localAddress: super::super::Foundation::BSTR, ipProtocol: NET_FW_IP_PROTOCOL, allowed: *mut super::super::System::Variant::VARIANT, restricted: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwmgr-isicmptypeallowed")]
+                    fn IsIcmpTypeAllowed(&self, ipVersion: NET_FW_IP_VERSION, localAddress: super::super::Foundation::BSTR, r#type: u8, allowed: *mut super::super::System::Variant::VARIANT, restricted: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwopenport")]
+                interface INetFwOpenPort: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_name")]
+                    fn put_Name(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_ipversion")]
+                    fn get_IpVersion(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ipVersion: *mut NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_ipversion")]
+                    fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_protocol")]
+                    fn get_Protocol(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ipProtocol: *mut NET_FW_IP_PROTOCOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_protocol")]
+                    fn put_Protocol(&self, ipProtocol: NET_FW_IP_PROTOCOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_port")]
+                    fn get_Port(&self, #[Windows::Win32::Foundation::Metadata::RetVal] portNumber: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_port")]
+                    fn put_Port(&self, portNumber: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_scope")]
+                    fn get_Scope(&self, #[Windows::Win32::Foundation::Metadata::RetVal] scope: *mut NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_scope")]
+                    fn put_Scope(&self, scope: NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_remoteaddresses")]
+                    fn get_RemoteAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_remoteaddresses")]
+                    fn put_RemoteAddresses(&self, remoteAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-put_enabled")]
+                    fn put_Enabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenport-get_builtin")]
+                    fn get_BuiltIn(&self, #[Windows::Win32::Foundation::Metadata::RetVal] builtIn: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwopenports")]
+                interface INetFwOpenPorts: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenports-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenports-add")]
+                    fn Add(&self, port: INetFwOpenPort) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenports-remove")]
+                    fn Remove(&self, portNumber: i32, ipProtocol: NET_FW_IP_PROTOCOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenports-item")]
+                    fn Item(&self, portNumber: i32, ipProtocol: NET_FW_IP_PROTOCOL, #[Windows::Win32::Foundation::Metadata::RetVal] openPort: *mut INetFwOpenPort) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwopenports-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] newEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwpolicy")]
+                interface INetFwPolicy: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy-get_currentprofile")]
+                    fn get_CurrentProfile(&self, #[Windows::Win32::Foundation::Metadata::RetVal] profile: *mut INetFwProfile) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy-getprofilebytype")]
+                    fn GetProfileByType(&self, profileType: NET_FW_PROFILE_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] profile: *mut INetFwProfile) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwpolicy2")]
+                interface INetFwPolicy2: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_currentprofiletypes")]
+                    fn get_CurrentProfileTypes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] profileTypesBitmask: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_firewallenabled")]
+                    fn get_FirewallEnabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_firewallenabled")]
+                    fn put_FirewallEnabled(&self, profileType: NET_FW_PROFILE_TYPE2, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_excludedinterfaces")]
+                    fn get_ExcludedInterfaces(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] interfaces: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_excludedinterfaces")]
+                    fn put_ExcludedInterfaces(&self, profileType: NET_FW_PROFILE_TYPE2, interfaces: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_blockallinboundtraffic")]
+                    fn get_BlockAllInboundTraffic(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] Block: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_blockallinboundtraffic")]
+                    fn put_BlockAllInboundTraffic(&self, profileType: NET_FW_PROFILE_TYPE2, Block: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_notificationsdisabled")]
+                    fn get_NotificationsDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] disabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_notificationsdisabled")]
+                    fn put_NotificationsDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_unicastresponsestomulticastbroadcastdisabled")]
+                    fn get_UnicastResponsesToMulticastBroadcastDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] disabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_unicastresponsestomulticastbroadcastdisabled")]
+                    fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, profileType: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_rules")]
+                    fn get_Rules(&self, #[Windows::Win32::Foundation::Metadata::RetVal] rules: *mut INetFwRules) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_servicerestriction")]
+                    fn get_ServiceRestriction(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ServiceRestriction: *mut INetFwServiceRestriction) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-enablerulegroup")]
+                    fn EnableRuleGroup(&self, profileTypesBitmask: i32, group: super::super::Foundation::BSTR, enable: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-isrulegroupenabled")]
+                    fn IsRuleGroupEnabled(&self, profileTypesBitmask: i32, group: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-restorelocalfirewalldefaults")]
+                    fn RestoreLocalFirewallDefaults(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_defaultinboundaction")]
+                    fn get_DefaultInboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] action: *mut NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_defaultinboundaction")]
+                    fn put_DefaultInboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_defaultoutboundaction")]
+                    fn get_DefaultOutboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, #[Windows::Win32::Foundation::Metadata::RetVal] action: *mut NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-put_defaultoutboundaction")]
+                    fn put_DefaultOutboundAction(&self, profileType: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_isrulegroupcurrentlyenabled")]
+                    fn get_IsRuleGroupCurrentlyEnabled(&self, group: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwpolicy2-get_localpolicymodifystate")]
+                    fn get_LocalPolicyModifyState(&self, #[Windows::Win32::Foundation::Metadata::RetVal] modifyState: *mut NET_FW_MODIFY_STATE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwproduct")]
+                interface INetFwProduct: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproduct-get_rulecategories")]
+                    fn get_RuleCategories(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ruleCategories: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproduct-put_rulecategories")]
+                    fn put_RuleCategories(&self, ruleCategories: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproduct-get_displayname")]
+                    fn get_DisplayName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] displayName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproduct-put_displayname")]
+                    fn put_DisplayName(&self, displayName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproduct-get_pathtosignedproductexe")]
+                    fn get_PathToSignedProductExe(&self, #[Windows::Win32::Foundation::Metadata::RetVal] path: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwproducts")]
+                interface INetFwProducts: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproducts-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproducts-register")]
+                    fn Register(&self, product: INetFwProduct, #[Windows::Win32::Foundation::Metadata::RetVal] registration: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproducts-item")]
+                    fn Item(&self, index: i32, #[Windows::Win32::Foundation::Metadata::RetVal] product: *mut INetFwProduct) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwproducts-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] newEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwprofile")]
+                interface INetFwProfile: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_type")]
+                    fn get_Type(&self, #[Windows::Win32::Foundation::Metadata::RetVal] r#type: *mut NET_FW_PROFILE_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_firewallenabled")]
+                    fn get_FirewallEnabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-put_firewallenabled")]
+                    fn put_FirewallEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_exceptionsnotallowed")]
+                    fn get_ExceptionsNotAllowed(&self, #[Windows::Win32::Foundation::Metadata::RetVal] notAllowed: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-put_exceptionsnotallowed")]
+                    fn put_ExceptionsNotAllowed(&self, notAllowed: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_notificationsdisabled")]
+                    fn get_NotificationsDisabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] disabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-put_notificationsdisabled")]
+                    fn put_NotificationsDisabled(&self, disabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_unicastresponsestomulticastbroadcastdisabled")]
+                    fn get_UnicastResponsesToMulticastBroadcastDisabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] disabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-put_unicastresponsestomulticastbroadcastdisabled")]
+                    fn put_UnicastResponsesToMulticastBroadcastDisabled(&self, disabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_remoteadminsettings")]
+                    fn get_RemoteAdminSettings(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAdminSettings: *mut INetFwRemoteAdminSettings) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_icmpsettings")]
+                    fn get_IcmpSettings(&self, #[Windows::Win32::Foundation::Metadata::RetVal] icmpSettings: *mut INetFwIcmpSettings) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_globallyopenports")]
+                    fn get_GloballyOpenPorts(&self, #[Windows::Win32::Foundation::Metadata::RetVal] openPorts: *mut INetFwOpenPorts) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_services")]
+                    fn get_Services(&self, #[Windows::Win32::Foundation::Metadata::RetVal] services: *mut INetFwServices) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwprofile-get_authorizedapplications")]
+                    fn get_AuthorizedApplications(&self, #[Windows::Win32::Foundation::Metadata::RetVal] apps: *mut INetFwAuthorizedApplications) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwremoteadminsettings")]
+                interface INetFwRemoteAdminSettings: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-get_ipversion")]
+                    fn get_IpVersion(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ipVersion: *mut NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-put_ipversion")]
+                    fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-get_scope")]
+                    fn get_Scope(&self, #[Windows::Win32::Foundation::Metadata::RetVal] scope: *mut NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-put_scope")]
+                    fn put_Scope(&self, scope: NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-get_remoteaddresses")]
+                    fn get_RemoteAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-put_remoteaddresses")]
+                    fn put_RemoteAddresses(&self, remoteAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwremoteadminsettings-put_enabled")]
+                    fn put_Enabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrule")]
+                interface INetFwRule: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_name")]
+                    fn put_Name(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_description")]
+                    fn get_Description(&self, #[Windows::Win32::Foundation::Metadata::RetVal] desc: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_description")]
+                    fn put_Description(&self, desc: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_applicationname")]
+                    fn get_ApplicationName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] imageFileName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_applicationname")]
+                    fn put_ApplicationName(&self, imageFileName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_servicename")]
+                    fn get_ServiceName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] serviceName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_servicename")]
+                    fn put_ServiceName(&self, serviceName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_protocol")]
+                    fn get_Protocol(&self, #[Windows::Win32::Foundation::Metadata::RetVal] protocol: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_protocol")]
+                    fn put_Protocol(&self, protocol: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_localports")]
+                    fn get_LocalPorts(&self, #[Windows::Win32::Foundation::Metadata::RetVal] portNumbers: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_localports")]
+                    fn put_LocalPorts(&self, portNumbers: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_remoteports")]
+                    fn get_RemotePorts(&self, #[Windows::Win32::Foundation::Metadata::RetVal] portNumbers: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_remoteports")]
+                    fn put_RemotePorts(&self, portNumbers: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_localaddresses")]
+                    fn get_LocalAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] localAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_localaddresses")]
+                    fn put_LocalAddresses(&self, localAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_remoteaddresses")]
+                    fn get_RemoteAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_remoteaddresses")]
+                    fn put_RemoteAddresses(&self, remoteAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_icmptypesandcodes")]
+                    fn get_IcmpTypesAndCodes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] icmpTypesAndCodes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_icmptypesandcodes")]
+                    fn put_IcmpTypesAndCodes(&self, icmpTypesAndCodes: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_direction")]
+                    fn get_Direction(&self, #[Windows::Win32::Foundation::Metadata::RetVal] dir: *mut NET_FW_RULE_DIRECTION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_direction")]
+                    fn put_Direction(&self, dir: NET_FW_RULE_DIRECTION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_interfaces")]
+                    fn get_Interfaces(&self, #[Windows::Win32::Foundation::Metadata::RetVal] interfaces: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_interfaces")]
+                    fn put_Interfaces(&self, interfaces: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_interfacetypes")]
+                    fn get_InterfaceTypes(&self, #[Windows::Win32::Foundation::Metadata::RetVal] interfaceTypes: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_interfacetypes")]
+                    fn put_InterfaceTypes(&self, interfaceTypes: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_enabled")]
+                    fn put_Enabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_grouping")]
+                    fn get_Grouping(&self, #[Windows::Win32::Foundation::Metadata::RetVal] context: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_grouping")]
+                    fn put_Grouping(&self, context: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_profiles")]
+                    fn get_Profiles(&self, #[Windows::Win32::Foundation::Metadata::RetVal] profileTypesBitmask: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_profiles")]
+                    fn put_Profiles(&self, profileTypesBitmask: i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_edgetraversal")]
+                    fn get_EdgeTraversal(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_edgetraversal")]
+                    fn put_EdgeTraversal(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-get_action")]
+                    fn get_Action(&self, #[Windows::Win32::Foundation::Metadata::RetVal] action: *mut NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule-put_action")]
+                    fn put_Action(&self, action: NET_FW_ACTION) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrule2")]
+                interface INetFwRule2: INetFwRule {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule2-get_edgetraversaloptions")]
+                    fn get_EdgeTraversalOptions(&self, #[Windows::Win32::Foundation::Metadata::RetVal] lOptions: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule2-put_edgetraversaloptions")]
+                    fn put_EdgeTraversalOptions(&self, lOptions: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrule3")]
+                interface INetFwRule3: INetFwRule2 {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_localapppackageid")]
+                    fn get_LocalAppPackageId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] wszPackageId: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_localapppackageid")]
+                    fn put_LocalAppPackageId(&self, wszPackageId: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_localuserowner")]
+                    fn get_LocalUserOwner(&self, #[Windows::Win32::Foundation::Metadata::RetVal] wszUserOwner: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_localuserowner")]
+                    fn put_LocalUserOwner(&self, wszUserOwner: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_localuserauthorizedlist")]
+                    fn get_LocalUserAuthorizedList(&self, #[Windows::Win32::Foundation::Metadata::RetVal] wszUserAuthList: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_localuserauthorizedlist")]
+                    fn put_LocalUserAuthorizedList(&self, wszUserAuthList: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_remoteuserauthorizedlist")]
+                    fn get_RemoteUserAuthorizedList(&self, #[Windows::Win32::Foundation::Metadata::RetVal] wszUserAuthList: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_remoteuserauthorizedlist")]
+                    fn put_RemoteUserAuthorizedList(&self, wszUserAuthList: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_remotemachineauthorizedlist")]
+                    fn get_RemoteMachineAuthorizedList(&self, #[Windows::Win32::Foundation::Metadata::RetVal] wszUserAuthList: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_remotemachineauthorizedlist")]
+                    fn put_RemoteMachineAuthorizedList(&self, wszUserAuthList: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-get_secureflags")]
+                    fn get_SecureFlags(&self, #[Windows::Win32::Foundation::Metadata::RetVal] lOptions: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrule3-put_secureflags")]
+                    fn put_SecureFlags(&self, lOptions: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwrules")]
+                interface INetFwRules: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrules-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrules-add")]
+                    fn Add(&self, rule: INetFwRule) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrules-remove")]
+                    fn Remove(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrules-item")]
+                    fn Item(&self, name: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] rule: *mut INetFwRule) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwrules-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] newEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwservice")]
+                interface INetFwService: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] name: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_type")]
+                    fn get_Type(&self, #[Windows::Win32::Foundation::Metadata::RetVal] r#type: *mut NET_FW_SERVICE_TYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_customized")]
+                    fn get_Customized(&self, #[Windows::Win32::Foundation::Metadata::RetVal] customized: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_ipversion")]
+                    fn get_IpVersion(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ipVersion: *mut NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-put_ipversion")]
+                    fn put_IpVersion(&self, ipVersion: NET_FW_IP_VERSION) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_scope")]
+                    fn get_Scope(&self, #[Windows::Win32::Foundation::Metadata::RetVal] scope: *mut NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-put_scope")]
+                    fn put_Scope(&self, scope: NET_FW_SCOPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_remoteaddresses")]
+                    fn get_RemoteAddresses(&self, #[Windows::Win32::Foundation::Metadata::RetVal] remoteAddrs: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-put_remoteaddresses")]
+                    fn put_RemoteAddresses(&self, remoteAddrs: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] enabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-put_enabled")]
+                    fn put_Enabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservice-get_globallyopenports")]
+                    fn get_GloballyOpenPorts(&self, #[Windows::Win32::Foundation::Metadata::RetVal] openPorts: *mut INetFwOpenPorts) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwservicerestriction")]
+                interface INetFwServiceRestriction: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservicerestriction-restrictservice")]
+                    fn RestrictService(&self, serviceName: super::super::Foundation::BSTR, appName: super::super::Foundation::BSTR, restrictService: super::super::Foundation::VARIANT_BOOL, serviceSidRestricted: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservicerestriction-servicerestricted")]
+                    fn ServiceRestricted(&self, serviceName: super::super::Foundation::BSTR, appName: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] serviceRestricted: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservicerestriction-get_rules")]
+                    fn get_Rules(&self, #[Windows::Win32::Foundation::Metadata::RetVal] rules: *mut INetFwRules) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nn-netfw-inetfwservices")]
+                interface INetFwServices: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservices-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] count: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservices-item")]
+                    fn Item(&self, svcType: NET_FW_SERVICE_TYPE, #[Windows::Win32::Foundation::Metadata::RetVal] service: *mut INetFwService) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-inetfwservices-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] newEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingconfiguration")]
+                interface INetSharingConfiguration: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-get_sharingenabled")]
+                    fn get_SharingEnabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-get_sharingconnectiontype")]
+                    fn get_SharingConnectionType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pType: *mut SHARINGCONNECTIONTYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-disablesharing")]
+                    fn DisableSharing(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-enablesharing")]
+                    fn EnableSharing(&self, Type: SHARINGCONNECTIONTYPE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-get_internetfirewallenabled")]
+                    fn get_InternetFirewallEnabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbEnabled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-disableinternetfirewall")]
+                    fn DisableInternetFirewall(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-enableinternetfirewall")]
+                    fn EnableInternetFirewall(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-get_enumportmappings")]
+                    fn get_EnumPortMappings(&self, Flags: SHARINGCONNECTION_ENUM_FLAGS, #[Windows::Win32::Foundation::Metadata::RetVal] ppColl: *mut INetSharingPortMappingCollection) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-addportmapping")]
+                    fn AddPortMapping(&self, bstrName: super::super::Foundation::BSTR, ucIPProtocol: u8, usExternalPort: u16, usInternalPort: u16, dwOptions: u32, bstrTargetNameOrIPAddress: super::super::Foundation::BSTR, eTargetType: ICS_TARGETTYPE, #[Windows::Win32::Foundation::Metadata::RetVal] ppMapping: *mut INetSharingPortMapping) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingconfiguration-removeportmapping")]
+                    fn RemovePortMapping(&self, pMapping: INetSharingPortMapping) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingeveryconnectioncollection")]
+                interface INetSharingEveryConnectionCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingeveryconnectioncollection-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingeveryconnectioncollection-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingmanager")]
+                interface INetSharingManager: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_sharinginstalled")]
+                    fn get_SharingInstalled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbInstalled: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_enumpublicconnections")]
+                    fn get_EnumPublicConnections(&self, Flags: SHARINGCONNECTION_ENUM_FLAGS, #[Windows::Win32::Foundation::Metadata::RetVal] ppColl: *mut INetSharingPublicConnectionCollection) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_enumprivateconnections")]
+                    fn get_EnumPrivateConnections(&self, Flags: SHARINGCONNECTION_ENUM_FLAGS, #[Windows::Win32::Foundation::Metadata::RetVal] ppColl: *mut INetSharingPrivateConnectionCollection) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_inetsharingconfigurationforinetconnection")]
+                    fn get_INetSharingConfigurationForINetConnection(&self, pNetConnection: INetConnection, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetSharingConfiguration: *mut INetSharingConfiguration) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_enumeveryconnection")]
+                    fn get_EnumEveryConnection(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppColl: *mut INetSharingEveryConnectionCollection) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingmanager-get_netconnectionprops")]
+                    fn get_NetConnectionProps(&self, pNetConnection: INetConnection, #[Windows::Win32::Foundation::Metadata::RetVal] ppProps: *mut INetConnectionProps) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingportmapping")]
+                interface INetSharingPortMapping: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmapping-disable")]
+                    fn Disable(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmapping-enable")]
+                    fn Enable(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmapping-get_properties")]
+                    fn get_Properties(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNSPMP: *mut INetSharingPortMappingProps) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmapping-delete")]
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingportmappingcollection")]
+                interface INetSharingPortMappingCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingcollection-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingcollection-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingportmappingprops")]
+                interface INetSharingPortMappingProps: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_name")]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_ipprotocol")]
+                    fn get_IPProtocol(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pucIPProt: *mut u8) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_externalport")]
+                    fn get_ExternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pusPort: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_internalport")]
+                    fn get_InternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pusPort: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_options")]
+                    fn get_Options(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pdwOptions: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_targetname")]
+                    fn get_TargetName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrTargetName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_targetipaddress")]
+                    fn get_TargetIPAddress(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrTargetIPAddress: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingportmappingprops-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbool: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingprivateconnectioncollection")]
+                interface INetSharingPrivateConnectionCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingprivateconnectioncollection-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingprivateconnectioncollection-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nn-netcon-inetsharingpublicconnectioncollection")]
+                interface INetSharingPublicConnectionCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingpublicconnectioncollection-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-inetsharingpublicconnectioncollection-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-istaticportmapping")]
+                interface IStaticPortMapping: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_externalipaddress")]
+                    fn get_ExternalIPAddress(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_externalport")]
+                    fn get_ExternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_internalport")]
+                    fn get_InternalPort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_protocol")]
+                    fn get_Protocol(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_internalclient")]
+                    fn get_InternalClient(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_enabled")]
+                    fn get_Enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-get_description")]
+                    fn get_Description(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-editinternalclient")]
+                    fn EditInternalClient(&self, bstrInternalClient: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-enable")]
+                    fn Enable(&self, vb: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-editdescription")]
+                    fn EditDescription(&self, bstrDescription: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmapping-editinternalport")]
+                    fn EditInternalPort(&self, lInternalPort: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-istaticportmappingcollection")]
+                interface IStaticPortMappingCollection: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmappingcollection-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmappingcollection-get_item")]
+                    fn get_Item(&self, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppSPM: *mut IStaticPortMapping) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmappingcollection-get_count")]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmappingcollection-remove")]
+                    fn Remove(&self, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-istaticportmappingcollection-add")]
+                    fn Add(&self, lExternalPort: i32, bstrProtocol: super::super::Foundation::BSTR, lInternalPort: i32, bstrInternalClient: super::super::Foundation::BSTR, bEnabled: super::super::Foundation::VARIANT_BOOL, bstrDescription: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppSPM: *mut IStaticPortMapping) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-iupnpnat")]
+                interface IUPnPNAT: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-iupnpnat-get_staticportmappingcollection")]
+                    fn get_StaticPortMappingCollection(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSPMs: *mut IStaticPortMappingCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nn-natupnp-iupnpnat")]
+                    fn get_DynamicPortMappingCollection(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppDPMs: *mut IDynamicPortMappingCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/natupnp/nf-natupnp-iupnpnat-get_nateventmanager")]
+                    fn get_NATEventManager(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNEM: *mut INATEventManager) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                enum NETCONMGR_ENUM_FLAGS {
+                    NCME_DEFAULT = 0,
+                    NCME_HIDDEN = 1,
+                }
+                #[repr(i32)]
+                enum NETCONUI_CONNECT_FLAGS {
+                    NCUC_DEFAULT = 0,
+                    NCUC_NO_UI = 1,
+                    NCUC_ENABLE_DISABLE = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ne-netcon-netcon_characteristic_flags")]
+                enum NETCON_CHARACTERISTIC_FLAGS {
+                    NCCF_NONE = 0,
+                    NCCF_ALL_USERS = 1,
+                    NCCF_ALLOW_DUPLICATION = 2,
+                    NCCF_ALLOW_REMOVAL = 4,
+                    NCCF_ALLOW_RENAME = 8,
+                    NCCF_INCOMING_ONLY = 32,
+                    NCCF_OUTGOING_ONLY = 64,
+                    NCCF_BRANDED = 128,
+                    NCCF_SHARED = 256,
+                    NCCF_BRIDGED = 512,
+                    NCCF_FIREWALLED = 1024,
+                    NCCF_DEFAULT = 2048,
+                    NCCF_HOMENET_CAPABLE = 4096,
+                    NCCF_SHARED_PRIVATE = 8192,
+                    NCCF_QUARANTINED = 16384,
+                    NCCF_RESERVED = 32768,
+                    NCCF_HOSTED_NETWORK = 65536,
+                    NCCF_VIRTUAL_STATION = 131072,
+                    NCCF_WIFI_DIRECT = 262144,
+                    NCCF_BLUETOOTH_MASK = 983040,
+                    NCCF_LAN_MASK = 15728640,
+                }
+                const NETCON_MAX_NAME_LEN: u32 = 256;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ne-netcon-netcon_mediatype")]
+                enum NETCON_MEDIATYPE {
+                    NCM_NONE = 0,
+                    NCM_DIRECT = 1,
+                    NCM_ISDN = 2,
+                    NCM_LAN = 3,
+                    NCM_PHONE = 4,
+                    NCM_TUNNEL = 5,
+                    NCM_PPPOE = 6,
+                    NCM_BRIDGE = 7,
+                    NCM_SHAREDACCESSHOST_LAN = 8,
+                    NCM_SHAREDACCESSHOST_RAS = 9,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ns-netcon-netcon_properties")]
+                struct NETCON_PROPERTIES {
+                    guidId: GUID,
+                    pszwName: super::super::Foundation::PWSTR,
+                    pszwDeviceName: super::super::Foundation::PWSTR,
+                    Status: NETCON_STATUS,
+                    MediaType: NETCON_MEDIATYPE,
+                    dwCharacter: u32,
+                    clsidThisObject: GUID,
+                    clsidUiObject: GUID,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ne-netcon-netcon_status")]
+                enum NETCON_STATUS {
+                    NCS_DISCONNECTED = 0,
+                    NCS_CONNECTING = 1,
+                    NCS_CONNECTED = 2,
+                    NCS_DISCONNECTING = 3,
+                    NCS_HARDWARE_NOT_PRESENT = 4,
+                    NCS_HARDWARE_DISABLED = 5,
+                    NCS_HARDWARE_MALFUNCTION = 6,
+                    NCS_MEDIA_DISCONNECTED = 7,
+                    NCS_AUTHENTICATING = 8,
+                    NCS_AUTHENTICATION_SUCCEEDED = 9,
+                    NCS_AUTHENTICATION_FAILED = 10,
+                    NCS_INVALID_ADDRESS = 11,
+                    NCS_CREDENTIALS_REQUIRED = 12,
+                    NCS_ACTION_REQUIRED = 13,
+                    NCS_ACTION_REQUIRED_RETRY = 14,
+                    NCS_CONNECT_FAILED = 15,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ne-netcon-netcon_type")]
+                enum NETCON_TYPE {
+                    NCT_DIRECT_CONNECT = 0,
+                    NCT_INBOUND = 1,
+                    NCT_INTERNET = 2,
+                    NCT_LAN = 3,
+                    NCT_PHONE = 4,
+                    NCT_TUNNEL = 5,
+                    NCT_BRIDGE = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-netiso_error_type")]
+                enum NETISO_ERROR_TYPE {
+                    NETISO_ERROR_TYPE_NONE = 0,
+                    NETISO_ERROR_TYPE_PRIVATE_NETWORK = 1,
+                    NETISO_ERROR_TYPE_INTERNET_CLIENT = 2,
+                    NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER = 3,
+                    NETISO_ERROR_TYPE_MAX = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/ne-netfw-netiso_flag")]
+                enum NETISO_FLAG {
+                    NETISO_FLAG_FORCE_COMPUTE_BINARIES = 1,
+                    NETISO_FLAG_MAX = 2,
+                }
+                const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2;
+                const NETISO_GEID_FOR_WDAG: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_action")]
+                enum NET_FW_ACTION {
+                    NET_FW_ACTION_BLOCK = 0,
+                    NET_FW_ACTION_ALLOW = 1,
+                    NET_FW_ACTION_MAX = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_authenticate_type")]
+                enum NET_FW_AUTHENTICATE_TYPE {
+                    NET_FW_AUTHENTICATE_NONE = 0,
+                    NET_FW_AUTHENTICATE_NO_ENCAPSULATION = 1,
+                    NET_FW_AUTHENTICATE_WITH_INTEGRITY = 2,
+                    NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION = 3,
+                    NET_FW_AUTHENTICATE_AND_ENCRYPT = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_edge_traversal_type")]
+                enum NET_FW_EDGE_TRAVERSAL_TYPE {
+                    NET_FW_EDGE_TRAVERSAL_TYPE_DENY = 0,
+                    NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW = 1,
+                    NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP = 2,
+                    NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_ip_protocol")]
+                enum NET_FW_IP_PROTOCOL {
+                    NET_FW_IP_PROTOCOL_TCP = 6,
+                    NET_FW_IP_PROTOCOL_UDP = 17,
+                    NET_FW_IP_PROTOCOL_ANY = 256,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_ip_version")]
+                enum NET_FW_IP_VERSION {
+                    NET_FW_IP_VERSION_V4 = 0,
+                    NET_FW_IP_VERSION_V6 = 1,
+                    NET_FW_IP_VERSION_ANY = 2,
+                    NET_FW_IP_VERSION_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_modify_state")]
+                enum NET_FW_MODIFY_STATE {
+                    NET_FW_MODIFY_STATE_OK = 0,
+                    NET_FW_MODIFY_STATE_GP_OVERRIDE = 1,
+                    NET_FW_MODIFY_STATE_INBOUND_BLOCKED = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_policy_type")]
+                enum NET_FW_POLICY_TYPE {
+                    NET_FW_POLICY_GROUP = 0,
+                    NET_FW_POLICY_LOCAL = 1,
+                    NET_FW_POLICY_EFFECTIVE = 2,
+                    NET_FW_POLICY_TYPE_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_profile_type")]
+                enum NET_FW_PROFILE_TYPE {
+                    NET_FW_PROFILE_DOMAIN = 0,
+                    NET_FW_PROFILE_STANDARD = 1,
+                    NET_FW_PROFILE_CURRENT = 2,
+                    NET_FW_PROFILE_TYPE_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_profile_type2")]
+                enum NET_FW_PROFILE_TYPE2 {
+                    NET_FW_PROFILE2_DOMAIN = 1,
+                    NET_FW_PROFILE2_PRIVATE = 2,
+                    NET_FW_PROFILE2_PUBLIC = 4,
+                    NET_FW_PROFILE2_ALL = 2147483647,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_rule_category")]
+                enum NET_FW_RULE_CATEGORY {
+                    NET_FW_RULE_CATEGORY_BOOT = 0,
+                    NET_FW_RULE_CATEGORY_STEALTH = 1,
+                    NET_FW_RULE_CATEGORY_FIREWALL = 2,
+                    NET_FW_RULE_CATEGORY_CONSEC = 3,
+                    NET_FW_RULE_CATEGORY_MAX = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_rule_direction")]
+                enum NET_FW_RULE_DIRECTION {
+                    NET_FW_RULE_DIR_IN = 1,
+                    NET_FW_RULE_DIR_OUT = 2,
+                    NET_FW_RULE_DIR_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_scope")]
+                enum NET_FW_SCOPE {
+                    NET_FW_SCOPE_ALL = 0,
+                    NET_FW_SCOPE_LOCAL_SUBNET = 1,
+                    NET_FW_SCOPE_CUSTOM = 2,
+                    NET_FW_SCOPE_MAX = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icftypes/ne-icftypes-net_fw_service_type")]
+                enum NET_FW_SERVICE_TYPE {
+                    NET_FW_SERVICE_FILE_AND_PRINT = 0,
+                    NET_FW_SERVICE_UPNP = 1,
+                    NET_FW_SERVICE_REMOTE_DESKTOP = 2,
+                    NET_FW_SERVICE_NONE = 3,
+                    NET_FW_SERVICE_TYPE_MAX = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ncfreenetconproperties")]
+                #[library("Netshell.dll")]
+                extern fn NcFreeNetconProperties(pProps: *mut NETCON_PROPERTIES);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/nf-netcon-ncisvalidconnectionname")]
+                #[library("Netshell.dll")]
+                extern fn NcIsValidConnectionName(pszwName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Guid(3969402547, 10082, 19051, 162, 20, 106, 203, 96, 52, 98, 210)]
+                struct NetFwAuthorizedApplication {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810346818, 28217, 16600, 148, 58, 185, 19, 196, 12, 156, 212)]
+                struct NetFwMgr {}
+                #[Windows::Win32::Foundation::Metadata::Guid(212157894, 14253, 19052, 191, 146, 159, 118, 16, 6, 126, 245)]
+                struct NetFwOpenPort {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3803433343, 27361, 16812, 129, 122, 246, 249, 33, 102, 215, 221)]
+                struct NetFwPolicy2 {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2641649368, 50452, 19741, 191, 66, 117, 31, 237, 45, 90, 199)]
+                struct NetFwProduct {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3424192411, 33394, 19827, 187, 112, 205, 181, 51, 82, 123, 97)]
+                struct NetFwProducts {}
+                #[Windows::Win32::Foundation::Metadata::Guid(744211518, 13161, 19507, 171, 12, 190, 148, 105, 103, 122, 244)]
+                struct NetFwRule {}
+                #[Windows::Win32::Foundation::Metadata::Guid(1550041517, 14678, 20472, 132, 134, 64, 3, 71, 88, 49, 91)]
+                struct NetSharingManager {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationdiagnoseconnectfailureandgetinfo")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszServerName: super::super::Foundation::PWSTR, netIsoError: *mut NETISO_ERROR_TYPE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationenumappcontainers")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationEnumAppContainers(Flags: u32, pdwNumPublicAppCs: *mut u32, ppPublicAppCs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationenumerateappcontainerrules")]
+                #[library("Firewallapi.dll")]
+                extern fn NetworkIsolationEnumerateAppContainerRules(newEnum: *mut super::super::System::Ole::IEnumVARIANT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationfreeappcontainers")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationFreeAppContainers(pPublicAppCs: *mut INET_FIREWALL_APP_CONTAINER) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationgetappcontainerconfig")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationGetAppContainerConfig(pdwNumPublicAppCs: *mut u32, appContainerSids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationgetenterpriseidasync")]
+                #[library("Firewallapi.dll")]
+                extern fn NetworkIsolationGetEnterpriseIdAsync(wszServerName: super::super::Foundation::PWSTR, dwFlags: u32, context: *mut void, callback: PNETISO_EDP_ID_CALLBACK_FN, hOperation: *mut super::super::Foundation::HANDLE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationgetenterpriseidclose")]
+                #[library("Firewallapi.dll")]
+                extern fn NetworkIsolationGetEnterpriseIdClose(hOperation: super::super::Foundation::HANDLE, bWaitForOperation: super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationregisterforappcontainerchanges")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *mut void, registrationObject: *mut super::super::Foundation::HANDLE) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationsetappcontainerconfig")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationSetAppContainerConfig(dwNumPublicAppCs: u32, appContainerSids: *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationsetupappcontainerbinaries")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationSetupAppContainerBinaries(applicationContainerSid: super::super::Security::PSID, packageFullName: super::super::Foundation::PWSTR, packageFolder: super::super::Foundation::PWSTR, displayName: super::super::Foundation::PWSTR, bBinariesFullyComputed: super::super::Foundation::BOOL, binaries: *mut super::super::Foundation::PWSTR, binariesCount: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netfw/nf-netfw-networkisolationunregisterforappcontainerchanges")]
+                #[library("api-ms-win-net-isolation-l1-1-0.dll")]
+                extern fn NetworkIsolationUnregisterForAppContainerChanges(registrationObject: super::super::Foundation::HANDLE) -> u32;
+                extern fn PAC_CHANGES_CALLBACK_FN(context: *mut void, pChange: *mut INET_FIREWALL_AC_CHANGE);
+                extern fn PFN_FWADDDYNAMICKEYWORDADDRESS0(dynamicKeywordAddress: *mut FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32;
+                extern fn PFN_FWDELETEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID) -> u32;
+                extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0(dynamicKeywordAddressId: GUID, dynamicKeywordAddressData: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+                extern fn PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0(flags: u32, dynamicKeywordAddressData: *mut *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+                extern fn PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0(dynamicKeywordAddressData: *mut FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32;
+                extern fn PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(dynamicKeywordAddressId: GUID, updatedAddresses: super::super::Foundation::PWSTR, append: super::super::Foundation::BOOL) -> u32;
+                extern fn PNETISO_EDP_ID_CALLBACK_FN(context: *mut void, wszEnterpriseId: super::super::Foundation::PWSTR, dwErr: u32);
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netcon/ne-netcon-sharingconnectiontype")]
+                enum SHARINGCONNECTIONTYPE {
+                    ICSSHARINGTYPE_PUBLIC = 0,
+                    ICSSHARINGTYPE_PRIVATE = 1,
+                }
+                #[repr(i32)]
+                enum SHARINGCONNECTION_ENUM_FLAGS {
+                    ICSSC_DEFAULT = 0,
+                    ICSSC_ENABLED = 1,
+                }
+                const S_OBJECT_NO_LONGER_VALID: super::super::Foundation::HRESULT = 2;
+                #[Windows::Win32::Foundation::Metadata::Guid(2921201834, 16341, 16444, 138, 39, 43, 189, 195, 12, 208, 225)]
+                struct UPnPNAT {}
+            }
+        }
+    }
+}

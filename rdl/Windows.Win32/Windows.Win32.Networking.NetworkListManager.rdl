@@ -1,0 +1,310 @@
+mod Windows {
+    mod Win32 {
+        mod Networking {
+            #[win32]
+            mod NetworkListManager {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-ienumnetworkconnections")]
+                interface IEnumNetworkConnections: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworkconnections-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumVar: *mut super::super::System::Ole::IEnumVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworkconnections-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut INetworkConnection, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworkconnections-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworkconnections-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworkconnections-clone")]
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumNetwork: *mut IEnumNetworkConnections) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-ienumnetworks")]
+                interface IEnumNetworks: super::super::System::Com::IDispatch {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworks-get__newenum")]
+                    fn get__NewEnum(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumVar: *mut super::super::System::Ole::IEnumVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworks-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut INetwork, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworks-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworks-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-ienumnetworks-clone")]
+                    fn Clone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumNetwork: *mut IEnumNetworks) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetwork")]
+                interface INetwork: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getname")]
+                    fn GetName(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pszNetworkName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-setname")]
+                    fn SetName(&self, szNetworkNewName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getdescription")]
+                    fn GetDescription(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pszDescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-setdescription")]
+                    fn SetDescription(&self, szDescription: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getnetworkid")]
+                    fn GetNetworkId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pgdGuidNetworkId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getdomaintype")]
+                    fn GetDomainType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pNetworkType: *mut NLM_DOMAIN_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getnetworkconnections")]
+                    fn GetNetworkConnections(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumNetworkConnection: *mut IEnumNetworkConnections) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-gettimecreatedandconnected")]
+                    fn GetTimeCreatedAndConnected(&self, pdwLowDateTimeCreated: *mut u32, pdwHighDateTimeCreated: *mut u32, pdwLowDateTimeConnected: *mut u32, pdwHighDateTimeConnected: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-get_isconnectedtointernet")]
+                    fn get_IsConnectedToInternet(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-get_isconnected")]
+                    fn get_IsConnected(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getconnectivity")]
+                    fn GetConnectivity(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pConnectivity: *mut NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-getcategory")]
+                    fn GetCategory(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCategory: *mut NLM_NETWORK_CATEGORY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork-setcategory")]
+                    fn SetCategory(&self, NewCategory: NLM_NETWORK_CATEGORY) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetwork2")]
+                interface INetwork2: INetwork {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetwork2-isdomainauthenticatedby")]
+                    fn IsDomainAuthenticatedBy(&self, domainAuthenticationKind: NLM_DOMAIN_AUTHENTICATION_KIND, #[Windows::Win32::Foundation::Metadata::RetVal] pValue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkconnection")]
+                interface INetworkConnection: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-getnetwork")]
+                    fn GetNetwork(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetwork: *mut INetwork) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-get_isconnectedtointernet")]
+                    fn get_IsConnectedToInternet(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-get_isconnected")]
+                    fn get_IsConnected(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-getconnectivity")]
+                    fn GetConnectivity(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pConnectivity: *mut NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-getconnectionid")]
+                    fn GetConnectionId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pgdConnectionId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-getadapterid")]
+                    fn GetAdapterId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pgdAdapterId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection-getdomaintype")]
+                    fn GetDomainType(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pDomainType: *mut NLM_DOMAIN_TYPE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkconnection2")]
+                interface INetworkConnection2: INetworkConnection {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnection2-isdomainauthenticatedby")]
+                    fn IsDomainAuthenticatedBy(&self, domainAuthenticationKind: NLM_DOMAIN_AUTHENTICATION_KIND, pValue: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkconnectioncost")]
+                interface INetworkConnectionCost: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectioncost-getcost")]
+                    fn GetCost(&self, pCost: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectioncost-getdataplanstatus")]
+                    fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkconnectioncostevents")]
+                interface INetworkConnectionCostEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectioncostevents-connectioncostchanged")]
+                    fn ConnectionCostChanged(&self, connectionId: GUID, newCost: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectioncostevents-connectiondataplanstatuschanged")]
+                    fn ConnectionDataPlanStatusChanged(&self, connectionId: GUID) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkconnectionevents")]
+                interface INetworkConnectionEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectionevents-networkconnectionconnectivitychanged")]
+                    fn NetworkConnectionConnectivityChanged(&self, connectionId: GUID, newConnectivity: NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkconnectionevents-networkconnectionpropertychanged")]
+                    fn NetworkConnectionPropertyChanged(&self, connectionId: GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkcostmanager")]
+                interface INetworkCostManager: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkcostmanager-getcost")]
+                    fn GetCost(&self, pCost: *mut u32, pDestIPAddr: *mut NLM_SOCKADDR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkcostmanager-getdataplanstatus")]
+                    fn GetDataPlanStatus(&self, pDataPlanStatus: *mut NLM_DATAPLAN_STATUS, pDestIPAddr: *mut NLM_SOCKADDR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkcostmanager-setdestinationaddresses")]
+                    fn SetDestinationAddresses(&self, length: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pDestIPAddrList: *mut NLM_SOCKADDR, bAppend: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkcostmanagerevents")]
+                interface INetworkCostManagerEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkcostmanagerevents-costchanged")]
+                    fn CostChanged(&self, newCost: u32, pDestAddr: *mut NLM_SOCKADDR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkcostmanagerevents-dataplanstatuschanged")]
+                    fn DataPlanStatusChanged(&self, pDestAddr: *mut NLM_SOCKADDR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworkevents")]
+                interface INetworkEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkevents-networkadded")]
+                    fn NetworkAdded(&self, networkId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkevents-networkdeleted")]
+                    fn NetworkDeleted(&self, networkId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkevents-networkconnectivitychanged")]
+                    fn NetworkConnectivityChanged(&self, networkId: GUID, newConnectivity: NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworkevents-networkpropertychanged")]
+                    fn NetworkPropertyChanged(&self, networkId: GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworklistmanager")]
+                interface INetworkListManager: super::super::System::Com::IDispatch {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-getnetworks")]
+                    fn GetNetworks(&self, Flags: NLM_ENUM_NETWORK, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnumNetwork: *mut IEnumNetworks) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-getnetwork")]
+                    fn GetNetwork(&self, gdNetworkId: GUID, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetwork: *mut INetwork) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-getnetworkconnections")]
+                    fn GetNetworkConnections(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppEnum: *mut IEnumNetworkConnections) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-getnetworkconnection")]
+                    fn GetNetworkConnection(&self, gdNetworkConnectionId: GUID, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetworkConnection: *mut INetworkConnection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-get_isconnectedtointernet")]
+                    fn get_IsConnectedToInternet(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-get_isconnected")]
+                    fn get_IsConnected(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbIsConnected: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-getconnectivity")]
+                    fn GetConnectivity(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pConnectivity: *mut NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-setsimulatedprofileinfo")]
+                    fn SetSimulatedProfileInfo(&self, pSimulatedInfo: *mut NLM_SIMULATED_PROFILE_INFO) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanager-clearsimulatedprofileinfo")]
+                    fn ClearSimulatedProfileInfo(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nn-netlistmgr-inetworklistmanagerevents")]
+                interface INetworkListManagerEvents: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/nf-netlistmgr-inetworklistmanagerevents-connectivitychanged")]
+                    fn ConnectivityChanged(&self, newConnectivity: NLM_CONNECTIVITY) -> super::super::Foundation::HRESULT;
+                }
+                const NA_AllowMerge: String = "NA_AllowMerge";
+                const NA_CategoryReadOnly: String = "NA_CategoryReadOnly";
+                const NA_CategorySetByPolicy: String = "NA_CategorySetByPolicy";
+                const NA_DescriptionReadOnly: String = "NA_DescriptionReadOnly";
+                const NA_DescriptionSetByPolicy: String = "NA_DescriptionSetByPolicy";
+                const NA_DomainAuthenticationFailed: String = "NA_DomainAuthenticationFailed";
+                const NA_IconReadOnly: String = "NA_IconReadOnly";
+                const NA_IconSetByPolicy: String = "NA_IconSetByPolicy";
+                const NA_InternetConnectivityV4: String = "NA_InternetConnectivityV4";
+                const NA_InternetConnectivityV6: String = "NA_InternetConnectivityV6";
+                const NA_NameReadOnly: String = "NA_NameReadOnly";
+                const NA_NameSetByPolicy: String = "NA_NameSetByPolicy";
+                const NA_NetworkClass: String = "NA_NetworkClass";
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_connection_cost")]
+                enum NLM_CONNECTION_COST {
+                    NLM_CONNECTION_COST_UNKNOWN = 0,
+                    NLM_CONNECTION_COST_UNRESTRICTED = 1,
+                    NLM_CONNECTION_COST_FIXED = 2,
+                    NLM_CONNECTION_COST_VARIABLE = 4,
+                    NLM_CONNECTION_COST_OVERDATALIMIT = 65536,
+                    NLM_CONNECTION_COST_CONGESTED = 131072,
+                    NLM_CONNECTION_COST_ROAMING = 262144,
+                    NLM_CONNECTION_COST_APPROACHINGDATALIMIT = 524288,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_connection_property_change")]
+                enum NLM_CONNECTION_PROPERTY_CHANGE {
+                    NLM_CONNECTION_PROPERTY_CHANGE_AUTHENTICATION = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_connectivity")]
+                enum NLM_CONNECTIVITY {
+                    NLM_CONNECTIVITY_DISCONNECTED = 0,
+                    NLM_CONNECTIVITY_IPV4_NOTRAFFIC = 1,
+                    NLM_CONNECTIVITY_IPV6_NOTRAFFIC = 2,
+                    NLM_CONNECTIVITY_IPV4_SUBNET = 16,
+                    NLM_CONNECTIVITY_IPV4_LOCALNETWORK = 32,
+                    NLM_CONNECTIVITY_IPV4_INTERNET = 64,
+                    NLM_CONNECTIVITY_IPV6_SUBNET = 256,
+                    NLM_CONNECTIVITY_IPV6_LOCALNETWORK = 512,
+                    NLM_CONNECTIVITY_IPV6_INTERNET = 1024,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ns-netlistmgr-nlm_dataplan_status")]
+                struct NLM_DATAPLAN_STATUS {
+                    InterfaceGuid: GUID,
+                    UsageData: NLM_USAGE_DATA,
+                    DataLimitInMegabytes: u32,
+                    InboundBandwidthInKbps: u32,
+                    OutboundBandwidthInKbps: u32,
+                    NextBillingCycle: super::super::Foundation::FILETIME,
+                    MaxTransferSizeInMegabytes: u32,
+                    Reserved: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_domain_authentication_kind")]
+                enum NLM_DOMAIN_AUTHENTICATION_KIND {
+                    NLM_DOMAIN_AUTHENTICATION_KIND_NONE = 0,
+                    NLM_DOMAIN_AUTHENTICATION_KIND_LDAP = 1,
+                    NLM_DOMAIN_AUTHENTICATION_KIND_TLS = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_domain_type")]
+                enum NLM_DOMAIN_TYPE {
+                    NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK = 0,
+                    NLM_DOMAIN_TYPE_DOMAIN_NETWORK = 1,
+                    NLM_DOMAIN_TYPE_DOMAIN_AUTHENTICATED = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_enum_network")]
+                enum NLM_ENUM_NETWORK {
+                    NLM_ENUM_NETWORK_CONNECTED = 1,
+                    NLM_ENUM_NETWORK_DISCONNECTED = 2,
+                    NLM_ENUM_NETWORK_ALL = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_internet_connectivity")]
+                enum NLM_INTERNET_CONNECTIVITY {
+                    NLM_INTERNET_CONNECTIVITY_WEBHIJACK = 1,
+                    NLM_INTERNET_CONNECTIVITY_PROXIED = 2,
+                    NLM_INTERNET_CONNECTIVITY_CORPORATE = 4,
+                }
+                const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_network_category")]
+                enum NLM_NETWORK_CATEGORY {
+                    NLM_NETWORK_CATEGORY_PUBLIC = 0,
+                    NLM_NETWORK_CATEGORY_PRIVATE = 1,
+                    NLM_NETWORK_CATEGORY_DOMAIN_AUTHENTICATED = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_network_class")]
+                enum NLM_NETWORK_CLASS {
+                    NLM_NETWORK_IDENTIFYING = 1,
+                    NLM_NETWORK_IDENTIFIED = 2,
+                    NLM_NETWORK_UNIDENTIFIED = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ne-netlistmgr-nlm_network_property_change")]
+                enum NLM_NETWORK_PROPERTY_CHANGE {
+                    NLM_NETWORK_PROPERTY_CHANGE_CONNECTION = 1,
+                    NLM_NETWORK_PROPERTY_CHANGE_DESCRIPTION = 2,
+                    NLM_NETWORK_PROPERTY_CHANGE_NAME = 4,
+                    NLM_NETWORK_PROPERTY_CHANGE_ICON = 8,
+                    NLM_NETWORK_PROPERTY_CHANGE_CATEGORY_VALUE = 16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ns-netlistmgr-nlm_simulated_profile_info")]
+                struct NLM_SIMULATED_PROFILE_INFO {
+                    ProfileName: [u16; 256],
+                    cost: NLM_CONNECTION_COST,
+                    UsageInMegabytes: u32,
+                    DataLimitInMegabytes: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ns-netlistmgr-nlm_sockaddr")]
+                struct NLM_SOCKADDR {
+                    data: [u8; 128],
+                }
+                const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netlistmgr/ns-netlistmgr-nlm_usage_data")]
+                struct NLM_USAGE_DATA {
+                    UsageInMegabytes: u32,
+                    LastSyncTime: super::super::Foundation::FILETIME,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3702524929, 22287, 19099, 141, 105, 25, 159, 219, 165, 114, 59)]
+                struct NetworkListManager {}
+            }
+        }
+    }
+}

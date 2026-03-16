@@ -1,0 +1,170 @@
+mod Windows {
+    mod Web {
+        mod Http {
+            #[winrt]
+            mod Filters {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IHttpBaseProtocolFilterStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                class HttpBaseProtocolFilter {
+                    #[default]
+                    IHttpBaseProtocolFilter,
+                    IHttpBaseProtocolFilter2,
+                    IHttpBaseProtocolFilter3,
+                    IHttpBaseProtocolFilter4,
+                    IHttpBaseProtocolFilter5,
+                    IHttpFilter,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                class HttpCacheControl {
+                    #[default]
+                    IHttpCacheControl,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum HttpCacheReadBehavior {
+                    Default = 0,
+                    MostRecent = 1,
+                    OnlyFromCache = 2,
+                    NoCache = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum HttpCacheWriteBehavior {
+                    Default = 0,
+                    NoCache = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                enum HttpCookieUsageBehavior {
+                    Default = 0,
+                    NoCookies = 1,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class HttpServerCustomValidationRequestedEventArgs {
+                    #[default]
+                    IHttpServerCustomValidationRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                interface IHttpBaseProtocolFilter {
+                    #[special]
+                    fn get_AllowAutoRedirect(&self) -> bool;
+                    #[special]
+                    fn put_AllowAutoRedirect(&self, value: bool);
+                    #[special]
+                    fn get_AllowUI(&self) -> bool;
+                    #[special]
+                    fn put_AllowUI(&self, value: bool);
+                    #[special]
+                    fn get_AutomaticDecompression(&self) -> bool;
+                    #[special]
+                    fn put_AutomaticDecompression(&self, value: bool);
+                    #[special]
+                    fn get_CacheControl(&self) -> HttpCacheControl;
+                    #[special]
+                    fn get_CookieManager(&self) -> super::HttpCookieManager;
+                    #[special]
+                    fn get_ClientCertificate(&self) -> super::super::super::Security::Cryptography::Certificates::Certificate;
+                    #[special]
+                    fn put_ClientCertificate(&self, value: super::super::super::Security::Cryptography::Certificates::Certificate);
+                    #[special]
+                    fn get_IgnorableServerCertificateErrors(&self) -> super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>;
+                    #[special]
+                    fn get_MaxConnectionsPerServer(&self) -> u32;
+                    #[special]
+                    fn put_MaxConnectionsPerServer(&self, value: u32);
+                    #[special]
+                    fn get_ProxyCredential(&self) -> super::super::super::Security::Credentials::PasswordCredential;
+                    #[special]
+                    fn put_ProxyCredential(&self, value: super::super::super::Security::Credentials::PasswordCredential);
+                    #[special]
+                    fn get_ServerCredential(&self) -> super::super::super::Security::Credentials::PasswordCredential;
+                    #[special]
+                    fn put_ServerCredential(&self, value: super::super::super::Security::Credentials::PasswordCredential);
+                    #[special]
+                    fn get_UseProxy(&self) -> bool;
+                    #[special]
+                    fn put_UseProxy(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHttpBaseProtocolFilter2 {
+                    #[special]
+                    fn get_MaxVersion(&self) -> super::HttpVersion;
+                    #[special]
+                    fn put_MaxVersion(&self, value: super::HttpVersion);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                interface IHttpBaseProtocolFilter3 {
+                    #[special]
+                    fn get_CookieUsageBehavior(&self) -> HttpCookieUsageBehavior;
+                    #[special]
+                    fn put_CookieUsageBehavior(&self, value: HttpCookieUsageBehavior);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IHttpBaseProtocolFilter4 {
+                    #[special]
+                    fn add_ServerCustomValidationRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<HttpBaseProtocolFilter, HttpServerCustomValidationRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ServerCustomValidationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn ClearAuthenticationCache(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IHttpBaseProtocolFilter5 {
+                    #[special]
+                    fn get_User(&self) -> super::super::super::System::User;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IHttpBaseProtocolFilterStatics {
+                    fn CreateForUser(&self, user: super::super::super::System::User) -> HttpBaseProtocolFilter;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpCacheControl)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHttpCacheControl {
+                    #[special]
+                    fn get_ReadBehavior(&self) -> HttpCacheReadBehavior;
+                    #[special]
+                    fn put_ReadBehavior(&self, value: HttpCacheReadBehavior);
+                    #[special]
+                    fn get_WriteBehavior(&self) -> HttpCacheWriteBehavior;
+                    #[special]
+                    fn put_WriteBehavior(&self, value: HttpCacheWriteBehavior);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHttpFilter: super::super::super::Foundation::IClosable {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SendRequestAsync(&self, request: super::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpServerCustomValidationRequestedEventArgs)]
+                interface IHttpServerCustomValidationRequestedEventArgs {
+                    #[special]
+                    fn get_RequestMessage(&self) -> super::HttpRequestMessage;
+                    #[special]
+                    fn get_ServerCertificate(&self) -> super::super::super::Security::Cryptography::Certificates::Certificate;
+                    #[special]
+                    fn get_ServerCertificateErrorSeverity(&self) -> super::super::super::Networking::Sockets::SocketSslErrorSeverity;
+                    #[special]
+                    fn get_ServerCertificateErrors(&self) -> super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>;
+                    #[special]
+                    fn get_ServerIntermediateCertificates(&self) -> super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>;
+                    fn Reject(&self);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+            }
+        }
+    }
+}

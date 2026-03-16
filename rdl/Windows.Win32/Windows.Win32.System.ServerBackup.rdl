@@ -1,0 +1,76 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod ServerBackup {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nn-wsbapp-iwsbapplicationasync")]
+                interface IWsbApplicationAsync: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationasync-querystatus")]
+                    fn QueryStatus(&self, phrResult: *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationasync-abort")]
+                    fn Abort(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nn-wsbapp-iwsbapplicationbackupsupport")]
+                interface IWsbApplicationBackupSupport: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationbackupsupport-checkconsistency")]
+                    fn CheckConsistency(&self, wszWriterMetadata: super::super::Foundation::PWSTR, wszComponentName: super::super::Foundation::PWSTR, wszComponentLogicalPath: super::super::Foundation::PWSTR, cVolumes: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] rgwszSourceVolumePath: *mut super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] rgwszSnapshotVolumePath: *mut super::super::Foundation::PWSTR, ppAsync: *mut IWsbApplicationAsync) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nn-wsbapp-iwsbapplicationrestoresupport")]
+                interface IWsbApplicationRestoreSupport: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationrestoresupport-prerestore")]
+                    fn PreRestore(&self, wszWriterMetadata: super::super::Foundation::PWSTR, wszComponentName: super::super::Foundation::PWSTR, wszComponentLogicalPath: super::super::Foundation::PWSTR, bNoRollForward: super::super::Foundation::BOOLEAN) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationrestoresupport-postrestore")]
+                    fn PostRestore(&self, wszWriterMetadata: super::super::Foundation::PWSTR, wszComponentName: super::super::Foundation::PWSTR, wszComponentLogicalPath: super::super::Foundation::PWSTR, bNoRollForward: super::super::Foundation::BOOLEAN) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationrestoresupport-ordercomponents")]
+                    fn OrderComponents(&self, cComponents: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgComponentName: *mut super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgComponentLogicalPaths: *mut super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] prgComponentName: *mut *mut super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] prgComponentLogicalPath: *mut *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbapp/nf-wsbapp-iwsbapplicationrestoresupport-isrollforwardsupported")]
+                    fn IsRollForwardSupported(&self, pbRollForwardSupported: *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                const WSBAPP_ASYNC_IN_PROGRESS: super::super::Foundation::HRESULT = 7995396;
+                const WSB_MAX_OB_STATUS_ENTRY: u32 = 5;
+                const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbonline/ns-wsbonline-wsb_ob_registration_info")]
+                struct WSB_OB_REGISTRATION_INFO {
+                    m_wszResourceDLL: super::super::Foundation::PWSTR,
+                    m_guidSnapinId: GUID,
+                    m_dwProviderName: u32,
+                    m_dwProviderIcon: u32,
+                    m_bSupportsRemoting: super::super::Foundation::BOOLEAN,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbonline/ns-wsbonline-wsb_ob_status_entry")]
+                struct WSB_OB_STATUS_ENTRY {
+                    m_dwIcon: u32,
+                    m_dwStatusEntryName: u32,
+                    m_dwStatusEntryValue: u32,
+                    m_cValueTypePair: u32,
+                    m_rgValueTypePair: *mut WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbonline/ne-wsbonline-wsb_ob_status_entry_pair_type")]
+                enum WSB_OB_STATUS_ENTRY_PAIR_TYPE {
+                    WSB_OB_ET_UNDEFINED = 0,
+                    WSB_OB_ET_STRING = 1,
+                    WSB_OB_ET_NUMBER = 2,
+                    WSB_OB_ET_DATETIME = 3,
+                    WSB_OB_ET_TIME = 4,
+                    WSB_OB_ET_SIZE = 5,
+                    WSB_OB_ET_MAX = 6,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbonline/ns-wsbonline-wsb_ob_status_entry_value_type_pair")]
+                struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
+                    m_wszObStatusEntryPairValue: super::super::Foundation::PWSTR,
+                    m_ObStatusEntryPairType: WSB_OB_STATUS_ENTRY_PAIR_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wsbonline/ns-wsbonline-wsb_ob_status_info")]
+                struct WSB_OB_STATUS_INFO {
+                    m_guidSnapinId: GUID,
+                    m_cStatusEntry: u32,
+                    m_rgStatusEntry: *mut WSB_OB_STATUS_ENTRY,
+                }
+            }
+        }
+    }
+}

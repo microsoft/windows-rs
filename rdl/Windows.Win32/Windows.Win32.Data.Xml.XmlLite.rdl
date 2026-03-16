@@ -1,0 +1,270 @@
+mod Windows {
+    mod Win32 {
+        mod Data {
+            mod Xml {
+                #[win32]
+                mod XmlLite {
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlReader(riid: *mut GUID, ppvObject: *mut *mut void, pMalloc: super::super::super::System::Com::IMalloc) -> super::super::super::Foundation::HRESULT;
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlReaderInputWithEncodingCodePage(pInputStream: super::super::super::System::Com::IUnknown, pMalloc: super::super::super::System::Com::IMalloc, nEncodingCodePage: u32, fEncodingHint: super::super::super::Foundation::BOOL, pwszBaseUri: super::super::super::Foundation::PWSTR, ppInput: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlReaderInputWithEncodingName(pInputStream: super::super::super::System::Com::IUnknown, pMalloc: super::super::super::System::Com::IMalloc, pwszEncodingName: super::super::super::Foundation::PWSTR, fEncodingHint: super::super::super::Foundation::BOOL, pwszBaseUri: super::super::super::Foundation::PWSTR, ppInput: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlWriter(riid: *mut GUID, ppvObject: *mut *mut void, pMalloc: super::super::super::System::Com::IMalloc) -> super::super::super::Foundation::HRESULT;
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlWriterOutputWithEncodingCodePage(pOutputStream: super::super::super::System::Com::IUnknown, pMalloc: super::super::super::System::Com::IMalloc, nEncodingCodePage: u32, ppOutput: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    #[library("XmlLite.dll")]
+                    extern fn CreateXmlWriterOutputWithEncodingName(pOutputStream: super::super::super::System::Com::IUnknown, pMalloc: super::super::super::System::Com::IMalloc, pwszEncodingName: super::super::super::Foundation::PWSTR, ppOutput: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    #[repr(i32)]
+                    enum DtdProcessing {
+                        DtdProcessing_Prohibit = 0,
+                        DtdProcessing_Parse = 1,
+                        _DtdProcessing_Last = 1,
+                    }
+                    interface IXmlReader: super::super::super::System::Com::IUnknown {
+                        fn SetInput(&self, pInput: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> super::super::super::Foundation::HRESULT;
+                        fn SetProperty(&self, nProperty: u32, pValue: isize) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        fn Read(&self, pNodeType: *mut XmlNodeType) -> super::super::super::Foundation::HRESULT;
+                        fn GetNodeType(&self, pNodeType: *mut XmlNodeType) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        fn MoveToFirstAttribute(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        fn MoveToNextAttribute(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        fn MoveToAttributeByName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszLocalName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszNamespaceUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn MoveToElement(&self) -> super::super::super::Foundation::HRESULT;
+                        fn GetQualifiedName(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszQualifiedName: *mut super::super::super::Foundation::PWSTR, pcwchQualifiedName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetNamespaceUri(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszNamespaceUri: *mut super::super::super::Foundation::PWSTR, pcwchNamespaceUri: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetLocalName(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszLocalName: *mut super::super::super::Foundation::PWSTR, pcwchLocalName: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetPrefix(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszPrefix: *mut super::super::super::Foundation::PWSTR, pcwchPrefix: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszValue: *mut super::super::super::Foundation::PWSTR, pcwchValue: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        fn ReadValueChunk(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pwchBuffer: super::super::super::Foundation::PWSTR, cwchChunkSize: u32, pcwchRead: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetBaseUri(&self, #[Windows::Win32::Foundation::Metadata::Const] ppwszBaseUri: *mut super::super::super::Foundation::PWSTR, pcwchBaseUri: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn IsDefault(&self) -> super::super::super::Foundation::BOOL;
+                        fn IsEmptyElement(&self) -> super::super::super::Foundation::BOOL;
+                        fn GetLineNumber(&self, pnLineNumber: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetLinePosition(&self, pnLinePosition: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetAttributeCount(&self, pnAttributeCount: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetDepth(&self, pnDepth: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn IsEOF(&self) -> super::super::super::Foundation::BOOL;
+                    }
+                    interface IXmlResolver: super::super::super::System::Com::IUnknown {
+                        fn ResolveUri(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszBaseUri: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszPublicIdentifier: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszSystemIdentifier: super::super::super::Foundation::PWSTR, ppResolvedInput: *mut super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IXmlWriter: super::super::super::System::Com::IUnknown {
+                        fn SetOutput(&self, pOutput: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> super::super::super::Foundation::HRESULT;
+                        fn SetProperty(&self, nProperty: u32, pValue: isize) -> super::super::super::Foundation::HRESULT;
+                        fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteAttributeString(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszPrefix: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszLocalName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszNamespaceUri: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszValue: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteCData(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteCharEntity(&self, wch: u16) -> super::super::super::Foundation::HRESULT;
+                        fn WriteChars(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwch: super::super::super::Foundation::PWSTR, cwch: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteComment(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszComment: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteDocType(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszPublicId: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszSystemId: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszSubset: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteElementString(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszPrefix: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszLocalName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszNamespaceUri: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszValue: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEndDocument(&self) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEndElement(&self) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEntityRef(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteFullEndElement(&self) -> super::super::super::Foundation::HRESULT;
+                        fn WriteName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNmToken(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszNmToken: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteProcessingInstruction(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteQualifiedName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszLocalName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszNamespaceUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteRaw(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszData: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteRawChars(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwch: super::super::super::Foundation::PWSTR, cwch: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteStartDocument(&self, standalone: XmlStandalone) -> super::super::super::Foundation::HRESULT;
+                        fn WriteStartElement(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszPrefix: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszLocalName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszNamespaceUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteString(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> super::super::super::Foundation::HRESULT;
+                        fn WriteWhitespace(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszWhitespace: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn Flush(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IXmlWriterLite: super::super::super::System::Com::IUnknown {
+                        fn SetOutput(&self, pOutput: super::super::super::System::Com::IUnknown) -> super::super::super::Foundation::HRESULT;
+                        fn GetProperty(&self, nProperty: u32, ppValue: *mut isize) -> super::super::super::Foundation::HRESULT;
+                        fn SetProperty(&self, nProperty: u32, pValue: isize) -> super::super::super::Foundation::HRESULT;
+                        fn WriteAttributes(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteAttributeString(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwszQName: super::super::super::Foundation::PWSTR, cwszQName: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] pwszValue: super::super::super::Foundation::PWSTR, cwszValue: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteCData(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteCharEntity(&self, wch: u16) -> super::super::super::Foundation::HRESULT;
+                        fn WriteChars(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwch: super::super::super::Foundation::PWSTR, cwch: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteComment(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszComment: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteDocType(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszPublicId: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszSystemId: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszSubset: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteElementString(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwszQName: super::super::super::Foundation::PWSTR, cwszQName: u32, #[Windows::Win32::Foundation::Metadata::Const] pwszValue: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEndDocument(&self) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEndElement(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwszQName: super::super::super::Foundation::PWSTR, cwszQName: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteEntityRef(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteFullEndElement(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwszQName: super::super::super::Foundation::PWSTR, cwszQName: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteName(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNmToken(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszNmToken: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNode(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteNodeShallow(&self, pReader: IXmlReader, fWriteDefaultAttributes: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn WriteProcessingInstruction(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteRaw(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszData: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteRawChars(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwch: super::super::super::Foundation::PWSTR, cwch: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteStartDocument(&self, standalone: XmlStandalone) -> super::super::super::Foundation::HRESULT;
+                        fn WriteStartElement(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pwszQName: super::super::super::Foundation::PWSTR, cwszQName: u32) -> super::super::super::Foundation::HRESULT;
+                        fn WriteString(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszText: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn WriteSurrogateCharEntity(&self, wchLow: u16, wchHigh: u16) -> super::super::super::Foundation::HRESULT;
+                        fn WriteWhitespace(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszWhitespace: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn Flush(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[repr(i32)]
+                    enum XmlConformanceLevel {
+                        XmlConformanceLevel_Auto = 0,
+                        XmlConformanceLevel_Fragment = 1,
+                        XmlConformanceLevel_Document = 2,
+                        _XmlConformanceLevel_Last = 2,
+                    }
+                    #[repr(i32)]
+                    enum XmlError {
+                        MX_E_MX = -1072894464,
+                        MX_E_INPUTEND = -1072894463,
+                        MX_E_ENCODING = -1072894462,
+                        MX_E_ENCODINGSWITCH = -1072894461,
+                        MX_E_ENCODINGSIGNATURE = -1072894460,
+                        WC_E_WC = -1072894432,
+                        WC_E_WHITESPACE = -1072894431,
+                        WC_E_SEMICOLON = -1072894430,
+                        WC_E_GREATERTHAN = -1072894429,
+                        WC_E_QUOTE = -1072894428,
+                        WC_E_EQUAL = -1072894427,
+                        WC_E_LESSTHAN = -1072894426,
+                        WC_E_HEXDIGIT = -1072894425,
+                        WC_E_DIGIT = -1072894424,
+                        WC_E_LEFTBRACKET = -1072894423,
+                        WC_E_LEFTPAREN = -1072894422,
+                        WC_E_XMLCHARACTER = -1072894421,
+                        WC_E_NAMECHARACTER = -1072894420,
+                        WC_E_SYNTAX = -1072894419,
+                        WC_E_CDSECT = -1072894418,
+                        WC_E_COMMENT = -1072894417,
+                        WC_E_CONDSECT = -1072894416,
+                        WC_E_DECLATTLIST = -1072894415,
+                        WC_E_DECLDOCTYPE = -1072894414,
+                        WC_E_DECLELEMENT = -1072894413,
+                        WC_E_DECLENTITY = -1072894412,
+                        WC_E_DECLNOTATION = -1072894411,
+                        WC_E_NDATA = -1072894410,
+                        WC_E_PUBLIC = -1072894409,
+                        WC_E_SYSTEM = -1072894408,
+                        WC_E_NAME = -1072894407,
+                        WC_E_ROOTELEMENT = -1072894406,
+                        WC_E_ELEMENTMATCH = -1072894405,
+                        WC_E_UNIQUEATTRIBUTE = -1072894404,
+                        WC_E_TEXTXMLDECL = -1072894403,
+                        WC_E_LEADINGXML = -1072894402,
+                        WC_E_TEXTDECL = -1072894401,
+                        WC_E_XMLDECL = -1072894400,
+                        WC_E_ENCNAME = -1072894399,
+                        WC_E_PUBLICID = -1072894398,
+                        WC_E_PESINTERNALSUBSET = -1072894397,
+                        WC_E_PESBETWEENDECLS = -1072894396,
+                        WC_E_NORECURSION = -1072894395,
+                        WC_E_ENTITYCONTENT = -1072894394,
+                        WC_E_UNDECLAREDENTITY = -1072894393,
+                        WC_E_PARSEDENTITY = -1072894392,
+                        WC_E_NOEXTERNALENTITYREF = -1072894391,
+                        WC_E_PI = -1072894390,
+                        WC_E_SYSTEMID = -1072894389,
+                        WC_E_QUESTIONMARK = -1072894388,
+                        WC_E_CDSECTEND = -1072894387,
+                        WC_E_MOREDATA = -1072894386,
+                        WC_E_DTDPROHIBITED = -1072894385,
+                        WC_E_INVALIDXMLSPACE = -1072894384,
+                        NC_E_NC = -1072894368,
+                        NC_E_QNAMECHARACTER = -1072894367,
+                        NC_E_QNAMECOLON = -1072894366,
+                        NC_E_NAMECOLON = -1072894365,
+                        NC_E_DECLAREDPREFIX = -1072894364,
+                        NC_E_UNDECLAREDPREFIX = -1072894363,
+                        NC_E_EMPTYURI = -1072894362,
+                        NC_E_XMLPREFIXRESERVED = -1072894361,
+                        NC_E_XMLNSPREFIXRESERVED = -1072894360,
+                        NC_E_XMLURIRESERVED = -1072894359,
+                        NC_E_XMLNSURIRESERVED = -1072894358,
+                        SC_E_SC = -1072894336,
+                        SC_E_MAXELEMENTDEPTH = -1072894335,
+                        SC_E_MAXENTITYEXPANSION = -1072894334,
+                        WR_E_WR = -1072894208,
+                        WR_E_NONWHITESPACE = -1072894207,
+                        WR_E_NSPREFIXDECLARED = -1072894206,
+                        WR_E_NSPREFIXWITHEMPTYNSURI = -1072894205,
+                        WR_E_DUPLICATEATTRIBUTE = -1072894204,
+                        WR_E_XMLNSPREFIXDECLARATION = -1072894203,
+                        WR_E_XMLPREFIXDECLARATION = -1072894202,
+                        WR_E_XMLURIDECLARATION = -1072894201,
+                        WR_E_XMLNSURIDECLARATION = -1072894200,
+                        WR_E_NAMESPACEUNDECLARED = -1072894199,
+                        WR_E_INVALIDXMLSPACE = -1072894198,
+                        WR_E_INVALIDACTION = -1072894197,
+                        WR_E_INVALIDSURROGATEPAIR = -1072894196,
+                        XML_E_INVALID_DECIMAL = -1072898019,
+                        XML_E_INVALID_HEXIDECIMAL = -1072898018,
+                        XML_E_INVALID_UNICODE = -1072898017,
+                        XML_E_INVALIDENCODING = -1072897938,
+                    }
+                    #[repr(i32)]
+                    enum XmlNodeType {
+                        XmlNodeType_None = 0,
+                        XmlNodeType_Element = 1,
+                        XmlNodeType_Attribute = 2,
+                        XmlNodeType_Text = 3,
+                        XmlNodeType_CDATA = 4,
+                        XmlNodeType_ProcessingInstruction = 7,
+                        XmlNodeType_Comment = 8,
+                        XmlNodeType_DocumentType = 10,
+                        XmlNodeType_Whitespace = 13,
+                        XmlNodeType_EndElement = 15,
+                        XmlNodeType_XmlDeclaration = 17,
+                        _XmlNodeType_Last = 17,
+                    }
+                    #[repr(i32)]
+                    enum XmlReadState {
+                        XmlReadState_Initial = 0,
+                        XmlReadState_Interactive = 1,
+                        XmlReadState_Error = 2,
+                        XmlReadState_EndOfFile = 3,
+                        XmlReadState_Closed = 4,
+                    }
+                    #[repr(i32)]
+                    enum XmlReaderProperty {
+                        XmlReaderProperty_MultiLanguage = 0,
+                        XmlReaderProperty_ConformanceLevel = 1,
+                        XmlReaderProperty_RandomAccess = 2,
+                        XmlReaderProperty_XmlResolver = 3,
+                        XmlReaderProperty_DtdProcessing = 4,
+                        XmlReaderProperty_ReadState = 5,
+                        XmlReaderProperty_MaxElementDepth = 6,
+                        XmlReaderProperty_MaxEntityExpansion = 7,
+                        _XmlReaderProperty_Last = 7,
+                    }
+                    #[repr(i32)]
+                    enum XmlStandalone {
+                        XmlStandalone_Omit = 0,
+                        XmlStandalone_Yes = 1,
+                        XmlStandalone_No = 2,
+                        _XmlStandalone_Last = 2,
+                    }
+                    #[repr(i32)]
+                    enum XmlWriterProperty {
+                        XmlWriterProperty_MultiLanguage = 0,
+                        XmlWriterProperty_Indent = 1,
+                        XmlWriterProperty_ByteOrderMark = 2,
+                        XmlWriterProperty_OmitXmlDeclaration = 3,
+                        XmlWriterProperty_ConformanceLevel = 4,
+                        XmlWriterProperty_CompactEmptyElement = 5,
+                        _XmlWriterProperty_Last = 5,
+                    }
+                }
+            }
+        }
+    }
+}

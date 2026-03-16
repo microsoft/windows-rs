@@ -1,0 +1,110 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod LockScreen {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
+            interface ILockApplicationHost {
+                fn RequestUnlock(&self);
+                #[special]
+                fn add_Unlocking(&self, handler: super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Unlocking(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
+            interface ILockApplicationHostStatics {
+                fn GetForCurrentView(&self) -> LockApplicationHost;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenBadge)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILockScreenBadge {
+                #[special]
+                fn get_Logo(&self) -> super::super::Storage::Streams::IRandomAccessStream;
+                #[special]
+                fn get_Glyph(&self) -> super::super::Storage::Streams::IRandomAccessStream;
+                #[special]
+                fn get_Number(&self) -> super::super::Foundation::IReference<u32>;
+                #[special]
+                fn get_AutomationName(&self) -> String;
+                fn LaunchApp(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenInfo)]
+            interface ILockScreenInfo {
+                #[special]
+                fn add_LockScreenImageChanged(&self, handler: super::super::Foundation::TypedEventHandler<LockScreenInfo, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_LockScreenImageChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_LockScreenImage(&self) -> super::super::Storage::Streams::IRandomAccessStream;
+                #[special]
+                fn add_BadgesChanged(&self, handler: super::super::Foundation::TypedEventHandler<LockScreenInfo, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_BadgesChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_Badges(&self) -> super::super::Foundation::Collections::IVectorView<LockScreenBadge>;
+                #[special]
+                fn add_DetailTextChanged(&self, handler: super::super::Foundation::TypedEventHandler<LockScreenInfo, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DetailTextChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_DetailText(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+                #[special]
+                fn add_AlarmIconChanged(&self, handler: super::super::Foundation::TypedEventHandler<LockScreenInfo, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AlarmIconChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_AlarmIcon(&self) -> super::super::Storage::Streams::IRandomAccessStream;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingDeferral)]
+            interface ILockScreenUnlockingDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingEventArgs)]
+            interface ILockScreenUnlockingEventArgs {
+                fn GetDeferral(&self) -> LockScreenUnlockingDeferral;
+                #[special]
+                fn get_Deadline(&self) -> super::super::Foundation::DateTime;
+            }
+            #[Windows::Foundation::Metadata::Static(ILockApplicationHostStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LockApplicationHost {
+                #[default]
+                ILockApplicationHost,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LockScreenBadge {
+                #[default]
+                ILockScreenBadge,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class LockScreenInfo {
+                #[default]
+                ILockScreenInfo,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LockScreenUnlockingDeferral {
+                #[default]
+                ILockScreenUnlockingDeferral,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LockScreenUnlockingEventArgs {
+                #[default]
+                ILockScreenUnlockingEventArgs,
+            }
+        }
+    }
+}

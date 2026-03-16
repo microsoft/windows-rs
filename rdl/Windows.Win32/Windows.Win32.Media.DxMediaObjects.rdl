@@ -1,0 +1,249 @@
+mod Windows {
+    mod Win32 {
+        mod Media {
+            #[win32]
+            mod DxMediaObjects {
+                const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: GUID = 0xbf963d80_c559_11d0_8a2b_00a0c9255ac1;
+                const DMOCATEGORY_AGC: GUID = 0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1;
+                const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: GUID = 0xf665aaba_3e09_4920_aa5f_219811148f09;
+                const DMOCATEGORY_AUDIO_DECODER: GUID = 0x57f2db8b_e6bb_4513_9d43_dcd2a6593125;
+                const DMOCATEGORY_AUDIO_EFFECT: GUID = 0xf3602b3f_0592_48df_a4cd_674721e7ebeb;
+                const DMOCATEGORY_AUDIO_ENCODER: GUID = 0x33d9a761_90c8_11d0_bd43_00a0c911ce86;
+                const DMOCATEGORY_AUDIO_NOISE_SUPPRESS: GUID = 0xe07f903f_62fd_4e60_8cdd_dea7236665b5;
+                const DMOCATEGORY_VIDEO_DECODER: GUID = 0x4a69b442_28be_4991_969c_b500adf5d8a8;
+                const DMOCATEGORY_VIDEO_EFFECT: GUID = 0xd990ee14_776c_4723_be46_3da2f56f10b9;
+                const DMOCATEGORY_VIDEO_ENCODER: GUID = 0x33d9a760_90c8_11d0_bd43_00a0c911ce86;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/nf-dmoreg-dmoenum")]
+                #[library("msdmo.dll")]
+                extern fn DMOEnum(guidCategory: *mut GUID, dwFlags: u32, cInTypes: u32, pInTypes: *mut DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *mut DMO_PARTIAL_MEDIATYPE, ppEnum: *mut IEnumDMO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/nf-dmoreg-dmogetname")]
+                #[library("msdmo.dll")]
+                extern fn DMOGetName(clsidDMO: *mut GUID, szName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/nf-dmoreg-dmogettypes")]
+                #[library("msdmo.dll")]
+                extern fn DMOGetTypes(clsidDMO: *mut GUID, ulInputTypesRequested: u32, pulInputTypesSupplied: *mut u32, pInputTypes: *mut DMO_PARTIAL_MEDIATYPE, ulOutputTypesRequested: u32, pulOutputTypesSupplied: *mut u32, pOutputTypes: *mut DMO_PARTIAL_MEDIATYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/nf-dmoreg-dmoregister")]
+                #[library("msdmo.dll")]
+                extern fn DMORegister(szName: super::super::Foundation::PWSTR, clsidDMO: *mut GUID, guidCategory: *mut GUID, dwFlags: u32, cInTypes: u32, pInTypes: *mut DMO_PARTIAL_MEDIATYPE, cOutTypes: u32, pOutTypes: *mut DMO_PARTIAL_MEDIATYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/nf-dmoreg-dmounregister")]
+                #[library("msdmo.dll")]
+                extern fn DMOUnregister(clsidDMO: *mut GUID, guidCategory: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/ne-dmoreg-dmo_enum_flags")]
+                enum DMO_ENUM_FLAGS {
+                    DMO_ENUMF_INCLUDE_KEYED = 1,
+                }
+                const DMO_E_INVALIDSTREAMINDEX: super::super::Foundation::HRESULT = -2147220991;
+                const DMO_E_INVALIDTYPE: super::super::Foundation::HRESULT = -2147220990;
+                const DMO_E_NOTACCEPTING: super::super::Foundation::HRESULT = -2147220988;
+                const DMO_E_NO_MORE_ITEMS: super::super::Foundation::HRESULT = -2147220986;
+                const DMO_E_TYPE_NOT_ACCEPTED: super::super::Foundation::HRESULT = -2147220987;
+                const DMO_E_TYPE_NOT_SET: super::super::Foundation::HRESULT = -2147220989;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ns-mediaobj-dmo_media_type")]
+                struct DMO_MEDIA_TYPE {
+                    majortype: GUID,
+                    subtype: GUID,
+                    bFixedSizeSamples: super::super::Foundation::BOOL,
+                    bTemporalCompression: super::super::Foundation::BOOL,
+                    lSampleSize: u32,
+                    formattype: GUID,
+                    pUnk: super::super::System::Com::IUnknown,
+                    cbFormat: u32,
+                    pbFormat: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ns-mediaobj-dmo_output_data_buffer")]
+                struct DMO_OUTPUT_DATA_BUFFER {
+                    pBuffer: IMediaBuffer,
+                    dwStatus: u32,
+                    rtTimestamp: i64,
+                    rtTimelength: i64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/ns-dmoreg-dmo_partial_mediatype")]
+                struct DMO_PARTIAL_MEDIATYPE {
+                    r#type: GUID,
+                    subtype: GUID,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmoreg/ne-dmoreg-dmo_register_flags")]
+                enum DMO_REGISTER_FLAGS {
+                    DMO_REGISTERF_IS_KEYED = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-idmoqualitycontrol")]
+                interface IDMOQualityControl: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmoqualitycontrol-setnow")]
+                    fn SetNow(&self, rtNow: i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmoqualitycontrol-setstatus")]
+                    fn SetStatus(&self, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmoqualitycontrol-getstatus")]
+                    fn GetStatus(&self, pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-idmovideooutputoptimizations")]
+                interface IDMOVideoOutputOptimizations: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmovideooutputoptimizations-queryoperationmodepreferences")]
+                    fn QueryOperationModePreferences(&self, ulOutputStreamIndex: u32, pdwRequestedCapabilities: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmovideooutputoptimizations-setoperationmode")]
+                    fn SetOperationMode(&self, ulOutputStreamIndex: u32, dwEnabledFeatures: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmovideooutputoptimizations-getcurrentoperationmode")]
+                    fn GetCurrentOperationMode(&self, ulOutputStreamIndex: u32, pdwEnabledFeatures: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-idmovideooutputoptimizations-getcurrentsamplerequirements")]
+                    fn GetCurrentSampleRequirements(&self, ulOutputStreamIndex: u32, pdwRequestedFeatures: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-ienumdmo")]
+                interface IEnumDMO: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-ienumdmo-next")]
+                    fn Next(&self, cItemsToFetch: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pCLSID: *mut GUID, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] Names: *mut super::super::Foundation::PWSTR, pcItemsFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-ienumdmo-skip")]
+                    fn Skip(&self, cItemsToSkip: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-ienumdmo-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-ienumdmo-clone")]
+                    fn Clone(&self, ppEnum: *mut IEnumDMO) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-imediabuffer")]
+                interface IMediaBuffer: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediabuffer-setlength")]
+                    fn SetLength(&self, cbLength: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediabuffer-getmaxlength")]
+                    fn GetMaxLength(&self, pcbMaxLength: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediabuffer-getbufferandlength")]
+                    fn GetBufferAndLength(&self, ppBuffer: *mut *mut u8, pcbLength: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-imediaobject")]
+                interface IMediaObject: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getstreamcount")]
+                    fn GetStreamCount(&self, pcInputStreams: *mut u32, pcOutputStreams: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputstreaminfo")]
+                    fn GetInputStreamInfo(&self, dwInputStreamIndex: u32, pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getoutputstreaminfo")]
+                    fn GetOutputStreamInfo(&self, dwOutputStreamIndex: u32, pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputtype")]
+                    fn GetInputType(&self, dwInputStreamIndex: u32, dwTypeIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getoutputtype")]
+                    fn GetOutputType(&self, dwOutputStreamIndex: u32, dwTypeIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-setinputtype")]
+                    fn SetInputType(&self, dwInputStreamIndex: u32, #[Windows::Win32::Foundation::Metadata::Const] pmt: *mut DMO_MEDIA_TYPE, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-setoutputtype")]
+                    fn SetOutputType(&self, dwOutputStreamIndex: u32, #[Windows::Win32::Foundation::Metadata::Const] pmt: *mut DMO_MEDIA_TYPE, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputcurrenttype")]
+                    fn GetInputCurrentType(&self, dwInputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getoutputcurrenttype")]
+                    fn GetOutputCurrentType(&self, dwOutputStreamIndex: u32, pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputsizeinfo")]
+                    fn GetInputSizeInfo(&self, dwInputStreamIndex: u32, pcbSize: *mut u32, pcbMaxLookahead: *mut u32, pcbAlignment: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getoutputsizeinfo")]
+                    fn GetOutputSizeInfo(&self, dwOutputStreamIndex: u32, pcbSize: *mut u32, pcbAlignment: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputmaxlatency")]
+                    fn GetInputMaxLatency(&self, dwInputStreamIndex: u32, prtMaxLatency: *mut i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-setinputmaxlatency")]
+                    fn SetInputMaxLatency(&self, dwInputStreamIndex: u32, rtMaxLatency: i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-flush")]
+                    fn Flush(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-discontinuity")]
+                    fn Discontinuity(&self, dwInputStreamIndex: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-allocatestreamingresources")]
+                    fn AllocateStreamingResources(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-freestreamingresources")]
+                    fn FreeStreamingResources(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-getinputstatus")]
+                    fn GetInputStatus(&self, dwInputStreamIndex: u32, dwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-processinput")]
+                    fn ProcessInput(&self, dwInputStreamIndex: u32, pBuffer: IMediaBuffer, dwFlags: u32, rtTimestamp: i64, rtTimelength: i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-processoutput")]
+                    fn ProcessOutput(&self, dwFlags: u32, cOutputBufferCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pOutputBuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwStatus: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobject-lock")]
+                    fn Lock(&self, bLock: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nn-mediaobj-imediaobjectinplace")]
+                interface IMediaObjectInPlace: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobjectinplace-process")]
+                    fn Process(&self, ulSize: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 0)] pData: *mut u8, refTimeStart: i64, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobjectinplace-clone")]
+                    fn Clone(&self, ppMediaObject: *mut IMediaObjectInPlace) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/nf-mediaobj-imediaobjectinplace-getlatency")]
+                    fn GetLatency(&self, pLatencyTime: *mut i64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-mocopymediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoCopyMediaType(pmtDest: *mut DMO_MEDIA_TYPE, pmtSrc: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-mocreatemediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbFormat: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-modeletemediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-moduplicatemediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoDuplicateMediaType(ppmtDest: *mut *mut DMO_MEDIA_TYPE, pmtSrc: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-mofreemediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dmort/nf-dmort-moinitmediatype")]
+                #[library("msdmo.dll")]
+                extern fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbFormat: u32) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum _DMO_INPLACE_PROCESS_FLAGS {
+                    DMO_INPLACE_NORMAL = 0,
+                    DMO_INPLACE_ZERO = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_input_data_buffer_flags")]
+                enum _DMO_INPUT_DATA_BUFFER_FLAGS {
+                    DMO_INPUT_DATA_BUFFERF_SYNCPOINT = 1,
+                    DMO_INPUT_DATA_BUFFERF_TIME = 2,
+                    DMO_INPUT_DATA_BUFFERF_TIMELENGTH = 4,
+                    DMO_INPUT_DATA_BUFFERF_DISCONTINUITY = 8,
+                }
+                #[repr(i32)]
+                enum _DMO_INPUT_STATUS_FLAGS {
+                    DMO_INPUT_STATUSF_ACCEPT_DATA = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_input_stream_info_flags")]
+                enum _DMO_INPUT_STREAM_INFO_FLAGS {
+                    DMO_INPUT_STREAMF_WHOLE_SAMPLES = 1,
+                    DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 2,
+                    DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE = 4,
+                    DMO_INPUT_STREAMF_HOLDS_BUFFERS = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_output_data_buffer_flags")]
+                enum _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+                    DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT = 1,
+                    DMO_OUTPUT_DATA_BUFFERF_TIME = 2,
+                    DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH = 4,
+                    DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY = 8,
+                    DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE = 16777216,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_output_stream_info_flags")]
+                enum _DMO_OUTPUT_STREAM_INFO_FLAGS {
+                    DMO_OUTPUT_STREAMF_WHOLE_SAMPLES = 1,
+                    DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER = 2,
+                    DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE = 4,
+                    DMO_OUTPUT_STREAMF_DISCARDABLE = 8,
+                    DMO_OUTPUT_STREAMF_OPTIONAL = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_process_output_flags")]
+                enum _DMO_PROCESS_OUTPUT_FLAGS {
+                    DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER = 1,
+                }
+                #[repr(i32)]
+                enum _DMO_QUALITY_STATUS_FLAGS {
+                    DMO_QUALITY_STATUS_ENABLED = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_set_type_flags")]
+                enum _DMO_SET_TYPE_FLAGS {
+                    DMO_SET_TYPEF_TEST_ONLY = 1,
+                    DMO_SET_TYPEF_CLEAR = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mediaobj/ne-mediaobj-_dmo_video_output_stream_flags")]
+                enum _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+                    DMO_VOSF_NEEDS_PREVIOUS_SAMPLE = 1,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,422 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Contacts {
+                const CGD_ARRAY_NODE: u32 = 8;
+                const CGD_BINARY_PROPERTY: u32 = 4;
+                const CGD_DATE_PROPERTY: u32 = 2;
+                const CGD_DEFAULT: u32 = 0;
+                const CGD_STRING_PROPERTY: u32 = 1;
+                const CGD_UNKNOWN_PROPERTY: u32 = 0;
+                const CLSID_ContactAggregationManager: GUID = 0x96c8ad95_c199_44de_b34e_ac33c442df39;
+                const CONTACTLABEL_PUB_AGENT: String = "Agent";
+                const CONTACTLABEL_PUB_BBS: String = "BBS";
+                const CONTACTLABEL_PUB_BUSINESS: String = "Business";
+                const CONTACTLABEL_PUB_CAR: String = "Car";
+                const CONTACTLABEL_PUB_CELLULAR: String = "Cellular";
+                const CONTACTLABEL_PUB_DOMESTIC: String = "Domestic";
+                const CONTACTLABEL_PUB_FAX: String = "Fax";
+                const CONTACTLABEL_PUB_INTERNATIONAL: String = "International";
+                const CONTACTLABEL_PUB_ISDN: String = "ISDN";
+                const CONTACTLABEL_PUB_LOGO: String = "Logo";
+                const CONTACTLABEL_PUB_MOBILE: String = "Mobile";
+                const CONTACTLABEL_PUB_MODEM: String = "Modem";
+                const CONTACTLABEL_PUB_OTHER: String = "Other";
+                const CONTACTLABEL_PUB_PAGER: String = "Pager";
+                const CONTACTLABEL_PUB_PARCEL: String = "Parcel";
+                const CONTACTLABEL_PUB_PCS: String = "PCS";
+                const CONTACTLABEL_PUB_PERSONAL: String = "Personal";
+                const CONTACTLABEL_PUB_POSTAL: String = "Postal";
+                const CONTACTLABEL_PUB_PREFERRED: String = "Preferred";
+                const CONTACTLABEL_PUB_TTY: String = "TTY";
+                const CONTACTLABEL_PUB_USERTILE: String = "UserTile";
+                const CONTACTLABEL_PUB_VIDEO: String = "Video";
+                const CONTACTLABEL_PUB_VOICE: String = "Voice";
+                const CONTACTLABEL_WAB_ANNIVERSARY: String = "wab:Anniversary";
+                const CONTACTLABEL_WAB_ASSISTANT: String = "wab:Assistant";
+                const CONTACTLABEL_WAB_BIRTHDAY: String = "wab:Birthday";
+                const CONTACTLABEL_WAB_CHILD: String = "wab:Child";
+                const CONTACTLABEL_WAB_MANAGER: String = "wab:Manager";
+                const CONTACTLABEL_WAB_SCHOOL: String = "wab:School";
+                const CONTACTLABEL_WAB_SOCIALNETWORK: String = "wab:SocialNetwork";
+                const CONTACTLABEL_WAB_SPOUSE: String = "wab:Spouse";
+                const CONTACTLABEL_WAB_WISHLIST: String = "wab:WishList";
+                const CONTACTPROP_PUB_CREATIONDATE: String = "CreationDate";
+                const CONTACTPROP_PUB_GENDER: String = "Gender";
+                const CONTACTPROP_PUB_GENDER_FEMALE: String = "Female";
+                const CONTACTPROP_PUB_GENDER_MALE: String = "Male";
+                const CONTACTPROP_PUB_GENDER_UNSPECIFIED: String = "Unspecified";
+                const CONTACTPROP_PUB_L1_CERTIFICATECOLLECTION: String = "CertificateCollection";
+                const CONTACTPROP_PUB_L1_CONTACTIDCOLLECTION: String = "ContactIDCollection";
+                const CONTACTPROP_PUB_L1_DATECOLLECTION: String = "DateCollection";
+                const CONTACTPROP_PUB_L1_EMAILADDRESSCOLLECTION: String = "EmailAddressCollection";
+                const CONTACTPROP_PUB_L1_IMADDRESSCOLLECTION: String = "IMAddressCollection";
+                const CONTACTPROP_PUB_L1_NAMECOLLECTION: String = "NameCollection";
+                const CONTACTPROP_PUB_L1_PERSONCOLLECTION: String = "PersonCollection";
+                const CONTACTPROP_PUB_L1_PHONENUMBERCOLLECTION: String = "PhoneNumberCollection";
+                const CONTACTPROP_PUB_L1_PHOTOCOLLECTION: String = "PhotoCollection";
+                const CONTACTPROP_PUB_L1_PHYSICALADDRESSCOLLECTION: String = "PhysicalAddressCollection";
+                const CONTACTPROP_PUB_L1_POSITIONCOLLECTION: String = "PositionCollection";
+                const CONTACTPROP_PUB_L1_URLCOLLECTION: String = "UrlCollection";
+                const CONTACTPROP_PUB_L2_CERTIFICATE: String = "/Certificate";
+                const CONTACTPROP_PUB_L2_CONTACTID: String = "/ContactID";
+                const CONTACTPROP_PUB_L2_DATE: String = "/Date";
+                const CONTACTPROP_PUB_L2_EMAILADDRESS: String = "/EmailAddress";
+                const CONTACTPROP_PUB_L2_IMADDRESSENTRY: String = "/IMAddress";
+                const CONTACTPROP_PUB_L2_NAME: String = "/Name";
+                const CONTACTPROP_PUB_L2_PERSON: String = "/Person";
+                const CONTACTPROP_PUB_L2_PHONENUMBER: String = "/PhoneNumber";
+                const CONTACTPROP_PUB_L2_PHOTO: String = "/Photo";
+                const CONTACTPROP_PUB_L2_PHYSICALADDRESS: String = "/PhysicalAddress";
+                const CONTACTPROP_PUB_L2_POSITION: String = "/Position";
+                const CONTACTPROP_PUB_L2_URL: String = "/Url";
+                const CONTACTPROP_PUB_L3_ADDRESS: String = "/Address";
+                const CONTACTPROP_PUB_L3_ADDRESSLABEL: String = "/AddressLabel";
+                const CONTACTPROP_PUB_L3_ALTERNATE: String = "/Alternate";
+                const CONTACTPROP_PUB_L3_COMPANY: String = "/Company";
+                const CONTACTPROP_PUB_L3_COUNTRY: String = "/Country";
+                const CONTACTPROP_PUB_L3_DEPARTMENT: String = "/Department";
+                const CONTACTPROP_PUB_L3_EXTENDEDADDRESS: String = "/ExtendedAddress";
+                const CONTACTPROP_PUB_L3_FAMILYNAME: String = "/FamilyName";
+                const CONTACTPROP_PUB_L3_FORMATTEDNAME: String = "/FormattedName";
+                const CONTACTPROP_PUB_L3_GENERATION: String = "/Generation";
+                const CONTACTPROP_PUB_L3_GIVENNAME: String = "/GivenName";
+                const CONTACTPROP_PUB_L3_JOB_TITLE: String = "/JobTitle";
+                const CONTACTPROP_PUB_L3_LOCALITY: String = "/Locality";
+                const CONTACTPROP_PUB_L3_MIDDLENAME: String = "/MiddleName";
+                const CONTACTPROP_PUB_L3_NICKNAME: String = "/NickName";
+                const CONTACTPROP_PUB_L3_NUMBER: String = "/Number";
+                const CONTACTPROP_PUB_L3_OFFICE: String = "/Office";
+                const CONTACTPROP_PUB_L3_ORGANIZATION: String = "/Organization";
+                const CONTACTPROP_PUB_L3_PERSONID: String = "/PersonID";
+                const CONTACTPROP_PUB_L3_PHONETIC: String = "/Phonetic";
+                const CONTACTPROP_PUB_L3_POBOX: String = "/POBox";
+                const CONTACTPROP_PUB_L3_POSTALCODE: String = "/PostalCode";
+                const CONTACTPROP_PUB_L3_PREFIX: String = "/Prefix";
+                const CONTACTPROP_PUB_L3_PROFESSION: String = "/Profession";
+                const CONTACTPROP_PUB_L3_PROTOCOL: String = "/Protocol";
+                const CONTACTPROP_PUB_L3_REGION: String = "/Region";
+                const CONTACTPROP_PUB_L3_ROLE: String = "/Role";
+                const CONTACTPROP_PUB_L3_STREET: String = "/Street";
+                const CONTACTPROP_PUB_L3_SUFFIX: String = "/Suffix";
+                const CONTACTPROP_PUB_L3_THUMBPRINT: String = "/ThumbPrint";
+                const CONTACTPROP_PUB_L3_TITLE: String = "/Title";
+                const CONTACTPROP_PUB_L3_TYPE: String = "/Type";
+                const CONTACTPROP_PUB_L3_URL: String = "/Url";
+                const CONTACTPROP_PUB_L3_VALUE: String = "/Value";
+                const CONTACTPROP_PUB_MAILER: String = "Mailer";
+                const CONTACTPROP_PUB_NOTES: String = "Notes";
+                const CONTACTPROP_PUB_PROGID: String = "ProgID";
+                struct CONTACT_AGGREGATION_BLOB {
+                    dwCount: u32,
+                    lpb: *mut u8,
+                }
+                #[repr(i32)]
+                enum CONTACT_AGGREGATION_COLLECTION_OPTIONS {
+                    CACO_DEFAULT = 0,
+                    CACO_INCLUDE_EXTERNAL = 1,
+                    CACO_EXTERNAL_ONLY = 2,
+                }
+                #[repr(i32)]
+                enum CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
+                    CA_CREATE_LOCAL = 0,
+                    CA_CREATE_EXTERNAL = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(1639352328, 36590, 20433, 172, 184, 61, 128, 76, 141, 176, 86)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/wpd_sdk/contact-properties")]
+                struct Contact {}
+                #[Windows::Win32::Foundation::Metadata::Guid(1902495915, 44936, 17085, 134, 253, 83, 16, 180, 40, 90, 2)]
+                struct ContactManager {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nn-icontact-icontact")]
+                interface IContact: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontact-getcontactid")]
+                    fn GetContactID(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pszContactID: super::super::Foundation::PWSTR, cchContactID: u32, pdwcchContactIDRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontact-getpath")]
+                    fn GetPath(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pszPath: super::super::Foundation::PWSTR, cchPath: u32, pdwcchPathRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontact-commitchanges")]
+                    fn CommitChanges(&self, dwCommitFlags: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationAggregate: super::Com::IUnknown {
+                    fn Save(&self) -> super::super::Foundation::HRESULT;
+                    fn GetComponentItems(&self, pComponentItems: *mut IContactAggregationContactCollection) -> super::super::Foundation::HRESULT;
+                    fn Link(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppGroups: *mut IContactAggregationGroupCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AntiLink(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAntiLink: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AntiLink(&self, #[Windows::Win32::Foundation::Metadata::Const] pAntiLink: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_FavoriteOrder(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pFavoriteOrder: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_FavoriteOrder(&self, favoriteOrder: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItemId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationAggregateCollection: super::Com::IUnknown {
+                    fn FindFirst(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAggregate: *mut IContactAggregationAggregate) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByAntiLinkId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAntiLinkId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppAggregate: *mut IContactAggregationAggregate) -> super::super::Foundation::HRESULT;
+                    fn FindNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAggregate: *mut IContactAggregationAggregate) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCount: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationContact: super::Com::IUnknown {
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                    fn Save(&self) -> super::super::Foundation::HRESULT;
+                    fn MoveToAggregate(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn Unlink(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AccountId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAccountId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AccountId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAccountId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AggregateId(&self, ppAggregateId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItemId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsMe(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pIsMe: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsExternal(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pIsExternal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_NetworkSourceId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pNetworkSourceId: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_NetworkSourceId(&self, networkSourceId: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_NetworkSourceIdString(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetworkSourceId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_NetworkSourceIdString(&self, #[Windows::Win32::Foundation::Metadata::Const] pNetworkSourceId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_RemoteObjectId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppRemoteObjectId: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_RemoteObjectId(&self, #[Windows::Win32::Foundation::Metadata::Const] pRemoteObjectId: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SyncIdentityHash(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSyncIdentityHash: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_SyncIdentityHash(&self, #[Windows::Win32::Foundation::Metadata::Const] pSyncIdentityHash: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationContactCollection: super::Com::IUnknown {
+                    fn FindFirst(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                    fn FindNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByIdentityHash(&self, #[Windows::Win32::Foundation::Metadata::Const] pSourceType: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pAccountId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pIdentityHash: *mut CONTACT_AGGREGATION_BLOB, #[Windows::Win32::Foundation::Metadata::RetVal] ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCount: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByRemoteId(&self, #[Windows::Win32::Foundation::Metadata::Const] pSourceType: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pAccountId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pRemoteObjectId: *mut CONTACT_AGGREGATION_BLOB, #[Windows::Win32::Foundation::Metadata::RetVal] ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationGroup: super::Com::IUnknown {
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                    fn Save(&self) -> super::super::Foundation::HRESULT;
+                    fn Add(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn Remove(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Members(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAggregateContactCollection: *mut IContactAggregationAggregateCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_GlobalObjectId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pGlobalObjectId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_GlobalObjectId(&self, #[Windows::Win32::Foundation::Metadata::Const] pGlobalObjectId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItemId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Name(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Name(&self, #[Windows::Win32::Foundation::Metadata::Const] pName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationGroupCollection: super::Com::IUnknown {
+                    fn FindFirst(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IContactAggregationGroup) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByGlobalObjectId(&self, #[Windows::Win32::Foundation::Metadata::Const] pGlobalObjectId: *mut GUID, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IContactAggregationGroup) -> super::super::Foundation::HRESULT;
+                    fn FindNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IContactAggregationGroup) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCount: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationLink: super::Com::IUnknown {
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                    fn Save(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AccountId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAccountId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AccountId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAccountId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItemId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsLinkResolved(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pIsLinkResolved: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_IsLinkResolved(&self, isLinkResolved: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_NetworkSourceIdString(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppNetworkSourceId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_NetworkSourceIdString(&self, #[Windows::Win32::Foundation::Metadata::Const] pNetworkSourceId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_RemoteObjectId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppRemoteObjectId: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_RemoteObjectId(&self, #[Windows::Win32::Foundation::Metadata::Const] pRemoteObjectId: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ServerPerson(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPersonId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ServerPerson(&self, #[Windows::Win32::Foundation::Metadata::Const] pServerPersonId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ServerPersonBaseline(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPersonId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ServerPersonBaseline(&self, #[Windows::Win32::Foundation::Metadata::Const] pServerPersonId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_SyncIdentityHash(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppSyncIdentityHash: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_SyncIdentityHash(&self, #[Windows::Win32::Foundation::Metadata::Const] pSyncIdentityHash: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationLinkCollection: super::Com::IUnknown {
+                    fn FindFirst(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerContactLink: *mut IContactAggregationLink) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByRemoteId(&self, #[Windows::Win32::Foundation::Metadata::Const] pSourceType: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pAccountId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pRemoteId: *mut CONTACT_AGGREGATION_BLOB, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerContactLink: *mut IContactAggregationLink) -> super::super::Foundation::HRESULT;
+                    fn FindNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerContactLink: *mut IContactAggregationLink) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCount: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationManager: super::Com::IUnknown {
+                    fn GetVersionInfo(&self, plMajorVersion: *mut i32, plMinorVersion: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn CreateOrOpenGroup(&self, #[Windows::Win32::Foundation::Metadata::Const] pGroupName: super::super::Foundation::PWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pCreatedGroup: *mut super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroup: *mut IContactAggregationGroup) -> super::super::Foundation::HRESULT;
+                    fn CreateExternalContact(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                    fn CreateServerPerson(&self, ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn CreateServerContactLink(&self, ppServerContactLink: *mut IContactAggregationLink) -> super::super::Foundation::HRESULT;
+                    fn Flush(&self) -> super::super::Foundation::HRESULT;
+                    fn OpenAggregateContact(&self, #[Windows::Win32::Foundation::Metadata::Const] pItemId: super::super::Foundation::PWSTR, ppItem: *mut IContactAggregationAggregate) -> super::super::Foundation::HRESULT;
+                    fn OpenContact(&self, #[Windows::Win32::Foundation::Metadata::Const] pItemId: super::super::Foundation::PWSTR, ppItem: *mut IContactAggregationContact) -> super::super::Foundation::HRESULT;
+                    fn OpenServerContactLink(&self, #[Windows::Win32::Foundation::Metadata::Const] pItemId: super::super::Foundation::PWSTR, ppItem: *mut IContactAggregationLink) -> super::super::Foundation::HRESULT;
+                    fn OpenServerPerson(&self, #[Windows::Win32::Foundation::Metadata::Const] pItemId: super::super::Foundation::PWSTR, ppItem: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn get_Contacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, #[Windows::Win32::Foundation::Metadata::RetVal] ppItems: *mut IContactAggregationContactCollection) -> super::super::Foundation::HRESULT;
+                    fn get_AggregateContacts(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppAggregates: *mut IContactAggregationAggregateCollection) -> super::super::Foundation::HRESULT;
+                    fn get_Groups(&self, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppGroups: *mut IContactAggregationGroupCollection) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ServerPersons(&self, ppServerPersonCollection: *mut IContactAggregationServerPersonCollection) -> super::super::Foundation::HRESULT;
+                    fn get_ServerContactLinks(&self, #[Windows::Win32::Foundation::Metadata::Const] pPersonItemId: super::super::Foundation::PWSTR, ppServerContactLinkCollection: *mut IContactAggregationLinkCollection) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationServerPerson: super::Com::IUnknown {
+                    fn Delete(&self) -> super::super::Foundation::HRESULT;
+                    fn Save(&self) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AggregateId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAggregateId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AggregateId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AntiLink(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAntiLink: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AntiLink(&self, #[Windows::Win32::Foundation::Metadata::Const] pAntiLink: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_AntiLinkBaseline(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppAntiLink: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_AntiLinkBaseline(&self, #[Windows::Win32::Foundation::Metadata::Const] pAntiLink: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_FavoriteOrder(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pFavoriteOrder: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_FavoriteOrder(&self, favoriteOrder: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_FavoriteOrderBaseline(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pFavoriteOrder: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_FavoriteOrderBaseline(&self, favoriteOrder: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Groups(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pGroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Groups(&self, #[Windows::Win32::Foundation::Metadata::Const] pGroups: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_GroupsBaseline(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppGroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_GroupsBaseline(&self, #[Windows::Win32::Foundation::Metadata::Const] pGroups: *mut CONTACT_AGGREGATION_BLOB) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Id(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_IsTombstone(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pIsTombstone: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_IsTombstone(&self, isTombstone: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_LinkedAggregateId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppLinkedAggregateId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_LinkedAggregateId(&self, #[Windows::Win32::Foundation::Metadata::Const] pLinkedAggregateId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ObjectId(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppObjectId: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ObjectId(&self, #[Windows::Win32::Foundation::Metadata::Const] pObjectId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IContactAggregationServerPersonCollection: super::Com::IUnknown {
+                    fn FindFirst(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByServerId(&self, #[Windows::Win32::Foundation::Metadata::Const] pServerId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByAggregateId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn FindFirstByLinkedAggregateId(&self, #[Windows::Win32::Foundation::Metadata::Const] pAggregateId: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    fn FindNext(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppServerPerson: *mut IContactAggregationServerPerson) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Count(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pCount: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nn-icontact-icontactcollection")]
+                interface IContactCollection: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactcollection-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactcollection-next")]
+                    fn Next(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactcollection-getcurrent")]
+                    fn GetCurrent(&self, ppContact: *mut IContact) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nn-icontact-icontactmanager")]
+                interface IContactManager: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-initialize")]
+                    fn Initialize(&self, #[Windows::Win32::Foundation::Metadata::Const] pszAppName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszAppVersion: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-load")]
+                    fn Load(&self, #[Windows::Win32::Foundation::Metadata::Const] pszContactID: super::super::Foundation::PWSTR, ppContact: *mut IContact) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-mergecontactids")]
+                    fn MergeContactIDs(&self, #[Windows::Win32::Foundation::Metadata::Const] pszNewContactID: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszOldContactID: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-getmecontact")]
+                    fn GetMeContact(&self, ppMeContact: *mut IContact) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-setmecontact")]
+                    fn SetMeContact(&self, pMeContact: IContact) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactmanager-getcontactcollection")]
+                    fn GetContactCollection(&self, ppContactCollection: *mut IContactCollection) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nn-icontact-icontactproperties")]
+                interface IContactProperties: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-getstring")]
+                    fn GetString(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] pszValue: super::super::Foundation::PWSTR, cchValue: u32, pdwcchPropertyValueRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-getdate")]
+                    fn GetDate(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, pftDateTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-getbinary")]
+                    fn GetBinary(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] pszContentType: super::super::Foundation::PWSTR, cchContentType: u32, pdwcchContentTypeRequired: *mut u32, ppStream: *mut super::Com::IStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-getlabels")]
+                    fn GetLabels(&self, #[Windows::Win32::Foundation::Metadata::Const] pszArrayElementName: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] #[out] pszLabels: super::super::Foundation::PWSTR, cchLabels: u32, pdwcchLabelsRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-setstring")]
+                    fn SetString(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] pszValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-setdate")]
+                    fn SetDate(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, ftDateTime: super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-setbinary")]
+                    fn SetBinary(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] pszContentType: super::super::Foundation::PWSTR, pStream: super::Com::IStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-setlabels")]
+                    fn SetLabels(&self, #[Windows::Win32::Foundation::Metadata::Const] pszArrayElementName: super::super::Foundation::PWSTR, dwFlags: u32, dwLabelCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] ppszLabels: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-createarraynode")]
+                    fn CreateArrayNode(&self, #[Windows::Win32::Foundation::Metadata::Const] pszArrayName: super::super::Foundation::PWSTR, dwFlags: u32, fAppend: super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] pszNewArrayElementName: super::super::Foundation::PWSTR, cchNewArrayElementName: u32, pdwcchNewArrayElementNameRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-deleteproperty")]
+                    fn DeleteProperty(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropertyName: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-deletearraynode")]
+                    fn DeleteArrayNode(&self, #[Windows::Win32::Foundation::Metadata::Const] pszArrayElementName: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-deletelabels")]
+                    fn DeleteLabels(&self, #[Windows::Win32::Foundation::Metadata::Const] pszArrayElementName: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactproperties-getpropertycollection")]
+                    fn GetPropertyCollection(&self, ppPropertyCollection: *mut IContactPropertyCollection, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] pszMultiValueName: super::super::Foundation::PWSTR, dwLabelCount: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppszLabels: *mut super::super::Foundation::PWSTR, fAnyLabelMatches: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nn-icontact-icontactpropertycollection")]
+                interface IContactPropertyCollection: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-next")]
+                    fn Next(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-getpropertyname")]
+                    fn GetPropertyName(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pszPropertyName: super::super::Foundation::PWSTR, cchPropertyName: u32, pdwcchPropertyNameRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-getpropertytype")]
+                    fn GetPropertyType(&self, pdwType: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-getpropertyversion")]
+                    fn GetPropertyVersion(&self, pdwVersion: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-getpropertymodificationdate")]
+                    fn GetPropertyModificationDate(&self, pftModificationDate: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/icontact/nf-icontact-icontactpropertycollection-getpropertyarrayelementid")]
+                    fn GetPropertyArrayElementID(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pszArrayElementID: super::super::Foundation::PWSTR, cchArrayElementID: u32, pdwcchArrayElementIDRequired: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

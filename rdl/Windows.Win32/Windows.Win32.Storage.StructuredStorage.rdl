@@ -1,0 +1,27 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod StructuredStorage {
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/extensible-storage-engine/jet-api-ptr")]
+                struct JET_API_PTR {
+                    Value: usize,
+                }
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/extensible-storage-engine/jet-handle")]
+                struct JET_HANDLE {
+                    Value: usize,
+                }
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/extensible-storage-engine/jet-tableid")]
+                struct JET_TABLEID {
+                    Value: usize,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                #[win32]
+                mod Printing {
+                    interface IPrintDocumentPageSource: super::super::Com::IUnknown {
+                        fn GetPreviewPageCollection(&self, docPackageTarget: super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget, docPageCollection: *mut IPrintPreviewPageCollection) -> super::super::super::Foundation::HRESULT;
+                        fn MakeDocument(&self, printTaskOptions: super::IInspectable, docPackageTarget: super::super::super::Storage::Xps::Printing::IPrintDocumentPackageTarget) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/printmanagerinterop/nn-printmanagerinterop-iprintmanagerinterop")]
+                    interface IPrintManagerInterop: super::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/printmanagerinterop/nf-printmanagerinterop-iprintmanagerinterop-getforwindow")]
+                        fn GetForWindow(&self, appWindow: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] printManager: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/printmanagerinterop/nf-printmanagerinterop-iprintmanagerinterop-showprintuiforwindowasync")]
+                        fn ShowPrintUIForWindowAsync(&self, appWindow: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintPreviewPageCollection: super::super::Com::IUnknown {
+                        fn Paginate(&self, currentJobPage: u32, printTaskOptions: super::IInspectable) -> super::super::super::Foundation::HRESULT;
+                        fn MakePage(&self, desiredJobPage: u32, width: f32, height: f32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintWorkflowConfigurationNative: super::super::Com::IUnknown {
+                        #[special]
+                        fn get_PrinterQueue(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::super::Graphics::Printing::IPrinterQueue) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        fn get_DriverProperties(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::super::Graphics::Printing::IPrinterPropertyBag) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        fn get_UserProperties(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::super::Graphics::Printing::IPrinterPropertyBag) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintWorkflowObjectModelSourceFileContentNative: super::super::Com::IUnknown {
+                        fn StartXpsOMGeneration(&self, receiver: IPrintWorkflowXpsReceiver) -> super::super::super::Foundation::HRESULT;
+                        #[special]
+                        fn get_ObjectFactory(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::super::Storage::Xps::IXpsOMObjectFactory1) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintWorkflowXpsObjectModelTargetPackageNative: super::super::Com::IUnknown {
+                        #[special]
+                        fn get_DocumentPackageTarget(&self, #[Windows::Win32::Foundation::Metadata::RetVal] value: *mut super::super::super::Storage::Xps::IXpsDocumentPackageTarget) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintWorkflowXpsReceiver: super::super::Com::IUnknown {
+                        fn SetDocumentSequencePrintTicket(&self, documentSequencePrintTicket: super::super::Com::IStream) -> super::super::super::Foundation::HRESULT;
+                        fn SetDocumentSequenceUri(&self, #[Windows::Win32::Foundation::Metadata::Const] documentSequenceUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn AddDocumentData(&self, documentId: u32, documentPrintTicket: super::super::Com::IStream, #[Windows::Win32::Foundation::Metadata::Const] documentUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn AddPage(&self, documentId: u32, pageId: u32, pageReference: super::super::super::Storage::Xps::IXpsOMPageReference, #[Windows::Win32::Foundation::Metadata::Const] pageUri: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        fn Close(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintWorkflowXpsReceiver2: IPrintWorkflowXpsReceiver {
+                        fn Failed(&self, XpsError: super::super::super::Foundation::HRESULT) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/print3dmanagerinterop/nn-print3dmanagerinterop-iprinting3dmanagerinterop")]
+                    interface IPrinting3DManagerInterop: super::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/print3dmanagerinterop/nf-print3dmanagerinterop-iprinting3dmanagerinterop-getforwindow")]
+                        fn GetForWindow(&self, appWindow: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] printManager: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/print3dmanagerinterop/nf-print3dmanagerinterop-iprinting3dmanagerinterop-showprintuiforwindowasync")]
+                        fn ShowPrintUIForWindowAsync(&self, appWindow: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

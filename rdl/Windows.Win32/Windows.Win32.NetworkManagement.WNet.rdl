@@ -1,0 +1,621 @@
+mod Windows {
+    mod Win32 {
+        mod NetworkManagement {
+            #[win32]
+            mod WNet {
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-connectdlgstructa")]
+                struct CONNECTDLGSTRUCTA {
+                    cbStructure: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    lpConnRes: *mut NETRESOURCEA,
+                    dwFlags: CONNECTDLGSTRUCT_FLAGS,
+                    dwDevNum: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-connectdlgstructw")]
+                struct CONNECTDLGSTRUCTW {
+                    cbStructure: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    lpConnRes: *mut NETRESOURCEW,
+                    dwFlags: CONNECTDLGSTRUCT_FLAGS,
+                    dwDevNum: u32,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum CONNECTDLGSTRUCT_FLAGS {
+                    CONNDLG_RO_PATH = 1,
+                    CONNDLG_CONN_POINT = 2,
+                    CONNDLG_USE_MRU = 4,
+                    CONNDLG_HIDE_BOX = 8,
+                    CONNDLG_PERSIST = 16,
+                    CONNDLG_NOT_PERSIST = 32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-discdlgstructa")]
+                struct DISCDLGSTRUCTA {
+                    cbStructure: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    lpLocalName: super::super::Foundation::PSTR,
+                    lpRemoteName: super::super::Foundation::PSTR,
+                    dwFlags: DISCDLGSTRUCT_FLAGS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-discdlgstructw")]
+                struct DISCDLGSTRUCTW {
+                    cbStructure: u32,
+                    hwndOwner: super::super::Foundation::HWND,
+                    lpLocalName: super::super::Foundation::PWSTR,
+                    lpRemoteName: super::super::Foundation::PWSTR,
+                    dwFlags: DISCDLGSTRUCT_FLAGS,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum DISCDLGSTRUCT_FLAGS {
+                    DISC_UPDATE_PROFILE = 1,
+                    DISC_NO_FORCE = 64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-multinetgetconnectionperformancea")]
+                #[library("MPR.dll")]
+                extern fn MultinetGetConnectionPerformanceA(lpNetResource: *mut NETRESOURCEA, lpNetConnectInfoStruct: *mut NETCONNECTINFOSTRUCT) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-multinetgetconnectionperformancew")]
+                #[library("MPR.dll")]
+                extern fn MultinetGetConnectionPerformanceW(lpNetResource: *mut NETRESOURCEW, lpNetConnectInfoStruct: *mut NETCONNECTINFOSTRUCT) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-netconnectinfostruct")]
+                struct NETCONNECTINFOSTRUCT {
+                    cbStructure: u32,
+                    dwFlags: u32,
+                    dwSpeed: u32,
+                    dwDelay: u32,
+                    dwOptDataSize: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-netinfostruct")]
+                struct NETINFOSTRUCT {
+                    cbStructure: u32,
+                    dwProviderVersion: u32,
+                    dwStatus: super::super::Foundation::WIN32_ERROR,
+                    dwCharacteristics: NETINFOSTRUCT_CHARACTERISTICS,
+                    dwHandle: usize,
+                    wNetType: u16,
+                    dwPrinters: u32,
+                    dwDrives: u32,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum NETINFOSTRUCT_CHARACTERISTICS {
+                    NETINFO_DLL16 = 1,
+                    NETINFO_DISKRED = 4,
+                    NETINFO_PRINTERRED = 8,
+                }
+                const NETPROPERTY_PERSISTENT: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-netresourcea")]
+                struct NETRESOURCEA {
+                    dwScope: NET_RESOURCE_SCOPE,
+                    dwType: NET_RESOURCE_TYPE,
+                    dwDisplayType: u32,
+                    dwUsage: u32,
+                    lpLocalName: super::super::Foundation::PSTR,
+                    lpRemoteName: super::super::Foundation::PSTR,
+                    lpComment: super::super::Foundation::PSTR,
+                    lpProvider: super::super::Foundation::PSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-netresourcew")]
+                struct NETRESOURCEW {
+                    dwScope: NET_RESOURCE_SCOPE,
+                    dwType: NET_RESOURCE_TYPE,
+                    dwDisplayType: u32,
+                    dwUsage: u32,
+                    lpLocalName: super::super::Foundation::PWSTR,
+                    lpRemoteName: super::super::Foundation::PWSTR,
+                    lpComment: super::super::Foundation::PWSTR,
+                    lpProvider: super::super::Foundation::PWSTR,
+                }
+                #[repr(u32)]
+                enum NETWORK_NAME_FORMAT_FLAGS {
+                    WNFMT_MULTILINE = 1,
+                    WNFMT_ABBREVIATED = 2,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum NET_CONNECT_FLAGS {
+                    CONNECT_UPDATE_PROFILE = 1,
+                    CONNECT_UPDATE_RECENT = 2,
+                    CONNECT_TEMPORARY = 4,
+                    CONNECT_INTERACTIVE = 8,
+                    CONNECT_PROMPT = 16,
+                    CONNECT_NEED_DRIVE = 32,
+                    CONNECT_REFCOUNT = 64,
+                    CONNECT_REDIRECT = 128,
+                    CONNECT_LOCALDRIVE = 256,
+                    CONNECT_CURRENT_MEDIA = 512,
+                    CONNECT_DEFERRED = 1024,
+                    CONNECT_RESERVED = 4278190080,
+                    CONNECT_COMMANDLINE = 2048,
+                    CONNECT_CMD_SAVECRED = 4096,
+                    CONNECT_CRED_RESET = 8192,
+                    CONNECT_REQUIRE_INTEGRITY = 16384,
+                    CONNECT_REQUIRE_PRIVACY = 32768,
+                    CONNECT_WRITE_THROUGH_SEMANTICS = 65536,
+                    CONNECT_GLOBAL_MAPPING = 262144,
+                }
+                #[repr(u32)]
+                enum NET_RESOURCE_SCOPE {
+                    RESOURCE_CONNECTED = 1,
+                    RESOURCE_CONTEXT = 5,
+                    RESOURCE_GLOBALNET = 2,
+                    RESOURCE_REMEMBERED = 3,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum NET_RESOURCE_TYPE {
+                    RESOURCETYPE_ANY = 0,
+                    RESOURCETYPE_DISK = 1,
+                    RESOURCETYPE_PRINT = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/ns-npapi-notifyadd")]
+                struct NOTIFYADD {
+                    hwndOwner: super::super::Foundation::HWND,
+                    NetResource: NETRESOURCEA,
+                    dwAddFlags: NET_CONNECT_FLAGS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/ns-npapi-notifycancel")]
+                struct NOTIFYCANCEL {
+                    lpName: super::super::Foundation::PWSTR,
+                    lpProvider: super::super::Foundation::PWSTR,
+                    dwFlags: u32,
+                    fForce: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/ns-npapi-notifyinfo")]
+                struct NOTIFYINFO {
+                    dwNotifyStatus: u32,
+                    dwOperationStatus: u32,
+                    lpContext: *mut void,
+                }
+                const NOTIFY_POST: u32 = 2;
+                const NOTIFY_PRE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npaddconnection")]
+                #[library("davclnt.dll")]
+                extern fn NPAddConnection(lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npaddconnection3")]
+                #[library("davclnt.dll")]
+                extern fn NPAddConnection3(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, dwFlags: NET_CONNECT_FLAGS) -> u32;
+                #[library("NTLANMAN.dll")]
+                extern fn NPAddConnection4(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, lpUseOptions: *mut u8, cbUseOptions: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npcancelconnection")]
+                #[library("davclnt.dll")]
+                extern fn NPCancelConnection(lpName: super::super::Foundation::PWSTR, fForce: super::super::Foundation::BOOL) -> u32;
+                #[library("NTLANMAN.dll")]
+                extern fn NPCancelConnection2(lpName: super::super::Foundation::PWSTR, fForce: super::super::Foundation::BOOL, dwFlags: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npcloseenum")]
+                #[library("davclnt.dll")]
+                extern fn NPCloseEnum(hEnum: super::super::Foundation::HANDLE) -> u32;
+                #[repr(u32)]
+                enum NPDIRECTORY_NOTIFY_OPERATION {
+                    WNDN_MKDIR = 1,
+                    WNDN_RMDIR = 2,
+                    WNDN_MVDIR = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npenumresource")]
+                #[library("davclnt.dll")]
+                extern fn NPEnumResource(hEnum: super::super::Foundation::HANDLE, lpcCount: *mut u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npformatnetworkname")]
+                #[library("davclnt.dll")]
+                extern fn NPFormatNetworkName(lpRemoteName: super::super::Foundation::PWSTR, lpFormattedName: super::super::Foundation::PWSTR, lpnLength: *mut u32, dwFlags: NETWORK_NAME_FORMAT_FLAGS, dwAveCharPerLine: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetcaps")]
+                #[library("davclnt.dll")]
+                extern fn NPGetCaps(ndex: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetconnection")]
+                #[library("davclnt.dll")]
+                extern fn NPGetConnection(lpLocalName: super::super::Foundation::PWSTR, lpRemoteName: super::super::Foundation::PWSTR, lpnBufferLen: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetconnection3")]
+                #[library("NTLANMAN.dll")]
+                extern fn NPGetConnection3(lpLocalName: super::super::Foundation::PWSTR, dwLevel: u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetconnectionperformance")]
+                #[library("NTLANMAN.dll")]
+                extern fn NPGetConnectionPerformance(lpRemoteName: super::super::Foundation::PWSTR, lpNetConnectInfo: *mut NETCONNECTINFOSTRUCT) -> u32;
+                #[library("NTLANMAN.dll")]
+                extern fn NPGetPersistentUseOptionsForConnection(lpRemotePath: super::super::Foundation::PWSTR, lpReadUseOptions: *mut u8, cbReadUseOptions: u32, lpWriteUseOptions: *mut u8, lpSizeWriteUseOptions: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetresourceinformation")]
+                #[library("davclnt.dll")]
+                extern fn NPGetResourceInformation(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpBufferSize: *mut u32, lplpSystem: *mut super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetresourceparent")]
+                #[library("davclnt.dll")]
+                extern fn NPGetResourceParent(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetuniversalname")]
+                #[library("davclnt.dll")]
+                extern fn NPGetUniversalName(lpLocalPath: super::super::Foundation::PWSTR, dwInfoLevel: UNC_INFO_LEVEL, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npgetuser")]
+                #[library("davclnt.dll")]
+                extern fn NPGetUser(lpName: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, lpnBufferLen: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-npopenenum")]
+                #[library("davclnt.dll")]
+                extern fn NPOpenEnum(dwScope: u32, dwType: u32, dwUsage: u32, lpNetResource: *mut NETRESOURCEW, lphEnum: *mut super::super::Foundation::HANDLE) -> u32;
+                #[repr(u32)]
+                enum NP_PROPERTY_DIALOG_SELECTION {
+                    WNPS_FILE = 0,
+                    WNPS_DIR = 1,
+                    WNPS_MULT = 2,
+                }
+                extern fn PF_AddConnectNotify(lpNotifyInfo: *mut NOTIFYINFO, lpAddInfo: *mut NOTIFYADD) -> u32;
+                extern fn PF_CancelConnectNotify(lpNotifyInfo: *mut NOTIFYINFO, lpCancelInfo: *mut NOTIFYCANCEL) -> u32;
+                extern fn PF_NPAddConnection(lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR) -> u32;
+                extern fn PF_NPAddConnection3(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, dwFlags: u32) -> u32;
+                extern fn PF_NPAddConnection4(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, lpUseOptions: *mut u8, cbUseOptions: u32) -> u32;
+                extern fn PF_NPCancelConnection(lpName: super::super::Foundation::PWSTR, fForce: super::super::Foundation::BOOL) -> u32;
+                extern fn PF_NPCancelConnection2(lpName: super::super::Foundation::PWSTR, fForce: super::super::Foundation::BOOL, dwFlags: u32) -> u32;
+                extern fn PF_NPCloseEnum(hEnum: super::super::Foundation::HANDLE) -> u32;
+                extern fn PF_NPDeviceMode(hParent: super::super::Foundation::HWND) -> u32;
+                extern fn PF_NPDirectoryNotify(hwnd: super::super::Foundation::HWND, lpDir: super::super::Foundation::PWSTR, dwOper: u32) -> u32;
+                extern fn PF_NPEnumResource(hEnum: super::super::Foundation::HANDLE, lpcCount: *mut u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                extern fn PF_NPFMXEditPerm(lpDriveName: super::super::Foundation::PWSTR, hwndFMX: super::super::Foundation::HWND, nDialogType: u32) -> u32;
+                extern fn PF_NPFMXGetPermCaps(lpDriveName: super::super::Foundation::PWSTR) -> u32;
+                extern fn PF_NPFMXGetPermHelp(lpDriveName: super::super::Foundation::PWSTR, nDialogType: u32, fDirectory: super::super::Foundation::BOOL, lpFileNameBuffer: *mut void, lpBufferSize: *mut u32, lpnHelpContext: *mut u32) -> u32;
+                extern fn PF_NPFormatNetworkName(lpRemoteName: super::super::Foundation::PWSTR, lpFormattedName: super::super::Foundation::PWSTR, lpnLength: *mut u32, dwFlags: u32, dwAveCharPerLine: u32) -> u32;
+                extern fn PF_NPGetCaps(ndex: u32) -> u32;
+                extern fn PF_NPGetConnection(lpLocalName: super::super::Foundation::PWSTR, lpRemoteName: super::super::Foundation::PWSTR, lpnBufferLen: *mut u32) -> u32;
+                extern fn PF_NPGetConnection3(lpLocalName: super::super::Foundation::PWSTR, dwLevel: u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                extern fn PF_NPGetConnectionPerformance(lpRemoteName: super::super::Foundation::PWSTR, lpNetConnectInfo: *mut NETCONNECTINFOSTRUCT) -> u32;
+                extern fn PF_NPGetDirectoryType(lpName: super::super::Foundation::PWSTR, lpType: *mut i32, bFlushCache: super::super::Foundation::BOOL) -> u32;
+                extern fn PF_NPGetPersistentUseOptionsForConnection(lpRemotePath: super::super::Foundation::PWSTR, lpReadUseOptions: *mut u8, cbReadUseOptions: u32, lpWriteUseOptions: *mut u8, lpSizeWriteUseOptions: *mut u32) -> u32;
+                extern fn PF_NPGetPropertyText(iButton: u32, nPropSel: u32, lpName: super::super::Foundation::PWSTR, lpButtonName: super::super::Foundation::PWSTR, nButtonNameLen: u32, nType: u32) -> u32;
+                extern fn PF_NPGetResourceInformation(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpBufferSize: *mut u32, lplpSystem: *mut super::super::Foundation::PWSTR) -> u32;
+                extern fn PF_NPGetResourceParent(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpBufferSize: *mut u32) -> u32;
+                extern fn PF_NPGetUniversalName(lpLocalPath: super::super::Foundation::PWSTR, dwInfoLevel: u32, lpBuffer: *mut void, lpnBufferSize: *mut u32) -> u32;
+                extern fn PF_NPGetUser(lpName: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, lpnBufferLen: *mut u32) -> u32;
+                extern fn PF_NPLogonNotify(lpLogonId: *mut super::super::Foundation::LUID, lpAuthentInfoType: super::super::Foundation::PWSTR, lpAuthentInfo: *mut void, lpPreviousAuthentInfoType: super::super::Foundation::PWSTR, lpPreviousAuthentInfo: *mut void, lpStationName: super::super::Foundation::PWSTR, StationHandle: *mut void, lpLogonScript: *mut super::super::Foundation::PWSTR) -> u32;
+                extern fn PF_NPOpenEnum(dwScope: u32, dwType: u32, dwUsage: u32, lpNetResource: *mut NETRESOURCEW, lphEnum: *mut super::super::Foundation::HANDLE) -> u32;
+                extern fn PF_NPPasswordChangeNotify(lpAuthentInfoType: super::super::Foundation::PWSTR, lpAuthentInfo: *mut void, lpPreviousAuthentInfoType: super::super::Foundation::PWSTR, lpPreviousAuthentInfo: *mut void, lpStationName: super::super::Foundation::PWSTR, StationHandle: *mut void, dwChangeInfo: u32) -> u32;
+                extern fn PF_NPPropertyDialog(hwndParent: super::super::Foundation::HWND, iButtonDlg: u32, nPropSel: u32, lpFileName: super::super::Foundation::PWSTR, nType: u32) -> u32;
+                extern fn PF_NPSearchDialog(hwndParent: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, cbBuffer: u32, lpnFlags: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-remote_name_infoa")]
+                struct REMOTE_NAME_INFOA {
+                    lpUniversalName: super::super::Foundation::PSTR,
+                    lpConnectionName: super::super::Foundation::PSTR,
+                    lpRemainingPath: super::super::Foundation::PSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-remote_name_infow")]
+                struct REMOTE_NAME_INFOW {
+                    lpUniversalName: super::super::Foundation::PWSTR,
+                    lpConnectionName: super::super::Foundation::PWSTR,
+                    lpRemainingPath: super::super::Foundation::PWSTR,
+                }
+                const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9;
+                const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11;
+                const RESOURCEDISPLAYTYPE_NETWORK: u32 = 6;
+                const RESOURCEDISPLAYTYPE_ROOT: u32 = 7;
+                const RESOURCEDISPLAYTYPE_SHAREADMIN: u32 = 8;
+                const RESOURCETYPE_RESERVED: u32 = 8;
+                const RESOURCETYPE_UNKNOWN: u32 = 4294967295;
+                const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4;
+                const RESOURCEUSAGE_RESERVED: u32 = 2147483648;
+                const RESOURCEUSAGE_SIBLING: u32 = 8;
+                const RESOURCE_RECENT: u32 = 4;
+                #[repr(u32)]
+                enum UNC_INFO_LEVEL {
+                    UNIVERSAL_NAME_INFO_LEVEL = 1,
+                    REMOTE_NAME_INFO_LEVEL = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-universal_name_infoa")]
+                struct UNIVERSAL_NAME_INFOA {
+                    lpUniversalName: super::super::Foundation::PSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/ns-winnetwk-universal_name_infow")]
+                struct UNIVERSAL_NAME_INFOW {
+                    lpUniversalName: super::super::Foundation::PWSTR,
+                }
+                const WNCON_DYNAMIC: u32 = 8;
+                const WNCON_FORNETCARD: u32 = 1;
+                const WNCON_NOTROUTED: u32 = 2;
+                const WNCON_SLOWLINK: u32 = 4;
+                const WNDT_NETWORK: u32 = 1;
+                const WNDT_NORMAL: u32 = 0;
+                #[repr(u32)]
+                #[flags]
+                enum WNET_OPEN_ENUM_USAGE {
+                    RESOURCEUSAGE_NONE = 0,
+                    RESOURCEUSAGE_CONNECTABLE = 1,
+                    RESOURCEUSAGE_CONTAINER = 2,
+                    RESOURCEUSAGE_ATTACHED = 16,
+                    RESOURCEUSAGE_ALL = 19,
+                }
+                const WNFMT_CONNECTION: u32 = 32;
+                const WNFMT_INENUM: u32 = 16;
+                const WNGETCON_CONNECTED: u32 = 0;
+                const WNGETCON_DISCONNECTED: u32 = 1;
+                const WNNC_ADMIN: u32 = 9;
+                const WNNC_ADM_DIRECTORYNOTIFY: u32 = 2;
+                const WNNC_ADM_GETDIRECTORYTYPE: u32 = 1;
+                const WNNC_CONNECTION: u32 = 6;
+                const WNNC_CONNECTION_FLAGS: u32 = 13;
+                const WNNC_CON_ADDCONNECTION: u32 = 1;
+                const WNNC_CON_ADDCONNECTION3: u32 = 8;
+                const WNNC_CON_ADDCONNECTION4: u32 = 16;
+                const WNNC_CON_CANCELCONNECTION: u32 = 2;
+                const WNNC_CON_CANCELCONNECTION2: u32 = 32;
+                const WNNC_CON_DEFER: u32 = 128;
+                const WNNC_CON_GETCONNECTIONS: u32 = 4;
+                const WNNC_CON_GETPERFORMANCE: u32 = 64;
+                const WNNC_DIALOG: u32 = 8;
+                const WNNC_DLG_DEVICEMODE: u32 = 1;
+                const WNNC_DLG_FORMATNETWORKNAME: u32 = 128;
+                const WNNC_DLG_GETRESOURCEINFORMATION: u32 = 2048;
+                const WNNC_DLG_GETRESOURCEPARENT: u32 = 512;
+                const WNNC_DLG_PERMISSIONEDITOR: u32 = 256;
+                const WNNC_DLG_PROPERTYDIALOG: u32 = 32;
+                const WNNC_DLG_SEARCHDIALOG: u32 = 64;
+                const WNNC_DRIVER_VERSION: u32 = 3;
+                const WNNC_ENUMERATION: u32 = 11;
+                const WNNC_ENUM_CONTEXT: u32 = 4;
+                const WNNC_ENUM_GLOBAL: u32 = 1;
+                const WNNC_ENUM_LOCAL: u32 = 2;
+                const WNNC_ENUM_SHAREABLE: u32 = 8;
+                const WNNC_NET_NONE: u32 = 0;
+                const WNNC_NET_TYPE: u32 = 2;
+                const WNNC_SPEC_VERSION: u32 = 1;
+                const WNNC_SPEC_VERSION51: u32 = 327681;
+                const WNNC_START: u32 = 12;
+                const WNNC_USER: u32 = 4;
+                const WNNC_USR_GETUSER: u32 = 1;
+                const WNNC_WAIT_FOR_START: u32 = 1;
+                const WNPERMC_AUDIT: u32 = 2;
+                const WNPERMC_OWNER: u32 = 4;
+                const WNPERMC_PERM: u32 = 1;
+                #[repr(u32)]
+                enum WNPERM_DLG {
+                    WNPERM_DLG_PERM = 0,
+                    WNPERM_DLG_AUDIT = 1,
+                    WNPERM_DLG_OWNER = 2,
+                }
+                const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1;
+                const WNTYPE_COMM: u32 = 4;
+                const WNTYPE_DRIVE: u32 = 1;
+                const WNTYPE_FILE: u32 = 2;
+                const WNTYPE_PRINTER: u32 = 3;
+                const WN_CREDENTIAL_CLASS: u32 = 2;
+                const WN_NETWORK_CLASS: u32 = 1;
+                const WN_NT_PASSWORD_CHANGED: u32 = 2;
+                const WN_PRIMARY_AUTHENT_CLASS: u32 = 4;
+                const WN_SERVICE_CLASS: u32 = 8;
+                const WN_VALID_LOGON_ACCOUNT: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection2a")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection2A(lpNetResource: *mut NETRESOURCEA, lpPassword: super::super::Foundation::PSTR, lpUserName: super::super::Foundation::PSTR, dwFlags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection2w")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection2W(lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, dwFlags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection3a")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection3A(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEA, lpPassword: super::super::Foundation::PSTR, lpUserName: super::super::Foundation::PSTR, dwFlags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection3w")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection3W(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, dwFlags: NET_CONNECT_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection4A(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEA, pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: NET_CONNECT_FLAGS, lpUseOptions: *mut u8, cbUseOptions: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnection4W(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: NET_CONNECT_FLAGS, lpUseOptions: *mut u8, cbUseOptions: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnectiona")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnectionA(lpRemoteName: super::super::Foundation::PSTR, lpPassword: super::super::Foundation::PSTR, lpLocalName: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnectionw")]
+                #[library("MPR.dll")]
+                extern fn WNetAddConnectionW(lpRemoteName: super::super::Foundation::PWSTR, lpPassword: super::super::Foundation::PWSTR, lpLocalName: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetcancelconnection2a")]
+                #[library("MPR.dll")]
+                extern fn WNetCancelConnection2A(lpName: super::super::Foundation::PSTR, dwFlags: NET_CONNECT_FLAGS, fForce: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetcancelconnection2w")]
+                #[library("MPR.dll")]
+                extern fn WNetCancelConnection2W(lpName: super::super::Foundation::PWSTR, dwFlags: NET_CONNECT_FLAGS, fForce: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetcancelconnectiona")]
+                #[library("MPR.dll")]
+                extern fn WNetCancelConnectionA(lpName: super::super::Foundation::PSTR, fForce: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetcancelconnectionw")]
+                #[library("MPR.dll")]
+                extern fn WNetCancelConnectionW(lpName: super::super::Foundation::PWSTR, fForce: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetcloseenum")]
+                #[library("MPR.dll")]
+                extern fn WNetCloseEnum(hEnum: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetconnectiondialog")]
+                #[library("MPR.dll")]
+                extern fn WNetConnectionDialog(hwnd: super::super::Foundation::HWND, dwType: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetconnectiondialog1a")]
+                #[library("MPR.dll")]
+                extern fn WNetConnectionDialog1A(lpConnDlgStruct: *mut CONNECTDLGSTRUCTA) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetconnectiondialog1w")]
+                #[library("MPR.dll")]
+                extern fn WNetConnectionDialog1W(lpConnDlgStruct: *mut CONNECTDLGSTRUCTW) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetdisconnectdialog")]
+                #[library("MPR.dll")]
+                extern fn WNetDisconnectDialog(hwnd: super::super::Foundation::HWND, dwType: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetdisconnectdialog1a")]
+                #[library("MPR.dll")]
+                extern fn WNetDisconnectDialog1A(lpConnDlgStruct: *mut DISCDLGSTRUCTA) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetdisconnectdialog1w")]
+                #[library("MPR.dll")]
+                extern fn WNetDisconnectDialog1W(lpConnDlgStruct: *mut DISCDLGSTRUCTW) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetenumresourcea")]
+                #[library("MPR.dll")]
+                extern fn WNetEnumResourceA(hEnum: super::super::Foundation::HANDLE, lpcCount: *mut u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetenumresourcew")]
+                #[library("MPR.dll")]
+                extern fn WNetEnumResourceW(hEnum: super::super::Foundation::HANDLE, lpcCount: *mut u32, lpBuffer: *mut void, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetconnectiona")]
+                #[library("MPR.dll")]
+                extern fn WNetGetConnectionA(lpLocalName: super::super::Foundation::PSTR, lpRemoteName: super::super::Foundation::PSTR, lpnLength: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetconnectionw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetConnectionW(lpLocalName: super::super::Foundation::PWSTR, lpRemoteName: super::super::Foundation::PWSTR, lpnLength: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetlasterrora")]
+                #[library("MPR.dll")]
+                extern fn WNetGetLastErrorA(lpError: *mut u32, lpErrorBuf: super::super::Foundation::PSTR, nErrorBufSize: u32, lpNameBuf: super::super::Foundation::PSTR, nNameBufSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetlasterrorw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetLastErrorW(lpError: *mut u32, lpErrorBuf: super::super::Foundation::PWSTR, nErrorBufSize: u32, lpNameBuf: super::super::Foundation::PWSTR, nNameBufSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetnetworkinformationa")]
+                #[library("MPR.dll")]
+                extern fn WNetGetNetworkInformationA(lpProvider: super::super::Foundation::PSTR, lpNetInfoStruct: *mut NETINFOSTRUCT) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetnetworkinformationw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetNetworkInformationW(lpProvider: super::super::Foundation::PWSTR, lpNetInfoStruct: *mut NETINFOSTRUCT) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetprovidernamea")]
+                #[library("MPR.dll")]
+                extern fn WNetGetProviderNameA(dwNetType: u32, lpProviderName: super::super::Foundation::PSTR, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetprovidernamew")]
+                #[library("MPR.dll")]
+                extern fn WNetGetProviderNameW(dwNetType: u32, lpProviderName: super::super::Foundation::PWSTR, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetresourceinformationa")]
+                #[library("MPR.dll")]
+                extern fn WNetGetResourceInformationA(lpNetResource: *mut NETRESOURCEA, lpBuffer: *mut void, lpcbBuffer: *mut u32, lplpSystem: *mut super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetresourceinformationw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetResourceInformationW(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpcbBuffer: *mut u32, lplpSystem: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetresourceparenta")]
+                #[library("MPR.dll")]
+                extern fn WNetGetResourceParentA(lpNetResource: *mut NETRESOURCEA, lpBuffer: *mut void, lpcbBuffer: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetresourceparentw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetResourceParentW(lpNetResource: *mut NETRESOURCEW, lpBuffer: *mut void, lpcbBuffer: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetuniversalnamea")]
+                #[library("MPR.dll")]
+                extern fn WNetGetUniversalNameA(lpLocalPath: super::super::Foundation::PSTR, dwInfoLevel: UNC_INFO_LEVEL, lpBuffer: *mut void, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetuniversalnamew")]
+                #[library("MPR.dll")]
+                extern fn WNetGetUniversalNameW(lpLocalPath: super::super::Foundation::PWSTR, dwInfoLevel: UNC_INFO_LEVEL, lpBuffer: *mut void, lpBufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetusera")]
+                #[library("MPR.dll")]
+                extern fn WNetGetUserA(lpName: super::super::Foundation::PSTR, lpUserName: super::super::Foundation::PSTR, lpnLength: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetgetuserw")]
+                #[library("MPR.dll")]
+                extern fn WNetGetUserW(lpName: super::super::Foundation::PWSTR, lpUserName: super::super::Foundation::PWSTR, lpnLength: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetopenenuma")]
+                #[library("MPR.dll")]
+                extern fn WNetOpenEnumA(dwScope: NET_RESOURCE_SCOPE, dwType: NET_RESOURCE_TYPE, dwUsage: WNET_OPEN_ENUM_USAGE, lpNetResource: *mut NETRESOURCEA, lphEnum: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetopenenumw")]
+                #[library("MPR.dll")]
+                extern fn WNetOpenEnumW(dwScope: NET_RESOURCE_SCOPE, dwType: NET_RESOURCE_TYPE, dwUsage: WNET_OPEN_ENUM_USAGE, lpNetResource: *mut NETRESOURCEW, lphEnum: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-wnetsetlasterrora")]
+                #[library("MPR.dll")]
+                extern fn WNetSetLastErrorA(err: u32, lpError: super::super::Foundation::PSTR, lpProviders: super::super::Foundation::PSTR);
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/npapi/nf-npapi-wnetsetlasterrorw")]
+                #[library("MPR.dll")]
+                extern fn WNetSetLastErrorW(err: u32, lpError: super::super::Foundation::PWSTR, lpProviders: super::super::Foundation::PWSTR);
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MPR.dll")]
+                extern fn WNetUseConnection4A(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEA, pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, lpUseOptions: *mut u8, cbUseOptions: u32, lpAccessName: super::super::Foundation::PSTR, lpBufferSize: *mut u32, lpResult: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MPR.dll")]
+                extern fn WNetUseConnection4W(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, pAuthBuffer: *mut void, cbAuthBuffer: u32, dwFlags: u32, lpUseOptions: *mut u8, cbUseOptions: u32, lpAccessName: super::super::Foundation::PWSTR, lpBufferSize: *mut u32, lpResult: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetuseconnectiona")]
+                #[library("MPR.dll")]
+                extern fn WNetUseConnectionA(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEA, lpPassword: super::super::Foundation::PSTR, lpUserId: super::super::Foundation::PSTR, dwFlags: NET_CONNECT_FLAGS, lpAccessName: super::super::Foundation::PSTR, lpBufferSize: *mut u32, lpResult: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnetwk/nf-winnetwk-wnetuseconnectionw")]
+                #[library("MPR.dll")]
+                extern fn WNetUseConnectionW(hwndOwner: super::super::Foundation::HWND, lpNetResource: *mut NETRESOURCEW, lpPassword: super::super::Foundation::PWSTR, lpUserId: super::super::Foundation::PWSTR, dwFlags: NET_CONNECT_FLAGS, lpAccessName: super::super::Foundation::PWSTR, lpBufferSize: *mut u32, lpResult: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+            }
+        }
+    }
+}

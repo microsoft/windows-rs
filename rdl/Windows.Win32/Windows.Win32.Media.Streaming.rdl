@@ -1,0 +1,120 @@
+mod Windows {
+    mod Win32 {
+        mod Media {
+            #[win32]
+            mod Streaming {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-capturedmetadataexposurecompensation")]
+                struct CapturedMetadataExposureCompensation {
+                    Flags: u64,
+                    Value: i32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-capturedmetadataisogains")]
+                struct CapturedMetadataISOGains {
+                    AnalogGain: f32,
+                    DigitalGain: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-capturedmetadatawhitebalancegains")]
+                struct CapturedMetadataWhiteBalanceGains {
+                    R: f32,
+                    G: f32,
+                    B: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 16")]
+                const DEVPKEY_Device_DLNACAP: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 15")]
+                const DEVPKEY_Device_DLNADOC: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 19")]
+                const DEVPKEY_Device_MaxVolume: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 0")]
+                const DEVPKEY_Device_PacketWakeSupported: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 1")]
+                const DEVPKEY_Device_SendPacketWakeSupported: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 14")]
+                const DEVPKEY_Device_SinkProtocolInfo: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 8")]
+                const DEVPKEY_Device_SupportsAudio: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 10")]
+                const DEVPKEY_Device_SupportsImages: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 18")]
+                const DEVPKEY_Device_SupportsMute: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 17")]
+                const DEVPKEY_Device_SupportsSearch: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 20")]
+                const DEVPKEY_Device_SupportsSetNextAVT: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 9")]
+                const DEVPKEY_Device_SupportsVideo: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2293053915, 3340, 19000, 132, 53, 64, 67, 130, 107, 92, 145}, 6")]
+                const DEVPKEY_Device_UDN: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-facecharacterization")]
+                struct FaceCharacterization {
+                    BlinkScoreLeft: u32,
+                    BlinkScoreRight: u32,
+                    FacialExpression: u32,
+                    FacialExpressionScore: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-facecharacterizationblobheader")]
+                struct FaceCharacterizationBlobHeader {
+                    Size: u32,
+                    Count: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-facerectinfo")]
+                struct FaceRectInfo {
+                    Region: super::super::Foundation::RECT,
+                    confidenceLevel: i32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-facerectinfoblobheader")]
+                struct FaceRectInfoBlobHeader {
+                    Size: u32,
+                    Count: u32,
+                }
+                const GUID_DEVINTERFACE_DMP: GUID = 0x25b4e268_2a05_496e_803b_266837fbda4b;
+                const GUID_DEVINTERFACE_DMR: GUID = 0xd0875fb4_2196_4c7a_a63d_e416addd60a1;
+                const GUID_DEVINTERFACE_DMS: GUID = 0xc96037ae_a558_4470_b432_115a31b85553;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-histogramblobheader")]
+                struct HistogramBlobHeader {
+                    Size: u32,
+                    Histograms: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-histogramdataheader")]
+                struct HistogramDataHeader {
+                    Size: u32,
+                    ChannelMask: u32,
+                    Linear: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-histogramgrid")]
+                struct HistogramGrid {
+                    Width: u32,
+                    Height: u32,
+                    Region: super::super::Foundation::RECT,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-histogramheader")]
+                struct HistogramHeader {
+                    Size: u32,
+                    Bins: u32,
+                    FourCC: u32,
+                    ChannelMasks: u32,
+                    Grid: HistogramGrid,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfidl/ne-mfidl-mf_mediasource_status_info")]
+                enum MF_MEDIASOURCE_STATUS_INFO {
+                    MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED = 0,
+                    MF_MEDIASOURCE_STATUS_INFO_UNKNOWN = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfidl/ne-mfidl-mf_transfer_video_frame_flags")]
+                enum MF_TRANSFER_VIDEO_FRAME_FLAGS {
+                    MF_TRANSFER_VIDEO_FRAME_DEFAULT = 0,
+                    MF_TRANSFER_VIDEO_FRAME_STRETCH = 1,
+                    MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mfapi/ns-mfapi-metadatatimestamps")]
+                struct MetadataTimeStamps {
+                    Flags: u32,
+                    Device: i64,
+                    Presentation: i64,
+                }
+            }
+        }
+    }
+}

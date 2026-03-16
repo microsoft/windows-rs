@@ -1,0 +1,188 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Diagnostics {
+                #[win32]
+                mod ToolHelp {
+                    #[repr(u32)]
+                    #[flags]
+                    enum CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+                        TH32CS_INHERIT = 2147483648,
+                        TH32CS_SNAPALL = 15,
+                        TH32CS_SNAPHEAPLIST = 1,
+                        TH32CS_SNAPMODULE = 8,
+                        TH32CS_SNAPMODULE32 = 16,
+                        TH32CS_SNAPPROCESS = 2,
+                        TH32CS_SNAPTHREAD = 4,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-createtoolhelp32snapshot")]
+                    #[library("KERNEL32.dll")]
+                    extern fn CreateToolhelp32Snapshot(dwFlags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32ProcessID: u32) -> super::super::super::Foundation::HANDLE;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-heapentry32")]
+                    struct HEAPENTRY32 {
+                        dwSize: usize,
+                        hHandle: super::super::super::Foundation::HANDLE,
+                        dwAddress: usize,
+                        dwBlockSize: usize,
+                        dwFlags: HEAPENTRY32_FLAGS,
+                        dwLockCount: u32,
+                        dwResvd: u32,
+                        th32ProcessID: u32,
+                        th32HeapID: usize,
+                    }
+                    #[repr(u32)]
+                    enum HEAPENTRY32_FLAGS {
+                        LF32_FIXED = 1,
+                        LF32_FREE = 2,
+                        LF32_MOVEABLE = 4,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-heaplist32")]
+                    struct HEAPLIST32 {
+                        dwSize: usize,
+                        th32ProcessID: u32,
+                        th32HeapID: usize,
+                        dwFlags: u32,
+                    }
+                    const HF32_DEFAULT: u32 = 1;
+                    const HF32_SHARED: u32 = 2;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-heap32first")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Heap32First(lphe: *mut HEAPENTRY32, th32ProcessID: u32, th32HeapID: usize) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-heap32listfirst")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Heap32ListFirst(hSnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-heap32listnext")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Heap32ListNext(hSnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-heap32next")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL;
+                    const MAX_MODULE_NAME32: u32 = 255;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-moduleentry32")]
+                    struct MODULEENTRY32 {
+                        dwSize: u32,
+                        th32ModuleID: u32,
+                        th32ProcessID: u32,
+                        GlblcntUsage: u32,
+                        ProccntUsage: u32,
+                        modBaseAddr: *mut u8,
+                        modBaseSize: u32,
+                        hModule: super::super::super::Foundation::HMODULE,
+                        szModule: [super::super::super::Foundation::CHAR; 256],
+                        szExePath: [super::super::super::Foundation::CHAR; 260],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-moduleentry32w")]
+                    struct MODULEENTRY32W {
+                        dwSize: u32,
+                        th32ModuleID: u32,
+                        th32ProcessID: u32,
+                        GlblcntUsage: u32,
+                        ProccntUsage: u32,
+                        modBaseAddr: *mut u8,
+                        modBaseSize: u32,
+                        hModule: super::super::super::Foundation::HMODULE,
+                        szModule: [u16; 256],
+                        szExePath: [u16; 260],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-module32first")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Module32First(hSnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-module32firstw")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Module32FirstW(hSnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-module32next")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Module32Next(hSnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-module32nextw")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Module32NextW(hSnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-processentry32")]
+                    struct PROCESSENTRY32 {
+                        dwSize: u32,
+                        cntUsage: u32,
+                        th32ProcessID: u32,
+                        th32DefaultHeapID: usize,
+                        th32ModuleID: u32,
+                        cntThreads: u32,
+                        th32ParentProcessID: u32,
+                        pcPriClassBase: i32,
+                        dwFlags: u32,
+                        szExeFile: [super::super::super::Foundation::CHAR; 260],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-processentry32w")]
+                    struct PROCESSENTRY32W {
+                        dwSize: u32,
+                        cntUsage: u32,
+                        th32ProcessID: u32,
+                        th32DefaultHeapID: usize,
+                        th32ModuleID: u32,
+                        cntThreads: u32,
+                        th32ParentProcessID: u32,
+                        pcPriClassBase: i32,
+                        dwFlags: u32,
+                        szExeFile: [u16; 260],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-process32first")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Process32First(hSnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-process32firstw")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Process32FirstW(hSnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-process32next")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Process32Next(hSnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-process32nextw")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Process32NextW(hSnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/ns-tlhelp32-threadentry32")]
+                    struct THREADENTRY32 {
+                        dwSize: u32,
+                        cntUsage: u32,
+                        th32ThreadID: u32,
+                        th32OwnerProcessID: u32,
+                        tpBasePri: i32,
+                        tpDeltaPri: i32,
+                        dwFlags: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-thread32first")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Thread32First(hSnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-thread32next")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Thread32Next(hSnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/tlhelp32/nf-tlhelp32-toolhelp32readprocessmemory")]
+                    #[library("KERNEL32.dll")]
+                    extern fn Toolhelp32ReadProcessMemory(th32ProcessID: u32, lpBaseAddress: *mut void, lpBuffer: *mut void, cbRead: usize, lpNumberOfBytesRead: *mut usize) -> super::super::super::Foundation::BOOL;
+                }
+            }
+        }
+    }
+}

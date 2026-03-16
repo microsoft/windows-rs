@@ -1,0 +1,2356 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Controls {
+                #[winrt]
+                mod Maps {
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(ICustomMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class CustomMapTileDataSource: MapTileDataSource {
+                        #[default]
+                        ICustomMapTileDataSource,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(IHttpMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class HttpMapTileDataSource: MapTileDataSource {
+                        #[default]
+                        IHttpMapTileDataSource,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CustomMapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICustomMapTileDataSource {
+                        #[special]
+                        fn add_BitmapRequested(&self, handler: super::super::super::super::Foundation::TypedEventHandler<CustomMapTileDataSource, MapTileBitmapRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_BitmapRequested(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CustomMapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ICustomMapTileDataSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CustomMapTileDataSource;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(HttpMapTileDataSource)]
+                    interface IHttpMapTileDataSource {
+                        #[special]
+                        fn get_UriFormatString(&self) -> String;
+                        #[special]
+                        fn put_UriFormatString(&self, value: String);
+                        #[special]
+                        fn get_AdditionalRequestHeaders(&self) -> super::super::super::super::Foundation::Collections::IMap<String, String>;
+                        #[special]
+                        fn get_AllowCaching(&self) -> bool;
+                        #[special]
+                        fn put_AllowCaching(&self, value: bool);
+                        #[special]
+                        fn add_UriRequested(&self, handler: super::super::super::super::Foundation::TypedEventHandler<HttpMapTileDataSource, MapTileUriRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_UriRequested(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(HttpMapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IHttpMapTileDataSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> HttpMapTileDataSource;
+                        fn CreateInstanceWithUriFormatString(&self, uriFormatString: String, baseInterface: Object, innerInterface: &mut Object) -> HttpMapTileDataSource;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LocalMapTileDataSource)]
+                    interface ILocalMapTileDataSource {
+                        #[special]
+                        fn get_UriFormatString(&self) -> String;
+                        #[special]
+                        fn put_UriFormatString(&self, value: String);
+                        #[special]
+                        fn add_UriRequested(&self, handler: super::super::super::super::Foundation::TypedEventHandler<LocalMapTileDataSource, MapTileUriRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_UriRequested(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LocalMapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ILocalMapTileDataSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> LocalMapTileDataSource;
+                        fn CreateInstanceWithUriFormatString(&self, uriFormatString: String, baseInterface: Object, innerInterface: &mut Object) -> LocalMapTileDataSource;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapActualCameraChangedEventArgs {
+                        #[special]
+                        fn get_Camera(&self) -> MapCamera;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangedEventArgs)]
+                    interface IMapActualCameraChangedEventArgs2 {
+                        #[special]
+                        fn get_ChangeReason(&self) -> MapCameraChangeReason;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangingEventArgs)]
+                    interface IMapActualCameraChangingEventArgs {
+                        #[special]
+                        fn get_Camera(&self) -> MapCamera;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangingEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    interface IMapActualCameraChangingEventArgs2 {
+                        #[special]
+                        fn get_ChangeReason(&self) -> MapCameraChangeReason;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IMapBillboard {
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn put_Location(&self, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_NormalizedAnchorPoint(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn put_NormalizedAnchorPoint(&self, value: super::super::super::super::Foundation::Point);
+                        #[special]
+                        fn get_Image(&self) -> super::super::super::super::Storage::Streams::IRandomAccessStreamReference;
+                        #[special]
+                        fn put_Image(&self, value: super::super::super::super::Storage::Streams::IRandomAccessStreamReference);
+                        #[special]
+                        fn get_CollisionBehaviorDesired(&self) -> MapElementCollisionBehavior;
+                        #[special]
+                        fn put_CollisionBehaviorDesired(&self, value: MapElementCollisionBehavior);
+                        #[special]
+                        fn get_ReferenceCamera(&self) -> MapCamera;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
+                    interface IMapBillboardFactory {
+                        fn CreateInstanceFromCamera(&self, camera: MapCamera) -> MapBillboard;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
+                    interface IMapBillboardStatics {
+                        #[special]
+                        fn get_LocationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_NormalizedAnchorPointProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CollisionBehaviorDesiredProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapCamera)]
+                    interface IMapCamera {
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn put_Location(&self, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_Heading(&self) -> f64;
+                        #[special]
+                        fn put_Heading(&self, value: f64);
+                        #[special]
+                        fn get_Pitch(&self) -> f64;
+                        #[special]
+                        fn put_Pitch(&self, value: f64);
+                        #[special]
+                        fn get_Roll(&self) -> f64;
+                        #[special]
+                        fn put_Roll(&self, value: f64);
+                        #[special]
+                        fn get_FieldOfView(&self) -> f64;
+                        #[special]
+                        fn put_FieldOfView(&self, value: f64);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapCamera)]
+                    interface IMapCameraFactory {
+                        fn CreateInstanceWithLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> MapCamera;
+                        fn CreateInstanceWithLocationAndHeading(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64) -> MapCamera;
+                        fn CreateInstanceWithLocationHeadingAndPitch(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64, pitchInDegrees: f64) -> MapCamera;
+                        fn CreateInstanceWithLocationHeadingPitchRollAndFieldOfView(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64, pitchInDegrees: f64, rollInDegrees: f64, fieldOfViewInDegrees: f64) -> MapCamera;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapContextRequestedEventArgs)]
+                    interface IMapContextRequestedEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControl {
+                        #[special]
+                        fn get_Center(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn put_Center(&self, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_Children(&self) -> super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>;
+                        #[special]
+                        fn get_ColorScheme(&self) -> MapColorScheme;
+                        #[special]
+                        fn put_ColorScheme(&self, value: MapColorScheme);
+                        #[special]
+                        fn get_DesiredPitch(&self) -> f64;
+                        #[special]
+                        fn put_DesiredPitch(&self, value: f64);
+                        #[special]
+                        fn get_Heading(&self) -> f64;
+                        #[special]
+                        fn put_Heading(&self, value: f64);
+                        #[special]
+                        fn get_LandmarksVisible(&self) -> bool;
+                        #[special]
+                        fn put_LandmarksVisible(&self, value: bool);
+                        #[special]
+                        fn get_LoadingStatus(&self) -> MapLoadingStatus;
+                        #[special]
+                        fn get_MapServiceToken(&self) -> String;
+                        #[special]
+                        fn put_MapServiceToken(&self, value: String);
+                        #[special]
+                        fn get_MaxZoomLevel(&self) -> f64;
+                        #[special]
+                        fn get_MinZoomLevel(&self) -> f64;
+                        #[special]
+                        fn get_PedestrianFeaturesVisible(&self) -> bool;
+                        #[special]
+                        fn put_PedestrianFeaturesVisible(&self, value: bool);
+                        #[special]
+                        fn get_Pitch(&self) -> f64;
+                        #[special]
+                        fn get_Style(&self) -> MapStyle;
+                        #[special]
+                        fn put_Style(&self, value: MapStyle);
+                        #[special]
+                        fn get_TrafficFlowVisible(&self) -> bool;
+                        #[special]
+                        fn put_TrafficFlowVisible(&self, value: bool);
+                        #[special]
+                        fn get_TransformOrigin(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn put_TransformOrigin(&self, value: super::super::super::super::Foundation::Point);
+                        #[special]
+                        fn get_WatermarkMode(&self) -> MapWatermarkMode;
+                        #[special]
+                        fn put_WatermarkMode(&self, value: MapWatermarkMode);
+                        #[special]
+                        fn get_ZoomLevel(&self) -> f64;
+                        #[special]
+                        fn put_ZoomLevel(&self, value: f64);
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVector<MapElement>;
+                        #[special]
+                        fn get_Routes(&self) -> super::super::super::super::Foundation::Collections::IVector<MapRouteView>;
+                        #[special]
+                        fn get_TileSources(&self) -> super::super::super::super::Foundation::Collections::IVector<MapTileSource>;
+                        #[special]
+                        fn add_CenterChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_CenterChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_HeadingChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_HeadingChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_LoadingStatusChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_LoadingStatusChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapDoubleTapped(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapInputEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapDoubleTapped(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapHolding(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapInputEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapHolding(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapTapped(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapInputEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapTapped(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_PitchChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_PitchChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TransformOriginChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TransformOriginChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_ZoomLevelChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ZoomLevelChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[Windows::Foundation::Metadata::Overload("FindMapElementsAtOffset")]
+                        fn FindMapElementsAtOffset(&self, offset: super::super::super::super::Foundation::Point) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
+                        #[Windows::Foundation::Metadata::Overload("GetLocationFromOffset")]
+                        fn GetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, location: &mut super::super::super::super::Devices::Geolocation::Geopoint);
+                        fn GetOffsetFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, offset: &mut super::super::super::super::Foundation::Point);
+                        fn IsLocationInView(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, isInView: &mut bool);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TrySetViewBoundsAsync(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, margin: super::super::super::super::Foundation::IReference<super::super::Thickness>, animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterAndZoomAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterZoomHeadingAndPitchAsync")]
+                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::Overload("TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TrySetViewAsync(&self, center: super::super::super::super::Devices::Geolocation::Geopoint, zoomLevel: super::super::super::super::Foundation::IReference<f64>, heading: super::super::super::super::Foundation::IReference<f64>, desiredPitch: super::super::super::super::Foundation::IReference<f64>, animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControl2 {
+                        #[special]
+                        fn get_BusinessLandmarksVisible(&self) -> bool;
+                        #[special]
+                        fn put_BusinessLandmarksVisible(&self, value: bool);
+                        #[special]
+                        fn get_TransitFeaturesVisible(&self) -> bool;
+                        #[special]
+                        fn put_TransitFeaturesVisible(&self, value: bool);
+                        #[special]
+                        fn get_PanInteractionMode(&self) -> MapPanInteractionMode;
+                        #[special]
+                        fn put_PanInteractionMode(&self, value: MapPanInteractionMode);
+                        #[special]
+                        fn get_RotateInteractionMode(&self) -> MapInteractionMode;
+                        #[special]
+                        fn put_RotateInteractionMode(&self, value: MapInteractionMode);
+                        #[special]
+                        fn get_TiltInteractionMode(&self) -> MapInteractionMode;
+                        #[special]
+                        fn put_TiltInteractionMode(&self, value: MapInteractionMode);
+                        #[special]
+                        fn get_ZoomInteractionMode(&self) -> MapInteractionMode;
+                        #[special]
+                        fn put_ZoomInteractionMode(&self, value: MapInteractionMode);
+                        #[special]
+                        fn get_Is3DSupported(&self) -> bool;
+                        #[special]
+                        fn get_IsStreetsideSupported(&self) -> bool;
+                        #[special]
+                        fn get_Scene(&self) -> MapScene;
+                        #[special]
+                        fn put_Scene(&self, value: MapScene);
+                        #[special]
+                        fn get_ActualCamera(&self) -> MapCamera;
+                        #[special]
+                        fn get_TargetCamera(&self) -> MapCamera;
+                        #[special]
+                        fn get_CustomExperience(&self) -> MapCustomExperience;
+                        #[special]
+                        fn put_CustomExperience(&self, value: MapCustomExperience);
+                        #[special]
+                        fn add_MapElementClick(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapElementClickEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementClick(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapElementPointerEntered(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapElementPointerEnteredEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementPointerEntered(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapElementPointerExited(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapElementPointerExitedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementPointerExited(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_ActualCameraChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapActualCameraChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ActualCameraChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_ActualCameraChanging(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapActualCameraChangingEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ActualCameraChanging(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TargetCameraChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapTargetCameraChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TargetCameraChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_CustomExperienceChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapCustomExperienceChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_CustomExperienceChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        fn StartContinuousRotate(&self, rateInDegreesPerSecond: f64);
+                        fn StopContinuousRotate(&self);
+                        fn StartContinuousTilt(&self, rateInDegreesPerSecond: f64);
+                        fn StopContinuousTilt(&self);
+                        fn StartContinuousZoom(&self, rateOfChangePerSecond: f64);
+                        fn StopContinuousZoom(&self);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryRotateAsync(&self, degrees: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryRotateToAsync(&self, angleInDegrees: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryTiltAsync(&self, degrees: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryTiltToAsync(&self, angleInDegrees: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryZoomInAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryZoomOutAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryZoomToAsync(&self, zoomLevel: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("TrySetSceneAsync")]
+                        fn TrySetSceneAsync(&self, scene: MapScene) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("TrySetSceneWithAnimationAsync")]
+                        fn TrySetSceneAsync(&self, scene: MapScene, animationKind: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    interface IMapControl3 {
+                        #[special]
+                        fn add_MapRightTapped(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapRightTappedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapRightTapped(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    interface IMapControl4 {
+                        #[special]
+                        fn get_BusinessLandmarksEnabled(&self) -> bool;
+                        #[special]
+                        fn put_BusinessLandmarksEnabled(&self, value: bool);
+                        #[special]
+                        fn get_TransitFeaturesEnabled(&self) -> bool;
+                        #[special]
+                        fn put_TransitFeaturesEnabled(&self, value: bool);
+                        fn GetVisibleRegion(&self, region: MapVisibleRegionKind) -> super::super::super::super::Devices::Geolocation::Geopath;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    interface IMapControl5 {
+                        #[special]
+                        fn get_MapProjection(&self) -> MapProjection;
+                        #[special]
+                        fn put_MapProjection(&self, value: MapProjection);
+                        #[special]
+                        fn get_StyleSheet(&self) -> MapStyleSheet;
+                        #[special]
+                        fn put_StyleSheet(&self, value: MapStyleSheet);
+                        #[special]
+                        fn get_ViewPadding(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_ViewPadding(&self, value: super::super::Thickness);
+                        #[special]
+                        fn add_MapContextRequested(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapContextRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapContextRequested(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[Windows::Foundation::Metadata::Overload("FindMapElementsAtOffsetWithRadius")]
+                        fn FindMapElementsAtOffset(&self, offset: super::super::super::super::Foundation::Point, radius: f64) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
+                        #[Windows::Foundation::Metadata::Overload("GetLocationFromOffsetWithReferenceSystem")]
+                        fn GetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint);
+                        fn StartContinuousPan(&self, horizontalPixelsPerSecond: f64, verticalPixelsPerSecond: f64);
+                        fn StopContinuousPan(&self);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryPanAsync(&self, horizontalPixels: f64, verticalPixels: f64) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn TryPanToAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapControl6 {
+                        #[special]
+                        fn get_Layers(&self) -> super::super::super::super::Foundation::Collections::IVector<MapLayer>;
+                        #[special]
+                        fn put_Layers(&self, value: super::super::super::super::Foundation::Collections::IVector<MapLayer>);
+                        #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffset")]
+                        fn TryGetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
+                        #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffsetWithReferenceSystem")]
+                        fn TryGetLocationFromOffset(&self, offset: super::super::super::super::Foundation::Point, desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControl7 {
+                        #[special]
+                        fn get_Region(&self) -> String;
+                        #[special]
+                        fn put_Region(&self, value: String);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    interface IMapControl8 {
+                        #[special]
+                        fn get_CanTiltDown(&self) -> bool;
+                        #[special]
+                        fn get_CanTiltUp(&self) -> bool;
+                        #[special]
+                        fn get_CanZoomIn(&self) -> bool;
+                        #[special]
+                        fn get_CanZoomOut(&self) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkClickEventArgs)]
+                    interface IMapControlBusinessLandmarkClickEventArgs {
+                        #[special]
+                        fn get_LocalLocations(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkPointerEnteredEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    interface IMapControlBusinessLandmarkPointerEnteredEventArgs {
+                        #[special]
+                        fn get_LocalLocations(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkPointerExitedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    interface IMapControlBusinessLandmarkPointerExitedEventArgs {
+                        #[special]
+                        fn get_LocalLocations(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkRightTappedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    interface IMapControlBusinessLandmarkRightTappedEventArgs {
+                        #[special]
+                        fn get_LocalLocations(&self) -> super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControlDataHelper {
+                        #[special]
+                        fn add_BusinessLandmarkClick(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkClickEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_BusinessLandmarkClick(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TransitFeatureClick(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeatureClickEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TransitFeatureClick(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_BusinessLandmarkRightTapped(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkRightTappedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_BusinessLandmarkRightTapped(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TransitFeatureRightTapped(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeatureRightTappedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TransitFeatureRightTapped(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    interface IMapControlDataHelper2 {
+                        #[special]
+                        fn add_BusinessLandmarkPointerEntered(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerEnteredEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_BusinessLandmarkPointerEntered(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TransitFeaturePointerEntered(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeaturePointerEnteredEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TransitFeaturePointerEntered(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_BusinessLandmarkPointerExited(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerExitedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_BusinessLandmarkPointerExited(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_TransitFeaturePointerExited(&self, value: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeaturePointerExitedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TransitFeaturePointerExited(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
+                    interface IMapControlDataHelperFactory {
+                        fn CreateInstance(&self, map: MapControl) -> MapControlDataHelper;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 262144)]
+                    interface IMapControlDataHelperStatics {
+                        fn CreateMapControl(&self, rasterRenderMode: bool) -> MapControl;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapControlStatics {
+                        #[special]
+                        fn get_CenterProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ChildrenProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ColorSchemeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DesiredPitchProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_HeadingProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LandmarksVisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LoadingStatusProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MapServiceTokenProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PedestrianFeaturesVisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PitchProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_StyleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TrafficFlowVisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TransformOriginProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_WatermarkModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ZoomLevelProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MapElementsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RoutesProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TileSourcesProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LocationProperty(&self) -> super::super::DependencyProperty;
+                        fn GetLocation(&self, element: super::super::DependencyObject) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        fn SetLocation(&self, element: super::super::DependencyObject, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_NormalizedAnchorPointProperty(&self) -> super::super::DependencyProperty;
+                        fn GetNormalizedAnchorPoint(&self, element: super::super::DependencyObject) -> super::super::super::super::Foundation::Point;
+                        fn SetNormalizedAnchorPoint(&self, element: super::super::DependencyObject, value: super::super::super::super::Foundation::Point);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapControlStatics2 {
+                        #[special]
+                        fn get_BusinessLandmarksVisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TransitFeaturesVisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PanInteractionModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RotateInteractionModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TiltInteractionModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ZoomInteractionModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_Is3DSupportedProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsStreetsideSupportedProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SceneProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IMapControlStatics4 {
+                        #[special]
+                        fn get_BusinessLandmarksEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TransitFeaturesEnabledProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControlStatics5 {
+                        #[special]
+                        fn get_MapProjectionProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_StyleSheetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ViewPaddingProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControlStatics6 {
+                        #[special]
+                        fn get_LayersProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    interface IMapControlStatics7 {
+                        #[special]
+                        fn get_RegionProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
+                    interface IMapControlStatics8 {
+                        #[special]
+                        fn get_CanTiltDownProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CanTiltUpProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CanZoomInProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CanZoomOutProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeatureClickEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControlTransitFeatureClickEventArgs {
+                        #[special]
+                        fn get_DisplayName(&self) -> String;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_TransitProperties(&self) -> super::super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeaturePointerEnteredEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    interface IMapControlTransitFeaturePointerEnteredEventArgs {
+                        #[special]
+                        fn get_DisplayName(&self) -> String;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_TransitProperties(&self) -> super::super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeaturePointerExitedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapControlTransitFeaturePointerExitedEventArgs {
+                        #[special]
+                        fn get_DisplayName(&self) -> String;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_TransitProperties(&self) -> super::super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeatureRightTappedEventArgs)]
+                    interface IMapControlTransitFeatureRightTappedEventArgs {
+                        #[special]
+                        fn get_DisplayName(&self) -> String;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_TransitProperties(&self) -> super::super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperience)]
+                    interface IMapCustomExperience {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperienceChangedEventArgs)]
+                    interface IMapCustomExperienceChangedEventArgs {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperience)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapCustomExperienceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapCustomExperience;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapElement {
+                        #[special]
+                        fn get_ZIndex(&self) -> i32;
+                        #[special]
+                        fn put_ZIndex(&self, value: i32);
+                        #[special]
+                        fn get_Visible(&self) -> bool;
+                        #[special]
+                        fn put_Visible(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapElement2 {
+                        #[special]
+                        fn get_MapTabIndex(&self) -> i32;
+                        #[special]
+                        fn put_MapTabIndex(&self, value: i32);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    interface IMapElement3 {
+                        #[special]
+                        fn get_MapStyleSheetEntry(&self) -> String;
+                        #[special]
+                        fn put_MapStyleSheetEntry(&self, value: String);
+                        #[special]
+                        fn get_MapStyleSheetEntryState(&self) -> String;
+                        #[special]
+                        fn put_MapStyleSheetEntryState(&self, value: String);
+                        #[special]
+                        fn get_Tag(&self) -> Object;
+                        #[special]
+                        fn put_Tag(&self, value: Object);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement3D)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapElement3D {
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn put_Location(&self, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_Model(&self) -> MapModel3D;
+                        #[special]
+                        fn put_Model(&self, value: MapModel3D);
+                        #[special]
+                        fn get_Heading(&self) -> f64;
+                        #[special]
+                        fn put_Heading(&self, value: f64);
+                        #[special]
+                        fn get_Pitch(&self) -> f64;
+                        #[special]
+                        fn put_Pitch(&self, value: f64);
+                        #[special]
+                        fn get_Roll(&self) -> f64;
+                        #[special]
+                        fn put_Roll(&self, value: f64);
+                        #[special]
+                        fn get_Scale(&self) -> super::super::super::super::Foundation::Numerics::Vector3;
+                        #[special]
+                        fn put_Scale(&self, value: super::super::super::super::Foundation::Numerics::Vector3);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement3D)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapElement3DStatics {
+                        #[special]
+                        fn get_LocationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_HeadingProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PitchProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RollProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ScaleProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    interface IMapElement4 {
+                        #[special]
+                        fn get_IsEnabled(&self) -> bool;
+                        #[special]
+                        fn put_IsEnabled(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementClickEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapElementClickEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVector<MapElement>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapElementFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapElement;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementPointerEnteredEventArgs)]
+                    interface IMapElementPointerEnteredEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElement(&self) -> MapElement;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementPointerExitedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapElementPointerExitedEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElement(&self) -> MapElement;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapElementStatics {
+                        #[special]
+                        fn get_ZIndexProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_VisibleProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapElementStatics2 {
+                        #[special]
+                        fn get_MapTabIndexProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapElementStatics3 {
+                        #[special]
+                        fn get_MapStyleSheetEntryProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MapStyleSheetEntryStateProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TagProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
+                    interface IMapElementStatics4 {
+                        #[special]
+                        fn get_IsEnabledProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayer)]
+                    interface IMapElementsLayer {
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVector<MapElement>;
+                        #[special]
+                        fn put_MapElements(&self, value: super::super::super::super::Foundation::Collections::IVector<MapElement>);
+                        #[special]
+                        fn add_MapElementClick(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerClickEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementClick(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapElementPointerEntered(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerPointerEnteredEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementPointerEntered(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapElementPointerExited(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerPointerExitedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapElementPointerExited(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_MapContextRequested(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerContextRequestedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_MapContextRequested(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerClickEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapElementsLayerClickEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVector<MapElement>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerContextRequestedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapElementsLayerContextRequestedEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElements(&self) -> super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerPointerEnteredEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapElementsLayerPointerEnteredEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElement(&self) -> MapElement;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerPointerExitedEventArgs)]
+                    interface IMapElementsLayerPointerExitedEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn get_MapElement(&self) -> MapElement;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayer)]
+                    interface IMapElementsLayerStatics {
+                        #[special]
+                        fn get_MapElementsProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapIcon {
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                        #[special]
+                        fn put_Location(&self, value: super::super::super::super::Devices::Geolocation::Geopoint);
+                        #[special]
+                        fn get_Title(&self) -> String;
+                        #[special]
+                        fn put_Title(&self, value: String);
+                        #[special]
+                        fn get_NormalizedAnchorPoint(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn put_NormalizedAnchorPoint(&self, value: super::super::super::super::Foundation::Point);
+                        #[special]
+                        fn get_Image(&self) -> super::super::super::super::Storage::Streams::IRandomAccessStreamReference;
+                        #[special]
+                        fn put_Image(&self, value: super::super::super::super::Storage::Streams::IRandomAccessStreamReference);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapIcon2 {
+                        #[special]
+                        fn get_CollisionBehaviorDesired(&self) -> MapElementCollisionBehavior;
+                        #[special]
+                        fn put_CollisionBehaviorDesired(&self, value: MapElementCollisionBehavior);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapIconStatics {
+                        #[special]
+                        fn get_LocationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TitleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_NormalizedAnchorPointProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapIconStatics2 {
+                        #[special]
+                        fn get_CollisionBehaviorDesiredProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapInputEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapInputEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapItemsControl)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapItemsControl {
+                        #[special]
+                        fn get_ItemsSource(&self) -> Object;
+                        #[special]
+                        fn put_ItemsSource(&self, value: Object);
+                        #[special]
+                        fn get_Items(&self) -> super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>;
+                        #[special]
+                        fn get_ItemTemplate(&self) -> super::super::DataTemplate;
+                        #[special]
+                        fn put_ItemTemplate(&self, value: super::super::DataTemplate);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapItemsControl)]
+                    interface IMapItemsControlStatics {
+                        #[special]
+                        fn get_ItemsSourceProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemTemplateProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapLayer {
+                        #[special]
+                        fn get_MapTabIndex(&self) -> i32;
+                        #[special]
+                        fn put_MapTabIndex(&self, value: i32);
+                        #[special]
+                        fn get_Visible(&self) -> bool;
+                        #[special]
+                        fn put_Visible(&self, value: bool);
+                        #[special]
+                        fn get_ZIndex(&self) -> i32;
+                        #[special]
+                        fn put_ZIndex(&self, value: i32);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
+                    interface IMapLayerFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapLayer;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
+                    interface IMapLayerStatics {
+                        #[special]
+                        fn get_MapTabIndexProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_VisibleProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ZIndexProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapModel3D {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapModel3DFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapModel3D;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
+                    interface IMapModel3DStatics {
+                        #[Windows::Foundation::Metadata::Overload("CreateFrom3MFAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn CreateFrom3MFAsync(&self, source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("CreateFrom3MFWithShadingOptionAsync")]
+                        fn CreateFrom3MFAsync(&self, source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference, shadingOption: MapModel3DShadingOption) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapPolygon {
+                        #[special]
+                        fn get_Path(&self) -> super::super::super::super::Devices::Geolocation::Geopath;
+                        #[special]
+                        fn put_Path(&self, value: super::super::super::super::Devices::Geolocation::Geopath);
+                        #[special]
+                        fn get_StrokeColor(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_StrokeColor(&self, value: super::super::super::Color);
+                        #[special]
+                        fn get_StrokeThickness(&self) -> f64;
+                        #[special]
+                        fn put_StrokeThickness(&self, value: f64);
+                        #[special]
+                        fn get_StrokeDashed(&self) -> bool;
+                        #[special]
+                        fn put_StrokeDashed(&self, value: bool);
+                        #[special]
+                        fn get_FillColor(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_FillColor(&self, value: super::super::super::Color);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
+                    interface IMapPolygon2 {
+                        #[special]
+                        fn get_Paths(&self) -> super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Devices::Geolocation::Geopath>;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapPolygonStatics {
+                        #[special]
+                        fn get_PathProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_StrokeThicknessProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_StrokeDashedProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapPolyline)]
+                    interface IMapPolyline {
+                        #[special]
+                        fn get_Path(&self) -> super::super::super::super::Devices::Geolocation::Geopath;
+                        #[special]
+                        fn put_Path(&self, value: super::super::super::super::Devices::Geolocation::Geopath);
+                        #[special]
+                        fn get_StrokeColor(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_StrokeColor(&self, value: super::super::super::Color);
+                        #[special]
+                        fn get_StrokeThickness(&self) -> f64;
+                        #[special]
+                        fn put_StrokeThickness(&self, value: f64);
+                        #[special]
+                        fn get_StrokeDashed(&self) -> bool;
+                        #[special]
+                        fn put_StrokeDashed(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapPolyline)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapPolylineStatics {
+                        #[special]
+                        fn get_PathProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_StrokeDashedProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapRightTappedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    interface IMapRightTappedEventArgs {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::Point;
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteView)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapRouteView {
+                        #[special]
+                        fn get_RouteColor(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_RouteColor(&self, value: super::super::super::Color);
+                        #[special]
+                        fn get_OutlineColor(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_OutlineColor(&self, value: super::super::super::Color);
+                        #[special]
+                        fn get_Route(&self) -> super::super::super::super::Services::Maps::MapRoute;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteView)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapRouteViewFactory {
+                        fn CreateInstanceWithMapRoute(&self, route: super::super::super::super::Services::Maps::MapRoute, baseInterface: Object, innerInterface: &mut Object) -> MapRouteView;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapScene)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapScene {
+                        #[special]
+                        fn get_TargetCamera(&self) -> MapCamera;
+                        #[special]
+                        fn add_TargetCameraChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<MapScene, MapTargetCameraChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_TargetCameraChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapScene)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapSceneStatics {
+                        #[Windows::Foundation::Metadata::Overload("CreateFromBoundingBox")]
+                        fn CreateFromBoundingBox(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromBoundingBoxWithHeadingAndPitch")]
+                        fn CreateFromBoundingBox(&self, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        fn CreateFromCamera(&self, camera: MapCamera) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocation")]
+                        fn CreateFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationWithHeadingAndPitch")]
+                        fn CreateFromLocation(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationAndRadius")]
+                        fn CreateFromLocationAndRadius(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationAndRadiusWithHeadingAndPitch")]
+                        fn CreateFromLocationAndRadius(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocations")]
+                        fn CreateFromLocations(&self, locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>) -> MapScene;
+                        #[Windows::Foundation::Metadata::Overload("CreateFromLocationsWithHeadingAndPitch")]
+                        fn CreateFromLocations(&self, locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>, headingInDegrees: f64, pitchInDegrees: f64) -> MapScene;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheet)]
+                    interface IMapStyleSheet {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheetEntries)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IMapStyleSheetEntriesStatics {
+                        #[special]
+                        fn get_Area(&self) -> String;
+                        #[special]
+                        fn get_Airport(&self) -> String;
+                        #[special]
+                        fn get_Cemetery(&self) -> String;
+                        #[special]
+                        fn get_Continent(&self) -> String;
+                        #[special]
+                        fn get_Education(&self) -> String;
+                        #[special]
+                        fn get_IndigenousPeoplesReserve(&self) -> String;
+                        #[special]
+                        fn get_Island(&self) -> String;
+                        #[special]
+                        fn get_Medical(&self) -> String;
+                        #[special]
+                        fn get_Military(&self) -> String;
+                        #[special]
+                        fn get_Nautical(&self) -> String;
+                        #[special]
+                        fn get_Neighborhood(&self) -> String;
+                        #[special]
+                        fn get_Runway(&self) -> String;
+                        #[special]
+                        fn get_Sand(&self) -> String;
+                        #[special]
+                        fn get_ShoppingCenter(&self) -> String;
+                        #[special]
+                        fn get_Stadium(&self) -> String;
+                        #[special]
+                        fn get_Vegetation(&self) -> String;
+                        #[special]
+                        fn get_Forest(&self) -> String;
+                        #[special]
+                        fn get_GolfCourse(&self) -> String;
+                        #[special]
+                        fn get_Park(&self) -> String;
+                        #[special]
+                        fn get_PlayingField(&self) -> String;
+                        #[special]
+                        fn get_Reserve(&self) -> String;
+                        #[special]
+                        fn get_Point(&self) -> String;
+                        #[special]
+                        fn get_NaturalPoint(&self) -> String;
+                        #[special]
+                        fn get_Peak(&self) -> String;
+                        #[special]
+                        fn get_VolcanicPeak(&self) -> String;
+                        #[special]
+                        fn get_WaterPoint(&self) -> String;
+                        #[special]
+                        fn get_PointOfInterest(&self) -> String;
+                        #[special]
+                        fn get_Business(&self) -> String;
+                        #[special]
+                        fn get_FoodPoint(&self) -> String;
+                        #[special]
+                        fn get_PopulatedPlace(&self) -> String;
+                        #[special]
+                        fn get_Capital(&self) -> String;
+                        #[special]
+                        fn get_AdminDistrictCapital(&self) -> String;
+                        #[special]
+                        fn get_CountryRegionCapital(&self) -> String;
+                        #[special]
+                        fn get_RoadShield(&self) -> String;
+                        #[special]
+                        fn get_RoadExit(&self) -> String;
+                        #[special]
+                        fn get_Transit(&self) -> String;
+                        #[special]
+                        fn get_Political(&self) -> String;
+                        #[special]
+                        fn get_CountryRegion(&self) -> String;
+                        #[special]
+                        fn get_AdminDistrict(&self) -> String;
+                        #[special]
+                        fn get_District(&self) -> String;
+                        #[special]
+                        fn get_Structure(&self) -> String;
+                        #[special]
+                        fn get_Building(&self) -> String;
+                        #[special]
+                        fn get_EducationBuilding(&self) -> String;
+                        #[special]
+                        fn get_MedicalBuilding(&self) -> String;
+                        #[special]
+                        fn get_TransitBuilding(&self) -> String;
+                        #[special]
+                        fn get_Transportation(&self) -> String;
+                        #[special]
+                        fn get_Road(&self) -> String;
+                        #[special]
+                        fn get_ControlledAccessHighway(&self) -> String;
+                        #[special]
+                        fn get_HighSpeedRamp(&self) -> String;
+                        #[special]
+                        fn get_Highway(&self) -> String;
+                        #[special]
+                        fn get_MajorRoad(&self) -> String;
+                        #[special]
+                        fn get_ArterialRoad(&self) -> String;
+                        #[special]
+                        fn get_Street(&self) -> String;
+                        #[special]
+                        fn get_Ramp(&self) -> String;
+                        #[special]
+                        fn get_UnpavedStreet(&self) -> String;
+                        #[special]
+                        fn get_TollRoad(&self) -> String;
+                        #[special]
+                        fn get_Railway(&self) -> String;
+                        #[special]
+                        fn get_Trail(&self) -> String;
+                        #[special]
+                        fn get_WaterRoute(&self) -> String;
+                        #[special]
+                        fn get_Water(&self) -> String;
+                        #[special]
+                        fn get_River(&self) -> String;
+                        #[special]
+                        fn get_RouteLine(&self) -> String;
+                        #[special]
+                        fn get_WalkingRoute(&self) -> String;
+                        #[special]
+                        fn get_DrivingRoute(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheetEntryStates)]
+                    interface IMapStyleSheetEntryStatesStatics {
+                        #[special]
+                        fn get_Disabled(&self) -> String;
+                        #[special]
+                        fn get_Hover(&self) -> String;
+                        #[special]
+                        fn get_Selected(&self) -> String;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheet)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IMapStyleSheetStatics {
+                        fn Aerial(&self) -> MapStyleSheet;
+                        fn AerialWithOverlay(&self) -> MapStyleSheet;
+                        fn RoadLight(&self) -> MapStyleSheet;
+                        fn RoadDark(&self) -> MapStyleSheet;
+                        fn RoadHighContrastLight(&self) -> MapStyleSheet;
+                        fn RoadHighContrastDark(&self) -> MapStyleSheet;
+                        fn Combine(&self, styleSheets: super::super::super::super::Foundation::Collections::IIterable<MapStyleSheet>) -> MapStyleSheet;
+                        fn ParseFromJson(&self, styleAsJson: String) -> MapStyleSheet;
+                        fn TryParseFromJson(&self, styleAsJson: String, styleSheet: &mut MapStyleSheet) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTargetCameraChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapTargetCameraChangedEventArgs {
+                        #[special]
+                        fn get_Camera(&self) -> MapCamera;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTargetCameraChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTargetCameraChangedEventArgs2 {
+                        #[special]
+                        fn get_ChangeReason(&self) -> MapCameraChangeReason;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequest)]
+                    interface IMapTileBitmapRequest {
+                        #[special]
+                        fn get_PixelData(&self) -> super::super::super::super::Storage::Streams::IRandomAccessStreamReference;
+                        #[special]
+                        fn put_PixelData(&self, value: super::super::super::super::Storage::Streams::IRandomAccessStreamReference);
+                        fn GetDeferral(&self) -> MapTileBitmapRequestDeferral;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestDeferral)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTileBitmapRequestDeferral {
+                        fn Complete(&self);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapTileBitmapRequestedEventArgs {
+                        #[special]
+                        fn get_X(&self) -> i32;
+                        #[special]
+                        fn get_Y(&self) -> i32;
+                        #[special]
+                        fn get_ZoomLevel(&self) -> i32;
+                        #[special]
+                        fn get_Request(&self) -> MapTileBitmapRequest;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestedEventArgs)]
+                    interface IMapTileBitmapRequestedEventArgs2 {
+                        #[special]
+                        fn get_FrameIndex(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapTileDataSource {}
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTileDataSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapTileDataSource;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
+                    interface IMapTileSource {
+                        #[special]
+                        fn get_DataSource(&self) -> MapTileDataSource;
+                        #[special]
+                        fn put_DataSource(&self, value: MapTileDataSource);
+                        #[special]
+                        fn get_Layer(&self) -> MapTileLayer;
+                        #[special]
+                        fn put_Layer(&self, value: MapTileLayer);
+                        #[special]
+                        fn get_ZoomLevelRange(&self) -> MapZoomLevelRange;
+                        #[special]
+                        fn put_ZoomLevelRange(&self, value: MapZoomLevelRange);
+                        #[special]
+                        fn get_Bounds(&self) -> super::super::super::super::Devices::Geolocation::GeoboundingBox;
+                        #[special]
+                        fn put_Bounds(&self, value: super::super::super::super::Devices::Geolocation::GeoboundingBox);
+                        #[special]
+                        fn get_AllowOverstretch(&self) -> bool;
+                        #[special]
+                        fn put_AllowOverstretch(&self, value: bool);
+                        #[special]
+                        fn get_IsFadingEnabled(&self) -> bool;
+                        #[special]
+                        fn put_IsFadingEnabled(&self, value: bool);
+                        #[special]
+                        fn get_IsTransparencyEnabled(&self) -> bool;
+                        #[special]
+                        fn put_IsTransparencyEnabled(&self, value: bool);
+                        #[special]
+                        fn get_IsRetryEnabled(&self) -> bool;
+                        #[special]
+                        fn put_IsRetryEnabled(&self, value: bool);
+                        #[special]
+                        fn get_ZIndex(&self) -> i32;
+                        #[special]
+                        fn put_ZIndex(&self, value: i32);
+                        #[special]
+                        fn get_TilePixelSize(&self) -> i32;
+                        #[special]
+                        fn put_TilePixelSize(&self, value: i32);
+                        #[special]
+                        fn get_Visible(&self) -> bool;
+                        #[special]
+                        fn put_Visible(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTileSource2 {
+                        #[special]
+                        fn get_AnimationState(&self) -> MapTileAnimationState;
+                        #[special]
+                        fn get_AutoPlay(&self) -> bool;
+                        #[special]
+                        fn put_AutoPlay(&self, value: bool);
+                        #[special]
+                        fn get_FrameCount(&self) -> i32;
+                        #[special]
+                        fn put_FrameCount(&self, value: i32);
+                        #[special]
+                        fn get_FrameDuration(&self) -> super::super::super::super::Foundation::TimeSpan;
+                        #[special]
+                        fn put_FrameDuration(&self, value: super::super::super::super::Foundation::TimeSpan);
+                        fn Pause(&self);
+                        fn Play(&self);
+                        fn Stop(&self);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapTileSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MapTileSource;
+                        fn CreateInstanceWithDataSource(&self, dataSource: MapTileDataSource, baseInterface: Object, innerInterface: &mut Object) -> MapTileSource;
+                        fn CreateInstanceWithDataSourceAndZoomRange(&self, dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, baseInterface: Object, innerInterface: &mut Object) -> MapTileSource;
+                        fn CreateInstanceWithDataSourceZoomRangeAndBounds(&self, dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, baseInterface: Object, innerInterface: &mut Object) -> MapTileSource;
+                        fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize(&self, dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, tileSizeInPixels: i32, baseInterface: Object, innerInterface: &mut Object) -> MapTileSource;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
+                    interface IMapTileSourceStatics {
+                        #[special]
+                        fn get_DataSourceProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LayerProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ZoomLevelRangeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_BoundsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_AllowOverstretchProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsFadingEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsTransparencyEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsRetryEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ZIndexProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_TilePixelSizeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_VisibleProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTileSourceStatics2 {
+                        #[special]
+                        fn get_AnimationStateProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_AutoPlayProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_FrameCountProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_FrameDurationProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequest)]
+                    interface IMapTileUriRequest {
+                        #[special]
+                        fn get_Uri(&self) -> super::super::super::super::Foundation::Uri;
+                        #[special]
+                        fn put_Uri(&self, value: super::super::super::super::Foundation::Uri);
+                        fn GetDeferral(&self) -> MapTileUriRequestDeferral;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestDeferral)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IMapTileUriRequestDeferral {
+                        fn Complete(&self);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMapTileUriRequestedEventArgs {
+                        #[special]
+                        fn get_X(&self) -> i32;
+                        #[special]
+                        fn get_Y(&self) -> i32;
+                        #[special]
+                        fn get_ZoomLevel(&self) -> i32;
+                        #[special]
+                        fn get_Request(&self) -> MapTileUriRequest;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestedEventArgs)]
+                    interface IMapTileUriRequestedEventArgs2 {
+                        #[special]
+                        fn get_FrameIndex(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(StreetsideExperience)]
+                    interface IStreetsideExperience {
+                        #[special]
+                        fn get_AddressTextVisible(&self) -> bool;
+                        #[special]
+                        fn put_AddressTextVisible(&self, value: bool);
+                        #[special]
+                        fn get_CursorVisible(&self) -> bool;
+                        #[special]
+                        fn put_CursorVisible(&self, value: bool);
+                        #[special]
+                        fn get_OverviewMapVisible(&self) -> bool;
+                        #[special]
+                        fn put_OverviewMapVisible(&self, value: bool);
+                        #[special]
+                        fn get_StreetLabelsVisible(&self) -> bool;
+                        #[special]
+                        fn put_StreetLabelsVisible(&self, value: bool);
+                        #[special]
+                        fn get_ExitButtonVisible(&self) -> bool;
+                        #[special]
+                        fn put_ExitButtonVisible(&self, value: bool);
+                        #[special]
+                        fn get_ZoomButtonsVisible(&self) -> bool;
+                        #[special]
+                        fn put_ZoomButtonsVisible(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(StreetsideExperience)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IStreetsideExperienceFactory {
+                        fn CreateInstanceWithPanorama(&self, panorama: StreetsidePanorama) -> StreetsideExperience;
+                        fn CreateInstanceWithPanoramaHeadingPitchAndFieldOfView(&self, panorama: StreetsidePanorama, headingInDegrees: f64, pitchInDegrees: f64, fieldOfViewInDegrees: f64) -> StreetsideExperience;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(StreetsidePanorama)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IStreetsidePanorama {
+                        #[special]
+                        fn get_Location(&self) -> super::super::super::super::Devices::Geolocation::Geopoint;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(StreetsidePanorama)]
+                    interface IStreetsidePanoramaStatics {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindNearbyWithLocationAsync")]
+                        fn FindNearbyAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindNearbyWithLocationAndRadiusAsync")]
+                        fn FindNearbyAsync(&self, location: super::super::super::super::Devices::Geolocation::Geopoint, radiusInMeters: f64) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(ILocalMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class LocalMapTileDataSource: MapTileDataSource {
+                        #[default]
+                        ILocalMapTileDataSource,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapActualCameraChangedEventArgs {
+                        #[default]
+                        IMapActualCameraChangedEventArgs,
+                        IMapActualCameraChangedEventArgs2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapActualCameraChangingEventArgs {
+                        #[default]
+                        IMapActualCameraChangingEventArgs,
+                        IMapActualCameraChangingEventArgs2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapAnimationKind {
+                        Default = 0,
+                        None = 1,
+                        Linear = 2,
+                        Bow = 3,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Static(IMapBillboardStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(IMapBillboardFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapBillboard: MapElement {
+                        #[default]
+                        IMapBillboard,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(IMapCameraFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapCamera: super::super::DependencyObject {
+                        #[default]
+                        IMapCamera,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapCameraChangeReason {
+                        System = 0,
+                        UserInteraction = 1,
+                        Programmatic = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum MapColorScheme {
+                        Light = 0,
+                        Dark = 1,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapContextRequestedEventArgs {
+                        #[default]
+                        IMapContextRequestedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics7, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Children")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics8, 524288, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics6, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics5, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapControl: super::Control {
+                        #[default]
+                        IMapControl,
+                        IMapControl2,
+                        IMapControl3,
+                        IMapControl4,
+                        IMapControl5,
+                        IMapControl6,
+                        IMapControl7,
+                        IMapControl8,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapControlBusinessLandmarkClickEventArgs {
+                        #[default]
+                        IMapControlBusinessLandmarkClickEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    class MapControlBusinessLandmarkPointerEnteredEventArgs {
+                        #[default]
+                        IMapControlBusinessLandmarkPointerEnteredEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapControlBusinessLandmarkPointerExitedEventArgs {
+                        #[default]
+                        IMapControlBusinessLandmarkPointerExitedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapControlBusinessLandmarkRightTappedEventArgs {
+                        #[default]
+                        IMapControlBusinessLandmarkRightTappedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IMapControlDataHelperStatics, 262144, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::Activatable(IMapControlDataHelperFactory, 131072, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapControlDataHelper: super::super::DependencyObject {
+                        #[default]
+                        IMapControlDataHelper,
+                        IMapControlDataHelper2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapControlTransitFeatureClickEventArgs {
+                        #[default]
+                        IMapControlTransitFeatureClickEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapControlTransitFeaturePointerEnteredEventArgs {
+                        #[default]
+                        IMapControlTransitFeaturePointerEnteredEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapControlTransitFeaturePointerExitedEventArgs {
+                        #[default]
+                        IMapControlTransitFeaturePointerExitedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Services.Maps.LocalSearchContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
+                    class MapControlTransitFeatureRightTappedEventArgs {
+                        #[default]
+                        IMapControlTransitFeatureRightTappedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(IMapCustomExperienceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapCustomExperience: super::super::DependencyObject {
+                        #[default]
+                        IMapCustomExperience,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapCustomExperienceChangedEventArgs {
+                        #[default]
+                        IMapCustomExperienceChangedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapElementStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapElementStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapElementStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Composable(IMapElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IMapElementStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class MapElement: super::super::DependencyObject {
+                        #[default]
+                        IMapElement,
+                        IMapElement2,
+                        IMapElement3,
+                        IMapElement4,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapElement3DStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapElement3D: MapElement {
+                        #[default]
+                        IMapElement3D,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapElementClickEventArgs {
+                        #[default]
+                        IMapElementClickEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum MapElementCollisionBehavior {
+                        Hide = 0,
+                        RemainVisible = 1,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapElementPointerEnteredEventArgs {
+                        #[default]
+                        IMapElementPointerEnteredEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class MapElementPointerExitedEventArgs {
+                        #[default]
+                        IMapElementPointerExitedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::Static(IMapElementsLayerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    class MapElementsLayer: MapLayer {
+                        #[default]
+                        IMapElementsLayer,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapElementsLayerClickEventArgs {
+                        #[default]
+                        IMapElementsLayerClickEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapElementsLayerContextRequestedEventArgs {
+                        #[default]
+                        IMapElementsLayerContextRequestedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapElementsLayerPointerEnteredEventArgs {
+                        #[default]
+                        IMapElementsLayerPointerEnteredEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapElementsLayerPointerExitedEventArgs {
+                        #[default]
+                        IMapElementsLayerPointerExitedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IMapIconStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IMapIconStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapIcon: MapElement {
+                        #[default]
+                        IMapIcon,
+                        IMapIcon2,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapInputEventArgs: super::super::DependencyObject {
+                        #[default]
+                        IMapInputEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapInteractionMode {
+                        Auto = 0,
+                        Disabled = 1,
+                        GestureOnly = 2,
+                        PointerAndKeyboard = 2,
+                        ControlOnly = 3,
+                        GestureAndControl = 4,
+                        PointerKeyboardAndControl = 4,
+                        PointerOnly = 5,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Items")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapItemsControlStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapItemsControl: super::super::DependencyObject {
+                        #[default]
+                        IMapItemsControl,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IMapLayerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Composable(IMapLayerFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapLayer: super::super::DependencyObject {
+                        #[default]
+                        IMapLayer,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum MapLoadingStatus {
+                        Loading = 0,
+                        Loaded = 1,
+                        DataUnavailable = 2,
+                        DownloadedMapsManagerUnavailable = 3,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IMapModel3DFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IMapModel3DStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapModel3D: super::super::DependencyObject {
+                        #[default]
+                        IMapModel3D,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    enum MapModel3DShadingOption {
+                        Default = 0,
+                        Flat = 1,
+                        Smooth = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum MapPanInteractionMode {
+                        Auto = 0,
+                        Disabled = 1,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapPolygonStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapPolygon: MapElement {
+                        #[default]
+                        IMapPolygon,
+                        IMapPolygon2,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapPolylineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapPolyline: MapElement {
+                        #[default]
+                        IMapPolyline,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapProjection {
+                        WebMercator = 0,
+                        Globe = 1,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapRightTappedEventArgs {
+                        #[default]
+                        IMapRightTappedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(IMapRouteViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapRouteView: super::super::DependencyObject {
+                        #[default]
+                        IMapRouteView,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapSceneStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class MapScene: super::super::DependencyObject {
+                        #[default]
+                        IMapScene,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapStyle {
+                        None = 0,
+                        Road = 1,
+                        Aerial = 2,
+                        AerialWithRoads = 3,
+                        Terrain = 4,
+                        Aerial3D = 5,
+                        Aerial3DWithRoads = 6,
+                        Custom = 7,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapStyleSheetStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class MapStyleSheet: super::super::DependencyObject {
+                        #[default]
+                        IMapStyleSheet,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IMapStyleSheetEntriesStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    class MapStyleSheetEntries {}
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IMapStyleSheetEntryStatesStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    class MapStyleSheetEntryStates {}
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapTargetCameraChangedEventArgs {
+                        #[default]
+                        IMapTargetCameraChangedEventArgs,
+                        IMapTargetCameraChangedEventArgs2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapTileAnimationState {
+                        Stopped = 0,
+                        Paused = 1,
+                        Playing = 2,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapTileBitmapRequest {
+                        #[default]
+                        IMapTileBitmapRequest,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MapTileBitmapRequestDeferral {
+                        #[default]
+                        IMapTileBitmapRequestDeferral,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapTileBitmapRequestedEventArgs {
+                        #[default]
+                        IMapTileBitmapRequestedEventArgs,
+                        IMapTileBitmapRequestedEventArgs2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MapTileDataSource: super::super::DependencyObject {
+                        #[default]
+                        IMapTileDataSource,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapTileLayer {
+                        LabelOverlay = 0,
+                        RoadOverlay = 1,
+                        AreaOverlay = 2,
+                        BackgroundOverlay = 3,
+                        BackgroundReplacement = 4,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IMapTileSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapTileSourceStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IMapTileSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapTileSource: super::super::DependencyObject {
+                        #[default]
+                        IMapTileSource,
+                        IMapTileSource2,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapTileUriRequest {
+                        #[default]
+                        IMapTileUriRequest,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MapTileUriRequestDeferral {
+                        #[default]
+                        IMapTileUriRequestDeferral,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class MapTileUriRequestedEventArgs {
+                        #[default]
+                        IMapTileUriRequestedEventArgs,
+                        IMapTileUriRequestedEventArgs2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum MapVisibleRegionKind {
+                        Near = 0,
+                        Full = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum MapWatermarkMode {
+                        Automatic = 0,
+                        On = 1,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    struct MapZoomLevelRange {
+                        Min: f64,
+                        Max: f64,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(IStreetsideExperienceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class StreetsideExperience: MapCustomExperience {
+                        #[default]
+                        IStreetsideExperience,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IStreetsidePanoramaStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class StreetsidePanorama: super::super::DependencyObject {
+                        #[default]
+                        IStreetsidePanorama,
+                    }
+                }
+            }
+        }
+    }
+}

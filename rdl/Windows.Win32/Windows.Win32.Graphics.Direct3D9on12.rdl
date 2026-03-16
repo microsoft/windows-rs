@@ -1,0 +1,28 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            #[win32]
+            mod Direct3D9on12 {
+                struct D3D9ON12_ARGS {
+                    Enable9On12: super::super::Foundation::BOOL,
+                    pD3D12Device: super::super::System::Com::IUnknown,
+                    ppD3D12Queues: [super::super::System::Com::IUnknown; 2],
+                    NumQueues: u32,
+                    NodeMask: u32,
+                }
+                #[library("d3d9.dll")]
+                extern fn Direct3DCreate9On12(SDKVersion: u32, pOverrideList: *mut D3D9ON12_ARGS, NumOverrideEntries: u32) -> super::Direct3D9::IDirect3D9;
+                #[library("d3d9.dll")]
+                extern fn Direct3DCreate9On12Ex(SDKVersion: u32, pOverrideList: *mut D3D9ON12_ARGS, NumOverrideEntries: u32, ppOutputInterface: *mut super::Direct3D9::IDirect3D9Ex) -> super::super::Foundation::HRESULT;
+                interface IDirect3DDevice9On12: super::super::System::Com::IUnknown {
+                    fn GetD3D12Device(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppvDevice: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn UnwrapUnderlyingResource(&self, pResource: super::Direct3D9::IDirect3DResource9, pCommandQueue: super::Direct3D12::ID3D12CommandQueue, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppvResource12: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn ReturnUnderlyingResource(&self, pResource: super::Direct3D9::IDirect3DResource9, NumSync: u32, pSignalValues: *mut u64, ppFences: *mut super::Direct3D12::ID3D12Fence) -> super::super::Foundation::HRESULT;
+                }
+                const MAX_D3D9ON12_QUEUES: u32 = 2;
+                extern fn PFN_Direct3DCreate9On12(SDKVersion: u32, pOverrideList: *mut D3D9ON12_ARGS, NumOverrideEntries: u32) -> super::Direct3D9::IDirect3D9;
+                extern fn PFN_Direct3DCreate9On12Ex(SDKVersion: u32, pOverrideList: *mut D3D9ON12_ARGS, NumOverrideEntries: u32, ppOutputInterface: *mut super::Direct3D9::IDirect3D9Ex) -> super::super::Foundation::HRESULT;
+            }
+        }
+    }
+}

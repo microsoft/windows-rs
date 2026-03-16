@@ -1,0 +1,237 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            mod Input {
+                #[win32]
+                mod Pointer {
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-enablemouseinpointer")]
+                    #[library("USER32.dll")]
+                    extern fn EnableMouseInPointer(fEnable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointercursorid")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerCursorId(pointerId: u32, cursorId: *mut u32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerdevice")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerDevice(device: super::super::super::Foundation::HANDLE, pointerDevice: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerdevicecursors")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerDeviceCursors(device: super::super::super::Foundation::HANDLE, cursorCount: *mut u32, deviceCursors: *mut super::super::Controls::POINTER_DEVICE_CURSOR_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerdeviceproperties")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerDeviceProperties(device: super::super::super::Foundation::HANDLE, propertyCount: *mut u32, pointerProperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerdevicerects")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerDeviceRects(device: super::super::super::Foundation::HANDLE, pointerDeviceRect: *mut super::super::super::Foundation::RECT, displayRect: *mut super::super::super::Foundation::RECT) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerdevices")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerDevices(deviceCount: *mut u32, pointerDevices: *mut super::super::Controls::POINTER_DEVICE_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframeinfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFrameInfo(pointerId: u32, pointerCount: *mut u32, pointerInfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframeinfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFrameInfoHistory(pointerId: u32, entriesCount: *mut u32, pointerCount: *mut u32, pointerInfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframepeninfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFramePenInfo(pointerId: u32, pointerCount: *mut u32, penInfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframepeninfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFramePenInfoHistory(pointerId: u32, entriesCount: *mut u32, pointerCount: *mut u32, penInfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframetouchinfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFrameTouchInfo(pointerId: u32, pointerCount: *mut u32, touchInfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerframetouchinfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerFrameTouchInfoHistory(pointerId: u32, entriesCount: *mut u32, pointerCount: *mut u32, touchInfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerinfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerInfo(pointerId: u32, pointerInfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerinfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerInfoHistory(pointerId: u32, entriesCount: *mut u32, pointerInfo: *mut POINTER_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerinputtransform")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerInputTransform(pointerId: u32, historyCount: u32, inputTransform: *mut INPUT_TRANSFORM) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerpeninfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerPenInfo(pointerId: u32, penInfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointerpeninfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerPenInfoHistory(pointerId: u32, entriesCount: *mut u32, penInfo: *mut POINTER_PEN_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointertouchinfo")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerTouchInfo(pointerId: u32, touchInfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointertouchinfohistory")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerTouchInfoHistory(pointerId: u32, entriesCount: *mut u32, touchInfo: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getpointertype")]
+                    #[library("USER32.dll")]
+                    extern fn GetPointerType(pointerId: u32, pointerType: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getrawpointerdevicedata")]
+                    #[library("USER32.dll")]
+                    extern fn GetRawPointerDeviceData(pointerId: u32, historyCount: u32, propertiesCount: u32, pProperties: *mut super::super::Controls::POINTER_DEVICE_PROPERTY, pValues: *mut i32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-getunpredictedmessagepos")]
+                    #[library("USER32.dll")]
+                    extern fn GetUnpredictedMessagePos() -> u32;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-input_injection_value")]
+                    struct INPUT_INJECTION_VALUE {
+                        page: u16,
+                        usage: u16,
+                        value: i32,
+                        index: u16,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-input_transform")]
+                    struct INPUT_TRANSFORM {
+                        Anonymous: union {
+                            Anonymous: struct {
+                                _11: f32,
+                                _12: f32,
+                                _13: f32,
+                                _14: f32,
+                                _21: f32,
+                                _22: f32,
+                                _23: f32,
+                                _24: f32,
+                                _31: f32,
+                                _32: f32,
+                                _33: f32,
+                                _34: f32,
+                                _41: f32,
+                                _42: f32,
+                                _43: f32,
+                                _44: f32,
+                            },
+                            m: [f32; 16],
+                        },
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-initializetouchinjection")]
+                    #[library("USER32.dll")]
+                    extern fn InitializeTouchInjection(maxCount: u32, dwMode: TOUCH_FEEDBACK_MODE) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-injectsyntheticpointerinput")]
+                    #[library("USER32.dll")]
+                    extern fn InjectSyntheticPointerInput(device: super::super::Controls::HSYNTHETICPOINTERDEVICE, pointerInfo: *mut super::super::Controls::POINTER_TYPE_INFO, count: u32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-injecttouchinput")]
+                    #[library("USER32.dll")]
+                    extern fn InjectTouchInput(count: u32, contacts: *mut POINTER_TOUCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-ismouseinpointerenabled")]
+                    #[library("USER32.dll")]
+                    extern fn IsMouseInPointerEnabled() -> super::super::super::Foundation::BOOL;
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ne-winuser-pointer_button_change_type")]
+                    enum POINTER_BUTTON_CHANGE_TYPE {
+                        POINTER_CHANGE_NONE = 0,
+                        POINTER_CHANGE_FIRSTBUTTON_DOWN = 1,
+                        POINTER_CHANGE_FIRSTBUTTON_UP = 2,
+                        POINTER_CHANGE_SECONDBUTTON_DOWN = 3,
+                        POINTER_CHANGE_SECONDBUTTON_UP = 4,
+                        POINTER_CHANGE_THIRDBUTTON_DOWN = 5,
+                        POINTER_CHANGE_THIRDBUTTON_UP = 6,
+                        POINTER_CHANGE_FOURTHBUTTON_DOWN = 7,
+                        POINTER_CHANGE_FOURTHBUTTON_UP = 8,
+                        POINTER_CHANGE_FIFTHBUTTON_DOWN = 9,
+                        POINTER_CHANGE_FIFTHBUTTON_UP = 10,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum POINTER_FLAGS {
+                        POINTER_FLAG_NONE = 0,
+                        POINTER_FLAG_NEW = 1,
+                        POINTER_FLAG_INRANGE = 2,
+                        POINTER_FLAG_INCONTACT = 4,
+                        POINTER_FLAG_FIRSTBUTTON = 16,
+                        POINTER_FLAG_SECONDBUTTON = 32,
+                        POINTER_FLAG_THIRDBUTTON = 64,
+                        POINTER_FLAG_FOURTHBUTTON = 128,
+                        POINTER_FLAG_FIFTHBUTTON = 256,
+                        POINTER_FLAG_PRIMARY = 8192,
+                        POINTER_FLAG_CONFIDENCE = 16384,
+                        POINTER_FLAG_CANCELED = 32768,
+                        POINTER_FLAG_DOWN = 65536,
+                        POINTER_FLAG_UPDATE = 131072,
+                        POINTER_FLAG_UP = 262144,
+                        POINTER_FLAG_WHEEL = 524288,
+                        POINTER_FLAG_HWHEEL = 1048576,
+                        POINTER_FLAG_CAPTURECHANGED = 2097152,
+                        POINTER_FLAG_HASTRANSFORM = 4194304,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-pointer_info")]
+                    struct POINTER_INFO {
+                        pointerType: super::super::WindowsAndMessaging::POINTER_INPUT_TYPE,
+                        pointerId: u32,
+                        frameId: u32,
+                        pointerFlags: POINTER_FLAGS,
+                        sourceDevice: super::super::super::Foundation::HANDLE,
+                        hwndTarget: super::super::super::Foundation::HWND,
+                        ptPixelLocation: super::super::super::Foundation::POINT,
+                        ptHimetricLocation: super::super::super::Foundation::POINT,
+                        ptPixelLocationRaw: super::super::super::Foundation::POINT,
+                        ptHimetricLocationRaw: super::super::super::Foundation::POINT,
+                        dwTime: u32,
+                        historyCount: u32,
+                        InputData: i32,
+                        dwKeyStates: u32,
+                        PerformanceCount: u64,
+                        ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-pointer_pen_info")]
+                    struct POINTER_PEN_INFO {
+                        pointerInfo: POINTER_INFO,
+                        penFlags: u32,
+                        penMask: u32,
+                        pressure: u32,
+                        rotation: u32,
+                        tiltX: i32,
+                        tiltY: i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-pointer_touch_info")]
+                    struct POINTER_TOUCH_INFO {
+                        pointerInfo: POINTER_INFO,
+                        touchFlags: u32,
+                        touchMask: u32,
+                        rcContact: super::super::super::Foundation::RECT,
+                        rcContactRaw: super::super::super::Foundation::RECT,
+                        orientation: u32,
+                        pressure: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-skippointerframemessages")]
+                    #[library("USER32.dll")]
+                    extern fn SkipPointerFrameMessages(pointerId: u32) -> super::super::super::Foundation::BOOL;
+                    #[repr(u32)]
+                    enum TOUCH_FEEDBACK_MODE {
+                        TOUCH_FEEDBACK_DEFAULT = 1,
+                        TOUCH_FEEDBACK_INDIRECT = 2,
+                        TOUCH_FEEDBACK_NONE = 3,
+                    }
+                }
+            }
+        }
+    }
+}

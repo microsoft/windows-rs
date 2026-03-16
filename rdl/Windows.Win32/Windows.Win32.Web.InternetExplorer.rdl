@@ -1,0 +1,1202 @@
+mod Windows {
+    mod Win32 {
+        mod Web {
+            #[win32]
+            mod InternetExplorer {
+                const ADDRESSBAND: u32 = 2;
+                #[repr(i32)]
+                enum ADDURL_FLAG {
+                    ADDURL_FIRST = 0,
+                    ADDURL_ADDTOHISTORYANDCACHE = 0,
+                    ADDURL_ADDTOCACHE = 1,
+                    ADDURL_Max = 2147483647,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(332742972, 13241, 4562, 149, 167, 0, 192, 79, 142, 203, 2)]
+                struct AnchorClick {}
+                const CATID_MSOfficeAntiVirus: GUID = 0x56ffcc30_d398_11d0_b2ae_00a0c908fa49;
+                #[Windows::Win32::Foundation::Metadata::Guid(810612436, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CDeviceRect {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810612158, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CDownloadBehavior {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810612429, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CHeaderFooter {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810612324, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CLayoutRect {}
+                const COLOR_NO_TRANSPARENT: u32 = 4294967295;
+                #[Windows::Win32::Foundation::Metadata::Guid(810611847, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CPersistDataPeer {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810611912, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CPersistHistory {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810611910, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CPersistShortcut {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810611913, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CPersistSnapshot {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810611854, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct CPersistUserData {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2824916560, 14608, 4560, 134, 252, 0, 160, 201, 19, 247, 80)]
+                struct CoDitherToRGB8 {}
+                #[Windows::Win32::Foundation::Metadata::Guid(818131072, 12539, 4560, 183, 36, 0, 170, 0, 108, 26, 1)]
+                struct CoMapMIMEToCLSID {}
+                #[Windows::Win32::Foundation::Metadata::Guid(1778515360, 12511, 4560, 183, 36, 0, 170, 0, 108, 26, 1)]
+                struct CoSniffStream {}
+                #[library("ImgUtil.dll")]
+                extern fn ComputeInvCMAP(pRGBColors: *mut super::super::Graphics::Gdi::RGBQUAD, nColors: u32, pInvTable: *mut u8, cbTable: u32) -> super::super::Foundation::HRESULT;
+                #[library("ImgUtil.dll")]
+                extern fn CreateDDrawSurfaceOnDIB(hbmDib: super::super::Graphics::Gdi::HBITMAP, ppSurface: *mut super::super::Graphics::DirectDraw::IDirectDrawSurface) -> super::super::Foundation::HRESULT;
+                #[library("ImgUtil.dll")]
+                extern fn CreateMIMEMap(ppMap: *mut IMapMIMEToCLSID) -> super::super::Foundation::HRESULT;
+                const DISPID_ACTIVEXFILTERINGENABLED: u32 = 61;
+                const DISPID_ADDCHANNEL: u32 = 5;
+                const DISPID_ADDDESKTOPCOMPONENT: u32 = 6;
+                const DISPID_ADDFAVORITE: u32 = 4;
+                const DISPID_ADDSEARCHPROVIDER: u32 = 14;
+                const DISPID_ADDSERVICE: u32 = 30;
+                const DISPID_ADDSITEMODE: u32 = 49;
+                const DISPID_ADDTHUMBNAILBUTTONS: u32 = 48;
+                const DISPID_ADDTOFAVORITESBAR: u32 = 32;
+                const DISPID_ADDTRACKINGPROTECTIONLIST: u32 = 57;
+                const DISPID_ADVANCEERROR: u32 = 10;
+                const DISPID_AMBIENT_OFFLINEIFNOTCONNECTED: i32 = -5501;
+                const DISPID_AMBIENT_SILENT: i32 = -5502;
+                const DISPID_AUTOCOMPLETEATTACH: u32 = 12;
+                const DISPID_AUTOCOMPLETESAVEFORM: u32 = 10;
+                const DISPID_AUTOSCAN: u32 = 11;
+                const DISPID_BEFORENAVIGATE: u32 = 100;
+                const DISPID_BEFORENAVIGATE2: u32 = 250;
+                const DISPID_BEFORESCRIPTEXECUTE: u32 = 290;
+                const DISPID_BRANDIMAGEURI: u32 = 20;
+                const DISPID_BUILDNEWTABPAGE: u32 = 33;
+                const DISPID_CANADVANCEERROR: u32 = 12;
+                const DISPID_CANRETREATERROR: u32 = 13;
+                const DISPID_CHANGEDEFAULTBROWSER: u32 = 68;
+                const DISPID_CLEARNOTIFICATION: u32 = 71;
+                const DISPID_CLEARSITEMODEICONOVERLAY: u32 = 45;
+                const DISPID_CLIENTTOHOSTWINDOW: u32 = 268;
+                const DISPID_COMMANDSTATECHANGE: u32 = 105;
+                const DISPID_CONTENTDISCOVERYRESET: u32 = 36;
+                const DISPID_COUNTVIEWTYPES: u32 = 22;
+                const DISPID_CREATESUBSCRIPTION: u32 = 11;
+                const DISPID_CUSTOMIZECLEARTYPE: u32 = 23;
+                const DISPID_CUSTOMIZESETTINGS: u32 = 17;
+                const DISPID_DEFAULTSEARCHPROVIDER: u32 = 26;
+                const DISPID_DELETESUBSCRIPTION: u32 = 12;
+                const DISPID_DEPTH: u32 = 17;
+                const DISPID_DIAGNOSECONNECTION: u32 = 22;
+                const DISPID_DIAGNOSECONNECTIONUILESS: u32 = 66;
+                const DISPID_DOCUMENTCOMPLETE: u32 = 259;
+                const DISPID_DOUBLECLICK: u32 = 3;
+                const DISPID_DOWNLOADBEGIN: u32 = 106;
+                const DISPID_DOWNLOADCOMPLETE: u32 = 104;
+                const DISPID_ENABLENOTIFICATIONQUEUE: u32 = 72;
+                const DISPID_ENABLENOTIFICATIONQUEUELARGE: u32 = 78;
+                const DISPID_ENABLENOTIFICATIONQUEUESQUARE: u32 = 76;
+                const DISPID_ENABLENOTIFICATIONQUEUEWIDE: u32 = 77;
+                const DISPID_ENABLESUGGESTEDSITES: u32 = 39;
+                const DISPID_ENUMOPTIONS: u32 = 14;
+                const DISPID_EXPAND: u32 = 25;
+                const DISPID_EXPORT: u32 = 7;
+                const DISPID_FAVSELECTIONCHANGE: u32 = 1;
+                const DISPID_FILEDOWNLOAD: u32 = 270;
+                const DISPID_FLAGS: u32 = 19;
+                const DISPID_FRAMEBEFORENAVIGATE: u32 = 200;
+                const DISPID_FRAMENAVIGATECOMPLETE: u32 = 201;
+                const DISPID_FRAMENEWWINDOW: u32 = 204;
+                const DISPID_GETALWAYSSHOWLOCKSTATE: u32 = 23;
+                const DISPID_GETCVLISTDATA: u32 = 93;
+                const DISPID_GETCVLISTLOCALDATA: u32 = 94;
+                const DISPID_GETDETAILSSTATE: u32 = 19;
+                const DISPID_GETEMIELISTDATA: u32 = 95;
+                const DISPID_GETEMIELISTLOCALDATA: u32 = 96;
+                const DISPID_GETERRORCHAR: u32 = 15;
+                const DISPID_GETERRORCODE: u32 = 16;
+                const DISPID_GETERRORLINE: u32 = 14;
+                const DISPID_GETERRORMSG: u32 = 17;
+                const DISPID_GETERRORURL: u32 = 18;
+                const DISPID_GETEXPERIMENTALFLAG: u32 = 85;
+                const DISPID_GETEXPERIMENTALVALUE: u32 = 87;
+                const DISPID_GETNEEDHVSIAUTOLAUNCHFLAG: u32 = 100;
+                const DISPID_GETNEEDIEAUTOLAUNCHFLAG: u32 = 89;
+                const DISPID_GETOSSKU: u32 = 103;
+                const DISPID_GETPERERRSTATE: u32 = 21;
+                const DISPID_HASNEEDHVSIAUTOLAUNCHFLAG: u32 = 102;
+                const DISPID_HASNEEDIEAUTOLAUNCHFLAG: u32 = 88;
+                const DISPID_IMPORT: u32 = 6;
+                const DISPID_IMPORTEXPORTFAVORITES: u32 = 9;
+                const DISPID_INITIALIZED: u32 = 4;
+                const DISPID_INPRIVATEFILTERINGENABLED: u32 = 37;
+                const DISPID_INVOKECONTEXTMENU: u32 = 8;
+                const DISPID_ISMETAREFERRERAVAILABLE: u32 = 83;
+                const DISPID_ISSEARCHMIGRATED: u32 = 25;
+                const DISPID_ISSEARCHPROVIDERINSTALLED: u32 = 24;
+                const DISPID_ISSERVICEINSTALLED: u32 = 31;
+                const DISPID_ISSITEMODE: u32 = 43;
+                const DISPID_ISSITEMODEFIRSTRUN: u32 = 59;
+                const DISPID_ISSUBSCRIBED: u32 = 7;
+                const DISPID_LAUNCHIE: u32 = 91;
+                const DISPID_LAUNCHINHVSI: u32 = 99;
+                const DISPID_LAUNCHINTERNETOPTIONS: u32 = 74;
+                const DISPID_LAUNCHNETWORKCLIENTHELP: u32 = 67;
+                const DISPID_MODE: u32 = 18;
+                const DISPID_MOVESELECTIONDOWN: u32 = 2;
+                const DISPID_MOVESELECTIONTO: u32 = 9;
+                const DISPID_MOVESELECTIONUP: u32 = 1;
+                const DISPID_NAVIGATEANDFIND: u32 = 8;
+                const DISPID_NAVIGATECOMPLETE: u32 = 101;
+                const DISPID_NAVIGATECOMPLETE2: u32 = 252;
+                const DISPID_NAVIGATEERROR: u32 = 271;
+                const DISPID_NAVIGATETOSUGGESTEDSITES: u32 = 40;
+                const DISPID_NEWFOLDER: u32 = 4;
+                const DISPID_NEWPROCESS: u32 = 284;
+                const DISPID_NEWWINDOW: u32 = 107;
+                const DISPID_NEWWINDOW2: u32 = 251;
+                const DISPID_NEWWINDOW3: u32 = 273;
+                const DISPID_NSCOLUMNS: u32 = 21;
+                const DISPID_ONADDRESSBAR: u32 = 261;
+                const DISPID_ONFULLSCREEN: u32 = 258;
+                const DISPID_ONMENUBAR: u32 = 256;
+                const DISPID_ONQUIT: u32 = 253;
+                const DISPID_ONSTATUSBAR: u32 = 257;
+                const DISPID_ONTHEATERMODE: u32 = 260;
+                const DISPID_ONTOOLBAR: u32 = 255;
+                const DISPID_ONVISIBLE: u32 = 254;
+                const DISPID_OPENFAVORITESPANE: u32 = 97;
+                const DISPID_OPENFAVORITESSETTINGS: u32 = 98;
+                const DISPID_PHISHINGENABLED: u32 = 19;
+                const DISPID_PINNEDSITESTATE: u32 = 73;
+                const DISPID_PRINTTEMPLATEINSTANTIATION: u32 = 225;
+                const DISPID_PRINTTEMPLATETEARDOWN: u32 = 226;
+                const DISPID_PRIVACYIMPACTEDSTATECHANGE: u32 = 272;
+                const DISPID_PROGRESSCHANGE: u32 = 108;
+                const DISPID_PROPERTYCHANGE: u32 = 112;
+                const DISPID_PROVISIONNETWORKS: u32 = 62;
+                const DISPID_QUIT: u32 = 103;
+                const DISPID_REDIRECTXDOMAINBLOCKED: u32 = 286;
+                const DISPID_REFRESHOFFLINEDESKTOP: u32 = 3;
+                const DISPID_REMOVESCHEDULEDTILENOTIFICATION: u32 = 80;
+                const DISPID_REPORTSAFEURL: u32 = 63;
+                const DISPID_RESETEXPERIMENTALFLAGS: u32 = 92;
+                const DISPID_RESETFIRSTBOOTMODE: u32 = 1;
+                const DISPID_RESETSAFEMODE: u32 = 2;
+                const DISPID_RESETSORT: u32 = 3;
+                const DISPID_RETREATERROR: u32 = 11;
+                const DISPID_ROOT: u32 = 16;
+                const DISPID_RUNONCEHASSHOWN: u32 = 28;
+                const DISPID_RUNONCEREQUIREDSETTINGSCOMPLETE: u32 = 27;
+                const DISPID_RUNONCESHOWN: u32 = 15;
+                const DISPID_SCHEDULEDTILENOTIFICATION: u32 = 79;
+                const DISPID_SEARCHGUIDEURL: u32 = 29;
+                const DISPID_SELECTEDITEM: u32 = 15;
+                const DISPID_SELECTEDITEMS: u32 = 24;
+                const DISPID_SELECTIONCHANGE: u32 = 2;
+                const DISPID_SETACTIVITIESVISIBLE: u32 = 35;
+                const DISPID_SETDETAILSSTATE: u32 = 20;
+                const DISPID_SETEXPERIMENTALFLAG: u32 = 84;
+                const DISPID_SETEXPERIMENTALVALUE: u32 = 86;
+                const DISPID_SETMSDEFAULTS: u32 = 104;
+                const DISPID_SETNEEDHVSIAUTOLAUNCHFLAG: u32 = 101;
+                const DISPID_SETNEEDIEAUTOLAUNCHFLAG: u32 = 90;
+                const DISPID_SETPERERRSTATE: u32 = 22;
+                const DISPID_SETPHISHINGFILTERSTATUS: u32 = 282;
+                const DISPID_SETRECENTLYCLOSEDVISIBLE: u32 = 34;
+                const DISPID_SETROOT: u32 = 13;
+                const DISPID_SETSECURELOCKICON: u32 = 269;
+                const DISPID_SETSITEMODEICONOVERLAY: u32 = 44;
+                const DISPID_SETSITEMODEPROPERTIES: u32 = 50;
+                const DISPID_SETTHUMBNAILBUTTONS: u32 = 47;
+                const DISPID_SETVIEWTYPE: u32 = 23;
+                const DISPID_SHELLUIHELPERLAST: u32 = 105;
+                const DISPID_SHOWBROWSERUI: u32 = 13;
+                const DISPID_SHOWINPRIVATEHELP: u32 = 42;
+                const DISPID_SHOWTABSHELP: u32 = 41;
+                const DISPID_SITEMODEACTIVATE: u32 = 58;
+                const DISPID_SITEMODEADDBUTTONSTYLE: u32 = 54;
+                const DISPID_SITEMODEADDJUMPLISTITEM: u32 = 52;
+                const DISPID_SITEMODECLEARBADGE: u32 = 65;
+                const DISPID_SITEMODECLEARJUMPLIST: u32 = 53;
+                const DISPID_SITEMODECREATEJUMPLIST: u32 = 51;
+                const DISPID_SITEMODEREFRESHBADGE: u32 = 64;
+                const DISPID_SITEMODESHOWBUTTONSTYLE: u32 = 55;
+                const DISPID_SITEMODESHOWJUMPLIST: u32 = 56;
+                const DISPID_SKIPRUNONCE: u32 = 16;
+                const DISPID_SKIPTABSWELCOME: u32 = 21;
+                const DISPID_SQMENABLED: u32 = 18;
+                const DISPID_STARTBADGEUPDATE: u32 = 81;
+                const DISPID_STARTPERIODICUPDATE: u32 = 70;
+                const DISPID_STARTPERIODICUPDATEBATCH: u32 = 75;
+                const DISPID_STATUSTEXTCHANGE: u32 = 102;
+                const DISPID_STOPBADGEUPDATE: u32 = 82;
+                const DISPID_STOPPERIODICUPDATE: u32 = 69;
+                const DISPID_SUBSCRIPTIONSENABLED: u32 = 10;
+                const DISPID_SUGGESTEDSITESENABLED: u32 = 38;
+                const DISPID_SYNCHRONIZE: u32 = 5;
+                const DISPID_THIRDPARTYURLBLOCKED: u32 = 285;
+                const DISPID_TITLECHANGE: u32 = 113;
+                const DISPID_TITLEICONCHANGE: u32 = 114;
+                const DISPID_TRACKINGPROTECTIONENABLED: u32 = 60;
+                const DISPID_TVFLAGS: u32 = 20;
+                const DISPID_UNSELECTALL: u32 = 26;
+                const DISPID_UPDATEPAGESTATUS: u32 = 227;
+                const DISPID_UPDATETHUMBNAILBUTTON: u32 = 46;
+                const DISPID_VIEWUPDATE: u32 = 281;
+                const DISPID_WEBWORKERFINISHED: u32 = 289;
+                const DISPID_WEBWORKERSTARTED: u32 = 288;
+                const DISPID_WINDOWACTIVATE: u32 = 111;
+                const DISPID_WINDOWCLOSING: u32 = 263;
+                const DISPID_WINDOWMOVE: u32 = 109;
+                const DISPID_WINDOWREGISTERED: u32 = 200;
+                const DISPID_WINDOWRESIZE: u32 = 110;
+                const DISPID_WINDOWREVOKED: u32 = 201;
+                const DISPID_WINDOWSETHEIGHT: u32 = 267;
+                const DISPID_WINDOWSETLEFT: u32 = 264;
+                const DISPID_WINDOWSETRESIZABLE: u32 = 262;
+                const DISPID_WINDOWSETTOP: u32 = 265;
+                const DISPID_WINDOWSETWIDTH: u32 = 266;
+                const DISPID_WINDOWSTATECHANGED: u32 = 283;
+                #[library("ImgUtil.dll")]
+                extern fn DecodeImage(pStream: super::super::System::Com::IStream, pMap: IMapMIMEToCLSID, pEventSink: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                #[library("ImgUtil.dll")]
+                extern fn DecodeImageEx(pStream: super::super::System::Com::IStream, pMap: IMapMIMEToCLSID, pEventSink: super::super::System::Com::IUnknown, pszMIMETypeParam: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[library("ImgUtil.dll")]
+                extern fn DitherTo8(pDestBits: *mut u8, nDestPitch: i32, pSrcBits: *mut u8, nSrcPitch: i32, bfidSrc: *mut GUID, prgbDestColors: *mut super::super::Graphics::Gdi::RGBQUAD, prgbSrcColors: *mut super::super::Graphics::Gdi::RGBQUAD, pbDestInvMap: *mut u8, x: i32, y: i32, cx: i32, cy: i32, lDestTrans: i32, lSrcTrans: i32) -> super::super::Foundation::HRESULT;
+                const E_SURFACE_DISCARDED: i32 = -2147434493;
+                const E_SURFACE_NODC: i32 = -2147434492;
+                const E_SURFACE_NOSURFACE: i32 = -2147434496;
+                const E_SURFACE_NOTMYDC: i32 = -2147434491;
+                const E_SURFACE_NOTMYPOINTER: i32 = -2147434494;
+                const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495;
+                #[repr(i32)]
+                enum ExtensionValidationContexts {
+                    ExtensionValidationContextNone = 0,
+                    ExtensionValidationContextDynamic = 1,
+                    ExtensionValidationContextParsed = 2,
+                }
+                #[repr(i32)]
+                enum ExtensionValidationResults {
+                    ExtensionValidationResultNone = 0,
+                    ExtensionValidationResultDoNotInstantiate = 1,
+                    ExtensionValidationResultArrestPageLoad = 2,
+                }
+                #[repr(i32)]
+                enum FINDFRAME_FLAGS {
+                    FINDFRAME_NONE = 0,
+                    FINDFRAME_JUSTTESTEXISTENCE = 1,
+                    FINDFRAME_INTERNAL = -2147483648,
+                }
+                #[repr(i32)]
+                enum FRAMEOPTIONS_FLAGS {
+                    FRAMEOPTIONS_SCROLL_YES = 1,
+                    FRAMEOPTIONS_SCROLL_NO = 2,
+                    FRAMEOPTIONS_SCROLL_AUTO = 4,
+                    FRAMEOPTIONS_NORESIZE = 8,
+                    FRAMEOPTIONS_NO3DBORDER = 16,
+                    FRAMEOPTIONS_DESKTOP = 32,
+                    FRAMEOPTIONS_BROWSERBAND = 64,
+                }
+                #[library("ImgUtil.dll")]
+                extern fn GetMaxMIMEIDBytes(pnMaxBytes: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Guid(1986785966, 54864, 4561, 152, 17, 0, 192, 79, 195, 29, 46)]
+                struct HomePage {}
+                #[Windows::Win32::Foundation::Metadata::Guid(927788512, 34618, 19535, 188, 134, 188, 200, 207, 81, 22, 163)]
+                struct HomePageSetting {}
+                interface IActiveXUIHandlerSite: super::super::System::Com::IUnknown {
+                    fn CreateScrollableContextMenu(&self, scrollableContextMenu: *mut IScrollableContextMenu) -> super::super::Foundation::HRESULT;
+                    fn PickFileAndGetResult(&self, filePicker: super::super::System::Com::IUnknown, allowMultipleSelections: super::super::Foundation::BOOL, result: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface IActiveXUIHandlerSite2: super::super::System::Com::IUnknown {
+                    fn AddSuspensionExemption(&self, pullCookie: *mut u64) -> super::super::Foundation::HRESULT;
+                    fn RemoveSuspensionExemption(&self, ullCookie: u64) -> super::super::Foundation::HRESULT;
+                }
+                interface IActiveXUIHandlerSite3: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    fn MessageBoxW(&self, hwnd: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] text: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] caption: super::super::Foundation::PWSTR, r#type: u32, result: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IAnchorClick: super::super::System::Com::IDispatch {
+                    fn ProcOnClick(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IAudioSessionSite: super::super::System::Com::IUnknown {
+                    fn GetAudioSessionGuid(&self, audioSessionGuid: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn OnAudioStreamCreated(&self, #[Windows::Win32::Foundation::Metadata::Const] endpointID: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn OnAudioStreamDestroyed(&self, #[Windows::Win32::Foundation::Metadata::Const] endpointID: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface ICaretPositionProvider: super::super::System::Com::IUnknown {
+                    fn GetCaretPosition(&self, pptCaret: *mut super::super::Foundation::POINT, pflHeight: *mut f32) -> super::super::Foundation::HRESULT;
+                }
+                interface IDeviceRect: super::super::System::Com::IDispatch {}
+                interface IDithererImpl: super::super::System::Com::IUnknown {
+                    fn SetDestColorTable(&self, nColors: u32, #[Windows::Win32::Foundation::Metadata::Const] prgbColors: *mut super::super::Graphics::Gdi::RGBQUAD) -> super::super::Foundation::HRESULT;
+                    fn SetEventSink(&self, pEventSink: IImageDecodeEventSink) -> super::super::Foundation::HRESULT;
+                }
+                interface IDocObjectService: super::super::System::Com::IUnknown {
+                    fn FireBeforeNavigate2(&self, pDispatch: super::super::System::Com::IDispatch, #[Windows::Win32::Foundation::Metadata::Const] lpszUrl: super::super::Foundation::PWSTR, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] lpszFrameName: super::super::Foundation::PWSTR, pPostData: *mut u8, cbPostData: u32, #[Windows::Win32::Foundation::Metadata::Const] lpszHeaders: super::super::Foundation::PWSTR, fPlayNavSound: super::super::Foundation::BOOL, pfCancel: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn FireNavigateComplete2(&self, pHTMLWindow2: super::MsHtml::IHTMLWindow2, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn FireDownloadBegin(&self) -> super::super::Foundation::HRESULT;
+                    fn FireDownloadComplete(&self) -> super::super::Foundation::HRESULT;
+                    fn FireDocumentComplete(&self, pHTMLWindow: super::MsHtml::IHTMLWindow2, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn UpdateDesktopComponent(&self, pHTMLWindow: super::MsHtml::IHTMLWindow2) -> super::super::Foundation::HRESULT;
+                    fn GetPendingUrl(&self, pbstrPendingUrl: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn ActiveElementChanged(&self, pHTMLElement: super::MsHtml::IHTMLElement) -> super::super::Foundation::HRESULT;
+                    fn GetUrlSearchComponent(&self, pbstrSearch: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn IsErrorUrl(&self, #[Windows::Win32::Foundation::Metadata::Const] lpszUrl: super::super::Foundation::PWSTR, pfIsError: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IDownloadBehavior: super::super::System::Com::IDispatch {
+                    fn startDownload(&self, bstrUrl: super::super::Foundation::BSTR, pdispCallback: super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                }
+                interface IDownloadManager: super::super::System::Com::IUnknown {
+                    fn Download(&self, pmk: super::super::System::Com::IMoniker, pbc: super::super::System::Com::IBindCtx, dwBindVerb: u32, grfBINDF: i32, pBindInfo: *mut super::super::System::Com::BINDINFO, #[Windows::Win32::Foundation::Metadata::Const] pszHeaders: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszRedir: super::super::Foundation::PWSTR, uiCP: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[library("Ieframe.dll")]
+                extern fn IEAssociateThreadWithTab(dwTabThreadID: u32, dwAssociatedThreadID: u32) -> super::super::Foundation::HRESULT;
+                const IECMDID_ARG_CLEAR_FORMS_ALL: u32 = 0;
+                const IECMDID_ARG_CLEAR_FORMS_ALL_BUT_PASSWORDS: u32 = 1;
+                const IECMDID_ARG_CLEAR_FORMS_PASSWORDS_ONLY: u32 = 2;
+                const IECMDID_BEFORENAVIGATE_DOEXTERNALBROWSE: u32 = 3;
+                const IECMDID_BEFORENAVIGATE_GETIDLIST: u32 = 4;
+                const IECMDID_BEFORENAVIGATE_GETSHELLBROWSE: u32 = 2;
+                const IECMDID_CLEAR_AUTOCOMPLETE_FOR_FORMS: u32 = 0;
+                const IECMDID_GET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 6;
+                const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1;
+                const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5;
+                #[library("Ieframe.dll")]
+                extern fn IECancelSaveFile(hState: super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IECreateDirectory(lpPathName: super::super::Foundation::PWSTR, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IECreateFile(lpFileName: super::super::Foundation::PWSTR, dwDesiredAccess: u32, dwShareMode: u32, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, dwCreationDisposition: u32, dwFlagsAndAttributes: u32, hTemplateFile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
+                #[library("Ieframe.dll")]
+                extern fn IEDeleteFile(lpFileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IEDisassociateThreadWithTab(dwTabThreadID: u32, dwAssociatedThreadID: u32) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEFindFirstFile(lpFileName: super::super::Foundation::PWSTR, lpFindFileData: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA) -> super::super::Foundation::HANDLE;
+                #[library("Ieframe.dll")]
+                extern fn IEGetFileAttributesEx(lpFileName: super::super::Foundation::PWSTR, fInfoLevelId: super::super::Storage::FileSystem::GET_FILEEX_INFO_LEVELS, lpFileInformation: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const IEGetProcessModule_PROC_NAME: String = "IEGetProcessModule";
+                #[library("Ieframe.dll")]
+                extern fn IEGetProtectedModeCookie(lpszURL: super::super::Foundation::PWSTR, lpszCookieName: super::super::Foundation::PWSTR, lpszCookieData: super::super::Foundation::PWSTR, pcchCookieData: *mut u32, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const IEGetTabWindowExports_PROC_NAME: String = "IEGetTabWindowExports";
+                #[library("Ieframe.dll")]
+                extern fn IEGetWriteableFolderPath(clsidFolderID: *mut GUID, lppwstrPath: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEGetWriteableLowHKCU(pHKey: *mut super::super::System::Registry::HKEY) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEInPrivateFilteringEnabled() -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IEIsInPrivateBrowsing() -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IEIsProtectedModeProcess(pbResult: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEIsProtectedModeURL(lpwstrUrl: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum IELAUNCHOPTION_FLAGS {
+                    IELAUNCHOPTION_SCRIPTDEBUG = 1,
+                    IELAUNCHOPTION_FORCE_COMPAT = 2,
+                    IELAUNCHOPTION_FORCE_EDGE = 4,
+                    IELAUNCHOPTION_LOCK_ENGINE = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                struct IELAUNCHURLINFO {
+                    cbSize: u32,
+                    dwCreationFlags: u32,
+                    dwLaunchOptionFlags: u32,
+                }
+                #[library("Ieframe.dll")]
+                extern fn IELaunchURL(lpwstrUrl: super::super::Foundation::PWSTR, lpProcInfo: *mut super::super::System::Threading::PROCESS_INFORMATION, lpInfo: *mut void) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEMoveFileEx(lpExistingFileName: super::super::Foundation::PWSTR, lpNewFileName: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::BOOL;
+                const IEPROCESS_MODULE_NAME: String = "IERtUtil.dll";
+                #[library("Ieframe.dll")]
+                extern fn IERefreshElevationPolicy() -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IERegCreateKeyEx(lpSubKey: super::super::Foundation::PWSTR, Reserved: u32, lpClass: super::super::Foundation::PWSTR, dwOptions: u32, samDesired: u32, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, phkResult: *mut super::super::System::Registry::HKEY, lpdwDisposition: *mut u32) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IERegSetValueEx(lpSubKey: super::super::Foundation::PWSTR, lpValueName: super::super::Foundation::PWSTR, Reserved: u32, dwType: u32, lpData: *mut u8, cbData: u32) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IERegisterWritableRegistryKey(guid: GUID, lpSubkey: super::super::Foundation::PWSTR, fSubkeyAllowed: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IERegisterWritableRegistryValue(guid: GUID, lpPath: super::super::Foundation::PWSTR, lpValueName: super::super::Foundation::PWSTR, dwType: u32, lpData: *mut u8, cbMaxData: u32) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IERemoveDirectory(lpPathName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IESaveFile(hState: super::super::Foundation::HANDLE, lpwstrSourceFile: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IESetProtectedModeCookie(lpszURL: super::super::Foundation::PWSTR, lpszCookieName: super::super::Foundation::PWSTR, lpszCookieData: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEShowOpenFileDialog(hwnd: super::super::Foundation::HWND, lpwstrFileName: super::super::Foundation::PWSTR, cchMaxFileName: u32, lpwstrInitialDir: super::super::Foundation::PWSTR, lpwstrFilter: super::super::Foundation::PWSTR, lpwstrDefExt: super::super::Foundation::PWSTR, dwFilterIndex: u32, dwFlags: u32, phFile: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IEShowSaveFileDialog(hwnd: super::super::Foundation::HWND, lpwstrInitialFileName: super::super::Foundation::PWSTR, lpwstrInitialDir: super::super::Foundation::PWSTR, lpwstrFilter: super::super::Foundation::PWSTR, lpwstrDefExt: super::super::Foundation::PWSTR, dwFilterIndex: u32, dwFlags: u32, lppwstrDestinationFilePath: *mut super::super::Foundation::PWSTR, phState: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[library("Ieframe.dll")]
+                extern fn IETrackingProtectionEnabled() -> super::super::Foundation::BOOL;
+                #[library("Ieframe.dll")]
+                extern fn IEUnregisterWritableRegistry(guid: GUID) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Guid(2419149554, 21072, 18355, 137, 216, 98, 149, 252, 35, 188, 34)]
+                struct IEWebDriverManager {}
+                const IE_USE_OE_MAIL_HKEY: i32 = -2147483647;
+                const IE_USE_OE_MAIL_KEY: String = "Software\\Microsoft\\Internet Explorer\\Mail";
+                const IE_USE_OE_MAIL_VALUE: String = "Use Outlook Express";
+                const IE_USE_OE_NEWS_HKEY: i32 = -2147483647;
+                const IE_USE_OE_NEWS_KEY: String = "Software\\Microsoft\\Internet Explorer\\News";
+                const IE_USE_OE_NEWS_VALUE: String = "Use Outlook Express";
+                const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646;
+                const IE_USE_OE_PRESENT_KEY: String = "Software\\Microsoft\\Windows\\CurrentVersion\\app.paths\\msimn.exe";
+                interface IEnumManagerFrames: super::super::System::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppWindows: *mut *mut super::super::Foundation::HWND, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Count(&self, pcelt: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, ppEnum: *mut IEnumManagerFrames) -> super::super::Foundation::HRESULT;
+                }
+                interface IEnumOpenServiceActivity: super::super::System::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut IOpenServiceActivity, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, ppenum: *mut IEnumOpenServiceActivity) -> super::super::Foundation::HRESULT;
+                }
+                interface IEnumOpenServiceActivityCategory: super::super::System::Com::IUnknown {
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut IOpenServiceActivityCategory, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, ppenum: *mut IEnumOpenServiceActivityCategory) -> super::super::Foundation::HRESULT;
+                }
+                interface IEnumSTATURL: super::super::System::Com::IUnknown {
+                    fn Next(&self, celt: u32, rgelt: *mut STATURL, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    fn Clone(&self, ppenum: *mut IEnumSTATURL) -> super::super::Foundation::HRESULT;
+                    fn SetFilter(&self, #[Windows::Win32::Foundation::Metadata::Const] poszFilter: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IExtensionValidation: super::super::System::Com::IUnknown {
+                    fn Validate(&self, #[Windows::Win32::Foundation::Metadata::Const] extensionGuid: *mut GUID, extensionModulePath: super::super::Foundation::PWSTR, extensionFileVersionMS: u32, extensionFileVersionLS: u32, htmlDocumentTop: super::MsHtml::IHTMLDocument2, htmlDocumentSubframe: super::MsHtml::IHTMLDocument2, htmlElement: super::MsHtml::IHTMLElement, contexts: ExtensionValidationContexts, results: *mut ExtensionValidationResults) -> super::super::Foundation::HRESULT;
+                    fn DisplayName(&self, displayName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IHTMLPersistData: super::super::System::Com::IUnknown {
+                    fn save(&self, pUnk: super::super::System::Com::IUnknown, lType: i32, #[Windows::Win32::Foundation::Metadata::RetVal] fContinueBroacast: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn load(&self, pUnk: super::super::System::Com::IUnknown, lType: i32, #[Windows::Win32::Foundation::Metadata::RetVal] fDoDefault: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn queryType(&self, lType: i32, #[Windows::Win32::Foundation::Metadata::RetVal] pfSupportsType: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IHTMLPersistDataOM: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_XMLDocument(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                    fn getAttribute(&self, name: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pValue: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn setAttribute(&self, name: super::super::Foundation::BSTR, value: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn removeAttribute(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IHTMLUserDataOM: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_XMLDocument(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                    fn save(&self, strName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn load(&self, strName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn getAttribute(&self, name: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pValue: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn setAttribute(&self, name: super::super::Foundation::BSTR, value: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn removeAttribute(&self, name: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_expires(&self, bstr: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_expires(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstr: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IHeaderFooter: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_htmlHead(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_htmlFoot(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_textHead(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_textHead(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_textFoot(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_textFoot(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_page(&self, v: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_page(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_pageTotal(&self, v: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_pageTotal(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_URL(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_URL(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_title(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_title(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_dateShort(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_dateShort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_dateLong(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_dateLong(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_timeShort(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_timeShort(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_timeLong(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_timeLong(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IHeaderFooter2: IHeaderFooter {
+                    #[special]
+                    fn put_font(&self, v: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_font(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IHomePage: super::super::System::Com::IDispatch {
+                    fn navigateHomePage(&self) -> super::super::Foundation::HRESULT;
+                    fn setHomePage(&self, bstrURL: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn isHomePage(&self, bstrURL: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IHomePageSetting: super::super::System::Com::IUnknown {
+                    fn SetHomePage(&self, hwnd: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] homePageUri: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] brandingMessage: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn IsHomePage(&self, #[Windows::Win32::Foundation::Metadata::Const] uri: super::super::Foundation::PWSTR, isDefault: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn SetHomePageToBrowserDefault(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IIEWebDriverManager: super::super::System::Com::IDispatch {
+                    fn ExecuteCommand(&self, command: super::super::Foundation::PWSTR, response: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IIEWebDriverSite: super::super::System::Com::IDispatch {
+                    fn WindowOperation(&self, operationCode: u32, hWnd: u32) -> super::super::Foundation::HRESULT;
+                    fn DetachWebdriver(&self, pUnkWD: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn GetCapabilityValue(&self, pUnkWD: super::super::System::Com::IUnknown, capName: super::super::Foundation::PWSTR, capValue: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                interface IImageDecodeEventSink: super::super::System::Com::IUnknown {
+                    fn GetSurface(&self, nWidth: i32, nHeight: i32, #[Windows::Win32::Foundation::Metadata::Const] bfid: *mut GUID, nPasses: u32, dwHints: u32, ppSurface: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn OnBeginDecode(&self, pdwEvents: *mut u32, pnFormats: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ppFormats: *mut *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn OnBitsComplete(&self) -> super::super::Foundation::HRESULT;
+                    fn OnDecodeComplete(&self, hrStatus: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    fn OnPalette(&self) -> super::super::Foundation::HRESULT;
+                    fn OnProgress(&self, pBounds: *mut super::super::Foundation::RECT, bComplete: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IImageDecodeEventSink2: IImageDecodeEventSink {
+                    fn IsAlphaPremultRequired(&self, pfPremultAlpha: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IImageDecodeFilter: super::super::System::Com::IUnknown {
+                    fn Initialize(&self, pEventSink: IImageDecodeEventSink) -> super::super::Foundation::HRESULT;
+                    fn Process(&self, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    fn Terminate(&self, hrStatus: super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                interface IIntelliForms: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn get_enabled(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pVal: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_enabled(&self, bVal: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IInternetExplorerManager: super::super::System::Com::IUnknown {
+                    fn CreateObject(&self, dwConfig: u32, #[Windows::Win32::Foundation::Metadata::Const] pszURL: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                interface IInternetExplorerManager2: super::super::System::Com::IUnknown {
+                    fn EnumFrameWindows(&self, ppEnum: *mut IEnumManagerFrames) -> super::super::Foundation::HRESULT;
+                }
+                interface ILayoutRect: super::super::System::Com::IDispatch {
+                    #[special]
+                    fn put_nextRect(&self, bstrElementId: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_nextRect(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrElementId: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_contentSrc(&self, varContentSrc: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_contentSrc(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pvarContentSrc: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_honorPageBreaks(&self, v: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_honorPageBreaks(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_honorPageRules(&self, v: super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_honorPageRules(&self, #[Windows::Win32::Foundation::Metadata::RetVal] p: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_nextRectElement(&self, pElem: super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_nextRectElement(&self, #[Windows::Win32::Foundation::Metadata::RetVal] ppElem: *mut super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_contentDocument(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pDoc: *mut super::super::System::Com::IDispatch) -> super::super::Foundation::HRESULT;
+                }
+                const IMGDECODE_EVENT_BEGINBITS: u32 = 4;
+                const IMGDECODE_EVENT_BITSCOMPLETE: u32 = 8;
+                const IMGDECODE_EVENT_PALETTE: u32 = 2;
+                const IMGDECODE_EVENT_PROGRESS: u32 = 1;
+                const IMGDECODE_EVENT_USEDDRAW: u32 = 16;
+                const IMGDECODE_HINT_BOTTOMUP: u32 = 2;
+                const IMGDECODE_HINT_FULLWIDTH: u32 = 4;
+                const IMGDECODE_HINT_TOPDOWN: u32 = 1;
+                interface IMapMIMEToCLSID: super::super::System::Com::IUnknown {
+                    fn EnableDefaultMappings(&self, bEnable: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn MapMIMEToCLSID(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMIMEType: super::super::Foundation::PWSTR, pCLSID: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn SetMapping(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMIMEType: super::super::Foundation::PWSTR, dwMapMode: u32, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID) -> super::super::Foundation::HRESULT;
+                }
+                interface IMediaActivityNotifySite: super::super::System::Com::IUnknown {
+                    fn OnMediaActivityStarted(&self, mediaActivityType: MEDIA_ACTIVITY_NOTIFY_TYPE) -> super::super::Foundation::HRESULT;
+                    fn OnMediaActivityStopped(&self, mediaActivityType: MEDIA_ACTIVITY_NOTIFY_TYPE) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                enum INTERNETEXPLORERCONFIGURATION {
+                    INTERNETEXPLORERCONFIGURATION_HOST = 1,
+                    INTERNETEXPLORERCONFIGURATION_WEB_DRIVER = 2,
+                    INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE = 4,
+                }
+                interface IOpenService: super::super::System::Com::IUnknown {
+                    fn IsDefault(&self, pfIsDefault: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn SetDefault(&self, fDefault: super::super::Foundation::BOOL, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                    fn GetID(&self, pbstrID: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceActivity: IOpenService {
+                    fn Execute(&self, pInput: IOpenServiceActivityInput, pOutput: IOpenServiceActivityOutputContext) -> super::super::Foundation::HRESULT;
+                    fn CanExecute(&self, pInput: IOpenServiceActivityInput, pOutput: IOpenServiceActivityOutputContext, pfCanExecute: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn CanExecuteType(&self, r#type: OpenServiceActivityContentType, pfCanExecute: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn Preview(&self, pInput: IOpenServiceActivityInput, pOutput: IOpenServiceActivityOutputContext) -> super::super::Foundation::HRESULT;
+                    fn CanPreview(&self, pInput: IOpenServiceActivityInput, pOutput: IOpenServiceActivityOutputContext, pfCanPreview: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn CanPreviewType(&self, r#type: OpenServiceActivityContentType, pfCanPreview: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetStatusText(&self, pInput: IOpenServiceActivityInput, pbstrStatusText: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetHomepageUrl(&self, pbstrHomepageUrl: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetDisplayName(&self, pbstrDisplayName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetDescription(&self, pbstrDescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetCategoryName(&self, pbstrCategoryName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetIconPath(&self, pbstrIconPath: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetIcon(&self, fSmallIcon: super::super::Foundation::BOOL, phIcon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::HRESULT;
+                    fn GetDescriptionFilePath(&self, pbstrXmlPath: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetDownloadUrl(&self, pbstrXmlUri: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetInstallUrl(&self, pbstrInstallUri: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn IsEnabled(&self, pfIsEnabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn SetEnabled(&self, fEnable: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceActivityCategory: super::super::System::Com::IUnknown {
+                    fn HasDefaultActivity(&self, pfHasDefaultActivity: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetDefaultActivity(&self, ppDefaultActivity: *mut IOpenServiceActivity) -> super::super::Foundation::HRESULT;
+                    fn SetDefaultActivity(&self, pActivity: IOpenServiceActivity, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                    fn GetName(&self, pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn GetActivityEnumerator(&self, pInput: IOpenServiceActivityInput, pOutput: IOpenServiceActivityOutputContext, ppEnumActivity: *mut IEnumOpenServiceActivity) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceActivityInput: super::super::System::Com::IUnknown {
+                    fn GetVariable(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzVariableName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzVariableType: super::super::Foundation::PWSTR, pbstrVariableContent: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn HasVariable(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzVariableName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzVariableType: super::super::Foundation::PWSTR, pfHasVariable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetType(&self, pType: *mut OpenServiceActivityContentType) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceActivityManager: super::super::System::Com::IUnknown {
+                    fn GetCategoryEnumerator(&self, eType: OpenServiceActivityContentType, ppEnum: *mut IEnumOpenServiceActivityCategory) -> super::super::Foundation::HRESULT;
+                    fn GetActivityByID(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzActivityID: super::super::Foundation::PWSTR, ppActivity: *mut IOpenServiceActivity) -> super::super::Foundation::HRESULT;
+                    fn GetActivityByHomepageAndCategory(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzHomepage: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzCategory: super::super::Foundation::PWSTR, ppActivity: *mut IOpenServiceActivity) -> super::super::Foundation::HRESULT;
+                    fn GetVersionCookie(&self, pdwVersionCookie: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceActivityOutputContext: super::super::System::Com::IUnknown {
+                    fn Navigate(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzUri: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzMethod: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzHeaders: super::super::Foundation::PWSTR, pPostData: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    fn CanNavigate(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzUri: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzMethod: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwzHeaders: super::super::Foundation::PWSTR, pPostData: super::super::System::Com::IStream, pfCanNavigate: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface IOpenServiceManager: super::super::System::Com::IUnknown {
+                    fn InstallService(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzServiceUrl: super::super::Foundation::PWSTR, ppService: *mut IOpenService) -> super::super::Foundation::HRESULT;
+                    fn UninstallService(&self, pService: IOpenService) -> super::super::Foundation::HRESULT;
+                    fn GetServiceByID(&self, #[Windows::Win32::Foundation::Metadata::Const] pwzID: super::super::Foundation::PWSTR, ppService: *mut IOpenService) -> super::super::Foundation::HRESULT;
+                }
+                interface IPeerFactory: super::super::System::Com::IUnknown {}
+                interface IPersistHistory: super::super::System::Com::IPersist {
+                    fn LoadHistory(&self, pStream: super::super::System::Com::IStream, pbc: super::super::System::Com::IBindCtx) -> super::super::Foundation::HRESULT;
+                    fn SaveHistory(&self, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    fn SetPositionCookie(&self, dwPositioncookie: u32) -> super::super::Foundation::HRESULT;
+                    fn GetPositionCookie(&self, pdwPositioncookie: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IPrintTaskRequestFactory: super::super::System::Com::IUnknown {
+                    fn CreatePrintTaskRequest(&self, pPrintTaskRequestHandler: IPrintTaskRequestHandler) -> super::super::Foundation::HRESULT;
+                }
+                interface IPrintTaskRequestHandler: super::super::System::Com::IUnknown {
+                    fn HandlePrintTaskRequest(&self, pPrintTaskRequest: super::super::System::WinRT::IInspectable) -> super::super::Foundation::HRESULT;
+                }
+                interface IScrollableContextMenu: super::super::System::Com::IUnknown {
+                    fn AddItem(&self, #[Windows::Win32::Foundation::Metadata::Const] itemText: super::super::Foundation::PWSTR, cmdID: u32) -> super::super::Foundation::HRESULT;
+                    fn ShowModal(&self, x: i32, y: i32, cmdID: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IScrollableContextMenu2: IScrollableContextMenu {
+                    fn AddSeparator(&self) -> super::super::Foundation::HRESULT;
+                    fn SetPlacement(&self, scmp: SCROLLABLECONTEXTMENU_PLACEMENT) -> super::super::Foundation::HRESULT;
+                }
+                interface ISniffStream: super::super::System::Com::IUnknown {
+                    fn Init(&self, pStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    fn Peek(&self, pBuffer: *mut void, nBytes: u32, pnBytesRead: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface ISurfacePresenterFlip: super::super::System::Com::IUnknown {
+                    fn Present(&self) -> super::super::Foundation::HRESULT;
+                    fn GetBuffer(&self, backBufferIndex: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppBuffer: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                interface ISurfacePresenterFlip2: super::super::System::Com::IUnknown {
+                    fn SetRotation(&self, dxgiRotation: super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> super::super::Foundation::HRESULT;
+                }
+                interface ISurfacePresenterFlipBuffer: super::super::System::Com::IUnknown {
+                    fn BeginDraw(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, ppBuffer: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn EndDraw(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetContainer: super::super::System::Com::IUnknown {
+                    fn GetFrameUrl(&self, ppszFrameSrc: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFramesContainer(&self, ppContainer: *mut super::super::System::Ole::IOleContainer) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetEmbedding: super::super::System::Com::IUnknown {
+                    fn GetTargetFrame(&self, ppTargetFrame: *mut ITargetFrame) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetFrame: super::super::System::Com::IUnknown {
+                    fn SetFrameName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFrameName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFrameName(&self, ppszFrameName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetParentFrame(&self, ppunkParent: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn FindFrame(&self, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, ppunkContextFrame: super::super::System::Com::IUnknown, dwFlags: u32, ppunkTargetFrame: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn SetFrameSrc(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFrameSrc: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFrameSrc(&self, ppszFrameSrc: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFramesContainer(&self, ppContainer: *mut super::super::System::Ole::IOleContainer) -> super::super::Foundation::HRESULT;
+                    fn SetFrameOptions(&self, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn GetFrameOptions(&self, pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SetFrameMargins(&self, dwWidth: u32, dwHeight: u32) -> super::super::Foundation::HRESULT;
+                    fn GetFrameMargins(&self, pdwWidth: *mut u32, pdwHeight: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn RemoteNavigate(&self, cLength: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pulData: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn OnChildFrameActivate(&self, pUnkChildFrame: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn OnChildFrameDeactivate(&self, pUnkChildFrame: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetFrame2: super::super::System::Com::IUnknown {
+                    fn SetFrameName(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFrameName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFrameName(&self, ppszFrameName: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetParentFrame(&self, ppunkParent: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn SetFrameSrc(&self, #[Windows::Win32::Foundation::Metadata::Const] pszFrameSrc: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFrameSrc(&self, ppszFrameSrc: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn GetFramesContainer(&self, ppContainer: *mut super::super::System::Ole::IOleContainer) -> super::super::Foundation::HRESULT;
+                    fn SetFrameOptions(&self, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn GetFrameOptions(&self, pdwFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn SetFrameMargins(&self, dwWidth: u32, dwHeight: u32) -> super::super::Foundation::HRESULT;
+                    fn GetFrameMargins(&self, pdwWidth: *mut u32, pdwHeight: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn FindFrame(&self, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, dwFlags: u32, ppunkTargetFrame: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn GetTargetAlias(&self, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, ppszTargetAlias: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetFramePriv: super::super::System::Com::IUnknown {
+                    fn FindFrameDownwards(&self, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, dwFlags: u32, ppunkTargetFrame: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn FindFrameInContext(&self, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, punkContextFrame: super::super::System::Com::IUnknown, dwFlags: u32, ppunkTargetFrame: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn OnChildFrameActivate(&self, pUnkChildFrame: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn OnChildFrameDeactivate(&self, pUnkChildFrame: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn NavigateHack(&self, grfHLNF: u32, pbc: super::super::System::Com::IBindCtx, pibsc: super::super::System::Com::IBindStatusCallback, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszUrl: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pszLocation: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    fn FindBrowserByIndex(&self, dwID: u32, ppunkBrowser: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetFramePriv2: ITargetFramePriv {
+                    fn AggregatedNavigation2(&self, grfHLNF: u32, pbc: super::super::System::Com::IBindCtx, pibsc: super::super::System::Com::IBindStatusCallback, #[Windows::Win32::Foundation::Metadata::Const] pszTargetName: super::super::Foundation::PWSTR, pUri: super::super::System::Com::IUri, #[Windows::Win32::Foundation::Metadata::Const] pszLocation: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetNotify: super::super::System::Com::IUnknown {
+                    fn OnCreate(&self, pUnkDestination: super::super::System::Com::IUnknown, cbCookie: u32) -> super::super::Foundation::HRESULT;
+                    fn OnReuse(&self, pUnkDestination: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface ITargetNotify2: ITargetNotify {
+                    fn GetOptionString(&self, pbstrOptions: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                interface ITimer: super::super::System::Com::IUnknown {
+                    fn Advise(&self, vtimeMin: super::super::System::Variant::VARIANT, vtimeMax: super::super::System::Variant::VARIANT, vtimeInterval: super::super::System::Variant::VARIANT, dwFlags: u32, pTimerSink: ITimerSink, pdwCookie: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Unadvise(&self, dwCookie: u32) -> super::super::Foundation::HRESULT;
+                    fn Freeze(&self, fFreeze: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetTime(&self, pvtime: *mut super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                interface ITimerEx: ITimer {
+                    fn SetMode(&self, dwMode: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface ITimerService: super::super::System::Com::IUnknown {
+                    fn CreateTimer(&self, pReferenceTimer: ITimer, ppNewTimer: *mut ITimer) -> super::super::Foundation::HRESULT;
+                    fn GetNamedTimer(&self, #[Windows::Win32::Foundation::Metadata::Const] rguidName: *mut GUID, ppTimer: *mut ITimer) -> super::super::Foundation::HRESULT;
+                    fn SetNamedTimerReference(&self, #[Windows::Win32::Foundation::Metadata::Const] rguidName: *mut GUID, pReferenceTimer: ITimer) -> super::super::Foundation::HRESULT;
+                }
+                interface ITimerSink: super::super::System::Com::IUnknown {
+                    fn OnTimer(&self, vtimeAdvise: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                interface ITridentTouchInput: super::super::System::Com::IUnknown {
+                    fn OnPointerMessage(&self, msg: u32, wParam: super::super::Foundation::WPARAM, lParam: super::super::Foundation::LPARAM, pfAllowManipulations: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface ITridentTouchInputSite: super::super::System::Com::IUnknown {
+                    fn SetManipulationMode(&self, msTouchAction: super::MsHtml::styleMsTouchAction) -> super::super::Foundation::HRESULT;
+                    fn ZoomToPoint(&self, x: i32, y: i32) -> super::super::Foundation::HRESULT;
+                }
+                interface IUrlHistoryNotify: super::super::System::Ole::IOleCommandTarget {}
+                interface IUrlHistoryStg: super::super::System::Com::IUnknown {
+                    fn AddUrl(&self, #[Windows::Win32::Foundation::Metadata::Const] pocsUrl: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pocsTitle: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn DeleteUrl(&self, #[Windows::Win32::Foundation::Metadata::Const] pocsUrl: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn QueryUrl(&self, #[Windows::Win32::Foundation::Metadata::Const] pocsUrl: super::super::Foundation::PWSTR, dwFlags: u32, lpSTATURL: *mut STATURL) -> super::super::Foundation::HRESULT;
+                    fn BindToObject(&self, #[Windows::Win32::Foundation::Metadata::Const] pocsUrl: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvOut: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn EnumUrls(&self, ppEnum: *mut IEnumSTATURL) -> super::super::Foundation::HRESULT;
+                }
+                interface IUrlHistoryStg2: IUrlHistoryStg {
+                    fn AddUrlAndNotify(&self, #[Windows::Win32::Foundation::Metadata::Const] pocsUrl: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pocsTitle: super::super::Foundation::PWSTR, dwFlags: u32, fWriteHistory: super::super::Foundation::BOOL, poctNotify: super::super::System::Ole::IOleCommandTarget, punkISFolder: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn ClearHistory(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IViewObjectPresentFlip: super::super::System::Com::IUnknown {
+                    fn NotifyRender(&self, fRecreatePresenter: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn RenderObjectToBitmap(&self, pBitmap: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    fn RenderObjectToSharedBuffer(&self, pBuffer: ISurfacePresenterFlipBuffer) -> super::super::Foundation::HRESULT;
+                }
+                interface IViewObjectPresentFlip2: super::super::System::Com::IUnknown {
+                    fn NotifyLeavingView(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IViewObjectPresentFlipSite: super::super::System::Com::IUnknown {
+                    fn CreateSurfacePresenterFlip(&self, pDevice: super::super::System::Com::IUnknown, width: u32, height: u32, backBufferCount: u32, format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT, mode: super::MsHtml::VIEW_OBJECT_ALPHA_MODE, ppSPFlip: *mut ISurfacePresenterFlip) -> super::super::Foundation::HRESULT;
+                    fn GetDeviceLuid(&self, pLuid: *mut super::super::Foundation::LUID) -> super::super::Foundation::HRESULT;
+                    fn EnterFullScreen(&self) -> super::super::Foundation::HRESULT;
+                    fn ExitFullScreen(&self) -> super::super::Foundation::HRESULT;
+                    fn IsFullScreen(&self, pfFullScreen: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    fn GetBoundingRect(&self, pRect: *mut super::super::Foundation::RECT) -> super::super::Foundation::HRESULT;
+                    fn GetMetrics(&self, pPos: *mut super::super::Foundation::POINT, pSize: *mut super::super::Foundation::SIZE, pScaleX: *mut f32, pScaleY: *mut f32) -> super::super::Foundation::HRESULT;
+                    fn GetFullScreenSize(&self, pSize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::HRESULT;
+                }
+                interface IViewObjectPresentFlipSite2: super::super::System::Com::IUnknown {
+                    fn GetRotationForCurrentOutput(&self, pDxgiRotation: *mut super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> super::super::Foundation::HRESULT;
+                }
+                interface IWebBrowserEventsService: super::super::System::Com::IUnknown {
+                    fn FireBeforeNavigate2Event(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pfCancel: *mut super::super::Foundation::VARIANT_BOOL) -> super::super::Foundation::HRESULT;
+                    fn FireNavigateComplete2Event(&self) -> super::super::Foundation::HRESULT;
+                    fn FireDownloadBeginEvent(&self) -> super::super::Foundation::HRESULT;
+                    fn FireDownloadCompleteEvent(&self) -> super::super::Foundation::HRESULT;
+                    fn FireDocumentCompleteEvent(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IWebBrowserEventsUrlService: super::super::System::Com::IUnknown {
+                    fn GetUrlForEvents(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pUrl: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[library("ImgUtil.dll")]
+                extern fn IdentifyMIMEType(pbBytes: *mut u8, nBytes: u32, pnFormat: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Guid(1631238446, 5823, 4562, 188, 165, 0, 192, 79, 217, 41, 219)]
+                struct IntelliForms {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3746548788, 1658, 19978, 131, 82, 74, 26, 80, 149, 52, 110)]
+                struct InternetExplorerManager {}
+                interface Iwfolders: super::super::System::Com::IDispatch {
+                    fn navigate(&self, bstrUrl: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrRetVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn navigateFrame(&self, bstrUrl: super::super::Foundation::BSTR, bstrTargetFrame: super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::RetVal] pbstrRetVal: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    fn navigateNoSite(&self, bstrUrl: super::super::Foundation::BSTR, bstrTargetFrame: super::super::Foundation::BSTR, dwhwnd: u32, pwb: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                const LINKSBAND: u32 = 4;
+                const MAPMIME_CLSID: u32 = 1;
+                const MAPMIME_DEFAULT: u32 = 0;
+                const MAPMIME_DEFAULT_ALWAYS: u32 = 3;
+                const MAPMIME_DISABLE: u32 = 2;
+                const MAX_SEARCH_FORMAT_STRING: u32 = 255;
+                #[repr(i32)]
+                enum MEDIA_ACTIVITY_NOTIFY_TYPE {
+                    MediaPlayback = 0,
+                    MediaRecording = 1,
+                    MediaCasting = 2,
+                }
+                struct NAVIGATEDATA {
+                    ulTarget: u32,
+                    ulURL: u32,
+                    ulRefURL: u32,
+                    ulPostData: u32,
+                    dwFlags: u32,
+                }
+                #[repr(i32)]
+                enum NAVIGATEFRAME_FLAGS {
+                    NAVIGATEFRAME_FL_RECORD = 1,
+                    NAVIGATEFRAME_FL_POST = 2,
+                    NAVIGATEFRAME_FL_NO_DOC_CACHE = 4,
+                    NAVIGATEFRAME_FL_NO_IMAGE_CACHE = 8,
+                    NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK = 16,
+                    NAVIGATEFRAME_FL_SENDING_FROM_FORM = 32,
+                    NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM = 64,
+                }
+                #[repr(i32)]
+                enum OpenServiceActivityContentType {
+                    ActivityContentNone = -1,
+                    ActivityContentDocument = 0,
+                    ActivityContentSelection = 1,
+                    ActivityContentLink = 2,
+                    ActivityContentCount = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3320829955, 20728, 17357, 154, 184, 170, 252, 19, 148, 201, 224)]
+                struct OpenServiceActivityManager {}
+                #[repr(i32)]
+                enum OpenServiceErrors {
+                    OS_E_NOTFOUND = -2147287038,
+                    OS_E_NOTSUPPORTED = -2147467231,
+                    OS_E_CANCELLED = -2147471631,
+                    OS_E_GPDISABLED = -1072886820,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(159936694, 14826, 18443, 184, 181, 221, 1, 103, 196, 219, 89)]
+                struct OpenServiceManager {}
+                #[Windows::Win32::Foundation::Metadata::Guid(810611919, 39093, 4559, 187, 130, 0, 170, 0, 189, 206, 11)]
+                struct PeerFactory {}
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const REGSTRA_VAL_STARTPAGE: String = "Start Page";
+                const REGSTR_PATH_CURRENT: String = "current";
+                const REGSTR_PATH_DEFAULT: String = "default";
+                const REGSTR_PATH_INETCPL_RESTRICTIONS: String = "Software\\Policies\\Microsoft\\Internet Explorer\\Control Panel";
+                const REGSTR_PATH_MIME_DATABASE: String = "MIME\\Database";
+                const REGSTR_PATH_REMOTEACCESS: String = "RemoteAccess";
+                const REGSTR_PATH_REMOTEACESS: String = "RemoteAccess";
+                const REGSTR_SHIFTQUICKSUFFIX: String = "ShiftQuickCompleteSuffix";
+                const REGSTR_VAL_ACCEPT_LANGUAGE: String = "AcceptLanguage";
+                const REGSTR_VAL_ACCESSMEDIUM: String = "AccessMedium";
+                const REGSTR_VAL_ACCESSTYPE: String = "AccessType";
+                const REGSTR_VAL_ALIASTO: String = "AliasForCharset";
+                const REGSTR_VAL_ANCHORCOLOR: String = "Anchor Color";
+                const REGSTR_VAL_ANCHORCOLORHOVER: String = "Anchor Color Hover";
+                const REGSTR_VAL_ANCHORCOLORVISITED: String = "Anchor Color Visited";
+                const REGSTR_VAL_ANCHORUNDERLINE: String = "Anchor Underline";
+                const REGSTR_VAL_AUTODETECT: String = "AutoDetect";
+                const REGSTR_VAL_AUTODIALDLLNAME: String = "AutodialDllName";
+                const REGSTR_VAL_AUTODIALFCNNAME: String = "AutodialFcnName";
+                const REGSTR_VAL_AUTODIAL_MONITORCLASSNAME: String = "MS_AutodialMonitor";
+                const REGSTR_VAL_AUTODIAL_TRYONLYONCE: String = "TryAutodialOnce";
+                const REGSTR_VAL_AUTONAVIGATE: String = "SearchForExtensions";
+                const REGSTR_VAL_AUTOSEARCH: String = "Do404Search";
+                const REGSTR_VAL_BACKBITMAP: String = "BackBitmap";
+                const REGSTR_VAL_BACKGROUNDCOLOR: String = "Background Color";
+                const REGSTR_VAL_BODYCHARSET: String = "BodyCharset";
+                const REGSTR_VAL_BYPASSAUTOCONFIG: String = "BypassAutoconfig";
+                const REGSTR_VAL_CACHEPREFIX: String = "CachePrefix";
+                const REGSTR_VAL_CHECKASSOC: String = "Check_Associations";
+                const REGSTR_VAL_CODEDOWNLOAD: String = "Code Download";
+                const REGSTR_VAL_CODEDOWNLOAD_DEF: String = "yes";
+                const REGSTR_VAL_CODEPAGE: String = "CodePage";
+                const REGSTR_VAL_COVEREXCLUDE: String = "CoverExclude";
+                const REGSTR_VAL_DAYSTOKEEP: String = "DaysToKeep";
+                const REGSTR_VAL_DEFAULT_CODEPAGE: String = "Default_CodePage";
+                const REGSTR_VAL_DEFAULT_SCRIPT: String = "Default_Script";
+                const REGSTR_VAL_DEF_ENCODING: String = "Default_Encoding";
+                const REGSTR_VAL_DEF_INETENCODING: String = "Default_InternetEncoding";
+                const REGSTR_VAL_DESCRIPTION: String = "Description";
+                const REGSTR_VAL_DIRECTORY: String = "Directory";
+                const REGSTR_VAL_DISCONNECTIDLETIME: String = "DisconnectIdleTime";
+                const REGSTR_VAL_ENABLEAUTODIAL: String = "EnableAutodial";
+                const REGSTR_VAL_ENABLEAUTODIALDISCONNECT: String = "EnableAutodisconnect";
+                const REGSTR_VAL_ENABLEAUTODISCONNECT: String = "EnableAutodisconnect";
+                const REGSTR_VAL_ENABLEEXITDISCONNECT: String = "EnableExitDisconnect";
+                const REGSTR_VAL_ENABLESECURITYCHECK: String = "EnableSecurityCheck";
+                const REGSTR_VAL_ENABLEUNATTENDED: String = "EnableUnattended";
+                const REGSTR_VAL_ENCODENAME: String = "EncodingName";
+                const REGSTR_VAL_FAMILY: String = "Family";
+                const REGSTR_VAL_FIXEDWIDTHFONT: String = "FixedWidthFont";
+                const REGSTR_VAL_FIXED_FONT: String = "IEFixedFontName";
+                const REGSTR_VAL_FONT_SCRIPT: String = "Script";
+                const REGSTR_VAL_FONT_SCRIPTS: String = "Scripts";
+                const REGSTR_VAL_FONT_SCRIPT_NAME: String = "Script";
+                const REGSTR_VAL_FONT_SIZE: String = "IEFontSize";
+                const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2;
+                const REGSTR_VAL_HEADERCHARSET: String = "HeaderCharset";
+                const REGSTR_VAL_HTTP_ERRORS: String = "Friendly http errors";
+                const REGSTR_VAL_IE_CUSTOMCOLORS: String = "Custom Colors";
+                const REGSTR_VAL_INETCPL_ADVANCEDTAB: String = "AdvancedTab";
+                const REGSTR_VAL_INETCPL_CONNECTIONSTAB: String = "ConnectionsTab";
+                const REGSTR_VAL_INETCPL_CONTENTTAB: String = "ContentTab";
+                const REGSTR_VAL_INETCPL_GENERALTAB: String = "GeneralTab";
+                const REGSTR_VAL_INETCPL_IEAK: String = "IEAKContext";
+                const REGSTR_VAL_INETCPL_PRIVACYTAB: String = "PrivacyTab";
+                const REGSTR_VAL_INETCPL_PROGRAMSTAB: String = "ProgramsTab";
+                const REGSTR_VAL_INETCPL_SECURITYTAB: String = "SecurityTab";
+                const REGSTR_VAL_INETENCODING: String = "InternetEncoding";
+                const REGSTR_VAL_INTERNETENTRY: String = "InternetProfile";
+                const REGSTR_VAL_INTERNETENTRYBKUP: String = "BackupInternetProfile";
+                const REGSTR_VAL_INTERNETPROFILE: String = "InternetProfile";
+                const REGSTR_VAL_JAVAJIT: String = "EnableJIT";
+                const REGSTR_VAL_JAVAJIT_DEF: u32 = 0;
+                const REGSTR_VAL_JAVALOGGING: String = "EnableLogging";
+                const REGSTR_VAL_JAVALOGGING_DEF: u32 = 0;
+                const REGSTR_VAL_LEVEL: String = "Level";
+                const REGSTR_VAL_LOADIMAGES: String = "Display Inline Images";
+                const REGSTR_VAL_LOCALPAGE: String = "Local Page";
+                const REGSTR_VAL_MOSDISCONNECT: String = "DisconnectTimeout";
+                const REGSTR_VAL_NEWDIRECTORY: String = "NewDirectory";
+                const REGSTR_VAL_NONETAUTODIAL: String = "NoNetAutodial";
+                const REGSTR_VAL_PLAYSOUNDS: String = "Play_Background_Sounds";
+                const REGSTR_VAL_PLAYVIDEOS: String = "Display Inline Videos";
+                const REGSTR_VAL_PRIVCONVERTER: String = "PrivConverter";
+                const REGSTR_VAL_PROPORTIONALFONT: String = "ProportionalFont";
+                const REGSTR_VAL_PROP_FONT: String = "IEPropFontName";
+                const REGSTR_VAL_PROXYENABLE: String = "ProxyEnable";
+                const REGSTR_VAL_PROXYOVERRIDE: String = "ProxyOverride";
+                const REGSTR_VAL_PROXYSERVER: String = "ProxyServer";
+                const REGSTR_VAL_REDIALATTEMPTS: String = "RedialAttempts";
+                const REGSTR_VAL_REDIALINTERVAL: String = "RedialWait";
+                const REGSTR_VAL_RNAINSTALLED: String = "Installed";
+                const REGSTR_VAL_SAFETYWARNINGLEVEL: String = "Safety Warning Level";
+                const REGSTR_VAL_SCHANNELENABLEPROTOCOL: String = "Enabled";
+                const REGSTR_VAL_SCHANNELENABLEPROTOCOL_DEF: u32 = 1;
+                const REGSTR_VAL_SCRIPT_FIXED_FONT: String = "IEFixedFontName";
+                const REGSTR_VAL_SCRIPT_PROP_FONT: String = "IEPropFontName";
+                const REGSTR_VAL_SEARCHPAGE: String = "Search Page";
+                const REGSTR_VAL_SECURITYACTICEXSCRIPTS: String = "Security_RunScripts";
+                const REGSTR_VAL_SECURITYACTICEXSCRIPTS_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYACTIVEX: String = "Security_RunActiveXControls";
+                const REGSTR_VAL_SECURITYACTIVEX_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYALLOWCOOKIES: String = "AllowCookies";
+                const REGSTR_VAL_SECURITYALLOWCOOKIES_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES: String = "DisableCachingOfSSLPages";
+                const REGSTR_VAL_SECURITYDISABLECACHINGOFSSLPAGES_DEF: u32 = 0;
+                const REGSTR_VAL_SECURITYJAVA: String = "Security_RunJavaApplets";
+                const REGSTR_VAL_SECURITYJAVA_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONBADCERTSENDING: String = "WarnOnBadCertSending";
+                const REGSTR_VAL_SECURITYWARNONBADCERTSENDING_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING: String = "WarnOnBadCertRecving";
+                const REGSTR_VAL_SECURITYWARNONBADCERTVIEWING_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONSEND: String = "WarnOnPost";
+                const REGSTR_VAL_SECURITYWARNONSENDALWAYS: String = "WarnAlwaysOnPost";
+                const REGSTR_VAL_SECURITYWARNONSENDALWAYS_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONSEND_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONVIEW: String = "WarnOnView";
+                const REGSTR_VAL_SECURITYWARNONVIEW_DEF: u32 = 1;
+                const REGSTR_VAL_SECURITYWARNONZONECROSSING: String = "WarnOnZoneCrossing";
+                const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1;
+                const REGSTR_VAL_SHOWADDRESSBAR: String = "Show_URLToolBar";
+                const REGSTR_VAL_SHOWFOCUS: String = "Tabstop - MouseDown";
+                const REGSTR_VAL_SHOWFOCUS_DEF: String = "no";
+                const REGSTR_VAL_SHOWFULLURLS: String = "Show_FullURL";
+                const REGSTR_VAL_SHOWTOOLBAR: String = "Show_ToolBar";
+                const REGSTR_VAL_SMOOTHSCROLL: String = "SmoothScroll";
+                const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1;
+                const REGSTR_VAL_STARTPAGE: String = "Start Page";
+                const REGSTR_VAL_TEXTCOLOR: String = "Text Color";
+                const REGSTR_VAL_TRUSTWARNINGLEVEL_HIGH: String = "High";
+                const REGSTR_VAL_TRUSTWARNINGLEVEL_LOW: String = "No Security";
+                const REGSTR_VAL_TRUSTWARNINGLEVEL_MED: String = "Medium";
+                const REGSTR_VAL_USEAUTOAPPEND: String = "Append Completion";
+                const REGSTR_VAL_USEAUTOCOMPLETE: String = "Use AutoComplete";
+                const REGSTR_VAL_USEAUTOSUGGEST: String = "AutoSuggest";
+                const REGSTR_VAL_USEDLGCOLORS: String = "Use_DlgBox_Colors";
+                const REGSTR_VAL_USEHOVERCOLOR: String = "Use Anchor Hover Color";
+                const REGSTR_VAL_USEIBAR: String = "UseBar";
+                const REGSTR_VAL_USEICM: String = "UseICM";
+                const REGSTR_VAL_USEICM_DEF: u32 = 0;
+                const REGSTR_VAL_USERAGENT: String = "User Agent";
+                const REGSTR_VAL_USESTYLESHEETS: String = "Use Stylesheets";
+                const REGSTR_VAL_USESTYLESHEETS_DEF: String = "yes";
+                const REGSTR_VAL_VISIBLEBANDS: String = "VisibleBands";
+                const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7;
+                const REGSTR_VAL_WEBCHARSET: String = "WebCharset";
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingAccessDeniedDialog(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PSTR, pszContentDescription: super::super::Foundation::PSTR, pRatingDetails: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingAccessDeniedDialog2(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PSTR, pRatingDetails: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingAccessDeniedDialog2W(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PWSTR, pRatingDetails: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingAccessDeniedDialogW(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PWSTR, pszContentDescription: super::super::Foundation::PWSTR, pRatingDetails: *mut void) -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingAddToApprovedSites(hDlg: super::super::Foundation::HWND, cbPasswordBlob: u32, pbPasswordBlob: *mut u8, lpszUrl: super::super::Foundation::PWSTR, fAlwaysNever: super::super::Foundation::BOOL, fSitePage: super::super::Foundation::BOOL, fApprovedSitesEnforced: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingCheckUserAccess(pszUsername: super::super::Foundation::PSTR, pszURL: super::super::Foundation::PSTR, pszRatingInfo: super::super::Foundation::PSTR, pData: *mut u8, cbData: u32, ppRatingDetails: *mut *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingCheckUserAccessW(pszUsername: super::super::Foundation::PWSTR, pszURL: super::super::Foundation::PWSTR, pszRatingInfo: super::super::Foundation::PWSTR, pData: *mut u8, cbData: u32, ppRatingDetails: *mut *mut void) -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingClickedOnPRFInternal(hWndOwner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszFileName: super::super::Foundation::PSTR, nShow: i32) -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingClickedOnRATInternal(hWndOwner: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, lpszFileName: super::super::Foundation::PSTR, nShow: i32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingEnable(hwndParent: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PSTR, fEnable: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingEnableW(hwndParent: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PWSTR, fEnable: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingEnabledQuery() -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingFreeDetails(pRatingDetails: *mut void) -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingInit() -> super::super::Foundation::HRESULT;
+                #[library("MSRATING.dll")]
+                extern fn RatingObtainCancel(hRatingObtainQuery: super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingObtainQuery(pszTargetUrl: super::super::Foundation::PSTR, dwUserData: u32, fCallback: isize, phRatingObtainQuery: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingObtainQueryW(pszTargetUrl: super::super::Foundation::PWSTR, dwUserData: u32, fCallback: isize, phRatingObtainQuery: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("MSRATING.dll")]
+                extern fn RatingSetupUI(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("MSRATING.dll")]
+                extern fn RatingSetupUIW(hDlg: super::super::Foundation::HWND, pszUsername: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum SCROLLABLECONTEXTMENU_PLACEMENT {
+                    SCMP_TOP = 0,
+                    SCMP_BOTTOM = 1,
+                    SCMP_LEFT = 2,
+                    SCMP_RIGHT = 3,
+                    SCMP_FULL = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                struct STATURL {
+                    cbSize: u32,
+                    pwcsUrl: super::super::Foundation::PWSTR,
+                    pwcsTitle: super::super::Foundation::PWSTR,
+                    ftLastVisited: super::super::Foundation::FILETIME,
+                    ftLastUpdated: super::super::Foundation::FILETIME,
+                    ftExpires: super::super::Foundation::FILETIME,
+                    dwFlags: u32,
+                }
+                const STATURLFLAG_ISCACHED: u32 = 1;
+                const STATURLFLAG_ISTOPLEVEL: u32 = 2;
+                const STATURL_QUERYFLAG_ISCACHED: u32 = 65536;
+                const STATURL_QUERYFLAG_NOTITLE: u32 = 262144;
+                const STATURL_QUERYFLAG_NOURL: u32 = 131072;
+                const STATURL_QUERYFLAG_TOPLEVEL: u32 = 524288;
+                const SURFACE_LOCK_ALLOW_DISCARD: u32 = 2;
+                const SURFACE_LOCK_EXCLUSIVE: u32 = 1;
+                const SURFACE_LOCK_WAIT: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZBACKBITMAP: String = "BackBitmap";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZJAVAVMPATH: String = "\\Java VM";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZNOTEXT: String = "NoText";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZTOOLBAR: String = "\\Toolbar";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZTRUSTWARNLEVEL: String = "Trust Warning Level";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZVISIBLE: String = "VisibleBands";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_DEFAULT_HTML_EDITOR: String = "Default HTML Editor";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_IBAR: String = "Bar";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_IBAR_BANDS: String = "Bands";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_MAIN: String = "Main";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_SEARCHSTRINGS: String = "UrlTemplate";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_SECURITY: String = "Security";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_SETTINGS: String = "Settings";
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const SZ_IE_THRESHOLDS: String = "ErrorThresholds";
+                const S_SURFACE_DISCARDED: i32 = 49155;
+                #[library("ImgUtil.dll")]
+                extern fn SniffStream(pInStream: super::super::System::Com::IStream, pnFormat: *mut u32, ppOutStream: *mut super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                const TARGET_NOTIFY_OBJECT_NAME: String = "863a99a0-21bc-11d0-82b4-00a0c90c29c5";
+                const TF_NAVIGATE: u32 = 2142153644;
+                const TIMERMODE_NORMAL: u32 = 0;
+                const TIMERMODE_VISIBILITYAWARE: u32 = 1;
+                const TOOLSBAND: u32 = 1;
+                const TSZCALENDARPROTOCOL: String = "unk";
+                const TSZCALLTOPROTOCOL: String = "callto";
+                const TSZINTERNETCLIENTSPATH: String = "Software\\Microsoft\\Internet Explorer\\Unix";
+                const TSZLDAPPROTOCOL: String = "ldap";
+                const TSZMAILTOPROTOCOL: String = "mailto";
+                const TSZMICROSOFTPATH: String = "Software\\Microsoft";
+                const TSZNEWSPROTOCOL: String = "news";
+                const TSZPROTOCOLSPATH: String = "Protocols\\";
+                const TSZSCHANNELPATH: String = "SYSTEM\\CurrentControlSet\\Control\\SecurityProviders\\SCHANNEL";
+                const TSZVSOURCEPROTOCOL: String = "view source";
+                const msodsvFailed: u32 = 3;
+                const msodsvLowSecurityLevel: u32 = 4;
+                const msodsvNoMacros: u32 = 0;
+                const msodsvPassedTrusted: u32 = 2;
+                const msodsvPassedTrustedCert: u32 = 5;
+                const msodsvUnsigned: u32 = 1;
+                const msoedmDisable: u32 = 2;
+                const msoedmDontOpen: u32 = 3;
+                const msoedmEnable: u32 = 1;
+                const msoslHigh: u32 = 3;
+                const msoslMedium: u32 = 2;
+                const msoslNone: u32 = 1;
+                const msoslUndefined: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Guid(3135446938, 7041, 4562, 169, 122, 0, 192, 79, 142, 203, 2)]
+                struct wfolders {}
+            }
+        }
+    }
+}

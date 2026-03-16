@@ -1,0 +1,177 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Shutdown {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-abortsystemshutdowna")]
+                #[library("ADVAPI32.dll")]
+                extern fn AbortSystemShutdownA(lpMachineName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-abortsystemshutdownw")]
+                #[library("ADVAPI32.dll")]
+                extern fn AbortSystemShutdownW(lpMachineName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[library("ADVAPI32.dll")]
+                extern fn CheckForHiberboot(pHiberboot: *mut super::super::Foundation::BOOLEAN, bClearFlag: super::super::Foundation::BOOLEAN) -> u32;
+                #[repr(u32)]
+                #[flags]
+                enum EXIT_WINDOWS_FLAGS {
+                    EWX_LOGOFF = 0,
+                    EWX_SHUTDOWN = 1,
+                    EWX_REBOOT = 2,
+                    EWX_FORCE = 4,
+                    EWX_POWEROFF = 8,
+                    EWX_FORCEIFHUNG = 16,
+                    EWX_QUICKRESOLVE = 32,
+                    EWX_RESTARTAPPS = 64,
+                    EWX_HYBRID_SHUTDOWN = 4194304,
+                    EWX_BOOTOPTIONS = 16777216,
+                    EWX_ARSO = 67108864,
+                    EWX_CHECK_SAFE_FOR_SERVER = 134217728,
+                    EWX_SYSTEM_INITIATED = 268435456,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-exitwindowsex")]
+                #[library("USER32.dll")]
+                extern fn ExitWindowsEx(uFlags: EXIT_WINDOWS_FLAGS, dwReason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiateshutdowna")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateShutdownA(lpMachineName: super::super::Foundation::PSTR, lpMessage: super::super::Foundation::PSTR, dwGracePeriod: u32, dwShutdownFlags: SHUTDOWN_FLAGS, dwReason: SHUTDOWN_REASON) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiateshutdownw")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateShutdownW(lpMachineName: super::super::Foundation::PWSTR, lpMessage: super::super::Foundation::PWSTR, dwGracePeriod: u32, dwShutdownFlags: SHUTDOWN_FLAGS, dwReason: SHUTDOWN_REASON) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiatesystemshutdowna")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateSystemShutdownA(lpMachineName: super::super::Foundation::PSTR, lpMessage: super::super::Foundation::PSTR, dwTimeout: u32, bForceAppsClosed: super::super::Foundation::BOOL, bRebootAfterShutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiatesystemshutdownexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateSystemShutdownExA(lpMachineName: super::super::Foundation::PSTR, lpMessage: super::super::Foundation::PSTR, dwTimeout: u32, bForceAppsClosed: super::super::Foundation::BOOL, bRebootAfterShutdown: super::super::Foundation::BOOL, dwReason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiatesystemshutdownexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateSystemShutdownExW(lpMachineName: super::super::Foundation::PWSTR, lpMessage: super::super::Foundation::PWSTR, dwTimeout: u32, bForceAppsClosed: super::super::Foundation::BOOL, bRebootAfterShutdown: super::super::Foundation::BOOL, dwReason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-initiatesystemshutdownw")]
+                #[library("ADVAPI32.dll")]
+                extern fn InitiateSystemShutdownW(lpMachineName: super::super::Foundation::PWSTR, lpMessage: super::super::Foundation::PWSTR, dwTimeout: u32, bForceAppsClosed: super::super::Foundation::BOOL, bRebootAfterShutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-lockworkstation")]
+                #[library("USER32.dll")]
+                extern fn LockWorkStation() -> super::super::Foundation::BOOL;
+                const MAX_NUM_REASONS: u32 = 256;
+                const MAX_REASON_BUGID_LEN: u32 = 32;
+                const MAX_REASON_COMMENT_LEN: u32 = 512;
+                const MAX_REASON_DESC_LEN: u32 = 256;
+                const MAX_REASON_NAME_LEN: u32 = 64;
+                const POLICY_SHOWREASONUI_ALWAYS: u32 = 1;
+                const POLICY_SHOWREASONUI_NEVER: u32 = 0;
+                const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3;
+                const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2;
+                #[repr(u32)]
+                #[flags]
+                enum SHUTDOWN_FLAGS {
+                    SHUTDOWN_FORCE_OTHERS = 1,
+                    SHUTDOWN_FORCE_SELF = 2,
+                    SHUTDOWN_RESTART = 4,
+                    SHUTDOWN_POWEROFF = 8,
+                    SHUTDOWN_NOREBOOT = 16,
+                    SHUTDOWN_GRACE_OVERRIDE = 32,
+                    SHUTDOWN_INSTALL_UPDATES = 64,
+                    SHUTDOWN_RESTARTAPPS = 128,
+                    SHUTDOWN_SKIP_SVC_PRESHUTDOWN = 256,
+                    SHUTDOWN_HYBRID = 512,
+                    SHUTDOWN_RESTART_BOOTOPTIONS = 1024,
+                    SHUTDOWN_SOFT_REBOOT = 2048,
+                    SHUTDOWN_MOBILE_UI = 4096,
+                    SHUTDOWN_ARSO = 8192,
+                    SHUTDOWN_CHECK_SAFE_FOR_SERVER = 16384,
+                    SHUTDOWN_VAIL_CONTAINER = 32768,
+                    SHUTDOWN_SYSTEM_INITIATED = 65536,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum SHUTDOWN_REASON {
+                    SHTDN_REASON_NONE = 0,
+                    SHTDN_REASON_FLAG_COMMENT_REQUIRED = 16777216,
+                    SHTDN_REASON_FLAG_DIRTY_PROBLEM_ID_REQUIRED = 33554432,
+                    SHTDN_REASON_FLAG_CLEAN_UI = 67108864,
+                    SHTDN_REASON_FLAG_DIRTY_UI = 134217728,
+                    SHTDN_REASON_FLAG_MOBILE_UI_RESERVED = 268435456,
+                    SHTDN_REASON_FLAG_USER_DEFINED = 1073741824,
+                    SHTDN_REASON_FLAG_PLANNED = 2147483648,
+                    SHTDN_REASON_MAJOR_OTHER = 0,
+                    SHTDN_REASON_MAJOR_NONE = 0,
+                    SHTDN_REASON_MAJOR_HARDWARE = 65536,
+                    SHTDN_REASON_MAJOR_OPERATINGSYSTEM = 131072,
+                    SHTDN_REASON_MAJOR_SOFTWARE = 196608,
+                    SHTDN_REASON_MAJOR_APPLICATION = 262144,
+                    SHTDN_REASON_MAJOR_SYSTEM = 327680,
+                    SHTDN_REASON_MAJOR_POWER = 393216,
+                    SHTDN_REASON_MAJOR_LEGACY_API = 458752,
+                    SHTDN_REASON_MINOR_OTHER = 0,
+                    SHTDN_REASON_MINOR_NONE = 255,
+                    SHTDN_REASON_MINOR_MAINTENANCE = 1,
+                    SHTDN_REASON_MINOR_INSTALLATION = 2,
+                    SHTDN_REASON_MINOR_UPGRADE = 3,
+                    SHTDN_REASON_MINOR_RECONFIG = 4,
+                    SHTDN_REASON_MINOR_HUNG = 5,
+                    SHTDN_REASON_MINOR_UNSTABLE = 6,
+                    SHTDN_REASON_MINOR_DISK = 7,
+                    SHTDN_REASON_MINOR_PROCESSOR = 8,
+                    SHTDN_REASON_MINOR_NETWORKCARD = 9,
+                    SHTDN_REASON_MINOR_POWER_SUPPLY = 10,
+                    SHTDN_REASON_MINOR_CORDUNPLUGGED = 11,
+                    SHTDN_REASON_MINOR_ENVIRONMENT = 12,
+                    SHTDN_REASON_MINOR_HARDWARE_DRIVER = 13,
+                    SHTDN_REASON_MINOR_OTHERDRIVER = 14,
+                    SHTDN_REASON_MINOR_BLUESCREEN = 15,
+                    SHTDN_REASON_MINOR_SERVICEPACK = 16,
+                    SHTDN_REASON_MINOR_HOTFIX = 17,
+                    SHTDN_REASON_MINOR_SECURITYFIX = 18,
+                    SHTDN_REASON_MINOR_SECURITY = 19,
+                    SHTDN_REASON_MINOR_NETWORK_CONNECTIVITY = 20,
+                    SHTDN_REASON_MINOR_WMI = 21,
+                    SHTDN_REASON_MINOR_SERVICEPACK_UNINSTALL = 22,
+                    SHTDN_REASON_MINOR_HOTFIX_UNINSTALL = 23,
+                    SHTDN_REASON_MINOR_SECURITYFIX_UNINSTALL = 24,
+                    SHTDN_REASON_MINOR_MMC = 25,
+                    SHTDN_REASON_MINOR_SYSTEMRESTORE = 26,
+                    SHTDN_REASON_MINOR_TERMSRV = 32,
+                    SHTDN_REASON_MINOR_DC_PROMOTION = 33,
+                    SHTDN_REASON_MINOR_DC_DEMOTION = 34,
+                    SHTDN_REASON_UNKNOWN = 255,
+                    SHTDN_REASON_LEGACY_API = 2147942400,
+                    SHTDN_REASON_VALID_BIT_MASK = 3238002687,
+                }
+                const SHUTDOWN_TYPE_LEN: u32 = 32;
+                const SNAPSHOT_POLICY_ALWAYS: u32 = 1;
+                const SNAPSHOT_POLICY_NEVER: u32 = 0;
+                const SNAPSHOT_POLICY_UNPLANNED: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-shutdownblockreasoncreate")]
+                #[library("USER32.dll")]
+                extern fn ShutdownBlockReasonCreate(hWnd: super::super::Foundation::HWND, pwszReason: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-shutdownblockreasondestroy")]
+                #[library("USER32.dll")]
+                extern fn ShutdownBlockReasonDestroy(hWnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-shutdownblockreasonquery")]
+                #[library("USER32.dll")]
+                extern fn ShutdownBlockReasonQuery(hWnd: super::super::Foundation::HWND, pwszBuff: super::super::Foundation::PWSTR, pcchBuff: *mut u32) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

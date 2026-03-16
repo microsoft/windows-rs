@@ -1,0 +1,1500 @@
+mod Windows {
+    mod Media {
+        #[winrt]
+        mod Devices {
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AdvancedPhotoCaptureSettings {
+                #[default]
+                IAdvancedPhotoCaptureSettings,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AdvancedPhotoControl {
+                #[default]
+                IAdvancedPhotoControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AdvancedPhotoMode {
+                Auto = 0,
+                Standard = 1,
+                Hdr = 2,
+                LowLight = 3,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioDeviceController {
+                #[default]
+                IAudioDeviceController,
+                IMediaDeviceController,
+                IAudioDeviceController2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class AudioDeviceModule {
+                #[default]
+                IAudioDeviceModule,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AudioDeviceModuleNotificationEventArgs {
+                #[default]
+                IAudioDeviceModuleNotificationEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IAudioDeviceModulesManagerFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioDeviceModulesManager {
+                #[default]
+                IAudioDeviceModulesManager,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioDeviceRole {
+                Default = 0,
+                Communications = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AutoFocusRange {
+                FullRange = 0,
+                Macro = 1,
+                Normal = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(ICallControlStatics, 65536, "Windows.Media.Devices.CallControlContract")]
+            class CallControl {
+                #[default]
+                ICallControl,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct CallControlContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            delegate fn CallControlEventHandler(sender: CallControl);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class CameraOcclusionInfo {
+                #[default]
+                ICameraOcclusionInfo,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum CameraOcclusionKind {
+                Lid = 0,
+                CameraHardware = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            class CameraOcclusionState {
+                #[default]
+                ICameraOcclusionState,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CameraOcclusionStateChangedEventArgs {
+                #[default]
+                ICameraOcclusionStateChangedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CameraStreamState {
+                NotStreaming = 0,
+                Streaming = 1,
+                BlockedForPrivacy = 2,
+                Shutdown = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CaptureSceneMode {
+                Auto = 0,
+                Manual = 1,
+                Macro = 2,
+                Portrait = 3,
+                Sport = 4,
+                Snow = 5,
+                Night = 6,
+                Beach = 7,
+                Sunset = 8,
+                Candlelight = 9,
+                Landscape = 10,
+                NightPortrait = 11,
+                Backlit = 12,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CaptureUse {
+                None = 0,
+                Photo = 1,
+                Video = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ColorTemperaturePreset {
+                Auto = 0,
+                Manual = 1,
+                Cloudy = 2,
+                Daylight = 3,
+                Flash = 4,
+                Fluorescent = 5,
+                Tungsten = 6,
+                Candlelight = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DefaultAudioCaptureDeviceChangedEventArgs {
+                #[default]
+                IDefaultAudioDeviceChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DefaultAudioRenderDeviceChangedEventArgs {
+                #[default]
+                IDefaultAudioDeviceChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            class DialRequestedEventArgs {
+                #[default]
+                IDialRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            delegate fn DialRequestedEventHandler(sender: CallControl, e: DialRequestedEventArgs);
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::Activatable(786432, "Windows.Foundation.UniversalApiContract")]
+            class DigitalWindowBounds {
+                #[default]
+                IDigitalWindowBounds,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DigitalWindowCapability {
+                #[default]
+                IDigitalWindowCapability,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DigitalWindowControl {
+                #[default]
+                IDigitalWindowControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            enum DigitalWindowMode {
+                Off = 0,
+                On = 1,
+                Auto = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class ExposureCompensationControl {
+                #[default]
+                IExposureCompensationControl,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class ExposureControl {
+                #[default]
+                IExposureControl,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ExposurePriorityVideoControl {
+                #[default]
+                IExposurePriorityVideoControl,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class FlashControl {
+                #[default]
+                IFlashControl,
+                IFlashControl2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class FocusControl {
+                #[default]
+                IFocusControl,
+                IFocusControl2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FocusMode {
+                Auto = 0,
+                Single = 1,
+                Continuous = 2,
+                Manual = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FocusPreset {
+                Auto = 0,
+                Manual = 1,
+                AutoMacro = 2,
+                AutoNormal = 3,
+                AutoInfinity = 4,
+                AutoHyperfocal = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class FocusSettings {
+                #[default]
+                IFocusSettings,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class HdrVideoControl {
+                #[default]
+                IHdrVideoControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HdrVideoMode {
+                Off = 0,
+                On = 1,
+                Auto = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvancedPhotoCaptureSettings)]
+            interface IAdvancedPhotoCaptureSettings {
+                #[special]
+                fn get_Mode(&self) -> AdvancedPhotoMode;
+                #[special]
+                fn put_Mode(&self, value: AdvancedPhotoMode);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvancedPhotoControl)]
+            interface IAdvancedPhotoControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>;
+                #[special]
+                fn get_Mode(&self) -> AdvancedPhotoMode;
+                fn Configure(&self, settings: AdvancedPhotoCaptureSettings);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAdvancedVideoCaptureDeviceController {
+                fn SetDeviceProperty(&self, propertyId: String, #[Windows::Foundation::Metadata::Variant] propertyValue: Object);
+                fn GetDeviceProperty(&self, propertyId: String) -> Object;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IAdvancedVideoCaptureDeviceController10 {
+                #[special]
+                fn get_CameraOcclusionInfo(&self) -> CameraOcclusionInfo;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IAdvancedVideoCaptureDeviceController11 {
+                fn TryAcquireExclusiveControl(&self, deviceId: String, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IAdvancedVideoCaptureDeviceController2 {
+                #[special]
+                fn get_LowLagPhotoSequence(&self) -> LowLagPhotoSequenceControl;
+                #[special]
+                fn get_LowLagPhoto(&self) -> LowLagPhotoControl;
+                #[special]
+                fn get_SceneModeControl(&self) -> SceneModeControl;
+                #[special]
+                fn get_TorchControl(&self) -> TorchControl;
+                #[special]
+                fn get_FlashControl(&self) -> FlashControl;
+                #[special]
+                fn get_WhiteBalanceControl(&self) -> WhiteBalanceControl;
+                #[special]
+                fn get_ExposureControl(&self) -> ExposureControl;
+                #[special]
+                fn get_FocusControl(&self) -> FocusControl;
+                #[special]
+                fn get_ExposureCompensationControl(&self) -> ExposureCompensationControl;
+                #[special]
+                fn get_IsoSpeedControl(&self) -> IsoSpeedControl;
+                #[special]
+                fn get_RegionsOfInterestControl(&self) -> RegionsOfInterestControl;
+                #[special]
+                fn get_PrimaryUse(&self) -> CaptureUse;
+                #[special]
+                fn put_PrimaryUse(&self, value: CaptureUse);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IAdvancedVideoCaptureDeviceController3 {
+                #[special]
+                fn get_VariablePhotoSequenceController(&self) -> Core::VariablePhotoSequenceController;
+                #[special]
+                fn get_PhotoConfirmationControl(&self) -> PhotoConfirmationControl;
+                #[special]
+                fn get_ZoomControl(&self) -> ZoomControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAdvancedVideoCaptureDeviceController4 {
+                #[special]
+                fn get_ExposurePriorityVideoControl(&self) -> ExposurePriorityVideoControl;
+                #[special]
+                fn get_DesiredOptimization(&self) -> MediaCaptureOptimization;
+                #[special]
+                fn put_DesiredOptimization(&self, value: MediaCaptureOptimization);
+                #[special]
+                fn get_HdrVideoControl(&self) -> HdrVideoControl;
+                #[special]
+                fn get_OpticalImageStabilizationControl(&self) -> OpticalImageStabilizationControl;
+                #[special]
+                fn get_AdvancedPhotoControl(&self) -> AdvancedPhotoControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IAdvancedVideoCaptureDeviceController5 {
+                #[special]
+                fn get_Id(&self) -> String;
+                fn GetDevicePropertyById(&self, propertyId: String, maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
+                fn SetDevicePropertyById(&self, propertyId: String, #[Windows::Foundation::Metadata::Variant] propertyValue: Object) -> VideoDeviceControllerSetDevicePropertyStatus;
+                fn GetDevicePropertyByExtendedId(&self, extendedPropertyId: [u8], maxPropertyValueSize: super::super::Foundation::IReference<u32>) -> VideoDeviceControllerGetDevicePropertyResult;
+                fn SetDevicePropertyByExtendedId(&self, extendedPropertyId: [u8], propertyValue: [u8]) -> VideoDeviceControllerSetDevicePropertyStatus;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IAdvancedVideoCaptureDeviceController6 {
+                #[special]
+                fn get_VideoTemporalDenoisingControl(&self) -> VideoTemporalDenoisingControl;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IAdvancedVideoCaptureDeviceController7 {
+                #[special]
+                fn get_InfraredTorchControl(&self) -> InfraredTorchControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IAdvancedVideoCaptureDeviceController8 {
+                #[special]
+                fn get_PanelBasedOptimizationControl(&self) -> PanelBasedOptimizationControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IAdvancedVideoCaptureDeviceController9 {
+                #[special]
+                fn get_DigitalWindowControl(&self) -> DigitalWindowControl;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceController)]
+            interface IAudioDeviceController: IMediaDeviceController {
+                #[special]
+                fn put_Muted(&self, value: bool);
+                #[special]
+                fn get_Muted(&self) -> bool;
+                #[special]
+                fn put_VolumePercent(&self, value: f32);
+                #[special]
+                fn get_VolumePercent(&self) -> f32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IAudioDeviceController2 {
+                #[special]
+                fn get_AudioCaptureEffectsManager(&self) -> super::Effects::AudioCaptureEffectsManager;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModule)]
+            interface IAudioDeviceModule {
+                #[special]
+                fn get_ClassId(&self) -> String;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn get_InstanceId(&self) -> u32;
+                #[special]
+                fn get_MajorVersion(&self) -> u32;
+                #[special]
+                fn get_MinorVersion(&self) -> u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendCommandAsync(&self, Command: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<ModuleCommandResult>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModuleNotificationEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IAudioDeviceModuleNotificationEventArgs {
+                #[special]
+                fn get_Module(&self) -> AudioDeviceModule;
+                #[special]
+                fn get_NotificationData(&self) -> super::super::Storage::Streams::IBuffer;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModulesManager)]
+            interface IAudioDeviceModulesManager {
+                #[special]
+                fn add_ModuleNotificationReceived(&self, handler: super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken);
+                fn FindAllById(&self, moduleId: String) -> super::super::Foundation::Collections::IVectorView<AudioDeviceModule>;
+                fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<AudioDeviceModule>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceModulesManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IAudioDeviceModulesManagerFactory {
+                fn Create(&self, deviceId: String) -> AudioDeviceModulesManager;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CallControl)]
+            interface ICallControl {
+                fn IndicateNewIncomingCall(&self, enableRinger: bool, callerId: String) -> u64;
+                fn IndicateNewOutgoingCall(&self) -> u64;
+                fn IndicateActiveCall(&self, callToken: u64);
+                fn EndCall(&self, callToken: u64);
+                #[special]
+                fn get_HasRinger(&self) -> bool;
+                #[special]
+                fn add_AnswerRequested(&self, handler: CallControlEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_HangUpRequested(&self, handler: CallControlEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_HangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_DialRequested(&self, handler: DialRequestedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DialRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_RedialRequested(&self, handler: RedialRequestedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_RedialRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_KeypadPressed(&self, handler: KeypadPressedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_KeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_AudioTransferRequested(&self, handler: CallControlEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CallControl)]
+            interface ICallControlStatics {
+                fn GetDefault(&self) -> CallControl;
+                fn FromId(&self, deviceId: String) -> CallControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CameraOcclusionInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface ICameraOcclusionInfo {
+                fn GetState(&self) -> CameraOcclusionState;
+                fn IsOcclusionKindSupported(&self, occlusionKind: CameraOcclusionKind) -> bool;
+                #[special]
+                fn add_StateChanged(&self, handler: super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_StateChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CameraOcclusionState)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface ICameraOcclusionState {
+                #[special]
+                fn get_IsOccluded(&self) -> bool;
+                fn IsOcclusionKind(&self, occlusionKind: CameraOcclusionKind) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CameraOcclusionStateChangedEventArgs)]
+            interface ICameraOcclusionStateChangedEventArgs {
+                #[special]
+                fn get_State(&self) -> CameraOcclusionState;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDefaultAudioDeviceChangedEventArgs {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_Role(&self) -> AudioDeviceRole;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            interface IDialRequestedEventArgs {
+                fn Handled(&self);
+                #[special]
+                fn get_Contact(&self) -> Object;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DigitalWindowBounds)]
+            interface IDigitalWindowBounds {
+                #[special]
+                fn get_NormalizedOriginTop(&self) -> f64;
+                #[special]
+                fn put_NormalizedOriginTop(&self, value: f64);
+                #[special]
+                fn get_NormalizedOriginLeft(&self) -> f64;
+                #[special]
+                fn put_NormalizedOriginLeft(&self, value: f64);
+                #[special]
+                fn get_Scale(&self) -> f64;
+                #[special]
+                fn put_Scale(&self, value: f64);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DigitalWindowCapability)]
+            interface IDigitalWindowCapability {
+                #[special]
+                fn get_Width(&self) -> i32;
+                #[special]
+                fn get_Height(&self) -> i32;
+                #[special]
+                fn get_MinScaleValue(&self) -> f64;
+                #[special]
+                fn get_MaxScaleValue(&self) -> f64;
+                #[special]
+                fn get_MinScaleValueWithoutUpsampling(&self) -> f64;
+                #[special]
+                fn get_NormalizedFieldOfViewLimit(&self) -> super::super::Foundation::Rect;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DigitalWindowControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IDigitalWindowControl {
+                #[special]
+                fn get_IsSupported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> [DigitalWindowMode];
+                #[special]
+                fn get_CurrentMode(&self) -> DigitalWindowMode;
+                fn GetBounds(&self) -> DigitalWindowBounds;
+                #[Windows::Foundation::Metadata::Overload("Configure")]
+                fn Configure(&self, digitalWindowMode: DigitalWindowMode);
+                #[Windows::Foundation::Metadata::Overload("ConfigureWithBounds")]
+                fn Configure(&self, digitalWindowMode: DigitalWindowMode, digitalWindowBounds: DigitalWindowBounds);
+                #[special]
+                fn get_SupportedCapabilities(&self) -> super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>;
+                fn GetCapabilityForSize(&self, width: i32, height: i32) -> DigitalWindowCapability;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ExposureCompensationControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IExposureCompensationControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Min(&self) -> f32;
+                #[special]
+                fn get_Max(&self) -> f32;
+                #[special]
+                fn get_Step(&self) -> f32;
+                #[special]
+                fn get_Value(&self) -> f32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, value: f32) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ExposureControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IExposureControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Auto(&self) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetAutoAsync(&self, value: bool) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_Min(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Max(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Step(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Value(&self) -> super::super::Foundation::TimeSpan;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, shutterDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ExposurePriorityVideoControl)]
+            interface IExposurePriorityVideoControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Enabled(&self) -> bool;
+                #[special]
+                fn put_Enabled(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FlashControl)]
+            interface IFlashControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_PowerSupported(&self) -> bool;
+                #[special]
+                fn get_RedEyeReductionSupported(&self) -> bool;
+                #[special]
+                fn get_Enabled(&self) -> bool;
+                #[special]
+                fn put_Enabled(&self, value: bool);
+                #[special]
+                fn get_Auto(&self) -> bool;
+                #[special]
+                fn put_Auto(&self, value: bool);
+                #[special]
+                fn get_RedEyeReduction(&self) -> bool;
+                #[special]
+                fn put_RedEyeReduction(&self, value: bool);
+                #[special]
+                fn get_PowerPercent(&self) -> f32;
+                #[special]
+                fn put_PowerPercent(&self, value: f32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FlashControl)]
+            interface IFlashControl2 {
+                #[special]
+                fn get_AssistantLightSupported(&self) -> bool;
+                #[special]
+                fn get_AssistantLightEnabled(&self) -> bool;
+                #[special]
+                fn put_AssistantLightEnabled(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(FocusControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFocusControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_SupportedPresets(&self) -> super::super::Foundation::Collections::IVectorView<FocusPreset>;
+                #[special]
+                fn get_Preset(&self) -> FocusPreset;
+                #[Windows::Foundation::Metadata::Overload("SetPresetAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPresetAsync(&self, preset: FocusPreset) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("SetPresetWithCompletionOptionAsync")]
+                fn SetPresetAsync(&self, preset: FocusPreset, completeBeforeFocus: bool) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_Min(&self) -> u32;
+                #[special]
+                fn get_Max(&self) -> u32;
+                #[special]
+                fn get_Step(&self) -> u32;
+                #[special]
+                fn get_Value(&self) -> u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, focus: u32) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FocusAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FocusControl)]
+            interface IFocusControl2 {
+                #[special]
+                fn get_FocusChangedSupported(&self) -> bool;
+                #[special]
+                fn get_WaitForFocusSupported(&self) -> bool;
+                #[special]
+                fn get_SupportedFocusModes(&self) -> super::super::Foundation::Collections::IVectorView<FocusMode>;
+                #[special]
+                fn get_SupportedFocusDistances(&self) -> super::super::Foundation::Collections::IVectorView<ManualFocusDistance>;
+                #[special]
+                fn get_SupportedFocusRanges(&self) -> super::super::Foundation::Collections::IVectorView<AutoFocusRange>;
+                #[special]
+                fn get_Mode(&self) -> FocusMode;
+                #[special]
+                fn get_FocusState(&self) -> MediaCaptureFocusState;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnlockAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LockAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn Configure(&self, settings: FocusSettings);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(FocusSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFocusSettings {
+                #[special]
+                fn get_Mode(&self) -> FocusMode;
+                #[special]
+                fn put_Mode(&self, value: FocusMode);
+                #[special]
+                fn get_AutoFocusRange(&self) -> AutoFocusRange;
+                #[special]
+                fn put_AutoFocusRange(&self, value: AutoFocusRange);
+                #[special]
+                fn get_Value(&self) -> super::super::Foundation::IReference<u32>;
+                #[special]
+                fn put_Value(&self, value: super::super::Foundation::IReference<u32>);
+                #[special]
+                fn get_Distance(&self) -> super::super::Foundation::IReference<ManualFocusDistance>;
+                #[special]
+                fn put_Distance(&self, value: super::super::Foundation::IReference<ManualFocusDistance>);
+                #[special]
+                fn get_WaitForFocus(&self) -> bool;
+                #[special]
+                fn put_WaitForFocus(&self, value: bool);
+                #[special]
+                fn get_DisableDriverFallback(&self) -> bool;
+                #[special]
+                fn put_DisableDriverFallback(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HdrVideoControl)]
+            interface IHdrVideoControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<HdrVideoMode>;
+                #[special]
+                fn get_Mode(&self) -> HdrVideoMode;
+                #[special]
+                fn put_Mode(&self, value: HdrVideoMode);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(InfraredTorchControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IInfraredTorchControl {
+                #[special]
+                fn get_IsSupported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<InfraredTorchMode>;
+                #[special]
+                fn get_CurrentMode(&self) -> InfraredTorchMode;
+                #[special]
+                fn put_CurrentMode(&self, value: InfraredTorchMode);
+                #[special]
+                fn get_MinPower(&self) -> i32;
+                #[special]
+                fn get_MaxPower(&self) -> i32;
+                #[special]
+                fn get_PowerStep(&self) -> i32;
+                #[special]
+                fn get_Power(&self) -> i32;
+                #[special]
+                fn put_Power(&self, value: i32);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsoSpeedControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IIsoSpeedControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SupportedPresets may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SupportedPresets(&self) -> super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Preset may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Preset(&self) -> IsoSpeedPreset;
+                #[Windows::Foundation::Metadata::Deprecated("SetPresetAsync may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IsoSpeedControl)]
+            interface IIsoSpeedControl2 {
+                #[special]
+                fn get_Min(&self) -> u32;
+                #[special]
+                fn get_Max(&self) -> u32;
+                #[special]
+                fn get_Step(&self) -> u32;
+                #[special]
+                fn get_Value(&self) -> u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, isoSpeed: u32) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_Auto(&self) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetAutoAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(KeypadPressedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            interface IKeypadPressedEventArgs {
+                #[special]
+                fn get_TelephonyKey(&self) -> TelephonyKey;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LowLagPhotoControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILowLagPhotoControl {
+                fn GetHighestConcurrentFrameRate(&self, captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
+                fn GetCurrentFrameRate(&self) -> super::MediaProperties::MediaRatio;
+                #[special]
+                fn get_ThumbnailEnabled(&self) -> bool;
+                #[special]
+                fn put_ThumbnailEnabled(&self, value: bool);
+                #[special]
+                fn get_ThumbnailFormat(&self) -> super::MediaProperties::MediaThumbnailFormat;
+                #[special]
+                fn put_ThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat);
+                #[special]
+                fn get_DesiredThumbnailSize(&self) -> u32;
+                #[special]
+                fn put_DesiredThumbnailSize(&self, value: u32);
+                #[special]
+                fn get_HardwareAcceleratedThumbnailSupported(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LowLagPhotoSequenceControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILowLagPhotoSequenceControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_MaxPastPhotos(&self) -> u32;
+                #[special]
+                fn get_MaxPhotosPerSecond(&self) -> f32;
+                #[special]
+                fn get_PastPhotoLimit(&self) -> u32;
+                #[special]
+                fn put_PastPhotoLimit(&self, value: u32);
+                #[special]
+                fn get_PhotosPerSecondLimit(&self) -> f32;
+                #[special]
+                fn put_PhotosPerSecondLimit(&self, value: f32);
+                fn GetHighestConcurrentFrameRate(&self, captureProperties: super::MediaProperties::IMediaEncodingProperties) -> super::MediaProperties::MediaRatio;
+                fn GetCurrentFrameRate(&self) -> super::MediaProperties::MediaRatio;
+                #[special]
+                fn get_ThumbnailEnabled(&self) -> bool;
+                #[special]
+                fn put_ThumbnailEnabled(&self, value: bool);
+                #[special]
+                fn get_ThumbnailFormat(&self) -> super::MediaProperties::MediaThumbnailFormat;
+                #[special]
+                fn put_ThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat);
+                #[special]
+                fn get_DesiredThumbnailSize(&self) -> u32;
+                #[special]
+                fn put_DesiredThumbnailSize(&self, value: u32);
+                #[special]
+                fn get_HardwareAcceleratedThumbnailSupported(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaDeviceControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaDeviceControl {
+                #[special]
+                fn get_Capabilities(&self) -> MediaDeviceControlCapabilities;
+                fn TryGetValue(&self, value: &mut f64) -> bool;
+                fn TrySetValue(&self, value: f64) -> bool;
+                fn TryGetAuto(&self, value: &mut bool) -> bool;
+                fn TrySetAuto(&self, value: bool) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaDeviceControlCapabilities)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaDeviceControlCapabilities {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Min(&self) -> f64;
+                #[special]
+                fn get_Max(&self) -> f64;
+                #[special]
+                fn get_Step(&self) -> f64;
+                #[special]
+                fn get_Default(&self) -> f64;
+                #[special]
+                fn get_AutoModeSupported(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaDeviceController {
+                fn GetAvailableMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>;
+                fn GetMediaStreamProperties(&self, mediaStreamType: super::Capture::MediaStreamType) -> super::MediaProperties::IMediaEncodingProperties;
+                fn SetMediaStreamPropertiesAsync(&self, mediaStreamType: super::Capture::MediaStreamType, mediaEncodingProperties: super::MediaProperties::IMediaEncodingProperties) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaDeviceStatics {
+                fn GetAudioCaptureSelector(&self) -> String;
+                fn GetAudioRenderSelector(&self) -> String;
+                fn GetVideoCaptureSelector(&self) -> String;
+                fn GetDefaultAudioCaptureId(&self, role: AudioDeviceRole) -> String;
+                fn GetDefaultAudioRenderId(&self, role: AudioDeviceRole) -> String;
+                #[special]
+                fn add_DefaultAudioCaptureDeviceChanged(&self, handler: super::super::Foundation::TypedEventHandler<Object, DefaultAudioCaptureDeviceChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DefaultAudioCaptureDeviceChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_DefaultAudioRenderDeviceChanged(&self, handler: super::super::Foundation::TypedEventHandler<Object, DefaultAudioRenderDeviceChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DefaultAudioRenderDeviceChanged(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ModuleCommandResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IModuleCommandResult {
+                #[special]
+                fn get_Status(&self) -> SendCommandStatus;
+                #[special]
+                fn get_Result(&self) -> super::super::Storage::Streams::IBuffer;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OpticalImageStabilizationControl)]
+            interface IOpticalImageStabilizationControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<OpticalImageStabilizationMode>;
+                #[special]
+                fn get_Mode(&self) -> OpticalImageStabilizationMode;
+                #[special]
+                fn put_Mode(&self, value: OpticalImageStabilizationMode);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PanelBasedOptimizationControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPanelBasedOptimizationControl {
+                #[special]
+                fn get_IsSupported(&self) -> bool;
+                #[special]
+                fn get_Panel(&self) -> super::super::Devices::Enumeration::Panel;
+                #[special]
+                fn put_Panel(&self, value: super::super::Devices::Enumeration::Panel);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoConfirmationControl)]
+            interface IPhotoConfirmationControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Enabled(&self) -> bool;
+                #[special]
+                fn put_Enabled(&self, value: bool);
+                #[special]
+                fn get_PixelFormat(&self) -> super::MediaProperties::MediaPixelFormat;
+                #[special]
+                fn put_PixelFormat(&self, format: super::MediaProperties::MediaPixelFormat);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RedialRequestedEventArgs)]
+            interface IRedialRequestedEventArgs {
+                fn Handled(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RegionOfInterest)]
+            interface IRegionOfInterest {
+                #[special]
+                fn get_AutoFocusEnabled(&self) -> bool;
+                #[special]
+                fn put_AutoFocusEnabled(&self, value: bool);
+                #[special]
+                fn get_AutoWhiteBalanceEnabled(&self) -> bool;
+                #[special]
+                fn put_AutoWhiteBalanceEnabled(&self, value: bool);
+                #[special]
+                fn get_AutoExposureEnabled(&self) -> bool;
+                #[special]
+                fn put_AutoExposureEnabled(&self, value: bool);
+                #[special]
+                fn get_Bounds(&self) -> super::super::Foundation::Rect;
+                #[special]
+                fn put_Bounds(&self, value: super::super::Foundation::Rect);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RegionOfInterest)]
+            interface IRegionOfInterest2 {
+                #[special]
+                fn get_Type(&self) -> RegionOfInterestType;
+                #[special]
+                fn put_Type(&self, value: RegionOfInterestType);
+                #[special]
+                fn get_BoundsNormalized(&self) -> bool;
+                #[special]
+                fn put_BoundsNormalized(&self, value: bool);
+                #[special]
+                fn get_Weight(&self) -> u32;
+                #[special]
+                fn put_Weight(&self, value: u32);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RegionsOfInterestControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRegionsOfInterestControl {
+                #[special]
+                fn get_MaxRegions(&self) -> u32;
+                #[Windows::Foundation::Metadata::Overload("SetRegionsAsync")]
+                fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SetRegionsWithLockAsync")]
+                fn SetRegionsAsync(&self, regions: super::super::Foundation::Collections::IIterable<RegionOfInterest>, lockValues: bool) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ClearRegionsAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_AutoFocusSupported(&self) -> bool;
+                #[special]
+                fn get_AutoWhiteBalanceSupported(&self) -> bool;
+                #[special]
+                fn get_AutoExposureSupported(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SceneModeControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISceneModeControl {
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<CaptureSceneMode>;
+                #[special]
+                fn get_Value(&self) -> CaptureSceneMode;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, sceneMode: CaptureSceneMode) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(TorchControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITorchControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_PowerSupported(&self) -> bool;
+                #[special]
+                fn get_Enabled(&self) -> bool;
+                #[special]
+                fn put_Enabled(&self, value: bool);
+                #[special]
+                fn get_PowerPercent(&self) -> f32;
+                #[special]
+                fn put_PowerPercent(&self, value: f32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceController)]
+            interface IVideoDeviceController: IMediaDeviceController {
+                #[special]
+                fn get_Brightness(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Contrast(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Hue(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_WhiteBalance(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_BacklightCompensation(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Pan(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Tilt(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Zoom(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Roll(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Exposure(&self) -> MediaDeviceControl;
+                #[special]
+                fn get_Focus(&self) -> MediaDeviceControl;
+                fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> bool;
+                fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoDeviceControllerGetDevicePropertyResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IVideoDeviceControllerGetDevicePropertyResult {
+                #[special]
+                fn get_Status(&self) -> VideoDeviceControllerGetDevicePropertyStatus;
+                #[special]
+                fn get_Value(&self) -> Object;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTemporalDenoisingControl)]
+            interface IVideoTemporalDenoisingControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<VideoTemporalDenoisingMode>;
+                #[special]
+                fn get_Mode(&self) -> VideoTemporalDenoisingMode;
+                #[special]
+                fn put_Mode(&self, value: VideoTemporalDenoisingMode);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WhiteBalanceControl)]
+            interface IWhiteBalanceControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Preset(&self) -> ColorTemperaturePreset;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_Min(&self) -> u32;
+                #[special]
+                fn get_Max(&self) -> u32;
+                #[special]
+                fn get_Step(&self) -> u32;
+                #[special]
+                fn get_Value(&self) -> u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetValueAsync(&self, temperature: u32) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ZoomControl)]
+            interface IZoomControl {
+                #[special]
+                fn get_Supported(&self) -> bool;
+                #[special]
+                fn get_Min(&self) -> f32;
+                #[special]
+                fn get_Max(&self) -> f32;
+                #[special]
+                fn get_Step(&self) -> f32;
+                #[special]
+                fn get_Value(&self) -> f32;
+                #[special]
+                fn put_Value(&self, value: f32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ZoomControl)]
+            interface IZoomControl2 {
+                #[special]
+                fn get_SupportedModes(&self) -> super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>;
+                #[special]
+                fn get_Mode(&self) -> ZoomTransitionMode;
+                fn Configure(&self, settings: ZoomSettings);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ZoomSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IZoomSettings {
+                #[special]
+                fn get_Mode(&self) -> ZoomTransitionMode;
+                #[special]
+                fn put_Mode(&self, value: ZoomTransitionMode);
+                #[special]
+                fn get_Value(&self) -> f32;
+                #[special]
+                fn put_Value(&self, value: f32);
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class InfraredTorchControl {
+                #[default]
+                IInfraredTorchControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum InfraredTorchMode {
+                Off = 0,
+                On = 1,
+                AlternatingFrameIllumination = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class IsoSpeedControl {
+                #[default]
+                IIsoSpeedControl,
+                IIsoSpeedControl2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IsoSpeedPreset may not be available in future versions of Windows Phone. Starting with Windows Phone 8.1, use SetAutoAsync, Auto, SetValueAsync, and Value instead", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            enum IsoSpeedPreset {
+                Auto = 0,
+                Iso50 = 1,
+                Iso80 = 2,
+                Iso100 = 3,
+                Iso200 = 4,
+                Iso400 = 5,
+                Iso800 = 6,
+                Iso1600 = 7,
+                Iso3200 = 8,
+                Iso6400 = 9,
+                Iso12800 = 10,
+                Iso25600 = 11,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class KeypadPressedEventArgs {
+                #[default]
+                IKeypadPressedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            delegate fn KeypadPressedEventHandler(sender: CallControl, e: KeypadPressedEventArgs);
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LowLagPhotoControl {
+                #[default]
+                ILowLagPhotoControl,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LowLagPhotoSequenceControl {
+                #[default]
+                ILowLagPhotoSequenceControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ManualFocusDistance {
+                Infinity = 0,
+                Hyperfocal = 1,
+                Nearest = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaCaptureFocusState {
+                Uninitialized = 0,
+                Lost = 1,
+                Searching = 2,
+                Focused = 3,
+                Failed = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaCaptureOptimization {
+                Default = 0,
+                Quality = 1,
+                Latency = 2,
+                Power = 3,
+                LatencyThenQuality = 4,
+                LatencyThenPower = 5,
+                PowerAndQuality = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaCapturePauseBehavior {
+                RetainHardwareResources = 0,
+                ReleaseHardwareResources = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMediaDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MediaDevice {}
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MediaDeviceControl {
+                #[default]
+                IMediaDeviceControl,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MediaDeviceControlCapabilities {
+                #[default]
+                IMediaDeviceControlCapabilities,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class ModuleCommandResult {
+                #[default]
+                IModuleCommandResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OpticalImageStabilizationControl {
+                #[default]
+                IOpticalImageStabilizationControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum OpticalImageStabilizationMode {
+                Off = 0,
+                On = 1,
+                Auto = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class PanelBasedOptimizationControl {
+                #[default]
+                IPanelBasedOptimizationControl,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class PhotoConfirmationControl {
+                #[default]
+                IPhotoConfirmationControl,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RedialRequestedEventArgs {
+                #[default]
+                IRedialRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            delegate fn RedialRequestedEventHandler(sender: CallControl, e: RedialRequestedEventArgs);
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class RegionOfInterest {
+                #[default]
+                IRegionOfInterest,
+                IRegionOfInterest2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RegionOfInterestType {
+                Unknown = 0,
+                Face = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class RegionsOfInterestControl {
+                #[default]
+                IRegionsOfInterestControl,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class SceneModeControl {
+                #[default]
+                ISceneModeControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum SendCommandStatus {
+                Success = 0,
+                DeviceNotAvailable = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(CallControlContract, 65536)]
+            enum TelephonyKey {
+                D0 = 0,
+                D1 = 1,
+                D2 = 2,
+                D3 = 3,
+                D4 = 4,
+                D5 = 5,
+                D6 = 6,
+                D7 = 7,
+                D8 = 8,
+                D9 = 9,
+                Star = 10,
+                Pound = 11,
+                A = 12,
+                B = 13,
+                C = 14,
+                D = 15,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class TorchControl {
+                #[default]
+                ITorchControl,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class VideoDeviceController {
+                #[default]
+                IVideoDeviceController,
+                IMediaDeviceController,
+                IAdvancedVideoCaptureDeviceController,
+                IAdvancedVideoCaptureDeviceController2,
+                IAdvancedVideoCaptureDeviceController3,
+                IAdvancedVideoCaptureDeviceController4,
+                IAdvancedVideoCaptureDeviceController5,
+                IAdvancedVideoCaptureDeviceController6,
+                IAdvancedVideoCaptureDeviceController7,
+                IAdvancedVideoCaptureDeviceController8,
+                IAdvancedVideoCaptureDeviceController9,
+                IAdvancedVideoCaptureDeviceController10,
+                IAdvancedVideoCaptureDeviceController11,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class VideoDeviceControllerGetDevicePropertyResult {
+                #[default]
+                IVideoDeviceControllerGetDevicePropertyResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum VideoDeviceControllerGetDevicePropertyStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                BufferTooSmall = 2,
+                NotSupported = 3,
+                DeviceNotAvailable = 4,
+                MaxPropertyValueSizeTooSmall = 5,
+                MaxPropertyValueSizeRequired = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum VideoDeviceControllerSetDevicePropertyStatus {
+                Success = 0,
+                UnknownFailure = 1,
+                NotSupported = 2,
+                InvalidValue = 3,
+                DeviceNotAvailable = 4,
+                NotInControl = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class VideoTemporalDenoisingControl {
+                #[default]
+                IVideoTemporalDenoisingControl,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum VideoTemporalDenoisingMode {
+                Off = 0,
+                On = 1,
+                Auto = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WhiteBalanceControl {
+                #[default]
+                IWhiteBalanceControl,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ZoomControl {
+                #[default]
+                IZoomControl,
+                IZoomControl2,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ZoomSettings {
+                #[default]
+                IZoomSettings,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ZoomTransitionMode {
+                Auto = 0,
+                Direct = 1,
+                Smooth = 2,
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod Resources {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            interface IResourceLoader {
+                fn GetString(&self, resource: String) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IResourceLoader2 {
+                fn GetStringForUri(&self, uri: super::super::Foundation::Uri) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            interface IResourceLoaderFactory {
+                fn CreateResourceLoaderByName(&self, name: String) -> ResourceLoader;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IResourceLoaderStatics {
+                fn GetStringForReference(&self, uri: super::super::Foundation::Uri) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IResourceLoaderStatics2 {
+                #[Windows::Foundation::Metadata::Overload("GetForCurrentView")]
+                fn GetForCurrentView(&self) -> ResourceLoader;
+                #[Windows::Foundation::Metadata::Overload("GetForCurrentViewWithName")]
+                fn GetForCurrentView(&self, name: String) -> ResourceLoader;
+                #[Windows::Foundation::Metadata::Overload("GetForViewIndependentUse")]
+                fn GetForViewIndependentUse(&self) -> ResourceLoader;
+                #[Windows::Foundation::Metadata::Overload("GetForViewIndependentUseWithName")]
+                fn GetForViewIndependentUse(&self, name: String) -> ResourceLoader;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IResourceLoaderStatics3 {
+                fn GetForUIContext(&self, context: super::super::UI::UIContext) -> ResourceLoader;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IResourceLoaderStatics4 {
+                fn GetDefaultPriPath(&self, packageFullName: String) -> String;
+            }
+            #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics4, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IResourceLoaderFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ResourceLoader {
+                #[default]
+                IResourceLoader,
+                IResourceLoader2,
+            }
+        }
+    }
+}

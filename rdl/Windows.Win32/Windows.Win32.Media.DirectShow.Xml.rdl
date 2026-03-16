@@ -1,0 +1,22 @@
+mod Windows {
+    mod Win32 {
+        mod Media {
+            mod DirectShow {
+                #[win32]
+                mod Xml {
+                    const CLSID_XMLGraphBuilder: GUID = 0x1bb05961_5fbf_11d2_a521_44df07c10000;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/amxmlgraphbuilder/nn-amxmlgraphbuilder-ixmlgraphbuilder")]
+                    interface IXMLGraphBuilder: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/amxmlgraphbuilder/nf-amxmlgraphbuilder-ixmlgraphbuilder-buildfromxml")]
+                        fn BuildFromXML(&self, pGraph: super::IGraphBuilder, pxml: super::super::super::Data::Xml::MsXml::IXMLElement) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/amxmlgraphbuilder/nf-amxmlgraphbuilder-ixmlgraphbuilder-savetoxml")]
+                        fn SaveToXML(&self, pGraph: super::IGraphBuilder, pbstrxml: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/amxmlgraphbuilder/nf-amxmlgraphbuilder-ixmlgraphbuilder-buildfromxmlfile")]
+                        fn BuildFromXMLFile(&self, pGraph: super::IGraphBuilder, #[Windows::Win32::Foundation::Metadata::Const] wszFileName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszBaseURL: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

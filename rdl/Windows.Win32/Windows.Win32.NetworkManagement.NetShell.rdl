@@ -1,0 +1,190 @@
+mod Windows {
+    mod Win32 {
+        mod NetworkManagement {
+            #[win32]
+            mod NetShell {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ns-netsh-cmd_entry")]
+                struct CMD_ENTRY {
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pwszCmdToken: super::super::Foundation::PWSTR,
+                    pfnCmdHandler: PFN_HANDLE_CMD,
+                    dwShortCmdHelpToken: u32,
+                    dwCmdHlpToken: u32,
+                    dwFlags: u32,
+                    pOsVersionCheck: PNS_OSVERSIONCHECK,
+                    pfnCustomHelpFn: PFN_CUSTOM_HELP,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ns-netsh-cmd_group_entry")]
+                struct CMD_GROUP_ENTRY {
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pwszCmdGroupToken: super::super::Foundation::PWSTR,
+                    dwShortCmdHelpToken: u32,
+                    ulCmdGroupSize: u32,
+                    dwFlags: u32,
+                    pCmdGroup: *mut CMD_ENTRY,
+                    pOsVersionCheck: PNS_OSVERSIONCHECK,
+                }
+                const DEFAULT_CONTEXT_PRIORITY: u32 = 100;
+                const ERROR_CMD_NOT_FOUND: u32 = 15004;
+                const ERROR_CONTEXT_ALREADY_REGISTERED: u32 = 15019;
+                const ERROR_CONTINUE_IN_PARENT_CONTEXT: u32 = 15016;
+                const ERROR_DLL_LOAD_FAILED: u32 = 15006;
+                const ERROR_ENTRY_PT_NOT_FOUND: u32 = 15005;
+                const ERROR_HELPER_ALREADY_REGISTERED: u32 = 15018;
+                const ERROR_INIT_DISPLAY: u32 = 15007;
+                const ERROR_INVALID_OPTION_TAG: u32 = 15009;
+                const ERROR_INVALID_OPTION_VALUE: u32 = 15014;
+                const ERROR_INVALID_SYNTAX: u32 = 15001;
+                const ERROR_MISSING_OPTION: u32 = 15011;
+                const ERROR_NO_CHANGE: u32 = 15003;
+                const ERROR_NO_ENTRIES: u32 = 15000;
+                const ERROR_NO_TAG: u32 = 15010;
+                const ERROR_OKAY: u32 = 15015;
+                const ERROR_PARSING_FAILURE: u32 = 15020;
+                const ERROR_PROTOCOL_NOT_IN_TRANSPORT: u32 = 15002;
+                const ERROR_SHOW_USAGE: u32 = 15013;
+                const ERROR_SUPPRESS_OUTPUT: u32 = 15017;
+                const ERROR_TAG_ALREADY_PRESENT: u32 = 15008;
+                const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012;
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const GET_RESOURCE_STRING_FN_NAME: String = "GetResourceString";
+                const MAX_NAME_LEN: u32 = 48;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-matchenumtag")]
+                #[library("NETSH.dll")]
+                extern fn MatchEnumTag(hModule: super::super::Foundation::HANDLE, pwcArg: super::super::Foundation::PWSTR, dwNumArg: u32, pEnumTable: *mut TOKEN_VALUE, pdwValue: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-matchtoken")]
+                #[library("NETSH.dll")]
+                extern fn MatchToken(pwszUserToken: super::super::Foundation::PWSTR, pwszCmdToken: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                const NETSH_ARG_DELIMITER: String = "=";
+                const NETSH_CMD_DELIMITER: String = " ";
+                const NETSH_ERROR_BASE: u32 = 15000;
+                const NETSH_ERROR_END: u32 = 15019;
+                const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128;
+                const NETSH_MAX_TOKEN_LENGTH: u32 = 64;
+                const NETSH_VERSION_50: u32 = 20480;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ne-netsh-ns_cmd_flags")]
+                enum NS_CMD_FLAGS {
+                    CMD_FLAG_PRIVATE = 1,
+                    CMD_FLAG_INTERACTIVE = 2,
+                    CMD_FLAG_LOCAL = 8,
+                    CMD_FLAG_ONLINE = 16,
+                    CMD_FLAG_HIDDEN = 32,
+                    CMD_FLAG_LIMIT_MASK = 65535,
+                    CMD_FLAG_PRIORITY = -2147483648,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ns-netsh-ns_context_attributes")]
+                struct NS_CONTEXT_ATTRIBUTES {
+                    Anonymous: union {
+                        Anonymous: struct {
+                            dwVersion: u32,
+                            dwReserved: u32,
+                        },
+                        _ullAlign: u64,
+                    },
+                    pwszContext: super::super::Foundation::PWSTR,
+                    guidHelper: GUID,
+                    dwFlags: u32,
+                    ulPriority: u32,
+                    ulNumTopCmds: u32,
+                    pTopCmds: *mut CMD_ENTRY,
+                    ulNumGroups: u32,
+                    pCmdGroups: *mut CMD_GROUP_ENTRY,
+                    pfnCommitFn: PNS_CONTEXT_COMMIT_FN,
+                    pfnDumpFn: PNS_CONTEXT_DUMP_FN,
+                    pfnConnectFn: PNS_CONTEXT_CONNECT_FN,
+                    pReserved: *mut void,
+                    pfnOsVersionCheck: PNS_OSVERSIONCHECK,
+                }
+                #[repr(i32)]
+                enum NS_EVENTS {
+                    NS_EVENT_LOOP = 65536,
+                    NS_EVENT_LAST_N = 1,
+                    NS_EVENT_LAST_SECS = 2,
+                    NS_EVENT_FROM_N = 4,
+                    NS_EVENT_FROM_START = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                const NS_GET_EVENT_IDS_FN_NAME: String = "GetEventIds";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ns-netsh-ns_helper_attributes")]
+                struct NS_HELPER_ATTRIBUTES {
+                    Anonymous: union {
+                        Anonymous: struct {
+                            dwVersion: u32,
+                            dwReserved: u32,
+                        },
+                        _ullAlign: u64,
+                    },
+                    guidHelper: GUID,
+                    pfnStart: PNS_HELPER_START_FN,
+                    pfnStop: PNS_HELPER_STOP_FN,
+                }
+                #[repr(i32)]
+                enum NS_MODE_CHANGE {
+                    NETSH_COMMIT = 0,
+                    NETSH_UNCOMMIT = 1,
+                    NETSH_FLUSH = 2,
+                    NETSH_COMMIT_STATE = 3,
+                    NETSH_SAVE = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ne-netsh-ns_reqs")]
+                enum NS_REQS {
+                    NS_REQ_ZERO = 0,
+                    NS_REQ_PRESENT = 1,
+                    NS_REQ_ALLOW_MULTIPLE = 2,
+                    NS_REQ_ONE_OR_MORE = 3,
+                }
+                extern fn PFN_CUSTOM_HELP(hModule: super::super::Foundation::HANDLE, pwszCmdToken: super::super::Foundation::PWSTR);
+                extern fn PFN_HANDLE_CMD(pwszMachine: super::super::Foundation::PWSTR, ppwcArguments: *mut super::super::Foundation::PWSTR, dwCurrentIndex: u32, dwArgCount: u32, dwFlags: u32, pvData: *mut void, pbDone: *mut super::super::Foundation::BOOL) -> u32;
+                extern fn PGET_RESOURCE_STRING_FN(dwMsgID: u32, lpBuffer: super::super::Foundation::PWSTR, nBufferMax: u32) -> u32;
+                extern fn PNS_CONTEXT_COMMIT_FN(dwAction: u32) -> u32;
+                extern fn PNS_CONTEXT_CONNECT_FN(pwszMachine: super::super::Foundation::PWSTR) -> u32;
+                extern fn PNS_CONTEXT_DUMP_FN(pwszRouter: super::super::Foundation::PWSTR, ppwcArguments: *mut super::super::Foundation::PWSTR, dwArgCount: u32, pvData: *mut void) -> u32;
+                extern fn PNS_DLL_INIT_FN(dwNetshVersion: u32, pReserved: *mut void) -> u32;
+                extern fn PNS_DLL_STOP_FN(dwReserved: u32) -> u32;
+                extern fn PNS_HELPER_START_FN(pguidParent: *mut GUID, dwVersion: u32) -> u32;
+                extern fn PNS_HELPER_STOP_FN(dwReserved: u32) -> u32;
+                extern fn PNS_OSVERSIONCHECK(CIMOSType: u32, CIMOSProductSuite: u32, CIMOSVersion: super::super::Foundation::PWSTR, CIMOSBuildNumber: super::super::Foundation::PWSTR, CIMServicePackMajorVersion: super::super::Foundation::PWSTR, CIMServicePackMinorVersion: super::super::Foundation::PWSTR, uiReserved: u32, dwReserved: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-preprocesscommand")]
+                #[library("NETSH.dll")]
+                extern fn PreprocessCommand(hModule: super::super::Foundation::HANDLE, ppwcArguments: *mut super::super::Foundation::PWSTR, dwCurrentIndex: u32, dwArgCount: u32, pttTags: *mut TAG_TYPE, dwTagCount: u32, dwMinArgs: u32, dwMaxArgs: u32, pdwTagType: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-printerror")]
+                #[library("NETSH.dll")]
+                extern "C" fn PrintError(hModule: super::super::Foundation::HANDLE, dwErrId: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-printmessage")]
+                #[library("NETSH.dll")]
+                extern "C" fn PrintMessage(pwszFormat: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-printmessagefrommodule")]
+                #[library("NETSH.dll")]
+                extern "C" fn PrintMessageFromModule(hModule: super::super::Foundation::HANDLE, dwMsgId: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-registercontext")]
+                #[library("NETSH.dll")]
+                extern fn RegisterContext(pChildContext: *mut NS_CONTEXT_ATTRIBUTES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/nf-netsh-registerhelper")]
+                #[library("NETSH.dll")]
+                extern fn RegisterHelper(pguidParentContext: *mut GUID, pfnRegisterSubContext: *mut NS_HELPER_ATTRIBUTES) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/netsh/ns-netsh-tag_type")]
+                struct TAG_TYPE {
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pwszTag: super::super::Foundation::PWSTR,
+                    dwRequired: u32,
+                    bPresent: super::super::Foundation::BOOL,
+                }
+                struct TOKEN_VALUE {
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    pwszToken: super::super::Foundation::PWSTR,
+                    dwValue: u32,
+                }
+            }
+        }
+    }
+}

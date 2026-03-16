@@ -1,0 +1,158 @@
+mod Windows {
+    mod Devices {
+        mod Bluetooth {
+            #[winrt]
+            mod Rfcomm {
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceService)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRfcommDeviceService {
+                    #[special]
+                    fn get_ConnectionHostName(&self) -> super::super::super::Networking::HostName;
+                    #[special]
+                    fn get_ConnectionServiceName(&self) -> String;
+                    #[special]
+                    fn get_ServiceId(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_ProtectionLevel(&self) -> super::super::super::Networking::Sockets::SocketProtectionLevel;
+                    #[special]
+                    fn get_MaxProtectionLevel(&self) -> super::super::super::Networking::Sockets::SocketProtectionLevel;
+                    #[Windows::Foundation::Metadata::Overload("GetSdpRawAttributesAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetSdpRawAttributesAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>;
+                    #[Windows::Foundation::Metadata::Overload("GetSdpRawAttributesWithCacheModeAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetSdpRawAttributesAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceService)]
+                interface IRfcommDeviceService2: IRfcommDeviceService {
+                    #[special]
+                    fn get_Device(&self) -> super::BluetoothDevice;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceService)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IRfcommDeviceService3: IRfcommDeviceService2 + IRfcommDeviceService {
+                    #[special]
+                    fn get_DeviceAccessInformation(&self) -> super::super::Enumeration::DeviceAccessInformation;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAccessAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceService)]
+                interface IRfcommDeviceServiceStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FromIdAsync(&self, deviceId: String) -> super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>;
+                    fn GetDeviceSelector(&self, serviceId: RfcommServiceId) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceService)]
+                interface IRfcommDeviceServiceStatics2: IRfcommDeviceServiceStatics {
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDevice")]
+                    fn GetDeviceSelectorForBluetoothDevice(&self, bluetoothDevice: super::BluetoothDevice) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceWithCacheMode")]
+                    fn GetDeviceSelectorForBluetoothDevice(&self, bluetoothDevice: super::BluetoothDevice, cacheMode: super::BluetoothCacheMode) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceAndServiceId")]
+                    fn GetDeviceSelectorForBluetoothDeviceAndServiceId(&self, bluetoothDevice: super::BluetoothDevice, serviceId: RfcommServiceId) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode")]
+                    fn GetDeviceSelectorForBluetoothDeviceAndServiceId(&self, bluetoothDevice: super::BluetoothDevice, serviceId: RfcommServiceId, cacheMode: super::BluetoothCacheMode) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommDeviceServicesResult)]
+                interface IRfcommDeviceServicesResult {
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                    #[special]
+                    fn get_Services(&self) -> super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommServiceId)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRfcommServiceId {
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    fn AsShortId(&self) -> u32;
+                    fn AsString(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommServiceId)]
+                interface IRfcommServiceIdStatics {
+                    fn FromUuid(&self, uuid: GUID) -> RfcommServiceId;
+                    fn FromShortId(&self, shortId: u32) -> RfcommServiceId;
+                    #[special]
+                    fn get_SerialPort(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_ObexObjectPush(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_ObexFileTransfer(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_PhoneBookAccessPce(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_PhoneBookAccessPse(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_GenericFileTransfer(&self) -> RfcommServiceId;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommServiceProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRfcommServiceProvider {
+                    #[special]
+                    fn get_ServiceId(&self) -> RfcommServiceId;
+                    #[special]
+                    fn get_SdpRawAttributes(&self) -> super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>;
+                    fn StartAdvertising(&self, listener: super::super::super::Networking::Sockets::StreamSocketListener);
+                    fn StopAdvertising(&self);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommServiceProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface IRfcommServiceProvider2: IRfcommServiceProvider {
+                    #[Windows::Foundation::Metadata::Overload("StartAdvertisingWithRadioDiscoverability")]
+                    fn StartAdvertising(&self, listener: super::super::super::Networking::Sockets::StreamSocketListener, radioDiscoverable: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommServiceProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRfcommServiceProviderStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateAsync(&self, serviceId: RfcommServiceId) -> super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>;
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IRfcommDeviceServiceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IRfcommDeviceServiceStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class RfcommDeviceService {
+                    #[default]
+                    IRfcommDeviceService,
+                    IRfcommDeviceService2,
+                    super::super::super::Foundation::IClosable,
+                    IRfcommDeviceService3,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class RfcommDeviceServicesResult {
+                    #[default]
+                    IRfcommDeviceServicesResult,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IRfcommServiceIdStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class RfcommServiceId {
+                    #[default]
+                    IRfcommServiceId,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IRfcommServiceProviderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class RfcommServiceProvider {
+                    #[default]
+                    IRfcommServiceProvider,
+                    IRfcommServiceProvider2,
+                }
+            }
+        }
+    }
+}

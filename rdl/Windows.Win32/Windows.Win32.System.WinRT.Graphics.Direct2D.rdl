@@ -1,0 +1,47 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                mod Graphics {
+                    #[win32]
+                    mod Direct2D {
+                        #[repr(i32)]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/ne-windows-graphics-effects-interop-graphics_effect_property_mapping")]
+                        enum GRAPHICS_EFFECT_PROPERTY_MAPPING {
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN = 0,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_DIRECT = 1,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX = 2,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY = 3,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ = 4,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW = 5,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_RECT_TO_VECTOR4 = 6,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES = 7,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE = 8,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3 = 9,
+                            GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4 = 10,
+                        }
+                        interface IGeometrySource2DInterop: super::super::super::Com::IUnknown {
+                            fn GetGeometry(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] value: *mut super::super::super::super::Graphics::Direct2D::ID2D1Geometry) -> super::super::super::super::Foundation::HRESULT;
+                            fn TryGetGeometryUsingFactory(&self, factory: super::super::super::super::Graphics::Direct2D::ID2D1Factory, #[Windows::Win32::Foundation::Metadata::ComOutPtr] value: *mut super::super::super::super::Graphics::Direct2D::ID2D1Geometry) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nn-windows-graphics-effects-interop-igraphicseffectd2d1interop")]
+                        interface IGraphicsEffectD2D1Interop: super::super::super::Com::IUnknown {
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-geteffectid")]
+                            fn GetEffectId(&self, id: *mut GUID) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-getnamedpropertymapping")]
+                            fn GetNamedPropertyMapping(&self, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::super::Foundation::PWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-getpropertycount")]
+                            fn GetPropertyCount(&self, count: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-getproperty")]
+                            fn GetProperty(&self, index: u32, value: *mut super::super::super::super::super::Foundation::IPropertyValue) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-getsource")]
+                            fn GetSource(&self, index: u32, source: *mut super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.effects.interop/nf-windows-graphics-effects-interop-igraphicseffectd2d1interop-getsourcecount")]
+                            fn GetSourceCount(&self, count: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

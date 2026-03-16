@@ -1,0 +1,315 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            #[win32]
+            mod WinWlx {
+                extern fn PFNMSGECALLBACK(bVerbose: super::super::Foundation::BOOL, lpMessage: super::super::Foundation::PWSTR) -> u32;
+                extern fn PWLX_ASSIGN_SHELL_PROTECTION(hWlx: super::super::Foundation::HANDLE, hToken: super::super::Foundation::HANDLE, hProcess: super::super::Foundation::HANDLE, hThread: super::super::Foundation::HANDLE) -> i32;
+                extern fn PWLX_CHANGE_PASSWORD_NOTIFY(hWlx: super::super::Foundation::HANDLE, pMprInfo: *mut WLX_MPR_NOTIFY_INFO, dwChangeInfo: u32) -> i32;
+                extern fn PWLX_CHANGE_PASSWORD_NOTIFY_EX(hWlx: super::super::Foundation::HANDLE, pMprInfo: *mut WLX_MPR_NOTIFY_INFO, dwChangeInfo: u32, ProviderName: super::super::Foundation::PWSTR, Reserved: *mut void) -> i32;
+                extern fn PWLX_CLOSE_USER_DESKTOP(hWlx: super::super::Foundation::HANDLE, pDesktop: *mut WLX_DESKTOP, hToken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                extern fn PWLX_CREATE_USER_DESKTOP(hWlx: super::super::Foundation::HANDLE, hToken: super::super::Foundation::HANDLE, Flags: u32, pszDesktopName: super::super::Foundation::PWSTR, ppDesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+                extern fn PWLX_DIALOG_BOX(hWlx: super::super::Foundation::HANDLE, hInst: super::super::Foundation::HANDLE, lpszTemplate: super::super::Foundation::PWSTR, hwndOwner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32;
+                extern fn PWLX_DIALOG_BOX_INDIRECT(hWlx: super::super::Foundation::HANDLE, hInst: super::super::Foundation::HANDLE, hDialogTemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndOwner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC) -> i32;
+                extern fn PWLX_DIALOG_BOX_INDIRECT_PARAM(hWlx: super::super::Foundation::HANDLE, hInst: super::super::Foundation::HANDLE, hDialogTemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndOwner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwInitParam: super::super::Foundation::LPARAM) -> i32;
+                extern fn PWLX_DIALOG_BOX_PARAM(hWlx: super::super::Foundation::HANDLE, hInst: super::super::Foundation::HANDLE, lpszTemplate: super::super::Foundation::PWSTR, hwndOwner: super::super::Foundation::HWND, dlgprc: super::super::UI::WindowsAndMessaging::DLGPROC, dwInitParam: super::super::Foundation::LPARAM) -> i32;
+                extern fn PWLX_DISCONNECT() -> super::super::Foundation::BOOL;
+                extern fn PWLX_GET_OPTION(hWlx: super::super::Foundation::HANDLE, Option: u32, Value: *mut usize) -> super::super::Foundation::BOOL;
+                extern fn PWLX_GET_SOURCE_DESKTOP(hWlx: super::super::Foundation::HANDLE, ppDesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+                extern fn PWLX_MESSAGE_BOX(hWlx: super::super::Foundation::HANDLE, hwndOwner: super::super::Foundation::HWND, lpszText: super::super::Foundation::PWSTR, lpszTitle: super::super::Foundation::PWSTR, fuStyle: u32) -> i32;
+                extern fn PWLX_QUERY_CLIENT_CREDENTIALS(pCred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL;
+                extern fn PWLX_QUERY_CONSOLESWITCH_CREDENTIALS(pCred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32;
+                extern fn PWLX_QUERY_IC_CREDENTIALS(pCred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL;
+                extern fn PWLX_QUERY_TERMINAL_SERVICES_DATA(hWlx: super::super::Foundation::HANDLE, pTSData: *mut WLX_TERMINAL_SERVICES_DATA, UserName: super::super::Foundation::PWSTR, Domain: super::super::Foundation::PWSTR) -> u32;
+                extern fn PWLX_QUERY_TS_LOGON_CREDENTIALS(pCred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL;
+                extern fn PWLX_SAS_NOTIFY(hWlx: super::super::Foundation::HANDLE, dwSasType: u32);
+                extern fn PWLX_SET_CONTEXT_POINTER(hWlx: super::super::Foundation::HANDLE, pWlxContext: *mut void);
+                extern fn PWLX_SET_OPTION(hWlx: super::super::Foundation::HANDLE, Option: u32, Value: usize, OldValue: *mut usize) -> super::super::Foundation::BOOL;
+                extern fn PWLX_SET_RETURN_DESKTOP(hWlx: super::super::Foundation::HANDLE, pDesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+                extern fn PWLX_SET_TIMEOUT(hWlx: super::super::Foundation::HANDLE, Timeout: u32) -> super::super::Foundation::BOOL;
+                extern fn PWLX_SWITCH_DESKTOP_TO_USER(hWlx: super::super::Foundation::HANDLE) -> i32;
+                extern fn PWLX_SWITCH_DESKTOP_TO_WINLOGON(hWlx: super::super::Foundation::HANDLE) -> i32;
+                extern fn PWLX_USE_CTRL_ALT_DEL(hWlx: super::super::Foundation::HANDLE);
+                extern fn PWLX_WIN31_MIGRATE(hWlx: super::super::Foundation::HANDLE);
+                const STATUSMSG_OPTION_NOANIMATION: u32 = 1;
+                const STATUSMSG_OPTION_SETFOREGROUND: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_client_credentials_info_v1_0")]
+                struct WLX_CLIENT_CREDENTIALS_INFO_V1_0 {
+                    dwType: u32,
+                    pszUserName: super::super::Foundation::PWSTR,
+                    pszDomain: super::super::Foundation::PWSTR,
+                    pszPassword: super::super::Foundation::PWSTR,
+                    fPromptForPassword: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_client_credentials_info_v2_0")]
+                struct WLX_CLIENT_CREDENTIALS_INFO_V2_0 {
+                    dwType: u32,
+                    pszUserName: super::super::Foundation::PWSTR,
+                    pszDomain: super::super::Foundation::PWSTR,
+                    pszPassword: super::super::Foundation::PWSTR,
+                    fPromptForPassword: super::super::Foundation::BOOL,
+                    fDisconnectOnLogonFailure: super::super::Foundation::BOOL,
+                }
+                const WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_consoleswitch_credentials_info_v1_0")]
+                struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0 {
+                    dwType: u32,
+                    UserToken: super::super::Foundation::HANDLE,
+                    LogonId: super::super::Foundation::LUID,
+                    Quotas: super::QUOTA_LIMITS,
+                    UserName: super::super::Foundation::PWSTR,
+                    Domain: super::super::Foundation::PWSTR,
+                    LogonTime: i64,
+                    SmartCardLogon: super::super::Foundation::BOOL,
+                    ProfileLength: u32,
+                    MessageType: u32,
+                    LogonCount: u16,
+                    BadPasswordCount: u16,
+                    ProfileLogonTime: i64,
+                    LogoffTime: i64,
+                    KickOffTime: i64,
+                    PasswordLastSet: i64,
+                    PasswordCanChange: i64,
+                    PasswordMustChange: i64,
+                    LogonScript: super::super::Foundation::PWSTR,
+                    HomeDirectory: super::super::Foundation::PWSTR,
+                    FullName: super::super::Foundation::PWSTR,
+                    ProfilePath: super::super::Foundation::PWSTR,
+                    HomeDirectoryDrive: super::super::Foundation::PWSTR,
+                    LogonServer: super::super::Foundation::PWSTR,
+                    UserFlags: u32,
+                    PrivateDataLen: u32,
+                    PrivateData: *mut u8,
+                }
+                const WLX_CREATE_INSTANCE_ONLY: u32 = 1;
+                const WLX_CREATE_USER: u32 = 2;
+                const WLX_CREDENTIAL_TYPE_V1_0: u32 = 1;
+                const WLX_CREDENTIAL_TYPE_V2_0: u32 = 2;
+                const WLX_CURRENT_VERSION: u32 = 65540;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_desktop")]
+                struct WLX_DESKTOP {
+                    Size: u32,
+                    Flags: u32,
+                    hDesktop: super::super::System::StationsAndDesktops::HDESK,
+                    pszDesktopName: super::super::Foundation::PWSTR,
+                }
+                const WLX_DESKTOP_HANDLE: u32 = 2;
+                const WLX_DESKTOP_NAME: u32 = 1;
+                const WLX_DIRECTORY_LENGTH: u32 = 256;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_dispatch_version_1_0")]
+                struct WLX_DISPATCH_VERSION_1_0 {
+                    WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+                    WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+                    WlxSasNotify: PWLX_SAS_NOTIFY,
+                    WlxSetTimeout: PWLX_SET_TIMEOUT,
+                    WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+                    WlxMessageBox: PWLX_MESSAGE_BOX,
+                    WlxDialogBox: PWLX_DIALOG_BOX,
+                    WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+                    WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+                    WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+                    WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+                    WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+                    WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_dispatch_version_1_1")]
+                struct WLX_DISPATCH_VERSION_1_1 {
+                    WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+                    WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+                    WlxSasNotify: PWLX_SAS_NOTIFY,
+                    WlxSetTimeout: PWLX_SET_TIMEOUT,
+                    WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+                    WlxMessageBox: PWLX_MESSAGE_BOX,
+                    WlxDialogBox: PWLX_DIALOG_BOX,
+                    WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+                    WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+                    WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+                    WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+                    WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+                    WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+                    WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+                    WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+                    WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+                    WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_dispatch_version_1_2")]
+                struct WLX_DISPATCH_VERSION_1_2 {
+                    WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+                    WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+                    WlxSasNotify: PWLX_SAS_NOTIFY,
+                    WlxSetTimeout: PWLX_SET_TIMEOUT,
+                    WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+                    WlxMessageBox: PWLX_MESSAGE_BOX,
+                    WlxDialogBox: PWLX_DIALOG_BOX,
+                    WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+                    WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+                    WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+                    WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+                    WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+                    WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+                    WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+                    WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+                    WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+                    WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+                    WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_dispatch_version_1_3")]
+                struct WLX_DISPATCH_VERSION_1_3 {
+                    WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+                    WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+                    WlxSasNotify: PWLX_SAS_NOTIFY,
+                    WlxSetTimeout: PWLX_SET_TIMEOUT,
+                    WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+                    WlxMessageBox: PWLX_MESSAGE_BOX,
+                    WlxDialogBox: PWLX_DIALOG_BOX,
+                    WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+                    WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+                    WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+                    WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+                    WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+                    WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+                    WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+                    WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+                    WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+                    WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+                    WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+                    WlxSetOption: PWLX_SET_OPTION,
+                    WlxGetOption: PWLX_GET_OPTION,
+                    WlxWin31Migrate: PWLX_WIN31_MIGRATE,
+                    WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
+                    WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
+                    WlxDisconnect: PWLX_DISCONNECT,
+                    WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_dispatch_version_1_4")]
+                struct WLX_DISPATCH_VERSION_1_4 {
+                    WlxUseCtrlAltDel: PWLX_USE_CTRL_ALT_DEL,
+                    WlxSetContextPointer: PWLX_SET_CONTEXT_POINTER,
+                    WlxSasNotify: PWLX_SAS_NOTIFY,
+                    WlxSetTimeout: PWLX_SET_TIMEOUT,
+                    WlxAssignShellProtection: PWLX_ASSIGN_SHELL_PROTECTION,
+                    WlxMessageBox: PWLX_MESSAGE_BOX,
+                    WlxDialogBox: PWLX_DIALOG_BOX,
+                    WlxDialogBoxParam: PWLX_DIALOG_BOX_PARAM,
+                    WlxDialogBoxIndirect: PWLX_DIALOG_BOX_INDIRECT,
+                    WlxDialogBoxIndirectParam: PWLX_DIALOG_BOX_INDIRECT_PARAM,
+                    WlxSwitchDesktopToUser: PWLX_SWITCH_DESKTOP_TO_USER,
+                    WlxSwitchDesktopToWinlogon: PWLX_SWITCH_DESKTOP_TO_WINLOGON,
+                    WlxChangePasswordNotify: PWLX_CHANGE_PASSWORD_NOTIFY,
+                    WlxGetSourceDesktop: PWLX_GET_SOURCE_DESKTOP,
+                    WlxSetReturnDesktop: PWLX_SET_RETURN_DESKTOP,
+                    WlxCreateUserDesktop: PWLX_CREATE_USER_DESKTOP,
+                    WlxChangePasswordNotifyEx: PWLX_CHANGE_PASSWORD_NOTIFY_EX,
+                    WlxCloseUserDesktop: PWLX_CLOSE_USER_DESKTOP,
+                    WlxSetOption: PWLX_SET_OPTION,
+                    WlxGetOption: PWLX_GET_OPTION,
+                    WlxWin31Migrate: PWLX_WIN31_MIGRATE,
+                    WlxQueryClientCredentials: PWLX_QUERY_CLIENT_CREDENTIALS,
+                    WlxQueryInetConnectorCredentials: PWLX_QUERY_IC_CREDENTIALS,
+                    WlxDisconnect: PWLX_DISCONNECT,
+                    WlxQueryTerminalServicesData: PWLX_QUERY_TERMINAL_SERVICES_DATA,
+                    WlxQueryConsoleSwitchCredentials: PWLX_QUERY_CONSOLESWITCH_CREDENTIALS,
+                    WlxQueryTsLogonCredentials: PWLX_QUERY_TS_LOGON_CREDENTIALS,
+                }
+                const WLX_DLG_INPUT_TIMEOUT: u32 = 102;
+                const WLX_DLG_SAS: u32 = 101;
+                const WLX_DLG_SCREEN_SAVER_TIMEOUT: u32 = 103;
+                const WLX_DLG_USER_LOGOFF: u32 = 104;
+                const WLX_LOGON_OPT_NO_PROFILE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_mpr_notify_info")]
+                struct WLX_MPR_NOTIFY_INFO {
+                    pszUserName: super::super::Foundation::PWSTR,
+                    pszDomain: super::super::Foundation::PWSTR,
+                    pszPassword: super::super::Foundation::PWSTR,
+                    pszOldPassword: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_notification_info")]
+                struct WLX_NOTIFICATION_INFO {
+                    Size: u32,
+                    Flags: u32,
+                    UserName: super::super::Foundation::PWSTR,
+                    Domain: super::super::Foundation::PWSTR,
+                    WindowStation: super::super::Foundation::PWSTR,
+                    hToken: super::super::Foundation::HANDLE,
+                    hDesktop: super::super::System::StationsAndDesktops::HDESK,
+                    pStatusCallback: PFNMSGECALLBACK,
+                }
+                const WLX_OPTION_CONTEXT_POINTER: u32 = 2;
+                const WLX_OPTION_DISPATCH_TABLE_SIZE: u32 = 65539;
+                const WLX_OPTION_FORCE_LOGOFF_TIME: u32 = 4;
+                const WLX_OPTION_IGNORE_AUTO_LOGON: u32 = 8;
+                const WLX_OPTION_NO_SWITCH_ON_SAS: u32 = 9;
+                const WLX_OPTION_SMART_CARD_INFO: u32 = 65538;
+                const WLX_OPTION_SMART_CARD_PRESENT: u32 = 65537;
+                const WLX_OPTION_USE_CTRL_ALT_DEL: u32 = 1;
+                const WLX_OPTION_USE_SMART_CARD: u32 = 3;
+                const WLX_PROFILE_TYPE_V1_0: u32 = 1;
+                const WLX_PROFILE_TYPE_V2_0: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_profile_v1_0")]
+                struct WLX_PROFILE_V1_0 {
+                    dwType: u32,
+                    pszProfile: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_profile_v2_0")]
+                struct WLX_PROFILE_V2_0 {
+                    dwType: u32,
+                    pszProfile: super::super::Foundation::PWSTR,
+                    pszPolicy: super::super::Foundation::PWSTR,
+                    pszNetworkDefaultUserProfile: super::super::Foundation::PWSTR,
+                    pszServerName: super::super::Foundation::PWSTR,
+                    pszEnvironment: super::super::Foundation::PWSTR,
+                }
+                const WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF: u32 = 16;
+                const WLX_SAS_ACTION_FORCE_LOGOFF: u32 = 9;
+                const WLX_SAS_ACTION_LOCK_WKSTA: u32 = 3;
+                const WLX_SAS_ACTION_LOGOFF: u32 = 4;
+                const WLX_SAS_ACTION_LOGON: u32 = 1;
+                const WLX_SAS_ACTION_NONE: u32 = 2;
+                const WLX_SAS_ACTION_PWD_CHANGED: u32 = 6;
+                const WLX_SAS_ACTION_RECONNECTED: u32 = 15;
+                const WLX_SAS_ACTION_SHUTDOWN_HIBERNATE: u32 = 14;
+                const WLX_SAS_ACTION_SHUTDOWN_SLEEP: u32 = 12;
+                const WLX_SAS_ACTION_SHUTDOWN_SLEEP2: u32 = 13;
+                const WLX_SAS_ACTION_SWITCH_CONSOLE: u32 = 17;
+                const WLX_SAS_ACTION_TASKLIST: u32 = 7;
+                const WLX_SAS_ACTION_UNLOCK_WKSTA: u32 = 8;
+                const WLX_SAS_TYPE_AUTHENTICATED: u32 = 7;
+                const WLX_SAS_TYPE_CTRL_ALT_DEL: u32 = 1;
+                const WLX_SAS_TYPE_MAX_MSFT_VALUE: u32 = 127;
+                const WLX_SAS_TYPE_SCRNSVR_ACTIVITY: u32 = 3;
+                const WLX_SAS_TYPE_SCRNSVR_TIMEOUT: u32 = 2;
+                const WLX_SAS_TYPE_SC_FIRST_READER_ARRIVED: u32 = 8;
+                const WLX_SAS_TYPE_SC_INSERT: u32 = 5;
+                const WLX_SAS_TYPE_SC_LAST_READER_REMOVED: u32 = 9;
+                const WLX_SAS_TYPE_SC_REMOVE: u32 = 6;
+                const WLX_SAS_TYPE_SWITCHUSER: u32 = 10;
+                const WLX_SAS_TYPE_TIMEOUT: u32 = 0;
+                const WLX_SAS_TYPE_USER_LOGOFF: u32 = 4;
+                struct WLX_SC_NOTIFICATION_INFO {
+                    pszCard: super::super::Foundation::PWSTR,
+                    pszReader: super::super::Foundation::PWSTR,
+                    pszContainer: super::super::Foundation::PWSTR,
+                    pszCryptoProvider: super::super::Foundation::PWSTR,
+                }
+                #[repr(u32)]
+                enum WLX_SHUTDOWN_TYPE {
+                    WLX_SAS_ACTION_SHUTDOWN = 5,
+                    WLX_SAS_ACTION_SHUTDOWN_REBOOT = 11,
+                    WLX_SAS_ACTION_SHUTDOWN_POWER_OFF = 10,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winwlx/ns-winwlx-wlx_terminal_services_data")]
+                struct WLX_TERMINAL_SERVICES_DATA {
+                    ProfilePath: [u16; 257],
+                    HomeDir: [u16; 257],
+                    HomeDirDrive: [u16; 4],
+                }
+                const WLX_VERSION_1_0: u32 = 65536;
+                const WLX_VERSION_1_1: u32 = 65537;
+                const WLX_VERSION_1_2: u32 = 65538;
+                const WLX_VERSION_1_3: u32 = 65539;
+                const WLX_VERSION_1_4: u32 = 65540;
+                const WLX_WM_SAS: u32 = 1625;
+            }
+        }
+    }
+}

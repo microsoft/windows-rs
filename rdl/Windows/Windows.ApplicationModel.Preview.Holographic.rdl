@@ -1,0 +1,49 @@
+mod Windows {
+    mod ApplicationModel {
+        mod Preview {
+            #[winrt]
+            mod Holographic {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHolographicApplicationPreviewStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class HolographicApplicationPreview {}
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHolographicKeyboardPlacementOverridePreviewStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                class HolographicKeyboardPlacementOverridePreview {
+                    #[default]
+                    IHolographicKeyboardPlacementOverridePreview,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HolographicApplicationPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IHolographicApplicationPreviewStatics {
+                    fn IsCurrentViewPresentedOnHolographicDisplay(&self) -> bool;
+                    fn IsHolographicActivation(&self, activatedEventArgs: super::super::Activation::IActivatedEventArgs) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HolographicKeyboardPlacementOverridePreview)]
+                #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                interface IHolographicKeyboardPlacementOverridePreview {
+                    #[Windows::Foundation::Metadata::Overload("SetPlacementOverride")]
+                    #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                    fn SetPlacementOverride(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3);
+                    #[Windows::Foundation::Metadata::Overload("SetPlacementOverrideWithMaxSize")]
+                    #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                    fn SetPlacementOverride(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, topCenterPosition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxSize: super::super::super::Foundation::Numerics::Vector2);
+                    #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                    fn ResetPlacementOverride(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HolographicKeyboardPlacementOverridePreview)]
+                interface IHolographicKeyboardPlacementOverridePreviewStatics {
+                    #[Windows::Foundation::Metadata::Deprecated("Use Windows.ApplicationModel.Holographic.HolographicKeyboard instead of Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview. For more info, see MSDN.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+                    fn GetForCurrentView(&self) -> HolographicKeyboardPlacementOverridePreview;
+                }
+            }
+        }
+    }
+}

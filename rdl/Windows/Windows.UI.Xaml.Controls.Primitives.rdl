@@ -1,0 +1,2762 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Controls {
+                #[winrt]
+                mod Primitives {
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum AnimationDirection {
+                        Left = 0,
+                        Top = 1,
+                        Right = 2,
+                        Bottom = 3,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    class AppBarButtonTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IAppBarButtonTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class AppBarTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IAppBarTemplateSettings,
+                        IAppBarTemplateSettings2,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class AppBarToggleButtonTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IAppBarToggleButtonTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::Composable(IButtonBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IButtonBaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class ButtonBase: super::ContentControl {
+                        #[default]
+                        IButtonBase,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class CalendarPanel: super::Panel {
+                        #[default]
+                        ICalendarPanel,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CalendarViewTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        ICalendarViewTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(ICarouselPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CarouselPanel: super::VirtualizingPanel {
+                        #[default]
+                        ICarouselPanel,
+                        IScrollSnapPointsInfo,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IColorPickerSliderStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IColorPickerSliderFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                    class ColorPickerSlider: super::Slider {
+                        #[default]
+                        IColorPickerSlider,
+                    }
+                    #[Windows::Foundation::Metadata::Composable(IColorSpectrumFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IColorSpectrumStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    class ColorSpectrum: super::Control {
+                        #[default]
+                        IColorSpectrum,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ComboBoxTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IComboBoxTemplateSettings,
+                        IComboBoxTemplateSettings2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(ICommandBarFlyoutCommandBarFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    class CommandBarFlyoutCommandBar: super::CommandBar {
+                        #[default]
+                        ICommandBarFlyoutCommandBar,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CommandBarFlyoutCommandBarTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        ICommandBarFlyoutCommandBarTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class CommandBarTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        ICommandBarTemplateSettings,
+                        ICommandBarTemplateSettings2,
+                        ICommandBarTemplateSettings3,
+                        ICommandBarTemplateSettings4,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum ComponentResourceLocation {
+                        Application = 0,
+                        Nested = 1,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IDragCompletedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class DragCompletedEventArgs: super::super::RoutedEventArgs {
+                        #[default]
+                        IDragCompletedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    delegate fn DragCompletedEventHandler(sender: Object, e: DragCompletedEventArgs);
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IDragDeltaEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class DragDeltaEventArgs: super::super::RoutedEventArgs {
+                        #[default]
+                        IDragDeltaEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    delegate fn DragDeltaEventHandler(sender: Object, e: DragDeltaEventArgs);
+                    #[Windows::Foundation::Metadata::Composable(IDragStartedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class DragStartedEventArgs: super::super::RoutedEventArgs {
+                        #[default]
+                        IDragStartedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    delegate fn DragStartedEventHandler(sender: Object, e: DragStartedEventArgs);
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum EdgeTransitionLocation {
+                        Left = 0,
+                        Top = 1,
+                        Right = 2,
+                        Bottom = 3,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IFlyoutBaseStatics6, 524288, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Composable(IFlyoutBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IFlyoutBaseStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IFlyoutBaseStatics3, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IFlyoutBaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IFlyoutBaseStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                    class FlyoutBase: super::super::DependencyObject {
+                        #[default]
+                        IFlyoutBase,
+                        IFlyoutBase2,
+                        IFlyoutBase3,
+                        IFlyoutBase4,
+                        IFlyoutBase5,
+                        IFlyoutBase6,
+                        IFlyoutBaseOverrides,
+                        IFlyoutBaseOverrides4,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    class FlyoutBaseClosingEventArgs {
+                        #[default]
+                        IFlyoutBaseClosingEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum FlyoutPlacementMode {
+                        Top = 0,
+                        Bottom = 1,
+                        Left = 2,
+                        Right = 3,
+                        Full = 4,
+                        TopEdgeAlignedLeft = 5,
+                        TopEdgeAlignedRight = 6,
+                        BottomEdgeAlignedLeft = 7,
+                        BottomEdgeAlignedRight = 8,
+                        LeftEdgeAlignedTop = 9,
+                        LeftEdgeAlignedBottom = 10,
+                        RightEdgeAlignedTop = 11,
+                        RightEdgeAlignedBottom = 12,
+                        Auto = 13,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    enum FlyoutShowMode {
+                        Auto = 0,
+                        Standard = 1,
+                        Transient = 2,
+                        TransientWithDismissOnPointerMoveAway = 3,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IFlyoutShowOptionsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    class FlyoutShowOptions {
+                        #[default]
+                        IFlyoutShowOptions,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum GeneratorDirection {
+                        Forward = 0,
+                        Backward = 1,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    struct GeneratorPosition {
+                        Index: i32,
+                        Offset: i32,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IGeneratorPositionHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class GeneratorPositionHelper {
+                        #[default]
+                        IGeneratorPositionHelper,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IGridViewItemPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IGridViewItemPresenterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class GridViewItemPresenter: super::ContentPresenter {
+                        #[default]
+                        IGridViewItemPresenter,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class GridViewItemTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IGridViewItemTemplateSettings,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum GroupHeaderPlacement {
+                        Top = 0,
+                        Left = 1,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(AppBarButtonTemplateSettings)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IAppBarButtonTemplateSettings {
+                        #[special]
+                        fn get_KeyboardAcceleratorTextMinWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(AppBarTemplateSettings)]
+                    interface IAppBarTemplateSettings {
+                        #[special]
+                        fn get_ClipRect(&self) -> super::super::super::super::Foundation::Rect;
+                        #[special]
+                        fn get_CompactVerticalDelta(&self) -> f64;
+                        #[special]
+                        fn get_CompactRootMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn get_MinimalVerticalDelta(&self) -> f64;
+                        #[special]
+                        fn get_MinimalRootMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn get_HiddenVerticalDelta(&self) -> f64;
+                        #[special]
+                        fn get_HiddenRootMargin(&self) -> super::super::Thickness;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(AppBarTemplateSettings)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IAppBarTemplateSettings2 {
+                        #[special]
+                        fn get_NegativeCompactVerticalDelta(&self) -> f64;
+                        #[special]
+                        fn get_NegativeMinimalVerticalDelta(&self) -> f64;
+                        #[special]
+                        fn get_NegativeHiddenVerticalDelta(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(AppBarToggleButtonTemplateSettings)]
+                    interface IAppBarToggleButtonTemplateSettings {
+                        #[special]
+                        fn get_KeyboardAcceleratorTextMinWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ButtonBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IButtonBase {
+                        #[special]
+                        fn get_ClickMode(&self) -> super::ClickMode;
+                        #[special]
+                        fn put_ClickMode(&self, value: super::ClickMode);
+                        #[special]
+                        fn get_IsPointerOver(&self) -> bool;
+                        #[special]
+                        fn get_IsPressed(&self) -> bool;
+                        #[special]
+                        fn get_Command(&self) -> super::super::Input::ICommand;
+                        #[special]
+                        fn put_Command(&self, value: super::super::Input::ICommand);
+                        #[special]
+                        fn get_CommandParameter(&self) -> Object;
+                        #[special]
+                        fn put_CommandParameter(&self, value: Object);
+                        #[special]
+                        fn add_Click(&self, handler: super::super::RoutedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Click(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ButtonBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IButtonBaseFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ButtonBase;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ButtonBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IButtonBaseStatics {
+                        #[special]
+                        fn get_ClickModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsPointerOverProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsPressedProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CommandProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CommandParameterProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CalendarPanel)]
+                    interface ICalendarPanel {}
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CalendarViewTemplateSettings)]
+                    interface ICalendarViewTemplateSettings {
+                        #[special]
+                        fn get_MinViewWidth(&self) -> f64;
+                        #[special]
+                        fn get_HeaderText(&self) -> String;
+                        #[special]
+                        fn get_WeekDay1(&self) -> String;
+                        #[special]
+                        fn get_WeekDay2(&self) -> String;
+                        #[special]
+                        fn get_WeekDay3(&self) -> String;
+                        #[special]
+                        fn get_WeekDay4(&self) -> String;
+                        #[special]
+                        fn get_WeekDay5(&self) -> String;
+                        #[special]
+                        fn get_WeekDay6(&self) -> String;
+                        #[special]
+                        fn get_WeekDay7(&self) -> String;
+                        #[special]
+                        fn get_HasMoreContentAfter(&self) -> bool;
+                        #[special]
+                        fn get_HasMoreContentBefore(&self) -> bool;
+                        #[special]
+                        fn get_HasMoreViews(&self) -> bool;
+                        #[special]
+                        fn get_ClipRect(&self) -> super::super::super::super::Foundation::Rect;
+                        #[special]
+                        fn get_CenterX(&self) -> f64;
+                        #[special]
+                        fn get_CenterY(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CarouselPanel)]
+                    interface ICarouselPanel {
+                        #[special]
+                        fn get_CanVerticallyScroll(&self) -> bool;
+                        #[special]
+                        fn put_CanVerticallyScroll(&self, value: bool);
+                        #[special]
+                        fn get_CanHorizontallyScroll(&self) -> bool;
+                        #[special]
+                        fn put_CanHorizontallyScroll(&self, value: bool);
+                        #[special]
+                        fn get_ExtentWidth(&self) -> f64;
+                        #[special]
+                        fn get_ExtentHeight(&self) -> f64;
+                        #[special]
+                        fn get_ViewportWidth(&self) -> f64;
+                        #[special]
+                        fn get_ViewportHeight(&self) -> f64;
+                        #[special]
+                        fn get_HorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn get_VerticalOffset(&self) -> f64;
+                        #[special]
+                        fn get_ScrollOwner(&self) -> Object;
+                        #[special]
+                        fn put_ScrollOwner(&self, value: Object);
+                        fn LineUp(&self);
+                        fn LineDown(&self);
+                        fn LineLeft(&self);
+                        fn LineRight(&self);
+                        fn PageUp(&self);
+                        fn PageDown(&self);
+                        fn PageLeft(&self);
+                        fn PageRight(&self);
+                        fn MouseWheelUp(&self);
+                        fn MouseWheelDown(&self);
+                        fn MouseWheelLeft(&self);
+                        fn MouseWheelRight(&self);
+                        fn SetHorizontalOffset(&self, offset: f64);
+                        fn SetVerticalOffset(&self, offset: f64);
+                        fn MakeVisible(&self, visual: super::super::UIElement, rectangle: super::super::super::super::Foundation::Rect) -> super::super::super::super::Foundation::Rect;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CarouselPanel)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICarouselPanelFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CarouselPanel;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorPickerSlider)]
+                    interface IColorPickerSlider {
+                        #[special]
+                        fn get_ColorChannel(&self) -> super::ColorPickerHsvChannel;
+                        #[special]
+                        fn put_ColorChannel(&self, value: super::ColorPickerHsvChannel);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorPickerSlider)]
+                    interface IColorPickerSliderFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ColorPickerSlider;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorPickerSlider)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IColorPickerSliderStatics {
+                        #[special]
+                        fn get_ColorChannelProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorSpectrum)]
+                    interface IColorSpectrum {
+                        #[special]
+                        fn get_Color(&self) -> super::super::super::Color;
+                        #[special]
+                        fn put_Color(&self, value: super::super::super::Color);
+                        #[special]
+                        fn get_HsvColor(&self) -> super::super::super::super::Foundation::Numerics::Vector4;
+                        #[special]
+                        fn put_HsvColor(&self, value: super::super::super::super::Foundation::Numerics::Vector4);
+                        #[special]
+                        fn get_MinHue(&self) -> i32;
+                        #[special]
+                        fn put_MinHue(&self, value: i32);
+                        #[special]
+                        fn get_MaxHue(&self) -> i32;
+                        #[special]
+                        fn put_MaxHue(&self, value: i32);
+                        #[special]
+                        fn get_MinSaturation(&self) -> i32;
+                        #[special]
+                        fn put_MinSaturation(&self, value: i32);
+                        #[special]
+                        fn get_MaxSaturation(&self) -> i32;
+                        #[special]
+                        fn put_MaxSaturation(&self, value: i32);
+                        #[special]
+                        fn get_MinValue(&self) -> i32;
+                        #[special]
+                        fn put_MinValue(&self, value: i32);
+                        #[special]
+                        fn get_MaxValue(&self) -> i32;
+                        #[special]
+                        fn put_MaxValue(&self, value: i32);
+                        #[special]
+                        fn get_Shape(&self) -> super::ColorSpectrumShape;
+                        #[special]
+                        fn put_Shape(&self, value: super::ColorSpectrumShape);
+                        #[special]
+                        fn get_Components(&self) -> super::ColorSpectrumComponents;
+                        #[special]
+                        fn put_Components(&self, value: super::ColorSpectrumComponents);
+                        #[special]
+                        fn add_ColorChanged(&self, handler: super::super::super::super::Foundation::TypedEventHandler<ColorSpectrum, super::ColorChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ColorChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorSpectrum)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IColorSpectrumFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ColorSpectrum;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorSpectrum)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IColorSpectrumStatics {
+                        #[special]
+                        fn get_ColorProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_HsvColorProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MinHueProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MaxHueProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MinSaturationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MaxSaturationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MinValueProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MaxValueProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ShapeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ComponentsProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ComboBoxTemplateSettings)]
+                    interface IComboBoxTemplateSettings {
+                        #[special]
+                        fn get_DropDownOpenedHeight(&self) -> f64;
+                        #[special]
+                        fn get_DropDownClosedHeight(&self) -> f64;
+                        #[special]
+                        fn get_DropDownOffset(&self) -> f64;
+                        #[special]
+                        fn get_SelectedItemDirection(&self) -> AnimationDirection;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ComboBoxTemplateSettings)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IComboBoxTemplateSettings2 {
+                        #[special]
+                        fn get_DropDownContentMinWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarFlyoutCommandBar)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICommandBarFlyoutCommandBar {
+                        #[special]
+                        fn get_FlyoutTemplateSettings(&self) -> CommandBarFlyoutCommandBarTemplateSettings;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarFlyoutCommandBar)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface ICommandBarFlyoutCommandBarFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CommandBarFlyoutCommandBar;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarFlyoutCommandBarTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface ICommandBarFlyoutCommandBarTemplateSettings {
+                        #[special]
+                        fn get_OpenAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_OpenAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_CloseAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_CurrentWidth(&self) -> f64;
+                        #[special]
+                        fn get_ExpandedWidth(&self) -> f64;
+                        #[special]
+                        fn get_WidthExpansionDelta(&self) -> f64;
+                        #[special]
+                        fn get_WidthExpansionAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_WidthExpansionAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_WidthExpansionMoreButtonAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_WidthExpansionMoreButtonAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandUpOverflowVerticalPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandDownOverflowVerticalPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandUpAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandUpAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandUpAnimationHoldPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandDownAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandDownAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_ExpandDownAnimationHoldPosition(&self) -> f64;
+                        #[special]
+                        fn get_ContentClipRect(&self) -> super::super::super::super::Foundation::Rect;
+                        #[special]
+                        fn get_OverflowContentClipRect(&self) -> super::super::super::super::Foundation::Rect;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarTemplateSettings)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICommandBarTemplateSettings {
+                        #[special]
+                        fn get_ContentHeight(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentClipRect(&self) -> super::super::super::super::Foundation::Rect;
+                        #[special]
+                        fn get_OverflowContentMinWidth(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentMaxHeight(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentHorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentHeight(&self) -> f64;
+                        #[special]
+                        fn get_NegativeOverflowContentHeight(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarTemplateSettings)]
+                    interface ICommandBarTemplateSettings2 {
+                        #[special]
+                        fn get_OverflowContentMaxWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarTemplateSettings)]
+                    interface ICommandBarTemplateSettings3 {
+                        #[special]
+                        fn get_EffectiveOverflowButtonVisibility(&self) -> super::super::Visibility;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommandBarTemplateSettings)]
+                    interface ICommandBarTemplateSettings4 {
+                        #[special]
+                        fn get_OverflowContentCompactYTranslation(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentMinimalYTranslation(&self) -> f64;
+                        #[special]
+                        fn get_OverflowContentHiddenYTranslation(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragCompletedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDragCompletedEventArgs {
+                        #[special]
+                        fn get_HorizontalChange(&self) -> f64;
+                        #[special]
+                        fn get_VerticalChange(&self) -> f64;
+                        #[special]
+                        fn get_Canceled(&self) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragCompletedEventArgs)]
+                    interface IDragCompletedEventArgsFactory {
+                        fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled(&self, horizontalChange: f64, verticalChange: f64, canceled: bool, baseInterface: Object, innerInterface: &mut Object) -> DragCompletedEventArgs;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragDeltaEventArgs)]
+                    interface IDragDeltaEventArgs {
+                        #[special]
+                        fn get_HorizontalChange(&self) -> f64;
+                        #[special]
+                        fn get_VerticalChange(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragDeltaEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDragDeltaEventArgsFactory {
+                        fn CreateInstanceWithHorizontalChangeAndVerticalChange(&self, horizontalChange: f64, verticalChange: f64, baseInterface: Object, innerInterface: &mut Object) -> DragDeltaEventArgs;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragStartedEventArgs)]
+                    interface IDragStartedEventArgs {
+                        #[special]
+                        fn get_HorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn get_VerticalOffset(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragStartedEventArgs)]
+                    interface IDragStartedEventArgsFactory {
+                        fn CreateInstanceWithHorizontalOffsetAndVerticalOffset(&self, horizontalOffset: f64, verticalOffset: f64, baseInterface: Object, innerInterface: &mut Object) -> DragStartedEventArgs;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBase {
+                        #[special]
+                        fn get_Placement(&self) -> FlyoutPlacementMode;
+                        #[special]
+                        fn put_Placement(&self, value: FlyoutPlacementMode);
+                        #[special]
+                        fn add_Opened(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Opened(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_Closed(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Closed(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_Opening(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Opening(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        fn ShowAt(&self, placementTarget: super::super::FrameworkElement);
+                        fn Hide(&self);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBase2 {
+                        #[special]
+                        fn get_Target(&self) -> super::super::FrameworkElement;
+                        #[special]
+                        fn get_AllowFocusOnInteraction(&self) -> bool;
+                        #[special]
+                        fn put_AllowFocusOnInteraction(&self, value: bool);
+                        #[special]
+                        fn get_LightDismissOverlayMode(&self) -> super::LightDismissOverlayMode;
+                        #[special]
+                        fn put_LightDismissOverlayMode(&self, value: super::LightDismissOverlayMode);
+                        #[special]
+                        fn get_AllowFocusWhenDisabled(&self) -> bool;
+                        #[special]
+                        fn put_AllowFocusWhenDisabled(&self, value: bool);
+                        #[special]
+                        fn get_ElementSoundMode(&self) -> super::super::ElementSoundMode;
+                        #[special]
+                        fn put_ElementSoundMode(&self, value: super::super::ElementSoundMode);
+                        #[special]
+                        fn add_Closing(&self, handler: super::super::super::super::Foundation::TypedEventHandler<FlyoutBase, FlyoutBaseClosingEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Closing(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBase3 {
+                        #[special]
+                        fn get_OverlayInputPassThroughElement(&self) -> super::super::DependencyObject;
+                        #[special]
+                        fn put_OverlayInputPassThroughElement(&self, value: super::super::DependencyObject);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBase4 {
+                        fn TryInvokeKeyboardAccelerator(&self, args: super::super::Input::ProcessKeyboardAcceleratorEventArgs);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface IFlyoutBase5 {
+                        #[special]
+                        fn get_ShowMode(&self) -> FlyoutShowMode;
+                        #[special]
+                        fn put_ShowMode(&self, value: FlyoutShowMode);
+                        #[special]
+                        fn get_InputDevicePrefersPrimaryCommands(&self) -> bool;
+                        #[special]
+                        fn get_AreOpenCloseAnimationsEnabled(&self) -> bool;
+                        #[special]
+                        fn put_AreOpenCloseAnimationsEnabled(&self, value: bool);
+                        #[special]
+                        fn get_IsOpen(&self) -> bool;
+                        fn ShowAt(&self, placementTarget: super::super::DependencyObject, showOptions: FlyoutShowOptions);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    interface IFlyoutBase6 {
+                        #[special]
+                        fn get_ShouldConstrainToRootBounds(&self) -> bool;
+                        #[special]
+                        fn put_ShouldConstrainToRootBounds(&self, value: bool);
+                        #[special]
+                        fn get_IsConstrainedToRootBounds(&self) -> bool;
+                        #[special]
+                        fn get_XamlRoot(&self) -> super::super::XamlRoot;
+                        #[special]
+                        fn put_XamlRoot(&self, value: super::super::XamlRoot);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBaseClosingEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IFlyoutBaseClosingEventArgs {
+                        #[special]
+                        fn get_Cancel(&self) -> bool;
+                        #[special]
+                        fn put_Cancel(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBaseFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> FlyoutBase;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    interface IFlyoutBaseOverrides {
+                        fn CreatePresenter(&self) -> super::Control;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IFlyoutBaseOverrides4 {
+                        fn OnProcessKeyboardAccelerators(&self, args: super::super::Input::ProcessKeyboardAcceleratorEventArgs);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    interface IFlyoutBaseStatics {
+                        #[special]
+                        fn get_PlacementProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_AttachedFlyoutProperty(&self) -> super::super::DependencyProperty;
+                        fn GetAttachedFlyout(&self, element: super::super::FrameworkElement) -> FlyoutBase;
+                        fn SetAttachedFlyout(&self, element: super::super::FrameworkElement, value: FlyoutBase);
+                        fn ShowAttachedFlyout(&self, flyoutOwner: super::super::FrameworkElement);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFlyoutBaseStatics2 {
+                        #[special]
+                        fn get_AllowFocusOnInteractionProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LightDismissOverlayModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_AllowFocusWhenDisabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ElementSoundModeProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IFlyoutBaseStatics3 {
+                        #[special]
+                        fn get_OverlayInputPassThroughElementProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    interface IFlyoutBaseStatics5 {
+                        #[special]
+                        fn get_TargetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ShowModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_InputDevicePrefersPrimaryCommandsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_AreOpenCloseAnimationsEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsOpenProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    interface IFlyoutBaseStatics6 {
+                        #[special]
+                        fn get_ShouldConstrainToRootBoundsProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutShowOptions)]
+                    interface IFlyoutShowOptions {
+                        #[special]
+                        fn get_Position(&self) -> super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>;
+                        #[special]
+                        fn put_Position(&self, value: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>);
+                        #[special]
+                        fn get_ExclusionRect(&self) -> super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>;
+                        #[special]
+                        fn put_ExclusionRect(&self, value: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>);
+                        #[special]
+                        fn get_ShowMode(&self) -> FlyoutShowMode;
+                        #[special]
+                        fn put_ShowMode(&self, value: FlyoutShowMode);
+                        #[special]
+                        fn get_Placement(&self) -> FlyoutPlacementMode;
+                        #[special]
+                        fn put_Placement(&self, value: FlyoutPlacementMode);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FlyoutShowOptions)]
+                    interface IFlyoutShowOptionsFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> FlyoutShowOptions;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GeneratorPositionHelper)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IGeneratorPositionHelper {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GeneratorPositionHelper)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IGeneratorPositionHelperStatics {
+                        fn FromIndexAndOffset(&self, index: i32, offset: i32) -> GeneratorPosition;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IGridViewItemPresenter {
+                        #[special]
+                        fn get_SelectionCheckMarkVisualEnabled(&self) -> bool;
+                        #[special]
+                        fn put_SelectionCheckMarkVisualEnabled(&self, value: bool);
+                        #[special]
+                        fn get_CheckHintBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckHintBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckSelectingBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckSelectingBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_DragBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_DragBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_DragForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_DragForeground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_FocusBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_FocusBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PlaceholderBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PlaceholderBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PointerOverBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PointerOverBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedForeground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedPointerOverBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPointerOverBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedPointerOverBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPointerOverBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedBorderThickness(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_SelectedBorderThickness(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_DisabledOpacity(&self) -> f64;
+                        #[special]
+                        fn put_DisabledOpacity(&self, value: f64);
+                        #[special]
+                        fn get_DragOpacity(&self) -> f64;
+                        #[special]
+                        fn put_DragOpacity(&self, value: f64);
+                        #[special]
+                        fn get_ReorderHintOffset(&self) -> f64;
+                        #[special]
+                        fn put_ReorderHintOffset(&self, value: f64);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterHorizontalContentAlignment(&self) -> super::super::HorizontalAlignment;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_GridViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterVerticalContentAlignment(&self) -> super::super::VerticalAlignment;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_GridViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterPadding(&self) -> super::super::Thickness;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_GridViewItemPresenterPadding(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_PointerOverBackgroundMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_PointerOverBackgroundMargin(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_ContentMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_ContentMargin(&self, value: super::super::Thickness);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IGridViewItemPresenterFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> GridViewItemPresenter;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IGridViewItemPresenterStatics {
+                        #[special]
+                        fn get_SelectionCheckMarkVisualEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckHintBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckSelectingBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragForegroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_FocusBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PlaceholderBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedForegroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedPointerOverBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedPointerOverBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedBorderThicknessProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DisabledOpacityProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragOpacityProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ReorderHintOffsetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of GridViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterHorizontalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of GridViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterVerticalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_GridViewItemPresenterPaddingProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverBackgroundMarginProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ContentMarginProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GridViewItemTemplateSettings)]
+                    interface IGridViewItemTemplateSettings {
+                        #[special]
+                        fn get_DragItemsCount(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ItemsChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IItemsChangedEventArgs {
+                        #[special]
+                        fn get_Action(&self) -> i32;
+                        #[special]
+                        fn get_Position(&self) -> GeneratorPosition;
+                        #[special]
+                        fn get_OldPosition(&self) -> GeneratorPosition;
+                        #[special]
+                        fn get_ItemCount(&self) -> i32;
+                        #[special]
+                        fn get_ItemUICount(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItemBackgroundConverter)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IJumpListItemBackgroundConverter {
+                        #[special]
+                        fn get_Enabled(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_Enabled(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_Disabled(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_Disabled(&self, value: super::super::Media::Brush);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItemBackgroundConverter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IJumpListItemBackgroundConverterStatics {
+                        #[special]
+                        fn get_EnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DisabledProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItemForegroundConverter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IJumpListItemForegroundConverter {
+                        #[special]
+                        fn get_Enabled(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_Enabled(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_Disabled(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_Disabled(&self, value: super::super::Media::Brush);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItemForegroundConverter)]
+                    interface IJumpListItemForegroundConverterStatics {
+                        #[special]
+                        fn get_EnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DisabledProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LayoutInformation)]
+                    interface ILayoutInformation {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LayoutInformation)]
+                    interface ILayoutInformationStatics {
+                        fn GetLayoutExceptionElement(&self, dispatcher: Object) -> super::super::UIElement;
+                        fn GetLayoutSlot(&self, element: super::super::FrameworkElement) -> super::super::super::super::Foundation::Rect;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LayoutInformation)]
+                    interface ILayoutInformationStatics2 {
+                        fn GetAvailableSize(&self, element: super::super::UIElement) -> super::super::super::super::Foundation::Size;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IListViewItemPresenter {
+                        #[special]
+                        fn get_SelectionCheckMarkVisualEnabled(&self) -> bool;
+                        #[special]
+                        fn put_SelectionCheckMarkVisualEnabled(&self, value: bool);
+                        #[special]
+                        fn get_CheckHintBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckHintBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckSelectingBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckSelectingBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_DragBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_DragBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_DragForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_DragForeground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_FocusBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_FocusBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PlaceholderBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PlaceholderBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PointerOverBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PointerOverBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedForeground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedPointerOverBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPointerOverBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedPointerOverBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPointerOverBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedBorderThickness(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_SelectedBorderThickness(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_DisabledOpacity(&self) -> f64;
+                        #[special]
+                        fn put_DisabledOpacity(&self, value: f64);
+                        #[special]
+                        fn get_DragOpacity(&self) -> f64;
+                        #[special]
+                        fn put_DragOpacity(&self, value: f64);
+                        #[special]
+                        fn get_ReorderHintOffset(&self) -> f64;
+                        #[special]
+                        fn put_ReorderHintOffset(&self, value: f64);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterHorizontalContentAlignment(&self) -> super::super::HorizontalAlignment;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_ListViewItemPresenterHorizontalContentAlignment(&self, value: super::super::HorizontalAlignment);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterVerticalContentAlignment(&self) -> super::super::VerticalAlignment;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_ListViewItemPresenterVerticalContentAlignment(&self, value: super::super::VerticalAlignment);
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterPadding(&self) -> super::super::Thickness;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn put_ListViewItemPresenterPadding(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_PointerOverBackgroundMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_PointerOverBackgroundMargin(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_ContentMargin(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_ContentMargin(&self, value: super::super::Thickness);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    interface IListViewItemPresenter2 {
+                        #[special]
+                        fn get_SelectedPressedBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPressedBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PressedBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PressedBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_FocusSecondaryBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_FocusSecondaryBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckMode(&self) -> ListViewItemPresenterCheckMode;
+                        #[special]
+                        fn put_CheckMode(&self, value: ListViewItemPresenterCheckMode);
+                        #[special]
+                        fn get_PointerOverForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PointerOverForeground(&self, value: super::super::Media::Brush);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IListViewItemPresenter3 {
+                        #[special]
+                        fn get_RevealBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_RevealBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_RevealBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_RevealBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_RevealBorderThickness(&self) -> super::super::Thickness;
+                        #[special]
+                        fn put_RevealBorderThickness(&self, value: super::super::Thickness);
+                        #[special]
+                        fn get_RevealBackgroundShowsAboveContent(&self) -> bool;
+                        #[special]
+                        fn put_RevealBackgroundShowsAboveContent(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 851968)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    interface IListViewItemPresenter4 {
+                        #[special]
+                        fn get_SelectedDisabledBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedDisabledBackground(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckPressedBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckPressedBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckDisabledBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckDisabledBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxPointerOverBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxPointerOverBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxPressedBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxPressedBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxDisabledBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxDisabledBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxSelectedBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxSelectedBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxSelectedPointerOverBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxSelectedPointerOverBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxSelectedPressedBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxSelectedPressedBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxSelectedDisabledBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxSelectedDisabledBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxPointerOverBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxPointerOverBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxPressedBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxPressedBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxDisabledBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_CheckBoxDisabledBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_CheckBoxCornerRadius(&self) -> super::super::CornerRadius;
+                        #[special]
+                        fn put_CheckBoxCornerRadius(&self, value: super::super::CornerRadius);
+                        #[special]
+                        fn get_SelectionIndicatorCornerRadius(&self) -> super::super::CornerRadius;
+                        #[special]
+                        fn put_SelectionIndicatorCornerRadius(&self, value: super::super::CornerRadius);
+                        #[special]
+                        fn get_SelectionIndicatorVisualEnabled(&self) -> bool;
+                        #[special]
+                        fn put_SelectionIndicatorVisualEnabled(&self, value: bool);
+                        #[special]
+                        fn get_SelectionIndicatorMode(&self) -> ListViewItemPresenterSelectionIndicatorMode;
+                        #[special]
+                        fn put_SelectionIndicatorMode(&self, value: ListViewItemPresenterSelectionIndicatorMode);
+                        #[special]
+                        fn get_SelectionIndicatorBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectionIndicatorBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectionIndicatorPointerOverBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectionIndicatorPointerOverBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectionIndicatorPressedBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectionIndicatorPressedBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectionIndicatorDisabledBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectionIndicatorDisabledBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedPressedBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedPressedBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedDisabledBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedDisabledBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_SelectedInnerBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_SelectedInnerBorderBrush(&self, value: super::super::Media::Brush);
+                        #[special]
+                        fn get_PointerOverBorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_PointerOverBorderBrush(&self, value: super::super::Media::Brush);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IListViewItemPresenterFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ListViewItemPresenter;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    interface IListViewItemPresenterStatics {
+                        #[special]
+                        fn get_SelectionCheckMarkVisualEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckHintBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckSelectingBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragForegroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_FocusBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PlaceholderBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedForegroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedPointerOverBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedPointerOverBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedBorderThicknessProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DisabledOpacityProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DragOpacityProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ReorderHintOffsetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.HorizontalContentAlignment instead of ListViewItemPresenterHorizontalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterHorizontalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.VerticalContentAlignment instead of ListViewItemPresenterVerticalContentAlignment. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterVerticalContentAlignmentProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("Use ContentPresenter.Padding instead of GridViewItemPresenterPadding. For more info, see MSDN.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ListViewItemPresenterPaddingProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverBackgroundMarginProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ContentMarginProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    interface IListViewItemPresenterStatics2 {
+                        #[special]
+                        fn get_SelectedPressedBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PressedBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_FocusSecondaryBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverForegroundProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    interface IListViewItemPresenterStatics3 {
+                        #[special]
+                        fn get_RevealBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RevealBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RevealBorderThicknessProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_RevealBackgroundShowsAboveContentProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 851968)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemPresenter)]
+                    interface IListViewItemPresenterStatics4 {
+                        #[special]
+                        fn get_SelectedDisabledBackgroundProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckPressedBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckDisabledBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxPointerOverBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxPressedBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxDisabledBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxSelectedBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxSelectedPointerOverBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxSelectedPressedBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxSelectedDisabledBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxPointerOverBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxPressedBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxDisabledBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_CheckBoxCornerRadiusProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorCornerRadiusProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorVisualEnabledProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorModeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorPointerOverBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorPressedBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectionIndicatorDisabledBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedPressedBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedDisabledBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedInnerBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_PointerOverBorderBrushProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ListViewItemTemplateSettings)]
+                    interface IListViewItemTemplateSettings {
+                        #[special]
+                        fn get_DragItemsCount(&self) -> i32;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LoopingSelector)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ILoopingSelector {
+                        #[special]
+                        fn get_ShouldLoop(&self) -> bool;
+                        #[special]
+                        fn put_ShouldLoop(&self, value: bool);
+                        #[special]
+                        fn get_Items(&self) -> super::super::super::super::Foundation::Collections::IVector<Object>;
+                        #[special]
+                        fn put_Items(&self, value: super::super::super::super::Foundation::Collections::IVector<Object>);
+                        #[special]
+                        fn get_SelectedIndex(&self) -> i32;
+                        #[special]
+                        fn put_SelectedIndex(&self, value: i32);
+                        #[special]
+                        fn get_SelectedItem(&self) -> Object;
+                        #[special]
+                        fn put_SelectedItem(&self, value: Object);
+                        #[special]
+                        fn get_ItemWidth(&self) -> i32;
+                        #[special]
+                        fn put_ItemWidth(&self, value: i32);
+                        #[special]
+                        fn get_ItemHeight(&self) -> i32;
+                        #[special]
+                        fn put_ItemHeight(&self, value: i32);
+                        #[special]
+                        fn get_ItemTemplate(&self) -> super::super::DataTemplate;
+                        #[special]
+                        fn put_ItemTemplate(&self, value: super::super::DataTemplate);
+                        #[special]
+                        fn add_SelectionChanged(&self, handler: super::SelectionChangedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_SelectionChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LoopingSelectorItem)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ILoopingSelectorItem {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LoopingSelectorPanel)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ILoopingSelectorPanel {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LoopingSelector)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ILoopingSelectorStatics {
+                        #[special]
+                        fn get_ShouldLoopProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedIndexProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedItemProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemWidthProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemHeightProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ItemTemplateProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MenuFlyoutItemTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    interface IMenuFlyoutItemTemplateSettings {
+                        #[special]
+                        fn get_KeyboardAcceleratorTextMinWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MenuFlyoutPresenterTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMenuFlyoutPresenterTemplateSettings {
+                        #[special]
+                        fn get_FlyoutContentMinWidth(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface INavigationViewItemPresenter {
+                        #[special]
+                        fn get_Icon(&self) -> super::IconElement;
+                        #[special]
+                        fn put_Icon(&self, value: super::IconElement);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationViewItemPresenter)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface INavigationViewItemPresenterFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> NavigationViewItemPresenter;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationViewItemPresenter)]
+                    interface INavigationViewItemPresenterStatics {
+                        #[special]
+                        fn get_IconProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(OrientedVirtualizingPanel)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IOrientedVirtualizingPanel {
+                        #[special]
+                        fn get_CanVerticallyScroll(&self) -> bool;
+                        #[special]
+                        fn put_CanVerticallyScroll(&self, value: bool);
+                        #[special]
+                        fn get_CanHorizontallyScroll(&self) -> bool;
+                        #[special]
+                        fn put_CanHorizontallyScroll(&self, value: bool);
+                        #[special]
+                        fn get_ExtentWidth(&self) -> f64;
+                        #[special]
+                        fn get_ExtentHeight(&self) -> f64;
+                        #[special]
+                        fn get_ViewportWidth(&self) -> f64;
+                        #[special]
+                        fn get_ViewportHeight(&self) -> f64;
+                        #[special]
+                        fn get_HorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn get_VerticalOffset(&self) -> f64;
+                        #[special]
+                        fn get_ScrollOwner(&self) -> Object;
+                        #[special]
+                        fn put_ScrollOwner(&self, value: Object);
+                        fn LineUp(&self);
+                        fn LineDown(&self);
+                        fn LineLeft(&self);
+                        fn LineRight(&self);
+                        fn PageUp(&self);
+                        fn PageDown(&self);
+                        fn PageLeft(&self);
+                        fn PageRight(&self);
+                        fn MouseWheelUp(&self);
+                        fn MouseWheelDown(&self);
+                        fn MouseWheelLeft(&self);
+                        fn MouseWheelRight(&self);
+                        fn SetHorizontalOffset(&self, offset: f64);
+                        fn SetVerticalOffset(&self, offset: f64);
+                        fn MakeVisible(&self, visual: super::super::UIElement, rectangle: super::super::super::super::Foundation::Rect) -> super::super::super::super::Foundation::Rect;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(OrientedVirtualizingPanel)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IOrientedVirtualizingPanelFactory {}
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PickerFlyoutBase)]
+                    interface IPickerFlyoutBase {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PickerFlyoutBase)]
+                    interface IPickerFlyoutBaseFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> PickerFlyoutBase;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PickerFlyoutBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPickerFlyoutBaseOverrides {
+                        fn OnConfirmed(&self);
+                        fn ShouldShowConfirmationButtons(&self) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PickerFlyoutBase)]
+                    interface IPickerFlyoutBaseStatics {
+                        #[special]
+                        fn get_TitleProperty(&self) -> super::super::DependencyProperty;
+                        fn GetTitle(&self, element: super::super::DependencyObject) -> String;
+                        fn SetTitle(&self, element: super::super::DependencyObject, value: String);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PivotHeaderItem)]
+                    interface IPivotHeaderItem {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PivotHeaderItem)]
+                    interface IPivotHeaderItemFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> PivotHeaderItem;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PivotHeaderPanel)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPivotHeaderPanel {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PivotPanel)]
+                    interface IPivotPanel {}
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPopup {
+                        #[special]
+                        fn get_Child(&self) -> super::super::UIElement;
+                        #[special]
+                        fn put_Child(&self, value: super::super::UIElement);
+                        #[special]
+                        fn get_IsOpen(&self) -> bool;
+                        #[special]
+                        fn put_IsOpen(&self, value: bool);
+                        #[special]
+                        fn get_HorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn put_HorizontalOffset(&self, value: f64);
+                        #[special]
+                        fn get_VerticalOffset(&self) -> f64;
+                        #[special]
+                        fn put_VerticalOffset(&self, value: f64);
+                        #[special]
+                        fn get_ChildTransitions(&self) -> super::super::Media::Animation::TransitionCollection;
+                        #[special]
+                        fn put_ChildTransitions(&self, value: super::super::Media::Animation::TransitionCollection);
+                        #[special]
+                        fn get_IsLightDismissEnabled(&self) -> bool;
+                        #[special]
+                        fn put_IsLightDismissEnabled(&self, value: bool);
+                        #[special]
+                        fn add_Opened(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Opened(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_Closed(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Closed(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IPopup2 {
+                        #[special]
+                        fn get_LightDismissOverlayMode(&self) -> super::LightDismissOverlayMode;
+                        #[special]
+                        fn put_LightDismissOverlayMode(&self, value: super::LightDismissOverlayMode);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    interface IPopup3 {
+                        #[special]
+                        fn get_ShouldConstrainToRootBounds(&self) -> bool;
+                        #[special]
+                        fn put_ShouldConstrainToRootBounds(&self, value: bool);
+                        #[special]
+                        fn get_IsConstrainedToRootBounds(&self) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 917504)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPopup4 {
+                        #[special]
+                        fn get_PlacementTarget(&self) -> super::super::FrameworkElement;
+                        #[special]
+                        fn put_PlacementTarget(&self, value: super::super::FrameworkElement);
+                        #[special]
+                        fn get_DesiredPlacement(&self) -> PopupPlacementMode;
+                        #[special]
+                        fn put_DesiredPlacement(&self, value: PopupPlacementMode);
+                        #[special]
+                        fn get_ActualPlacement(&self) -> PopupPlacementMode;
+                        #[special]
+                        fn add_ActualPlacementChanged(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ActualPlacementChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPopupStatics {
+                        #[special]
+                        fn get_ChildProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsOpenProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_HorizontalOffsetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_VerticalOffsetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ChildTransitionsProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsLightDismissEnabledProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    interface IPopupStatics2 {
+                        #[special]
+                        fn get_LightDismissOverlayModeProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPopupStatics3 {
+                        #[special]
+                        fn get_ShouldConstrainToRootBoundsProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Popup)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 917504)]
+                    interface IPopupStatics4 {
+                        #[special]
+                        fn get_PlacementTargetProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_DesiredPlacementProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ProgressBarTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IProgressBarTemplateSettings {
+                        #[special]
+                        fn get_EllipseDiameter(&self) -> f64;
+                        #[special]
+                        fn get_EllipseOffset(&self) -> f64;
+                        #[special]
+                        fn get_EllipseAnimationWellPosition(&self) -> f64;
+                        #[special]
+                        fn get_EllipseAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_ContainerAnimationStartPosition(&self) -> f64;
+                        #[special]
+                        fn get_ContainerAnimationEndPosition(&self) -> f64;
+                        #[special]
+                        fn get_IndicatorLengthDelta(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ProgressRingTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IProgressRingTemplateSettings {
+                        #[special]
+                        fn get_EllipseDiameter(&self) -> f64;
+                        #[special]
+                        fn get_EllipseOffset(&self) -> super::super::Thickness;
+                        #[special]
+                        fn get_MaxSideLength(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RangeBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRangeBase {
+                        #[special]
+                        fn get_Minimum(&self) -> f64;
+                        #[special]
+                        fn put_Minimum(&self, value: f64);
+                        #[special]
+                        fn get_Maximum(&self) -> f64;
+                        #[special]
+                        fn put_Maximum(&self, value: f64);
+                        #[special]
+                        fn get_SmallChange(&self) -> f64;
+                        #[special]
+                        fn put_SmallChange(&self, value: f64);
+                        #[special]
+                        fn get_LargeChange(&self) -> f64;
+                        #[special]
+                        fn put_LargeChange(&self, value: f64);
+                        #[special]
+                        fn get_Value(&self) -> f64;
+                        #[special]
+                        fn put_Value(&self, value: f64);
+                        #[special]
+                        fn add_ValueChanged(&self, handler: RangeBaseValueChangedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_ValueChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RangeBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IRangeBaseFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> RangeBase;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RangeBase)]
+                    interface IRangeBaseOverrides {
+                        fn OnMinimumChanged(&self, oldMinimum: f64, newMinimum: f64);
+                        fn OnMaximumChanged(&self, oldMaximum: f64, newMaximum: f64);
+                        fn OnValueChanged(&self, oldValue: f64, newValue: f64);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RangeBase)]
+                    interface IRangeBaseStatics {
+                        #[special]
+                        fn get_MinimumProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_MaximumProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SmallChangeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_LargeChangeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ValueProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RangeBaseValueChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRangeBaseValueChangedEventArgs {
+                        #[special]
+                        fn get_OldValue(&self) -> f64;
+                        #[special]
+                        fn get_NewValue(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepeatButton)]
+                    interface IRepeatButton {
+                        #[special]
+                        fn get_Delay(&self) -> i32;
+                        #[special]
+                        fn put_Delay(&self, value: i32);
+                        #[special]
+                        fn get_Interval(&self) -> i32;
+                        #[special]
+                        fn put_Interval(&self, value: i32);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepeatButton)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRepeatButtonStatics {
+                        #[special]
+                        fn get_DelayProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IntervalProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ScrollBar)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IScrollBar {
+                        #[special]
+                        fn get_Orientation(&self) -> super::Orientation;
+                        #[special]
+                        fn put_Orientation(&self, value: super::Orientation);
+                        #[special]
+                        fn get_ViewportSize(&self) -> f64;
+                        #[special]
+                        fn put_ViewportSize(&self, value: f64);
+                        #[special]
+                        fn get_IndicatorMode(&self) -> ScrollingIndicatorMode;
+                        #[special]
+                        fn put_IndicatorMode(&self, value: ScrollingIndicatorMode);
+                        #[special]
+                        fn add_Scroll(&self, handler: ScrollEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Scroll(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ScrollBar)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IScrollBarStatics {
+                        #[special]
+                        fn get_OrientationProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_ViewportSizeProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IndicatorModeProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ScrollEventArgs)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IScrollEventArgs {
+                        #[special]
+                        fn get_NewValue(&self) -> f64;
+                        #[special]
+                        fn get_ScrollEventType(&self) -> ScrollEventType;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IScrollSnapPointsInfo {
+                        #[special]
+                        fn get_AreHorizontalSnapPointsRegular(&self) -> bool;
+                        #[special]
+                        fn get_AreVerticalSnapPointsRegular(&self) -> bool;
+                        #[special]
+                        fn add_HorizontalSnapPointsChanged(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_HorizontalSnapPointsChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_VerticalSnapPointsChanged(&self, handler: super::super::super::super::Foundation::EventHandler<Object>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_VerticalSnapPointsChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        fn GetIrregularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment) -> super::super::super::super::Foundation::Collections::IVectorView<f32>;
+                        fn GetRegularSnapPoints(&self, orientation: super::Orientation, alignment: SnapPointsAlignment, offset: &mut f32) -> f32;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Selector)]
+                    interface ISelector {
+                        #[special]
+                        fn get_SelectedIndex(&self) -> i32;
+                        #[special]
+                        fn put_SelectedIndex(&self, value: i32);
+                        #[special]
+                        fn get_SelectedItem(&self) -> Object;
+                        #[special]
+                        fn put_SelectedItem(&self, value: Object);
+                        #[special]
+                        fn get_SelectedValue(&self) -> Object;
+                        #[special]
+                        fn put_SelectedValue(&self, value: Object);
+                        #[special]
+                        fn get_SelectedValuePath(&self) -> String;
+                        #[special]
+                        fn put_SelectedValuePath(&self, value: String);
+                        #[special]
+                        fn get_IsSynchronizedWithCurrentItem(&self) -> super::super::super::super::Foundation::IReference<bool>;
+                        #[special]
+                        fn put_IsSynchronizedWithCurrentItem(&self, value: super::super::super::super::Foundation::IReference<bool>);
+                        #[special]
+                        fn add_SelectionChanged(&self, handler: super::SelectionChangedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_SelectionChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Selector)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISelectorFactory {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SelectorItem)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISelectorItem {
+                        #[special]
+                        fn get_IsSelected(&self) -> bool;
+                        #[special]
+                        fn put_IsSelected(&self, value: bool);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SelectorItem)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISelectorItemFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> SelectorItem;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SelectorItem)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISelectorItemStatics {
+                        #[special]
+                        fn get_IsSelectedProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Selector)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISelectorStatics {
+                        #[special]
+                        fn get_SelectedIndexProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedItemProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedValueProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_SelectedValuePathProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsSynchronizedWithCurrentItemProperty(&self) -> super::super::DependencyProperty;
+                        fn GetIsSelectionActive(&self, element: super::super::DependencyObject) -> bool;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SettingsFlyoutTemplateSettings)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISettingsFlyoutTemplateSettings {
+                        #[special]
+                        fn get_HeaderBackground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn get_HeaderForeground(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn get_BorderBrush(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn get_BorderThickness(&self) -> super::super::Thickness;
+                        #[special]
+                        fn get_IconSource(&self) -> super::super::Media::ImageSource;
+                        #[special]
+                        fn get_ContentTransitions(&self) -> super::super::Media::Animation::TransitionCollection;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplitViewTemplateSettings)]
+                    interface ISplitViewTemplateSettings {
+                        #[special]
+                        fn get_OpenPaneLength(&self) -> f64;
+                        #[special]
+                        fn get_NegativeOpenPaneLength(&self) -> f64;
+                        #[special]
+                        fn get_OpenPaneLengthMinusCompactLength(&self) -> f64;
+                        #[special]
+                        fn get_NegativeOpenPaneLengthMinusCompactLength(&self) -> f64;
+                        #[special]
+                        fn get_OpenPaneGridLength(&self) -> super::super::GridLength;
+                        #[special]
+                        fn get_CompactPaneGridLength(&self) -> super::super::GridLength;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Thumb)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IThumb {
+                        #[special]
+                        fn get_IsDragging(&self) -> bool;
+                        #[special]
+                        fn add_DragStarted(&self, handler: DragStartedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_DragStarted(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_DragDelta(&self, handler: DragDeltaEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_DragDelta(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_DragCompleted(&self, handler: DragCompletedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_DragCompleted(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        fn CancelDrag(&self);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Thumb)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IThumbStatics {
+                        #[special]
+                        fn get_IsDraggingProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TickBar)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITickBar {
+                        #[special]
+                        fn get_Fill(&self) -> super::super::Media::Brush;
+                        #[special]
+                        fn put_Fill(&self, value: super::super::Media::Brush);
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TickBar)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITickBarStatics {
+                        #[special]
+                        fn get_FillProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToggleButton)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IToggleButton {
+                        #[special]
+                        fn get_IsChecked(&self) -> super::super::super::super::Foundation::IReference<bool>;
+                        #[special]
+                        fn put_IsChecked(&self, value: super::super::super::super::Foundation::IReference<bool>);
+                        #[special]
+                        fn get_IsThreeState(&self) -> bool;
+                        #[special]
+                        fn put_IsThreeState(&self, value: bool);
+                        #[special]
+                        fn add_Checked(&self, handler: super::super::RoutedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Checked(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_Unchecked(&self, handler: super::super::RoutedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Unchecked(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[special]
+                        fn add_Indeterminate(&self, handler: super::super::RoutedEventHandler) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        fn remove_Indeterminate(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToggleButton)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IToggleButtonFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ToggleButton;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToggleButton)]
+                    interface IToggleButtonOverrides {
+                        fn OnToggle(&self);
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToggleButton)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IToggleButtonStatics {
+                        #[special]
+                        fn get_IsCheckedProperty(&self) -> super::super::DependencyProperty;
+                        #[special]
+                        fn get_IsThreeStateProperty(&self) -> super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSwitchTemplateSettings)]
+                    interface IToggleSwitchTemplateSettings {
+                        #[special]
+                        fn get_KnobCurrentToOnOffset(&self) -> f64;
+                        #[special]
+                        fn get_KnobCurrentToOffOffset(&self) -> f64;
+                        #[special]
+                        fn get_KnobOnToOffOffset(&self) -> f64;
+                        #[special]
+                        fn get_KnobOffToOnOffset(&self) -> f64;
+                        #[special]
+                        fn get_CurtainCurrentToOnOffset(&self) -> f64;
+                        #[special]
+                        fn get_CurtainCurrentToOffOffset(&self) -> f64;
+                        #[special]
+                        fn get_CurtainOnToOffOffset(&self) -> f64;
+                        #[special]
+                        fn get_CurtainOffToOnOffset(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ToolTipTemplateSettings)]
+                    interface IToolTipTemplateSettings {
+                        #[special]
+                        fn get_FromHorizontalOffset(&self) -> f64;
+                        #[special]
+                        fn get_FromVerticalOffset(&self) -> f64;
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ItemsChangedEventArgs {
+                        #[default]
+                        IItemsChangedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    delegate fn ItemsChangedEventHandler(sender: Object, e: ItemsChangedEventArgs);
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IJumpListItemBackgroundConverterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class JumpListItemBackgroundConverter: super::super::DependencyObject {
+                        #[default]
+                        IJumpListItemBackgroundConverter,
+                        super::super::Data::IValueConverter,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IJumpListItemForegroundConverterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class JumpListItemForegroundConverter: super::super::DependencyObject {
+                        #[default]
+                        IJumpListItemForegroundConverter,
+                        super::super::Data::IValueConverter,
+                    }
+                    #[Windows::Foundation::Metadata::Static(ILayoutInformationStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(ILayoutInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class LayoutInformation {
+                        #[default]
+                        ILayoutInformation,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IListViewItemPresenterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IListViewItemPresenterStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IListViewItemPresenterFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IListViewItemPresenterStatics4, 851968, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IListViewItemPresenterStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
+                    class ListViewItemPresenter: super::ContentPresenter {
+                        #[default]
+                        IListViewItemPresenter,
+                        IListViewItemPresenter2,
+                        IListViewItemPresenter3,
+                        IListViewItemPresenter4,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum ListViewItemPresenterCheckMode {
+                        Inline = 0,
+                        Overlay = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 851968)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum ListViewItemPresenterSelectionIndicatorMode {
+                        Inline = 0,
+                        Overlay = 1,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class ListViewItemTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IListViewItemTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(ILoopingSelectorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class LoopingSelector: super::Control {
+                        #[default]
+                        ILoopingSelector,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class LoopingSelectorItem: super::ContentControl {
+                        #[default]
+                        ILoopingSelectorItem,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class LoopingSelectorPanel: super::Canvas {
+                        #[default]
+                        ILoopingSelectorPanel,
+                        IScrollSnapPointsInfo,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class MenuFlyoutItemTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IMenuFlyoutItemTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    class MenuFlyoutPresenterTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IMenuFlyoutPresenterTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(INavigationViewItemPresenterStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Composable(INavigationViewItemPresenterFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class NavigationViewItemPresenter: super::ContentControl {
+                        #[default]
+                        INavigationViewItemPresenter,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(IOrientedVirtualizingPanelFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class OrientedVirtualizingPanel: super::VirtualizingPanel {
+                        #[default]
+                        IOrientedVirtualizingPanel,
+                        IScrollSnapPointsInfo,
+                        super::IInsertionPanel,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IPickerFlyoutBaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IPickerFlyoutBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class PickerFlyoutBase: FlyoutBase {
+                        #[default]
+                        IPickerFlyoutBase,
+                        IPickerFlyoutBaseOverrides,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IPivotHeaderItemFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class PivotHeaderItem: super::ContentControl {
+                        #[default]
+                        IPivotHeaderItem,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class PivotHeaderPanel: super::Canvas {
+                        #[default]
+                        IPivotHeaderPanel,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class PivotPanel: super::Panel {
+                        #[default]
+                        IPivotPanel,
+                        IScrollSnapPointsInfo,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum PlacementMode {
+                        Bottom = 2,
+                        Left = 9,
+                        Mouse = 7,
+                        Right = 4,
+                        Top = 10,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IPopupStatics4, 917504, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IPopupStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IPopupStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Child")]
+                    #[Windows::Foundation::Metadata::Static(IPopupStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                    class Popup: super::super::FrameworkElement {
+                        #[default]
+                        IPopup,
+                        IPopup2,
+                        IPopup3,
+                        IPopup4,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 917504)]
+                    enum PopupPlacementMode {
+                        Auto = 0,
+                        Top = 1,
+                        Bottom = 2,
+                        Left = 3,
+                        Right = 4,
+                        TopEdgeAlignedLeft = 5,
+                        TopEdgeAlignedRight = 6,
+                        BottomEdgeAlignedLeft = 7,
+                        BottomEdgeAlignedRight = 8,
+                        LeftEdgeAlignedTop = 9,
+                        LeftEdgeAlignedBottom = 10,
+                        RightEdgeAlignedTop = 11,
+                        RightEdgeAlignedBottom = 12,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class ProgressBarTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IProgressBarTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ProgressRingTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IProgressRingTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::Composable(IRangeBaseFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IRangeBaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class RangeBase: super::Control {
+                        #[default]
+                        IRangeBase,
+                        IRangeBaseOverrides,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class RangeBaseValueChangedEventArgs: super::super::RoutedEventArgs {
+                        #[default]
+                        IRangeBaseValueChangedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    delegate fn RangeBaseValueChangedEventHandler(sender: Object, e: RangeBaseValueChangedEventArgs);
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IRepeatButtonStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class RepeatButton: ButtonBase {
+                        #[default]
+                        IRepeatButton,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IScrollBarStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ScrollBar: RangeBase {
+                        #[default]
+                        IScrollBar,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class ScrollEventArgs: super::super::RoutedEventArgs {
+                        #[default]
+                        IScrollEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    delegate fn ScrollEventHandler(sender: Object, e: ScrollEventArgs);
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum ScrollEventType {
+                        SmallDecrement = 0,
+                        SmallIncrement = 1,
+                        LargeDecrement = 2,
+                        LargeIncrement = 3,
+                        ThumbPosition = 4,
+                        ThumbTrack = 5,
+                        First = 6,
+                        Last = 7,
+                        EndScroll = 8,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum ScrollingIndicatorMode {
+                        None = 0,
+                        TouchIndicator = 1,
+                        MouseIndicator = 2,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(ISelectorFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(ISelectorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class Selector: super::ItemsControl {
+                        #[default]
+                        ISelector,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(ISelectorItemFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(ISelectorItemStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class SelectorItem: super::ContentControl {
+                        #[default]
+                        ISelectorItem,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class SettingsFlyoutTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        ISettingsFlyoutTemplateSettings,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum SliderSnapsTo {
+                        StepValues = 0,
+                        Ticks = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum SnapPointsAlignment {
+                        Near = 0,
+                        Center = 1,
+                        Far = 2,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class SplitViewTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        ISplitViewTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IThumbStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class Thumb: super::Control {
+                        #[default]
+                        IThumb,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(ITickBarStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class TickBar: super::super::FrameworkElement {
+                        #[default]
+                        ITickBar,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum TickPlacement {
+                        None = 0,
+                        TopLeft = 1,
+                        BottomRight = 2,
+                        Outside = 3,
+                        Inline = 4,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IToggleButtonFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IToggleButtonStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ToggleButton: ButtonBase {
+                        #[default]
+                        IToggleButton,
+                        IToggleButtonOverrides,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class ToggleSwitchTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IToggleSwitchTemplateSettings,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ToolTipTemplateSettings: super::super::DependencyObject {
+                        #[default]
+                        IToolTipTemplateSettings,
+                    }
+                }
+            }
+        }
+    }
+}

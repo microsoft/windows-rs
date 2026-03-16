@@ -1,0 +1,157 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod DataDeduplication {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/ns-ddpbackup-ddp_file_extent")]
+                struct DDP_FILE_EXTENT {
+                    Length: i64,
+                    Offset: i64,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/ne-ddpbackup-dedup_backup_support_param_type")]
+                enum DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
+                    DEDUP_RECONSTRUCT_UNOPTIMIZED = 1,
+                    DEDUP_RECONSTRUCT_OPTIMIZED = 2,
+                }
+                const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024;
+                struct DEDUP_CHUNK_INFO_HASH32 {
+                    ChunkFlags: u32,
+                    ChunkOffsetInStream: u64,
+                    ChunkSize: u64,
+                    HashVal: [u8; 32],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/ns-ddpbackup-dedup_container_extent")]
+                struct DEDUP_CONTAINER_EXTENT {
+                    ContainerIndex: u32,
+                    StartOffset: i64,
+                    Length: i64,
+                }
+                #[repr(i32)]
+                enum DEDUP_SET_PARAM_TYPE {
+                    DEDUP_PT_MinChunkSizeBytes = 1,
+                    DEDUP_PT_MaxChunkSizeBytes = 2,
+                    DEDUP_PT_AvgChunkSizeBytes = 3,
+                    DEDUP_PT_InvariantChunking = 4,
+                    DEDUP_PT_DisableStrongHashComputation = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(1943450285, 10628, 18197, 178, 227, 146, 76, 20, 151, 68, 221)]
+                struct DedupBackupSupport {}
+                struct DedupChunk {
+                    Hash: DedupHash,
+                    Flags: DedupChunkFlags,
+                    LogicalSize: u32,
+                    DataSize: u32,
+                }
+                #[repr(i32)]
+                enum DedupChunkFlags {
+                    DedupChunkFlags_None = 0,
+                    DedupChunkFlags_Compressed = 1,
+                }
+                #[repr(i32)]
+                enum DedupChunkingAlgorithm {
+                    DedupChunkingAlgorithm_Unknonwn = 0,
+                    DedupChunkingAlgorithm_V1 = 1,
+                }
+                #[repr(i32)]
+                enum DedupCompressionAlgorithm {
+                    DedupCompressionAlgorithm_Unknonwn = 0,
+                    DedupCompressionAlgorithm_Xpress = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2400219655, 6185, 18610, 166, 75, 230, 31, 142, 13, 154, 203)]
+                struct DedupDataPort {}
+                #[repr(i32)]
+                enum DedupDataPortManagerOption {
+                    DedupDataPortManagerOption_None = 0,
+                    DedupDataPortManagerOption_AutoStart = 1,
+                    DedupDataPortManagerOption_SkipReconciliation = 2,
+                }
+                #[repr(i32)]
+                enum DedupDataPortRequestStatus {
+                    DedupDataPortRequestStatus_Unknown = 0,
+                    DedupDataPortRequestStatus_Queued = 1,
+                    DedupDataPortRequestStatus_Processing = 2,
+                    DedupDataPortRequestStatus_Partial = 3,
+                    DedupDataPortRequestStatus_Complete = 4,
+                    DedupDataPortRequestStatus_Failed = 5,
+                }
+                #[repr(i32)]
+                enum DedupDataPortVolumeStatus {
+                    DedupDataPortVolumeStatus_Unknown = 0,
+                    DedupDataPortVolumeStatus_NotEnabled = 1,
+                    DedupDataPortVolumeStatus_NotAvailable = 2,
+                    DedupDataPortVolumeStatus_Initializing = 3,
+                    DedupDataPortVolumeStatus_Ready = 4,
+                    DedupDataPortVolumeStatus_Maintenance = 5,
+                    DedupDataPortVolumeStatus_Shutdown = 6,
+                }
+                struct DedupHash {
+                    Hash: [u8; 32],
+                }
+                #[repr(i32)]
+                enum DedupHashingAlgorithm {
+                    DedupHashingAlgorithm_Unknonwn = 0,
+                    DedupHashingAlgorithm_V1 = 1,
+                }
+                struct DedupStream {
+                    Path: super::super::Foundation::BSTR,
+                    Offset: u64,
+                    Length: u64,
+                    ChunkCount: u32,
+                }
+                struct DedupStreamEntry {
+                    Hash: DedupHash,
+                    LogicalSize: u32,
+                    Offset: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nn-ddpbackup-idedupbackupsupport")]
+                interface IDedupBackupSupport: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nf-ddpbackup-idedupbackupsupport-restorefiles")]
+                    fn RestoreFiles(&self, NumberOfFiles: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] FileFullPaths: *mut super::super::Foundation::BSTR, Store: IDedupReadFileCallback, Flags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] FileResults: *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                interface IDedupChunkLibrary: super::super::System::Com::IUnknown {
+                    fn InitializeForPushBuffers(&self) -> super::super::Foundation::HRESULT;
+                    fn Uninitialize(&self) -> super::super::Foundation::HRESULT;
+                    fn SetParameter(&self, dwParamType: u32, vParamValue: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    fn StartChunking(&self, iidIteratorInterfaceID: GUID, ppChunksEnum: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                interface IDedupDataPort: super::super::System::Com::IUnknown {
+                    fn GetStatus(&self, pStatus: *mut DedupDataPortVolumeStatus, pDataHeadroomMb: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn LookupChunks(&self, Count: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pHashes: *mut DedupHash, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn InsertChunks(&self, ChunkCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pChunkMetadata: *mut DedupChunk, DataByteCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pChunkData: *mut u8, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn InsertChunksWithStream(&self, ChunkCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pChunkMetadata: *mut DedupChunk, DataByteCount: u32, pChunkDataStream: super::super::System::Com::IStream, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn CommitStreams(&self, StreamCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pStreams: *mut DedupStream, EntryCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pEntries: *mut DedupStreamEntry, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn CommitStreamsWithStream(&self, StreamCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pStreams: *mut DedupStream, EntryCount: u32, pEntriesStream: super::super::System::Com::IStream, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn GetStreams(&self, StreamCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pStreamPaths: *mut super::super::Foundation::BSTR, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn GetStreamsResults(&self, RequestId: GUID, MaxWaitMs: u32, StreamEntryIndex: u32, pStreamCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppStreams: *mut *mut DedupStream, pEntryCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] ppEntries: *mut *mut DedupStreamEntry, pStatus: *mut DedupDataPortRequestStatus, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppItemResults: *mut *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    fn GetChunks(&self, Count: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pHashes: *mut DedupHash, pRequestId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    fn GetChunksResults(&self, RequestId: GUID, MaxWaitMs: u32, ChunkIndex: u32, pChunkCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppChunkMetadata: *mut *mut DedupChunk, pDataByteCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] ppChunkData: *mut *mut u8, pStatus: *mut DedupDataPortRequestStatus, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppItemResults: *mut *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                    fn GetRequestStatus(&self, RequestId: GUID, pStatus: *mut DedupDataPortRequestStatus) -> super::super::Foundation::HRESULT;
+                    fn GetRequestResults(&self, RequestId: GUID, MaxWaitMs: u32, pBatchResult: *mut super::super::Foundation::HRESULT, pBatchCount: *mut u32, pStatus: *mut DedupDataPortRequestStatus, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppItemResults: *mut *mut super::super::Foundation::HRESULT) -> super::super::Foundation::HRESULT;
+                }
+                interface IDedupDataPortManager: super::super::System::Com::IUnknown {
+                    fn GetConfiguration(&self, pMinChunkSize: *mut u32, pMaxChunkSize: *mut u32, pChunkingAlgorithm: *mut DedupChunkingAlgorithm, pHashingAlgorithm: *mut DedupHashingAlgorithm, pCompressionAlgorithm: *mut DedupCompressionAlgorithm) -> super::super::Foundation::HRESULT;
+                    fn GetVolumeStatus(&self, Options: u32, Path: super::super::Foundation::BSTR, pStatus: *mut DedupDataPortVolumeStatus) -> super::super::Foundation::HRESULT;
+                    fn GetVolumeDataPort(&self, Options: u32, Path: super::super::Foundation::BSTR, ppDataPort: *mut IDedupDataPort) -> super::super::Foundation::HRESULT;
+                }
+                interface IDedupIterateChunksHash32: super::super::System::Com::IUnknown {
+                    fn PushBuffer(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pBuffer: *mut u8, ulBufferLength: u32) -> super::super::Foundation::HRESULT;
+                    fn Next(&self, ulMaxChunks: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pArrChunks: *mut DEDUP_CHUNK_INFO_HASH32, pulFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn Drain(&self) -> super::super::Foundation::HRESULT;
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nn-ddpbackup-idedupreadfilecallback")]
+                interface IDedupReadFileCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nf-ddpbackup-idedupreadfilecallback-readbackupfile")]
+                    fn ReadBackupFile(&self, FileFullPath: super::super::Foundation::BSTR, FileOffset: i64, SizeToRead: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] FileBuffer: *mut u8, ReturnedSize: *mut u32, Flags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nf-ddpbackup-idedupreadfilecallback-ordercontainersrestore")]
+                    fn OrderContainersRestore(&self, NumberOfContainers: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ContainerPaths: *mut super::super::Foundation::BSTR, ReadPlanEntries: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] ReadPlan: *mut *mut DEDUP_CONTAINER_EXTENT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ddpbackup/nf-ddpbackup-idedupreadfilecallback-previewcontainerread")]
+                    fn PreviewContainerRead(&self, FileFullPath: super::super::Foundation::BSTR, NumberOfReads: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ReadOffsets: *mut DDP_FILE_EXTENT) -> super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

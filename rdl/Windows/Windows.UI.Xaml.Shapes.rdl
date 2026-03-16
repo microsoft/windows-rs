@@ -1,0 +1,295 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            #[winrt]
+            mod Shapes {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class Ellipse: Shape {
+                    #[default]
+                    IEllipse,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Ellipse)]
+                interface IEllipse {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(Line)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ILine {
+                    #[special]
+                    fn get_X1(&self) -> f64;
+                    #[special]
+                    fn put_X1(&self, value: f64);
+                    #[special]
+                    fn get_Y1(&self) -> f64;
+                    #[special]
+                    fn put_Y1(&self, value: f64);
+                    #[special]
+                    fn get_X2(&self) -> f64;
+                    #[special]
+                    fn put_X2(&self, value: f64);
+                    #[special]
+                    fn get_Y2(&self) -> f64;
+                    #[special]
+                    fn put_Y2(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Line)]
+                interface ILineStatics {
+                    #[special]
+                    fn get_X1Property(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_Y1Property(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_X2Property(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_Y2Property(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
+                interface IPath {
+                    #[special]
+                    fn get_Data(&self) -> super::Media::Geometry;
+                    #[special]
+                    fn put_Data(&self, value: super::Media::Geometry);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IPathFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Path;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPathStatics {
+                    #[special]
+                    fn get_DataProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Polygon)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPolygon {
+                    #[special]
+                    fn get_FillRule(&self) -> super::Media::FillRule;
+                    #[special]
+                    fn put_FillRule(&self, value: super::Media::FillRule);
+                    #[special]
+                    fn get_Points(&self) -> super::Media::PointCollection;
+                    #[special]
+                    fn put_Points(&self, value: super::Media::PointCollection);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Polygon)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IPolygonStatics {
+                    #[special]
+                    fn get_FillRuleProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_PointsProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Polyline)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPolyline {
+                    #[special]
+                    fn get_FillRule(&self) -> super::Media::FillRule;
+                    #[special]
+                    fn put_FillRule(&self, value: super::Media::FillRule);
+                    #[special]
+                    fn get_Points(&self) -> super::Media::PointCollection;
+                    #[special]
+                    fn put_Points(&self, value: super::Media::PointCollection);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Polyline)]
+                interface IPolylineStatics {
+                    #[special]
+                    fn get_FillRuleProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_PointsProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Rectangle)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRectangle {
+                    #[special]
+                    fn get_RadiusX(&self) -> f64;
+                    #[special]
+                    fn put_RadiusX(&self, value: f64);
+                    #[special]
+                    fn get_RadiusY(&self) -> f64;
+                    #[special]
+                    fn put_RadiusY(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Rectangle)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRectangleStatics {
+                    #[special]
+                    fn get_RadiusXProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_RadiusYProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IShape {
+                    #[special]
+                    fn get_Fill(&self) -> super::Media::Brush;
+                    #[special]
+                    fn put_Fill(&self, value: super::Media::Brush);
+                    #[special]
+                    fn get_Stroke(&self) -> super::Media::Brush;
+                    #[special]
+                    fn put_Stroke(&self, value: super::Media::Brush);
+                    #[special]
+                    fn get_StrokeMiterLimit(&self) -> f64;
+                    #[special]
+                    fn put_StrokeMiterLimit(&self, value: f64);
+                    #[special]
+                    fn get_StrokeThickness(&self) -> f64;
+                    #[special]
+                    fn put_StrokeThickness(&self, value: f64);
+                    #[special]
+                    fn get_StrokeStartLineCap(&self) -> super::Media::PenLineCap;
+                    #[special]
+                    fn put_StrokeStartLineCap(&self, value: super::Media::PenLineCap);
+                    #[special]
+                    fn get_StrokeEndLineCap(&self) -> super::Media::PenLineCap;
+                    #[special]
+                    fn put_StrokeEndLineCap(&self, value: super::Media::PenLineCap);
+                    #[special]
+                    fn get_StrokeLineJoin(&self) -> super::Media::PenLineJoin;
+                    #[special]
+                    fn put_StrokeLineJoin(&self, value: super::Media::PenLineJoin);
+                    #[special]
+                    fn get_StrokeDashOffset(&self) -> f64;
+                    #[special]
+                    fn put_StrokeDashOffset(&self, value: f64);
+                    #[special]
+                    fn get_StrokeDashCap(&self) -> super::Media::PenLineCap;
+                    #[special]
+                    fn put_StrokeDashCap(&self, value: super::Media::PenLineCap);
+                    #[special]
+                    fn get_StrokeDashArray(&self) -> super::Media::DoubleCollection;
+                    #[special]
+                    fn put_StrokeDashArray(&self, value: super::Media::DoubleCollection);
+                    #[special]
+                    fn get_Stretch(&self) -> super::Media::Stretch;
+                    #[special]
+                    fn put_Stretch(&self, value: super::Media::Stretch);
+                    #[special]
+                    fn get_GeometryTransform(&self) -> super::Media::Transform;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
+                interface IShape2 {
+                    fn GetAlphaMask(&self) -> super::super::Composition::CompositionBrush;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
+                interface IShapeFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Shape;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IShapeStatics {
+                    #[special]
+                    fn get_FillProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeMiterLimitProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeThicknessProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeStartLineCapProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeEndLineCapProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeLineJoinProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeDashOffsetProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeDashCapProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StrokeDashArrayProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_StretchProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::Static(ILineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class Line: Shape {
+                    #[default]
+                    ILine,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(IPathFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IPathStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class Path: Shape {
+                    #[default]
+                    IPath,
+                }
+                #[Windows::Foundation::Metadata::Static(IPolygonStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class Polygon: Shape {
+                    #[default]
+                    IPolygon,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IPolylineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class Polyline: Shape {
+                    #[default]
+                    IPolyline,
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IRectangleStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class Rectangle: Shape {
+                    #[default]
+                    IRectangle,
+                }
+                #[Windows::Foundation::Metadata::Static(IShapeStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Composable(IShapeFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class Shape: super::FrameworkElement {
+                    #[default]
+                    IShape,
+                    IShape2,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,333 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            #[win32]
+            mod InteractionContext {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-addpointerinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn AddPointerInteractionContext(interactionContext: HINTERACTIONCONTEXT, pointerId: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-bufferpointerpacketsinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn BufferPointerPacketsInteractionContext(interactionContext: HINTERACTIONCONTEXT, entriesCount: u32, pointerInfo: *mut super::Input::Pointer::POINTER_INFO) -> super::super::Foundation::HRESULT;
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-cross_slide_flags")]
+                enum CROSS_SLIDE_FLAGS {
+                    CROSS_SLIDE_FLAGS_NONE = 0,
+                    CROSS_SLIDE_FLAGS_SELECT = 1,
+                    CROSS_SLIDE_FLAGS_SPEED_BUMP = 2,
+                    CROSS_SLIDE_FLAGS_REARRANGE = 4,
+                    CROSS_SLIDE_FLAGS_MAX = 4294967295,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-cross_slide_parameter")]
+                struct CROSS_SLIDE_PARAMETER {
+                    threshold: CROSS_SLIDE_THRESHOLD,
+                    distance: f32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-cross_slide_threshold")]
+                enum CROSS_SLIDE_THRESHOLD {
+                    CROSS_SLIDE_THRESHOLD_SELECT_START = 0,
+                    CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START = 1,
+                    CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END = 2,
+                    CROSS_SLIDE_THRESHOLD_REARRANGE_START = 3,
+                    CROSS_SLIDE_THRESHOLD_COUNT = 4,
+                    CROSS_SLIDE_THRESHOLD_MAX = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-createinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn CreateInteractionContext(interactionContext: *mut HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-destroyinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn DestroyInteractionContext(interactionContext: HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getcrossslideparameterinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetCrossSlideParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn GetHoldParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getinertiaparameterinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetInertiaParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, inertiaParameter: INERTIA_PARAMETER, value: *mut f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getinteractionconfigurationinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetInteractionConfigurationInteractionContext(interactionContext: HINTERACTIONCONTEXT, configurationCount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getmousewheelparameterinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetMouseWheelParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getpropertyinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetPropertyInteractionContext(interactionContext: HINTERACTIONCONTEXT, contextProperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-getstateinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn GetStateInteractionContext(interactionContext: HINTERACTIONCONTEXT, pointerInfo: *mut super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn GetTapParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn GetTranslationParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("DestroyInteractionContext")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HINTERACTIONCONTEXT {
+                    Value: *mut void,
+                }
+                #[repr(i32)]
+                enum HOLD_PARAMETER {
+                    HOLD_PARAMETER_MIN_CONTACT_COUNT = 0,
+                    HOLD_PARAMETER_MAX_CONTACT_COUNT = 1,
+                    HOLD_PARAMETER_THRESHOLD_RADIUS = 2,
+                    HOLD_PARAMETER_THRESHOLD_START_DELAY = 3,
+                    HOLD_PARAMETER_MAX = -1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-inertia_parameter")]
+                enum INERTIA_PARAMETER {
+                    INERTIA_PARAMETER_TRANSLATION_DECELERATION = 1,
+                    INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT = 2,
+                    INERTIA_PARAMETER_ROTATION_DECELERATION = 3,
+                    INERTIA_PARAMETER_ROTATION_ANGLE = 4,
+                    INERTIA_PARAMETER_EXPANSION_DECELERATION = 5,
+                    INERTIA_PARAMETER_EXPANSION_EXPANSION = 6,
+                    INERTIA_PARAMETER_MAX = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-interaction_arguments_cross_slide")]
+                struct INTERACTION_ARGUMENTS_CROSS_SLIDE {
+                    flags: CROSS_SLIDE_FLAGS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-interaction_arguments_manipulation")]
+                struct INTERACTION_ARGUMENTS_MANIPULATION {
+                    delta: MANIPULATION_TRANSFORM,
+                    cumulative: MANIPULATION_TRANSFORM,
+                    velocity: MANIPULATION_VELOCITY,
+                    railsState: MANIPULATION_RAILS_STATE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-interaction_arguments_tap")]
+                struct INTERACTION_ARGUMENTS_TAP {
+                    count: u32,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-interaction_configuration_flags")]
+                enum INTERACTION_CONFIGURATION_FLAGS {
+                    INTERACTION_CONFIGURATION_FLAG_NONE = 0,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION = 1,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X = 2,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y = 4,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION = 8,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING = 16,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA = 32,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA = 64,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA = 128,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X = 256,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y = 512,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT = 1024,
+                    INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING = 2048,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE = 1,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL = 2,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT = 4,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP = 8,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE = 16,
+                    INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT = 32,
+                    INTERACTION_CONFIGURATION_FLAG_TAP = 1,
+                    INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE = 2,
+                    INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER = 4,
+                    INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP = 1,
+                    INTERACTION_CONFIGURATION_FLAG_HOLD = 1,
+                    INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE = 2,
+                    INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER = 4,
+                    INTERACTION_CONFIGURATION_FLAG_DRAG = 1,
+                    INTERACTION_CONFIGURATION_FLAG_MAX = 4294967295,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-interaction_context_configuration")]
+                struct INTERACTION_CONTEXT_CONFIGURATION {
+                    interactionId: INTERACTION_ID,
+                    enable: INTERACTION_CONFIGURATION_FLAGS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-interaction_context_output")]
+                struct INTERACTION_CONTEXT_OUTPUT {
+                    interactionId: INTERACTION_ID,
+                    interactionFlags: INTERACTION_FLAGS,
+                    inputType: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
+                    x: f32,
+                    y: f32,
+                    arguments: union {
+                        manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
+                        tap: INTERACTION_ARGUMENTS_TAP,
+                        crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
+                    },
+                }
+                struct INTERACTION_CONTEXT_OUTPUT2 {
+                    interactionId: INTERACTION_ID,
+                    interactionFlags: INTERACTION_FLAGS,
+                    inputType: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
+                    contactCount: u32,
+                    currentContactCount: u32,
+                    x: f32,
+                    y: f32,
+                    arguments: union {
+                        manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
+                        tap: INTERACTION_ARGUMENTS_TAP,
+                        crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
+                    },
+                }
+                extern fn INTERACTION_CONTEXT_OUTPUT_CALLBACK(clientData: *mut void, output: *mut INTERACTION_CONTEXT_OUTPUT);
+                extern fn INTERACTION_CONTEXT_OUTPUT_CALLBACK2(clientData: *mut void, output: *mut INTERACTION_CONTEXT_OUTPUT2);
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-interaction_context_property")]
+                enum INTERACTION_CONTEXT_PROPERTY {
+                    INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS = 1,
+                    INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK = 2,
+                    INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS = 3,
+                    INTERACTION_CONTEXT_PROPERTY_MAX = -1,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-interaction_flags")]
+                enum INTERACTION_FLAGS {
+                    INTERACTION_FLAG_NONE = 0,
+                    INTERACTION_FLAG_BEGIN = 1,
+                    INTERACTION_FLAG_END = 2,
+                    INTERACTION_FLAG_CANCEL = 4,
+                    INTERACTION_FLAG_INERTIA = 8,
+                    INTERACTION_FLAG_MAX = 4294967295,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-interaction_id")]
+                enum INTERACTION_ID {
+                    INTERACTION_ID_NONE = 0,
+                    INTERACTION_ID_MANIPULATION = 1,
+                    INTERACTION_ID_TAP = 2,
+                    INTERACTION_ID_SECONDARY_TAP = 3,
+                    INTERACTION_ID_HOLD = 4,
+                    INTERACTION_ID_DRAG = 5,
+                    INTERACTION_ID_CROSS_SLIDE = 6,
+                    INTERACTION_ID_MAX = -1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-interaction_state")]
+                enum INTERACTION_STATE {
+                    INTERACTION_STATE_IDLE = 0,
+                    INTERACTION_STATE_IN_INTERACTION = 1,
+                    INTERACTION_STATE_POSSIBLE_DOUBLE_TAP = 2,
+                    INTERACTION_STATE_MAX = -1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-manipulation_rails_state")]
+                enum MANIPULATION_RAILS_STATE {
+                    MANIPULATION_RAILS_STATE_UNDECIDED = 0,
+                    MANIPULATION_RAILS_STATE_FREE = 1,
+                    MANIPULATION_RAILS_STATE_RAILED = 2,
+                    MANIPULATION_RAILS_STATE_MAX = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-manipulation_transform")]
+                struct MANIPULATION_TRANSFORM {
+                    translationX: f32,
+                    translationY: f32,
+                    scale: f32,
+                    expansion: f32,
+                    rotation: f32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ns-interactioncontext-manipulation_velocity")]
+                struct MANIPULATION_VELOCITY {
+                    velocityX: f32,
+                    velocityY: f32,
+                    velocityExpansion: f32,
+                    velocityAngular: f32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/ne-interactioncontext-mouse_wheel_parameter")]
+                enum MOUSE_WHEEL_PARAMETER {
+                    MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X = 1,
+                    MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y = 2,
+                    MOUSE_WHEEL_PARAMETER_DELTA_SCALE = 3,
+                    MOUSE_WHEEL_PARAMETER_DELTA_ROTATION = 4,
+                    MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X = 5,
+                    MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y = 6,
+                    MOUSE_WHEEL_PARAMETER_MAX = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-processbufferedpacketsinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn ProcessBufferedPacketsInteractionContext(interactionContext: HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-processinertiainteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn ProcessInertiaInteractionContext(interactionContext: HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-processpointerframesinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn ProcessPointerFramesInteractionContext(interactionContext: HINTERACTIONCONTEXT, entriesCount: u32, pointerCount: u32, pointerInfo: *mut super::Input::Pointer::POINTER_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-registeroutputcallbackinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn RegisterOutputCallbackInteractionContext(interactionContext: HINTERACTIONCONTEXT, outputCallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientData: *mut void) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn RegisterOutputCallbackInteractionContext2(interactionContext: HINTERACTIONCONTEXT, outputCallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientData: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-removepointerinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn RemovePointerInteractionContext(interactionContext: HINTERACTIONCONTEXT, pointerId: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-resetinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn ResetInteractionContext(interactionContext: HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setcrossslideparametersinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetCrossSlideParametersInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameterCount: u32, crossSlideParameters: *mut CROSS_SLIDE_PARAMETER) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn SetHoldParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setinertiaparameterinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetInertiaParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, inertiaParameter: INERTIA_PARAMETER, value: f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setinteractionconfigurationinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetInteractionConfigurationInteractionContext(interactionContext: HINTERACTIONCONTEXT, configurationCount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setmousewheelparameterinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetMouseWheelParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setpivotinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetPivotInteractionContext(interactionContext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-setpropertyinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn SetPropertyInteractionContext(interactionContext: HINTERACTIONCONTEXT, contextProperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn SetTapParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> super::super::Foundation::HRESULT;
+                #[library("NInput.dll")]
+                extern fn SetTranslationParameterInteractionContext(interactionContext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/interactioncontext/nf-interactioncontext-stopinteractioncontext")]
+                #[library("NInput.dll")]
+                extern fn StopInteractionContext(interactionContext: HINTERACTIONCONTEXT) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum TAP_PARAMETER {
+                    TAP_PARAMETER_MIN_CONTACT_COUNT = 0,
+                    TAP_PARAMETER_MAX_CONTACT_COUNT = 1,
+                    TAP_PARAMETER_MAX = -1,
+                }
+                #[repr(i32)]
+                enum TRANSLATION_PARAMETER {
+                    TRANSLATION_PARAMETER_MIN_CONTACT_COUNT = 0,
+                    TRANSLATION_PARAMETER_MAX_CONTACT_COUNT = 1,
+                    TRANSLATION_PARAMETER_MAX = -1,
+                }
+            }
+        }
+    }
+}

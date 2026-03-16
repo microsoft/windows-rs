@@ -1,0 +1,229 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod FileHistory {
+                const FHCFG_E_CONFIGURATION_PREVIOUSLY_LOADED: super::super::Foundation::HRESULT = -2147220731;
+                const FHCFG_E_CONFIG_ALREADY_EXISTS: super::super::Foundation::HRESULT = -2147220734;
+                const FHCFG_E_CONFIG_FILE_NOT_FOUND: super::super::Foundation::HRESULT = -2147220735;
+                const FHCFG_E_CORRUPT_CONFIG_FILE: super::super::Foundation::HRESULT = -2147220736;
+                const FHCFG_E_INVALID_REHYDRATION_STATE: super::super::Foundation::HRESULT = -2147220726;
+                const FHCFG_E_LEGACY_BACKUP_NOT_FOUND: super::super::Foundation::HRESULT = -2147220715;
+                const FHCFG_E_LEGACY_BACKUP_USER_EXCLUDED: super::super::Foundation::HRESULT = -2147220716;
+                const FHCFG_E_LEGACY_TARGET_UNSUPPORTED: super::super::Foundation::HRESULT = -2147220718;
+                const FHCFG_E_LEGACY_TARGET_VALIDATION_UNSUPPORTED: super::super::Foundation::HRESULT = -2147220717;
+                const FHCFG_E_NO_VALID_CONFIGURATION_LOADED: super::super::Foundation::HRESULT = -2147220733;
+                const FHCFG_E_RECOMMENDATION_CHANGE_NOT_ALLOWED: super::super::Foundation::HRESULT = -2147220720;
+                const FHCFG_E_TARGET_CANNOT_BE_USED: super::super::Foundation::HRESULT = -2147220727;
+                const FHCFG_E_TARGET_NOT_CONFIGURED: super::super::Foundation::HRESULT = -2147220729;
+                const FHCFG_E_TARGET_NOT_CONNECTED: super::super::Foundation::HRESULT = -2147220732;
+                const FHCFG_E_TARGET_NOT_ENOUGH_FREE_SPACE: super::super::Foundation::HRESULT = -2147220728;
+                const FHCFG_E_TARGET_REHYDRATED_ELSEWHERE: super::super::Foundation::HRESULT = -2147220719;
+                const FHCFG_E_TARGET_VERIFICATION_FAILED: super::super::Foundation::HRESULT = -2147220730;
+                const FHSVC_E_BACKUP_BLOCKED: super::super::Foundation::HRESULT = -2147219968;
+                const FHSVC_E_CONFIG_DISABLED: super::super::Foundation::HRESULT = -2147219966;
+                const FHSVC_E_CONFIG_DISABLED_GP: super::super::Foundation::HRESULT = -2147219965;
+                const FHSVC_E_CONFIG_REHYDRATING: super::super::Foundation::HRESULT = -2147219963;
+                const FHSVC_E_FATAL_CONFIG_ERROR: super::super::Foundation::HRESULT = -2147219964;
+                const FHSVC_E_NOT_CONFIGURED: super::super::Foundation::HRESULT = -2147219967;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_backup_status")]
+                enum FH_BACKUP_STATUS {
+                    FH_STATUS_DISABLED = 0,
+                    FH_STATUS_DISABLED_BY_GP = 1,
+                    FH_STATUS_ENABLED = 2,
+                    FH_STATUS_REHYDRATING = 3,
+                    MAX_BACKUP_STATUS = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_device_validation_result")]
+                enum FH_DEVICE_VALIDATION_RESULT {
+                    FH_ACCESS_DENIED = 0,
+                    FH_INVALID_DRIVE_TYPE = 1,
+                    FH_READ_ONLY_PERMISSION = 2,
+                    FH_CURRENT_DEFAULT = 3,
+                    FH_NAMESPACE_EXISTS = 4,
+                    FH_TARGET_PART_OF_LIBRARY = 5,
+                    FH_VALID_TARGET = 6,
+                    MAX_VALIDATION_RESULT = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_local_policy_type")]
+                enum FH_LOCAL_POLICY_TYPE {
+                    FH_FREQUENCY = 0,
+                    FH_RETENTION_TYPE = 1,
+                    FH_RETENTION_AGE = 2,
+                    MAX_LOCAL_POLICY = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_protected_item_category")]
+                enum FH_PROTECTED_ITEM_CATEGORY {
+                    FH_FOLDER = 0,
+                    FH_LIBRARY = 1,
+                    MAX_PROTECTED_ITEM_CATEGORY = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_retention_types")]
+                enum FH_RETENTION_TYPES {
+                    FH_RETENTION_DISABLED = 0,
+                    FH_RETENTION_UNLIMITED = 1,
+                    FH_RETENTION_AGE_BASED = 2,
+                    MAX_RETENTION_TYPE = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("FhServiceClosePipe")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct FH_SERVICE_PIPE_HANDLE {
+                    Value: *mut void,
+                }
+                const FH_STATE_BACKUP_NOT_SUPPORTED: u32 = 2064;
+                const FH_STATE_DISABLED_BY_GP: u32 = 2;
+                const FH_STATE_FATAL_CONFIG_ERROR: u32 = 3;
+                const FH_STATE_MIGRATING: u32 = 4;
+                const FH_STATE_NOT_TRACKED: u32 = 0;
+                const FH_STATE_NO_ERROR: u32 = 255;
+                const FH_STATE_OFF: u32 = 1;
+                const FH_STATE_REHYDRATING: u32 = 5;
+                const FH_STATE_RUNNING: u32 = 256;
+                const FH_STATE_STAGING_FULL: u32 = 18;
+                const FH_STATE_TARGET_ABSENT: u32 = 21;
+                const FH_STATE_TARGET_ACCESS_DENIED: u32 = 14;
+                const FH_STATE_TARGET_FS_LIMITATION: u32 = 13;
+                const FH_STATE_TARGET_FULL: u32 = 17;
+                const FH_STATE_TARGET_FULL_RETENTION_MAX: u32 = 16;
+                const FH_STATE_TARGET_LOW_SPACE: u32 = 20;
+                const FH_STATE_TARGET_LOW_SPACE_RETENTION_MAX: u32 = 19;
+                const FH_STATE_TARGET_VOLUME_DIRTY: u32 = 15;
+                const FH_STATE_TOO_MUCH_BEHIND: u32 = 240;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_target_drive_types")]
+                enum FH_TARGET_DRIVE_TYPES {
+                    FH_DRIVE_UNKNOWN = 0,
+                    FH_DRIVE_REMOVABLE = 2,
+                    FH_DRIVE_FIXED = 3,
+                    FH_DRIVE_REMOTE = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/ne-fhcfg-fh_target_property_type")]
+                enum FH_TARGET_PROPERTY_TYPE {
+                    FH_TARGET_NAME = 0,
+                    FH_TARGET_URL = 1,
+                    FH_TARGET_DRIVE_TYPE = 2,
+                    MAX_TARGET_PROPERTY = 3,
+                }
+                #[repr(i32)]
+                enum FhBackupStopReason {
+                    BackupInvalidStopReason = 0,
+                    BackupLimitUserBusyMachineOnAC = 1,
+                    BackupLimitUserIdleMachineOnDC = 2,
+                    BackupLimitUserBusyMachineOnDC = 3,
+                    BackupCancelled = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3980639036, 2537, 18826, 157, 246, 33, 119, 36, 76, 109, 180)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/DevNotes/fhconfigmgr")]
+                struct FhConfigMgr {}
+                #[Windows::Win32::Foundation::Metadata::Guid(1299353141, 5882, 17184, 158, 139, 191, 215, 16, 10, 136, 70)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/DevNotes/fhreassociation")]
+                struct FhReassociation {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceBlockBackup is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhserviceblockbackup")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceBlockBackup(Pipe: FH_SERVICE_PIPE_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceClosePipe is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhserviceclosepipe")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceClosePipe(Pipe: FH_SERVICE_PIPE_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceOpenPipe is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhserviceopenpipe")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceOpenPipe(StartServiceIfStopped: super::super::Foundation::BOOL, Pipe: *mut FH_SERVICE_PIPE_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceReloadConfiguration is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhservicereloadconfiguration")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceReloadConfiguration(Pipe: FH_SERVICE_PIPE_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceStartBackup is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhservicestartbackup")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceStartBackup(Pipe: FH_SERVICE_PIPE_HANDLE, LowPriorityIo: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceStopBackup is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhservicestopbackup")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceStopBackup(Pipe: FH_SERVICE_PIPE_HANDLE, StopTracking: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[System::Obsolete("FhServiceUnblockBackup is deprecated and might not work on all platforms. For more info, see MSDN.")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhsvcctl/nf-fhsvcctl-fhserviceunblockbackup")]
+                #[library("fhsvcctl.dll")]
+                extern fn FhServiceUnblockBackup(Pipe: FH_SERVICE_PIPE_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nn-fhcfg-ifhconfigmgr")]
+                interface IFhConfigMgr: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-loadconfiguration")]
+                    fn LoadConfiguration(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-createdefaultconfiguration")]
+                    fn CreateDefaultConfiguration(&self, OverwriteIfExists: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-saveconfiguration")]
+                    fn SaveConfiguration(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-addremoveexcluderule")]
+                    fn AddRemoveExcludeRule(&self, Add: super::super::Foundation::BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Item: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-getincludeexcluderules")]
+                    fn GetIncludeExcludeRules(&self, Include: super::super::Foundation::BOOL, Category: FH_PROTECTED_ITEM_CATEGORY, Iterator: *mut IFhScopeIterator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-getlocalpolicy")]
+                    fn GetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-setlocalpolicy")]
+                    fn SetLocalPolicy(&self, LocalPolicyType: FH_LOCAL_POLICY_TYPE, PolicyValue: u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-getbackupstatus")]
+                    fn GetBackupStatus(&self, BackupStatus: *mut FH_BACKUP_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-setbackupstatus")]
+                    fn SetBackupStatus(&self, BackupStatus: FH_BACKUP_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-getdefaulttarget")]
+                    fn GetDefaultTarget(&self, DefaultTarget: *mut IFhTarget) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-validatetarget")]
+                    fn ValidateTarget(&self, TargetUrl: super::super::Foundation::BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-provisionandsetnewtarget")]
+                    fn ProvisionAndSetNewTarget(&self, TargetUrl: super::super::Foundation::BSTR, TargetName: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-changedefaulttargetrecommendation")]
+                    fn ChangeDefaultTargetRecommendation(&self, Recommend: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhconfigmgr-queryprotectionstatus")]
+                    fn QueryProtectionStatus(&self, ProtectionState: *mut u32, ProtectedUntilTime: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nn-fhcfg-ifhreassociation")]
+                interface IFhReassociation: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhreassociation-validatetarget")]
+                    fn ValidateTarget(&self, TargetUrl: super::super::Foundation::BSTR, ValidationResult: *mut FH_DEVICE_VALIDATION_RESULT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhreassociation-scantargetforconfigurations")]
+                    fn ScanTargetForConfigurations(&self, TargetUrl: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhreassociation-getconfigurationdetails")]
+                    fn GetConfigurationDetails(&self, Index: u32, UserName: *mut super::super::Foundation::BSTR, PcName: *mut super::super::Foundation::BSTR, BackupTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhreassociation-selectconfiguration")]
+                    fn SelectConfiguration(&self, Index: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhreassociation-performreassociation")]
+                    fn PerformReassociation(&self, OverwriteIfExists: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nn-fhcfg-ifhscopeiterator")]
+                interface IFhScopeIterator: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhscopeiterator-movetonextitem")]
+                    fn MoveToNextItem(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhscopeiterator-getitem")]
+                    fn GetItem(&self, Item: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nn-fhcfg-ifhtarget")]
+                interface IFhTarget: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhtarget-getstringproperty")]
+                    fn GetStringProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/fhcfg/nf-fhcfg-ifhtarget-getnumericalproperty")]
+                    fn GetNumericalProperty(&self, PropertyType: FH_TARGET_PROPERTY_TYPE, PropertyValue: *mut u64) -> super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,744 @@
+mod Windows {
+    mod Graphics {
+        #[winrt]
+        mod Printing {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintDocumentSource {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintManager)]
+            interface IPrintManager {
+                #[special]
+                fn add_PrintTaskRequested(&self, eventHandler: super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_PrintTaskRequested(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintManager)]
+            interface IPrintManagerStatic {
+                fn GetForCurrentView(&self) -> PrintManager;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowPrintUIAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintManager)]
+            interface IPrintManagerStatic2 {
+                fn IsSupported(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IPrintPageInfo {
+                #[special]
+                fn put_MediaSize(&self, value: PrintMediaSize);
+                #[special]
+                fn get_MediaSize(&self) -> PrintMediaSize;
+                #[special]
+                fn put_PageSize(&self, value: super::super::Foundation::Size);
+                #[special]
+                fn get_PageSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn put_DpiX(&self, value: u32);
+                #[special]
+                fn get_DpiX(&self) -> u32;
+                #[special]
+                fn put_DpiY(&self, value: u32);
+                #[special]
+                fn get_DpiY(&self) -> u32;
+                #[special]
+                fn put_Orientation(&self, value: PrintOrientation);
+                #[special]
+                fn get_Orientation(&self) -> PrintOrientation;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageRange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IPrintPageRange {
+                #[special]
+                fn get_FirstPageNumber(&self) -> i32;
+                #[special]
+                fn get_LastPageNumber(&self) -> i32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageRange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IPrintPageRangeFactory {
+                fn Create(&self, firstPage: i32, lastPage: i32) -> PrintPageRange;
+                fn CreateWithSinglePage(&self, page: i32) -> PrintPageRange;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintPageRangeOptions)]
+            interface IPrintPageRangeOptions {
+                #[special]
+                fn put_AllowAllPages(&self, value: bool);
+                #[special]
+                fn get_AllowAllPages(&self) -> bool;
+                #[special]
+                fn put_AllowCurrentPage(&self, value: bool);
+                #[special]
+                fn get_AllowCurrentPage(&self) -> bool;
+                #[special]
+                fn put_AllowCustomSetOfPages(&self, value: bool);
+                #[special]
+                fn get_AllowCustomSetOfPages(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTask)]
+            interface IPrintTask {
+                #[special]
+                fn get_Properties(&self) -> super::super::ApplicationModel::DataTransfer::DataPackagePropertySet;
+                #[special]
+                fn get_Source(&self) -> IPrintDocumentSource;
+                #[special]
+                fn get_Options(&self) -> PrintTaskOptions;
+                #[special]
+                fn add_Previewing(&self, eventHandler: super::super::Foundation::TypedEventHandler<PrintTask, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Previewing(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Submitting(&self, eventHandler: super::super::Foundation::TypedEventHandler<PrintTask, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Submitting(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Progressing(&self, eventHandler: super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Progressing(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Completed(&self, eventHandler: super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Completed(&self, eventCookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTask)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPrintTask2 {
+                #[special]
+                fn put_IsPreviewEnabled(&self, value: bool);
+                #[special]
+                fn get_IsPreviewEnabled(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskCompletedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskCompletedEventArgs {
+                #[special]
+                fn get_Completion(&self) -> PrintTaskCompletion;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptions)]
+            interface IPrintTaskOptions {
+                #[special]
+                fn put_Bordering(&self, value: PrintBordering);
+                #[special]
+                fn get_Bordering(&self) -> PrintBordering;
+                fn GetPagePrintTicket(&self, printPageInfo: PrintPageInfo) -> super::super::Storage::Streams::IRandomAccessStream;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptions)]
+            interface IPrintTaskOptions2 {
+                #[special]
+                fn get_PageRangeOptions(&self) -> PrintPageRangeOptions;
+                #[special]
+                fn get_CustomPageRanges(&self) -> super::super::Foundation::Collections::IVector<PrintPageRange>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskOptionsCore {
+                fn GetPageDescription(&self, jobPageNumber: u32) -> PrintPageDescription;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskOptionsCoreProperties {
+                #[special]
+                fn put_MediaSize(&self, value: PrintMediaSize);
+                #[special]
+                fn get_MediaSize(&self) -> PrintMediaSize;
+                #[special]
+                fn put_MediaType(&self, value: PrintMediaType);
+                #[special]
+                fn get_MediaType(&self) -> PrintMediaType;
+                #[special]
+                fn put_Orientation(&self, value: PrintOrientation);
+                #[special]
+                fn get_Orientation(&self) -> PrintOrientation;
+                #[special]
+                fn put_PrintQuality(&self, value: PrintQuality);
+                #[special]
+                fn get_PrintQuality(&self) -> PrintQuality;
+                #[special]
+                fn put_ColorMode(&self, value: PrintColorMode);
+                #[special]
+                fn get_ColorMode(&self) -> PrintColorMode;
+                #[special]
+                fn put_Duplex(&self, value: PrintDuplex);
+                #[special]
+                fn get_Duplex(&self) -> PrintDuplex;
+                #[special]
+                fn put_Collation(&self, value: PrintCollation);
+                #[special]
+                fn get_Collation(&self) -> PrintCollation;
+                #[special]
+                fn put_Staple(&self, value: PrintStaple);
+                #[special]
+                fn get_Staple(&self) -> PrintStaple;
+                #[special]
+                fn put_HolePunch(&self, value: PrintHolePunch);
+                #[special]
+                fn get_HolePunch(&self) -> PrintHolePunch;
+                #[special]
+                fn put_Binding(&self, value: PrintBinding);
+                #[special]
+                fn get_Binding(&self) -> PrintBinding;
+                #[special]
+                fn get_MinCopies(&self) -> u32;
+                #[special]
+                fn get_MaxCopies(&self) -> u32;
+                #[special]
+                fn put_NumberOfCopies(&self, value: u32);
+                #[special]
+                fn get_NumberOfCopies(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskOptionsCoreUIConfiguration {
+                #[special]
+                fn get_DisplayedOptions(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskProgressingEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskProgressingEventArgs {
+                #[special]
+                fn get_DocumentPageCount(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskRequest)]
+            interface IPrintTaskRequest {
+                #[special]
+                fn get_Deadline(&self) -> super::super::Foundation::DateTime;
+                fn CreatePrintTask(&self, title: String, handler: PrintTaskSourceRequestedHandler) -> PrintTask;
+                fn GetDeferral(&self) -> PrintTaskRequestedDeferral;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskRequestedDeferral)]
+            interface IPrintTaskRequestedDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskRequestedEventArgs {
+                #[special]
+                fn get_Request(&self) -> PrintTaskRequest;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskSourceRequestedArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskSourceRequestedArgs {
+                #[special]
+                fn get_Deadline(&self) -> super::super::Foundation::DateTime;
+                fn SetSource(&self, source: IPrintDocumentSource);
+                fn GetDeferral(&self) -> PrintTaskSourceRequestedDeferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskSourceRequestedDeferral)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskSourceRequestedDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrintTask)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrintTaskTargetDeviceSupport {
+                #[special]
+                fn put_IsPrinterTargetEnabled(&self, value: bool);
+                #[special]
+                fn get_IsPrinterTargetEnabled(&self) -> bool;
+                #[special]
+                fn put_Is3DManufacturingTargetEnabled(&self, value: bool);
+                #[special]
+                fn get_Is3DManufacturingTargetEnabled(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StandardPrintTaskOptions)]
+            interface IStandardPrintTaskOptionsStatic {
+                #[special]
+                fn get_MediaSize(&self) -> String;
+                #[special]
+                fn get_MediaType(&self) -> String;
+                #[special]
+                fn get_Orientation(&self) -> String;
+                #[special]
+                fn get_PrintQuality(&self) -> String;
+                #[special]
+                fn get_ColorMode(&self) -> String;
+                #[special]
+                fn get_Duplex(&self) -> String;
+                #[special]
+                fn get_Collation(&self) -> String;
+                #[special]
+                fn get_Staple(&self) -> String;
+                #[special]
+                fn get_HolePunch(&self) -> String;
+                #[special]
+                fn get_Binding(&self) -> String;
+                #[special]
+                fn get_Copies(&self) -> String;
+                #[special]
+                fn get_NUp(&self) -> String;
+                #[special]
+                fn get_InputBin(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(StandardPrintTaskOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IStandardPrintTaskOptionsStatic2 {
+                #[special]
+                fn get_Bordering(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StandardPrintTaskOptions)]
+            interface IStandardPrintTaskOptionsStatic3 {
+                #[special]
+                fn get_CustomPageRanges(&self) -> String;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintBinding {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                None = 3,
+                Bale = 4,
+                BindBottom = 5,
+                BindLeft = 6,
+                BindRight = 7,
+                BindTop = 8,
+                Booklet = 9,
+                EdgeStitchBottom = 10,
+                EdgeStitchLeft = 11,
+                EdgeStitchRight = 12,
+                EdgeStitchTop = 13,
+                Fold = 14,
+                JogOffset = 15,
+                Trim = 16,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PrintBordering {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                Bordered = 3,
+                Borderless = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintCollation {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                Collated = 3,
+                Uncollated = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintColorMode {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                Color = 3,
+                Grayscale = 4,
+                Monochrome = 5,
+                AutoSelect = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintDuplex {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                OneSided = 3,
+                TwoSidedShortEdge = 4,
+                TwoSidedLongEdge = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintHolePunch {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                None = 3,
+                LeftEdge = 4,
+                RightEdge = 5,
+                TopEdge = 6,
+                BottomEdge = 7,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPrintManagerStatic2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPrintManagerStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            class PrintManager {
+                #[default]
+                IPrintManager,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintMediaSize {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                BusinessCard = 3,
+                CreditCard = 4,
+                IsoA0 = 5,
+                IsoA1 = 6,
+                IsoA10 = 7,
+                IsoA2 = 8,
+                IsoA3 = 9,
+                IsoA3Extra = 10,
+                IsoA3Rotated = 11,
+                IsoA4 = 12,
+                IsoA4Extra = 13,
+                IsoA4Rotated = 14,
+                IsoA5 = 15,
+                IsoA5Extra = 16,
+                IsoA5Rotated = 17,
+                IsoA6 = 18,
+                IsoA6Rotated = 19,
+                IsoA7 = 20,
+                IsoA8 = 21,
+                IsoA9 = 22,
+                IsoB0 = 23,
+                IsoB1 = 24,
+                IsoB10 = 25,
+                IsoB2 = 26,
+                IsoB3 = 27,
+                IsoB4 = 28,
+                IsoB4Envelope = 29,
+                IsoB5Envelope = 30,
+                IsoB5Extra = 31,
+                IsoB7 = 32,
+                IsoB8 = 33,
+                IsoB9 = 34,
+                IsoC0 = 35,
+                IsoC1 = 36,
+                IsoC10 = 37,
+                IsoC2 = 38,
+                IsoC3 = 39,
+                IsoC3Envelope = 40,
+                IsoC4 = 41,
+                IsoC4Envelope = 42,
+                IsoC5 = 43,
+                IsoC5Envelope = 44,
+                IsoC6 = 45,
+                IsoC6C5Envelope = 46,
+                IsoC6Envelope = 47,
+                IsoC7 = 48,
+                IsoC8 = 49,
+                IsoC9 = 50,
+                IsoDLEnvelope = 51,
+                IsoDLEnvelopeRotated = 52,
+                IsoSRA3 = 53,
+                Japan2LPhoto = 54,
+                JapanChou3Envelope = 55,
+                JapanChou3EnvelopeRotated = 56,
+                JapanChou4Envelope = 57,
+                JapanChou4EnvelopeRotated = 58,
+                JapanDoubleHagakiPostcard = 59,
+                JapanDoubleHagakiPostcardRotated = 60,
+                JapanHagakiPostcard = 61,
+                JapanHagakiPostcardRotated = 62,
+                JapanKaku2Envelope = 63,
+                JapanKaku2EnvelopeRotated = 64,
+                JapanKaku3Envelope = 65,
+                JapanKaku3EnvelopeRotated = 66,
+                JapanLPhoto = 67,
+                JapanQuadrupleHagakiPostcard = 68,
+                JapanYou1Envelope = 69,
+                JapanYou2Envelope = 70,
+                JapanYou3Envelope = 71,
+                JapanYou4Envelope = 72,
+                JapanYou4EnvelopeRotated = 73,
+                JapanYou6Envelope = 74,
+                JapanYou6EnvelopeRotated = 75,
+                JisB0 = 76,
+                JisB1 = 77,
+                JisB10 = 78,
+                JisB2 = 79,
+                JisB3 = 80,
+                JisB4 = 81,
+                JisB4Rotated = 82,
+                JisB5 = 83,
+                JisB5Rotated = 84,
+                JisB6 = 85,
+                JisB6Rotated = 86,
+                JisB7 = 87,
+                JisB8 = 88,
+                JisB9 = 89,
+                NorthAmerica10x11 = 90,
+                NorthAmerica10x12 = 91,
+                NorthAmerica10x14 = 92,
+                NorthAmerica11x17 = 93,
+                NorthAmerica14x17 = 94,
+                NorthAmerica4x6 = 95,
+                NorthAmerica4x8 = 96,
+                NorthAmerica5x7 = 97,
+                NorthAmerica8x10 = 98,
+                NorthAmerica9x11 = 99,
+                NorthAmericaArchitectureASheet = 100,
+                NorthAmericaArchitectureBSheet = 101,
+                NorthAmericaArchitectureCSheet = 102,
+                NorthAmericaArchitectureDSheet = 103,
+                NorthAmericaArchitectureESheet = 104,
+                NorthAmericaCSheet = 105,
+                NorthAmericaDSheet = 106,
+                NorthAmericaESheet = 107,
+                NorthAmericaExecutive = 108,
+                NorthAmericaGermanLegalFanfold = 109,
+                NorthAmericaGermanStandardFanfold = 110,
+                NorthAmericaLegal = 111,
+                NorthAmericaLegalExtra = 112,
+                NorthAmericaLetter = 113,
+                NorthAmericaLetterExtra = 114,
+                NorthAmericaLetterPlus = 115,
+                NorthAmericaLetterRotated = 116,
+                NorthAmericaMonarchEnvelope = 117,
+                NorthAmericaNote = 118,
+                NorthAmericaNumber10Envelope = 119,
+                NorthAmericaNumber10EnvelopeRotated = 120,
+                NorthAmericaNumber11Envelope = 121,
+                NorthAmericaNumber12Envelope = 122,
+                NorthAmericaNumber14Envelope = 123,
+                NorthAmericaNumber9Envelope = 124,
+                NorthAmericaPersonalEnvelope = 125,
+                NorthAmericaQuarto = 126,
+                NorthAmericaStatement = 127,
+                NorthAmericaSuperA = 128,
+                NorthAmericaSuperB = 129,
+                NorthAmericaTabloid = 130,
+                NorthAmericaTabloidExtra = 131,
+                OtherMetricA3Plus = 132,
+                OtherMetricA4Plus = 133,
+                OtherMetricFolio = 134,
+                OtherMetricInviteEnvelope = 135,
+                OtherMetricItalianEnvelope = 136,
+                Prc10Envelope = 137,
+                Prc10EnvelopeRotated = 138,
+                Prc16K = 139,
+                Prc16KRotated = 140,
+                Prc1Envelope = 141,
+                Prc1EnvelopeRotated = 142,
+                Prc2Envelope = 143,
+                Prc2EnvelopeRotated = 144,
+                Prc32K = 145,
+                Prc32KBig = 146,
+                Prc32KRotated = 147,
+                Prc3Envelope = 148,
+                Prc3EnvelopeRotated = 149,
+                Prc4Envelope = 150,
+                Prc4EnvelopeRotated = 151,
+                Prc5Envelope = 152,
+                Prc5EnvelopeRotated = 153,
+                Prc6Envelope = 154,
+                Prc6EnvelopeRotated = 155,
+                Prc7Envelope = 156,
+                Prc7EnvelopeRotated = 157,
+                Prc8Envelope = 158,
+                Prc8EnvelopeRotated = 159,
+                Prc9Envelope = 160,
+                Prc9EnvelopeRotated = 161,
+                Roll04Inch = 162,
+                Roll06Inch = 163,
+                Roll08Inch = 164,
+                Roll12Inch = 165,
+                Roll15Inch = 166,
+                Roll18Inch = 167,
+                Roll22Inch = 168,
+                Roll24Inch = 169,
+                Roll30Inch = 170,
+                Roll36Inch = 171,
+                Roll54Inch = 172,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintMediaType {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                AutoSelect = 3,
+                Archival = 4,
+                BackPrintFilm = 5,
+                Bond = 6,
+                CardStock = 7,
+                Continuous = 8,
+                EnvelopePlain = 9,
+                EnvelopeWindow = 10,
+                Fabric = 11,
+                HighResolution = 12,
+                Label = 13,
+                MultiLayerForm = 14,
+                MultiPartForm = 15,
+                Photographic = 16,
+                PhotographicFilm = 17,
+                PhotographicGlossy = 18,
+                PhotographicHighGloss = 19,
+                PhotographicMatte = 20,
+                PhotographicSatin = 21,
+                PhotographicSemiGloss = 22,
+                Plain = 23,
+                Screen = 24,
+                ScreenPaged = 25,
+                Stationery = 26,
+                TabStockFull = 27,
+                TabStockPreCut = 28,
+                Transparency = 29,
+                TShirtTransfer = 30,
+                None = 31,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintOrientation {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                Portrait = 3,
+                PortraitFlipped = 4,
+                Landscape = 5,
+                LandscapeFlipped = 6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct PrintPageDescription {
+                PageSize: super::super::Foundation::Size,
+                ImageableRect: super::super::Foundation::Rect,
+                DpiX: u32,
+                DpiY: u32,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 167772162)]
+            class PrintPageInfo {
+                #[default]
+                IPrintPageInfo,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::Activatable(IPrintPageRangeFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PrintPageRange {
+                #[default]
+                IPrintPageRange,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class PrintPageRangeOptions {
+                #[default]
+                IPrintPageRangeOptions,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintQuality {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                Automatic = 3,
+                Draft = 4,
+                Fax = 5,
+                High = 6,
+                Normal = 7,
+                Photographic = 8,
+                Text = 9,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintStaple {
+                Default = 0,
+                NotAvailable = 1,
+                PrinterCustom = 2,
+                None = 3,
+                StapleTopLeft = 4,
+                StapleTopRight = 5,
+                StapleBottomLeft = 6,
+                StapleBottomRight = 7,
+                StapleDualLeft = 8,
+                StapleDualRight = 9,
+                StapleDualTop = 10,
+                StapleDualBottom = 11,
+                SaddleStitch = 12,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTask {
+                #[default]
+                IPrintTask,
+                IPrintTaskTargetDeviceSupport,
+                IPrintTask2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTaskCompletedEventArgs {
+                #[default]
+                IPrintTaskCompletedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PrintTaskCompletion {
+                Abandoned = 0,
+                Canceled = 1,
+                Failed = 2,
+                Submitted = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            class PrintTaskOptions {
+                #[default]
+                IPrintTaskOptionsCore,
+                IPrintTaskOptionsCoreProperties,
+                IPrintTaskOptionsCoreUIConfiguration,
+                IPrintTaskOptions,
+                IPrintTaskOptions2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTaskProgressingEventArgs {
+                #[default]
+                IPrintTaskProgressingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            class PrintTaskRequest {
+                #[default]
+                IPrintTaskRequest,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTaskRequestedDeferral {
+                #[default]
+                IPrintTaskRequestedDeferral,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTaskRequestedEventArgs {
+                #[default]
+                IPrintTaskRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrintTaskSourceRequestedArgs {
+                #[default]
+                IPrintTaskSourceRequestedArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PrintTaskSourceRequestedDeferral {
+                #[default]
+                IPrintTaskSourceRequestedDeferral,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn PrintTaskSourceRequestedHandler(args: PrintTaskSourceRequestedArgs);
+            #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic3, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(IStandardPrintTaskOptionsStatic2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            class StandardPrintTaskOptions {}
+        }
+    }
+}

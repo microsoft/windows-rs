@@ -1,0 +1,298 @@
+mod Windows {
+    mod UI {
+        mod ViewManagement {
+            #[winrt]
+            mod Core {
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Static(ICoreFrameworkInputViewStatics, 851968, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                class CoreFrameworkInputView {
+                    #[default]
+                    ICoreFrameworkInputView,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class CoreFrameworkInputViewAnimationStartingEventArgs {
+                    #[default]
+                    ICoreFrameworkInputViewAnimationStartingEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class CoreFrameworkInputViewOcclusionsChangedEventArgs {
+                    #[default]
+                    ICoreFrameworkInputViewOcclusionsChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Static(ICoreInputViewStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ICoreInputViewStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                class CoreInputView {
+                    #[default]
+                    ICoreInputView,
+                    ICoreInputView2,
+                    ICoreInputView3,
+                    ICoreInputView4,
+                    ICoreInputView5,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CoreInputViewAnimationStartingEventArgs {
+                    #[default]
+                    ICoreInputViewAnimationStartingEventArgs,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CoreInputViewHidingEventArgs {
+                    #[default]
+                    ICoreInputViewHidingEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum CoreInputViewKind {
+                    Default = 0,
+                    Keyboard = 1,
+                    Handwriting = 2,
+                    Emoji = 3,
+                    Symbols = 4,
+                    Clipboard = 5,
+                    Dictation = 6,
+                    Gamepad = 7,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CoreInputViewOcclusion {
+                    #[default]
+                    ICoreInputViewOcclusion,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum CoreInputViewOcclusionKind {
+                    Docked = 0,
+                    Floating = 1,
+                    Overlay = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class CoreInputViewOcclusionsChangedEventArgs {
+                    #[default]
+                    ICoreInputViewOcclusionsChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                class CoreInputViewShowingEventArgs {
+                    #[default]
+                    ICoreInputViewShowingEventArgs,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CoreInputViewTransferringXYFocusEventArgs {
+                    #[default]
+                    ICoreInputViewTransferringXYFocusEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                enum CoreInputViewXYFocusTransferDirection {
+                    Up = 0,
+                    Right = 1,
+                    Down = 2,
+                    Left = 3,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreFrameworkInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface ICoreFrameworkInputView {
+                    #[special]
+                    fn add_PrimaryViewAnimationStarting(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewAnimationStartingEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PrimaryViewAnimationStarting(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_OcclusionsChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreFrameworkInputView, CoreFrameworkInputViewOcclusionsChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_OcclusionsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreFrameworkInputViewAnimationStartingEventArgs)]
+                interface ICoreFrameworkInputViewAnimationStartingEventArgs {
+                    #[special]
+                    fn get_Occlusions(&self) -> super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>;
+                    #[special]
+                    fn get_FrameworkAnimationRecommended(&self) -> bool;
+                    #[special]
+                    fn get_AnimationDuration(&self) -> super::super::super::Foundation::TimeSpan;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreFrameworkInputViewOcclusionsChangedEventArgs)]
+                interface ICoreFrameworkInputViewOcclusionsChangedEventArgs {
+                    #[special]
+                    fn get_Occlusions(&self) -> super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreFrameworkInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface ICoreFrameworkInputViewStatics {
+                    fn GetForUIContext(&self, context: super::super::UIContext) -> CoreFrameworkInputView;
+                    fn GetForCurrentView(&self) -> CoreFrameworkInputView;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ICoreInputView {
+                    #[special]
+                    fn add_OcclusionsChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewOcclusionsChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_OcclusionsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn GetCoreInputViewOcclusions(&self) -> super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>;
+                    fn TryShowPrimaryView(&self) -> bool;
+                    fn TryHidePrimaryView(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface ICoreInputView2 {
+                    #[special]
+                    fn add_XYFocusTransferringFromPrimaryView(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewTransferringXYFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_XYFocusTransferringFromPrimaryView(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_XYFocusTransferredToPrimaryView(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_XYFocusTransferredToPrimaryView(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn TryTransferXYFocusToPrimaryView(&self, origin: super::super::super::Foundation::Rect, direction: CoreInputViewXYFocusTransferDirection) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                interface ICoreInputView3 {
+                    #[Windows::Foundation::Metadata::Overload("TryShow")]
+                    fn TryShow(&self) -> bool;
+                    #[Windows::Foundation::Metadata::Overload("TryShowWithKind")]
+                    fn TryShow(&self, r#type: CoreInputViewKind) -> bool;
+                    fn TryHide(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                interface ICoreInputView4 {
+                    #[special]
+                    fn add_PrimaryViewShowing(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewShowingEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PrimaryViewShowing(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_PrimaryViewHiding(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewHidingEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PrimaryViewHiding(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                interface ICoreInputView5 {
+                    fn IsKindSupported(&self, r#type: CoreInputViewKind) -> bool;
+                    #[special]
+                    fn add_SupportedKindsChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SupportedKindsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_PrimaryViewAnimationStarting(&self, handler: super::super::super::Foundation::TypedEventHandler<CoreInputView, CoreInputViewAnimationStartingEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PrimaryViewAnimationStarting(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewAnimationStartingEventArgs)]
+                interface ICoreInputViewAnimationStartingEventArgs {
+                    #[special]
+                    fn get_Occlusions(&self) -> super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_AnimationDuration(&self) -> super::super::super::Foundation::TimeSpan;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewHidingEventArgs)]
+                interface ICoreInputViewHidingEventArgs {
+                    fn TryCancel(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewOcclusion)]
+                interface ICoreInputViewOcclusion {
+                    #[special]
+                    fn get_OccludingRect(&self) -> super::super::super::Foundation::Rect;
+                    #[special]
+                    fn get_OcclusionKind(&self) -> CoreInputViewOcclusionKind;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewOcclusionsChangedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ICoreInputViewOcclusionsChangedEventArgs {
+                    #[special]
+                    fn get_Occlusions(&self) -> super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewShowingEventArgs)]
+                interface ICoreInputViewShowingEventArgs {
+                    fn TryCancel(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                interface ICoreInputViewStatics {
+                    fn GetForCurrentView(&self) -> CoreInputView;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ICoreInputViewStatics2 {
+                    fn GetForUIContext(&self, context: super::super::UIContext) -> CoreInputView;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreInputViewTransferringXYFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface ICoreInputViewTransferringXYFocusEventArgs {
+                    #[special]
+                    fn get_Origin(&self) -> super::super::super::Foundation::Rect;
+                    #[special]
+                    fn get_Direction(&self) -> CoreInputViewXYFocusTransferDirection;
+                    #[special]
+                    fn put_TransferHandled(&self, value: bool);
+                    #[special]
+                    fn get_TransferHandled(&self) -> bool;
+                    #[special]
+                    fn put_KeepPrimaryViewVisible(&self, value: bool);
+                    #[special]
+                    fn get_KeepPrimaryViewVisible(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsController)]
+                interface IUISettingsController {
+                    fn SetAdvancedEffectsEnabled(&self, value: bool);
+                    fn SetAnimationsEnabled(&self, value: bool);
+                    fn SetAutoHideScrollBars(&self, value: bool);
+                    fn SetMessageDuration(&self, value: u32);
+                    fn SetTextScaleFactor(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsController)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                interface IUISettingsControllerStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestDefaultAsync(&self) -> super::super::super::Foundation::IAsyncOperation<UISettingsController>;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IUISettingsControllerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                class UISettingsController {
+                    #[default]
+                    IUISettingsController,
+                }
+            }
+        }
+    }
+}

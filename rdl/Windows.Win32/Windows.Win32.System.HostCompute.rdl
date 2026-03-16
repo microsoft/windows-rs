@@ -1,0 +1,15 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod HostCompute {
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HCS_CALLBACK {
+                    Value: *mut void,
+                }
+            }
+        }
+    }
+}

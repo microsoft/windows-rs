@@ -1,0 +1,497 @@
+mod Windows {
+    mod UI {
+        #[winrt]
+        mod WindowManagement {
+            #[Windows::Foundation::Metadata::Static(IAppWindowStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class AppWindow {
+                #[default]
+                IAppWindow,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class AppWindowChangedEventArgs {
+                #[default]
+                IAppWindowChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class AppWindowCloseRequestedEventArgs {
+                #[default]
+                IAppWindowCloseRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class AppWindowClosedEventArgs {
+                #[default]
+                IAppWindowClosedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum AppWindowClosedReason {
+                Other = 0,
+                AppInitiated = 1,
+                UserInitiated = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class AppWindowFrame {
+                IAppWindowFrameStyle,
+                #[default]
+                IAppWindowFrame,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum AppWindowFrameStyle {
+                Default = 0,
+                NoFrame = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class AppWindowPlacement {
+                #[default]
+                IAppWindowPlacement,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Composable(IAppWindowPresentationConfigurationFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+            class AppWindowPresentationConfiguration {
+                #[default]
+                IAppWindowPresentationConfiguration,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum AppWindowPresentationKind {
+                Default = 0,
+                CompactOverlay = 1,
+                FullScreen = 2,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class AppWindowPresenter {
+                #[default]
+                IAppWindowPresenter,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppWindowTitleBar {
+                IAppWindowTitleBarVisibility,
+                #[default]
+                IAppWindowTitleBar,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppWindowTitleBarOcclusion {
+                #[default]
+                IAppWindowTitleBarOcclusion,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum AppWindowTitleBarVisibility {
+                Default = 0,
+                AlwaysHidden = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class CompactOverlayPresentationConfiguration: AppWindowPresentationConfiguration {
+                #[default]
+                ICompactOverlayPresentationConfiguration,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DefaultPresentationConfiguration: AppWindowPresentationConfiguration {
+                #[default]
+                IDefaultPresentationConfiguration,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class DisplayRegion {
+                #[default]
+                IDisplayRegion,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class FullScreenPresentationConfiguration: AppWindowPresentationConfiguration {
+                #[default]
+                IFullScreenPresentationConfiguration,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindow)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAppWindow {
+                #[special]
+                fn get_Content(&self) -> super::UIContentRoot;
+                #[special]
+                fn get_DispatcherQueue(&self) -> super::super::System::DispatcherQueue;
+                #[special]
+                fn get_Frame(&self) -> AppWindowFrame;
+                #[special]
+                fn get_IsVisible(&self) -> bool;
+                #[special]
+                fn get_PersistedStateId(&self) -> String;
+                #[special]
+                fn put_PersistedStateId(&self, value: String);
+                #[special]
+                fn get_Presenter(&self) -> AppWindowPresenter;
+                #[special]
+                fn get_Title(&self) -> String;
+                #[special]
+                fn put_Title(&self, value: String);
+                #[special]
+                fn get_TitleBar(&self) -> AppWindowTitleBar;
+                #[special]
+                fn get_UIContext(&self) -> super::UIContext;
+                #[special]
+                fn get_WindowingEnvironment(&self) -> WindowingEnvironment;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CloseAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn GetPlacement(&self) -> AppWindowPlacement;
+                fn GetDisplayRegions(&self) -> super::super::Foundation::Collections::IVectorView<DisplayRegion>;
+                fn RequestMoveToDisplayRegion(&self, displayRegion: DisplayRegion);
+                fn RequestMoveAdjacentToCurrentView(&self);
+                fn RequestMoveAdjacentToWindow(&self, anchorWindow: AppWindow);
+                fn RequestMoveRelativeToWindowContent(&self, anchorWindow: AppWindow, contentOffset: super::super::Foundation::Point);
+                fn RequestMoveRelativeToCurrentViewContent(&self, contentOffset: super::super::Foundation::Point);
+                fn RequestMoveRelativeToDisplayRegion(&self, displayRegion: DisplayRegion, displayRegionOffset: super::super::Foundation::Point);
+                fn RequestSize(&self, frameSize: super::super::Foundation::Size);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryShowAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn add_Changed(&self, handler: super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_Closed(&self, handler: super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Closed(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_CloseRequested(&self, handler: super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_CloseRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowChangedEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAppWindowChangedEventArgs {
+                #[special]
+                fn get_DidAvailableWindowPresentationsChange(&self) -> bool;
+                #[special]
+                fn get_DidDisplayRegionsChange(&self) -> bool;
+                #[special]
+                fn get_DidFrameChange(&self) -> bool;
+                #[special]
+                fn get_DidSizeChange(&self) -> bool;
+                #[special]
+                fn get_DidTitleBarChange(&self) -> bool;
+                #[special]
+                fn get_DidVisibilityChange(&self) -> bool;
+                #[special]
+                fn get_DidWindowingEnvironmentChange(&self) -> bool;
+                #[special]
+                fn get_DidWindowPresentationChange(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowCloseRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAppWindowCloseRequestedEventArgs {
+                #[special]
+                fn get_Cancel(&self) -> bool;
+                #[special]
+                fn put_Cancel(&self, value: bool);
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowClosedEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppWindowClosedEventArgs {
+                #[special]
+                fn get_Reason(&self) -> AppWindowClosedReason;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowFrame)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppWindowFrame {
+                #[special]
+                fn get_DragRegionVisuals(&self) -> super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowFrame)]
+            interface IAppWindowFrameStyle {
+                fn GetFrameStyle(&self) -> AppWindowFrameStyle;
+                fn SetFrameStyle(&self, frameStyle: AppWindowFrameStyle);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPlacement)]
+            interface IAppWindowPlacement {
+                #[special]
+                fn get_DisplayRegion(&self) -> DisplayRegion;
+                #[special]
+                fn get_Offset(&self) -> super::super::Foundation::Point;
+                #[special]
+                fn get_Size(&self) -> super::super::Foundation::Size;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPresentationConfiguration)]
+            interface IAppWindowPresentationConfiguration {
+                #[special]
+                fn get_Kind(&self) -> AppWindowPresentationKind;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPresentationConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAppWindowPresentationConfigurationFactory {}
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPresenter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppWindowPresenter {
+                fn GetConfiguration(&self) -> AppWindowPresentationConfiguration;
+                fn IsPresentationSupported(&self, presentationKind: AppWindowPresentationKind) -> bool;
+                #[Windows::Foundation::Metadata::Overload("RequestPresentation")]
+                fn RequestPresentation(&self, configuration: AppWindowPresentationConfiguration) -> bool;
+                #[Windows::Foundation::Metadata::Overload("RequestPresentationByKind")]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                fn RequestPresentation(&self, presentationKind: AppWindowPresentationKind) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindow)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IAppWindowStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<AppWindow>;
+                fn ClearAllPersistedState(&self);
+                fn ClearPersistedState(&self, key: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowTitleBar)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppWindowTitleBar {
+                #[special]
+                fn get_BackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_BackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonHoverBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonHoverBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonHoverForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonHoverForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonInactiveBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonInactiveBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonInactiveForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonInactiveForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonPressedBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonPressedBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ButtonPressedForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ButtonPressedForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_ExtendsContentIntoTitleBar(&self) -> bool;
+                #[special]
+                fn put_ExtendsContentIntoTitleBar(&self, value: bool);
+                #[special]
+                fn get_ForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_ForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_InactiveBackgroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_InactiveBackgroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_InactiveForegroundColor(&self) -> super::super::Foundation::IReference<super::Color>;
+                #[special]
+                fn put_InactiveForegroundColor(&self, value: super::super::Foundation::IReference<super::Color>);
+                #[special]
+                fn get_IsVisible(&self) -> bool;
+                fn GetTitleBarOcclusions(&self) -> super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowTitleBarOcclusion)]
+            interface IAppWindowTitleBarOcclusion {
+                #[special]
+                fn get_OccludingRect(&self) -> super::super::Foundation::Rect;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowTitleBar)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppWindowTitleBarVisibility {
+                fn GetPreferredVisibility(&self) -> AppWindowTitleBarVisibility;
+                fn SetPreferredVisibility(&self, visibilityMode: AppWindowTitleBarVisibility);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompactOverlayPresentationConfiguration)]
+            interface ICompactOverlayPresentationConfiguration {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(DefaultPresentationConfiguration)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IDefaultPresentationConfiguration {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayRegion)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IDisplayRegion {
+                #[special]
+                fn get_DisplayMonitorDeviceId(&self) -> String;
+                #[special]
+                fn get_IsVisible(&self) -> bool;
+                #[special]
+                fn get_WorkAreaOffset(&self) -> super::super::Foundation::Point;
+                #[special]
+                fn get_WorkAreaSize(&self) -> super::super::Foundation::Size;
+                #[special]
+                fn get_WindowingEnvironment(&self) -> WindowingEnvironment;
+                #[special]
+                fn add_Changed(&self, handler: super::super::Foundation::TypedEventHandler<DisplayRegion, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FullScreenPresentationConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IFullScreenPresentationConfiguration {
+                #[special]
+                fn get_IsExclusive(&self) -> bool;
+                #[special]
+                fn put_IsExclusive(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowServices)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IWindowServicesStatics {
+                fn FindAllTopLevelWindowIds(&self) -> super::super::Foundation::Collections::IVectorView<super::WindowId>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironment)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IWindowingEnvironment {
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn get_Kind(&self) -> WindowingEnvironmentKind;
+                fn GetDisplayRegions(&self) -> super::super::Foundation::Collections::IVectorView<DisplayRegion>;
+                #[special]
+                fn add_Changed(&self, handler: super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironmentAddedEventArgs)]
+            interface IWindowingEnvironmentAddedEventArgs {
+                #[special]
+                fn get_WindowingEnvironment(&self) -> WindowingEnvironment;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironmentChangedEventArgs)]
+            interface IWindowingEnvironmentChangedEventArgs {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironmentRemovedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IWindowingEnvironmentRemovedEventArgs {
+                #[special]
+                fn get_WindowingEnvironment(&self) -> WindowingEnvironment;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironment)]
+            interface IWindowingEnvironmentStatics {
+                #[Windows::Foundation::Metadata::Overload("FindAll")]
+                fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
+                #[Windows::Foundation::Metadata::Overload("FindAllWithKind")]
+                fn FindAll(&self, kind: WindowingEnvironmentKind) -> super::super::Foundation::Collections::IVectorView<WindowingEnvironment>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::Static(IWindowServicesStatics, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            class WindowServices {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Static(IWindowingEnvironmentStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            class WindowingEnvironment {
+                #[default]
+                IWindowingEnvironment,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class WindowingEnvironmentAddedEventArgs {
+                #[default]
+                IWindowingEnvironmentAddedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class WindowingEnvironmentChangedEventArgs {
+                #[default]
+                IWindowingEnvironmentChangedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum WindowingEnvironmentKind {
+                Unknown = 0,
+                Overlapped = 1,
+                Tiled = 2,
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class WindowingEnvironmentRemovedEventArgs {
+                #[default]
+                IWindowingEnvironmentRemovedEventArgs,
+            }
+        }
+    }
+}

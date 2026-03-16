@@ -1,0 +1,174 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            mod Cryptography {
+                #[win32]
+                mod Sip {
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipaddprovider")]
+                    #[library("CRYPT32.dll")]
+                    extern fn CryptSIPAddProvider(psNewProv: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipcreateindirectdata")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipgetcaps")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPGetCaps(pSubjInfo: *mut SIP_SUBJECTINFO, pCaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPGetSealedDigest(pSubjectInfo: *mut SIP_SUBJECTINFO, pSig: *mut u8, dwSig: u32, pbDigest: *mut u8, pcbDigest: *mut u32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipgetsigneddatamsg")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut super::CERT_QUERY_ENCODING_TYPE, dwIndex: u32, pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipload")]
+                    #[library("CRYPT32.dll")]
+                    extern fn CryptSIPLoad(pgSubject: *mut GUID, dwFlags: u32, pSipDispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipputsigneddatamsg")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: super::CERT_QUERY_ENCODING_TYPE, pdwIndex: *mut u32, cbSignedDataMsg: u32, pbSignedDataMsg: *mut u8) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipremoveprovider")]
+                    #[library("CRYPT32.dll")]
+                    extern fn CryptSIPRemoveProvider(pgProv: *mut GUID) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipremovesigneddatamsg")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: u32) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipretrievesubjectguid")]
+                    #[library("CRYPT32.dll")]
+                    extern fn CryptSIPRetrieveSubjectGuid(FileName: super::super::super::Foundation::PWSTR, hFileIn: super::super::super::Foundation::HANDLE, pgSubject: *mut GUID) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipretrievesubjectguidforcatalogfile")]
+                    #[library("CRYPT32.dll")]
+                    extern fn CryptSIPRetrieveSubjectGuidForCatalogFile(FileName: super::super::super::Foundation::PWSTR, hFileIn: super::super::super::Foundation::HANDLE, pgSubject: *mut GUID) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/nf-mssip-cryptsipverifyindirectdata")]
+                    #[library("WINTRUST.dll")]
+                    extern fn CryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+                    const MSSIP_ADDINFO_BLOB: u32 = 3;
+                    const MSSIP_ADDINFO_CATMEMBER: u32 = 2;
+                    const MSSIP_ADDINFO_FLAT: u32 = 1;
+                    const MSSIP_ADDINFO_NONE: u32 = 0;
+                    const MSSIP_ADDINFO_NONMSSIP: u32 = 500;
+                    const MSSIP_FLAGS_MULTI_HASH: u32 = 262144;
+                    const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536;
+                    const MSSIP_FLAGS_USE_CATALOG: u32 = 131072;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-ms_addinfo_blob")]
+                    struct MS_ADDINFO_BLOB {
+                        cbStruct: u32,
+                        cbMemObject: u32,
+                        pbMemObject: *mut u8,
+                        cbMemSignedMsg: u32,
+                        pbMemSignedMsg: *mut u8,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-ms_addinfo_flat")]
+                    struct MS_ADDINFO_FLAT {
+                        cbStruct: u32,
+                        pIndirectData: *mut SIP_INDIRECT_DATA,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_add_newprovider")]
+                    struct SIP_ADD_NEWPROVIDER {
+                        cbStruct: u32,
+                        pgSubject: *mut GUID,
+                        pwszDLLFileName: super::super::super::Foundation::PWSTR,
+                        pwszMagicNumber: super::super::super::Foundation::PWSTR,
+                        pwszIsFunctionName: super::super::super::Foundation::PWSTR,
+                        pwszGetFuncName: super::super::super::Foundation::PWSTR,
+                        pwszPutFuncName: super::super::super::Foundation::PWSTR,
+                        pwszCreateFuncName: super::super::super::Foundation::PWSTR,
+                        pwszVerifyFuncName: super::super::super::Foundation::PWSTR,
+                        pwszRemoveFuncName: super::super::super::Foundation::PWSTR,
+                        pwszIsFunctionNameFmt2: super::super::super::Foundation::PWSTR,
+                        pwszGetCapFuncName: super::super::super::Foundation::PWSTR,
+                    }
+                    const SIP_CAP_FLAG_SEALING: u32 = 1;
+                    const SIP_CAP_SET_CUR_VER: u32 = 3;
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_cap_set_v2")]
+                    struct SIP_CAP_SET_V2 {
+                        cbSize: u32,
+                        dwVersion: u32,
+                        isMultiSign: super::super::super::Foundation::BOOL,
+                        dwReserved: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_cap_set_v3")]
+                    struct SIP_CAP_SET_V3 {
+                        cbSize: u32,
+                        dwVersion: u32,
+                        isMultiSign: super::super::super::Foundation::BOOL,
+                        Anonymous: union {
+                            dwFlags: u32,
+                            dwReserved: u32,
+                        },
+                    }
+                    const SIP_CAP_SET_VERSION_2: u32 = 2;
+                    const SIP_CAP_SET_VERSION_3: u32 = 3;
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_dispatch_info")]
+                    struct SIP_DISPATCH_INFO {
+                        cbSize: u32,
+                        hSIP: super::super::super::Foundation::HANDLE,
+                        pfGet: pCryptSIPGetSignedDataMsg,
+                        pfPut: pCryptSIPPutSignedDataMsg,
+                        pfCreate: pCryptSIPCreateIndirectData,
+                        pfVerify: pCryptSIPVerifyIndirectData,
+                        pfRemove: pCryptSIPRemoveSignedDataMsg,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_indirect_data")]
+                    struct SIP_INDIRECT_DATA {
+                        Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
+                        DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
+                        Digest: super::CRYPT_INTEGER_BLOB,
+                    }
+                    const SIP_MAX_MAGIC_NUMBER: u32 = 4;
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/mssip/ns-mssip-sip_subjectinfo")]
+                    struct SIP_SUBJECTINFO {
+                        cbSize: u32,
+                        pgSubjectType: *mut GUID,
+                        hFile: super::super::super::Foundation::HANDLE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwsFileName: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwsDisplayName: super::super::super::Foundation::PWSTR,
+                        dwReserved1: u32,
+                        dwIntVersion: u32,
+                        hProv: usize,
+                        DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
+                        dwFlags: u32,
+                        dwEncodingType: u32,
+                        dwReserved2: u32,
+                        fdwCAPISettings: u32,
+                        fdwSecuritySettings: u32,
+                        dwIndex: u32,
+                        dwUnionChoice: u32,
+                        Anonymous: union {
+                            psFlat: *mut MS_ADDINFO_FLAT,
+                            psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,
+                            psBlob: *mut MS_ADDINFO_BLOB,
+                        },
+                        pClientData: *mut void,
+                    }
+                    const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1;
+                    const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1;
+                    const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048;
+                    extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut u32, pIndirectData: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPGetCaps(pSubjInfo: *mut SIP_SUBJECTINFO, pCaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPGetSealedDigest(pSubjectInfo: *mut SIP_SUBJECTINFO, pSig: *mut u8, dwSig: u32, pbDigest: *mut u8, pcbDigest: *mut u32) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut u32, dwIndex: u32, pcbSignedDataMsg: *mut u32, pbSignedDataMsg: *mut u8) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: u32, pdwIndex: *mut u32, cbSignedDataMsg: u32, pbSignedDataMsg: *mut u8) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn pCryptSIPVerifyIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pIndirectData: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+                    extern fn pfnIsFileSupported(hFile: super::super::super::Foundation::HANDLE, pgSubject: *mut GUID) -> super::super::super::Foundation::BOOL;
+                    extern fn pfnIsFileSupportedName(pwszFileName: super::super::super::Foundation::PWSTR, pgSubject: *mut GUID) -> super::super::super::Foundation::BOOL;
+                }
+            }
+        }
+    }
+}

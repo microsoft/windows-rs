@@ -1,0 +1,710 @@
+mod Windows {
+    mod UI {
+        mod Input {
+            #[winrt]
+            mod Spatial {
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGestureRecognizer)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialGestureRecognizer {
+                    #[special]
+                    fn add_RecognitionStarted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_RecognitionStarted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_RecognitionEnded(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_RecognitionEnded(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_Tapped(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Tapped(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_HoldStarted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_HoldStarted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_HoldCompleted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_HoldCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_HoldCanceled(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_HoldCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ManipulationStarted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ManipulationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ManipulationUpdated(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ManipulationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ManipulationCompleted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ManipulationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ManipulationCanceled(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ManipulationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_NavigationStarted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_NavigationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_NavigationUpdated(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_NavigationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_NavigationCompleted(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_NavigationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_NavigationCanceled(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_NavigationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn CaptureInteraction(&self, interaction: SpatialInteraction);
+                    fn CancelPendingGestures(&self);
+                    fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> bool;
+                    #[special]
+                    fn get_GestureSettings(&self) -> SpatialGestureSettings;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGestureRecognizer)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialGestureRecognizerFactory {
+                    fn Create(&self, settings: SpatialGestureSettings) -> SpatialGestureRecognizer;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialHoldCanceledEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialHoldCanceledEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialHoldCompletedEventArgs)]
+                interface ISpatialHoldCompletedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialHoldStartedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialHoldStartedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteraction)]
+                interface ISpatialInteraction {
+                    #[special]
+                    fn get_SourceState(&self) -> SpatialInteractionSourceState;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionController)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ISpatialInteractionController {
+                    #[special]
+                    fn get_HasTouchpad(&self) -> bool;
+                    #[special]
+                    fn get_HasThumbstick(&self) -> bool;
+                    #[special]
+                    fn get_SimpleHapticsController(&self) -> super::super::super::Devices::Haptics::SimpleHapticsController;
+                    #[special]
+                    fn get_VendorId(&self) -> u16;
+                    #[special]
+                    fn get_ProductId(&self) -> u16;
+                    #[special]
+                    fn get_Version(&self) -> u16;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionController)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ISpatialInteractionController2: ISpatialInteractionController {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryGetRenderableModelAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionController)]
+                interface ISpatialInteractionController3: ISpatialInteractionController2 + ISpatialInteractionController {
+                    fn TryGetBatteryReport(&self) -> super::super::super::Devices::Power::BatteryReport;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionControllerProperties)]
+                interface ISpatialInteractionControllerProperties {
+                    #[special]
+                    fn get_IsTouchpadTouched(&self) -> bool;
+                    #[special]
+                    fn get_IsTouchpadPressed(&self) -> bool;
+                    #[special]
+                    fn get_IsThumbstickPressed(&self) -> bool;
+                    #[special]
+                    fn get_ThumbstickX(&self) -> f64;
+                    #[special]
+                    fn get_ThumbstickY(&self) -> f64;
+                    #[special]
+                    fn get_TouchpadX(&self) -> f64;
+                    #[special]
+                    fn get_TouchpadY(&self) -> f64;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionDetectedEventArgs)]
+                interface ISpatialInteractionDetectedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    #[special]
+                    fn get_Interaction(&self) -> SpatialInteraction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionDetectedEventArgs)]
+                interface ISpatialInteractionDetectedEventArgs2: ISpatialInteractionDetectedEventArgs {
+                    #[special]
+                    fn get_InteractionSource(&self) -> SpatialInteractionSource;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionManager)]
+                interface ISpatialInteractionManager {
+                    #[special]
+                    fn add_SourceDetected(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SourceDetected(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_SourceLost(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SourceLost(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_SourceUpdated(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SourceUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_SourcePressed(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SourcePressed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_SourceReleased(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SourceReleased(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_InteractionDetected(&self, handler: super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_InteractionDetected(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn GetDetectedSourcesAtTimestamp(&self, timeStamp: super::super::super::Perception::PerceptionTimestamp) -> super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialInteractionManagerStatics {
+                    fn GetForCurrentView(&self) -> SpatialInteractionManager;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionManager)]
+                interface ISpatialInteractionManagerStatics2 {
+                    fn IsSourceKindSupported(&self, kind: SpatialInteractionSourceKind) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialInteractionSource {
+                    #[special]
+                    fn get_Id(&self) -> u32;
+                    #[special]
+                    fn get_Kind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ISpatialInteractionSource2: ISpatialInteractionSource {
+                    #[special]
+                    fn get_IsPointingSupported(&self) -> bool;
+                    #[special]
+                    fn get_IsMenuSupported(&self) -> bool;
+                    #[special]
+                    fn get_IsGraspSupported(&self) -> bool;
+                    #[special]
+                    fn get_Controller(&self) -> SpatialInteractionController;
+                    fn TryGetStateAtTimestamp(&self, timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialInteractionSourceState;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ISpatialInteractionSource3: ISpatialInteractionSource2 + ISpatialInteractionSource {
+                    #[special]
+                    fn get_Handedness(&self) -> SpatialInteractionSourceHandedness;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISpatialInteractionSource4 {
+                    fn TryCreateHandMeshObserver(&self) -> super::super::super::Perception::People::HandMeshObserver;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryCreateHandMeshObserverAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialInteractionSourceEventArgs {
+                    #[special]
+                    fn get_State(&self) -> SpatialInteractionSourceState;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceEventArgs)]
+                interface ISpatialInteractionSourceEventArgs2: ISpatialInteractionSourceEventArgs {
+                    #[special]
+                    fn get_PressKind(&self) -> SpatialInteractionPressKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceLocation)]
+                interface ISpatialInteractionSourceLocation {
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    #[special]
+                    fn get_Velocity(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceLocation)]
+                interface ISpatialInteractionSourceLocation2 {
+                    #[special]
+                    fn get_Orientation(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceLocation)]
+                interface ISpatialInteractionSourceLocation3: ISpatialInteractionSourceLocation2 {
+                    #[special]
+                    fn get_PositionAccuracy(&self) -> SpatialInteractionSourcePositionAccuracy;
+                    #[special]
+                    fn get_AngularVelocity(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    #[special]
+                    fn get_SourcePointerPose(&self) -> SpatialPointerInteractionSourcePose;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceProperties)]
+                interface ISpatialInteractionSourceProperties {
+                    fn TryGetSourceLossMitigationDirection(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    #[special]
+                    fn get_SourceLossRisk(&self) -> f64;
+                    fn TryGetLocation(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialInteractionSourceLocation;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceState)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialInteractionSourceState {
+                    #[special]
+                    fn get_Source(&self) -> SpatialInteractionSource;
+                    #[special]
+                    fn get_Properties(&self) -> SpatialInteractionSourceProperties;
+                    #[special]
+                    fn get_IsPressed(&self) -> bool;
+                    #[special]
+                    fn get_Timestamp(&self) -> super::super::super::Perception::PerceptionTimestamp;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceState)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ISpatialInteractionSourceState2: ISpatialInteractionSourceState {
+                    #[special]
+                    fn get_IsSelectPressed(&self) -> bool;
+                    #[special]
+                    fn get_IsMenuPressed(&self) -> bool;
+                    #[special]
+                    fn get_IsGrasped(&self) -> bool;
+                    #[special]
+                    fn get_SelectPressedValue(&self) -> f64;
+                    #[special]
+                    fn get_ControllerProperties(&self) -> SpatialInteractionControllerProperties;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialInteractionSourceState)]
+                interface ISpatialInteractionSourceState3: ISpatialInteractionSourceState2 + ISpatialInteractionSourceState {
+                    fn TryGetHandPose(&self) -> super::super::super::Perception::People::HandPose;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialManipulationCanceledEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialManipulationCanceledEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialManipulationCompletedEventArgs)]
+                interface ISpatialManipulationCompletedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetCumulativeDelta(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialManipulationDelta)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialManipulationDelta {
+                    #[special]
+                    fn get_Translation(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialManipulationStartedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialManipulationStartedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialManipulationUpdatedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialManipulationUpdatedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetCumulativeDelta(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialManipulationDelta;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialNavigationCanceledEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialNavigationCanceledEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialNavigationCompletedEventArgs)]
+                interface ISpatialNavigationCompletedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    #[special]
+                    fn get_NormalizedOffset(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialNavigationStartedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialNavigationStartedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    #[special]
+                    fn get_IsNavigatingX(&self) -> bool;
+                    #[special]
+                    fn get_IsNavigatingY(&self) -> bool;
+                    #[special]
+                    fn get_IsNavigatingZ(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialNavigationUpdatedEventArgs)]
+                interface ISpatialNavigationUpdatedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    #[special]
+                    fn get_NormalizedOffset(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerInteractionSourcePose)]
+                interface ISpatialPointerInteractionSourcePose {
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                    #[special]
+                    fn get_ForwardDirection(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                    #[special]
+                    fn get_UpDirection(&self) -> super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerInteractionSourcePose)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ISpatialPointerInteractionSourcePose2: ISpatialPointerInteractionSourcePose {
+                    #[special]
+                    fn get_Orientation(&self) -> super::super::super::Foundation::Numerics::Quaternion;
+                    #[special]
+                    fn get_PositionAccuracy(&self) -> SpatialInteractionSourcePositionAccuracy;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialPointerPose {
+                    #[special]
+                    fn get_Timestamp(&self) -> super::super::super::Perception::PerceptionTimestamp;
+                    #[special]
+                    fn get_Head(&self) -> super::super::super::Perception::People::HeadPose;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
+                interface ISpatialPointerPose2: ISpatialPointerPose {
+                    fn TryGetInteractionSourcePose(&self, source: SpatialInteractionSource) -> SpatialPointerInteractionSourcePose;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
+                interface ISpatialPointerPose3 {
+                    #[special]
+                    fn get_Eyes(&self) -> super::super::super::Perception::People::EyesPose;
+                    #[special]
+                    fn get_IsHeadCapturedBySystem(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialPointerPose)]
+                interface ISpatialPointerPoseStatics {
+                    fn TryGetAtTimestamp(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, timestamp: super::super::super::Perception::PerceptionTimestamp) -> SpatialPointerPose;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialRecognitionEndedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialRecognitionEndedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialRecognitionStartedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface ISpatialRecognitionStartedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialTappedEventArgs)]
+                interface ISpatialTappedEventArgs {
+                    #[special]
+                    fn get_InteractionSourceKind(&self) -> SpatialInteractionSourceKind;
+                    fn TryGetPointerPose(&self, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> SpatialPointerPose;
+                    #[special]
+                    fn get_TapCount(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(ISpatialGestureRecognizerFactory, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialGestureRecognizer {
+                    #[default]
+                    ISpatialGestureRecognizer,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                enum SpatialGestureSettings {
+                    None = 0,
+                    Tap = 1,
+                    DoubleTap = 2,
+                    Hold = 4,
+                    ManipulationTranslate = 8,
+                    NavigationX = 16,
+                    NavigationY = 32,
+                    NavigationZ = 64,
+                    NavigationRailsX = 128,
+                    NavigationRailsY = 256,
+                    NavigationRailsZ = 512,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialHoldCanceledEventArgs {
+                    #[default]
+                    ISpatialHoldCanceledEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialHoldCompletedEventArgs {
+                    #[default]
+                    ISpatialHoldCompletedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialHoldStartedEventArgs {
+                    #[default]
+                    ISpatialHoldStartedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialInteraction {
+                    #[default]
+                    ISpatialInteraction,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class SpatialInteractionController {
+                    #[default]
+                    ISpatialInteractionController,
+                    ISpatialInteractionController2,
+                    ISpatialInteractionController3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialInteractionControllerProperties {
+                    #[default]
+                    ISpatialInteractionControllerProperties,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialInteractionDetectedEventArgs {
+                    #[default]
+                    ISpatialInteractionDetectedEventArgs,
+                    ISpatialInteractionDetectedEventArgs2,
+                }
+                #[Windows::Foundation::Metadata::Static(ISpatialInteractionManagerStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Static(ISpatialInteractionManagerStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialInteractionManager {
+                    #[default]
+                    ISpatialInteractionManager,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum SpatialInteractionPressKind {
+                    None = 0,
+                    Select = 1,
+                    Menu = 2,
+                    Grasp = 3,
+                    Touchpad = 4,
+                    Thumbstick = 5,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialInteractionSource {
+                    #[default]
+                    ISpatialInteractionSource,
+                    ISpatialInteractionSource2,
+                    ISpatialInteractionSource3,
+                    ISpatialInteractionSource4,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialInteractionSourceEventArgs {
+                    #[default]
+                    ISpatialInteractionSourceEventArgs,
+                    ISpatialInteractionSourceEventArgs2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum SpatialInteractionSourceHandedness {
+                    Unspecified = 0,
+                    Left = 1,
+                    Right = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                enum SpatialInteractionSourceKind {
+                    Other = 0,
+                    Hand = 1,
+                    Voice = 2,
+                    Controller = 3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialInteractionSourceLocation {
+                    #[default]
+                    ISpatialInteractionSourceLocation,
+                    ISpatialInteractionSourceLocation2,
+                    ISpatialInteractionSourceLocation3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum SpatialInteractionSourcePositionAccuracy {
+                    High = 0,
+                    Approximate = 1,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialInteractionSourceProperties {
+                    #[default]
+                    ISpatialInteractionSourceProperties,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialInteractionSourceState {
+                    #[default]
+                    ISpatialInteractionSourceState,
+                    ISpatialInteractionSourceState2,
+                    ISpatialInteractionSourceState3,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialManipulationCanceledEventArgs {
+                    #[default]
+                    ISpatialManipulationCanceledEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialManipulationCompletedEventArgs {
+                    #[default]
+                    ISpatialManipulationCompletedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialManipulationDelta {
+                    #[default]
+                    ISpatialManipulationDelta,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialManipulationStartedEventArgs {
+                    #[default]
+                    ISpatialManipulationStartedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialManipulationUpdatedEventArgs {
+                    #[default]
+                    ISpatialManipulationUpdatedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                class SpatialNavigationCanceledEventArgs {
+                    #[default]
+                    ISpatialNavigationCanceledEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialNavigationCompletedEventArgs {
+                    #[default]
+                    ISpatialNavigationCompletedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialNavigationStartedEventArgs {
+                    #[default]
+                    ISpatialNavigationStartedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialNavigationUpdatedEventArgs {
+                    #[default]
+                    ISpatialNavigationUpdatedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class SpatialPointerInteractionSourcePose {
+                    #[default]
+                    ISpatialPointerInteractionSourcePose,
+                    ISpatialPointerInteractionSourcePose2,
+                }
+                #[Windows::Foundation::Metadata::Static(ISpatialPointerPoseStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialPointerPose {
+                    #[default]
+                    ISpatialPointerPose,
+                    ISpatialPointerPose2,
+                    ISpatialPointerPose3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialRecognitionEndedEventArgs {
+                    #[default]
+                    ISpatialRecognitionEndedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SpatialRecognitionStartedEventArgs {
+                    #[default]
+                    ISpatialRecognitionStartedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpatialTappedEventArgs {
+                    #[default]
+                    ISpatialTappedEventArgs,
+                }
+            }
+        }
+    }
+}

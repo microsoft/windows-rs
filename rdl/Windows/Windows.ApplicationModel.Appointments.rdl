@@ -1,0 +1,915 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod Appointments {
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class Appointment {
+                #[default]
+                IAppointment,
+                IAppointment2,
+                IAppointment3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentBusyStatus {
+                Busy = 0,
+                Tentative = 1,
+                Free = 2,
+                OutOfOffice = 3,
+                WorkingElsewhere = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppointmentCalendar {
+                #[default]
+                IAppointmentCalendar,
+                IAppointmentCalendar2,
+                IAppointmentCalendar3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentCalendarOtherAppReadAccess {
+                SystemOnly = 0,
+                Limited = 1,
+                Full = 2,
+                None = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentCalendarOtherAppWriteAccess {
+                None = 0,
+                SystemOnly = 1,
+                Limited = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppointmentCalendarSyncManager {
+                #[default]
+                IAppointmentCalendarSyncManager,
+                IAppointmentCalendarSyncManager2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentCalendarSyncStatus {
+                Idle = 0,
+                Syncing = 1,
+                UpToDate = 2,
+                AuthenticationError = 3,
+                PolicyError = 4,
+                UnknownError = 5,
+                ManualAccountRemovalRequired = 6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppointmentConflictResult {
+                #[default]
+                IAppointmentConflictResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentConflictType {
+                None = 0,
+                Adjacent = 1,
+                Overlap = 2,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentDaysOfWeek {
+                None = 0,
+                Sunday = 1,
+                Monday = 2,
+                Tuesday = 4,
+                Wednesday = 8,
+                Thursday = 16,
+                Friday = 32,
+                Saturday = 64,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentDetailsKind {
+                PlainText = 0,
+                Html = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppointmentException {
+                #[default]
+                IAppointmentException,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppointmentInvitee {
+                #[default]
+                IAppointmentInvitee,
+                IAppointmentParticipant,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppointmentManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAppointmentManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAppointmentManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppointmentManager {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class AppointmentManagerForUser {
+                #[default]
+                IAppointmentManagerForUser,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class AppointmentOrganizer {
+                #[default]
+                IAppointmentParticipant,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentParticipantResponse {
+                None = 0,
+                Tentative = 1,
+                Accepted = 2,
+                Declined = 3,
+                Unknown = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentParticipantRole {
+                RequiredAttendee = 0,
+                OptionalAttendee = 1,
+                Resource = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppointmentPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAppointmentPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppointmentProperties {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class AppointmentRecurrence {
+                #[default]
+                IAppointmentRecurrence,
+                IAppointmentRecurrence2,
+                IAppointmentRecurrence3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentRecurrenceUnit {
+                Daily = 0,
+                Weekly = 1,
+                Monthly = 2,
+                MonthlyOnDay = 3,
+                Yearly = 4,
+                YearlyOnDay = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentSensitivity {
+                Public = 0,
+                Private = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppointmentStore {
+                #[default]
+                IAppointmentStore,
+                IAppointmentStore2,
+                IAppointmentStore3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentStoreAccessType {
+                AppCalendarsReadWrite = 0,
+                AllCalendarsReadOnly = 1,
+                AllCalendarsReadWrite = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppointmentStoreChange {
+                #[default]
+                IAppointmentStoreChange,
+                IAppointmentStoreChange2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppointmentStoreChangeReader {
+                #[default]
+                IAppointmentStoreChangeReader,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppointmentStoreChangeTracker {
+                #[default]
+                IAppointmentStoreChangeTracker,
+                IAppointmentStoreChangeTracker2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentStoreChangeType {
+                AppointmentCreated = 0,
+                AppointmentModified = 1,
+                AppointmentDeleted = 2,
+                ChangeTrackingLost = 3,
+                CalendarCreated = 4,
+                CalendarModified = 5,
+                CalendarDeleted = 6,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppointmentStoreChangedDeferral {
+                #[default]
+                IAppointmentStoreChangedDeferral,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppointmentStoreChangedEventArgs {
+                #[default]
+                IAppointmentStoreChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppointmentStoreNotificationTriggerDetails {
+                #[default]
+                IAppointmentStoreNotificationTriggerDetails,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentSummaryCardView {
+                System = 0,
+                App = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppointmentWeekOfMonth {
+                First = 0,
+                Second = 1,
+                Third = 2,
+                Fourth = 3,
+                Last = 4,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum FindAppointmentCalendarsOptions {
+                None = 0,
+                IncludeHidden = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class FindAppointmentsOptions {
+                #[default]
+                IFindAppointmentsOptions,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Appointment)]
+            interface IAppointment {
+                #[special]
+                fn get_StartTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn put_StartTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn get_Duration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn put_Duration(&self, value: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_Location(&self) -> String;
+                #[special]
+                fn put_Location(&self, value: String);
+                #[special]
+                fn get_Subject(&self) -> String;
+                #[special]
+                fn put_Subject(&self, value: String);
+                #[special]
+                fn get_Details(&self) -> String;
+                #[special]
+                fn put_Details(&self, value: String);
+                #[special]
+                fn get_Reminder(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_Reminder(&self, value: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_Organizer(&self) -> AppointmentOrganizer;
+                #[special]
+                fn put_Organizer(&self, value: AppointmentOrganizer);
+                #[special]
+                fn get_Invitees(&self) -> super::super::Foundation::Collections::IVector<AppointmentInvitee>;
+                #[special]
+                fn get_Recurrence(&self) -> AppointmentRecurrence;
+                #[special]
+                fn put_Recurrence(&self, value: AppointmentRecurrence);
+                #[special]
+                fn get_BusyStatus(&self) -> AppointmentBusyStatus;
+                #[special]
+                fn put_BusyStatus(&self, value: AppointmentBusyStatus);
+                #[special]
+                fn get_AllDay(&self) -> bool;
+                #[special]
+                fn put_AllDay(&self, value: bool);
+                #[special]
+                fn get_Sensitivity(&self) -> AppointmentSensitivity;
+                #[special]
+                fn put_Sensitivity(&self, value: AppointmentSensitivity);
+                #[special]
+                fn get_Uri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn put_Uri(&self, value: super::super::Foundation::Uri);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Appointment)]
+            interface IAppointment2: IAppointment {
+                #[special]
+                fn get_LocalId(&self) -> String;
+                #[special]
+                fn get_CalendarId(&self) -> String;
+                #[special]
+                fn get_RoamingId(&self) -> String;
+                #[special]
+                fn put_RoamingId(&self, value: String);
+                #[special]
+                fn get_OriginalStartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn get_IsResponseRequested(&self) -> bool;
+                #[special]
+                fn put_IsResponseRequested(&self, value: bool);
+                #[special]
+                fn get_AllowNewTimeProposal(&self) -> bool;
+                #[special]
+                fn put_AllowNewTimeProposal(&self, value: bool);
+                #[special]
+                fn get_OnlineMeetingLink(&self) -> String;
+                #[special]
+                fn put_OnlineMeetingLink(&self, value: String);
+                #[special]
+                fn get_ReplyTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_ReplyTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_UserResponse(&self) -> AppointmentParticipantResponse;
+                #[special]
+                fn put_UserResponse(&self, value: AppointmentParticipantResponse);
+                #[special]
+                fn get_HasInvitees(&self) -> bool;
+                #[special]
+                fn get_IsCanceledMeeting(&self) -> bool;
+                #[special]
+                fn put_IsCanceledMeeting(&self, value: bool);
+                #[special]
+                fn get_IsOrganizedByUser(&self) -> bool;
+                #[special]
+                fn put_IsOrganizedByUser(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(Appointment)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointment3: IAppointment2 + IAppointment {
+                #[special]
+                fn get_ChangeNumber(&self) -> u64;
+                #[special]
+                fn get_RemoteChangeNumber(&self) -> u64;
+                #[special]
+                fn put_RemoteChangeNumber(&self, value: u64);
+                #[special]
+                fn get_DetailsKind(&self) -> AppointmentDetailsKind;
+                #[special]
+                fn put_DetailsKind(&self, value: AppointmentDetailsKind);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendar)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentCalendar {
+                #[special]
+                fn get_DisplayColor(&self) -> super::super::UI::Color;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_LocalId(&self) -> String;
+                #[special]
+                fn get_IsHidden(&self) -> bool;
+                #[special]
+                fn get_OtherAppReadAccess(&self) -> AppointmentCalendarOtherAppReadAccess;
+                #[special]
+                fn put_OtherAppReadAccess(&self, value: AppointmentCalendarOtherAppReadAccess);
+                #[special]
+                fn get_OtherAppWriteAccess(&self) -> AppointmentCalendarOtherAppWriteAccess;
+                #[special]
+                fn put_OtherAppWriteAccess(&self, value: AppointmentCalendarOtherAppWriteAccess);
+                #[special]
+                fn get_SourceDisplayName(&self) -> String;
+                #[special]
+                fn get_SummaryCardView(&self) -> AppointmentSummaryCardView;
+                #[special]
+                fn put_SummaryCardView(&self, value: AppointmentSummaryCardView);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsync")]
+                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsyncWithOptions")]
+                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindExceptionsFromMasterAsync(&self, masterLocalId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentException>>;
+                #[Windows::Foundation::Metadata::Overload("FindAllInstancesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllInstancesAsync(&self, masterLocalId: String, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::Overload("FindAllInstancesAsyncWithOptions")]
+                fn FindAllInstancesAsync(&self, masterLocalId: String, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, pOptions: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppointmentAsync(&self, localId: String) -> super::super::Foundation::IAsyncOperation<Appointment>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppointmentInstanceAsync(&self, localId: String, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<Appointment>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindUnexpandedAppointmentsAsync")]
+                fn FindUnexpandedAppointmentsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::Overload("FindUnexpandedAppointmentsAsyncWithOptions")]
+                fn FindUnexpandedAppointmentsAsync(&self, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAppointmentAsync(&self, localId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAppointmentInstanceAsync(&self, localId: String, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn SaveAppointmentAsync(&self, pAppointment: Appointment) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendar)]
+            interface IAppointmentCalendar2: IAppointmentCalendar {
+                #[special]
+                fn get_SyncManager(&self) -> AppointmentCalendarSyncManager;
+                #[special]
+                fn get_RemoteId(&self) -> String;
+                #[special]
+                fn put_RemoteId(&self, value: String);
+                #[special]
+                fn put_DisplayColor(&self, value: super::super::UI::Color);
+                #[special]
+                fn put_IsHidden(&self, value: bool);
+                #[special]
+                fn get_UserDataAccountId(&self) -> String;
+                #[special]
+                fn get_CanCreateOrUpdateAppointments(&self) -> bool;
+                #[special]
+                fn put_CanCreateOrUpdateAppointments(&self, value: bool);
+                #[special]
+                fn get_CanCancelMeetings(&self) -> bool;
+                #[special]
+                fn put_CanCancelMeetings(&self, value: bool);
+                #[special]
+                fn get_CanForwardMeetings(&self) -> bool;
+                #[special]
+                fn put_CanForwardMeetings(&self, value: bool);
+                #[special]
+                fn get_CanProposeNewTimeForMeetings(&self) -> bool;
+                #[special]
+                fn put_CanProposeNewTimeForMeetings(&self, value: bool);
+                #[special]
+                fn get_CanUpdateMeetingResponses(&self) -> bool;
+                #[special]
+                fn put_CanUpdateMeetingResponses(&self, value: bool);
+                #[special]
+                fn get_CanNotifyInvitees(&self) -> bool;
+                #[special]
+                fn put_CanNotifyInvitees(&self, value: bool);
+                #[special]
+                fn get_MustNofityInvitees(&self) -> bool;
+                #[special]
+                fn put_MustNofityInvitees(&self, value: bool);
+                fn TryCreateOrUpdateAppointmentAsync(&self, appointment: Appointment, notifyInvitees: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryCancelMeetingAsync(&self, meeting: Appointment, subject: String, comment: String, notifyInvitees: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryForwardMeetingAsync(&self, meeting: Appointment, invitees: super::super::Foundation::Collections::IIterable<AppointmentInvitee>, subject: String, forwardHeader: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryProposeNewTimeForMeetingAsync(&self, meeting: Appointment, newStartTime: super::super::Foundation::DateTime, newDuration: super::super::Foundation::TimeSpan, subject: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryUpdateMeetingResponseAsync(&self, meeting: Appointment, response: AppointmentParticipantResponse, subject: String, comment: String, sendUpdate: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendar)]
+            interface IAppointmentCalendar3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterSyncManagerAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarSyncManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentCalendarSyncManager {
+                #[special]
+                fn get_Status(&self) -> AppointmentCalendarSyncStatus;
+                #[special]
+                fn get_LastSuccessfulSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_LastAttemptedSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SyncAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn add_SyncStatusChanged(&self, handler: super::super::Foundation::TypedEventHandler<AppointmentCalendarSyncManager, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_SyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarSyncManager)]
+            interface IAppointmentCalendarSyncManager2 {
+                #[special]
+                fn put_Status(&self, value: AppointmentCalendarSyncStatus);
+                #[special]
+                fn put_LastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn put_LastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentConflictResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentConflictResult {
+                #[special]
+                fn get_Type(&self) -> AppointmentConflictType;
+                #[special]
+                fn get_Date(&self) -> super::super::Foundation::DateTime;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentException)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentException {
+                #[special]
+                fn get_Appointment(&self) -> Appointment;
+                #[special]
+                fn get_ExceptionProperties(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+                #[special]
+                fn get_IsDeleted(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentInvitee)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentInvitee: IAppointmentParticipant {
+                #[special]
+                fn get_Role(&self) -> AppointmentParticipantRole;
+                #[special]
+                fn put_Role(&self, value: AppointmentParticipantRole);
+                #[special]
+                fn get_Response(&self) -> AppointmentParticipantResponse;
+                #[special]
+                fn put_Response(&self, value: AppointmentParticipantResponse);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManagerForUser)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppointmentManagerForUser {
+                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentWithPlacementAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowTimeFrameAsync(&self, timeToShow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                fn ShowAppointmentDetailsAsync(&self, appointmentId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAppointmentDetailsAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> super::super::Foundation::IAsyncOperation<AppointmentStore>;
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAddAppointmentWithPlacementAsync")]
+                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAsync")]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowReplaceAppointmentAsync(&self, appointmentId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAsync")]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                fn ShowRemoveAppointmentAsync(&self, appointmentId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowTimeFrameAsync(&self, timeToShow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentManagerStatics2 {
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAppointmentDetailsAsync(&self, appointmentId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                fn ShowAppointmentDetailsAsync(&self, appointmentId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> super::super::Foundation::IAsyncOperation<AppointmentStore>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppointmentManagerStatics3 {
+                fn GetForUser(&self, user: super::super::System::User) -> AppointmentManagerForUser;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentParticipant {
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_Address(&self) -> String;
+                #[special]
+                fn put_Address(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentProperties)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentPropertiesStatics {
+                #[special]
+                fn get_Subject(&self) -> String;
+                #[special]
+                fn get_Location(&self) -> String;
+                #[special]
+                fn get_StartTime(&self) -> String;
+                #[special]
+                fn get_Duration(&self) -> String;
+                #[special]
+                fn get_Reminder(&self) -> String;
+                #[special]
+                fn get_BusyStatus(&self) -> String;
+                #[special]
+                fn get_Sensitivity(&self) -> String;
+                #[special]
+                fn get_OriginalStartTime(&self) -> String;
+                #[special]
+                fn get_IsResponseRequested(&self) -> String;
+                #[special]
+                fn get_AllowNewTimeProposal(&self) -> String;
+                #[special]
+                fn get_AllDay(&self) -> String;
+                #[special]
+                fn get_Details(&self) -> String;
+                #[special]
+                fn get_OnlineMeetingLink(&self) -> String;
+                #[special]
+                fn get_ReplyTime(&self) -> String;
+                #[special]
+                fn get_Organizer(&self) -> String;
+                #[special]
+                fn get_UserResponse(&self) -> String;
+                #[special]
+                fn get_HasInvitees(&self) -> String;
+                #[special]
+                fn get_IsCanceledMeeting(&self) -> String;
+                #[special]
+                fn get_IsOrganizedByUser(&self) -> String;
+                #[special]
+                fn get_Recurrence(&self) -> String;
+                #[special]
+                fn get_Uri(&self) -> String;
+                #[special]
+                fn get_Invitees(&self) -> String;
+                #[special]
+                fn get_DefaultProperties(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentProperties)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentPropertiesStatics2: IAppointmentPropertiesStatics {
+                #[special]
+                fn get_ChangeNumber(&self) -> String;
+                #[special]
+                fn get_RemoteChangeNumber(&self) -> String;
+                #[special]
+                fn get_DetailsKind(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentRecurrence)]
+            interface IAppointmentRecurrence {
+                #[special]
+                fn get_Unit(&self) -> AppointmentRecurrenceUnit;
+                #[special]
+                fn put_Unit(&self, value: AppointmentRecurrenceUnit);
+                #[special]
+                fn get_Occurrences(&self) -> super::super::Foundation::IReference<u32>;
+                #[special]
+                fn put_Occurrences(&self, value: super::super::Foundation::IReference<u32>);
+                #[special]
+                fn get_Until(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_Until(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_Interval(&self) -> u32;
+                #[special]
+                fn put_Interval(&self, value: u32);
+                #[special]
+                fn get_DaysOfWeek(&self) -> AppointmentDaysOfWeek;
+                #[special]
+                fn put_DaysOfWeek(&self, value: AppointmentDaysOfWeek);
+                #[special]
+                fn get_WeekOfMonth(&self) -> AppointmentWeekOfMonth;
+                #[special]
+                fn put_WeekOfMonth(&self, value: AppointmentWeekOfMonth);
+                #[special]
+                fn get_Month(&self) -> u32;
+                #[special]
+                fn put_Month(&self, value: u32);
+                #[special]
+                fn get_Day(&self) -> u32;
+                #[special]
+                fn put_Day(&self, value: u32);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentRecurrence)]
+            interface IAppointmentRecurrence2: IAppointmentRecurrence {
+                #[special]
+                fn get_RecurrenceType(&self) -> RecurrenceType;
+                #[special]
+                fn get_TimeZone(&self) -> String;
+                #[special]
+                fn put_TimeZone(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentRecurrence)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentRecurrence3: IAppointmentRecurrence2 + IAppointmentRecurrence {
+                #[special]
+                fn get_CalendarIdentifier(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStore)]
+            interface IAppointmentStore {
+                #[special]
+                fn get_ChangeTracker(&self) -> AppointmentStoreChangeTracker;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAppointmentCalendarAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<AppointmentCalendar>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppointmentCalendarAsync(&self, calendarId: String) -> super::super::Foundation::IAsyncOperation<AppointmentCalendar>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppointmentAsync(&self, localId: String) -> super::super::Foundation::IAsyncOperation<Appointment>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppointmentInstanceAsync(&self, localId: String, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<Appointment>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentCalendarsAsync")]
+                fn FindAppointmentCalendarsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>;
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentCalendarsAsyncWithOptions")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAppointmentCalendarsAsync(&self, options: FindAppointmentCalendarsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentCalendar>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsync")]
+                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::Overload("FindAppointmentsAsyncWithOptions")]
+                fn FindAppointmentsAsync(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan, options: FindAppointmentsOptions) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Appointment>>;
+                #[Windows::Foundation::Metadata::Overload("FindConflictAsync")]
+                fn FindConflictAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<AppointmentConflictResult>;
+                #[Windows::Foundation::Metadata::Overload("FindConflictAsyncWithInstanceStart")]
+                fn FindConflictAsync(&self, appointment: Appointment, instanceStartTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<AppointmentConflictResult>;
+                fn MoveAppointmentAsync(&self, appointment: Appointment, destinationCalendar: AppointmentCalendar) -> super::super::Foundation::IAsyncAction;
+                fn ShowAddAppointmentAsync(&self, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentAsync")]
+                fn ShowReplaceAppointmentAsync(&self, localId: String, appointment: Appointment, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::Overload("ShowReplaceAppointmentWithPlacementAndDateAsync")]
+                fn ShowReplaceAppointmentAsync(&self, localId: String, appointment: Appointment, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentAsync")]
+                fn ShowRemoveAppointmentAsync(&self, localId: String, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowRemoveAppointmentWithPlacementAndDateAsync")]
+                fn ShowRemoveAppointmentAsync(&self, localId: String, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsAsync")]
+                fn ShowAppointmentDetailsAsync(&self, localId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("ShowAppointmentDetailsWithDateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowAppointmentDetailsAsync(&self, localId: String, instanceStartDate: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncAction;
+                fn ShowEditNewAppointmentAsync(&self, appointment: Appointment) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindLocalIdsFromRoamingIdAsync(&self, roamingId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStore)]
+            interface IAppointmentStore2: IAppointmentStore {
+                #[special]
+                fn add_StoreChanged(&self, pHandler: super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_StoreChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[Windows::Foundation::Metadata::Overload("CreateAppointmentCalendarInAccountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAppointmentCalendarAsync(&self, name: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<AppointmentCalendar>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStore)]
+            interface IAppointmentStore3 {
+                fn GetChangeTracker(&self, identity: String) -> AppointmentStoreChangeTracker;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChange)]
+            interface IAppointmentStoreChange {
+                #[special]
+                fn get_Appointment(&self) -> Appointment;
+                #[special]
+                fn get_ChangeType(&self) -> AppointmentStoreChangeType;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentStoreChange2: IAppointmentStoreChange {
+                #[special]
+                fn get_AppointmentCalendar(&self) -> AppointmentCalendar;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChangeReader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentStoreChangeReader {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppointmentStoreChange>>;
+                fn AcceptChanges(&self);
+                fn AcceptChangesThrough(&self, lastChangeToAccept: AppointmentStoreChange);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChangeTracker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentStoreChangeTracker {
+                fn GetChangeReader(&self) -> AppointmentStoreChangeReader;
+                fn Enable(&self);
+                fn Reset(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChangeTracker)]
+            interface IAppointmentStoreChangeTracker2 {
+                #[special]
+                fn get_IsTracking(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChangedDeferral)]
+            interface IAppointmentStoreChangedDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppointmentStoreChangedEventArgs {
+                fn GetDeferral(&self) -> AppointmentStoreChangedDeferral;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentStoreNotificationTriggerDetails)]
+            interface IAppointmentStoreNotificationTriggerDetails {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(FindAppointmentsOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFindAppointmentsOptions {
+                #[special]
+                fn get_CalendarIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_FetchProperties(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_IncludeHidden(&self) -> bool;
+                #[special]
+                fn put_IncludeHidden(&self, value: bool);
+                #[special]
+                fn get_MaxCount(&self) -> u32;
+                #[special]
+                fn put_MaxCount(&self, value: u32);
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RecurrenceType {
+                Master = 0,
+                Instance = 1,
+                ExceptionInstance = 2,
+            }
+        }
+    }
+}

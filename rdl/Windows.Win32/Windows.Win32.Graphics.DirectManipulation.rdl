@@ -1,0 +1,403 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            #[win32]
+            mod DirectManipulation {
+                const CLSID_AutoScrollBehavior: GUID = 0x26126a51_3c70_4c9a_aec2_948849eeb093;
+                const CLSID_DeferContactService: GUID = 0xd7b67cf4_84bb_434e_86ae_6592bbc9abd9;
+                const CLSID_DragDropConfigurationBehavior: GUID = 0x09b01b3e_ba6c_454d_82e8_95e352329f23;
+                const CLSID_HorizontalIndicatorContent: GUID = 0xe7d18cf5_3ec7_44d5_a76b_3770f3cf903d;
+                const CLSID_VerticalIndicatorContent: GUID = 0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4;
+                const CLSID_VirtualViewportContent: GUID = 0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852;
+                #[Windows::Win32::Foundation::Metadata::Guid(2044634663, 41098, 17324, 142, 245, 105, 0, 185, 41, 145, 38)]
+                struct DCompManipulationCompositor {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_autoscroll_configuration")]
+                enum DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
+                    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP = 0,
+                    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_FORWARD = 1,
+                    DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_REVERSE = 2,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_configuration")]
+                enum DIRECTMANIPULATION_CONFIGURATION {
+                    DIRECTMANIPULATION_CONFIGURATION_NONE = 0,
+                    DIRECTMANIPULATION_CONFIGURATION_INTERACTION = 1,
+                    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_X = 2,
+                    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_Y = 4,
+                    DIRECTMANIPULATION_CONFIGURATION_SCALING = 16,
+                    DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_INERTIA = 32,
+                    DIRECTMANIPULATION_CONFIGURATION_SCALING_INERTIA = 128,
+                    DIRECTMANIPULATION_CONFIGURATION_RAILS_X = 256,
+                    DIRECTMANIPULATION_CONFIGURATION_RAILS_Y = 512,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_drag_drop_configuration")]
+                enum DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
+                    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_VERTICAL = 1,
+                    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HORIZONTAL = 2,
+                    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_ONLY = 16,
+                    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_DRAG = 32,
+                    DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HOLD_DRAG = 64,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_drag_drop_status")]
+                enum DIRECTMANIPULATION_DRAG_DROP_STATUS {
+                    DIRECTMANIPULATION_DRAG_DROP_READY = 0,
+                    DIRECTMANIPULATION_DRAG_DROP_PRESELECT = 1,
+                    DIRECTMANIPULATION_DRAG_DROP_SELECTING = 2,
+                    DIRECTMANIPULATION_DRAG_DROP_DRAGGING = 3,
+                    DIRECTMANIPULATION_DRAG_DROP_CANCELLED = 4,
+                    DIRECTMANIPULATION_DRAG_DROP_COMMITTED = 5,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_gesture_configuration")]
+                enum DIRECTMANIPULATION_GESTURE_CONFIGURATION {
+                    DIRECTMANIPULATION_GESTURE_NONE = 0,
+                    DIRECTMANIPULATION_GESTURE_DEFAULT = 0,
+                    DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_VERTICAL = 8,
+                    DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_HORIZONTAL = 16,
+                    DIRECTMANIPULATION_GESTURE_PINCH_ZOOM = 32,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_hittest_type")]
+                enum DIRECTMANIPULATION_HITTEST_TYPE {
+                    DIRECTMANIPULATION_HITTEST_TYPE_ASYNCHRONOUS = 0,
+                    DIRECTMANIPULATION_HITTEST_TYPE_SYNCHRONOUS = 1,
+                    DIRECTMANIPULATION_HITTEST_TYPE_AUTO_SYNCHRONOUS = 2,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_horizontalalignment")]
+                enum DIRECTMANIPULATION_HORIZONTALALIGNMENT {
+                    DIRECTMANIPULATION_HORIZONTALALIGNMENT_NONE = 0,
+                    DIRECTMANIPULATION_HORIZONTALALIGNMENT_LEFT = 1,
+                    DIRECTMANIPULATION_HORIZONTALALIGNMENT_CENTER = 2,
+                    DIRECTMANIPULATION_HORIZONTALALIGNMENT_RIGHT = 4,
+                    DIRECTMANIPULATION_HORIZONTALALIGNMENT_UNLOCKCENTER = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_input_mode")]
+                enum DIRECTMANIPULATION_INPUT_MODE {
+                    DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC = 0,
+                    DIRECTMANIPULATION_INPUT_MODE_MANUAL = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_interaction_type")]
+                enum DIRECTMANIPULATION_INTERACTION_TYPE {
+                    DIRECTMANIPULATION_INTERACTION_BEGIN = 0,
+                    DIRECTMANIPULATION_INTERACTION_TYPE_MANIPULATION = 1,
+                    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_TAP = 2,
+                    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_HOLD = 3,
+                    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_CROSS_SLIDE = 4,
+                    DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_PINCH_ZOOM = 5,
+                    DIRECTMANIPULATION_INTERACTION_END = 100,
+                }
+                const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_motion_types")]
+                enum DIRECTMANIPULATION_MOTION_TYPES {
+                    DIRECTMANIPULATION_MOTION_NONE = 0,
+                    DIRECTMANIPULATION_MOTION_TRANSLATEX = 1,
+                    DIRECTMANIPULATION_MOTION_TRANSLATEY = 2,
+                    DIRECTMANIPULATION_MOTION_ZOOM = 4,
+                    DIRECTMANIPULATION_MOTION_CENTERX = 16,
+                    DIRECTMANIPULATION_MOTION_CENTERY = 32,
+                    DIRECTMANIPULATION_MOTION_ALL = 55,
+                }
+                const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_snappoint_coordinate")]
+                enum DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
+                    DIRECTMANIPULATION_COORDINATE_BOUNDARY = 0,
+                    DIRECTMANIPULATION_COORDINATE_ORIGIN = 1,
+                    DIRECTMANIPULATION_COORDINATE_MIRRORED = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_snappoint_type")]
+                enum DIRECTMANIPULATION_SNAPPOINT_TYPE {
+                    DIRECTMANIPULATION_SNAPPOINT_MANDATORY = 0,
+                    DIRECTMANIPULATION_SNAPPOINT_OPTIONAL = 1,
+                    DIRECTMANIPULATION_SNAPPOINT_MANDATORY_SINGLE = 2,
+                    DIRECTMANIPULATION_SNAPPOINT_OPTIONAL_SINGLE = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_status")]
+                enum DIRECTMANIPULATION_STATUS {
+                    DIRECTMANIPULATION_BUILDING = 0,
+                    DIRECTMANIPULATION_ENABLED = 1,
+                    DIRECTMANIPULATION_DISABLED = 2,
+                    DIRECTMANIPULATION_RUNNING = 3,
+                    DIRECTMANIPULATION_INERTIA = 4,
+                    DIRECTMANIPULATION_READY = 5,
+                    DIRECTMANIPULATION_SUSPENDED = 6,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_verticalalignment")]
+                enum DIRECTMANIPULATION_VERTICALALIGNMENT {
+                    DIRECTMANIPULATION_VERTICALALIGNMENT_NONE = 0,
+                    DIRECTMANIPULATION_VERTICALALIGNMENT_TOP = 1,
+                    DIRECTMANIPULATION_VERTICALALIGNMENT_CENTER = 2,
+                    DIRECTMANIPULATION_VERTICALALIGNMENT_BOTTOM = 4,
+                    DIRECTMANIPULATION_VERTICALALIGNMENT_UNLOCKCENTER = 8,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/ne-directmanipulation-directmanipulation_viewport_options")]
+                enum DIRECTMANIPULATION_VIEWPORT_OPTIONS {
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_DEFAULT = 0,
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_AUTODISABLE = 1,
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE = 2,
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT = 4,
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST = 8,
+                    DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING = 16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(1424101814, 13904, 20341, 131, 52, 250, 53, 149, 152, 225, 197)]
+                struct DirectManipulationManager {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3399493217, 54686, 16839, 131, 147, 59, 163, 186, 203, 107, 87)]
+                struct DirectManipulationPrimaryContent {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2574856838, 30668, 19287, 150, 219, 59, 53, 79, 111, 159, 181)]
+                struct DirectManipulationSharedManager {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2680274901, 6197, 17434, 179, 177, 182, 204, 116, 183, 39, 208)]
+                struct DirectManipulationUpdateManager {}
+                #[Windows::Win32::Foundation::Metadata::Guid(887230902, 13904, 20341, 131, 52, 250, 53, 149, 152, 225, 197)]
+                struct DirectManipulationViewport {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationautoscrollbehavior")]
+                interface IDirectManipulationAutoScrollBehavior: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationautoscrollbehavior-setconfiguration")]
+                    fn SetConfiguration(&self, motionTypes: DIRECTMANIPULATION_MOTION_TYPES, scrollMotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationcompositor")]
+                interface IDirectManipulationCompositor: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcompositor-addcontent")]
+                    fn AddContent(&self, content: IDirectManipulationContent, device: super::super::System::Com::IUnknown, parentVisual: super::super::System::Com::IUnknown, childVisual: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcompositor-removecontent")]
+                    fn RemoveContent(&self, content: IDirectManipulationContent) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcompositor-setupdatemanager")]
+                    fn SetUpdateManager(&self, updateManager: IDirectManipulationUpdateManager) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcompositor-flush")]
+                    fn Flush(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationcompositor2")]
+                interface IDirectManipulationCompositor2: IDirectManipulationCompositor {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcompositor2-addcontentwithcrossprocesschaining")]
+                    fn AddContentWithCrossProcessChaining(&self, content: IDirectManipulationPrimaryContent, device: super::super::System::Com::IUnknown, parentVisual: super::super::System::Com::IUnknown, childVisual: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationcontent")]
+                interface IDirectManipulationContent: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-getcontentrect")]
+                    fn GetContentRect(&self, contentSize: *mut super::super::Foundation::RECT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-setcontentrect")]
+                    fn SetContentRect(&self, #[Windows::Win32::Foundation::Metadata::Const] contentSize: *mut super::super::Foundation::RECT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-getviewport")]
+                    fn GetViewport(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-gettag")]
+                    fn GetTag(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void, id: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-settag")]
+                    fn SetTag(&self, object: super::super::System::Com::IUnknown, id: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-getoutputtransform")]
+                    fn GetOutputTransform(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-getcontenttransform")]
+                    fn GetContentTransform(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationcontent-synccontenttransform")]
+                    fn SyncContentTransform(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationdefercontactservice")]
+                interface IDirectManipulationDeferContactService: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdefercontactservice-defercontact")]
+                    fn DeferContact(&self, pointerId: u32, timeout: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdefercontactservice-cancelcontact")]
+                    fn CancelContact(&self, pointerId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdefercontactservice-canceldeferral")]
+                    fn CancelDeferral(&self, pointerId: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationdragdropbehavior")]
+                interface IDirectManipulationDragDropBehavior: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdragdropbehavior-setconfiguration")]
+                    fn SetConfiguration(&self, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdragdropbehavior-getstatus")]
+                    fn GetStatus(&self, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationdragdropeventhandler")]
+                interface IDirectManipulationDragDropEventHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationdragdropeventhandler-ondragdropstatuschange")]
+                    fn OnDragDropStatusChange(&self, viewport: IDirectManipulationViewport2, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationframeinfoprovider")]
+                interface IDirectManipulationFrameInfoProvider: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationframeinfoprovider-getnextframeinfo")]
+                    fn GetNextFrameInfo(&self, time: *mut u64, processTime: *mut u64, compositionTime: *mut u64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationinteractioneventhandler")]
+                interface IDirectManipulationInteractionEventHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationinteractioneventhandler-oninteraction")]
+                    fn OnInteraction(&self, viewport: IDirectManipulationViewport2, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationmanager")]
+                interface IDirectManipulationManager: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-activate")]
+                    fn Activate(&self, window: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-deactivate")]
+                    fn Deactivate(&self, window: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-registerhittesttarget")]
+                    fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hitTestWindow: super::super::Foundation::HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-processinput")]
+                    fn ProcessInput(&self, #[Windows::Win32::Foundation::Metadata::Const] message: *mut super::super::UI::WindowsAndMessaging::MSG, handled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-getupdatemanager")]
+                    fn GetUpdateManager(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-createviewport")]
+                    fn CreateViewport(&self, frameInfo: IDirectManipulationFrameInfoProvider, window: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager-createcontent")]
+                    fn CreateContent(&self, frameInfo: IDirectManipulationFrameInfoProvider, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationmanager2")]
+                interface IDirectManipulationManager2: IDirectManipulationManager {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager2-createbehavior")]
+                    fn CreateBehavior(&self, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationmanager3")]
+                interface IDirectManipulationManager3: IDirectManipulationManager2 {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationmanager3-getservice")]
+                    fn GetService(&self, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationprimarycontent")]
+                interface IDirectManipulationPrimaryContent: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setsnapinterval")]
+                    fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setsnappoints")]
+                    fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] points: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setsnaptype")]
+                    fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setsnapcoordinate")]
+                    fn SetSnapCoordinate(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, coordinate: DIRECTMANIPULATION_SNAPPOINT_COORDINATE, origin: f32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setzoomboundaries")]
+                    fn SetZoomBoundaries(&self, zoomMinimum: f32, zoomMaximum: f32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-sethorizontalalignment")]
+                    fn SetHorizontalAlignment(&self, alignment: DIRECTMANIPULATION_HORIZONTALALIGNMENT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-setverticalalignment")]
+                    fn SetVerticalAlignment(&self, alignment: DIRECTMANIPULATION_VERTICALALIGNMENT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-getinertiaendtransform")]
+                    fn GetInertiaEndTransform(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationprimarycontent-getcenterpoint")]
+                    fn GetCenterPoint(&self, centerX: *mut f32, centerY: *mut f32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationupdatehandler")]
+                interface IDirectManipulationUpdateHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationupdatehandler-update")]
+                    fn Update(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationupdatemanager")]
+                interface IDirectManipulationUpdateManager: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationupdatemanager-registerwaithandlecallback")]
+                    fn RegisterWaitHandleCallback(&self, handle: super::super::Foundation::HANDLE, eventHandler: IDirectManipulationUpdateHandler, cookie: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationupdatemanager-unregisterwaithandlecallback")]
+                    fn UnregisterWaitHandleCallback(&self, cookie: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationupdatemanager-update")]
+                    fn Update(&self, frameInfo: IDirectManipulationFrameInfoProvider) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationviewport")]
+                interface IDirectManipulationViewport: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-enable")]
+                    fn Enable(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-disable")]
+                    fn Disable(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setcontact")]
+                    fn SetContact(&self, pointerId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-releasecontact")]
+                    fn ReleaseContact(&self, pointerId: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-releaseallcontacts")]
+                    fn ReleaseAllContacts(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-getstatus")]
+                    fn GetStatus(&self, status: *mut DIRECTMANIPULATION_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-gettag")]
+                    fn GetTag(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void, id: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-settag")]
+                    fn SetTag(&self, object: super::super::System::Com::IUnknown, id: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-getviewportrect")]
+                    fn GetViewportRect(&self, viewport: *mut super::super::Foundation::RECT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setviewportrect")]
+                    fn SetViewportRect(&self, #[Windows::Win32::Foundation::Metadata::Const] viewport: *mut super::super::Foundation::RECT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-zoomtorect")]
+                    fn ZoomToRect(&self, #[Windows::Win32::Foundation::Metadata::Const] left: f32, #[Windows::Win32::Foundation::Metadata::Const] top: f32, #[Windows::Win32::Foundation::Metadata::Const] right: f32, #[Windows::Win32::Foundation::Metadata::Const] bottom: f32, animate: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setviewporttransform")]
+                    fn SetViewportTransform(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-syncdisplaytransform")]
+                    fn SyncDisplayTransform(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] matrix: *mut f32, pointCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-getprimarycontent")]
+                    fn GetPrimaryContent(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-addcontent")]
+                    fn AddContent(&self, content: IDirectManipulationContent) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-removecontent")]
+                    fn RemoveContent(&self, content: IDirectManipulationContent) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setviewportoptions")]
+                    fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-addconfiguration")]
+                    fn AddConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-removeconfiguration")]
+                    fn RemoveConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-activateconfiguration")]
+                    fn ActivateConfiguration(&self, configuration: DIRECTMANIPULATION_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setmanualgesture")]
+                    fn SetManualGesture(&self, configuration: DIRECTMANIPULATION_GESTURE_CONFIGURATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setchaining")]
+                    fn SetChaining(&self, enabledTypes: DIRECTMANIPULATION_MOTION_TYPES) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-addeventhandler")]
+                    fn AddEventHandler(&self, window: super::super::Foundation::HWND, eventHandler: IDirectManipulationViewportEventHandler, cookie: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-removeeventhandler")]
+                    fn RemoveEventHandler(&self, cookie: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setinputmode")]
+                    fn SetInputMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-setupdatemode")]
+                    fn SetUpdateMode(&self, mode: DIRECTMANIPULATION_INPUT_MODE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-stop")]
+                    fn Stop(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport-abandon")]
+                    fn Abandon(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationviewport2")]
+                interface IDirectManipulationViewport2: IDirectManipulationViewport {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport2-addbehavior")]
+                    fn AddBehavior(&self, behavior: super::super::System::Com::IUnknown, cookie: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport2-removebehavior")]
+                    fn RemoveBehavior(&self, cookie: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewport2-removeallbehaviors")]
+                    fn RemoveAllBehaviors(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nn-directmanipulation-idirectmanipulationviewporteventhandler")]
+                interface IDirectManipulationViewportEventHandler: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewporteventhandler-onviewportstatuschanged")]
+                    fn OnViewportStatusChanged(&self, viewport: IDirectManipulationViewport, current: DIRECTMANIPULATION_STATUS, previous: DIRECTMANIPULATION_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewporteventhandler-onviewportupdated")]
+                    fn OnViewportUpdated(&self, viewport: IDirectManipulationViewport) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/directmanipulation/nf-directmanipulation-idirectmanipulationviewporteventhandler-oncontentupdated")]
+                    fn OnContentUpdated(&self, viewport: IDirectManipulationViewport, content: IDirectManipulationContent) -> super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,327 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Environment {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-callenclave")]
+                #[library("vertdll.dll")]
+                extern fn CallEnclave(lpRoutine: isize, lpParameter: *mut void, fWaitForThread: super::super::Foundation::BOOL, lpReturnValue: *mut *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-createenclave")]
+                #[library("KERNEL32.dll")]
+                extern fn CreateEnclave(hProcess: super::super::Foundation::HANDLE, lpAddress: *mut void, dwSize: usize, dwInitialCommitment: usize, flEnclaveType: u32, lpEnclaveInformation: *mut void, dwInfoLength: u32, lpEnclaveError: *mut u32) -> *mut void;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/userenv/nf-userenv-createenvironmentblock")]
+                #[library("USERENV.dll")]
+                extern fn CreateEnvironmentBlock(lpEnvironment: *mut *mut void, hToken: super::super::Foundation::HANDLE, bInherit: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-deleteenclave")]
+                #[library("api-ms-win-core-enclave-l1-1-1.dll")]
+                extern fn DeleteEnclave(lpAddress: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/userenv/nf-userenv-destroyenvironmentblock")]
+                #[library("USERENV.dll")]
+                extern fn DestroyEnvironmentBlock(lpEnvironment: *mut void) -> super::super::Foundation::BOOL;
+                const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4;
+                const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2;
+                const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-enclave_identity")]
+                struct ENCLAVE_IDENTITY {
+                    OwnerId: [u8; 32],
+                    UniqueId: [u8; 32],
+                    AuthorId: [u8; 32],
+                    FamilyId: [u8; 16],
+                    ImageId: [u8; 16],
+                    EnclaveSvn: u32,
+                    SecureKernelSvn: u32,
+                    PlatformSvn: u32,
+                    Flags: u32,
+                    SigningLevel: u32,
+                    EnclaveType: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-enclave_information")]
+                struct ENCLAVE_INFORMATION {
+                    EnclaveType: u32,
+                    Reserved: u32,
+                    BaseAddress: *mut void,
+                    Size: usize,
+                    Identity: ENCLAVE_IDENTITY,
+                }
+                const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64;
+                const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2;
+                const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ne-ntenclv-enclave_sealing_identity_policy")]
+                enum ENCLAVE_SEALING_IDENTITY_POLICY {
+                    ENCLAVE_IDENTITY_POLICY_SEAL_INVALID = 0,
+                    ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE = 1,
+                    ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE = 2,
+                    ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE = 3,
+                    ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY = 4,
+                    ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR = 5,
+                }
+                const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1;
+                const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8;
+                const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2;
+                const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4;
+                const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1;
+                struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
+                    RequestSize: u32,
+                    Flags: u32,
+                    EnclaveSVN: u32,
+                    SystemKeyID: u32,
+                    CurrentSystemKeyID: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclavegetattestationreport")]
+                #[library("vertdll.dll")]
+                extern fn EnclaveGetAttestationReport(EnclaveData: *mut u8, Report: *mut void, BufferSize: u32, OutputSize: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclavegetenclaveinformation")]
+                #[library("vertdll.dll")]
+                extern fn EnclaveGetEnclaveInformation(InformationSize: u32, EnclaveInformation: *mut ENCLAVE_INFORMATION) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclavesealdata")]
+                #[library("vertdll.dll")]
+                extern fn EnclaveSealData(DataToEncrypt: *mut void, DataToEncryptSize: u32, IdentityPolicy: ENCLAVE_SEALING_IDENTITY_POLICY, RuntimePolicy: u32, ProtectedBlob: *mut void, BufferSize: u32, ProtectedBlobSize: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclaveunsealdata")]
+                #[library("vertdll.dll")]
+                extern fn EnclaveUnsealData(ProtectedBlob: *mut void, ProtectedBlobSize: u32, DecryptedData: *mut void, BufferSize: u32, DecryptedDataSize: *mut u32, SealingIdentity: *mut ENCLAVE_IDENTITY, UnsealingFlags: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winenclaveapi/nf-winenclaveapi-enclaveverifyattestationreport")]
+                #[library("vertdll.dll")]
+                extern fn EnclaveVerifyAttestationReport(EnclaveType: u32, Report: *mut void, ReportSize: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-expandenvironmentstringsa")]
+                #[library("KERNEL32.dll")]
+                extern fn ExpandEnvironmentStringsA(lpSrc: super::super::Foundation::PSTR, lpDst: super::super::Foundation::PSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/userenv/nf-userenv-expandenvironmentstringsforusera")]
+                #[library("USERENV.dll")]
+                extern fn ExpandEnvironmentStringsForUserA(hToken: super::super::Foundation::HANDLE, lpSrc: super::super::Foundation::PSTR, lpDest: super::super::Foundation::PSTR, dwSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/userenv/nf-userenv-expandenvironmentstringsforuserw")]
+                #[library("USERENV.dll")]
+                extern fn ExpandEnvironmentStringsForUserW(hToken: super::super::Foundation::HANDLE, lpSrc: super::super::Foundation::PWSTR, lpDest: super::super::Foundation::PWSTR, dwSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-expandenvironmentstringsw")]
+                #[library("KERNEL32.dll")]
+                extern fn ExpandEnvironmentStringsW(lpSrc: super::super::Foundation::PWSTR, lpDst: super::super::Foundation::PWSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-freeenvironmentstringsa")]
+                #[library("KERNEL32.dll")]
+                extern fn FreeEnvironmentStringsA(penv: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-freeenvironmentstringsw")]
+                #[library("KERNEL32.dll")]
+                extern fn FreeEnvironmentStringsW(penv: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getcommandlinea")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommandLineA() -> super::super::Foundation::PSTR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getcommandlinew")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCommandLineW() -> super::super::Foundation::PWSTR;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcurrentdirectory")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCurrentDirectoryA(nBufferLength: u32, lpBuffer: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getcurrentdirectory")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCurrentDirectoryW(nBufferLength: u32, lpBuffer: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getenvironmentstrings")]
+                #[library("KERNEL32.dll")]
+                extern fn GetEnvironmentStrings() -> super::super::Foundation::PSTR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getenvironmentstringsw")]
+                #[library("KERNEL32.dll")]
+                extern fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getenvironmentvariablea")]
+                #[library("KERNEL32.dll")]
+                extern fn GetEnvironmentVariableA(lpName: super::super::Foundation::PSTR, lpBuffer: super::super::Foundation::PSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-getenvironmentvariablew")]
+                #[library("KERNEL32.dll")]
+                extern fn GetEnvironmentVariableW(lpName: super::super::Foundation::PWSTR, lpBuffer: super::super::Foundation::PWSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-initializeenclave")]
+                #[library("KERNEL32.dll")]
+                extern fn InitializeEnclave(hProcess: super::super::Foundation::HANDLE, lpAddress: *mut void, lpEnclaveInformation: *mut void, dwInfoLength: u32, lpEnclaveError: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-isenclavetypesupported")]
+                #[library("KERNEL32.dll")]
+                extern fn IsEnclaveTypeSupported(flEnclaveType: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-loadenclavedata")]
+                #[library("KERNEL32.dll")]
+                extern fn LoadEnclaveData(hProcess: super::super::Foundation::HANDLE, lpAddress: *mut void, lpBuffer: *mut void, nSize: usize, flProtect: u32, lpPageInformation: *mut void, dwInfoLength: u32, lpNumberOfBytesWritten: *mut usize, lpEnclaveError: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-loadenclaveimagea")]
+                #[library("api-ms-win-core-enclave-l1-1-1.dll")]
+                extern fn LoadEnclaveImageA(lpEnclaveAddress: *mut void, lpImageName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-loadenclaveimagew")]
+                #[library("api-ms-win-core-enclave-l1-1-1.dll")]
+                extern fn LoadEnclaveImageW(lpEnclaveAddress: *mut void, lpImageName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-needcurrentdirectoryforexepatha")]
+                #[library("KERNEL32.dll")]
+                extern fn NeedCurrentDirectoryForExePathA(ExeName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-needcurrentdirectoryforexepathw")]
+                #[library("KERNEL32.dll")]
+                extern fn NeedCurrentDirectoryForExePathW(ExeName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcurrentdirectory")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCurrentDirectoryA(lpPathName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setcurrentdirectory")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCurrentDirectoryW(lpPathName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-setenvironmentstringsw")]
+                #[library("KERNEL32.dll")]
+                extern fn SetEnvironmentStringsW(NewEnvironment: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-setenvironmentvariablea")]
+                #[library("KERNEL32.dll")]
+                extern fn SetEnvironmentVariableA(lpName: super::super::Foundation::PSTR, lpValue: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-setenvironmentvariablew")]
+                #[library("KERNEL32.dll")]
+                extern fn SetEnvironmentVariableW(lpName: super::super::Foundation::PWSTR, lpValue: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.16299")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/enclaveapi/nf-enclaveapi-terminateenclave")]
+                #[library("vertdll.dll")]
+                extern fn TerminateEnclave(lpAddress: *mut void, fWait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(EnclaveAddress: *mut void, NumberOfBytes: usize, SourceAddress: *mut void, PageProtection: u32) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(EnclaveAddress: *mut void, NumberOfBytes: usize) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(KeyRequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, RequestedKeySize: u32, ReturnedKey: *mut u8) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(Buffer: *mut u8, NumberOfBytes: u32, Generation: *mut u64) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(EnclaveData: *mut u8, Report: *mut void, BufferSize: u32, OutputSize: *mut u32) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(EnclaveInfo: *mut ENCLAVE_INFORMATION) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(EnclaveAddress: *mut void, NumberOfytes: usize, PageProtection: u32) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(ReturnValue: usize);
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(ExceptionRecord: *mut VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X86)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(ExceptionRecord: *mut void) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(ThreadDescriptor: *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32;
+                extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(Report: *mut void, ReportSize: u32) -> i32;
+                struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+                    ExceptionCode: u32,
+                    NumberParameters: u32,
+                    ExceptionInformation: [usize; 3],
+                    ExceptionRAX: usize,
+                    ExceptionRCX: usize,
+                    ExceptionRIP: usize,
+                    ExceptionRFLAGS: usize,
+                    ExceptionRSP: usize,
+                }
+                struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+                    ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
+                    ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
+                    TerminateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
+                    InterruptThread: VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
+                    CommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
+                    DecommitPages: VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
+                    ProtectPages: VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
+                    CreateThread: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+                    GetEnclaveInformation: VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
+                    GenerateKey: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
+                    GenerateReport: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
+                    VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
+                    GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
+                }
+                struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+                    ThreadContext: [u32; 4],
+                    EntryPoint: u32,
+                    StackPointer: u32,
+                    ExceptionEntryPoint: u32,
+                    ExceptionStack: u32,
+                    ExceptionActive: u32,
+                }
+                struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+                    ThreadContext: [u64; 4],
+                    EntryPoint: u64,
+                    StackPointer: u64,
+                    ExceptionEntryPoint: u64,
+                    ExceptionStack: u64,
+                    ExceptionActive: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-vbs_enclave_report")]
+                struct VBS_ENCLAVE_REPORT {
+                    ReportSize: u32,
+                    ReportVersion: u32,
+                    EnclaveData: [u8; 64],
+                    EnclaveIdentity: ENCLAVE_IDENTITY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-vbs_enclave_report_module")]
+                struct VBS_ENCLAVE_REPORT_MODULE {
+                    Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
+                    UniqueId: [u8; 32],
+                    AuthorId: [u8; 32],
+                    FamilyId: [u8; 16],
+                    ImageId: [u8; 16],
+                    Svn: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    ModuleName: [u16; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-vbs_enclave_report_pkg_header")]
+                struct VBS_ENCLAVE_REPORT_PKG_HEADER {
+                    PackageSize: u32,
+                    Version: u32,
+                    SignatureScheme: u32,
+                    SignedStatementSize: u32,
+                    SignatureSize: u32,
+                    Reserved: u32,
+                }
+                const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1;
+                const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ntenclv/ns-ntenclv-vbs_enclave_report_vardata_header")]
+                struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
+                    DataType: u32,
+                    Size: u32,
+                }
+                const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1;
+                const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0;
+                const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1;
+            }
+        }
+    }
+}

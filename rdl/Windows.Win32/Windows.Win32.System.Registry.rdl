@@ -1,0 +1,1441 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Registry {
+                const AGP_FLAG_NO_1X_RATE: i32 = 1;
+                const AGP_FLAG_NO_2X_RATE: i32 = 2;
+                const AGP_FLAG_NO_4X_RATE: i32 = 4;
+                const AGP_FLAG_NO_8X_RATE: i32 = 8;
+                const AGP_FLAG_NO_FW_ENABLE: i32 = 512;
+                const AGP_FLAG_NO_SBA_ENABLE: i32 = 256;
+                const AGP_FLAG_REVERSE_INITIALIZATION: i32 = 128;
+                const AGP_FLAG_SPECIAL_RESERVE: i32 = 1015808;
+                const AGP_FLAG_SPECIAL_TARGET: i32 = 1048575;
+                const APMMENUSUSPEND_DISABLED: u32 = 0;
+                const APMMENUSUSPEND_ENABLED: u32 = 1;
+                const APMMENUSUSPEND_NOCHANGE: u32 = 128;
+                const APMMENUSUSPEND_UNDOCKED: u32 = 2;
+                const APMTIMEOUT_DISABLED: u32 = 0;
+                const BIF_RAWDEVICENEEDSDRIVER: u32 = 2;
+                const BIF_SHOWSIMILARDRIVERS: u32 = 1;
+                const CSCONFIGFLAG_BITS: u32 = 7;
+                const CSCONFIGFLAG_DISABLED: u32 = 1;
+                const CSCONFIGFLAG_DO_NOT_CREATE: u32 = 2;
+                const CSCONFIGFLAG_DO_NOT_START: u32 = 4;
+                const DMSTATEFLAG_APPLYTOALL: u32 = 1;
+                const DOSOPTF_ALWAYSUSE: i32 = 4;
+                const DOSOPTF_DEFAULT: i32 = 1;
+                const DOSOPTF_INDOSSTART: i32 = 64;
+                const DOSOPTF_MULTIPLE: i32 = 128;
+                const DOSOPTF_NEEDSETUP: i32 = 32;
+                const DOSOPTF_PROVIDESUMB: i32 = 16;
+                const DOSOPTF_SUPPORTED: i32 = 2;
+                const DOSOPTF_USESPMODE: i32 = 8;
+                const DOSOPTGF_DEFCLEAN: i32 = 1;
+                const DRIVERSIGN_BLOCKING: u32 = 2;
+                const DRIVERSIGN_NONE: u32 = 0;
+                const DRIVERSIGN_WARNING: u32 = 1;
+                struct DSKTLSYSTEMTIME {
+                    wYear: u16,
+                    wMonth: u16,
+                    wDayOfWeek: u16,
+                    wDay: u16,
+                    wHour: u16,
+                    wMinute: u16,
+                    wSecond: u16,
+                    wMilliseconds: u16,
+                    wResult: u16,
+                }
+                const DTRESULTFIX: u32 = 1;
+                const DTRESULTOK: u32 = 0;
+                const DTRESULTPART: u32 = 3;
+                const DTRESULTPROB: u32 = 2;
+                const EISAFLAG_NO_IO_MERGE: u32 = 1;
+                const EISAFLAG_SLOT_IO_FIRST: u32 = 2;
+                const EISA_NO_MAX_FUNCTION: u32 = 255;
+                #[library("api-ms-win-core-state-helpers-l1-1-0.dll")]
+                extern fn GetRegistryValueWithFallbackW(hkeyPrimary: HKEY, pwszPrimarySubKey: super::super::Foundation::PWSTR, hkeyFallback: HKEY, pwszFallbackSubKey: super::super::Foundation::PWSTR, pwszValue: super::super::Foundation::PWSTR, dwFlags: u32, pdwType: *mut u32, pvData: *mut void, cbDataIn: u32, pcbDataOut: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("RegCloseKey")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HKEY {
+                    Value: *mut void,
+                }
+                const HKEY_CLASSES_ROOT: HKEY = -2147483648;
+                const HKEY_CURRENT_CONFIG: HKEY = -2147483643;
+                const HKEY_CURRENT_USER: HKEY = -2147483647;
+                const HKEY_CURRENT_USER_LOCAL_SETTINGS: HKEY = -2147483641;
+                const HKEY_DYN_DATA: HKEY = -2147483642;
+                const HKEY_LOCAL_MACHINE: HKEY = -2147483646;
+                const HKEY_PERFORMANCE_DATA: HKEY = -2147483644;
+                const HKEY_PERFORMANCE_NLSTEXT: HKEY = -2147483552;
+                const HKEY_PERFORMANCE_TEXT: HKEY = -2147483568;
+                const HKEY_USERS: HKEY = -2147483645;
+                const IT_COMPACT: u32 = 0;
+                const IT_CUSTOM: u32 = 3;
+                const IT_PORTABLE: u32 = 2;
+                const IT_TYPICAL: u32 = 1;
+                const LASTGOOD_OPERATION: u32 = 255;
+                const LASTGOOD_OPERATION_DELETE: u32 = 1;
+                const LASTGOOD_OPERATION_NOPOSTPROC: u32 = 0;
+                const MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED: u32 = 8;
+                const MF_FLAGS_EVEN_IF_NO_RESOURCE: u32 = 1;
+                const MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE: u32 = 4;
+                const MF_FLAGS_NO_CREATE_IF_NO_RESOURCE: u32 = 2;
+                const NUM_EISA_RANGES: u32 = 4;
+                const NUM_RESOURCE_MAP: u32 = 256;
+                const PCIC_DEFAULT_IRQMASK: u32 = 20152;
+                const PCIC_DEFAULT_NUMSOCKETS: u32 = 0;
+                const PCI_OPTIONS_USE_BIOS: i32 = 1;
+                const PCI_OPTIONS_USE_IRQ_STEERING: i32 = 2;
+                const PCMCIA_DEF_MEMBEGIN: u32 = 786432;
+                const PCMCIA_DEF_MEMEND: u32 = 16777215;
+                const PCMCIA_DEF_MEMLEN: u32 = 4096;
+                const PCMCIA_DEF_MIN_REGION: u32 = 65536;
+                const PCMCIA_OPT_AUTOMEM: i32 = 4;
+                const PCMCIA_OPT_HAVE_SOCKET: i32 = 1;
+                const PCMCIA_OPT_NO_APMREMOVE: i32 = 32;
+                const PCMCIA_OPT_NO_AUDIO: i32 = 16;
+                const PCMCIA_OPT_NO_SOUND: i32 = 8;
+                const PIR_OPTION_DEFAULT: u32 = 15;
+                const PIR_OPTION_ENABLED: u32 = 1;
+                const PIR_OPTION_MSSPEC: u32 = 4;
+                const PIR_OPTION_REALMODE: u32 = 8;
+                const PIR_OPTION_REGISTRY: u32 = 2;
+                const PIR_STATUS_DISABLED: u32 = 2;
+                const PIR_STATUS_ENABLED: u32 = 1;
+                const PIR_STATUS_ERROR: u32 = 0;
+                const PIR_STATUS_MAX: u32 = 3;
+                const PIR_STATUS_MINIPORT_COMPATIBLE: u32 = 1;
+                const PIR_STATUS_MINIPORT_ERROR: u32 = 4;
+                const PIR_STATUS_MINIPORT_INVALID: u32 = 7;
+                const PIR_STATUS_MINIPORT_MAX: u32 = 8;
+                const PIR_STATUS_MINIPORT_NOKEY: u32 = 5;
+                const PIR_STATUS_MINIPORT_NONE: u32 = 3;
+                const PIR_STATUS_MINIPORT_NORMAL: u32 = 0;
+                const PIR_STATUS_MINIPORT_OVERRIDE: u32 = 2;
+                const PIR_STATUS_MINIPORT_SUCCESS: u32 = 6;
+                const PIR_STATUS_TABLE_BAD: u32 = 5;
+                const PIR_STATUS_TABLE_ERROR: u32 = 4;
+                const PIR_STATUS_TABLE_MAX: u32 = 7;
+                const PIR_STATUS_TABLE_MSSPEC: u32 = 1;
+                const PIR_STATUS_TABLE_NONE: u32 = 3;
+                const PIR_STATUS_TABLE_REALMODE: u32 = 2;
+                const PIR_STATUS_TABLE_REGISTRY: u32 = 0;
+                const PIR_STATUS_TABLE_SUCCESS: u32 = 6;
+                extern "C" fn PQUERYHANDLER(keycontext: *mut void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut void, total_outlen: *mut u32, input_blen: u32) -> u32;
+                const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                struct PVALUEA {
+                    pv_valuename: super::super::Foundation::PSTR,
+                    pv_valuelen: i32,
+                    pv_value_context: *mut void,
+                    pv_type: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                struct PVALUEW {
+                    pv_valuename: super::super::Foundation::PWSTR,
+                    pv_valuelen: i32,
+                    pv_value_context: *mut void,
+                    pv_type: u32,
+                }
+                const REGDF_CONFLICTDMA: u32 = 524288;
+                const REGDF_CONFLICTIO: u32 = 65536;
+                const REGDF_CONFLICTIRQ: u32 = 262144;
+                const REGDF_CONFLICTMEM: u32 = 131072;
+                const REGDF_GENFORCEDCONFIG: u32 = 32;
+                const REGDF_MAPIRQ2TO9: u32 = 1048576;
+                const REGDF_NEEDFULLCONFIG: u32 = 16;
+                const REGDF_NODETCONFIG: u32 = 32768;
+                const REGDF_NOTDETDMA: u32 = 8;
+                const REGDF_NOTDETIO: u32 = 1;
+                const REGDF_NOTDETIRQ: u32 = 4;
+                const REGDF_NOTDETMEM: u32 = 2;
+                const REGDF_NOTVERIFIED: u32 = 2147483648;
+                const REGSTR_DATA_NETOS_IPX: String = "IPX";
+                const REGSTR_DATA_NETOS_NDIS: String = "NDIS";
+                const REGSTR_DATA_NETOS_ODI: String = "ODI";
+                const REGSTR_DEFAULT_INSTANCE: String = "0000";
+                const REGSTR_KEY_ACPIENUM: String = "ACPI";
+                const REGSTR_KEY_APM: String = "*PNP0C05";
+                const REGSTR_KEY_BIOSENUM: String = "BIOS";
+                const REGSTR_KEY_CLASS: String = "Class";
+                const REGSTR_KEY_CONFIG: String = "Config";
+                const REGSTR_KEY_CONTROL: String = "Control";
+                const REGSTR_KEY_CRASHES: String = "Crashes";
+                const REGSTR_KEY_CURRENT: String = "Current";
+                const REGSTR_KEY_CURRENT_ENV: String = "\\Windows 4.0";
+                const REGSTR_KEY_DANGERS: String = "Dangers";
+                const REGSTR_KEY_DEFAULT: String = "Default";
+                const REGSTR_KEY_DETMODVARS: String = "DetModVars";
+                const REGSTR_KEY_DEVICEPARAMETERS: String = "Device Parameters";
+                const REGSTR_KEY_DEVICE_PROPERTIES: String = "Properties";
+                const REGSTR_KEY_DISPLAY_CLASS: String = "Display";
+                const REGSTR_KEY_DOSOPTCDROM: String = "CD-ROM";
+                const REGSTR_KEY_DOSOPTMOUSE: String = "MOUSE";
+                const REGSTR_KEY_DRIVERPARAMETERS: String = "Driver Parameters";
+                const REGSTR_KEY_DRIVERS: String = "\\Drivers";
+                const REGSTR_KEY_EBDAUTOEXECBATKEYBOARD: String = "EBDAutoexecBatKeyboard";
+                const REGSTR_KEY_EBDAUTOEXECBATLOCAL: String = "EBDAutoexecBatLocale";
+                const REGSTR_KEY_EBDCONFIGSYSKEYBOARD: String = "EBDConfigSysKeyboard";
+                const REGSTR_KEY_EBDCONFIGSYSLOCAL: String = "EBDConfigSysLocale";
+                const REGSTR_KEY_EBDFILESKEYBOARD: String = "EBDFilesKeyboard";
+                const REGSTR_KEY_EBDFILESLOCAL: String = "EBDFilesLocale";
+                const REGSTR_KEY_EISAENUM: String = "EISA";
+                const REGSTR_KEY_ENUM: String = "Enum";
+                const REGSTR_KEY_EXPLORER: String = "Explorer";
+                const REGSTR_KEY_FILTERS: String = "Filters";
+                const REGSTR_KEY_INIUPDATE: String = "IniUpdate";
+                const REGSTR_KEY_ISAENUM: String = "ISAPnP";
+                const REGSTR_KEY_JOYCURR: String = "CurrentJoystickSettings";
+                const REGSTR_KEY_JOYSETTINGS: String = "JoystickSettings";
+                const REGSTR_KEY_KEYBOARD_CLASS: String = "Keyboard";
+                const REGSTR_KEY_KNOWNDOCKINGSTATES: String = "Hardware Profiles";
+                const REGSTR_KEY_LOGCONFIG: String = "LogConfig";
+                const REGSTR_KEY_LOGON: String = "\\Logon";
+                const REGSTR_KEY_LOWER_FILTER_LEVEL_DEFAULT: String = "*Lower";
+                const REGSTR_KEY_MEDIA_CLASS: String = "MEDIA";
+                const REGSTR_KEY_MODEM_CLASS: String = "Modem";
+                const REGSTR_KEY_MODES: String = "Modes";
+                const REGSTR_KEY_MONITOR_CLASS: String = "Monitor";
+                const REGSTR_KEY_MOUSE_CLASS: String = "Mouse";
+                const REGSTR_KEY_NDISINFO: String = "NDISInfo";
+                const REGSTR_KEY_NETWORK: String = "Network";
+                const REGSTR_KEY_NETWORKPROVIDER: String = "\\NetworkProvider";
+                const REGSTR_KEY_NETWORK_PERSISTENT: String = "\\Persistent";
+                const REGSTR_KEY_NETWORK_RECENT: String = "\\Recent";
+                const REGSTR_KEY_OVERRIDE: String = "Override";
+                const REGSTR_KEY_PCIENUM: String = "PCI";
+                const REGSTR_KEY_PCMCIA: String = "PCMCIA\\";
+                const REGSTR_KEY_PCMCIAENUM: String = "PCMCIA";
+                const REGSTR_KEY_PCMCIA_CLASS: String = "PCMCIA";
+                const REGSTR_KEY_PCMTD: String = "MTD-";
+                const REGSTR_KEY_PCUNKNOWN: String = "UNKNOWN_MANUFACTURER";
+                const REGSTR_KEY_POL_COMPUTERS: String = "Computers";
+                const REGSTR_KEY_POL_DEFAULT: String = ".default";
+                const REGSTR_KEY_POL_USERGROUPDATA: String = "GroupData\\UserGroups\\Priority";
+                const REGSTR_KEY_POL_USERGROUPS: String = "UserGroups";
+                const REGSTR_KEY_POL_USERS: String = "Users";
+                const REGSTR_KEY_PORTS_CLASS: String = "ports";
+                const REGSTR_KEY_PRINTERS: String = "Printers";
+                const REGSTR_KEY_PRINT_PROC: String = "\\Print Processors";
+                const REGSTR_KEY_ROOTENUM: String = "Root";
+                const REGSTR_KEY_RUNHISTORY: String = "RunHistory";
+                const REGSTR_KEY_SCSI_CLASS: String = "SCSIAdapter";
+                const REGSTR_KEY_SETUP: String = "\\Setup";
+                const REGSTR_KEY_SHARES: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Network\\LanMan";
+                const REGSTR_KEY_SYSTEM: String = "System";
+                const REGSTR_KEY_SYSTEMBOARD: String = "*PNP0C01";
+                const REGSTR_KEY_UPPER_FILTER_LEVEL_DEFAULT: String = "*Upper";
+                const REGSTR_KEY_USER: String = "User";
+                const REGSTR_KEY_VPOWERDENUM: String = "VPOWERD";
+                const REGSTR_KEY_WINOLDAPP: String = "WinOldApp";
+                const REGSTR_MACHTYPE_ATT_PC: String = "AT&T PC";
+                const REGSTR_MACHTYPE_HP_VECTRA: String = "HP Vectra";
+                const REGSTR_MACHTYPE_IBMPC: String = "IBM PC";
+                const REGSTR_MACHTYPE_IBMPCAT: String = "IBM PC/AT";
+                const REGSTR_MACHTYPE_IBMPCCONV: String = "IBM PC Convertible";
+                const REGSTR_MACHTYPE_IBMPCJR: String = "IBM PCjr";
+                const REGSTR_MACHTYPE_IBMPCXT: String = "IBM PC/XT";
+                const REGSTR_MACHTYPE_IBMPCXT_286: String = "IBM PC/XT 286";
+                const REGSTR_MACHTYPE_IBMPS1: String = "IBM PS/1";
+                const REGSTR_MACHTYPE_IBMPS2_25: String = "IBM PS/2-25";
+                const REGSTR_MACHTYPE_IBMPS2_30: String = "IBM PS/2-30";
+                const REGSTR_MACHTYPE_IBMPS2_30_286: String = "IBM PS/2-30 286";
+                const REGSTR_MACHTYPE_IBMPS2_50: String = "IBM PS/2-50";
+                const REGSTR_MACHTYPE_IBMPS2_50Z: String = "IBM PS/2-50Z";
+                const REGSTR_MACHTYPE_IBMPS2_55SX: String = "IBM PS/2-55SX";
+                const REGSTR_MACHTYPE_IBMPS2_60: String = "IBM PS/2-60";
+                const REGSTR_MACHTYPE_IBMPS2_65SX: String = "IBM PS/2-65SX";
+                const REGSTR_MACHTYPE_IBMPS2_70: String = "IBM PS/2-70";
+                const REGSTR_MACHTYPE_IBMPS2_70_80: String = "IBM PS/2-70/80";
+                const REGSTR_MACHTYPE_IBMPS2_80: String = "IBM PS/2-80";
+                const REGSTR_MACHTYPE_IBMPS2_90: String = "IBM PS/2-90";
+                const REGSTR_MACHTYPE_IBMPS2_P70: String = "IBM PS/2-P70";
+                const REGSTR_MACHTYPE_PHOENIX_PCAT: String = "Phoenix PC/AT Compatible";
+                const REGSTR_MACHTYPE_UNKNOWN: String = "Unknown";
+                const REGSTR_MACHTYPE_ZENITH_PC: String = "Zenith PC";
+                const REGSTR_MAX_VALUE_LENGTH: u32 = 256;
+                const REGSTR_PATH_ADDRARB: String = "System\\CurrentControlSet\\Services\\Arbitrators\\AddrArb";
+                const REGSTR_PATH_AEDEBUG: String = "Software\\Microsoft\\Windows NT\\CurrentVersion\\AeDebug";
+                const REGSTR_PATH_APPEARANCE: String = "Control Panel\\Appearance";
+                const REGSTR_PATH_APPPATCH: String = "System\\CurrentControlSet\\Control\\SessionManager\\AppPatches";
+                const REGSTR_PATH_APPPATHS: String = "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths";
+                const REGSTR_PATH_BIOSINFO: String = "System\\CurrentControlSet\\Control\\BiosInfo";
+                const REGSTR_PATH_BUSINFORMATION: String = "System\\CurrentControlSet\\Control\\PnP\\BusInformation";
+                const REGSTR_PATH_CDFS: String = "System\\CurrentControlSet\\Control\\FileSystem\\CDFS";
+                const REGSTR_PATH_CHECKBADAPPS: String = "System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps";
+                const REGSTR_PATH_CHECKBADAPPS400: String = "System\\CurrentControlSet\\Control\\SessionManager\\CheckBadApps400";
+                const REGSTR_PATH_CHECKDISK: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive";
+                const REGSTR_PATH_CHECKDISKSET: String = "Settings";
+                const REGSTR_PATH_CHECKDISKUDRVS: String = "NoUnknownDDErrDrvs";
+                const REGSTR_PATH_CHECKVERDLLS: String = "System\\CurrentControlSet\\Control\\SessionManager\\CheckVerDLLs";
+                const REGSTR_PATH_CHILD_PREFIX: String = "Child";
+                const REGSTR_PATH_CHKLASTCHECK: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastCheck";
+                const REGSTR_PATH_CHKLASTSURFAN: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Check Drive\\LastSurfaceAnalysis";
+                const REGSTR_PATH_CLASS: String = "System\\CurrentControlSet\\Services\\Class";
+                const REGSTR_PATH_CLASS_NT: String = "System\\CurrentControlSet\\Control\\Class";
+                const REGSTR_PATH_CODEPAGE: String = "System\\CurrentControlSet\\Control\\Nls\\Codepage";
+                const REGSTR_PATH_CODEVICEINSTALLERS: String = "System\\CurrentControlSet\\Control\\CoDeviceInstallers";
+                const REGSTR_PATH_COLORS: String = "Control Panel\\Colors";
+                const REGSTR_PATH_COMPUTRNAME: String = "System\\CurrentControlSet\\Control\\ComputerName\\ComputerName";
+                const REGSTR_PATH_CONTROLPANEL: String = "Control Panel";
+                const REGSTR_PATH_CONTROLSFOLDER: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Controls Folder";
+                const REGSTR_PATH_CRITICALDEVICEDATABASE: String = "System\\CurrentControlSet\\Control\\CriticalDeviceDatabase";
+                const REGSTR_PATH_CURRENTCONTROLSET: String = "System\\CurrentControlSet";
+                const REGSTR_PATH_CURRENT_CONTROL_SET: String = "System\\CurrentControlSet\\Control";
+                const REGSTR_PATH_CURSORS: String = "Control Panel\\Cursors";
+                const REGSTR_PATH_CVNETWORK: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Network";
+                const REGSTR_PATH_DESKTOP: String = "Control Panel\\Desktop";
+                const REGSTR_PATH_DETECT: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Detect";
+                const REGSTR_PATH_DEVICEINSTALLER: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Device Installer";
+                const REGSTR_PATH_DEVICE_CLASSES: String = "System\\CurrentControlSet\\Control\\DeviceClasses";
+                const REGSTR_PATH_DIFX: String = "Software\\Microsoft\\Windows\\CurrentVersion\\DIFX";
+                const REGSTR_PATH_DISPLAYSETTINGS: String = "Display\\Settings";
+                const REGSTR_PATH_DMAARB: String = "System\\CurrentControlSet\\Services\\Arbitrators\\DMAArb";
+                const REGSTR_PATH_DRIVERSIGN: String = "Software\\Microsoft\\Driver Signing";
+                const REGSTR_PATH_DRIVERSIGN_POLICY: String = "Software\\Policies\\Microsoft\\Windows NT\\Driver Signing";
+                const REGSTR_PATH_ENUM: String = "Enum";
+                const REGSTR_PATH_ENVIRONMENTS: String = "System\\CurrentControlSet\\Control\\Print\\Environments";
+                const REGSTR_PATH_EVENTLABELS: String = "AppEvents\\EventLabels";
+                const REGSTR_PATH_EXPLORER: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer";
+                const REGSTR_PATH_FAULT: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Fault";
+                const REGSTR_PATH_FILESYSTEM: String = "System\\CurrentControlSet\\Control\\FileSystem";
+                const REGSTR_PATH_FILESYSTEM_NOVOLTRACK: String = "System\\CurrentControlSet\\Control\\FileSystem\\NoVolTrack";
+                const REGSTR_PATH_FLOATINGPOINTPROCESSOR: String = "HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor";
+                const REGSTR_PATH_FLOATINGPOINTPROCESSOR0: String = "HARDWARE\\DESCRIPTION\\System\\FloatingPointProcessor\\0";
+                const REGSTR_PATH_FONTS: String = "Display\\Fonts";
+                const REGSTR_PATH_GRPCONV: String = "Software\\Microsoft\\Windows\\CurrentVersion\\GrpConv";
+                const REGSTR_PATH_HACKINIFILE: String = "System\\CurrentControlSet\\Control\\SessionManager\\HackIniFiles";
+                const REGSTR_PATH_HWPROFILES: String = "System\\CurrentControlSet\\Hardware Profiles";
+                const REGSTR_PATH_HWPROFILESCURRENT: String = "System\\CurrentControlSet\\Hardware Profiles\\Current";
+                const REGSTR_PATH_ICONS: String = "Control Panel\\Icons";
+                const REGSTR_PATH_IDCONFIGDB: String = "System\\CurrentControlSet\\Control\\IDConfigDB";
+                const REGSTR_PATH_INSTALLEDFILES: String = "System\\CurrentControlSet\\Control\\InstalledFiles";
+                const REGSTR_PATH_IOARB: String = "System\\CurrentControlSet\\Services\\Arbitrators\\IOArb";
+                const REGSTR_PATH_IOS: String = "System\\CurrentControlSet\\Services\\VxD\\IOS";
+                const REGSTR_PATH_IRQARB: String = "System\\CurrentControlSet\\Services\\Arbitrators\\IRQArb";
+                const REGSTR_PATH_KEYBOARD: String = "Control Panel\\Keyboard";
+                const REGSTR_PATH_KNOWN16DLLS: String = "System\\CurrentControlSet\\Control\\SessionManager\\Known16DLLs";
+                const REGSTR_PATH_KNOWNDLLS: String = "System\\CurrentControlSet\\Control\\SessionManager\\KnownDLLs";
+                const REGSTR_PATH_KNOWNVXDS: String = "System\\CurrentControlSet\\Control\\SessionManager\\KnownVxDs";
+                const REGSTR_PATH_LASTBACKUP: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastBackup";
+                const REGSTR_PATH_LASTCHECK: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastCheck";
+                const REGSTR_PATH_LASTGOOD: String = "System\\LastKnownGoodRecovery\\LastGood";
+                const REGSTR_PATH_LASTGOODTMP: String = "System\\LastKnownGoodRecovery\\LastGood.Tmp";
+                const REGSTR_PATH_LASTOPTIMIZE: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\LastOptimize";
+                const REGSTR_PATH_LOOKSCHEMES: String = "Control Panel\\Appearance\\Schemes";
+                const REGSTR_PATH_METRICS: String = "Control Panel\\Desktop\\WindowMetrics";
+                const REGSTR_PATH_MONITORS: String = "System\\CurrentControlSet\\Control\\Print\\Monitors";
+                const REGSTR_PATH_MOUSE: String = "Control Panel\\Mouse";
+                const REGSTR_PATH_MSDOSOPTS: String = "Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSOptions";
+                const REGSTR_PATH_MULTIMEDIA_AUDIO: String = "Software\\Microsoft\\Multimedia\\Audio";
+                const REGSTR_PATH_MULTI_FUNCTION: String = "MF";
+                const REGSTR_PATH_NCPSERVER: String = "System\\CurrentControlSet\\Services\\NcpServer\\Parameters";
+                const REGSTR_PATH_NETEQUIV: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Equivalent";
+                const REGSTR_PATH_NETWORK_USERSETTINGS: String = "Network";
+                const REGSTR_PATH_NEWDOSBOX: String = "Software\\Microsoft\\Windows\\CurrentVersion\\MS-DOSSpecialConfig";
+                const REGSTR_PATH_NONDRIVERSIGN: String = "Software\\Microsoft\\Non-Driver Signing";
+                const REGSTR_PATH_NONDRIVERSIGN_POLICY: String = "Software\\Policies\\Microsoft\\Windows NT\\Non-Driver Signing";
+                const REGSTR_PATH_NOSUGGMSDOS: String = "Software\\Microsoft\\Windows\\CurrentVersion\\NoMSDOSWarn";
+                const REGSTR_PATH_NT_CURRENTVERSION: String = "Software\\Microsoft\\Windows NT\\CurrentVersion";
+                const REGSTR_PATH_NWREDIR: String = "System\\CurrentControlSet\\Services\\VxD\\NWREDIR";
+                const REGSTR_PATH_PCIIR: String = "System\\CurrentControlSet\\Control\\Pnp\\PciIrqRouting";
+                const REGSTR_PATH_PER_HW_ID_STORAGE: String = "Software\\Microsoft\\Windows NT\\CurrentVersion\\PerHwIdStorage";
+                const REGSTR_PATH_PIFCONVERT: String = "Software\\Microsoft\\Windows\\CurrentVersion\\PIFConvert";
+                const REGSTR_PATH_POLICIES: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies";
+                const REGSTR_PATH_PRINT: String = "System\\CurrentControlSet\\Control\\Print";
+                const REGSTR_PATH_PRINTERS: String = "System\\CurrentControlSet\\Control\\Print\\Printers";
+                const REGSTR_PATH_PROPERTYSYSTEM: String = "Software\\Microsoft\\Windows\\CurrentVersion\\PropertySystem";
+                const REGSTR_PATH_PROVIDERS: String = "System\\CurrentControlSet\\Control\\Print\\Providers";
+                const REGSTR_PATH_PWDPROVIDER: String = "System\\CurrentControlSet\\Control\\PwdProvider";
+                const REGSTR_PATH_REALMODENET: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Network\\Real Mode Net";
+                const REGSTR_PATH_REINSTALL: String = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Reinstall";
+                const REGSTR_PATH_RELIABILITY: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Reliability";
+                const REGSTR_PATH_RELIABILITY_POLICY: String = "Software\\Policies\\Microsoft\\Windows NT\\Reliability";
+                const REGSTR_PATH_RELIABILITY_POLICY_REPORTSNAPSHOT: String = "ReportSnapshot";
+                const REGSTR_PATH_RELIABILITY_POLICY_SHUTDOWNREASONUI: String = "ShutdownReasonUI";
+                const REGSTR_PATH_RELIABILITY_POLICY_SNAPSHOT: String = "Snapshot";
+                const REGSTR_PATH_ROOT: String = "Enum\\Root";
+                const REGSTR_PATH_RUN: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
+                const REGSTR_PATH_RUNONCE: String = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce";
+                const REGSTR_PATH_RUNONCEEX: String = "Software\\Microsoft\\Windows\\CurrentVersion\\RunOnceEx";
+                const REGSTR_PATH_RUNSERVICES: String = "Software\\Microsoft\\Windows\\CurrentVersion\\RunServices";
+                const REGSTR_PATH_RUNSERVICESONCE: String = "Software\\Microsoft\\Windows\\CurrentVersion\\RunServicesOnce";
+                const REGSTR_PATH_SCHEMES: String = "AppEvents\\Schemes";
+                const REGSTR_PATH_SCREENSAVE: String = "Control Panel\\Desktop";
+                const REGSTR_PATH_SERVICES: String = "System\\CurrentControlSet\\Services";
+                const REGSTR_PATH_SETUP: String = "Software\\Microsoft\\Windows\\CurrentVersion";
+                const REGSTR_PATH_SHUTDOWN: String = "System\\CurrentControlSet\\Control\\Shutdown";
+                const REGSTR_PATH_SOUND: String = "Control Panel\\Sound";
+                const REGSTR_PATH_SYSTEMENUM: String = "System\\CurrentControlSet\\Enum";
+                const REGSTR_PATH_SYSTRAY: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\SysTray";
+                const REGSTR_PATH_TIMEZONE: String = "System\\CurrentControlSet\\Control\\TimeZoneInformation";
+                const REGSTR_PATH_UNINSTALL: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall";
+                const REGSTR_PATH_UPDATE: String = "System\\CurrentControlSet\\Control\\Update";
+                const REGSTR_PATH_VCOMM: String = "System\\CurrentControlSet\\Services\\VxD\\VCOMM";
+                const REGSTR_PATH_VMM: String = "System\\CurrentControlSet\\Services\\VxD\\VMM";
+                const REGSTR_PATH_VMM32FILES: String = "System\\CurrentControlSet\\Control\\VMM32Files";
+                const REGSTR_PATH_VNETSUP: String = "System\\CurrentControlSet\\Services\\VxD\\VNETSUP";
+                const REGSTR_PATH_VOLUMECACHE: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches";
+                const REGSTR_PATH_VPOWERD: String = "System\\CurrentControlSet\\Services\\VxD\\VPOWERD";
+                const REGSTR_PATH_VXD: String = "System\\CurrentControlSet\\Services\\VxD";
+                const REGSTR_PATH_WARNVERDLLS: String = "System\\CurrentControlSet\\Control\\SessionManager\\WarnVerDLLs";
+                const REGSTR_PATH_WINBOOT: String = "System\\CurrentControlSet\\Control\\WinBoot";
+                const REGSTR_PATH_WINDOWSAPPLETS: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Applets";
+                const REGSTR_PATH_WINLOGON: String = "Software\\Microsoft\\Windows\\CurrentVersion\\Winlogon";
+                const REGSTR_PATH_WMI_SECURITY: String = "System\\CurrentControlSet\\Control\\Wmi\\Security";
+                const REGSTR_PCI_DUAL_IDE: String = "PCIDualIDE";
+                const REGSTR_PCI_OPTIONS: String = "Options";
+                const REGSTR_VALUE_DEFAULTLOC: String = "UseDefaultNetLocation";
+                const REGSTR_VALUE_ENABLE: String = "Enable";
+                const REGSTR_VALUE_LOWPOWERACTIVE: String = "ScreenSaveLowPowerActive";
+                const REGSTR_VALUE_LOWPOWERTIMEOUT: String = "ScreenSaveLowPowerTimeout";
+                const REGSTR_VALUE_NETPATH: String = "NetworkPath";
+                const REGSTR_VALUE_POWEROFFACTIVE: String = "ScreenSavePowerOffActive";
+                const REGSTR_VALUE_POWEROFFTIMEOUT: String = "ScreenSavePowerOffTimeout";
+                const REGSTR_VALUE_SCRPASSWORD: String = "ScreenSave_Data";
+                const REGSTR_VALUE_USESCRPASSWORD: String = "ScreenSaveUsePassword";
+                const REGSTR_VALUE_VERBOSE: String = "Verbose";
+                const REGSTR_VAL_ACDRIVESPINDOWN: String = "ACDriveSpinDown";
+                const REGSTR_VAL_ACSPINDOWNPREVIOUS: String = "ACSpinDownPrevious";
+                const REGSTR_VAL_ACTIVESERVICE: String = "ActiveService";
+                const REGSTR_VAL_ADDRESS: String = "Address";
+                const REGSTR_VAL_AEDEBUG_AUTO: String = "Auto";
+                const REGSTR_VAL_AEDEBUG_DEBUGGER: String = "Debugger";
+                const REGSTR_VAL_ALPHANUMPWDS: String = "AlphanumPwds";
+                const REGSTR_VAL_APISUPPORT: String = "APISupport";
+                const REGSTR_VAL_APMACTIMEOUT: String = "APMACTimeout";
+                const REGSTR_VAL_APMBATTIMEOUT: String = "APMBatTimeout";
+                const REGSTR_VAL_APMBIOSVER: String = "APMBiosVer";
+                const REGSTR_VAL_APMFLAGS: String = "APMFlags";
+                const REGSTR_VAL_APMMENUSUSPEND: String = "APMMenuSuspend";
+                const REGSTR_VAL_APMSHUTDOWNPOWER: String = "APMShutDownPower";
+                const REGSTR_VAL_APPINSTPATH: String = "AppInstallPath";
+                const REGSTR_VAL_ASKFORCONFIG: String = "AskForConfig";
+                const REGSTR_VAL_ASKFORCONFIGFUNC: String = "AskForConfigFunc";
+                const REGSTR_VAL_ASYNCFILECOMMIT: String = "AsyncFileCommit";
+                const REGSTR_VAL_AUDIO_BITMAP: String = "bitmap";
+                const REGSTR_VAL_AUDIO_ICON: String = "icon";
+                const REGSTR_VAL_AUTHENT_AGENT: String = "AuthenticatingAgent";
+                const REGSTR_VAL_AUTOEXEC: String = "Autoexec.Bat";
+                const REGSTR_VAL_AUTOINSNOTE: String = "AutoInsertNotification";
+                const REGSTR_VAL_AUTOLOGON: String = "AutoLogon";
+                const REGSTR_VAL_AUTOMOUNT: String = "AutoMountDrives";
+                const REGSTR_VAL_AUTOSTART: String = "AutoStart";
+                const REGSTR_VAL_BASICPROPERTIES: String = "BasicProperties";
+                const REGSTR_VAL_BASICPROPERTIES_32: String = "BasicProperties32";
+                const REGSTR_VAL_BATDRIVESPINDOWN: String = "BatDriveSpinDown";
+                const REGSTR_VAL_BATSPINDOWNPREVIOUS: String = "BatSpinDownPrevious";
+                const REGSTR_VAL_BEHAVIOR_ON_FAILED_VERIFY: String = "BehaviorOnFailedVerify";
+                const REGSTR_VAL_BIOSDATE: String = "BIOSDate";
+                const REGSTR_VAL_BIOSNAME: String = "BIOSName";
+                const REGSTR_VAL_BIOSVERSION: String = "BIOSVersion";
+                const REGSTR_VAL_BITSPERPIXEL: String = "BitsPerPixel";
+                const REGSTR_VAL_BOOTCONFIG: String = "BootConfig";
+                const REGSTR_VAL_BOOTCOUNT: String = "BootCount";
+                const REGSTR_VAL_BOOTDIR: String = "BootDir";
+                const REGSTR_VAL_BPP: String = "BPP";
+                const REGSTR_VAL_BT: String = "6005BT";
+                const REGSTR_VAL_BUFFAGETIMEOUT: String = "BufferAgeTimeout";
+                const REGSTR_VAL_BUFFIDLETIMEOUT: String = "BufferIdleTimeout";
+                const REGSTR_VAL_BUSTYPE: String = "BusType";
+                const REGSTR_VAL_CAPABILITIES: String = "Capabilities";
+                const REGSTR_VAL_CARDSPECIFIC: String = "CardSpecific";
+                const REGSTR_VAL_CDCACHESIZE: String = "CacheSize";
+                const REGSTR_VAL_CDCOMPATNAMES: String = "MSCDEXCompatNames";
+                const REGSTR_VAL_CDEXTERRORS: String = "ExtendedErrors";
+                const REGSTR_VAL_CDNOREADAHEAD: String = "NoReadAhead";
+                const REGSTR_VAL_CDPREFETCH: String = "Prefetch";
+                const REGSTR_VAL_CDPREFETCHTAIL: String = "PrefetchTail";
+                const REGSTR_VAL_CDRAWCACHE: String = "RawCache";
+                const REGSTR_VAL_CDROM: String = "GenCD";
+                const REGSTR_VAL_CDROMCLASSNAME: String = "CDROM";
+                const REGSTR_VAL_CDSHOWVERSIONS: String = "ShowVersions";
+                const REGSTR_VAL_CDSVDSENSE: String = "SVDSense";
+                const REGSTR_VAL_CHECKSUM: String = "CurrentChecksum";
+                const REGSTR_VAL_CLASS: String = "Class";
+                const REGSTR_VAL_CLASSDESC: String = "ClassDesc";
+                const REGSTR_VAL_CLASSGUID: String = "ClassGUID";
+                const REGSTR_VAL_CMDRIVFLAGS: String = "CMDrivFlags";
+                const REGSTR_VAL_CMENUMFLAGS: String = "CMEnumFlags";
+                const REGSTR_VAL_COINSTALLERS_32: String = "CoInstallers32";
+                const REGSTR_VAL_COMINFO: String = "ComInfo";
+                const REGSTR_VAL_COMMENT: String = "Comment";
+                const REGSTR_VAL_COMPATIBLEIDS: String = "CompatibleIDs";
+                const REGSTR_VAL_COMPRESSIONMETHOD: String = "CompressionAlgorithm";
+                const REGSTR_VAL_COMPRESSIONTHRESHOLD: String = "CompressionThreshold";
+                const REGSTR_VAL_COMPUTERNAME: String = "ComputerName";
+                const REGSTR_VAL_COMPUTRNAME: String = "ComputerName";
+                const REGSTR_VAL_COMVERIFYBASE: String = "COMVerifyBase";
+                const REGSTR_VAL_CONFIG: String = "ConfigPath";
+                const REGSTR_VAL_CONFIGFLAGS: String = "ConfigFlags";
+                const REGSTR_VAL_CONFIGMG: String = "CONFIGMG";
+                const REGSTR_VAL_CONFIGSYS: String = "Config.Sys";
+                const REGSTR_VAL_CONNECTION_TYPE: String = "ConnectionType";
+                const REGSTR_VAL_CONTAINERID: String = "ContainerID";
+                const REGSTR_VAL_CONTIGFILEALLOC: String = "ContigFileAllocSize";
+                const REGSTR_VAL_CONVMEM: String = "ConvMem";
+                const REGSTR_VAL_CPU: String = "CPU";
+                const REGSTR_VAL_CRASHFUNCS: String = "CrashFuncs";
+                const REGSTR_VAL_CSCONFIGFLAGS: String = "CSConfigFlags";
+                const REGSTR_VAL_CURCONFIG: String = "CurrentConfig";
+                const REGSTR_VAL_CURDRVLET: String = "CurrentDriveLetterAssignment";
+                const REGSTR_VAL_CURRENTCONFIG: String = "CurrentConfig";
+                const REGSTR_VAL_CURRENT_BUILD: String = "CurrentBuildNumber";
+                const REGSTR_VAL_CURRENT_CSDVERSION: String = "CSDVersion";
+                const REGSTR_VAL_CURRENT_TYPE: String = "CurrentType";
+                const REGSTR_VAL_CURRENT_USER: String = "Current User";
+                const REGSTR_VAL_CURRENT_VERSION: String = "CurrentVersion";
+                const REGSTR_VAL_CUSTOMCOLORS: String = "CustomColors";
+                const REGSTR_VAL_CUSTOM_PROPERTY_CACHE_DATE: String = "CustomPropertyCacheDate";
+                const REGSTR_VAL_CUSTOM_PROPERTY_HW_ID_KEY: String = "CustomPropertyHwIdKey";
+                const REGSTR_VAL_DEFAULT: String = "Default";
+                const REGSTR_VAL_DETCONFIG: String = "DetConfig";
+                const REGSTR_VAL_DETECT: String = "Detect";
+                const REGSTR_VAL_DETECTFUNC: String = "DetectFunc";
+                const REGSTR_VAL_DETFLAGS: String = "DetFlags";
+                const REGSTR_VAL_DETFUNC: String = "DetFunc";
+                const REGSTR_VAL_DEVDESC: String = "DeviceDesc";
+                const REGSTR_VAL_DEVICEDRIVER: String = "DeviceDriver";
+                const REGSTR_VAL_DEVICEPATH: String = "DevicePath";
+                const REGSTR_VAL_DEVICE_CHARACTERISTICS: String = "DeviceCharacteristics";
+                const REGSTR_VAL_DEVICE_EXCLUSIVE: String = "Exclusive";
+                const REGSTR_VAL_DEVICE_INSTANCE: String = "DeviceInstance";
+                const REGSTR_VAL_DEVICE_SECURITY_DESCRIPTOR: String = "Security";
+                const REGSTR_VAL_DEVICE_TYPE: String = "DeviceType";
+                const REGSTR_VAL_DEVLOADER: String = "DevLoader";
+                const REGSTR_VAL_DEVTYPE: String = "DeviceType";
+                const REGSTR_VAL_DIRECTHOST: String = "DirectHost";
+                const REGSTR_VAL_DIRTYSHUTDOWN: String = "DirtyShutdown";
+                const REGSTR_VAL_DIRTYSHUTDOWNTIME: String = "DirtyShutdownTime";
+                const REGSTR_VAL_DISABLECOUNT: String = "DisableCount";
+                const REGSTR_VAL_DISABLEPWDCACHING: String = "DisablePwdCaching";
+                const REGSTR_VAL_DISABLEREGTOOLS: String = "DisableRegistryTools";
+                const REGSTR_VAL_DISCONNECT: String = "Disconnect";
+                const REGSTR_VAL_DISK: String = "GenDisk";
+                const REGSTR_VAL_DISKCLASSNAME: String = "DiskDrive";
+                const REGSTR_VAL_DISPCPL_NOAPPEARANCEPAGE: String = "NoDispAppearancePage";
+                const REGSTR_VAL_DISPCPL_NOBACKGROUNDPAGE: String = "NoDispBackgroundPage";
+                const REGSTR_VAL_DISPCPL_NODISPCPL: String = "NoDispCPL";
+                const REGSTR_VAL_DISPCPL_NOSCRSAVPAGE: String = "NoDispScrSavPage";
+                const REGSTR_VAL_DISPCPL_NOSETTINGSPAGE: String = "NoDispSettingsPage";
+                const REGSTR_VAL_DISPLAY: String = "display";
+                const REGSTR_VAL_DISPLAYFLAGS: String = "DisplayFlags";
+                const REGSTR_VAL_DOCKED: String = "CurrentDockedState";
+                const REGSTR_VAL_DOCKSTATE: String = "DockState";
+                const REGSTR_VAL_DOES_POLLING: String = "PollingSupportNeeded";
+                const REGSTR_VAL_DONTLOADIFCONFLICT: String = "DontLoadIfConflict";
+                const REGSTR_VAL_DONTUSEMEM: String = "DontAllocLastMem";
+                const REGSTR_VAL_DOSCP: String = "OEMCP";
+                const REGSTR_VAL_DOSOPTFLAGS: String = "Flags";
+                const REGSTR_VAL_DOSOPTGLOBALFLAGS: String = "GlobalFlags";
+                const REGSTR_VAL_DOSOPTTIP: String = "TipText";
+                const REGSTR_VAL_DOSPAGER: String = "DOSPager";
+                const REGSTR_VAL_DOS_SPOOL_MASK: String = "DOSSpoolMask";
+                const REGSTR_VAL_DOUBLEBUFFER: String = "DoubleBuffer";
+                const REGSTR_VAL_DPI: String = "dpi";
+                const REGSTR_VAL_DPILOGICALX: String = "DPILogicalX";
+                const REGSTR_VAL_DPILOGICALY: String = "DPILogicalY";
+                const REGSTR_VAL_DPIPHYSICALX: String = "DPIPhysicalX";
+                const REGSTR_VAL_DPIPHYSICALY: String = "DPIPhysicalY";
+                const REGSTR_VAL_DPMS: String = "DPMS";
+                const REGSTR_VAL_DRIVER: String = "Driver";
+                const REGSTR_VAL_DRIVERCACHEPATH: String = "DriverCachePath";
+                const REGSTR_VAL_DRIVERDATE: String = "DriverDate";
+                const REGSTR_VAL_DRIVERDATEDATA: String = "DriverDateData";
+                const REGSTR_VAL_DRIVERVERSION: String = "DriverVersion";
+                const REGSTR_VAL_DRIVESPINDOWN: String = "DriveSpinDown";
+                const REGSTR_VAL_DRIVEWRITEBEHIND: String = "DriveWriteBehind";
+                const REGSTR_VAL_DRIVE_SPINDOWN: String = "NoDispSpinDown";
+                const REGSTR_VAL_DRV: String = "drv";
+                const REGSTR_VAL_DRVDESC: String = "DriverDesc";
+                const REGSTR_VAL_DYNAMIC: String = "Dynamic";
+                const REGSTR_VAL_EISA_FLAGS: String = "EISAFlags";
+                const REGSTR_VAL_EISA_FUNCTIONS: String = "EISAFunctions";
+                const REGSTR_VAL_EISA_FUNCTIONS_MASK: String = "EISAFunctionsMask";
+                const REGSTR_VAL_EISA_RANGES: String = "EISARanges";
+                const REGSTR_VAL_EISA_SIMULATE_INT15: String = "EISASimulateInt15";
+                const REGSTR_VAL_EJECT_PRIORITY: String = "EjectPriority";
+                const REGSTR_VAL_ENABLEINTS: String = "EnableInts";
+                const REGSTR_VAL_ENUMERATOR: String = "Enumerator";
+                const REGSTR_VAL_ENUMPROPPAGES: String = "EnumPropPages";
+                const REGSTR_VAL_ENUMPROPPAGES_32: String = "EnumPropPages32";
+                const REGSTR_VAL_ESDI: String = "ESDI\\";
+                const REGSTR_VAL_EXISTS: String = "Exists";
+                const REGSTR_VAL_EXTMEM: String = "ExtMem";
+                const REGSTR_VAL_FAULT_LOGFILE: String = "LogFile";
+                const REGSTR_VAL_FIFODEPTH: String = "FIFODepth";
+                const REGSTR_VAL_FILESHARING: String = "FileSharing";
+                const REGSTR_VAL_FIRSTINSTALLDATETIME: String = "FirstInstallDateTime";
+                const REGSTR_VAL_FIRSTNETDRIVE: String = "FirstNetworkDrive";
+                const REGSTR_VAL_FLOP: String = "FLOP\\";
+                const REGSTR_VAL_FLOPPY: String = "FLOPPY";
+                const REGSTR_VAL_FONTSIZE: String = "FontSize";
+                const REGSTR_VAL_FORCECL: String = "ForceChangeLine";
+                const REGSTR_VAL_FORCEDCONFIG: String = "ForcedConfig";
+                const REGSTR_VAL_FORCEFIFO: String = "ForceFIFO";
+                const REGSTR_VAL_FORCELOAD: String = "ForceLoadPD";
+                const REGSTR_VAL_FORCEPMIO: String = "ForcePMIO";
+                const REGSTR_VAL_FORCEREBOOT: String = "ForceReboot";
+                const REGSTR_VAL_FORCERMIO: String = "ForceRMIO";
+                const REGSTR_VAL_FREESPACERATIO: String = "FreeSpaceRatio";
+                const REGSTR_VAL_FRIENDLYNAME: String = "FriendlyName";
+                const REGSTR_VAL_FSFILTERCLASS: String = "FSFilterClass";
+                const REGSTR_VAL_FULLTRACE: String = "FullTrace";
+                const REGSTR_VAL_FUNCDESC: String = "FunctionDesc";
+                const REGSTR_VAL_GAPTIME: String = "GapTime";
+                const REGSTR_VAL_GRB: String = "grb";
+                const REGSTR_VAL_HARDWAREID: String = "HardwareID";
+                const REGSTR_VAL_HIDESHAREPWDS: String = "HideSharePwds";
+                const REGSTR_VAL_HRES: String = "HRes";
+                const REGSTR_VAL_HWDETECT: String = "HardwareDetect";
+                const REGSTR_VAL_HWMECHANISM: String = "HWMechanism";
+                const REGSTR_VAL_HWREV: String = "HWRevision";
+                const REGSTR_VAL_ID: String = "CurrentID";
+                const REGSTR_VAL_IDE_FORCE_SERIALIZE: String = "ForceSerialization";
+                const REGSTR_VAL_IDE_NO_SERIALIZE: String = "IDENoSerialize";
+                const REGSTR_VAL_INFNAME: String = "InfName";
+                const REGSTR_VAL_INFPATH: String = "InfPath";
+                const REGSTR_VAL_INFSECTION: String = "InfSection";
+                const REGSTR_VAL_INFSECTIONEXT: String = "InfSectionExt";
+                const REGSTR_VAL_INHIBITRESULTS: String = "InhibitResults";
+                const REGSTR_VAL_INSICON: String = "Icon";
+                const REGSTR_VAL_INSTALLER: String = "Installer";
+                const REGSTR_VAL_INSTALLER_32: String = "Installer32";
+                const REGSTR_VAL_INSTALLTYPE: String = "InstallType";
+                const REGSTR_VAL_INT13: String = "Int13";
+                const REGSTR_VAL_ISAPNP: String = "ISAPNP";
+                const REGSTR_VAL_ISAPNP_RDP_OVERRIDE: String = "RDPOverRide";
+                const REGSTR_VAL_JOYCALLOUT: String = "JoystickCallout";
+                const REGSTR_VAL_JOYNCONFIG: String = "Joystick%dConfiguration";
+                const REGSTR_VAL_JOYNOEMCALLOUT: String = "Joystick%dOEMCallout";
+                const REGSTR_VAL_JOYNOEMNAME: String = "Joystick%dOEMName";
+                const REGSTR_VAL_JOYOEMCAL1: String = "OEMCal1";
+                const REGSTR_VAL_JOYOEMCAL10: String = "OEMCal10";
+                const REGSTR_VAL_JOYOEMCAL11: String = "OEMCal11";
+                const REGSTR_VAL_JOYOEMCAL12: String = "OEMCal12";
+                const REGSTR_VAL_JOYOEMCAL2: String = "OEMCal2";
+                const REGSTR_VAL_JOYOEMCAL3: String = "OEMCal3";
+                const REGSTR_VAL_JOYOEMCAL4: String = "OEMCal4";
+                const REGSTR_VAL_JOYOEMCAL5: String = "OEMCal5";
+                const REGSTR_VAL_JOYOEMCAL6: String = "OEMCal6";
+                const REGSTR_VAL_JOYOEMCAL7: String = "OEMCal7";
+                const REGSTR_VAL_JOYOEMCAL8: String = "OEMCal8";
+                const REGSTR_VAL_JOYOEMCAL9: String = "OEMCal9";
+                const REGSTR_VAL_JOYOEMCALCAP: String = "OEMCalCap";
+                const REGSTR_VAL_JOYOEMCALLOUT: String = "OEMCallout";
+                const REGSTR_VAL_JOYOEMCALWINCAP: String = "OEMCalWinCap";
+                const REGSTR_VAL_JOYOEMDATA: String = "OEMData";
+                const REGSTR_VAL_JOYOEMNAME: String = "OEMName";
+                const REGSTR_VAL_JOYOEMPOVLABEL: String = "OEMPOVLabel";
+                const REGSTR_VAL_JOYOEMRLABEL: String = "OEMRLabel";
+                const REGSTR_VAL_JOYOEMTESTBUTTONCAP: String = "OEMTestButtonCap";
+                const REGSTR_VAL_JOYOEMTESTBUTTONDESC: String = "OEMTestButtonDesc";
+                const REGSTR_VAL_JOYOEMTESTMOVECAP: String = "OEMTestMoveCap";
+                const REGSTR_VAL_JOYOEMTESTMOVEDESC: String = "OEMTestMoveDesc";
+                const REGSTR_VAL_JOYOEMTESTWINCAP: String = "OEMTestWinCap";
+                const REGSTR_VAL_JOYOEMULABEL: String = "OEMULabel";
+                const REGSTR_VAL_JOYOEMVLABEL: String = "OEMVLabel";
+                const REGSTR_VAL_JOYOEMXYLABEL: String = "OEMXYLabel";
+                const REGSTR_VAL_JOYOEMZLABEL: String = "OEMZLabel";
+                const REGSTR_VAL_JOYUSERVALUES: String = "JoystickUserValues";
+                const REGSTR_VAL_LASTALIVEBT: String = "LastAliveBT";
+                const REGSTR_VAL_LASTALIVEINTERVAL: String = "TimeStampInterval";
+                const REGSTR_VAL_LASTALIVEPMPOLICY: String = "LastAlivePMPolicy";
+                const REGSTR_VAL_LASTALIVESTAMP: String = "LastAliveStamp";
+                const REGSTR_VAL_LASTALIVESTAMPFORCED: String = "LastAliveStampForced";
+                const REGSTR_VAL_LASTALIVESTAMPINTERVAL: String = "LastAliveStampInterval";
+                const REGSTR_VAL_LASTALIVESTAMPPOLICYINTERVAL: String = "LastAliveStampPolicyInterval";
+                const REGSTR_VAL_LASTALIVEUPTIME: String = "LastAliveUptime";
+                const REGSTR_VAL_LASTBOOTPMDRVS: String = "LastBootPMDrvs";
+                const REGSTR_VAL_LASTCOMPUTERNAME: String = "LastComputerName";
+                const REGSTR_VAL_LASTPCIBUSNUM: String = "LastPCIBusNum";
+                const REGSTR_VAL_LAST_UPDATE_TIME: String = "LastUpdateTime";
+                const REGSTR_VAL_LEGALNOTICECAPTION: String = "LegalNoticeCaption";
+                const REGSTR_VAL_LEGALNOTICETEXT: String = "LegalNoticeText";
+                const REGSTR_VAL_LICENSINGINFO: String = "LicensingInfo";
+                const REGSTR_VAL_LINKED: String = "Linked";
+                const REGSTR_VAL_LOADHI: String = "LoadHi";
+                const REGSTR_VAL_LOADRMDRIVERS: String = "LoadRMDrivers";
+                const REGSTR_VAL_LOCATION_INFORMATION: String = "LocationInformation";
+                const REGSTR_VAL_LOCATION_INFORMATION_OVERRIDE: String = "LocationInformationOverride";
+                const REGSTR_VAL_LOWERFILTERS: String = "LowerFilters";
+                const REGSTR_VAL_LOWER_FILTER_DEFAULT_LEVEL: String = "LowerFilterDefaultLevel";
+                const REGSTR_VAL_LOWER_FILTER_LEVELS: String = "LowerFilterLevels";
+                const REGSTR_VAL_MACHINETYPE: String = "MachineType";
+                const REGSTR_VAL_MANUFACTURER: String = "Manufacturer";
+                const REGSTR_VAL_MAP: String = "Map";
+                const REGSTR_VAL_MATCHINGDEVID: String = "MatchingDeviceId";
+                const REGSTR_VAL_MAXCONNECTIONS: String = "MaxConnections";
+                const REGSTR_VAL_MAXLIP: String = "MaxLIP";
+                const REGSTR_VAL_MAXRES: String = "MaxResolution";
+                const REGSTR_VAL_MAXRETRY: String = "MaxRetry";
+                const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024;
+                const REGSTR_VAL_MEDIA: String = "MediaPath";
+                const REGSTR_VAL_MFG: String = "Mfg";
+                const REGSTR_VAL_MF_FLAGS: String = "MFFlags";
+                const REGSTR_VAL_MINIPORT_STAT: String = "MiniportStatus";
+                const REGSTR_VAL_MINPWDLEN: String = "MinPwdLen";
+                const REGSTR_VAL_MINRETRY: String = "MinRetry";
+                const REGSTR_VAL_MODE: String = "Mode";
+                const REGSTR_VAL_MODEL: String = "Model";
+                const REGSTR_VAL_MSDOSMODE: String = "MSDOSMode";
+                const REGSTR_VAL_MSDOSMODEDISCARD: String = "Discard";
+                const REGSTR_VAL_MUSTBEVALIDATED: String = "MustBeValidated";
+                const REGSTR_VAL_NAMECACHECOUNT: String = "NameCache";
+                const REGSTR_VAL_NAMENUMERICTAIL: String = "NameNumericTail";
+                const REGSTR_VAL_NCP_BROWSEMASTER: String = "BrowseMaster";
+                const REGSTR_VAL_NCP_USEPEERBROWSING: String = "Use_PeerBrowsing";
+                const REGSTR_VAL_NCP_USESAP: String = "Use_Sap";
+                const REGSTR_VAL_NDP: String = "NDP";
+                const REGSTR_VAL_NETCARD: String = "Netcard";
+                const REGSTR_VAL_NETCLEAN: String = "NetClean";
+                const REGSTR_VAL_NETOSTYPE: String = "NetOSType";
+                const REGSTR_VAL_NETSETUP_DISABLE: String = "NoNetSetup";
+                const REGSTR_VAL_NETSETUP_NOCONFIGPAGE: String = "NoNetSetupConfigPage";
+                const REGSTR_VAL_NETSETUP_NOIDPAGE: String = "NoNetSetupIDPage";
+                const REGSTR_VAL_NETSETUP_NOSECURITYPAGE: String = "NoNetSetupSecurityPage";
+                const REGSTR_VAL_NOCMOSORFDPT: String = "NoCMOSorFDPT";
+                const REGSTR_VAL_NODISPLAYCLASS: String = "NoDisplayClass";
+                const REGSTR_VAL_NOENTIRENETWORK: String = "NoEntireNetwork";
+                const REGSTR_VAL_NOFILESHARING: String = "NoFileSharing";
+                const REGSTR_VAL_NOFILESHARINGCTRL: String = "NoFileSharingControl";
+                const REGSTR_VAL_NOIDE: String = "NoIDE";
+                const REGSTR_VAL_NOINSTALLCLASS: String = "NoInstallClass";
+                const REGSTR_VAL_NONSTANDARD_ATAPI: String = "NonStandardATAPI";
+                const REGSTR_VAL_NOPRINTSHARING: String = "NoPrintSharing";
+                const REGSTR_VAL_NOPRINTSHARINGCTRL: String = "NoPrintSharingControl";
+                const REGSTR_VAL_NOUSECLASS: String = "NoUseClass";
+                const REGSTR_VAL_NOWORKGROUPCONTENTS: String = "NoWorkgroupContents";
+                const REGSTR_VAL_OLDMSDOSVER: String = "OldMSDOSVer";
+                const REGSTR_VAL_OLDWINDIR: String = "OldWinDir";
+                const REGSTR_VAL_OPTIMIZESFN: String = "OptimizeSFN";
+                const REGSTR_VAL_OPTIONS: String = "Options";
+                const REGSTR_VAL_OPTORDER: String = "Order";
+                const REGSTR_VAL_P1284MDL: String = "Model";
+                const REGSTR_VAL_P1284MFG: String = "Manufacturer";
+                const REGSTR_VAL_PATHCACHECOUNT: String = "PathCache";
+                const REGSTR_VAL_PCCARD_POWER: String = "EnablePowerManagement";
+                const REGSTR_VAL_PCI: String = "PCI";
+                const REGSTR_VAL_PCIBIOSVER: String = "PCIBIOSVer";
+                const REGSTR_VAL_PCICIRQMAP: String = "PCICIRQMap";
+                const REGSTR_VAL_PCICOPTIONS: String = "PCICOptions";
+                const REGSTR_VAL_PCMCIA_ALLOC: String = "AllocMemWin";
+                const REGSTR_VAL_PCMCIA_ATAD: String = "ATADelay";
+                const REGSTR_VAL_PCMCIA_MEM: String = "Memory";
+                const REGSTR_VAL_PCMCIA_OPT: String = "Options";
+                const REGSTR_VAL_PCMCIA_SIZ: String = "MinRegionSize";
+                const REGSTR_VAL_PCMTDRIVER: String = "MTD";
+                const REGSTR_VAL_PCSSDRIVER: String = "Driver";
+                const REGSTR_VAL_PHYSICALDEVICEOBJECT: String = "PhysicalDeviceObject";
+                const REGSTR_VAL_PMODE_INT13: String = "PModeInt13";
+                const REGSTR_VAL_PNPBIOSVER: String = "PnPBIOSVer";
+                const REGSTR_VAL_PNPSTRUCOFFSET: String = "PnPStrucOffset";
+                const REGSTR_VAL_POLICY: String = "Policy";
+                const REGSTR_VAL_POLLING: String = "Polling";
+                const REGSTR_VAL_PORTNAME: String = "PortName";
+                const REGSTR_VAL_PORTSUBCLASS: String = "PortSubClass";
+                const REGSTR_VAL_PREFREDIR: String = "PreferredRedir";
+                const REGSTR_VAL_PRESERVECASE: String = "PreserveCase";
+                const REGSTR_VAL_PRESERVELONGNAMES: String = "PreserveLongNames";
+                const REGSTR_VAL_PRINTERS_HIDETABS: String = "NoPrinterTabs";
+                const REGSTR_VAL_PRINTERS_MASK: String = "PrintersMask";
+                const REGSTR_VAL_PRINTERS_NOADD: String = "NoAddPrinter";
+                const REGSTR_VAL_PRINTERS_NODELETE: String = "NoDeletePrinter";
+                const REGSTR_VAL_PRINTSHARING: String = "PrintSharing";
+                const REGSTR_VAL_PRIORITY: String = "Priority";
+                const REGSTR_VAL_PRIVATE: String = "Private";
+                const REGSTR_VAL_PRIVATEFUNC: String = "PrivateFunc";
+                const REGSTR_VAL_PRIVATEPROBLEM: String = "PrivateProblem";
+                const REGSTR_VAL_PRODUCTID: String = "ProductId";
+                const REGSTR_VAL_PRODUCTTYPE: String = "ProductType";
+                const REGSTR_VAL_PROFILEFLAGS: String = "ProfileFlags";
+                const REGSTR_VAL_PROPERTIES: String = "Properties";
+                const REGSTR_VAL_PROTINIPATH: String = "ProtIniPath";
+                const REGSTR_VAL_PROVIDER_NAME: String = "ProviderName";
+                const REGSTR_VAL_PWDEXPIRATION: String = "PwdExpiration";
+                const REGSTR_VAL_PWDPROVIDER_CHANGEORDER: String = "ChangeOrder";
+                const REGSTR_VAL_PWDPROVIDER_CHANGEPWD: String = "ChangePassword";
+                const REGSTR_VAL_PWDPROVIDER_CHANGEPWDHWND: String = "ChangePasswordHwnd";
+                const REGSTR_VAL_PWDPROVIDER_DESC: String = "Description";
+                const REGSTR_VAL_PWDPROVIDER_GETPWDSTATUS: String = "GetPasswordStatus";
+                const REGSTR_VAL_PWDPROVIDER_ISNP: String = "NetworkProvider";
+                const REGSTR_VAL_PWDPROVIDER_PATH: String = "ProviderPath";
+                const REGSTR_VAL_RDINTTHRESHOLD: String = "RDIntThreshold";
+                const REGSTR_VAL_READAHEADTHRESHOLD: String = "ReadAheadThreshold";
+                const REGSTR_VAL_READCACHING: String = "ReadCaching";
+                const REGSTR_VAL_REALNETSTART: String = "RealNetStart";
+                const REGSTR_VAL_REASONCODE: String = "ReasonCode";
+                const REGSTR_VAL_REFRESHRATE: String = "RefreshRate";
+                const REGSTR_VAL_REGITEMDELETEMESSAGE: String = "Removal Message";
+                const REGSTR_VAL_REGORGANIZATION: String = "RegisteredOrganization";
+                const REGSTR_VAL_REGOWNER: String = "RegisteredOwner";
+                const REGSTR_VAL_REINSTALL_DEVICEINSTANCEIDS: String = "DeviceInstanceIds";
+                const REGSTR_VAL_REINSTALL_DISPLAYNAME: String = "DisplayName";
+                const REGSTR_VAL_REINSTALL_STRING: String = "ReinstallString";
+                const REGSTR_VAL_REMOTE_PATH: String = "RemotePath";
+                const REGSTR_VAL_REMOVABLE: String = "Removable";
+                const REGSTR_VAL_REMOVAL_POLICY: String = "RemovalPolicy";
+                const REGSTR_VAL_REMOVEROMOKAY: String = "RemoveRomOkay";
+                const REGSTR_VAL_REMOVEROMOKAYFUNC: String = "RemoveRomOkayFunc";
+                const REGSTR_VAL_RESERVED_DEVNODE: String = "HTREE\\RESERVED\\0";
+                const REGSTR_VAL_RESOLUTION: String = "Resolution";
+                const REGSTR_VAL_RESOURCES: String = "Resources";
+                const REGSTR_VAL_RESOURCE_MAP: String = "ResourceMap";
+                const REGSTR_VAL_RESOURCE_PICKER_EXCEPTIONS: String = "ResourcePickerExceptions";
+                const REGSTR_VAL_RESOURCE_PICKER_TAGS: String = "ResourcePickerTags";
+                const REGSTR_VAL_RESTRICTRUN: String = "RestrictRun";
+                const REGSTR_VAL_RESUMERESET: String = "ResumeReset";
+                const REGSTR_VAL_REVISION: String = "Revision";
+                const REGSTR_VAL_REVLEVEL: String = "RevisionLevel";
+                const REGSTR_VAL_ROOT_DEVNODE: String = "HTREE\\ROOT\\0";
+                const REGSTR_VAL_RUNLOGINSCRIPT: String = "ProcessLoginScript";
+                const REGSTR_VAL_SCANNER: String = "SCANNER";
+                const REGSTR_VAL_SCAN_ONLY_FIRST: String = "ScanOnlyFirstDrive";
+                const REGSTR_VAL_SCSI: String = "SCSI\\";
+                const REGSTR_VAL_SCSILUN: String = "SCSILUN";
+                const REGSTR_VAL_SCSITID: String = "SCSITargetID";
+                const REGSTR_VAL_SEARCHMODE: String = "SearchMode";
+                const REGSTR_VAL_SEARCHOPTIONS: String = "SearchOptions";
+                const REGSTR_VAL_SECCPL_NOADMINPAGE: String = "NoAdminPage";
+                const REGSTR_VAL_SECCPL_NOPROFILEPAGE: String = "NoProfilePage";
+                const REGSTR_VAL_SECCPL_NOPWDPAGE: String = "NoPwdPage";
+                const REGSTR_VAL_SECCPL_NOSECCPL: String = "NoSecCPL";
+                const REGSTR_VAL_SERVICE: String = "Service";
+                const REGSTR_VAL_SETUPFLAGS: String = "SetupFlags";
+                const REGSTR_VAL_SETUPMACHINETYPE: String = "SetupMachineType";
+                const REGSTR_VAL_SETUPN: String = "SetupN";
+                const REGSTR_VAL_SETUPNPATH: String = "SetupNPath";
+                const REGSTR_VAL_SETUPPROGRAMRAN: String = "SetupProgramRan";
+                const REGSTR_VAL_SHARES_FLAGS: String = "Flags";
+                const REGSTR_VAL_SHARES_PATH: String = "Path";
+                const REGSTR_VAL_SHARES_REMARK: String = "Remark";
+                const REGSTR_VAL_SHARES_RO_PASS: String = "Parm2";
+                const REGSTR_VAL_SHARES_RW_PASS: String = "Parm1";
+                const REGSTR_VAL_SHARES_TYPE: String = "Type";
+                const REGSTR_VAL_SHARE_IRQ: String = "ForceIRQSharing";
+                const REGSTR_VAL_SHELLVERSION: String = "ShellVersion";
+                const REGSTR_VAL_SHOWDOTS: String = "ShowDots";
+                const REGSTR_VAL_SHOWREASONUI: String = "ShutdownReasonUI";
+                const REGSTR_VAL_SHUTDOWNREASON: String = "ShutdownReason";
+                const REGSTR_VAL_SHUTDOWNREASON_CODE: String = "ShutdownReasonCode";
+                const REGSTR_VAL_SHUTDOWNREASON_COMMENT: String = "ShutdownReasonComment";
+                const REGSTR_VAL_SHUTDOWNREASON_PROCESS: String = "ShutdownReasonProcess";
+                const REGSTR_VAL_SHUTDOWNREASON_USERNAME: String = "ShutdownReasonUserName";
+                const REGSTR_VAL_SHUTDOWN_FLAGS: String = "ShutdownFlags";
+                const REGSTR_VAL_SHUTDOWN_IGNORE_PREDEFINED: String = "ShutdownIgnorePredefinedReasons";
+                const REGSTR_VAL_SHUTDOWN_STATE_SNAPSHOT: String = "ShutdownStateSnapshot";
+                const REGSTR_VAL_SILENTINSTALL: String = "SilentInstall";
+                const REGSTR_VAL_SLSUPPORT: String = "SLSupport";
+                const REGSTR_VAL_SOFTCOMPATMODE: String = "SoftCompatMode";
+                const REGSTR_VAL_SRCPATH: String = "SourcePath";
+                const REGSTR_VAL_SRVNAMECACHE: String = "ServerNameCache";
+                const REGSTR_VAL_SRVNAMECACHECOUNT: String = "ServerNameCacheMax";
+                const REGSTR_VAL_SRVNAMECACHENETPROV: String = "ServerNameCacheNumNets";
+                const REGSTR_VAL_START_ON_BOOT: String = "StartOnBoot";
+                const REGSTR_VAL_STAT: String = "Status";
+                const REGSTR_VAL_STATICDRIVE: String = "StaticDrive";
+                const REGSTR_VAL_STATICVXD: String = "StaticVxD";
+                const REGSTR_VAL_STDDOSOPTION: String = "StdOption";
+                const REGSTR_VAL_SUBMODEL: String = "Submodel";
+                const REGSTR_VAL_SUPPORTBURST: String = "SupportBurst";
+                const REGSTR_VAL_SUPPORTLFN: String = "SupportLFN";
+                const REGSTR_VAL_SUPPORTTUNNELLING: String = "SupportTunnelling";
+                const REGSTR_VAL_SYMBOLIC_LINK: String = "SymbolicLink";
+                const REGSTR_VAL_SYNCDATAXFER: String = "SyncDataXfer";
+                const REGSTR_VAL_SYSDM: String = "SysDM";
+                const REGSTR_VAL_SYSDMFUNC: String = "SysDMFunc";
+                const REGSTR_VAL_SYSTEMCPL_NOCONFIGPAGE: String = "NoConfigPage";
+                const REGSTR_VAL_SYSTEMCPL_NODEVMGRPAGE: String = "NoDevMgrPage";
+                const REGSTR_VAL_SYSTEMCPL_NOFILESYSPAGE: String = "NoFileSysPage";
+                const REGSTR_VAL_SYSTEMCPL_NOVIRTMEMPAGE: String = "NoVirtMemPage";
+                const REGSTR_VAL_SYSTEMROOT: String = "SystemRoot";
+                const REGSTR_VAL_SYSTRAYBATFLAGS: String = "PowerFlags";
+                const REGSTR_VAL_SYSTRAYPCCARDFLAGS: String = "PCMCIAFlags";
+                const REGSTR_VAL_SYSTRAYSVCS: String = "Services";
+                const REGSTR_VAL_TABLE_STAT: String = "TableStatus";
+                const REGSTR_VAL_TAPE: String = "TAPE";
+                const REGSTR_VAL_TRANSITION: String = "Transition";
+                const REGSTR_VAL_TRANSPORT: String = "Transport";
+                const REGSTR_VAL_TZACTBIAS: String = "ActiveTimeBias";
+                const REGSTR_VAL_TZBIAS: String = "Bias";
+                const REGSTR_VAL_TZDLTBIAS: String = "DaylightBias";
+                const REGSTR_VAL_TZDLTFLAG: String = "DaylightFlag";
+                const REGSTR_VAL_TZDLTNAME: String = "DaylightName";
+                const REGSTR_VAL_TZDLTSTART: String = "DaylightStart";
+                const REGSTR_VAL_TZNOAUTOTIME: String = "DisableAutoDaylightTimeSet";
+                const REGSTR_VAL_TZNOCHANGEEND: String = "NoChangeEnd";
+                const REGSTR_VAL_TZNOCHANGESTART: String = "NoChangeStart";
+                const REGSTR_VAL_TZSTDBIAS: String = "StandardBias";
+                const REGSTR_VAL_TZSTDNAME: String = "StandardName";
+                const REGSTR_VAL_TZSTDSTART: String = "StandardStart";
+                const REGSTR_VAL_UI_NUMBER: String = "UINumber";
+                const REGSTR_VAL_UI_NUMBER_DESC_FORMAT: String = "UINumberDescFormat";
+                const REGSTR_VAL_UNDOCK_WITHOUT_LOGON: String = "UndockWithoutLogon";
+                const REGSTR_VAL_UNINSTALLER_COMMANDLINE: String = "UninstallString";
+                const REGSTR_VAL_UNINSTALLER_DISPLAYNAME: String = "DisplayName";
+                const REGSTR_VAL_UPGRADE: String = "Upgrade";
+                const REGSTR_VAL_UPPERFILTERS: String = "UpperFilters";
+                const REGSTR_VAL_UPPER_FILTER_DEFAULT_LEVEL: String = "UpperFilterDefaultLevel";
+                const REGSTR_VAL_UPPER_FILTER_LEVELS: String = "UpperFilterLevels";
+                const REGSTR_VAL_USERSETTINGS: String = "AdapterSettings";
+                const REGSTR_VAL_USER_NAME: String = "UserName";
+                const REGSTR_VAL_USRDRVLET: String = "UserDriveLetterAssignment";
+                const REGSTR_VAL_VDD: String = "vdd";
+                const REGSTR_VAL_VER: String = "Ver";
+                const REGSTR_VAL_VERIFYKEY: String = "VerifyKey";
+                const REGSTR_VAL_VIRTUALHDIRQ: String = "VirtualHDIRQ";
+                const REGSTR_VAL_VOLIDLETIMEOUT: String = "VolumeIdleTimeout";
+                const REGSTR_VAL_VPOWERDFLAGS: String = "Flags";
+                const REGSTR_VAL_VRES: String = "VRes";
+                const REGSTR_VAL_VXDGROUPS: String = "VXDGroups";
+                const REGSTR_VAL_WAITFORUNDOCK: String = "WaitForUndock";
+                const REGSTR_VAL_WAITFORUNDOCKFUNC: String = "WaitForUndockFunc";
+                const REGSTR_VAL_WIN31FILESYSTEM: String = "Win31FileSystem";
+                const REGSTR_VAL_WIN31PROVIDER: String = "Win31Provider";
+                const REGSTR_VAL_WINBOOTDIR: String = "WinbootDir";
+                const REGSTR_VAL_WINCP: String = "ACP";
+                const REGSTR_VAL_WINDIR: String = "WinDir";
+                const REGSTR_VAL_WINOLDAPP_DISABLED: String = "Disabled";
+                const REGSTR_VAL_WINOLDAPP_NOREALMODE: String = "NoRealMode";
+                const REGSTR_VAL_WORKGROUP: String = "Workgroup";
+                const REGSTR_VAL_WRAPPER: String = "Wrapper";
+                const REGSTR_VAL_WRINTTHRESHOLD: String = "WRIntThreshold";
+                const REGSTR_VAL_WRKGRP_FORCEMAPPING: String = "WrkgrpForceMapping";
+                const REGSTR_VAL_WRKGRP_REQUIRED: String = "WrkgrpRequired";
+                #[repr(u32)]
+                enum REG_CREATE_KEY_DISPOSITION {
+                    REG_CREATED_NEW_KEY = 1,
+                    REG_OPENED_EXISTING_KEY = 2,
+                }
+                const REG_KEY_INSTDEV: String = "Installed";
+                const REG_MUI_STRING_TRUNCATE: u32 = 1;
+                #[repr(u32)]
+                #[flags]
+                enum REG_NOTIFY_FILTER {
+                    REG_NOTIFY_CHANGE_NAME = 1,
+                    REG_NOTIFY_CHANGE_ATTRIBUTES = 2,
+                    REG_NOTIFY_CHANGE_LAST_SET = 4,
+                    REG_NOTIFY_CHANGE_SECURITY = 8,
+                    REG_NOTIFY_THREAD_AGNOSTIC = 268435456,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum REG_OPEN_CREATE_OPTIONS {
+                    REG_OPTION_RESERVED = 0,
+                    REG_OPTION_NON_VOLATILE = 0,
+                    REG_OPTION_VOLATILE = 1,
+                    REG_OPTION_CREATE_LINK = 2,
+                    REG_OPTION_BACKUP_RESTORE = 4,
+                    REG_OPTION_OPEN_LINK = 8,
+                    REG_OPTION_DONT_VIRTUALIZE = 16,
+                }
+                const REG_PROCESS_APPKEY: u32 = 1;
+                struct REG_PROVIDER {
+                    pi_R0_1val: PQUERYHANDLER,
+                    pi_R0_allvals: PQUERYHANDLER,
+                    pi_R3_1val: PQUERYHANDLER,
+                    pi_R3_allvals: PQUERYHANDLER,
+                    pi_flags: u32,
+                    pi_key_context: *mut void,
+                }
+                #[repr(i32)]
+                enum REG_RESTORE_KEY_FLAGS {
+                    REG_FORCE_RESTORE = 8,
+                    REG_WHOLE_HIVE_VOLATILE = 1,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum REG_ROUTINE_FLAGS {
+                    RRF_RT_DWORD = 24,
+                    RRF_RT_QWORD = 72,
+                    RRF_RT_REG_NONE = 1,
+                    RRF_RT_REG_SZ = 2,
+                    RRF_RT_REG_EXPAND_SZ = 4,
+                    RRF_RT_REG_BINARY = 8,
+                    RRF_RT_REG_DWORD = 16,
+                    RRF_RT_REG_MULTI_SZ = 32,
+                    RRF_RT_REG_QWORD = 64,
+                    RRF_RT_ANY = 65535,
+                    RRF_SUBKEY_WOW6464KEY = 65536,
+                    RRF_SUBKEY_WOW6432KEY = 131072,
+                    RRF_WOW64_MASK = 196608,
+                    RRF_NOEXPAND = 268435456,
+                    RRF_ZEROONFAILURE = 536870912,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum REG_SAM_FLAGS {
+                    KEY_QUERY_VALUE = 1,
+                    KEY_SET_VALUE = 2,
+                    KEY_CREATE_SUB_KEY = 4,
+                    KEY_ENUMERATE_SUB_KEYS = 8,
+                    KEY_NOTIFY = 16,
+                    KEY_CREATE_LINK = 32,
+                    KEY_WOW64_32KEY = 512,
+                    KEY_WOW64_64KEY = 256,
+                    KEY_WOW64_RES = 768,
+                    KEY_READ = 131097,
+                    KEY_WRITE = 131078,
+                    KEY_EXECUTE = 131097,
+                    KEY_ALL_ACCESS = 983103,
+                }
+                #[repr(u32)]
+                enum REG_SAVE_FORMAT {
+                    REG_STANDARD_FORMAT = 1,
+                    REG_LATEST_FORMAT = 2,
+                    REG_NO_COMPRESSION = 4,
+                }
+                const REG_SECURE_CONNECTION: u32 = 1;
+                const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2;
+                #[repr(u32)]
+                enum REG_VALUE_TYPE {
+                    REG_NONE = 0,
+                    REG_SZ = 1,
+                    REG_EXPAND_SZ = 2,
+                    REG_BINARY = 3,
+                    REG_DWORD = 4,
+                    REG_DWORD_LITTLE_ENDIAN = 4,
+                    REG_DWORD_BIG_ENDIAN = 5,
+                    REG_LINK = 6,
+                    REG_MULTI_SZ = 7,
+                    REG_RESOURCE_LIST = 8,
+                    REG_FULL_RESOURCE_DESCRIPTOR = 9,
+                    REG_RESOURCE_REQUIREMENTS_LIST = 10,
+                    REG_QWORD = 11,
+                    REG_QWORD_LITTLE_ENDIAN = 11,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regclosekey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCloseKey(hKey: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regconnectregistrya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegConnectRegistryA(lpMachineName: super::super::Foundation::PSTR, hKey: HKEY, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("ADVAPI32.dll")]
+                extern fn RegConnectRegistryExA(lpMachineName: super::super::Foundation::PSTR, hKey: HKEY, Flags: u32, phkResult: *mut HKEY) -> i32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("ADVAPI32.dll")]
+                extern fn RegConnectRegistryExW(lpMachineName: super::super::Foundation::PWSTR, hKey: HKEY, Flags: u32, phkResult: *mut HKEY) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regconnectregistryw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegConnectRegistryW(lpMachineName: super::super::Foundation::PWSTR, hKey: HKEY, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcopytreea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCopyTreeA(hKeySrc: HKEY, lpSubKey: super::super::Foundation::PSTR, hKeyDest: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcopytreew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCopyTreeW(hKeySrc: HKEY, lpSubKey: super::super::Foundation::PWSTR, hKeyDest: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeyexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyExA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, Reserved: u32, lpClass: super::super::Foundation::PSTR, dwOptions: REG_OPEN_CREATE_OPTIONS, samDesired: REG_SAM_FLAGS, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, phkResult: *mut HKEY, lpdwDisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeyexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyExW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, Reserved: u32, lpClass: super::super::Foundation::PWSTR, dwOptions: REG_OPEN_CREATE_OPTIONS, samDesired: REG_SAM_FLAGS, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, phkResult: *mut HKEY, lpdwDisposition: *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeytransacteda")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyTransactedA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, Reserved: u32, lpClass: super::super::Foundation::PSTR, dwOptions: REG_OPEN_CREATE_OPTIONS, samDesired: REG_SAM_FLAGS, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, phkResult: *mut HKEY, lpdwDisposition: *mut REG_CREATE_KEY_DISPOSITION, hTransaction: super::super::Foundation::HANDLE, pExtendedParemeter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeytransactedw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyTransactedW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, Reserved: u32, lpClass: super::super::Foundation::PWSTR, dwOptions: REG_OPEN_CREATE_OPTIONS, samDesired: REG_SAM_FLAGS, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, phkResult: *mut HKEY, lpdwDisposition: *mut REG_CREATE_KEY_DISPOSITION, hTransaction: super::super::Foundation::HANDLE, pExtendedParemeter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regcreatekeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegCreateKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeyexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyExA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, samDesired: u32, Reserved: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeyexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyExW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, samDesired: u32, Reserved: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeytransacteda")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyTransactedA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, samDesired: u32, Reserved: u32, hTransaction: super::super::Foundation::HANDLE, pExtendedParameter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeytransactedw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyTransactedW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, samDesired: u32, Reserved: u32, hTransaction: super::super::Foundation::HANDLE, pExtendedParameter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeyvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyValueA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpValueName: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeyvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyValueW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpValueName: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletekeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletetreea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteTreeA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletetreew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteTreeW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletevaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteValueA(hKey: HKEY, lpValueName: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdeletevaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDeleteValueW(hKey: HKEY, lpValueName: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdisablepredefinedcache")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDisablePredefinedCache() -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdisablepredefinedcacheex")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDisablePredefinedCacheEx() -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regdisablereflectionkey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegDisableReflectionKey(hBase: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenablereflectionkey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnableReflectionKey(hBase: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumkeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumKeyA(hKey: HKEY, dwIndex: u32, lpName: super::super::Foundation::PSTR, cchName: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumkeyexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumKeyExA(hKey: HKEY, dwIndex: u32, lpName: super::super::Foundation::PSTR, lpcchName: *mut u32, lpReserved: *mut u32, lpClass: super::super::Foundation::PSTR, lpcchClass: *mut u32, lpftLastWriteTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumkeyexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumKeyExW(hKey: HKEY, dwIndex: u32, lpName: super::super::Foundation::PWSTR, lpcchName: *mut u32, lpReserved: *mut u32, lpClass: super::super::Foundation::PWSTR, lpcchClass: *mut u32, lpftLastWriteTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumkeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumKeyW(hKey: HKEY, dwIndex: u32, lpName: super::super::Foundation::PWSTR, cchName: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumValueA(hKey: HKEY, dwIndex: u32, lpValueName: super::super::Foundation::PSTR, lpcchValueName: *mut u32, lpReserved: *mut u32, lpType: *mut u32, lpData: *mut u8, lpcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regenumvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegEnumValueW(hKey: HKEY, dwIndex: u32, lpValueName: super::super::Foundation::PWSTR, lpcchValueName: *mut u32, lpReserved: *mut u32, lpType: *mut u32, lpData: *mut u8, lpcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regflushkey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegFlushKey(hKey: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-reggetkeysecurity")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegGetKeySecurity(hKey: HKEY, SecurityInformation: super::super::Security::OBJECT_SECURITY_INFORMATION, pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbSecurityDescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-reggetvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegGetValueA(hkey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpValue: super::super::Foundation::PSTR, dwFlags: REG_ROUTINE_FLAGS, pdwType: *mut REG_VALUE_TYPE, pvData: *mut void, pcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-reggetvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegGetValueW(hkey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpValue: super::super::Foundation::PWSTR, dwFlags: REG_ROUTINE_FLAGS, pdwType: *mut REG_VALUE_TYPE, pvData: *mut void, pcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadappkeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadAppKeyA(lpFile: super::super::Foundation::PSTR, phkResult: *mut HKEY, samDesired: u32, dwOptions: u32, Reserved: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadappkeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadAppKeyW(lpFile: super::super::Foundation::PWSTR, phkResult: *mut HKEY, samDesired: u32, dwOptions: u32, Reserved: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadkeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpFile: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadkeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpFile: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadmuistringa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadMUIStringA(hKey: HKEY, pszValue: super::super::Foundation::PSTR, pszOutBuf: super::super::Foundation::PSTR, cbOutBuf: u32, pcbData: *mut u32, Flags: u32, pszDirectory: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regloadmuistringw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegLoadMUIStringW(hKey: HKEY, pszValue: super::super::Foundation::PWSTR, pszOutBuf: super::super::Foundation::PWSTR, cbOutBuf: u32, pcbData: *mut u32, Flags: u32, pszDirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regnotifychangekeyvalue")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegNotifyChangeKeyValue(hKey: HKEY, bWatchSubtree: super::super::Foundation::BOOL, dwNotifyFilter: REG_NOTIFY_FILTER, hEvent: super::super::Foundation::HANDLE, fAsynchronous: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopencurrentuser")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenCurrentUser(samDesired: u32, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeyexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyExA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, ulOptions: u32, samDesired: REG_SAM_FLAGS, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeyexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyExW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, ulOptions: u32, samDesired: REG_SAM_FLAGS, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeytransacteda")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyTransactedA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, ulOptions: u32, samDesired: REG_SAM_FLAGS, phkResult: *mut HKEY, hTransaction: super::super::Foundation::HANDLE, pExtendedParemeter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeytransactedw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyTransactedW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, ulOptions: u32, samDesired: REG_SAM_FLAGS, phkResult: *mut HKEY, hTransaction: super::super::Foundation::HANDLE, pExtendedParemeter: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenkeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regopenuserclassesroot")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOpenUserClassesRoot(hToken: super::super::Foundation::HANDLE, dwOptions: u32, samDesired: u32, phkResult: *mut HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regoverridepredefkey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegOverridePredefKey(hKey: HKEY, hNewHKey: HKEY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryinfokeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryInfoKeyA(hKey: HKEY, lpClass: super::super::Foundation::PSTR, lpcchClass: *mut u32, lpReserved: *mut u32, lpcSubKeys: *mut u32, lpcbMaxSubKeyLen: *mut u32, lpcbMaxClassLen: *mut u32, lpcValues: *mut u32, lpcbMaxValueNameLen: *mut u32, lpcbMaxValueLen: *mut u32, lpcbSecurityDescriptor: *mut u32, lpftLastWriteTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryinfokeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryInfoKeyW(hKey: HKEY, lpClass: super::super::Foundation::PWSTR, lpcchClass: *mut u32, lpReserved: *mut u32, lpcSubKeys: *mut u32, lpcbMaxSubKeyLen: *mut u32, lpcbMaxClassLen: *mut u32, lpcValues: *mut u32, lpcbMaxValueNameLen: *mut u32, lpcbMaxValueLen: *mut u32, lpcbSecurityDescriptor: *mut u32, lpftLastWriteTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regquerymultiplevaluesa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryMultipleValuesA(hKey: HKEY, val_list: *mut VALENTA, num_vals: u32, lpValueBuf: super::super::Foundation::PSTR, ldwTotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regquerymultiplevaluesw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryMultipleValuesW(hKey: HKEY, val_list: *mut VALENTW, num_vals: u32, lpValueBuf: super::super::Foundation::PWSTR, ldwTotsize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryreflectionkey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryReflectionKey(hBase: HKEY, bIsReflectionDisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryValueA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpData: super::super::Foundation::PSTR, lpcbData: *mut i32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryvalueexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryValueExA(hKey: HKEY, lpValueName: super::super::Foundation::PSTR, lpReserved: *mut u32, lpType: *mut REG_VALUE_TYPE, lpData: *mut u8, lpcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryvalueexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryValueExW(hKey: HKEY, lpValueName: super::super::Foundation::PWSTR, lpReserved: *mut u32, lpType: *mut REG_VALUE_TYPE, lpData: *mut u8, lpcbData: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regqueryvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegQueryValueW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpData: super::super::Foundation::PWSTR, lpcbData: *mut i32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regrenamekey")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegRenameKey(hKey: HKEY, lpSubKeyName: super::super::Foundation::PWSTR, lpNewKeyName: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regreplacekeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegReplaceKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpNewFile: super::super::Foundation::PSTR, lpOldFile: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regreplacekeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegReplaceKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpNewFile: super::super::Foundation::PWSTR, lpOldFile: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regrestorekeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegRestoreKeyA(hKey: HKEY, lpFile: super::super::Foundation::PSTR, dwFlags: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regrestorekeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegRestoreKeyW(hKey: HKEY, lpFile: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsavekeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSaveKeyA(hKey: HKEY, lpFile: super::super::Foundation::PSTR, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsavekeyexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSaveKeyExA(hKey: HKEY, lpFile: super::super::Foundation::PSTR, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, Flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsavekeyexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSaveKeyExW(hKey: HKEY, lpFile: super::super::Foundation::PWSTR, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, Flags: REG_SAVE_FORMAT) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsavekeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSaveKeyW(hKey: HKEY, lpFile: super::super::Foundation::PWSTR, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetkeysecurity")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetKeySecurity(hKey: HKEY, SecurityInformation: super::super::Security::OBJECT_SECURITY_INFORMATION, pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetkeyvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetKeyValueA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, lpValueName: super::super::Foundation::PSTR, dwType: u32, lpData: *mut void, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetkeyvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetKeyValueW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, lpValueName: super::super::Foundation::PWSTR, dwType: u32, lpData: *mut void, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetvaluea")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetValueA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR, dwType: REG_VALUE_TYPE, lpData: super::super::Foundation::PSTR, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetvalueexa")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetValueExA(hKey: HKEY, lpValueName: super::super::Foundation::PSTR, Reserved: u32, dwType: REG_VALUE_TYPE, lpData: *mut u8, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetvalueexw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetValueExW(hKey: HKEY, lpValueName: super::super::Foundation::PWSTR, Reserved: u32, dwType: REG_VALUE_TYPE, lpData: *mut u8, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regsetvaluew")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegSetValueW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR, dwType: REG_VALUE_TYPE, lpData: super::super::Foundation::PWSTR, cbData: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regunloadkeya")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegUnLoadKeyA(hKey: HKEY, lpSubKey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/nf-winreg-regunloadkeyw")]
+                #[library("ADVAPI32.dll")]
+                extern fn RegUnLoadKeyW(hKey: HKEY, lpSubKey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                const SUF_BATCHINF: i32 = 4;
+                const SUF_CLEAN: i32 = 8;
+                const SUF_EXPRESS: i32 = 2;
+                const SUF_FIRSTTIME: i32 = 1;
+                const SUF_INSETUP: i32 = 16;
+                const SUF_NETHDBOOT: i32 = 64;
+                const SUF_NETRPLBOOT: i32 = 128;
+                const SUF_NETSETUP: i32 = 32;
+                const SUF_SBSCOPYOK: i32 = 256;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/ns-winreg-valenta")]
+                struct VALENTA {
+                    ve_valuename: super::super::Foundation::PSTR,
+                    ve_valuelen: u32,
+                    ve_valueptr: usize,
+                    ve_type: REG_VALUE_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winreg/ns-winreg-valentw")]
+                struct VALENTW {
+                    ve_valuename: super::super::Foundation::PWSTR,
+                    ve_valuelen: u32,
+                    ve_valueptr: usize,
+                    ve_type: REG_VALUE_TYPE,
+                }
+                const VPDF_DISABLEPWRMGMT: u32 = 1;
+                const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8;
+                const VPDF_DISABLERINGRESUME: u32 = 16;
+                const VPDF_FORCEAPM10MODE: u32 = 2;
+                const VPDF_SHOWMULTIBATT: u32 = 32;
+                const VPDF_SKIPINTELSLCHECK: u32 = 4;
+                struct val_context {
+                    valuelen: i32,
+                    value_context: *mut void,
+                    val_buff_ptr: *mut void,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+mod Windows {
+    mod Media {
+        mod Capture {
+            #[winrt]
+            mod Core {
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoCapturedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IVariablePhotoCapturedEventArgs {
+                    #[special]
+                    fn get_Frame(&self) -> super::CapturedFrame;
+                    #[special]
+                    fn get_CaptureTimeOffset(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn get_UsedFrameControllerIndex(&self) -> super::super::super::Foundation::IReference<u32>;
+                    #[special]
+                    fn get_CapturedFrameControlValues(&self) -> super::CapturedFrameControlValues;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
+                interface IVariablePhotoSequenceCapture {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn StartAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn StopAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FinishAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[special]
+                    fn add_PhotoCaptured(&self, handler: super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PhotoCaptured(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_Stopped(&self, handler: super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Stopped(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IVariablePhotoSequenceCapture2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn UpdateSettingsAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class VariablePhotoCapturedEventArgs {
+                    #[default]
+                    IVariablePhotoCapturedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                class VariablePhotoSequenceCapture {
+                    #[default]
+                    IVariablePhotoSequenceCapture,
+                    IVariablePhotoSequenceCapture2,
+                }
+            }
+        }
+    }
+}

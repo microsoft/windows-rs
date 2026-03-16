@@ -1,0 +1,296 @@
+mod Windows {
+    mod ApplicationModel {
+        mod Appointments {
+            #[winrt]
+            mod DataProvider {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarCancelMeetingRequest {
+                    #[default]
+                    IAppointmentCalendarCancelMeetingRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarCancelMeetingRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarCancelMeetingRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarCreateOrUpdateAppointmentRequest {
+                    #[default]
+                    IAppointmentCalendarCreateOrUpdateAppointmentRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AppointmentCalendarForwardMeetingRequest {
+                    #[default]
+                    IAppointmentCalendarForwardMeetingRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarForwardMeetingRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarForwardMeetingRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppointmentCalendarProposeNewTimeForMeetingRequest {
+                    #[default]
+                    IAppointmentCalendarProposeNewTimeForMeetingRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarSyncManagerSyncRequest {
+                    #[default]
+                    IAppointmentCalendarSyncManagerSyncRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AppointmentCalendarSyncManagerSyncRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarSyncManagerSyncRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppointmentCalendarUpdateMeetingResponseRequest {
+                    #[default]
+                    IAppointmentCalendarUpdateMeetingResponseRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+                    #[default]
+                    IAppointmentCalendarUpdateMeetingResponseRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppointmentDataProviderConnection {
+                    #[default]
+                    IAppointmentDataProviderConnection,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppointmentDataProviderTriggerDetails {
+                    #[default]
+                    IAppointmentDataProviderTriggerDetails,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarCancelMeetingRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarCancelMeetingRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentOriginalStartTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn get_Comment(&self) -> String;
+                    #[special]
+                    fn get_NotifyInvitees(&self) -> bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarCancelMeetingRequestEventArgs)]
+                interface IAppointmentCalendarCancelMeetingRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarCancelMeetingRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarCreateOrUpdateAppointmentRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarCreateOrUpdateAppointmentRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[special]
+                    fn get_Appointment(&self) -> super::Appointment;
+                    #[special]
+                    fn get_NotifyInvitees(&self) -> bool;
+                    #[special]
+                    fn get_ChangedProperties(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self, createdOrUpdatedAppointment: super::Appointment) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarCreateOrUpdateAppointmentRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarForwardMeetingRequest)]
+                interface IAppointmentCalendarForwardMeetingRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentOriginalStartTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[special]
+                    fn get_Invitees(&self) -> super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>;
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn get_ForwardHeader(&self) -> String;
+                    #[special]
+                    fn get_Comment(&self) -> String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarForwardMeetingRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarForwardMeetingRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarForwardMeetingRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarProposeNewTimeForMeetingRequest)]
+                interface IAppointmentCalendarProposeNewTimeForMeetingRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentOriginalStartTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[special]
+                    fn get_NewStartTime(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn get_NewDuration(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn get_Comment(&self) -> String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs)]
+                interface IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarProposeNewTimeForMeetingRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarSyncManagerSyncRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarSyncManagerSyncRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarSyncManagerSyncRequestEventArgs)]
+                interface IAppointmentCalendarSyncManagerSyncRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarSyncManagerSyncRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarUpdateMeetingResponseRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentCalendarUpdateMeetingResponseRequest {
+                    #[special]
+                    fn get_AppointmentCalendarLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentLocalId(&self) -> String;
+                    #[special]
+                    fn get_AppointmentOriginalStartTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[special]
+                    fn get_Response(&self) -> super::AppointmentParticipantResponse;
+                    #[special]
+                    fn get_Subject(&self) -> String;
+                    #[special]
+                    fn get_Comment(&self) -> String;
+                    #[special]
+                    fn get_SendUpdate(&self) -> bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentCalendarUpdateMeetingResponseRequestEventArgs)]
+                interface IAppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+                    #[special]
+                    fn get_Request(&self) -> AppointmentCalendarUpdateMeetingResponseRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentDataProviderConnection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAppointmentDataProviderConnection {
+                    #[special]
+                    fn add_SyncRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SyncRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_CreateOrUpdateAppointmentRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_CreateOrUpdateAppointmentRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_CancelMeetingRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_CancelMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ForwardMeetingRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ForwardMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ProposeNewTimeForMeetingRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ProposeNewTimeForMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_UpdateMeetingResponseRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_UpdateMeetingResponseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn Start(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentDataProviderTriggerDetails)]
+                interface IAppointmentDataProviderTriggerDetails {
+                    #[special]
+                    fn get_Connection(&self) -> AppointmentDataProviderConnection;
+                }
+            }
+        }
+    }
+}

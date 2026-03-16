@@ -1,0 +1,254 @@
+mod Windows {
+    mod Media {
+        #[winrt]
+        mod Protection {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ComponentLoadFailedEventArgs {
+                #[default]
+                IComponentLoadFailedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn ComponentLoadFailedEventHandler(sender: MediaProtectionManager, e: ComponentLoadFailedEventArgs);
+            #[Windows::Foundation::Metadata::Static(IComponentRenewalStatics, 65536, "Windows.Media.Protection.ProtectionRenewalContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ProtectionRenewalContract, 65536)]
+            class ComponentRenewal {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum GraphicsTrustStatus {
+                TrustNotRequired = 0,
+                TrustEstablished = 1,
+                EnvironmentNotSupported = 2,
+                DriverNotSupported = 3,
+                DriverSigningFailure = 4,
+                UnknownFailure = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum HdcpProtection {
+                Off = 0,
+                On = 1,
+                OnWithTypeEnforcement = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            class HdcpSession {
+                #[default]
+                IHdcpSession,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum HdcpSetProtectionResult {
+                Success = 0,
+                TimedOut = 1,
+                NotSupported = 2,
+                UnknownFailure = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ComponentLoadFailedEventArgs)]
+            interface IComponentLoadFailedEventArgs {
+                #[special]
+                fn get_Information(&self) -> RevocationAndRenewalInformation;
+                #[special]
+                fn get_Completion(&self) -> MediaProtectionServiceCompletion;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ComponentRenewal)]
+            #[Windows::Foundation::Metadata::ContractVersion(ProtectionRenewalContract, 65536)]
+            interface IComponentRenewalStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RenewSystemComponentsAsync(&self, information: RevocationAndRenewalInformation) -> super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HdcpSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IHdcpSession: super::super::Foundation::IClosable {
+                fn IsEffectiveProtectionAtLeast(&self, protection: HdcpProtection) -> bool;
+                fn GetEffectiveProtection(&self) -> super::super::Foundation::IReference<HdcpProtection>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetDesiredMinProtectionAsync(&self, protection: HdcpProtection) -> super::super::Foundation::IAsyncOperation<HdcpSetProtectionResult>;
+                #[special]
+                fn add_ProtectionChanged(&self, handler: super::super::Foundation::TypedEventHandler<HdcpSession, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ProtectionChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaProtectionManager {
+                #[special]
+                fn add_ServiceRequested(&self, handler: ServiceRequestedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ServiceRequested(&self, cookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_RebootNeeded(&self, handler: RebootNeededEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_RebootNeeded(&self, cookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_ComponentLoadFailed(&self, handler: ComponentLoadFailedEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ComponentLoadFailed(&self, cookie: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_Properties(&self) -> super::super::Foundation::Collections::IPropertySet;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionPMPServer)]
+            interface IMediaProtectionPMPServer {
+                #[special]
+                fn get_Properties(&self) -> super::super::Foundation::Collections::IPropertySet;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionPMPServer)]
+            interface IMediaProtectionPMPServerFactory {
+                fn CreatePMPServer(&self, pProperties: super::super::Foundation::Collections::IPropertySet) -> MediaProtectionPMPServer;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaProtectionServiceCompletion)]
+            interface IMediaProtectionServiceCompletion {
+                fn Complete(&self, success: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaProtectionServiceRequest {
+                #[special]
+                fn get_ProtectionSystem(&self) -> GUID;
+                #[special]
+                fn get_Type(&self) -> GUID;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionCapabilities)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IProtectionCapabilities {
+                fn IsTypeSupported(&self, r#type: String, keySystem: String) -> ProtectionCapabilityResult;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RevocationAndRenewalInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRevocationAndRenewalInformation {
+                #[special]
+                fn get_Items(&self) -> super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(RevocationAndRenewalItem)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRevocationAndRenewalItem {
+                #[special]
+                fn get_Reasons(&self) -> RevocationAndRenewalReasons;
+                #[special]
+                fn get_HeaderHash(&self) -> String;
+                #[special]
+                fn get_PublicKeyHash(&self) -> String;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_RenewalId(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IServiceRequestedEventArgs {
+                #[special]
+                fn get_Request(&self) -> IMediaProtectionServiceRequest;
+                #[special]
+                fn get_Completion(&self) -> MediaProtectionServiceCompletion;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IServiceRequestedEventArgs2 {
+                #[special]
+                fn get_MediaPlaybackItem(&self) -> super::Playback::MediaPlaybackItem;
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MediaProtectionManager {
+                #[default]
+                IMediaProtectionManager,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IMediaProtectionPMPServerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MediaProtectionPMPServer {
+                #[default]
+                IMediaProtectionPMPServer,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MediaProtectionServiceCompletion {
+                #[default]
+                IMediaProtectionServiceCompletion,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProtectionCapabilities {
+                #[default]
+                IProtectionCapabilities,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum ProtectionCapabilityResult {
+                NotSupported = 0,
+                Maybe = 1,
+                Probably = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct ProtectionRenewalContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn RebootNeededEventHandler(sender: MediaProtectionManager);
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ProtectionRenewalContract, 65536)]
+            enum RenewalStatus {
+                NotStarted = 0,
+                UpdatesInProgress = 1,
+                UserCancelled = 2,
+                AppComponentsMayNeedUpdating = 3,
+                NoComponentsFound = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class RevocationAndRenewalInformation {
+                #[default]
+                IRevocationAndRenewalInformation,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RevocationAndRenewalItem {
+                #[default]
+                IRevocationAndRenewalItem,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RevocationAndRenewalReasons {
+                UserModeComponentLoad = 1,
+                KernelModeComponentLoad = 2,
+                AppComponent = 4,
+                GlobalRevocationListLoadFailed = 16,
+                InvalidGlobalRevocationListSignature = 32,
+                GlobalRevocationListAbsent = 4096,
+                ComponentRevoked = 8192,
+                InvalidComponentCertificateExtendedKeyUse = 16384,
+                ComponentCertificateRevoked = 32768,
+                InvalidComponentCertificateRoot = 65536,
+                ComponentHighSecurityCertificateRevoked = 131072,
+                ComponentLowSecurityCertificateRevoked = 262144,
+                BootDriverVerificationFailed = 1048576,
+                ComponentSignedWithTestCertificate = 16777216,
+                EncryptionFailure = 268435456,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ServiceRequestedEventArgs {
+                #[default]
+                IServiceRequestedEventArgs,
+                IServiceRequestedEventArgs2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn ServiceRequestedEventHandler(sender: MediaProtectionManager, e: ServiceRequestedEventArgs);
+        }
+    }
+}

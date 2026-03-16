@@ -1,0 +1,84 @@
+mod Windows {
+    mod System {
+        #[winrt]
+        mod Threading {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPool)]
+            interface IThreadPoolStatics {
+                #[Windows::Foundation::Metadata::Overload("RunAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RunAsync(&self, handler: WorkItemHandler) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("RunWithPriorityAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RunAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RunWithPriorityAndOptionsAsync")]
+                fn RunAsync(&self, handler: WorkItemHandler, priority: WorkItemPriority, options: WorkItemOptions) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPoolTimer)]
+            interface IThreadPoolTimer {
+                #[special]
+                fn get_Period(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_Delay(&self) -> super::super::Foundation::TimeSpan;
+                fn Cancel(&self);
+            }
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPoolTimer)]
+            interface IThreadPoolTimerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreatePeriodicTimer")]
+                fn CreatePeriodicTimer(&self, handler: TimerElapsedHandler, period: super::super::Foundation::TimeSpan) -> ThreadPoolTimer;
+                #[Windows::Foundation::Metadata::Overload("CreateTimer")]
+                fn CreateTimer(&self, handler: TimerElapsedHandler, delay: super::super::Foundation::TimeSpan) -> ThreadPoolTimer;
+                #[Windows::Foundation::Metadata::Overload("CreatePeriodicTimerWithCompletion")]
+                fn CreatePeriodicTimer(&self, handler: TimerElapsedHandler, period: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
+                #[Windows::Foundation::Metadata::Overload("CreateTimerWithCompletion")]
+                fn CreateTimer(&self, handler: TimerElapsedHandler, delay: super::super::Foundation::TimeSpan, destroyed: TimerDestroyedHandler) -> ThreadPoolTimer;
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IThreadPoolStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class ThreadPool {}
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IThreadPoolTimerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ThreadPoolTimer {
+                #[default]
+                IThreadPoolTimer,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            delegate fn TimerDestroyedHandler(timer: ThreadPoolTimer);
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn TimerElapsedHandler(timer: ThreadPoolTimer);
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn WorkItemHandler(operation: super::super::Foundation::IAsyncAction);
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum WorkItemOptions {
+                None = 0,
+                TimeSliced = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            enum WorkItemPriority {
+                Low = -1,
+                Normal = 0,
+                High = 1,
+            }
+        }
+    }
+}

@@ -1,0 +1,1355 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            mod Controls {
+                #[win32]
+                mod Dialogs {
+                    const CDM_FIRST: u32 = 1124;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-getfilepath")]
+                    const CDM_GETFILEPATH: u32 = 1125;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-getfolderidlist")]
+                    const CDM_GETFOLDERIDLIST: u32 = 1127;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-getfolderpath")]
+                    const CDM_GETFOLDERPATH: u32 = 1126;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-getspec")]
+                    const CDM_GETSPEC: u32 = 1124;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-hidecontrol")]
+                    const CDM_HIDECONTROL: u32 = 1129;
+                    const CDM_LAST: u32 = 1224;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-setcontroltext")]
+                    const CDM_SETCONTROLTEXT: u32 = 1128;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdm-setdefext")]
+                    const CDM_SETDEFEXT: u32 = 1130;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-fileok")]
+                    const CDN_FILEOK: u32 = 4294966690;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-folderchange")]
+                    const CDN_FOLDERCHANGE: u32 = 4294966693;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-help")]
+                    const CDN_HELP: u32 = 4294966691;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-includeitem")]
+                    const CDN_INCLUDEITEM: u32 = 4294966688;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-initdone")]
+                    const CDN_INITDONE: u32 = 4294966695;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-selchange")]
+                    const CDN_SELCHANGE: u32 = 4294966694;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-shareviolation")]
+                    const CDN_SHAREVIOLATION: u32 = 4294966692;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/cdn-typechange")]
+                    const CDN_TYPECHANGE: u32 = 4294966689;
+                    const CD_LBSELADD: u32 = 2;
+                    const CD_LBSELCHANGE: u32 = 0;
+                    const CD_LBSELNOITEMS: i32 = -1;
+                    const CD_LBSELSUB: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosecolora")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct CHOOSECOLORA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HWND,
+                        rgbResult: super::super::super::Foundation::COLORREF,
+                        lpCustColors: *mut super::super::super::Foundation::COLORREF,
+                        Flags: CHOOSECOLOR_FLAGS,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCCHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosecolora")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct CHOOSECOLORA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HWND,
+                        rgbResult: super::super::super::Foundation::COLORREF,
+                        lpCustColors: *mut super::super::super::Foundation::COLORREF,
+                        Flags: CHOOSECOLOR_FLAGS,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCCHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosecolorw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct CHOOSECOLORW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HWND,
+                        rgbResult: super::super::super::Foundation::COLORREF,
+                        lpCustColors: *mut super::super::super::Foundation::COLORREF,
+                        Flags: CHOOSECOLOR_FLAGS,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCCHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosecolorw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct CHOOSECOLORW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HWND,
+                        rgbResult: super::super::super::Foundation::COLORREF,
+                        lpCustColors: *mut super::super::super::Foundation::COLORREF,
+                        Flags: CHOOSECOLOR_FLAGS,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCCHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum CHOOSECOLOR_FLAGS {
+                        CC_RGBINIT = 1,
+                        CC_FULLOPEN = 2,
+                        CC_PREVENTFULLOPEN = 4,
+                        CC_SHOWHELP = 8,
+                        CC_ENABLEHOOK = 16,
+                        CC_ENABLETEMPLATE = 32,
+                        CC_ENABLETEMPLATEHANDLE = 64,
+                        CC_SOLIDCOLOR = 128,
+                        CC_ANYCOLOR = 256,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosefonta")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct CHOOSEFONTA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
+                        iPointSize: i32,
+                        Flags: CHOOSEFONT_FLAGS,
+                        rgbColors: super::super::super::Foundation::COLORREF,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCFHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lpszStyle: super::super::super::Foundation::PSTR,
+                        nFontType: CHOOSEFONT_FONT_TYPE,
+                        ___MISSING_ALIGNMENT__: u16,
+                        nSizeMin: i32,
+                        nSizeMax: i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosefonta")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct CHOOSEFONTA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
+                        iPointSize: i32,
+                        Flags: CHOOSEFONT_FLAGS,
+                        rgbColors: super::super::super::Foundation::COLORREF,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCFHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lpszStyle: super::super::super::Foundation::PSTR,
+                        nFontType: CHOOSEFONT_FONT_TYPE,
+                        ___MISSING_ALIGNMENT__: u16,
+                        nSizeMin: i32,
+                        nSizeMax: i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosefontw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct CHOOSEFONTW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
+                        iPointSize: i32,
+                        Flags: CHOOSEFONT_FLAGS,
+                        rgbColors: super::super::super::Foundation::COLORREF,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCFHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lpszStyle: super::super::super::Foundation::PWSTR,
+                        nFontType: CHOOSEFONT_FONT_TYPE,
+                        ___MISSING_ALIGNMENT__: u16,
+                        nSizeMin: i32,
+                        nSizeMax: i32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-choosefontw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct CHOOSEFONTW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
+                        iPointSize: i32,
+                        Flags: CHOOSEFONT_FLAGS,
+                        rgbColors: super::super::super::Foundation::COLORREF,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPCFHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lpszStyle: super::super::super::Foundation::PWSTR,
+                        nFontType: CHOOSEFONT_FONT_TYPE,
+                        ___MISSING_ALIGNMENT__: u16,
+                        nSizeMin: i32,
+                        nSizeMax: i32,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum CHOOSEFONT_FLAGS {
+                        CF_APPLY = 512,
+                        CF_ANSIONLY = 1024,
+                        CF_BOTH = 3,
+                        CF_EFFECTS = 256,
+                        CF_ENABLEHOOK = 8,
+                        CF_ENABLETEMPLATE = 16,
+                        CF_ENABLETEMPLATEHANDLE = 32,
+                        CF_FIXEDPITCHONLY = 16384,
+                        CF_FORCEFONTEXIST = 65536,
+                        CF_INACTIVEFONTS = 33554432,
+                        CF_INITTOLOGFONTSTRUCT = 64,
+                        CF_LIMITSIZE = 8192,
+                        CF_NOOEMFONTS = 2048,
+                        CF_NOFACESEL = 524288,
+                        CF_NOSCRIPTSEL = 8388608,
+                        CF_NOSIMULATIONS = 4096,
+                        CF_NOSIZESEL = 2097152,
+                        CF_NOSTYLESEL = 1048576,
+                        CF_NOVECTORFONTS = 2048,
+                        CF_NOVERTFONTS = 16777216,
+                        CF_PRINTERFONTS = 2,
+                        CF_SCALABLEONLY = 131072,
+                        CF_SCREENFONTS = 1,
+                        CF_SCRIPTSONLY = 1024,
+                        CF_SELECTSCRIPT = 4194304,
+                        CF_SHOWHELP = 4,
+                        CF_TTONLY = 262144,
+                        CF_USESTYLE = 128,
+                        CF_WYSIWYG = 32768,
+                    }
+                    #[repr(u16)]
+                    #[flags]
+                    enum CHOOSEFONT_FONT_TYPE {
+                        BOLD_FONTTYPE = 256,
+                        ITALIC_FONTTYPE = 512,
+                        PRINTER_FONTTYPE = 16384,
+                        REGULAR_FONTTYPE = 1024,
+                        SCREEN_FONTTYPE = 8192,
+                        SIMULATED_FONTTYPE = 32768,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/colorokstring")]
+                    const COLOROKSTRING: String = "commdlg_ColorOK";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/colorokstring")]
+                    const COLOROKSTRINGA: String = "commdlg_ColorOK";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/colorokstring")]
+                    const COLOROKSTRINGW: String = "commdlg_ColorOK";
+                    const COLOR_ADD: u32 = 712;
+                    const COLOR_BLUE: u32 = 708;
+                    const COLOR_BLUEACCEL: u32 = 728;
+                    const COLOR_BOX1: u32 = 720;
+                    const COLOR_CURRENT: u32 = 709;
+                    const COLOR_CUSTOM1: u32 = 721;
+                    const COLOR_ELEMENT: u32 = 716;
+                    const COLOR_GREEN: u32 = 707;
+                    const COLOR_GREENACCEL: u32 = 727;
+                    const COLOR_HUE: u32 = 703;
+                    const COLOR_HUEACCEL: u32 = 723;
+                    const COLOR_HUESCROLL: u32 = 700;
+                    const COLOR_LUM: u32 = 705;
+                    const COLOR_LUMACCEL: u32 = 725;
+                    const COLOR_LUMSCROLL: u32 = 702;
+                    const COLOR_MIX: u32 = 719;
+                    const COLOR_PALETTE: u32 = 718;
+                    const COLOR_RAINBOW: u32 = 710;
+                    const COLOR_RED: u32 = 706;
+                    const COLOR_REDACCEL: u32 = 726;
+                    const COLOR_SAMPLES: u32 = 717;
+                    const COLOR_SAT: u32 = 704;
+                    const COLOR_SATACCEL: u32 = 724;
+                    const COLOR_SATSCROLL: u32 = 701;
+                    const COLOR_SAVE: u32 = 711;
+                    const COLOR_SCHEMES: u32 = 715;
+                    const COLOR_SOLID: u32 = 713;
+                    const COLOR_SOLID_LEFT: u32 = 730;
+                    const COLOR_SOLID_RIGHT: u32 = 731;
+                    const COLOR_TUNE: u32 = 714;
+                    #[repr(u32)]
+                    enum COMMON_DLG_ERRORS {
+                        CDERR_DIALOGFAILURE = 65535,
+                        CDERR_GENERALCODES = 0,
+                        CDERR_STRUCTSIZE = 1,
+                        CDERR_INITIALIZATION = 2,
+                        CDERR_NOTEMPLATE = 3,
+                        CDERR_NOHINSTANCE = 4,
+                        CDERR_LOADSTRFAILURE = 5,
+                        CDERR_FINDRESFAILURE = 6,
+                        CDERR_LOADRESFAILURE = 7,
+                        CDERR_LOCKRESFAILURE = 8,
+                        CDERR_MEMALLOCFAILURE = 9,
+                        CDERR_MEMLOCKFAILURE = 10,
+                        CDERR_NOHOOK = 11,
+                        CDERR_REGISTERMSGFAIL = 12,
+                        PDERR_PRINTERCODES = 4096,
+                        PDERR_SETUPFAILURE = 4097,
+                        PDERR_PARSEFAILURE = 4098,
+                        PDERR_RETDEFFAILURE = 4099,
+                        PDERR_LOADDRVFAILURE = 4100,
+                        PDERR_GETDEVMODEFAIL = 4101,
+                        PDERR_INITFAILURE = 4102,
+                        PDERR_NODEVICES = 4103,
+                        PDERR_NODEFAULTPRN = 4104,
+                        PDERR_DNDMMISMATCH = 4105,
+                        PDERR_CREATEICFAILURE = 4106,
+                        PDERR_PRINTERNOTFOUND = 4107,
+                        PDERR_DEFAULTDIFFERENT = 4108,
+                        CFERR_CHOOSEFONTCODES = 8192,
+                        CFERR_NOFONTS = 8193,
+                        CFERR_MAXLESSTHANMIN = 8194,
+                        FNERR_FILENAMECODES = 12288,
+                        FNERR_SUBCLASSFAILURE = 12289,
+                        FNERR_INVALIDFILENAME = 12290,
+                        FNERR_BUFFERTOOSMALL = 12291,
+                        FRERR_FINDREPLACECODES = 16384,
+                        FRERR_BUFFERLENGTHZERO = 16385,
+                        CCERR_CHOOSECOLORCODES = 20480,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[library("COMDLG32.dll")]
+                    extern fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-choosecolorw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-choosefonta")]
+                    #[library("COMDLG32.dll")]
+                    extern fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-choosefontw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-commdlgextendederror")]
+                    #[library("COMDLG32.dll")]
+                    extern fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-devnames")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct DEVNAMES {
+                        wDriverOffset: u16,
+                        wDeviceOffset: u16,
+                        wOutputOffset: u16,
+                        wDefault: u16,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-devnames")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct DEVNAMES {
+                        wDriverOffset: u16,
+                        wDeviceOffset: u16,
+                        wOutputOffset: u16,
+                        wDefault: u16,
+                    }
+                    const DLG_COLOR: u32 = 10;
+                    const DN_DEFAULTPRN: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/fileokstring")]
+                    const FILEOKSTRING: String = "commdlg_FileNameOK";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/fileokstring")]
+                    const FILEOKSTRINGA: String = "commdlg_FileNameOK";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/fileokstring")]
+                    const FILEOKSTRINGW: String = "commdlg_FileNameOK";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/findmsgstring")]
+                    const FINDMSGSTRING: String = "commdlg_FindReplace";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/findmsgstring")]
+                    const FINDMSGSTRINGA: String = "commdlg_FindReplace";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/findmsgstring")]
+                    const FINDMSGSTRINGW: String = "commdlg_FindReplace";
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-findreplacea")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct FINDREPLACEA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        Flags: FINDREPLACE_FLAGS,
+                        lpstrFindWhat: super::super::super::Foundation::PSTR,
+                        lpstrReplaceWith: super::super::super::Foundation::PSTR,
+                        wFindWhatLen: u16,
+                        wReplaceWithLen: u16,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPFRHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-findreplacea")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct FINDREPLACEA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        Flags: FINDREPLACE_FLAGS,
+                        lpstrFindWhat: super::super::super::Foundation::PSTR,
+                        lpstrReplaceWith: super::super::super::Foundation::PSTR,
+                        wFindWhatLen: u16,
+                        wReplaceWithLen: u16,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPFRHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-findreplacew")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct FINDREPLACEW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        Flags: FINDREPLACE_FLAGS,
+                        lpstrFindWhat: super::super::super::Foundation::PWSTR,
+                        lpstrReplaceWith: super::super::super::Foundation::PWSTR,
+                        wFindWhatLen: u16,
+                        wReplaceWithLen: u16,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPFRHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-findreplacew")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct FINDREPLACEW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        Flags: FINDREPLACE_FLAGS,
+                        lpstrFindWhat: super::super::super::Foundation::PWSTR,
+                        lpstrReplaceWith: super::super::super::Foundation::PWSTR,
+                        wFindWhatLen: u16,
+                        wReplaceWithLen: u16,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPFRHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum FINDREPLACE_FLAGS {
+                        FR_DOWN = 1,
+                        FR_WHOLEWORD = 2,
+                        FR_MATCHCASE = 4,
+                        FR_FINDNEXT = 8,
+                        FR_REPLACE = 16,
+                        FR_REPLACEALL = 32,
+                        FR_DIALOGTERM = 64,
+                        FR_SHOWHELP = 128,
+                        FR_ENABLEHOOK = 256,
+                        FR_ENABLETEMPLATE = 512,
+                        FR_NOUPDOWN = 1024,
+                        FR_NOMATCHCASE = 2048,
+                        FR_NOWHOLEWORD = 4096,
+                        FR_ENABLETEMPLATEHANDLE = 8192,
+                        FR_HIDEUPDOWN = 16384,
+                        FR_HIDEMATCHCASE = 32768,
+                        FR_HIDEWHOLEWORD = 65536,
+                        FR_RAW = 131072,
+                        FR_SHOWWRAPAROUND = 262144,
+                        FR_NOWRAPAROUND = 524288,
+                        FR_WRAPAROUND = 1048576,
+                        FR_MATCHDIAC = 536870912,
+                        FR_MATCHKASHIDA = 1073741824,
+                        FR_MATCHALEFHAMZA = 2147483648,
+                    }
+                    const FRM_FIRST: u32 = 1124;
+                    const FRM_LAST: u32 = 1224;
+                    const FRM_SETOPERATIONRESULT: u32 = 1124;
+                    const FRM_SETOPERATIONRESULTTEXT: u32 = 1125;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-findtexta")]
+                    #[library("COMDLG32.dll")]
+                    extern fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-findtextw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getfiletitlea")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetFileTitleA(param0: super::super::super::Foundation::PSTR, Buf: super::super::super::Foundation::PSTR, cchSize: u16) -> i16;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getfiletitlew")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetFileTitleW(param0: super::super::super::Foundation::PWSTR, Buf: super::super::super::Foundation::PWSTR, cchSize: u16) -> i16;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getopenfilenamea")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getopenfilenamew")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getsavefilenamea")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-getsavefilenamew")]
+                    #[library("COMDLG32.dll")]
+                    extern fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/helpmsgstring")]
+                    const HELPMSGSTRING: String = "commdlg_help";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/helpmsgstring")]
+                    const HELPMSGSTRINGA: String = "commdlg_help";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/helpmsgstring")]
+                    const HELPMSGSTRINGW: String = "commdlg_help";
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nn-commdlg-iprintdialogcallback")]
+                    interface IPrintDialogCallback: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogcallback-initdone")]
+                        fn InitDone(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogcallback-selectionchange")]
+                        fn SelectionChange(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogcallback-handlemessage")]
+                        fn HandleMessage(&self, hDlg: super::super::super::Foundation::HWND, uMsg: u32, wParam: super::super::super::Foundation::WPARAM, lParam: super::super::super::Foundation::LPARAM, pResult: *mut super::super::super::Foundation::LRESULT) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nn-commdlg-iprintdialogservices")]
+                    interface IPrintDialogServices: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogservices-getcurrentdevmode")]
+                        fn GetCurrentDevMode(&self, pDevMode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogservices-getcurrentprintername")]
+                        fn GetCurrentPrinterName(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pPrinterName: super::super::super::Foundation::PWSTR, pcchSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-iprintdialogservices-getcurrentportname")]
+                        fn GetCurrentPortName(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pPortName: super::super::super::Foundation::PWSTR, pcchSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/lbselchstring")]
+                    const LBSELCHSTRING: String = "commdlg_LBSelChangedNotify";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/lbselchstring")]
+                    const LBSELCHSTRINGA: String = "commdlg_LBSelChangedNotify";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/lbselchstring")]
+                    const LBSELCHSTRINGW: String = "commdlg_LBSelChangedNotify";
+                    extern fn LPCCHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPCFHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPFRHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPOFNHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPPAGEPAINTHOOK(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPPAGESETUPHOOK(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPPRINTHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    extern fn LPSETUPHOOKPROC(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
+                    const NUM_BASIC_COLORS: u32 = 48;
+                    const NUM_CUSTOM_COLORS: u32 = 16;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifya")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OFNOTIFYA {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEA,
+                        pszFile: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifya")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OFNOTIFYA {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEA,
+                        pszFile: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyexa")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OFNOTIFYEXA {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEA,
+                        psf: *mut void,
+                        pidl: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyexa")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OFNOTIFYEXA {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEA,
+                        psf: *mut void,
+                        pidl: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyexw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OFNOTIFYEXW {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEW,
+                        psf: *mut void,
+                        pidl: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyexw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OFNOTIFYEXW {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEW,
+                        psf: *mut void,
+                        pidl: *mut void,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OFNOTIFYW {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEW,
+                        pszFile: super::super::super::Foundation::PWSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-ofnotifyw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OFNOTIFYW {
+                        hdr: super::NMHDR,
+                        lpOFN: *mut OPENFILENAMEW,
+                        pszFile: super::super::super::Foundation::PWSTR,
+                    }
+                    const OFN_SHAREFALLTHROUGH: u32 = 2;
+                    const OFN_SHARENOWARN: u32 = 1;
+                    const OFN_SHAREWARN: u32 = 0;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilenamea")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OPENFILENAMEA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PSTR,
+                        Flags: OPEN_FILENAME_FLAGS,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                        pvReserved: *mut void,
+                        dwReserved: u32,
+                        FlagsEx: OPEN_FILENAME_FLAGS_EX,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilenamea")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OPENFILENAMEA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PSTR,
+                        Flags: OPEN_FILENAME_FLAGS,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                        pvReserved: *mut void,
+                        dwReserved: u32,
+                        FlagsEx: OPEN_FILENAME_FLAGS_EX,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilenamew")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OPENFILENAMEW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PWSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PWSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PWSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PWSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PWSTR,
+                        Flags: OPEN_FILENAME_FLAGS,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PWSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                        pvReserved: *mut void,
+                        dwReserved: u32,
+                        FlagsEx: OPEN_FILENAME_FLAGS_EX,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilenamew")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OPENFILENAMEW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PWSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PWSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PWSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PWSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PWSTR,
+                        Flags: OPEN_FILENAME_FLAGS,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PWSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                        pvReserved: *mut void,
+                        dwReserved: u32,
+                        FlagsEx: OPEN_FILENAME_FLAGS_EX,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilename_nt4a")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OPENFILENAME_NT4A {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PSTR,
+                        Flags: u32,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilename_nt4a")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OPENFILENAME_NT4A {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PSTR,
+                        Flags: u32,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilename_nt4w")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct OPENFILENAME_NT4W {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PWSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PWSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PWSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PWSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PWSTR,
+                        Flags: u32,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PWSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-openfilename_nt4w")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct OPENFILENAME_NT4W {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrFilter: super::super::super::Foundation::PWSTR,
+                        lpstrCustomFilter: super::super::super::Foundation::PWSTR,
+                        nMaxCustFilter: u32,
+                        nFilterIndex: u32,
+                        lpstrFile: super::super::super::Foundation::PWSTR,
+                        nMaxFile: u32,
+                        lpstrFileTitle: super::super::super::Foundation::PWSTR,
+                        nMaxFileTitle: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrInitialDir: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrTitle: super::super::super::Foundation::PWSTR,
+                        Flags: u32,
+                        nFileOffset: u16,
+                        nFileExtension: u16,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpstrDefExt: super::super::super::Foundation::PWSTR,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnHook: LPOFNHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpTemplateName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum OPEN_FILENAME_FLAGS {
+                        OFN_READONLY = 1,
+                        OFN_OVERWRITEPROMPT = 2,
+                        OFN_HIDEREADONLY = 4,
+                        OFN_NOCHANGEDIR = 8,
+                        OFN_SHOWHELP = 16,
+                        OFN_ENABLEHOOK = 32,
+                        OFN_ENABLETEMPLATE = 64,
+                        OFN_ENABLETEMPLATEHANDLE = 128,
+                        OFN_NOVALIDATE = 256,
+                        OFN_ALLOWMULTISELECT = 512,
+                        OFN_EXTENSIONDIFFERENT = 1024,
+                        OFN_PATHMUSTEXIST = 2048,
+                        OFN_FILEMUSTEXIST = 4096,
+                        OFN_CREATEPROMPT = 8192,
+                        OFN_SHAREAWARE = 16384,
+                        OFN_NOREADONLYRETURN = 32768,
+                        OFN_NOTESTFILECREATE = 65536,
+                        OFN_NONETWORKBUTTON = 131072,
+                        OFN_NOLONGNAMES = 262144,
+                        OFN_EXPLORER = 524288,
+                        OFN_NODEREFERENCELINKS = 1048576,
+                        OFN_LONGNAMES = 2097152,
+                        OFN_ENABLEINCLUDENOTIFY = 4194304,
+                        OFN_ENABLESIZING = 8388608,
+                        OFN_DONTADDTORECENT = 33554432,
+                        OFN_FORCESHOWHIDDEN = 268435456,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum OPEN_FILENAME_FLAGS_EX {
+                        OFN_EX_NONE = 0,
+                        OFN_EX_NOPLACESBAR = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-pagesetupdlga")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PAGESETUPDLGA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        Flags: PAGESETUPDLG_FLAGS,
+                        ptPaperSize: super::super::super::Foundation::POINT,
+                        rtMinMargin: super::super::super::Foundation::RECT,
+                        rtMargin: super::super::super::Foundation::RECT,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPageSetupHook: LPPAGESETUPHOOK,
+                        lpfnPagePaintHook: LPPAGEPAINTHOOK,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
+                        hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-pagesetupdlga")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PAGESETUPDLGA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        Flags: PAGESETUPDLG_FLAGS,
+                        ptPaperSize: super::super::super::Foundation::POINT,
+                        rtMinMargin: super::super::super::Foundation::RECT,
+                        rtMargin: super::super::super::Foundation::RECT,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPageSetupHook: LPPAGESETUPHOOK,
+                        lpfnPagePaintHook: LPPAGEPAINTHOOK,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
+                        hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-pagesetupdlgw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PAGESETUPDLGW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        Flags: PAGESETUPDLG_FLAGS,
+                        ptPaperSize: super::super::super::Foundation::POINT,
+                        rtMinMargin: super::super::super::Foundation::RECT,
+                        rtMargin: super::super::super::Foundation::RECT,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPageSetupHook: LPPAGESETUPHOOK,
+                        lpfnPagePaintHook: LPPAGEPAINTHOOK,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
+                        hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-pagesetupdlgw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PAGESETUPDLGW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        Flags: PAGESETUPDLG_FLAGS,
+                        ptPaperSize: super::super::super::Foundation::POINT,
+                        rtMinMargin: super::super::super::Foundation::RECT,
+                        rtMargin: super::super::super::Foundation::RECT,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPageSetupHook: LPPAGESETUPHOOK,
+                        lpfnPagePaintHook: LPPAGEPAINTHOOK,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
+                        hPageSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum PAGESETUPDLG_FLAGS {
+                        PSD_DEFAULTMINMARGINS = 0,
+                        PSD_DISABLEMARGINS = 16,
+                        PSD_DISABLEORIENTATION = 256,
+                        PSD_DISABLEPAGEPAINTING = 524288,
+                        PSD_DISABLEPAPER = 512,
+                        PSD_DISABLEPRINTER = 32,
+                        PSD_ENABLEPAGEPAINTHOOK = 262144,
+                        PSD_ENABLEPAGESETUPHOOK = 8192,
+                        PSD_ENABLEPAGESETUPTEMPLATE = 32768,
+                        PSD_ENABLEPAGESETUPTEMPLATEHANDLE = 131072,
+                        PSD_INHUNDREDTHSOFMILLIMETERS = 8,
+                        PSD_INTHOUSANDTHSOFINCHES = 4,
+                        PSD_INWININIINTLMEASURE = 0,
+                        PSD_MARGINS = 2,
+                        PSD_MINMARGINS = 1,
+                        PSD_NONETWORKBUTTON = 2097152,
+                        PSD_NOWARNING = 128,
+                        PSD_RETURNDEFAULT = 1024,
+                        PSD_SHOWHELP = 2048,
+                    }
+                    const PD_RESULT_APPLY: u32 = 2;
+                    const PD_RESULT_CANCEL: u32 = 0;
+                    const PD_RESULT_PRINT: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlga")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PRINTDLGA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        nFromPage: u16,
+                        nToPage: u16,
+                        nMinPage: u16,
+                        nMaxPage: u16,
+                        nCopies: u16,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPrintHook: LPPRINTHOOKPROC,
+                        lpfnSetupHook: LPSETUPHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpSetupTemplateName: super::super::super::Foundation::PSTR,
+                        hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+                        hSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlga")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PRINTDLGA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        nFromPage: u16,
+                        nToPage: u16,
+                        nMinPage: u16,
+                        nMaxPage: u16,
+                        nCopies: u16,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPrintHook: LPPRINTHOOKPROC,
+                        lpfnSetupHook: LPSETUPHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpSetupTemplateName: super::super::super::Foundation::PSTR,
+                        hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+                        hSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgexa")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PRINTDLGEXA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        Flags2: u32,
+                        ExclusionFlags: u32,
+                        nPageRanges: u32,
+                        nMaxPageRanges: u32,
+                        lpPageRanges: *mut PRINTPAGERANGE,
+                        nMinPage: u32,
+                        nMaxPage: u32,
+                        nCopies: u32,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PSTR,
+                        lpCallback: super::super::super::System::Com::IUnknown,
+                        nPropertyPages: u32,
+                        lphPropertyPages: *mut super::HPROPSHEETPAGE,
+                        nStartPage: u32,
+                        dwResultAction: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgexa")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PRINTDLGEXA {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        Flags2: u32,
+                        ExclusionFlags: u32,
+                        nPageRanges: u32,
+                        nMaxPageRanges: u32,
+                        lpPageRanges: *mut PRINTPAGERANGE,
+                        nMinPage: u32,
+                        nMaxPage: u32,
+                        nCopies: u32,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PSTR,
+                        lpCallback: super::super::super::System::Com::IUnknown,
+                        nPropertyPages: u32,
+                        lphPropertyPages: *mut super::HPROPSHEETPAGE,
+                        nStartPage: u32,
+                        dwResultAction: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgexw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PRINTDLGEXW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        Flags2: u32,
+                        ExclusionFlags: u32,
+                        nPageRanges: u32,
+                        nMaxPageRanges: u32,
+                        lpPageRanges: *mut PRINTPAGERANGE,
+                        nMinPage: u32,
+                        nMaxPage: u32,
+                        nCopies: u32,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PWSTR,
+                        lpCallback: super::super::super::System::Com::IUnknown,
+                        nPropertyPages: u32,
+                        lphPropertyPages: *mut super::HPROPSHEETPAGE,
+                        nStartPage: u32,
+                        dwResultAction: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgexw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PRINTDLGEXW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        Flags2: u32,
+                        ExclusionFlags: u32,
+                        nPageRanges: u32,
+                        nMaxPageRanges: u32,
+                        lpPageRanges: *mut PRINTPAGERANGE,
+                        nMinPage: u32,
+                        nMaxPage: u32,
+                        nCopies: u32,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PWSTR,
+                        lpCallback: super::super::super::System::Com::IUnknown,
+                        nPropertyPages: u32,
+                        lphPropertyPages: *mut super::HPROPSHEETPAGE,
+                        nStartPage: u32,
+                        dwResultAction: u32,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum PRINTDLGEX_FLAGS {
+                        PD_ALLPAGES = 0,
+                        PD_COLLATE = 16,
+                        PD_CURRENTPAGE = 4194304,
+                        PD_DISABLEPRINTTOFILE = 524288,
+                        PD_ENABLEPRINTTEMPLATE = 16384,
+                        PD_ENABLEPRINTTEMPLATEHANDLE = 65536,
+                        PD_EXCLUSIONFLAGS = 16777216,
+                        PD_HIDEPRINTTOFILE = 1048576,
+                        PD_NOCURRENTPAGE = 8388608,
+                        PD_NOPAGENUMS = 8,
+                        PD_NOSELECTION = 4,
+                        PD_NOWARNING = 128,
+                        PD_PAGENUMS = 2,
+                        PD_PRINTTOFILE = 32,
+                        PD_RETURNDC = 256,
+                        PD_RETURNDEFAULT = 1024,
+                        PD_RETURNIC = 512,
+                        PD_SELECTION = 1,
+                        PD_USEDEVMODECOPIES = 262144,
+                        PD_USEDEVMODECOPIESANDCOLLATE = 262144,
+                        PD_USELARGETEMPLATE = 268435456,
+                        PD_ENABLEPRINTHOOK = 4096,
+                        PD_ENABLESETUPHOOK = 8192,
+                        PD_ENABLESETUPTEMPLATE = 32768,
+                        PD_ENABLESETUPTEMPLATEHANDLE = 131072,
+                        PD_NONETWORKBUTTON = 2097152,
+                        PD_PRINTSETUP = 64,
+                        PD_SHOWHELP = 2048,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PRINTDLGW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        nFromPage: u16,
+                        nToPage: u16,
+                        nMinPage: u16,
+                        nMaxPage: u16,
+                        nCopies: u16,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPrintHook: LPPRINTHOOKPROC,
+                        lpfnSetupHook: LPSETUPHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpSetupTemplateName: super::super::super::Foundation::PWSTR,
+                        hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+                        hSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printdlgw")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PRINTDLGW {
+                        lStructSize: u32,
+                        hwndOwner: super::super::super::Foundation::HWND,
+                        hDevMode: super::super::super::Foundation::HGLOBAL,
+                        hDevNames: super::super::super::Foundation::HGLOBAL,
+                        hDC: super::super::super::Graphics::Gdi::HDC,
+                        Flags: PRINTDLGEX_FLAGS,
+                        nFromPage: u16,
+                        nToPage: u16,
+                        nMinPage: u16,
+                        nMaxPage: u16,
+                        nCopies: u16,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        lpfnPrintHook: LPPRINTHOOKPROC,
+                        lpfnSetupHook: LPSETUPHOOKPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpPrintTemplateName: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        lpSetupTemplateName: super::super::super::Foundation::PWSTR,
+                        hPrintTemplate: super::super::super::Foundation::HGLOBAL,
+                        hSetupTemplate: super::super::super::Foundation::HGLOBAL,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printpagerange")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                    struct PRINTPAGERANGE {
+                        nFromPage: u32,
+                        nToPage: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/ns-commdlg-printpagerange")]
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    struct PRINTPAGERANGE {
+                        nFromPage: u32,
+                        nToPage: u32,
+                    }
+                    const PS_OPENTYPE_FONTTYPE: u32 = 65536;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-pagesetupdlga")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-pagesetupdlgw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-printdlga")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PrintDlgA(pPD: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-printdlgexa")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PrintDlgExA(pPD: *mut PRINTDLGEXA) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-printdlgexw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PrintDlgExW(pPD: *mut PRINTDLGEXW) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nc-commdlg-printdlgw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn PrintDlgW(pPD: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-replacetexta")]
+                    #[library("COMDLG32.dll")]
+                    extern fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/commdlg/nf-commdlg-replacetextw")]
+                    #[library("COMDLG32.dll")]
+                    extern fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/setrgbstring")]
+                    const SETRGBSTRING: String = "commdlg_SetRGBColor";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/setrgbstring")]
+                    const SETRGBSTRINGA: String = "commdlg_SetRGBColor";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/setrgbstring")]
+                    const SETRGBSTRINGW: String = "commdlg_SetRGBColor";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/sharevistring")]
+                    const SHAREVISTRING: String = "commdlg_ShareViolation";
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/sharevistring")]
+                    const SHAREVISTRINGA: String = "commdlg_ShareViolation";
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/sharevistring")]
+                    const SHAREVISTRINGW: String = "commdlg_ShareViolation";
+                    const START_PAGE_GENERAL: u32 = 4294967295;
+                    const SYMBOL_FONTTYPE: u32 = 524288;
+                    const TT_OPENTYPE_FONTTYPE: u32 = 131072;
+                    const TYPE1_FONTTYPE: u32 = 262144;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-choosefont-getlogfont")]
+                    const WM_CHOOSEFONT_GETLOGFONT: u32 = 1025;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-choosefont-setflags")]
+                    const WM_CHOOSEFONT_SETFLAGS: u32 = 1126;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-choosefont-setlogfont")]
+                    const WM_CHOOSEFONT_SETLOGFONT: u32 = 1125;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-envstamprect")]
+                    const WM_PSD_ENVSTAMPRECT: u32 = 1029;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-fullpagerect")]
+                    const WM_PSD_FULLPAGERECT: u32 = 1025;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-greektextrect")]
+                    const WM_PSD_GREEKTEXTRECT: u32 = 1028;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-marginrect")]
+                    const WM_PSD_MARGINRECT: u32 = 1027;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-minmarginrect")]
+                    const WM_PSD_MINMARGINRECT: u32 = 1026;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/dlgbox/wm-psd-yafullpagerect")]
+                    const WM_PSD_YAFULLPAGERECT: u32 = 1030;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,466 @@
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            #[win32]
+            mod Properties {
+                #[Windows::Win32::Foundation::Metadata::Constant("{325533506, 41942, 18934, 180, 218, 174, 70, 224, 197, 35, 124}, 2")]
+                const DEVPKEY_DevQuery_ObjectType: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 29")]
+                const DEVPKEY_DeviceClass_Characteristics: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1899828995, 41698, 18933, 146, 20, 86, 71, 46, 243, 218, 92}, 2")]
+                const DEVPKEY_DeviceClass_ClassCoInstallers: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 5")]
+                const DEVPKEY_DeviceClass_ClassInstaller: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 3")]
+                const DEVPKEY_DeviceClass_ClassName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3511500531, 26319, 19362, 157, 56, 13, 219, 55, 171, 71, 1}, 2")]
+                const DEVPKEY_DeviceClass_DHPRebalanceOptOut: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 11")]
+                const DEVPKEY_DeviceClass_DefaultService: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 27")]
+                const DEVPKEY_DeviceClass_DevType: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 28")]
+                const DEVPKEY_DeviceClass_Exclusive: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 4")]
+                const DEVPKEY_DeviceClass_Icon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 12")]
+                const DEVPKEY_DeviceClass_IconPath: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 20")]
+                const DEVPKEY_DeviceClass_LowerFilters: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 2")]
+                const DEVPKEY_DeviceClass_Name: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 8")]
+                const DEVPKEY_DeviceClass_NoDisplayClass: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 7")]
+                const DEVPKEY_DeviceClass_NoInstallClass: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 10")]
+                const DEVPKEY_DeviceClass_NoUseClass: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 6")]
+                const DEVPKEY_DeviceClass_PropPageProvider: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 25")]
+                const DEVPKEY_DeviceClass_Security: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 26")]
+                const DEVPKEY_DeviceClass_SecuritySDS: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{630898684, 20647, 18382, 175, 8, 104, 201, 167, 215, 51, 102}, 9")]
+                const DEVPKEY_DeviceClass_SilentInstall: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1126273419, 63134, 18189, 165, 222, 77, 136, 199, 90, 210, 75}, 19")]
+                const DEVPKEY_DeviceClass_UpperFilters: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 51")]
+                const DEVPKEY_DeviceContainer_Address: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 101")]
+                const DEVPKEY_DeviceContainer_AlwaysShowDeviceAsConnected: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 80")]
+                const DEVPKEY_DeviceContainer_AssociationArray: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 78")]
+                const DEVPKEY_DeviceContainer_BaselineExperienceId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 90")]
+                const DEVPKEY_DeviceContainer_Category: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 94")]
+                const DEVPKEY_DeviceContainer_CategoryGroup_Desc: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 95")]
+                const DEVPKEY_DeviceContainer_CategoryGroup_Icon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 92")]
+                const DEVPKEY_DeviceContainer_Category_Desc_Plural: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 91")]
+                const DEVPKEY_DeviceContainer_Category_Desc_Singular: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 93")]
+                const DEVPKEY_DeviceContainer_Category_Icon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 105")]
+                const DEVPKEY_DeviceContainer_ConfigFlags: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 107")]
+                const DEVPKEY_DeviceContainer_CustomPrivilegedPackageFamilyNames: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 81")]
+                const DEVPKEY_DeviceContainer_DeviceDescription1: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 82")]
+                const DEVPKEY_DeviceContainer_DeviceDescription2: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 100")]
+                const DEVPKEY_DeviceContainer_DeviceFunctionSubRank: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 52")]
+                const DEVPKEY_DeviceContainer_DiscoveryMethod: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 89")]
+                const DEVPKEY_DeviceContainer_ExperienceId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1701460915, 60608, 17405, 132, 119, 74, 224, 64, 74, 150, 205}, 12288")]
+                const DEVPKEY_DeviceContainer_FriendlyName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 83")]
+                const DEVPKEY_DeviceContainer_HasProblem: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 57")]
+                const DEVPKEY_DeviceContainer_Icon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 9")]
+                const DEVPKEY_DeviceContainer_InstallInProgress: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 54")]
+                const DEVPKEY_DeviceContainer_IsAuthenticated: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 55")]
+                const DEVPKEY_DeviceContainer_IsConnected: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 86")]
+                const DEVPKEY_DeviceContainer_IsDefaultDevice: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 79")]
+                const DEVPKEY_DeviceContainer_IsDeviceUniquelyIdentifiable: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 53")]
+                const DEVPKEY_DeviceContainer_IsEncrypted: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 70")]
+                const DEVPKEY_DeviceContainer_IsLocalMachine: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 72")]
+                const DEVPKEY_DeviceContainer_IsMetadataSearchInProgress: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 85")]
+                const DEVPKEY_DeviceContainer_IsNetworkDevice: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 74")]
+                const DEVPKEY_DeviceContainer_IsNotInterestingForDisplay: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 56")]
+                const DEVPKEY_DeviceContainer_IsPaired: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 108")]
+                const DEVPKEY_DeviceContainer_IsRebootRequired: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 84")]
+                const DEVPKEY_DeviceContainer_IsSharedDevice: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 68")]
+                const DEVPKEY_DeviceContainer_IsShowInDisconnectedState: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 67")]
+                const DEVPKEY_DeviceContainer_Last_Connected: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 66")]
+                const DEVPKEY_DeviceContainer_Last_Seen: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 77")]
+                const DEVPKEY_DeviceContainer_LaunchDeviceStageFromExplorer: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 76")]
+                const DEVPKEY_DeviceContainer_LaunchDeviceStageOnDeviceConnect: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1701460915, 60608, 17405, 132, 119, 74, 224, 64, 74, 150, 205}, 8192")]
+                const DEVPKEY_DeviceContainer_Manufacturer: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 87")]
+                const DEVPKEY_DeviceContainer_MetadataCabinet: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 73")]
+                const DEVPKEY_DeviceContainer_MetadataChecksum: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 71")]
+                const DEVPKEY_DeviceContainer_MetadataPath: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1701460915, 60608, 17405, 132, 119, 74, 224, 64, 74, 150, 205}, 8194")]
+                const DEVPKEY_DeviceContainer_ModelName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1701460915, 60608, 17405, 132, 119, 74, 224, 64, 74, 150, 205}, 8195")]
+                const DEVPKEY_DeviceContainer_ModelNumber: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 97")]
+                const DEVPKEY_DeviceContainer_PrimaryCategory: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 106")]
+                const DEVPKEY_DeviceContainer_PrivilegedPackageFamilyNames: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 88")]
+                const DEVPKEY_DeviceContainer_RequiresPairingElevation: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 99")]
+                const DEVPKEY_DeviceContainer_RequiresUninstallElevation: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 98")]
+                const DEVPKEY_DeviceContainer_UnpairUninstall: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 65")]
+                const DEVPKEY_DeviceContainer_Version: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{348666521, 2879, 17591, 190, 76, 161, 120, 211, 153, 5, 100}, 2")]
+                const DEVPKEY_DeviceInterfaceClass_DefaultInterface: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{348666521, 2879, 17591, 190, 76, 161, 120, 211, 153, 5, 100}, 3")]
+                const DEVPKEY_DeviceInterfaceClass_Name: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1129173647, 40565, 17674, 154, 185, 255, 97, 230, 24, 186, 208}, 2")]
+                const DEVPKEY_DeviceInterface_Autoplay_Silent: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 4")]
+                const DEVPKEY_DeviceInterface_ClassGuid: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 3")]
+                const DEVPKEY_DeviceInterface_Enabled: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 2")]
+                const DEVPKEY_DeviceInterface_FriendlyName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 5")]
+                const DEVPKEY_DeviceInterface_ReferenceString: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 6")]
+                const DEVPKEY_DeviceInterface_Restricted: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 9")]
+                const DEVPKEY_DeviceInterface_SchematicName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{40784238, 47124, 16715, 131, 205, 133, 109, 111, 239, 72, 34}, 8")]
+                const DEVPKEY_DeviceInterface_UnrestrictedAppCapabilities: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 19")]
+                const DEVPKEY_Device_AdditionalSoftwareRequested: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 30")]
+                const DEVPKEY_Device_Address: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 24")]
+                const DEVPKEY_Device_AssignedToGuest: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 38")]
+                const DEVPKEY_Device_BaseContainerId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 10")]
+                const DEVPKEY_Device_BiosDeviceName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 23")]
+                const DEVPKEY_Device_BusNumber: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 7")]
+                const DEVPKEY_Device_BusRelations: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 4")]
+                const DEVPKEY_Device_BusReportedDeviceDesc: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 21")]
+                const DEVPKEY_Device_BusTypeGuid: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 17")]
+                const DEVPKEY_Device_Capabilities: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 29")]
+                const DEVPKEY_Device_Characteristics: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 9")]
+                const DEVPKEY_Device_Children: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 9")]
+                const DEVPKEY_Device_Class: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 10")]
+                const DEVPKEY_Device_ClassGuid: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1785996884, 53426, 17440, 165, 35, 224, 104, 53, 42, 193, 223}, 2")]
+                const DEVPKEY_Device_CompanionApps: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 4")]
+                const DEVPKEY_Device_CompatibleIds: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 12")]
+                const DEVPKEY_Device_ConfigFlags: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 7")]
+                const DEVPKEY_Device_ConfigurationId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2357121542, 16266, 18471, 179, 171, 174, 158, 31, 174, 252, 108}, 2")]
+                const DEVPKEY_Device_ContainerId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 25")]
+                const DEVPKEY_Device_CreatorProcessId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 2")]
+                const DEVPKEY_Device_DHP_Rebalance_Policy: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 12")]
+                const DEVPKEY_Device_DebuggerSafe: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 21")]
+                const DEVPKEY_Device_DependencyDependents: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 20")]
+                const DEVPKEY_Device_DependencyProviders: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 2")]
+                const DEVPKEY_Device_DevNodeStatus: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 27")]
+                const DEVPKEY_Device_DevType: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 2")]
+                const DEVPKEY_Device_DeviceDesc: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 11")]
+                const DEVPKEY_Device_Driver: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 11")]
+                const DEVPKEY_Device_DriverCoInstallers: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 2")]
+                const DEVPKEY_Device_DriverDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 4")]
+                const DEVPKEY_Device_DriverDesc: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 5")]
+                const DEVPKEY_Device_DriverInfPath: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 6")]
+                const DEVPKEY_Device_DriverInfSection: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 7")]
+                const DEVPKEY_Device_DriverInfSectionExt: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 15")]
+                const DEVPKEY_Device_DriverLogoLevel: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 11")]
+                const DEVPKEY_Device_DriverProblemDesc: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 10")]
+                const DEVPKEY_Device_DriverPropPageProvider: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 9")]
+                const DEVPKEY_Device_DriverProvider: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 14")]
+                const DEVPKEY_Device_DriverRank: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 3")]
+                const DEVPKEY_Device_DriverVersion: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 4")]
+                const DEVPKEY_Device_EjectionRelations: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 24")]
+                const DEVPKEY_Device_EnumeratorName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 28")]
+                const DEVPKEY_Device_Exclusive: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 23")]
+                const DEVPKEY_Device_ExtendedAddress: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 15")]
+                const DEVPKEY_Device_ExtendedConfigurationIds: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 17")]
+                const DEVPKEY_Device_FirmwareDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 19")]
+                const DEVPKEY_Device_FirmwareRevision: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 26")]
+                const DEVPKEY_Device_FirmwareVendor: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 18")]
+                const DEVPKEY_Device_FirmwareVersion: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 101")]
+                const DEVPKEY_Device_FirstInstallDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 14")]
+                const DEVPKEY_Device_FriendlyName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 3")]
+                const DEVPKEY_Device_FriendlyNameAttributes: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 18")]
+                const DEVPKEY_Device_GenericDriverInstalled: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 3")]
+                const DEVPKEY_Device_HardwareIds: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 6")]
+                const DEVPKEY_Device_HasProblem: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2357121542, 16266, 18471, 179, 171, 174, 158, 31, 174, 252, 108}, 4")]
+                const DEVPKEY_Device_InLocalMachineContainer: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 100")]
+                const DEVPKEY_Device_InstallDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 36")]
+                const DEVPKEY_Device_InstallState: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 256")]
+                const DEVPKEY_Device_InstanceId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 7")]
+                const DEVPKEY_Device_IsAssociateableByUserAction: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 5")]
+                const DEVPKEY_Device_IsPresent: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 16")]
+                const DEVPKEY_Device_IsRebootRequired: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 102")]
+                const DEVPKEY_Device_LastArrivalDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 103")]
+                const DEVPKEY_Device_LastRemovalDate: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2152296704, 35955, 18617, 170, 217, 206, 56, 126, 25, 197, 110}, 3")]
+                const DEVPKEY_Device_Legacy: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 22")]
+                const DEVPKEY_Device_LegacyBusType: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 15")]
+                const DEVPKEY_Device_LocationInfo: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 37")]
+                const DEVPKEY_Device_LocationPaths: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 20")]
+                const DEVPKEY_Device_LowerFilters: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 13")]
+                const DEVPKEY_Device_Manufacturer: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 4")]
+                const DEVPKEY_Device_ManufacturerAttributes: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 8")]
+                const DEVPKEY_Device_MatchingDeviceId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2026065864, 4170, 19146, 158, 164, 82, 77, 82, 153, 110, 87}, 39")]
+                const DEVPKEY_Device_Model: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 2")]
+                const DEVPKEY_Device_ModelId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 17")]
+                const DEVPKEY_Device_NoConnectSound: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 3")]
+                const DEVPKEY_Device_Numa_Node: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 1")]
+                const DEVPKEY_Device_Numa_Proximity_Domain: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 16")]
+                const DEVPKEY_Device_PDOName: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 8")]
+                const DEVPKEY_Device_Parent: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 9")]
+                const DEVPKEY_Device_PhysicalDeviceLocation: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 13")]
+                const DEVPKEY_Device_PostInstallInProgress: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 32")]
+                const DEVPKEY_Device_PowerData: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 6")]
+                const DEVPKEY_Device_PowerRelations: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 5")]
+                const DEVPKEY_Device_PresenceNotForDevice: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1785996884, 53426, 17440, 165, 35, 224, 104, 53, 42, 193, 223}, 3")]
+                const DEVPKEY_Device_PrimaryCompanionApp: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 3")]
+                const DEVPKEY_Device_ProblemCode: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 12")]
+                const DEVPKEY_Device_ProblemStatus: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 33")]
+                const DEVPKEY_Device_RemovalPolicy: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 34")]
+                const DEVPKEY_Device_RemovalPolicyDefault: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 35")]
+                const DEVPKEY_Device_RemovalPolicyOverride: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 5")]
+                const DEVPKEY_Device_RemovalRelations: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2152296704, 35955, 18617, 170, 217, 206, 56, 126, 25, 197, 110}, 2")]
+                const DEVPKEY_Device_Reported: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 8")]
+                const DEVPKEY_Device_ReportedDeviceIdsHash: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 13")]
+                const DEVPKEY_Device_ResourcePickerExceptions: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2830656989, 11837, 16532, 173, 151, 229, 147, 167, 12, 117, 214}, 12")]
+                const DEVPKEY_Device_ResourcePickerTags: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2950264384, 34467, 16912, 182, 124, 40, 156, 65, 170, 190, 85}, 2")]
+                const DEVPKEY_Device_SafeRemovalRequired: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2950264384, 34467, 16912, 182, 124, 40, 156, 65, 170, 190, 85}, 3")]
+                const DEVPKEY_Device_SafeRemovalRequiredOverride: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 25")]
+                const DEVPKEY_Device_Security: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 26")]
+                const DEVPKEY_Device_SecuritySDS: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 6")]
+                const DEVPKEY_Device_Service: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2212127526, 38822, 16520, 148, 83, 161, 146, 63, 87, 59, 41}, 6")]
+                const DEVPKEY_Device_SessionId: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 8")]
+                const DEVPKEY_Device_ShowInUninstallUI: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 10")]
+                const DEVPKEY_Device_Siblings: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2161647270, 29811, 19212, 130, 22, 239, 193, 26, 44, 76, 139}, 6")]
+                const DEVPKEY_Device_SignalStrength: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 22")]
+                const DEVPKEY_Device_SoftRestartSupported: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1410045054, 35648, 17852, 168, 162, 106, 11, 137, 76, 189, 162}, 14")]
+                const DEVPKEY_Device_Stack: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{1128310469, 37882, 18182, 151, 44, 123, 100, 128, 8, 165, 167}, 11")]
+                const DEVPKEY_Device_TransportRelations: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 18")]
+                const DEVPKEY_Device_UINumber: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 31")]
+                const DEVPKEY_Device_UINumberDescFormat: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2757502286, 57116, 20221, 128, 32, 103, 209, 70, 168, 80, 224}, 19")]
+                const DEVPKEY_Device_UpperFilters: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 7")]
+                const DEVPKEY_DrvPkg_BrandingIcon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 4")]
+                const DEVPKEY_DrvPkg_DetailedDescription: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 5")]
+                const DEVPKEY_DrvPkg_DocumentationLink: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 6")]
+                const DEVPKEY_DrvPkg_Icon: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 2")]
+                const DEVPKEY_DrvPkg_Model: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3480468305, 15039, 17570, 133, 224, 154, 61, 199, 161, 33, 50}, 3")]
+                const DEVPKEY_DrvPkg_VendorWebSite: super::super::Foundation::DEVPROPKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{3072717104, 18415, 4122, 165, 241, 2, 96, 140, 158, 235, 172}, 10")]
+                const DEVPKEY_NAME: super::super::Foundation::DEVPROPKEY;
+                struct DEVPROPCOMPKEY {
+                    Key: super::super::Foundation::DEVPROPKEY,
+                    Store: DEVPROPSTORE,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    LocaleName: super::super::Foundation::PWSTR,
+                }
+                struct DEVPROPERTY {
+                    CompKey: DEVPROPCOMPKEY,
+                    Type: DEVPROPTYPE,
+                    BufferSize: u32,
+                    Buffer: *mut void,
+                }
+                const DEVPROPID_FIRST_USABLE: u32 = 2;
+                #[repr(i32)]
+                enum DEVPROPSTORE {
+                    DEVPROP_STORE_SYSTEM = 0,
+                    DEVPROP_STORE_USER = 1,
+                }
+                #[repr(u32)]
+                enum DEVPROPTYPE {
+                    DEVPROP_TYPEMOD_ARRAY = 4096,
+                    DEVPROP_TYPEMOD_LIST = 8192,
+                    DEVPROP_TYPE_EMPTY = 0,
+                    DEVPROP_TYPE_NULL = 1,
+                    DEVPROP_TYPE_SBYTE = 2,
+                    DEVPROP_TYPE_BYTE = 3,
+                    DEVPROP_TYPE_INT16 = 4,
+                    DEVPROP_TYPE_UINT16 = 5,
+                    DEVPROP_TYPE_INT32 = 6,
+                    DEVPROP_TYPE_UINT32 = 7,
+                    DEVPROP_TYPE_INT64 = 8,
+                    DEVPROP_TYPE_UINT64 = 9,
+                    DEVPROP_TYPE_FLOAT = 10,
+                    DEVPROP_TYPE_DOUBLE = 11,
+                    DEVPROP_TYPE_DECIMAL = 12,
+                    DEVPROP_TYPE_GUID = 13,
+                    DEVPROP_TYPE_CURRENCY = 14,
+                    DEVPROP_TYPE_DATE = 15,
+                    DEVPROP_TYPE_FILETIME = 16,
+                    DEVPROP_TYPE_BOOLEAN = 17,
+                    DEVPROP_TYPE_STRING = 18,
+                    DEVPROP_TYPE_STRING_LIST = 8210,
+                    DEVPROP_TYPE_SECURITY_DESCRIPTOR = 19,
+                    DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING = 20,
+                    DEVPROP_TYPE_DEVPROPKEY = 21,
+                    DEVPROP_TYPE_DEVPROPTYPE = 22,
+                    DEVPROP_TYPE_BINARY = 4099,
+                    DEVPROP_TYPE_ERROR = 23,
+                    DEVPROP_TYPE_NTSTATUS = 24,
+                    DEVPROP_TYPE_STRING_INDIRECT = 25,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct DEVPROP_BOOLEAN {
+                    Value: u8,
+                }
+                const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0;
+                const DEVPROP_MASK_TYPE: u32 = 4095;
+                const DEVPROP_MASK_TYPEMOD: u32 = 61440;
+                const DEVPROP_TRUE: DEVPROP_BOOLEAN = 255;
+                const MAX_DEVPROP_TYPE: u32 = 25;
+                const MAX_DEVPROP_TYPEMOD: u32 = 8192;
+            }
+        }
+    }
+}

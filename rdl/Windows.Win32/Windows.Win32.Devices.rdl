@@ -1,0 +1,44 @@
+mod Windows {
+    mod Win32 {
+        #[win32]
+        mod Devices {
+            const BUS1394_LOCAL_HOST_INSTANCE_KEY: String = "LOCAL HOST EUI64";
+            const BUS1394_VIRTUAL_DEVICE_LIST_KEY: String = "Virtual Device List";
+            const IEEE1394API_ACCESS_EXCLUSIVE: u32 = 64;
+            const IEEE1394API_ACCESS_SHARED_READ: u32 = 16;
+            const IEEE1394API_ACCESS_SHARED_WRITE: u32 = 32;
+            const IEEE1394API_BUS_RESET_LOCAL_NODE_INITIATED: u32 = 4;
+            const IEEE1394API_BUS_RESET_LOCAL_NODE_IS_IRM: u32 = 2;
+            const IEEE1394API_BUS_RESET_LOCAL_NODE_IS_ROOT: u32 = 1;
+            const IEEE1394API_DEVICE_OWNERSHIP_LOCAL_NODE: u32 = 1;
+            const IEEE1394API_DEVICE_OWNERSHIP_REMOTE_NODE: u32 = 4;
+            const IEEE1394API_NOTIFICATION_BUS_RESET: u32 = 2;
+            const IEEE1394API_NOTIFICATION_DEVICE_ACCESS: u32 = 1;
+            const IEEE1394API_REMOTE_ACCESS_TRANSFER_REQUEST: u32 = 1;
+            const IEEE1394API_RESOURCE_OWNERSHIP_LOCAL_NODE: u32 = 2;
+            const IEEE1394API_RESOURCE_OWNERSHIP_REMOTE_NODE: u32 = 8;
+            const IEEE1394_API_ADD_VIRTUAL_DEVICE: u32 = 1;
+            const IEEE1394_API_DEVICE_ACCESS_TRANSFER: u32 = 3;
+            const IEEE1394_API_REMOVE_VIRTUAL_DEVICE: u32 = 2;
+            struct IEEE1394_API_REQUEST {
+                RequestNumber: u32,
+                Flags: u32,
+                u: union {
+                    AddVirtualDevice: IEEE1394_VDEV_PNP_REQUEST,
+                    RemoveVirtualDevice: IEEE1394_VDEV_PNP_REQUEST,
+                },
+            }
+            const IEEE1394_API_SET_LOCAL_NODE_PROPERTIES: u32 = 4;
+            const IEEE1394_REQUEST_FLAG_PERSISTENT: u32 = 2;
+            const IEEE1394_REQUEST_FLAG_UNICODE: u32 = 1;
+            const IEEE1394_REQUEST_FLAG_USE_LOCAL_HOST_EUI: u32 = 4;
+            struct IEEE1394_VDEV_PNP_REQUEST {
+                fulFlags: u32,
+                Reserved: u32,
+                InstanceId: u64,
+                DeviceId: u8,
+            }
+            const IOCTL_IEEE1394_API_REQUEST: u32 = 2229248;
+        }
+    }
+}

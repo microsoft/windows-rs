@@ -1,0 +1,33 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                #[win32]
+                mod Media {
+                    const CLSID_AudioFrameNativeFactory: GUID = 0x16a0a3b9_9f65_4102_9367_2cda3a4f372a;
+                    const CLSID_VideoFrameNativeFactory: GUID = 0xd194386a_04e3_4814_8100_b2b0ae6d78c7;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.media.core.interop/nn-windows-media-core-interop-iaudioframenative")]
+                    interface IAudioFrameNative: super::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WinRT/iaudioframenative-getdata")]
+                        fn GetData(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.media.core.interop/nn-windows-media-core-interop-iaudioframenativefactory")]
+                    interface IAudioFrameNativeFactory: super::IInspectable {
+                        fn CreateFromMFSample(&self, data: super::super::super::Media::MediaFoundation::IMFSample, forceReadOnly: super::super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.media.core.interop/nn-windows-media-core-interop-ivideoframenative")]
+                    interface IVideoFrameNative: super::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WinRT/ivideoframenative-getdata")]
+                        fn GetData(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WinRT/ivideoframenative-getdevice")]
+                        fn GetDevice(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.media.core.interop/nn-windows-media-core-interop-ivideoframenativefactory")]
+                    interface IVideoFrameNativeFactory: super::IInspectable {
+                        fn CreateFromMFSample(&self, data: super::super::super::Media::MediaFoundation::IMFSample, #[Windows::Win32::Foundation::Metadata::Const] subtype: *mut GUID, width: u32, height: u32, forceReadOnly: super::super::super::Foundation::BOOL, #[Windows::Win32::Foundation::Metadata::Const] minDisplayAperture: *mut super::super::super::Media::MediaFoundation::MFVideoArea, device: super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

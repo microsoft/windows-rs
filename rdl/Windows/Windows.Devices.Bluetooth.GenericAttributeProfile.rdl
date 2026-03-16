@@ -1,0 +1,1376 @@
+mod Windows {
+    mod Devices {
+        mod Bluetooth {
+            #[winrt]
+            mod GenericAttributeProfile {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IGattCharacteristicStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattCharacteristic {
+                    #[default]
+                    IGattCharacteristic,
+                    IGattCharacteristic2,
+                    IGattCharacteristic3,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GattCharacteristicProperties {
+                    None = 0,
+                    Broadcast = 1,
+                    Read = 2,
+                    WriteWithoutResponse = 4,
+                    Write = 8,
+                    Notify = 16,
+                    Indicate = 32,
+                    AuthenticatedSignedWrites = 64,
+                    ExtendedProperties = 128,
+                    ReliableWrites = 256,
+                    WritableAuxiliaries = 512,
+                }
+                #[Windows::Foundation::Metadata::Static(IGattCharacteristicUuidsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IGattCharacteristicUuidsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattCharacteristicUuids {}
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattCharacteristicsResult {
+                    #[default]
+                    IGattCharacteristicsResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GattClientCharacteristicConfigurationDescriptorValue {
+                    None = 0,
+                    Notify = 1,
+                    Indicate = 2,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattClientNotificationResult {
+                    #[default]
+                    IGattClientNotificationResult,
+                    IGattClientNotificationResult2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GattCommunicationStatus {
+                    Success = 0,
+                    Unreachable = 1,
+                    ProtocolError = 2,
+                    AccessDenied = 3,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGattDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattDescriptor {
+                    #[default]
+                    IGattDescriptor,
+                    IGattDescriptor2,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IGattDescriptorUuidsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class GattDescriptorUuids {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattDescriptorsResult {
+                    #[default]
+                    IGattDescriptorsResult,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IGattDeviceServiceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IGattDeviceServiceStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattDeviceService {
+                    #[default]
+                    IGattDeviceService,
+                    super::super::super::Foundation::IClosable,
+                    IGattDeviceService2,
+                    IGattDeviceService3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattDeviceServicesResult {
+                    #[default]
+                    IGattDeviceServicesResult,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattLocalCharacteristic {
+                    #[default]
+                    IGattLocalCharacteristic,
+                }
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattLocalCharacteristicParameters {
+                    #[default]
+                    IGattLocalCharacteristicParameters,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattLocalCharacteristicResult {
+                    #[default]
+                    IGattLocalCharacteristicResult,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattLocalDescriptor {
+                    #[default]
+                    IGattLocalDescriptor,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattLocalDescriptorParameters {
+                    #[default]
+                    IGattLocalDescriptorParameters,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattLocalDescriptorResult {
+                    #[default]
+                    IGattLocalDescriptorResult,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattLocalService {
+                    #[default]
+                    IGattLocalService,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum GattOpenStatus {
+                    Unspecified = 0,
+                    Success = 1,
+                    AlreadyOpened = 2,
+                    NotFound = 3,
+                    SharingViolation = 4,
+                    AccessDenied = 5,
+                }
+                #[Windows::Foundation::Metadata::Static(IGattPresentationFormatStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IGattPresentationFormatStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class GattPresentationFormat {
+                    #[default]
+                    IGattPresentationFormat,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Static(IGattPresentationFormatTypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class GattPresentationFormatTypes {}
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GattProtectionLevel {
+                    Plain = 0,
+                    AuthenticationRequired = 1,
+                    EncryptionRequired = 2,
+                    EncryptionAndAuthenticationRequired = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IGattProtocolErrorStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattProtocolError {}
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattReadClientCharacteristicConfigurationDescriptorResult {
+                    #[default]
+                    IGattReadClientCharacteristicConfigurationDescriptorResult,
+                    IGattReadClientCharacteristicConfigurationDescriptorResult2,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattReadRequest {
+                    #[default]
+                    IGattReadRequest,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattReadRequestedEventArgs {
+                    #[default]
+                    IGattReadRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattReadResult {
+                    #[default]
+                    IGattReadResult,
+                    IGattReadResult2,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class GattReliableWriteTransaction {
+                    #[default]
+                    IGattReliableWriteTransaction,
+                    IGattReliableWriteTransaction2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum GattRequestState {
+                    Pending = 0,
+                    Completed = 1,
+                    Canceled = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattRequestStateChangedEventArgs {
+                    #[default]
+                    IGattRequestStateChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Static(IGattServiceProviderStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattServiceProvider {
+                    #[default]
+                    IGattServiceProvider,
+                    IGattServiceProvider2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum GattServiceProviderAdvertisementStatus {
+                    Created = 0,
+                    Stopped = 1,
+                    Started = 2,
+                    Aborted = 3,
+                    StartedWithoutAllAdvertisementData = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattServiceProviderAdvertisementStatusChangedEventArgs {
+                    #[default]
+                    IGattServiceProviderAdvertisementStatusChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattServiceProviderAdvertisingParameters {
+                    #[default]
+                    IGattServiceProviderAdvertisingParameters,
+                    IGattServiceProviderAdvertisingParameters2,
+                    IGattServiceProviderAdvertisingParameters3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattServiceProviderResult {
+                    #[default]
+                    IGattServiceProviderResult,
+                }
+                #[Windows::Foundation::Metadata::Static(IGattServiceUuidsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Static(IGattServiceUuidsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattServiceUuids {}
+                #[Windows::Foundation::Metadata::Static(IGattSessionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattSession {
+                    #[default]
+                    IGattSession,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum GattSessionStatus {
+                    Closed = 0,
+                    Active = 1,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattSessionStatusChangedEventArgs {
+                    #[default]
+                    IGattSessionStatusChangedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum GattSharingMode {
+                    Unspecified = 0,
+                    Exclusive = 1,
+                    SharedReadOnly = 2,
+                    SharedReadAndWrite = 3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattSubscribedClient {
+                    #[default]
+                    IGattSubscribedClient,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattValueChangedEventArgs {
+                    #[default]
+                    IGattValueChangedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GattWriteOption {
+                    WriteWithResponse = 0,
+                    WriteWithoutResponse = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                class GattWriteRequest {
+                    #[default]
+                    IGattWriteRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattWriteRequestedEventArgs {
+                    #[default]
+                    IGattWriteRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GattWriteResult {
+                    #[default]
+                    IGattWriteResult,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristic)]
+                interface IGattCharacteristic {
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetDescriptorsForUuidAsync instead of GetDescriptors.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetDescriptors(&self, descriptorUuid: GUID) -> super::super::super::Foundation::Collections::IVectorView<GattDescriptor>;
+                    #[special]
+                    fn get_CharacteristicProperties(&self) -> GattCharacteristicProperties;
+                    #[special]
+                    fn get_ProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn put_ProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_UserDescription(&self) -> String;
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[special]
+                    fn get_AttributeHandle(&self) -> u16;
+                    #[special]
+                    fn get_PresentationFormats(&self) -> super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>;
+                    #[Windows::Foundation::Metadata::Overload("ReadValueAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReadValueAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ReadValueWithCacheModeAsync")]
+                    fn ReadValueAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("WriteValueAsync")]
+                    fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                    #[Windows::Foundation::Metadata::Overload("WriteValueWithOptionAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientCharacteristicConfigurationDescriptorValue: GattClientCharacteristicConfigurationDescriptorValue) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                    #[special]
+                    fn add_ValueChanged(&self, valueChangedHandler: super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ValueChanged(&self, valueChangedEventCookie: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristic)]
+                interface IGattCharacteristic2: IGattCharacteristic {
+                    #[special]
+                    fn get_Service(&self) -> GattDeviceService;
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetDescriptorsAsync instead of GetAllDescriptors.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetAllDescriptors(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDescriptor>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristic)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattCharacteristic3 {
+                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetDescriptorsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsWithCacheModeAsync")]
+                    fn GetDescriptorsAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsForUuidAsync")]
+                    fn GetDescriptorsForUuidAsync(&self, descriptorUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetDescriptorsForUuidWithCacheModeAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetDescriptorsForUuidAsync(&self, descriptorUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("WriteValueWithResultAsync")]
+                    fn WriteValueWithResultAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("WriteValueWithResultAndOptionAsync")]
+                    fn WriteValueWithResultAsync(&self, value: super::super::super::Storage::Streams::IBuffer, writeOption: GattWriteOption) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientCharacteristicConfigurationDescriptorValue: GattClientCharacteristicConfigurationDescriptorValue) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristic)]
+                interface IGattCharacteristicStatics {
+                    #[Windows::Foundation::Metadata::Deprecated("Use BluetoothUuidHelper instead of ConvertShortIdToUuid.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn ConvertShortIdToUuid(&self, shortId: u16) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicUuids)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattCharacteristicUuidsStatics {
+                    #[special]
+                    fn get_BatteryLevel(&self) -> GUID;
+                    #[special]
+                    fn get_BloodPressureFeature(&self) -> GUID;
+                    #[special]
+                    fn get_BloodPressureMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_BodySensorLocation(&self) -> GUID;
+                    #[special]
+                    fn get_CscFeature(&self) -> GUID;
+                    #[special]
+                    fn get_CscMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_GlucoseFeature(&self) -> GUID;
+                    #[special]
+                    fn get_GlucoseMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_GlucoseMeasurementContext(&self) -> GUID;
+                    #[special]
+                    fn get_HeartRateControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_HeartRateMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_IntermediateCuffPressure(&self) -> GUID;
+                    #[special]
+                    fn get_IntermediateTemperature(&self) -> GUID;
+                    #[special]
+                    fn get_MeasurementInterval(&self) -> GUID;
+                    #[special]
+                    fn get_RecordAccessControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_RscFeature(&self) -> GUID;
+                    #[special]
+                    fn get_RscMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_SCControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_SensorLocation(&self) -> GUID;
+                    #[special]
+                    fn get_TemperatureMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_TemperatureType(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicUuids)]
+                interface IGattCharacteristicUuidsStatics2 {
+                    #[special]
+                    fn get_AlertCategoryId(&self) -> GUID;
+                    #[special]
+                    fn get_AlertCategoryIdBitMask(&self) -> GUID;
+                    #[special]
+                    fn get_AlertLevel(&self) -> GUID;
+                    #[special]
+                    fn get_AlertNotificationControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_AlertStatus(&self) -> GUID;
+                    #[special]
+                    fn get_GapAppearance(&self) -> GUID;
+                    #[special]
+                    fn get_BootKeyboardInputReport(&self) -> GUID;
+                    #[special]
+                    fn get_BootKeyboardOutputReport(&self) -> GUID;
+                    #[special]
+                    fn get_BootMouseInputReport(&self) -> GUID;
+                    #[special]
+                    fn get_CurrentTime(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingPowerControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingPowerFeature(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingPowerMeasurement(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingPowerVector(&self) -> GUID;
+                    #[special]
+                    fn get_DateTime(&self) -> GUID;
+                    #[special]
+                    fn get_DayDateTime(&self) -> GUID;
+                    #[special]
+                    fn get_DayOfWeek(&self) -> GUID;
+                    #[special]
+                    fn get_GapDeviceName(&self) -> GUID;
+                    #[special]
+                    fn get_DstOffset(&self) -> GUID;
+                    #[special]
+                    fn get_ExactTime256(&self) -> GUID;
+                    #[special]
+                    fn get_FirmwareRevisionString(&self) -> GUID;
+                    #[special]
+                    fn get_HardwareRevisionString(&self) -> GUID;
+                    #[special]
+                    fn get_HidControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_HidInformation(&self) -> GUID;
+                    #[special]
+                    fn get_Ieee1107320601RegulatoryCertificationDataList(&self) -> GUID;
+                    #[special]
+                    fn get_LnControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_LnFeature(&self) -> GUID;
+                    #[special]
+                    fn get_LocalTimeInformation(&self) -> GUID;
+                    #[special]
+                    fn get_LocationAndSpeed(&self) -> GUID;
+                    #[special]
+                    fn get_ManufacturerNameString(&self) -> GUID;
+                    #[special]
+                    fn get_ModelNumberString(&self) -> GUID;
+                    #[special]
+                    fn get_Navigation(&self) -> GUID;
+                    #[special]
+                    fn get_NewAlert(&self) -> GUID;
+                    #[special]
+                    fn get_GapPeripheralPreferredConnectionParameters(&self) -> GUID;
+                    #[special]
+                    fn get_GapPeripheralPrivacyFlag(&self) -> GUID;
+                    #[special]
+                    fn get_PnpId(&self) -> GUID;
+                    #[special]
+                    fn get_PositionQuality(&self) -> GUID;
+                    #[special]
+                    fn get_ProtocolMode(&self) -> GUID;
+                    #[special]
+                    fn get_GapReconnectionAddress(&self) -> GUID;
+                    #[special]
+                    fn get_ReferenceTimeInformation(&self) -> GUID;
+                    #[special]
+                    fn get_Report(&self) -> GUID;
+                    #[special]
+                    fn get_ReportMap(&self) -> GUID;
+                    #[special]
+                    fn get_RingerControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_RingerSetting(&self) -> GUID;
+                    #[special]
+                    fn get_ScanIntervalWindow(&self) -> GUID;
+                    #[special]
+                    fn get_ScanRefresh(&self) -> GUID;
+                    #[special]
+                    fn get_SerialNumberString(&self) -> GUID;
+                    #[special]
+                    fn get_GattServiceChanged(&self) -> GUID;
+                    #[special]
+                    fn get_SoftwareRevisionString(&self) -> GUID;
+                    #[special]
+                    fn get_SupportedNewAlertCategory(&self) -> GUID;
+                    #[special]
+                    fn get_SupportUnreadAlertCategory(&self) -> GUID;
+                    #[special]
+                    fn get_SystemId(&self) -> GUID;
+                    #[special]
+                    fn get_TimeAccuracy(&self) -> GUID;
+                    #[special]
+                    fn get_TimeSource(&self) -> GUID;
+                    #[special]
+                    fn get_TimeUpdateControlPoint(&self) -> GUID;
+                    #[special]
+                    fn get_TimeUpdateState(&self) -> GUID;
+                    #[special]
+                    fn get_TimeWithDst(&self) -> GUID;
+                    #[special]
+                    fn get_TimeZone(&self) -> GUID;
+                    #[special]
+                    fn get_TxPowerLevel(&self) -> GUID;
+                    #[special]
+                    fn get_UnreadAlertStatus(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicsResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattCharacteristicsResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                    #[special]
+                    fn get_Characteristics(&self) -> super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattClientNotificationResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattClientNotificationResult {
+                    #[special]
+                    fn get_SubscribedClient(&self) -> GattSubscribedClient;
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattClientNotificationResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IGattClientNotificationResult2 {
+                    #[special]
+                    fn get_BytesSent(&self) -> u16;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDescriptor)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattDescriptor {
+                    #[special]
+                    fn get_ProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn put_ProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[special]
+                    fn get_AttributeHandle(&self) -> u16;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ReadValueAsync")]
+                    fn ReadValueAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("ReadValueWithCacheModeAsync")]
+                    fn ReadValueAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattReadResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn WriteValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDescriptor)]
+                interface IGattDescriptor2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn WriteValueWithResultAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDescriptor)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattDescriptorStatics {
+                    #[Windows::Foundation::Metadata::Deprecated("Use BluetoothUuidHelper instead of ConvertShortIdToUuid.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn ConvertShortIdToUuid(&self, shortId: u16) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDescriptorUuids)]
+                interface IGattDescriptorUuidsStatics {
+                    #[special]
+                    fn get_CharacteristicAggregateFormat(&self) -> GUID;
+                    #[special]
+                    fn get_CharacteristicExtendedProperties(&self) -> GUID;
+                    #[special]
+                    fn get_CharacteristicPresentationFormat(&self) -> GUID;
+                    #[special]
+                    fn get_CharacteristicUserDescription(&self) -> GUID;
+                    #[special]
+                    fn get_ClientCharacteristicConfiguration(&self) -> GUID;
+                    #[special]
+                    fn get_ServerCharacteristicConfiguration(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDescriptorsResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattDescriptorsResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                    #[special]
+                    fn get_Descriptors(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDescriptor>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
+                interface IGattDeviceService: super::super::super::Foundation::IClosable {
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetCharacteristicsForUuidAsync instead of GetCharacteristics.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetCharacteristics(&self, characteristicUuid: GUID) -> super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>;
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetIncludedServicesForUuidAsync instead of GetIncludedServices.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetIncludedServices(&self, serviceUuid: GUID) -> super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
+                    #[special]
+                    fn get_DeviceId(&self) -> String;
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[special]
+                    fn get_AttributeHandle(&self) -> u16;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
+                interface IGattDeviceService2: IGattDeviceService + super::super::super::Foundation::IClosable {
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Use Session instead of Device property.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn get_Device(&self) -> super::BluetoothLEDevice;
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("ParentServices may be altered or unavailable in future releases.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn get_ParentServices(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetCharacteristicsAsync instead of GetAllCharacteristics.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetAllCharacteristics(&self) -> super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>;
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetIncludedServicesAsync instead of GetAllIncludedServices.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetAllIncludedServices(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
+                interface IGattDeviceService3 {
+                    #[special]
+                    fn get_DeviceAccessInformation(&self) -> super::super::Enumeration::DeviceAccessInformation;
+                    #[special]
+                    fn get_Session(&self) -> GattSession;
+                    #[special]
+                    fn get_SharingMode(&self) -> GattSharingMode;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAccessAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn OpenAsync(&self, sharingMode: GattSharingMode) -> super::super::super::Foundation::IAsyncOperation<GattOpenStatus>;
+                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetCharacteristicsAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsWithCacheModeAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetCharacteristicsAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsForUuidAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetCharacteristicsForUuidAsync(&self, characteristicUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("GetCharacteristicsForUuidWithCacheModeAsync")]
+                    fn GetCharacteristicsForUuidAsync(&self, characteristicUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetIncludedServicesAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesWithCacheModeAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetIncludedServicesAsync(&self, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesForUuidAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetIncludedServicesForUuidAsync(&self, serviceUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("GetIncludedServicesForUuidWithCacheModeAsync")]
+                    fn GetIncludedServicesForUuidAsync(&self, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
+                interface IGattDeviceServiceStatics {
+                    #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FromIdAsync(&self, deviceId: String) -> super::super::super::Foundation::IAsyncOperation<GattDeviceService>;
+                    fn GetDeviceSelectorFromUuid(&self, serviceUuid: GUID) -> String;
+                    #[Windows::Foundation::Metadata::Deprecated("Use GetDeviceSelectorFromUuid instead of GetDeviceSelectorFromShortId.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn GetDeviceSelectorFromShortId(&self, serviceShortId: u16) -> String;
+                    #[Windows::Foundation::Metadata::Deprecated("Use BluetoothUuidHelper instead of ConvertShortIdToUuid.  For more information, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                    fn ConvertShortIdToUuid(&self, shortId: u16) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceService)]
+                interface IGattDeviceServiceStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("FromIdWithSharingModeAsync")]
+                    fn FromIdAsync(&self, deviceId: String, sharingMode: GattSharingMode) -> super::super::super::Foundation::IAsyncOperation<GattDeviceService>;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceId")]
+                    fn GetDeviceSelectorForBluetoothDeviceId(&self, bluetoothDeviceId: super::BluetoothDeviceId) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdWithCacheMode")]
+                    fn GetDeviceSelectorForBluetoothDeviceId(&self, bluetoothDeviceId: super::BluetoothDeviceId, cacheMode: super::BluetoothCacheMode) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdAndUuid")]
+                    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&self, bluetoothDeviceId: super::BluetoothDeviceId, serviceUuid: GUID) -> String;
+                    #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode")]
+                    fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(&self, bluetoothDeviceId: super::BluetoothDeviceId, serviceUuid: GUID, cacheMode: super::BluetoothCacheMode) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattDeviceServicesResult)]
+                interface IGattDeviceServicesResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                    #[special]
+                    fn get_Services(&self) -> super::super::super::Foundation::Collections::IVectorView<GattDeviceService>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalCharacteristic)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattLocalCharacteristic {
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[special]
+                    fn get_StaticValue(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_CharacteristicProperties(&self) -> GattCharacteristicProperties;
+                    #[special]
+                    fn get_ReadProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn get_WriteProtectionLevel(&self) -> GattProtectionLevel;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateDescriptorAsync(&self, descriptorUuid: GUID, parameters: GattLocalDescriptorParameters) -> super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>;
+                    #[special]
+                    fn get_Descriptors(&self) -> super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>;
+                    #[special]
+                    fn get_UserDescription(&self) -> String;
+                    #[special]
+                    fn get_PresentationFormats(&self) -> super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>;
+                    #[special]
+                    fn get_SubscribedClients(&self) -> super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>;
+                    #[special]
+                    fn add_SubscribedClientsChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SubscribedClientsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_ReadRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_WriteRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_WriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("NotifyValueAsync")]
+                    fn NotifyValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>;
+                    #[Windows::Foundation::Metadata::Overload("NotifyValueForSubscribedClientAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn NotifyValueAsync(&self, value: super::super::super::Storage::Streams::IBuffer, subscribedClient: GattSubscribedClient) -> super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalCharacteristicParameters)]
+                interface IGattLocalCharacteristicParameters {
+                    #[special]
+                    fn put_StaticValue(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    #[special]
+                    fn get_StaticValue(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn put_CharacteristicProperties(&self, value: GattCharacteristicProperties);
+                    #[special]
+                    fn get_CharacteristicProperties(&self) -> GattCharacteristicProperties;
+                    #[special]
+                    fn put_ReadProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_ReadProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn put_WriteProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_WriteProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn put_UserDescription(&self, value: String);
+                    #[special]
+                    fn get_UserDescription(&self) -> String;
+                    #[special]
+                    fn get_PresentationFormats(&self) -> super::super::super::Foundation::Collections::IVector<GattPresentationFormat>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalCharacteristicResult)]
+                interface IGattLocalCharacteristicResult {
+                    #[special]
+                    fn get_Characteristic(&self) -> GattLocalCharacteristic;
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalDescriptor)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattLocalDescriptor {
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[special]
+                    fn get_StaticValue(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_ReadProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn get_WriteProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn add_ReadRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_WriteRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_WriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalDescriptorParameters)]
+                interface IGattLocalDescriptorParameters {
+                    #[special]
+                    fn put_StaticValue(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    #[special]
+                    fn get_StaticValue(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn put_ReadProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_ReadProtectionLevel(&self) -> GattProtectionLevel;
+                    #[special]
+                    fn put_WriteProtectionLevel(&self, value: GattProtectionLevel);
+                    #[special]
+                    fn get_WriteProtectionLevel(&self) -> GattProtectionLevel;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalDescriptorResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattLocalDescriptorResult {
+                    #[special]
+                    fn get_Descriptor(&self) -> GattLocalDescriptor;
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattLocalService)]
+                interface IGattLocalService {
+                    #[special]
+                    fn get_Uuid(&self) -> GUID;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateCharacteristicAsync(&self, characteristicUuid: GUID, parameters: GattLocalCharacteristicParameters) -> super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>;
+                    #[special]
+                    fn get_Characteristics(&self) -> super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattPresentationFormat)]
+                interface IGattPresentationFormat {
+                    #[special]
+                    fn get_FormatType(&self) -> u8;
+                    #[special]
+                    fn get_Exponent(&self) -> i32;
+                    #[special]
+                    fn get_Unit(&self) -> u16;
+                    #[special]
+                    fn get_Namespace(&self) -> u8;
+                    #[special]
+                    fn get_Description(&self) -> u16;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattPresentationFormat)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattPresentationFormatStatics {
+                    #[special]
+                    fn get_BluetoothSigAssignedNumbers(&self) -> u8;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattPresentationFormat)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattPresentationFormatStatics2: IGattPresentationFormatStatics {
+                    fn FromParts(&self, formatType: u8, exponent: i32, unit: u16, namespaceId: u8, description: u16) -> GattPresentationFormat;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattPresentationFormatTypes)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattPresentationFormatTypesStatics {
+                    #[special]
+                    fn get_Boolean(&self) -> u8;
+                    #[special]
+                    fn get_Bit2(&self) -> u8;
+                    #[special]
+                    fn get_Nibble(&self) -> u8;
+                    #[special]
+                    fn get_UInt8(&self) -> u8;
+                    #[special]
+                    fn get_UInt12(&self) -> u8;
+                    #[special]
+                    fn get_UInt16(&self) -> u8;
+                    #[special]
+                    fn get_UInt24(&self) -> u8;
+                    #[special]
+                    fn get_UInt32(&self) -> u8;
+                    #[special]
+                    fn get_UInt48(&self) -> u8;
+                    #[special]
+                    fn get_UInt64(&self) -> u8;
+                    #[special]
+                    fn get_UInt128(&self) -> u8;
+                    #[special]
+                    fn get_SInt8(&self) -> u8;
+                    #[special]
+                    fn get_SInt12(&self) -> u8;
+                    #[special]
+                    fn get_SInt16(&self) -> u8;
+                    #[special]
+                    fn get_SInt24(&self) -> u8;
+                    #[special]
+                    fn get_SInt32(&self) -> u8;
+                    #[special]
+                    fn get_SInt48(&self) -> u8;
+                    #[special]
+                    fn get_SInt64(&self) -> u8;
+                    #[special]
+                    fn get_SInt128(&self) -> u8;
+                    #[special]
+                    fn get_Float32(&self) -> u8;
+                    #[special]
+                    fn get_Float64(&self) -> u8;
+                    #[special]
+                    fn get_SFloat(&self) -> u8;
+                    #[special]
+                    fn get_Float(&self) -> u8;
+                    #[special]
+                    fn get_DUInt16(&self) -> u8;
+                    #[special]
+                    fn get_Utf8(&self) -> u8;
+                    #[special]
+                    fn get_Utf16(&self) -> u8;
+                    #[special]
+                    fn get_Struct(&self) -> u8;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattProtocolError)]
+                interface IGattProtocolErrorStatics {
+                    #[special]
+                    fn get_InvalidHandle(&self) -> u8;
+                    #[special]
+                    fn get_ReadNotPermitted(&self) -> u8;
+                    #[special]
+                    fn get_WriteNotPermitted(&self) -> u8;
+                    #[special]
+                    fn get_InvalidPdu(&self) -> u8;
+                    #[special]
+                    fn get_InsufficientAuthentication(&self) -> u8;
+                    #[special]
+                    fn get_RequestNotSupported(&self) -> u8;
+                    #[special]
+                    fn get_InvalidOffset(&self) -> u8;
+                    #[special]
+                    fn get_InsufficientAuthorization(&self) -> u8;
+                    #[special]
+                    fn get_PrepareQueueFull(&self) -> u8;
+                    #[special]
+                    fn get_AttributeNotFound(&self) -> u8;
+                    #[special]
+                    fn get_AttributeNotLong(&self) -> u8;
+                    #[special]
+                    fn get_InsufficientEncryptionKeySize(&self) -> u8;
+                    #[special]
+                    fn get_InvalidAttributeValueLength(&self) -> u8;
+                    #[special]
+                    fn get_UnlikelyError(&self) -> u8;
+                    #[special]
+                    fn get_InsufficientEncryption(&self) -> u8;
+                    #[special]
+                    fn get_UnsupportedGroupType(&self) -> u8;
+                    #[special]
+                    fn get_InsufficientResources(&self) -> u8;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadClientCharacteristicConfigurationDescriptorResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattReadClientCharacteristicConfigurationDescriptorResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ClientCharacteristicConfigurationDescriptor(&self) -> GattClientCharacteristicConfigurationDescriptorValue;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadClientCharacteristicConfigurationDescriptorResult)]
+                interface IGattReadClientCharacteristicConfigurationDescriptorResult2 {
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadRequest)]
+                interface IGattReadRequest {
+                    #[special]
+                    fn get_Offset(&self) -> u32;
+                    #[special]
+                    fn get_Length(&self) -> u32;
+                    #[special]
+                    fn get_State(&self) -> GattRequestState;
+                    #[special]
+                    fn add_StateChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_StateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn RespondWithValue(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    fn RespondWithProtocolError(&self, protocolError: u8);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadRequestedEventArgs)]
+                interface IGattReadRequestedEventArgs {
+                    #[special]
+                    fn get_Session(&self) -> GattSession;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetRequestAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattReadRequest>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadResult)]
+                interface IGattReadResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_Value(&self) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReadResult)]
+                interface IGattReadResult2 {
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReliableWriteTransaction)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattReliableWriteTransaction {
+                    fn WriteValue(&self, characteristic: GattCharacteristic, value: super::super::super::Storage::Streams::IBuffer);
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CommitAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattReliableWriteTransaction)]
+                interface IGattReliableWriteTransaction2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CommitWithResultAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattWriteResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattRequestStateChangedEventArgs)]
+                interface IGattRequestStateChangedEventArgs {
+                    #[special]
+                    fn get_State(&self) -> GattRequestState;
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattServiceProvider {
+                    #[special]
+                    fn get_Service(&self) -> GattLocalService;
+                    #[special]
+                    fn get_AdvertisementStatus(&self) -> GattServiceProviderAdvertisementStatus;
+                    #[special]
+                    fn add_AdvertisementStatusChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_AdvertisementStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[Windows::Foundation::Metadata::Overload("StartAdvertising")]
+                    fn StartAdvertising(&self);
+                    #[Windows::Foundation::Metadata::Overload("StartAdvertisingWithParameters")]
+                    fn StartAdvertising(&self, parameters: GattServiceProviderAdvertisingParameters);
+                    fn StopAdvertising(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProvider)]
+                interface IGattServiceProvider2 {
+                    fn UpdateAdvertisingParameters(&self, parameters: GattServiceProviderAdvertisingParameters);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderAdvertisementStatusChangedEventArgs)]
+                interface IGattServiceProviderAdvertisementStatusChangedEventArgs {
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                    #[special]
+                    fn get_Status(&self) -> GattServiceProviderAdvertisementStatus;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderAdvertisingParameters)]
+                interface IGattServiceProviderAdvertisingParameters {
+                    #[special]
+                    fn put_IsConnectable(&self, value: bool);
+                    #[special]
+                    fn get_IsConnectable(&self) -> bool;
+                    #[special]
+                    fn put_IsDiscoverable(&self, value: bool);
+                    #[special]
+                    fn get_IsDiscoverable(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderAdvertisingParameters)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IGattServiceProviderAdvertisingParameters2 {
+                    #[special]
+                    fn put_ServiceData(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    #[special]
+                    fn get_ServiceData(&self) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderAdvertisingParameters)]
+                interface IGattServiceProviderAdvertisingParameters3 {
+                    #[special]
+                    fn get_UseLowEnergyUncoded1MPhyAsSecondaryPhy(&self) -> bool;
+                    #[special]
+                    fn put_UseLowEnergyUncoded1MPhyAsSecondaryPhy(&self, value: bool);
+                    #[special]
+                    fn get_UseLowEnergyUncoded2MPhyAsSecondaryPhy(&self) -> bool;
+                    #[special]
+                    fn put_UseLowEnergyUncoded2MPhyAsSecondaryPhy(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattServiceProviderResult {
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                    #[special]
+                    fn get_ServiceProvider(&self) -> GattServiceProvider;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattServiceProviderStatics {
+                    #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateAsync(&self, serviceUuid: GUID) -> super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceUuids)]
+                interface IGattServiceUuidsStatics {
+                    #[special]
+                    fn get_Battery(&self) -> GUID;
+                    #[special]
+                    fn get_BloodPressure(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingSpeedAndCadence(&self) -> GUID;
+                    #[special]
+                    fn get_GenericAccess(&self) -> GUID;
+                    #[special]
+                    fn get_GenericAttribute(&self) -> GUID;
+                    #[special]
+                    fn get_Glucose(&self) -> GUID;
+                    #[special]
+                    fn get_HealthThermometer(&self) -> GUID;
+                    #[special]
+                    fn get_HeartRate(&self) -> GUID;
+                    #[special]
+                    fn get_RunningSpeedAndCadence(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceUuids)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGattServiceUuidsStatics2 {
+                    #[special]
+                    fn get_AlertNotification(&self) -> GUID;
+                    #[special]
+                    fn get_CurrentTime(&self) -> GUID;
+                    #[special]
+                    fn get_CyclingPower(&self) -> GUID;
+                    #[special]
+                    fn get_DeviceInformation(&self) -> GUID;
+                    #[special]
+                    fn get_HumanInterfaceDevice(&self) -> GUID;
+                    #[special]
+                    fn get_ImmediateAlert(&self) -> GUID;
+                    #[special]
+                    fn get_LinkLoss(&self) -> GUID;
+                    #[special]
+                    fn get_LocationAndNavigation(&self) -> GUID;
+                    #[special]
+                    fn get_NextDstChange(&self) -> GUID;
+                    #[special]
+                    fn get_PhoneAlertStatus(&self) -> GUID;
+                    #[special]
+                    fn get_ReferenceTimeUpdate(&self) -> GUID;
+                    #[special]
+                    fn get_ScanParameters(&self) -> GUID;
+                    #[special]
+                    fn get_TxPower(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattSession)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattSession {
+                    #[special]
+                    fn get_DeviceId(&self) -> super::BluetoothDeviceId;
+                    #[special]
+                    fn get_CanMaintainConnection(&self) -> bool;
+                    #[special]
+                    fn put_MaintainConnection(&self, value: bool);
+                    #[special]
+                    fn get_MaintainConnection(&self) -> bool;
+                    #[special]
+                    fn get_MaxPduSize(&self) -> u16;
+                    #[special]
+                    fn get_SessionStatus(&self) -> GattSessionStatus;
+                    #[special]
+                    fn add_MaxPduSizeChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattSession, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_MaxPduSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_SessionStatusChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_SessionStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattSession)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattSessionStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FromDeviceIdAsync(&self, deviceId: super::BluetoothDeviceId) -> super::super::super::Foundation::IAsyncOperation<GattSession>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattSessionStatusChangedEventArgs)]
+                interface IGattSessionStatusChangedEventArgs {
+                    #[special]
+                    fn get_Error(&self) -> super::BluetoothError;
+                    #[special]
+                    fn get_Status(&self) -> GattSessionStatus;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattSubscribedClient)]
+                interface IGattSubscribedClient {
+                    #[special]
+                    fn get_Session(&self) -> GattSession;
+                    #[special]
+                    fn get_MaxNotificationSize(&self) -> u16;
+                    #[special]
+                    fn add_MaxNotificationSizeChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_MaxNotificationSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattValueChangedEventArgs)]
+                interface IGattValueChangedEventArgs {
+                    #[special]
+                    fn get_CharacteristicValue(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_Timestamp(&self) -> super::super::super::Foundation::DateTime;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattWriteRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattWriteRequest {
+                    #[special]
+                    fn get_Value(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn get_Offset(&self) -> u32;
+                    #[special]
+                    fn get_Option(&self) -> GattWriteOption;
+                    #[special]
+                    fn get_State(&self) -> GattRequestState;
+                    #[special]
+                    fn add_StateChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_StateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn Respond(&self);
+                    fn RespondWithProtocolError(&self, protocolError: u8);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattWriteRequestedEventArgs)]
+                interface IGattWriteRequestedEventArgs {
+                    #[special]
+                    fn get_Session(&self) -> GattSession;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetRequestAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GattWriteRequest>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattWriteResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattWriteResult {
+                    #[special]
+                    fn get_Status(&self) -> GattCommunicationStatus;
+                    #[special]
+                    fn get_ProtocolError(&self) -> super::super::super::Foundation::IReference<u8>;
+                }
+            }
+        }
+    }
+}

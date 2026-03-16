@@ -1,0 +1,103 @@
+mod Windows {
+    mod Win32 {
+        mod NetworkManagement {
+            #[win32]
+            mod WindowsNetworkVirtualization {
+                const WNV_API_MAJOR_VERSION_1: u32 = 1;
+                const WNV_API_MINOR_VERSION_0: u32 = 0;
+                #[repr(i32)]
+                enum WNV_CA_NOTIFICATION_TYPE {
+                    WnvCustomerAddressAdded = 0,
+                    WnvCustomerAddressDeleted = 1,
+                    WnvCustomerAddressMoved = 2,
+                    WnvCustomerAddressMax = 3,
+                }
+                struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
+                    MACAddress: super::super::Networking::WinSock::DL_EUI48,
+                    CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    CA: WNV_IP_ADDRESS,
+                    VirtualSubnetId: u32,
+                    PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    PA: WNV_IP_ADDRESS,
+                    NotificationReason: WNV_CA_NOTIFICATION_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_ip_address")]
+                struct WNV_IP_ADDRESS {
+                    IP: union {
+                        v4: super::super::Networking::WinSock::IN_ADDR,
+                        v6: super::super::Networking::WinSock::IN6_ADDR,
+                        Addr: [u8; 16],
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_notification_param")]
+                struct WNV_NOTIFICATION_PARAM {
+                    Header: WNV_OBJECT_HEADER,
+                    NotificationType: WNV_NOTIFICATION_TYPE,
+                    PendingNotifications: u32,
+                    Buffer: *mut u8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ne-wnvapi-wnv_notification_type")]
+                enum WNV_NOTIFICATION_TYPE {
+                    WnvPolicyMismatchType = 0,
+                    WnvRedirectType = 1,
+                    WnvObjectChangeType = 2,
+                    WnvNotificationTypeMax = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_object_change_param")]
+                struct WNV_OBJECT_CHANGE_PARAM {
+                    ObjectType: WNV_OBJECT_TYPE,
+                    ObjectParam: union {
+                        ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
+                        CustomerAddressChange: WNV_CUSTOMER_ADDRESS_CHANGE_PARAM,
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_object_header")]
+                struct WNV_OBJECT_HEADER {
+                    MajorVersion: u8,
+                    MinorVersion: u8,
+                    Size: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ne-wnvapi-wnv_object_type")]
+                enum WNV_OBJECT_TYPE {
+                    WnvProviderAddressType = 0,
+                    WnvCustomerAddressType = 1,
+                    WnvObjectTypeMax = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_policy_mismatch_param")]
+                struct WNV_POLICY_MISMATCH_PARAM {
+                    CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    VirtualSubnetId: u32,
+                    CA: WNV_IP_ADDRESS,
+                    PA: WNV_IP_ADDRESS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_provider_address_change_param")]
+                struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
+                    PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    PA: WNV_IP_ADDRESS,
+                    AddressState: super::super::Networking::WinSock::NL_DAD_STATE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/ns-wnvapi-wnv_redirect_param")]
+                struct WNV_REDIRECT_PARAM {
+                    CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    NewPAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
+                    VirtualSubnetId: u32,
+                    CA: WNV_IP_ADDRESS,
+                    PA: WNV_IP_ADDRESS,
+                    NewPA: WNV_IP_ADDRESS,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/nf-wnvapi-wnvopen")]
+                #[library("wnvapi.dll")]
+                extern fn WnvOpen() -> super::super::Foundation::HANDLE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2012")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wnvapi/nf-wnvapi-wnvrequestnotification")]
+                #[library("wnvapi.dll")]
+                extern fn WnvRequestNotification(WnvHandle: super::super::Foundation::HANDLE, NotificationParam: *mut WNV_NOTIFICATION_PARAM, Overlapped: *mut super::super::System::IO::OVERLAPPED, BytesTransferred: *mut u32) -> u32;
+            }
+        }
+    }
+}

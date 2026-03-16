@@ -1,0 +1,166 @@
+mod Windows {
+    mod Services {
+        mod Maps {
+            #[winrt]
+            mod LocalSearch {
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalCategories)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                interface ILocalCategoriesStatics {
+                    #[special]
+                    fn get_BankAndCreditUnions(&self) -> String;
+                    #[special]
+                    fn get_EatDrink(&self) -> String;
+                    #[special]
+                    fn get_Hospitals(&self) -> String;
+                    #[special]
+                    fn get_HotelsAndMotels(&self) -> String;
+                    #[special]
+                    fn get_All(&self) -> String;
+                    #[special]
+                    fn get_Parking(&self) -> String;
+                    #[special]
+                    fn get_SeeDo(&self) -> String;
+                    #[special]
+                    fn get_Shop(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocation)]
+                interface ILocalLocation {
+                    #[special]
+                    fn get_Address(&self) -> super::MapAddress;
+                    #[special]
+                    fn get_Identifier(&self) -> String;
+                    #[special]
+                    fn get_Description(&self) -> String;
+                    #[special]
+                    fn get_DisplayName(&self) -> String;
+                    #[special]
+                    fn get_Point(&self) -> super::super::super::Devices::Geolocation::Geopoint;
+                    #[special]
+                    fn get_PhoneNumber(&self) -> String;
+                    #[special]
+                    fn get_DataAttribution(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
+                interface ILocalLocation2 {
+                    #[special]
+                    fn get_Category(&self) -> String;
+                    #[special]
+                    fn get_RatingInfo(&self) -> LocalLocationRatingInfo;
+                    #[special]
+                    fn get_HoursOfOperation(&self) -> super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationFinderResult)]
+                interface ILocalLocationFinderResult {
+                    #[special]
+                    fn get_LocalLocations(&self) -> super::super::super::Foundation::Collections::IVectorView<LocalLocation>;
+                    #[special]
+                    fn get_Status(&self) -> LocalLocationFinderStatus;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationFinder)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                interface ILocalLocationFinderStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FindLocalLocationsAsync(&self, searchTerm: String, searchArea: super::super::super::Devices::Geolocation::Geocircle, localCategory: String, maxResults: u32) -> super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationHoursOfOperationItem)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ILocalLocationHoursOfOperationItem {
+                    #[special]
+                    fn get_Day(&self) -> super::super::super::Globalization::DayOfWeek;
+                    #[special]
+                    fn get_Start(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn get_Span(&self) -> super::super::super::Foundation::TimeSpan;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LocalLocationRatingInfo)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ILocalLocationRatingInfo {
+                    #[special]
+                    fn get_AggregateRating(&self) -> super::super::super::Foundation::IReference<f64>;
+                    #[special]
+                    fn get_RatingCount(&self) -> super::super::super::Foundation::IReference<i32>;
+                    #[special]
+                    fn get_ProviderIdentifier(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlaceInfoHelper)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 262144)]
+                interface IPlaceInfoHelperStatics {
+                    fn CreateFromLocalLocation(&self, location: LocalLocation) -> super::PlaceInfo;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(ILocalCategoriesStatics, 65536, "Windows.Services.Maps.LocalSearchContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class LocalCategories {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                class LocalLocation {
+                    #[default]
+                    ILocalLocation,
+                    ILocalLocation2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ILocalLocationFinderStatics, 65536, "Windows.Services.Maps.LocalSearchContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class LocalLocationFinder {}
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class LocalLocationFinderResult {
+                    #[default]
+                    ILocalLocationFinderResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum LocalLocationFinderStatus {
+                    Success = 0,
+                    UnknownError = 1,
+                    InvalidCredentials = 2,
+                    InvalidCategory = 3,
+                    InvalidSearchTerm = 4,
+                    InvalidSearchArea = 5,
+                    NetworkFailure = 6,
+                    NotSupported = 7,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
+                class LocalLocationHoursOfOperationItem {
+                    #[default]
+                    ILocalLocationHoursOfOperationItem,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class LocalLocationRatingInfo {
+                    #[default]
+                    ILocalLocationRatingInfo,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPlaceInfoHelperStatics, 262144, "Windows.Services.Maps.LocalSearchContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::LocalSearchContract, 262144)]
+                class PlaceInfoHelper {}
+            }
+        }
+    }
+}

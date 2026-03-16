@@ -1,0 +1,148 @@
+mod Windows {
+    mod Foundation {
+        #[winrt]
+        mod Collections {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            enum CollectionChange {
+                Reset = 0,
+                ItemInserted = 1,
+                ItemRemoved = 2,
+                ItemChanged = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IIterable<T> {
+                fn First(&self) -> IIterator<T>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IIterator<T> {
+                #[special]
+                fn get_Current(&self) -> T;
+                #[special]
+                fn get_HasCurrent(&self) -> bool;
+                fn MoveNext(&self) -> bool;
+                fn GetMany(&self, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IKeyValuePair<K, V> {
+                #[special]
+                fn get_Key(&self) -> K;
+                #[special]
+                fn get_Value(&self) -> V;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IMap<K, V>: IIterable<IKeyValuePair<K, V>> {
+                fn Lookup(&self, key: K) -> V;
+                #[special]
+                fn get_Size(&self) -> u32;
+                fn HasKey(&self, key: K) -> bool;
+                fn GetView(&self) -> IMapView<K, V>;
+                fn Insert(&self, key: K, value: V) -> bool;
+                fn Remove(&self, key: K);
+                fn Clear(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IMapChangedEventArgs<K> {
+                #[special]
+                fn get_CollectionChange(&self) -> CollectionChange;
+                #[special]
+                fn get_Key(&self) -> K;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IMapView<K, V>: IIterable<IKeyValuePair<K, V>> {
+                fn Lookup(&self, key: K) -> V;
+                #[special]
+                fn get_Size(&self) -> u32;
+                fn HasKey(&self, key: K) -> bool;
+                fn Split(&self, first: &mut IMapView<K, V>, second: &mut IMapView<K, V>);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IObservableMap<K, V>: IMap<K, V> {
+                #[special]
+                fn add_MapChanged(&self, vhnd: MapChangedEventHandler<K, V>) -> super::EventRegistrationToken;
+                #[special]
+                fn remove_MapChanged(&self, token: super::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IObservableVector<T>: IVector<T> {
+                #[special]
+                fn add_VectorChanged(&self, vhnd: VectorChangedEventHandler<T>) -> super::EventRegistrationToken;
+                #[special]
+                fn remove_VectorChanged(&self, token: super::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::HasVariant]
+            interface IPropertySet: IObservableMap<String, Object> + IMap<String, Object> + IIterable<IKeyValuePair<String, Object>>{}
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IVector<T>: IIterable<T> {
+                fn GetAt(&self, index: u32) -> T;
+                #[special]
+                fn get_Size(&self) -> u32;
+                fn GetView(&self) -> IVectorView<T>;
+                fn IndexOf(&self, value: T, index: &mut u32) -> bool;
+                fn SetAt(&self, index: u32, value: T);
+                fn InsertAt(&self, index: u32, value: T);
+                fn RemoveAt(&self, index: u32);
+                fn Append(&self, value: T);
+                fn RemoveAtEnd(&self);
+                fn Clear(&self);
+                fn GetMany(&self, startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
+                fn ReplaceAll(&self, items: [T]);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IVectorChangedEventArgs {
+                #[special]
+                fn get_CollectionChange(&self) -> CollectionChange;
+                #[special]
+                fn get_Index(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            interface IVectorView<T>: IIterable<T> {
+                fn GetAt(&self, index: u32) -> T;
+                #[special]
+                fn get_Size(&self) -> u32;
+                fn IndexOf(&self, value: T, index: &mut u32) -> bool;
+                fn GetMany(&self, startIndex: u32, #[Windows::Foundation::Metadata::LengthIs(0)] #[out] items: [T]) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            delegate fn MapChangedEventHandler<K, V>(sender: IObservableMap<K, V>, event: IMapChangedEventArgs<K>);
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PropertySet {
+                #[default]
+                IPropertySet,
+                IObservableMap<String, Object>,
+                IMap<String, Object>,
+                IIterable<IKeyValuePair<String, Object>>,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class StringMap {
+                #[default]
+                IMap<String, String>,
+                IIterable<IKeyValuePair<String, String>>,
+                IObservableMap<String, String>,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.FoundationContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class ValueSet {
+                #[default]
+                IPropertySet,
+                IObservableMap<String, Object>,
+                IMap<String, Object>,
+                IIterable<IKeyValuePair<String, Object>>,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::FoundationContract, 65536)]
+            delegate fn VectorChangedEventHandler<T>(sender: IObservableVector<T>, event: IVectorChangedEventArgs);
+        }
+    }
+}

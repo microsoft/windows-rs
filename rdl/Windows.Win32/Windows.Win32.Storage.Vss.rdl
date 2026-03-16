@@ -1,0 +1,913 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod Vss {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-createvssexpresswriterinternal")]
+                #[library("VSSAPI.dll")]
+                extern fn CreateVssExpressWriterInternal(ppWriter: *mut IVssExpressWriter) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsadmin/nn-vsadmin-ivssadmin")]
+                interface IVssAdmin: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsadmin/nf-vsadmin-ivssadmin-registerprovider")]
+                    fn RegisterProvider(&self, pProviderId: GUID, ClassId: GUID, pwszProviderName: *mut u16, eProviderType: VSS_PROVIDER_TYPE, pwszProviderVersion: *mut u16, ProviderVersionId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsadmin/nf-vsadmin-ivssadmin-unregisterprovider")]
+                    fn UnregisterProvider(&self, ProviderId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsadmin/nf-vsadmin-ivssadmin-queryproviders")]
+                    fn QueryProviders(&self, ppEnum: *mut IVssEnumObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsadmin/nf-vsadmin-ivssadmin-abortallsnapshotsinprogress")]
+                    fn AbortAllSnapshotsInProgress(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface IVssAdminEx: IVssAdmin {
+                    fn GetProviderCapability(&self, pProviderId: GUID, pllOriginalCapabilityMask: *mut u64) -> super::super::Foundation::HRESULT;
+                    fn GetProviderContext(&self, ProviderId: GUID, plContext: *mut i32) -> super::super::Foundation::HRESULT;
+                    fn SetProviderContext(&self, ProviderId: GUID, lContext: i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nn-vss-ivssasync")]
+                interface IVssAsync: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssasync-cancel")]
+                    fn Cancel(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssasync-wait")]
+                    fn Wait(&self, dwMilliseconds: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssasync-querystatus")]
+                    fn QueryStatus(&self, pHrResult: *mut super::super::Foundation::HRESULT, pReserved: *mut i32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsscomponent")]
+                interface IVssComponent: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getlogicalpath")]
+                    fn GetLogicalPath(&self, pbstrPath: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getcomponenttype")]
+                    fn GetComponentType(&self, pct: *mut VSS_COMPONENT_TYPE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getcomponentname")]
+                    fn GetComponentName(&self, pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getbackupsucceeded")]
+                    fn GetBackupSucceeded(&self, pbSucceeded: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getalternatelocationmappingcount")]
+                    fn GetAlternateLocationMappingCount(&self, pcMappings: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getalternatelocationmapping")]
+                    fn GetAlternateLocationMapping(&self, iMapping: u32, ppFiledesc: *mut IVssWMFiledesc) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setbackupmetadata")]
+                    fn SetBackupMetadata(&self, #[Windows::Win32::Foundation::Metadata::Const] wszData: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getbackupmetadata")]
+                    fn GetBackupMetadata(&self, pbstrData: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-addpartialfile")]
+                    fn AddPartialFile(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilename: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszRanges: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszMetadata: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getpartialfilecount")]
+                    fn GetPartialFileCount(&self, pcPartialFiles: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getpartialfile")]
+                    fn GetPartialFile(&self, iPartialFile: u32, pbstrPath: *mut super::super::Foundation::BSTR, pbstrFilename: *mut super::super::Foundation::BSTR, pbstrRange: *mut super::super::Foundation::BSTR, pbstrMetadata: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-isselectedforrestore")]
+                    fn IsSelectedForRestore(&self, pbSelectedForRestore: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getadditionalrestores")]
+                    fn GetAdditionalRestores(&self, pbAdditionalRestores: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getnewtargetcount")]
+                    fn GetNewTargetCount(&self, pcNewTarget: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getnewtarget")]
+                    fn GetNewTarget(&self, iNewTarget: u32, ppFiledesc: *mut IVssWMFiledesc) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-adddirectedtarget")]
+                    fn AddDirectedTarget(&self, #[Windows::Win32::Foundation::Metadata::Const] wszSourcePath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszSourceFilename: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszSourceRangeList: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszDestinationPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszDestinationFilename: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszDestinationRangeList: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getdirectedtargetcount")]
+                    fn GetDirectedTargetCount(&self, pcDirectedTarget: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getdirectedtarget")]
+                    fn GetDirectedTarget(&self, iDirectedTarget: u32, pbstrSourcePath: *mut super::super::Foundation::BSTR, pbstrSourceFileName: *mut super::super::Foundation::BSTR, pbstrSourceRangeList: *mut super::super::Foundation::BSTR, pbstrDestinationPath: *mut super::super::Foundation::BSTR, pbstrDestinationFilename: *mut super::super::Foundation::BSTR, pbstrDestinationRangeList: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setrestoremetadata")]
+                    fn SetRestoreMetadata(&self, #[Windows::Win32::Foundation::Metadata::Const] wszRestoreMetadata: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getrestoremetadata")]
+                    fn GetRestoreMetadata(&self, pbstrRestoreMetadata: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setrestoretarget")]
+                    fn SetRestoreTarget(&self, target: VSS_RESTORE_TARGET) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getrestoretarget")]
+                    fn GetRestoreTarget(&self, pTarget: *mut VSS_RESTORE_TARGET) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setprerestorefailuremsg")]
+                    fn SetPreRestoreFailureMsg(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPreRestoreFailureMsg: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getprerestorefailuremsg")]
+                    fn GetPreRestoreFailureMsg(&self, pbstrPreRestoreFailureMsg: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setpostrestorefailuremsg")]
+                    fn SetPostRestoreFailureMsg(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPostRestoreFailureMsg: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getpostrestorefailuremsg")]
+                    fn GetPostRestoreFailureMsg(&self, pbstrPostRestoreFailureMsg: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-setbackupstamp")]
+                    fn SetBackupStamp(&self, #[Windows::Win32::Foundation::Metadata::Const] wszBackupStamp: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getbackupstamp")]
+                    fn GetBackupStamp(&self, pbstrBackupStamp: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getpreviousbackupstamp")]
+                    fn GetPreviousBackupStamp(&self, pbstrBackupStamp: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getbackupoptions")]
+                    fn GetBackupOptions(&self, pbstrBackupOptions: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getrestoreoptions")]
+                    fn GetRestoreOptions(&self, pbstrRestoreOptions: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getrestoresubcomponentcount")]
+                    fn GetRestoreSubcomponentCount(&self, pcRestoreSubcomponent: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getrestoresubcomponent")]
+                    fn GetRestoreSubcomponent(&self, iComponent: u32, pbstrLogicalPath: *mut super::super::Foundation::BSTR, pbstrComponentName: *mut super::super::Foundation::BSTR, pbRepair: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getfilerestorestatus")]
+                    fn GetFileRestoreStatus(&self, pStatus: *mut VSS_FILE_RESTORE_STATUS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-adddifferencedfilesbylastmodifytime")]
+                    fn AddDifferencedFilesByLastModifyTime(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: super::super::Foundation::BOOL, ftLastModifyTime: super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-adddifferencedfilesbylastmodifylsn")]
+                    fn AddDifferencedFilesByLastModifyLSN(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: super::super::Foundation::BOOL, bstrLsnString: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getdifferencedfilescount")]
+                    fn GetDifferencedFilesCount(&self, pcDifferencedFiles: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponent-getdifferencedfile")]
+                    fn GetDifferencedFile(&self, iDifferencedFile: u32, pbstrPath: *mut super::super::Foundation::BSTR, pbstrFilespec: *mut super::super::Foundation::BSTR, pbRecursive: *mut super::super::Foundation::BOOL, pbstrLsnString: *mut super::super::Foundation::BSTR, pftLastModifyTime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsscomponentex")]
+                interface IVssComponentEx: IVssComponent {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-setprepareforbackupfailuremsg")]
+                    fn SetPrepareForBackupFailureMsg(&self, #[Windows::Win32::Foundation::Metadata::Const] wszFailureMsg: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-setpostsnapshotfailuremsg")]
+                    fn SetPostSnapshotFailureMsg(&self, #[Windows::Win32::Foundation::Metadata::Const] wszFailureMsg: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-getprepareforbackupfailuremsg")]
+                    fn GetPrepareForBackupFailureMsg(&self, pbstrFailureMsg: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-getpostsnapshotfailuremsg")]
+                    fn GetPostSnapshotFailureMsg(&self, pbstrFailureMsg: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-getauthoritativerestore")]
+                    fn GetAuthoritativeRestore(&self, pbAuth: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-getrollforward")]
+                    fn GetRollForward(&self, pRollType: *mut VSS_ROLLFORWARD_TYPE, pbstrPoint: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex-getrestorename")]
+                    fn GetRestoreName(&self, pbstrName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsscomponentex2")]
+                interface IVssComponentEx2: IVssComponentEx {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex2-setfailure")]
+                    fn SetFailure(&self, hr: super::super::Foundation::HRESULT, hrApplication: super::super::Foundation::HRESULT, #[Windows::Win32::Foundation::Metadata::Const] wszApplicationMessage: super::super::Foundation::PWSTR, dwReserved: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscomponentex2-getfailure")]
+                    fn GetFailure(&self, phr: *mut super::super::Foundation::HRESULT, phrApplication: *mut super::super::Foundation::HRESULT, pbstrApplicationMessage: *mut super::super::Foundation::BSTR, pdwReserved: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsscreateexpresswritermetadata")]
+                interface IVssCreateExpressWriterMetadata: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-addexcludefiles")]
+                    fn AddExcludeFiles(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-addcomponent")]
+                    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszComponentName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszCaption: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pbIcon: *mut u8, cbIcon: u32, bRestoreMetadata: u8, bNotifyOnBackupComplete: u8, bSelectable: u8, bSelectableForRestore: u8, dwComponentFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-addfilestofilegroup")]
+                    fn AddFilesToFileGroup(&self, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszGroupName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: u8, #[Windows::Win32::Foundation::Metadata::Const] wszAlternateLocation: super::super::Foundation::PWSTR, dwBackupTypeMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-setrestoremethod")]
+                    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, #[Windows::Win32::Foundation::Metadata::Const] wszService: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszUserProcedure: super::super::Foundation::PWSTR, writerRestore: VSS_WRITERRESTORE_ENUM, bRebootRequired: u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-addcomponentdependency")]
+                    fn AddComponentDependency(&self, #[Windows::Win32::Foundation::Metadata::Const] wszForLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszForComponentName: super::super::Foundation::PWSTR, onWriterId: GUID, #[Windows::Win32::Foundation::Metadata::Const] wszOnLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszOnComponentName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-setbackupschema")]
+                    fn SetBackupSchema(&self, dwSchemaMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreateexpresswritermetadata-saveasxml")]
+                    fn SaveAsXML(&self, pbstrXML: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsscreatewritermetadata")]
+                interface IVssCreateWriterMetadata {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addincludefiles")]
+                    fn AddIncludeFiles(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: u8, #[Windows::Win32::Foundation::Metadata::Const] wszAlternateLocation: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addexcludefiles")]
+                    fn AddExcludeFiles(&self, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addcomponent")]
+                    fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszComponentName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszCaption: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pbIcon: *mut u8, cbIcon: u32, bRestoreMetadata: u8, bNotifyOnBackupComplete: u8, bSelectable: u8, bSelectableForRestore: u8, dwComponentFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-adddatabasefiles")]
+                    fn AddDatabaseFiles(&self, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszDatabaseName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, dwBackupTypeMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-adddatabaselogfiles")]
+                    fn AddDatabaseLogFiles(&self, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszDatabaseName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, dwBackupTypeMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addfilestofilegroup")]
+                    fn AddFilesToFileGroup(&self, #[Windows::Win32::Foundation::Metadata::Const] wszLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszGroupName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszFilespec: super::super::Foundation::PWSTR, bRecursive: u8, #[Windows::Win32::Foundation::Metadata::Const] wszAlternateLocation: super::super::Foundation::PWSTR, dwBackupTypeMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-setrestoremethod")]
+                    fn SetRestoreMethod(&self, method: VSS_RESTOREMETHOD_ENUM, #[Windows::Win32::Foundation::Metadata::Const] wszService: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszUserProcedure: super::super::Foundation::PWSTR, writerRestore: VSS_WRITERRESTORE_ENUM, bRebootRequired: u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addalternatelocationmapping")]
+                    fn AddAlternateLocationMapping(&self, #[Windows::Win32::Foundation::Metadata::Const] wszSourcePath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszSourceFilespec: super::super::Foundation::PWSTR, bRecursive: u8, #[Windows::Win32::Foundation::Metadata::Const] wszDestination: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-addcomponentdependency")]
+                    fn AddComponentDependency(&self, #[Windows::Win32::Foundation::Metadata::Const] wszForLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszForComponentName: super::super::Foundation::PWSTR, onWriterId: GUID, #[Windows::Win32::Foundation::Metadata::Const] wszOnLogicalPath: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] wszOnComponentName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-setbackupschema")]
+                    fn SetBackupSchema(&self, dwSchemaMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-getdocument")]
+                    fn GetDocument(&self, pDoc: *mut super::super::Data::Xml::MsXml::IXMLDOMDocument) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsscreatewritermetadata-saveasxml")]
+                    fn SaveAsXML(&self, pbstrXML: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt")]
+                interface IVssDifferentialSoftwareSnapshotMgmt: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-adddiffarea")]
+                    fn AddDiffArea(&self, pwszVolumeName: *mut u16, pwszDiffAreaVolumeName: *mut u16, llMaximumDiffSpace: i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-changediffareamaximumsize")]
+                    fn ChangeDiffAreaMaximumSize(&self, pwszVolumeName: *mut u16, pwszDiffAreaVolumeName: *mut u16, llMaximumDiffSpace: i64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-queryvolumessupportedfordiffareas")]
+                    fn QueryVolumesSupportedForDiffAreas(&self, pwszOriginalVolumeName: *mut u16, ppEnum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-querydiffareasforvolume")]
+                    fn QueryDiffAreasForVolume(&self, pwszVolumeName: *mut u16, ppEnum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-querydiffareasonvolume")]
+                    fn QueryDiffAreasOnVolume(&self, pwszVolumeName: *mut u16, ppEnum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt-querydiffareasforsnapshot")]
+                    fn QueryDiffAreasForSnapshot(&self, SnapshotId: GUID, ppEnum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt2")]
+                interface IVssDifferentialSoftwareSnapshotMgmt2: IVssDifferentialSoftwareSnapshotMgmt {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt2-changediffareamaximumsizeex")]
+                    fn ChangeDiffAreaMaximumSizeEx(&self, pwszVolumeName: *mut u16, pwszDiffAreaVolumeName: *mut u16, llMaximumDiffSpace: i64, bVolatile: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt2-migratediffareas")]
+                    fn MigrateDiffAreas(&self, pwszVolumeName: *mut u16, pwszDiffAreaVolumeName: *mut u16, pwszNewDiffAreaVolumeName: *mut u16) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt2-querymigrationstatus")]
+                    fn QueryMigrationStatus(&self, pwszVolumeName: *mut u16, pwszDiffAreaVolumeName: *mut u16, ppAsync: *mut IVssAsync) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt2-setsnapshotpriority")]
+                    fn SetSnapshotPriority(&self, idSnapshot: GUID, priority: u8) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3")]
+                interface IVssDifferentialSoftwareSnapshotMgmt3: IVssDifferentialSoftwareSnapshotMgmt2 {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3-setvolumeprotectlevel")]
+                    fn SetVolumeProtectLevel(&self, pwszVolumeName: *mut u16, protectionLevel: VSS_PROTECTION_LEVEL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3-getvolumeprotectlevel")]
+                    fn GetVolumeProtectLevel(&self, pwszVolumeName: *mut u16, protectionLevel: *mut VSS_VOLUME_PROTECTION_INFO) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3-clearvolumeprotectfault")]
+                    fn ClearVolumeProtectFault(&self, pwszVolumeName: *mut u16) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3-deleteunuseddiffareas")]
+                    fn DeleteUnusedDiffAreas(&self, pwszDiffAreaVolumeName: *mut u16) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssdifferentialsoftwaresnapshotmgmt3-querysnapshotdeltabitmap")]
+                    fn QuerySnapshotDeltaBitmap(&self, idSnapshotOlder: GUID, idSnapshotYounger: GUID, pcBlockSizePerBit: *mut u32, pcBitmapLength: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] ppbBitmap: *mut *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivssenummgmtobject")]
+                interface IVssEnumMgmtObject: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssenummgmtobject-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssenummgmtobject-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssenummgmtobject-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivssenummgmtobject-clone")]
+                    fn Clone(&self, ppenum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nn-vss-ivssenumobject")]
+                interface IVssEnumObject: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssenumobject-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut VSS_OBJECT_PROP, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssenumobject-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssenumobject-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/nf-vss-ivssenumobject-clone")]
+                    fn Clone(&self, ppenum: *mut IVssEnumObject) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivssexpresswriter")]
+                interface IVssExpressWriter: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivssexpresswriter-createmetadata")]
+                    fn CreateMetadata(&self, writerId: GUID, #[Windows::Win32::Foundation::Metadata::Const] writerName: super::super::Foundation::PWSTR, usageType: VSS_USAGE_TYPE, versionMajor: u32, versionMinor: u32, reserved: u32, ppMetadata: *mut IVssCreateExpressWriterMetadata) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivssexpresswriter-loadmetadata")]
+                    fn LoadMetadata(&self, #[Windows::Win32::Foundation::Metadata::Const] metadata: super::super::Foundation::PWSTR, reserved: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivssexpresswriter-register")]
+                    fn Register(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivssexpresswriter-unregister")]
+                    fn Unregister(&self, writerId: GUID) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivssfilesharesnapshotprovider")]
+                interface IVssFileShareSnapshotProvider: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-setcontext")]
+                    fn SetContext(&self, lContext: i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-getsnapshotproperties")]
+                    fn GetSnapshotProperties(&self, SnapshotId: GUID, pProp: *mut VSS_SNAPSHOT_PROP) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-query")]
+                    fn Query(&self, QueriedObjectId: GUID, eQueriedObjectType: VSS_OBJECT_TYPE, eReturnedObjectsType: VSS_OBJECT_TYPE, ppEnum: *mut IVssEnumObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-deletesnapshots")]
+                    fn DeleteSnapshots(&self, SourceObjectId: GUID, eSourceObjectType: VSS_OBJECT_TYPE, bForceDelete: super::super::Foundation::BOOL, plDeletedSnapshots: *mut i32, pNondeletedSnapshotID: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-beginpreparesnapshot")]
+                    fn BeginPrepareSnapshot(&self, SnapshotSetId: GUID, SnapshotId: GUID, pwszSharePath: *mut u16, lNewContext: i32, ProviderId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-ispathsupported")]
+                    fn IsPathSupported(&self, pwszSharePath: *mut u16, pbSupportedByThisProvider: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-ispathsnapshotted")]
+                    fn IsPathSnapshotted(&self, pwszSharePath: *mut u16, pbSnapshotsPresent: *mut super::super::Foundation::BOOL, plSnapshotCompatibility: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssfilesharesnapshotprovider-setsnapshotproperty")]
+                    fn SetSnapshotProperty(&self, SnapshotId: GUID, eSnapshotPropertyId: VSS_SNAPSHOT_PROPERTY_ID, vProperty: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2003")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivsshardwaresnapshotprovider")]
+                interface IVssHardwareSnapshotProvider: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-arelunssupported")]
+                    fn AreLunsSupported(&self, lLunCount: i32, lContext: i32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgwszDevices: *mut *mut u16, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pLunInformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbIsSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-fillinluninfo")]
+                    fn FillInLunInfo(&self, wszDeviceName: *mut u16, pLunInfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbIsSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-beginpreparesnapshot")]
+                    fn BeginPrepareSnapshot(&self, SnapshotSetId: GUID, SnapshotId: GUID, lContext: i32, lLunCount: i32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] rgDeviceNames: *mut *mut u16, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] rgLunInformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-gettargetluns")]
+                    fn GetTargetLuns(&self, lLunCount: i32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgDeviceNames: *mut *mut u16, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgSourceLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgDestinationLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-locateluns")]
+                    fn LocateLuns(&self, lLunCount: i32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgSourceLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotprovider-onlunempty")]
+                    fn OnLunEmpty(&self, wszDeviceName: *mut u16, pInformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windowsserver2008")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivsshardwaresnapshotproviderex")]
+                interface IVssHardwareSnapshotProviderEx: IVssHardwareSnapshotProvider {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotproviderex-getprovidercapabilities")]
+                    fn GetProviderCapabilities(&self, pllOriginalCapabilityMask: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotproviderex-onlunstatechange")]
+                    fn OnLunStateChange(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pSnapshotLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pOriginalLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, dwCount: u32, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotproviderex-resyncluns")]
+                    fn ResyncLuns(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pSourceLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pTargetLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, dwCount: u32, ppAsync: *mut IVssAsync) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsshardwaresnapshotproviderex-onreuseluns")]
+                    fn OnReuseLuns(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pSnapshotLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pOriginalLuns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, dwCount: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivssprovidercreatesnapshotset")]
+                interface IVssProviderCreateSnapshotSet: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-endpreparesnapshots")]
+                    fn EndPrepareSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-precommitsnapshots")]
+                    fn PreCommitSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-commitsnapshots")]
+                    fn CommitSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-postcommitsnapshots")]
+                    fn PostCommitSnapshots(&self, SnapshotSetId: GUID, lSnapshotsCount: i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-prefinalcommitsnapshots")]
+                    fn PreFinalCommitSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-postfinalcommitsnapshots")]
+                    fn PostFinalCommitSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidercreatesnapshotset-abortsnapshots")]
+                    fn AbortSnapshots(&self, SnapshotSetId: GUID) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivssprovidernotifications")]
+                interface IVssProviderNotifications: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidernotifications-onload")]
+                    fn OnLoad(&self, pCallback: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivssprovidernotifications-onunload")]
+                    fn OnUnload(&self, bForceUnload: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivsssnapshotmgmt")]
+                interface IVssSnapshotMgmt: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivsssnapshotmgmt-getprovidermgmtinterface")]
+                    fn GetProviderMgmtInterface(&self, ProviderId: GUID, #[Windows::Win32::Foundation::Metadata::Const] InterfaceId: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppItf: *mut super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivsssnapshotmgmt-queryvolumessupportedforsnapshots")]
+                    fn QueryVolumesSupportedForSnapshots(&self, ProviderId: GUID, lContext: i32, ppEnum: *mut IVssEnumMgmtObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivsssnapshotmgmt-querysnapshotsbyvolume")]
+                    fn QuerySnapshotsByVolume(&self, pwszVolumeName: *mut u16, ProviderId: GUID, ppEnum: *mut IVssEnumObject) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nn-vsmgmt-ivsssnapshotmgmt2")]
+                interface IVssSnapshotMgmt2: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/nf-vsmgmt-ivsssnapshotmgmt2-getmindiffareasize")]
+                    fn GetMinDiffAreaSize(&self, pllMinDiffAreaSize: *mut i64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nn-vsprov-ivsssoftwaresnapshotprovider")]
+                interface IVssSoftwareSnapshotProvider: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-setcontext")]
+                    fn SetContext(&self, lContext: i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-getsnapshotproperties")]
+                    fn GetSnapshotProperties(&self, SnapshotId: GUID, pProp: *mut VSS_SNAPSHOT_PROP) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-query")]
+                    fn Query(&self, QueriedObjectId: GUID, eQueriedObjectType: VSS_OBJECT_TYPE, eReturnedObjectsType: VSS_OBJECT_TYPE, ppEnum: *mut IVssEnumObject) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-deletesnapshots")]
+                    fn DeleteSnapshots(&self, SourceObjectId: GUID, eSourceObjectType: VSS_OBJECT_TYPE, bForceDelete: super::super::Foundation::BOOL, plDeletedSnapshots: *mut i32, pNondeletedSnapshotID: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-beginpreparesnapshot")]
+                    fn BeginPrepareSnapshot(&self, SnapshotSetId: GUID, SnapshotId: GUID, pwszVolumeName: *mut u16, lNewContext: i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-isvolumesupported")]
+                    fn IsVolumeSupported(&self, pwszVolumeName: *mut u16, pbSupportedByThisProvider: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-isvolumesnapshotted")]
+                    fn IsVolumeSnapshotted(&self, pwszVolumeName: *mut u16, pbSnapshotsPresent: *mut super::super::Foundation::BOOL, plSnapshotCompatibility: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-setsnapshotproperty")]
+                    fn SetSnapshotProperty(&self, SnapshotId: GUID, eSnapshotPropertyId: VSS_SNAPSHOT_PROPERTY_ID, vProperty: super::super::System::Variant::VARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-reverttosnapshot")]
+                    fn RevertToSnapshot(&self, SnapshotId: GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsprov/nf-vsprov-ivsssoftwaresnapshotprovider-queryrevertstatus")]
+                    fn QueryRevertStatus(&self, pwszVolume: *mut u16, ppAsync: *mut IVssAsync) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsswmdependency")]
+                interface IVssWMDependency: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmdependency-getwriterid")]
+                    fn GetWriterId(&self, pWriterId: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmdependency-getlogicalpath")]
+                    fn GetLogicalPath(&self, pbstrLogicalPath: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmdependency-getcomponentname")]
+                    fn GetComponentName(&self, pbstrComponentName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsswmfiledesc")]
+                interface IVssWMFiledesc: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmfiledesc-getpath")]
+                    fn GetPath(&self, pbstrPath: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmfiledesc-getfilespec")]
+                    fn GetFilespec(&self, pbstrFilespec: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmfiledesc-getrecursive")]
+                    fn GetRecursive(&self, pbRecursive: *mut bool) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmfiledesc-getalternatelocation")]
+                    fn GetAlternateLocation(&self, pbstrAlternateLocation: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswmfiledesc-getbackuptypemask")]
+                    fn GetBackupTypeMask(&self, pdwTypeMask: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nl-vswriter-ivsswritercomponents")]
+                interface IVssWriterComponents {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswritercomponents-getcomponentcount")]
+                    fn GetComponentCount(&self, pcComponents: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswritercomponents-getwriterinfo")]
+                    fn GetWriterInfo(&self, pidInstance: *mut GUID, pidWriter: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/nf-vswriter-ivsswritercomponents-getcomponent")]
+                    fn GetComponent(&self, iComponent: u32, ppComponent: *mut IVssComponent) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(3849956191, 7364, 17588, 190, 217, 222, 9, 145, 255, 6, 35)]
+                struct VSSCoordinator {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_alternate_writer_state")]
+                enum VSS_ALTERNATE_WRITER_STATE {
+                    VSS_AWS_UNDEFINED = 0,
+                    VSS_AWS_NO_ALTERNATE_WRITER = 1,
+                    VSS_AWS_ALTERNATE_WRITER_EXISTS = 2,
+                    VSS_AWS_THIS_IS_ALTERNATE_WRITER = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_application_level")]
+                enum VSS_APPLICATION_LEVEL {
+                    VSS_APP_UNKNOWN = 0,
+                    VSS_APP_SYSTEM = 1,
+                    VSS_APP_BACK_END = 2,
+                    VSS_APP_FRONT_END = 3,
+                    VSS_APP_SYSTEM_RM = 4,
+                    VSS_APP_AUTO = -1,
+                }
+                const VSS_ASSOC_NO_MAX_SPACE: i32 = -1;
+                const VSS_ASSOC_REMOVE: u32 = 0;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_backup_schema")]
+                enum VSS_BACKUP_SCHEMA {
+                    VSS_BS_UNDEFINED = 0,
+                    VSS_BS_DIFFERENTIAL = 1,
+                    VSS_BS_INCREMENTAL = 2,
+                    VSS_BS_EXCLUSIVE_INCREMENTAL_DIFFERENTIAL = 4,
+                    VSS_BS_LOG = 8,
+                    VSS_BS_COPY = 16,
+                    VSS_BS_TIMESTAMPED = 32,
+                    VSS_BS_LAST_MODIFY = 64,
+                    VSS_BS_LSN = 128,
+                    VSS_BS_WRITER_SUPPORTS_NEW_TARGET = 256,
+                    VSS_BS_WRITER_SUPPORTS_RESTORE_WITH_MOVE = 512,
+                    VSS_BS_INDEPENDENT_SYSTEM_STATE = 1024,
+                    VSS_BS_ROLLFORWARD_RESTORE = 4096,
+                    VSS_BS_RESTORE_RENAME = 8192,
+                    VSS_BS_AUTHORITATIVE_RESTORE = 16384,
+                    VSS_BS_WRITER_SUPPORTS_PARALLEL_RESTORES = 32768,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_backup_type")]
+                enum VSS_BACKUP_TYPE {
+                    VSS_BT_UNDEFINED = 0,
+                    VSS_BT_FULL = 1,
+                    VSS_BT_INCREMENTAL = 2,
+                    VSS_BT_DIFFERENTIAL = 3,
+                    VSS_BT_LOG = 4,
+                    VSS_BT_COPY = 5,
+                    VSS_BT_OTHER = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_component_flags")]
+                enum VSS_COMPONENT_FLAGS {
+                    VSS_CF_BACKUP_RECOVERY = 1,
+                    VSS_CF_APP_ROLLBACK_RECOVERY = 2,
+                    VSS_CF_NOT_SYSTEM_STATE = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_component_type")]
+                enum VSS_COMPONENT_TYPE {
+                    VSS_CT_UNDEFINED = 0,
+                    VSS_CT_DATABASE = 1,
+                    VSS_CT_FILEGROUP = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ns-vsmgmt-vss_diff_area_prop")]
+                struct VSS_DIFF_AREA_PROP {
+                    m_pwszVolumeName: *mut u16,
+                    m_pwszDiffAreaVolumeName: *mut u16,
+                    m_llMaximumDiffSpace: i64,
+                    m_llAllocatedDiffSpace: i64,
+                    m_llUsedDiffSpace: i64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ns-vsmgmt-vss_diff_volume_prop")]
+                struct VSS_DIFF_VOLUME_PROP {
+                    m_pwszVolumeName: *mut u16,
+                    m_pwszVolumeDisplayName: *mut u16,
+                    m_llVolumeFreeSpace: i64,
+                    m_llVolumeTotalSpace: i64,
+                }
+                const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: super::super::Foundation::HRESULT = -2147212280;
+                const VSS_E_ASRERROR_CRITICAL_DISK_CANNOT_BE_EXCLUDED: super::super::Foundation::HRESULT = -2147212267;
+                const VSS_E_ASRERROR_DATADISK_RDISK0: super::super::Foundation::HRESULT = -2147212282;
+                const VSS_E_ASRERROR_DISK_ASSIGNMENT_FAILED: super::super::Foundation::HRESULT = -2147212287;
+                const VSS_E_ASRERROR_DISK_RECREATION_FAILED: super::super::Foundation::HRESULT = -2147212286;
+                const VSS_E_ASRERROR_DYNAMIC_VHD_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2147212278;
+                const VSS_E_ASRERROR_FIXED_PHYSICAL_DISK_AVAILABLE_AFTER_DISK_EXCLUSION: super::super::Foundation::HRESULT = -2147212268;
+                const VSS_E_ASRERROR_MISSING_DYNDISK: super::super::Foundation::HRESULT = -2147212284;
+                const VSS_E_ASRERROR_NO_ARCPATH: super::super::Foundation::HRESULT = -2147212285;
+                const VSS_E_ASRERROR_NO_PHYSICAL_DISK_AVAILABLE: super::super::Foundation::HRESULT = -2147212269;
+                const VSS_E_ASRERROR_RDISK0_TOOSMALL: super::super::Foundation::HRESULT = -2147212281;
+                const VSS_E_ASRERROR_RDISK_FOR_SYSTEM_DISK_NOT_FOUND: super::super::Foundation::HRESULT = -2147212270;
+                const VSS_E_ASRERROR_SHARED_CRIDISK: super::super::Foundation::HRESULT = -2147212283;
+                const VSS_E_ASRERROR_SYSTEM_PARTITION_HIDDEN: super::super::Foundation::HRESULT = -2147212266;
+                const VSS_E_AUTORECOVERY_FAILED: super::super::Foundation::HRESULT = -2147212293;
+                const VSS_E_BAD_STATE: super::super::Foundation::HRESULT = -2147212543;
+                const VSS_E_BREAK_REVERT_ID_FAILED: super::super::Foundation::HRESULT = -2147212298;
+                const VSS_E_CANNOT_REVERT_DISKID: super::super::Foundation::HRESULT = -2147212290;
+                const VSS_E_CLUSTER_ERROR: super::super::Foundation::HRESULT = -2147212288;
+                const VSS_E_CLUSTER_TIMEOUT: super::super::Foundation::HRESULT = -2147212498;
+                const VSS_E_CORRUPT_XML_DOCUMENT: super::super::Foundation::HRESULT = -2147212528;
+                const VSS_E_CRITICAL_VOLUME_ON_INVALID_DISK: super::super::Foundation::HRESULT = -2147212271;
+                const VSS_E_DYNAMIC_DISK_ERROR: super::super::Foundation::HRESULT = -2147212292;
+                const VSS_E_FLUSH_WRITES_TIMEOUT: super::super::Foundation::HRESULT = -2147212525;
+                const VSS_E_FSS_TIMEOUT: super::super::Foundation::HRESULT = -2147212265;
+                const VSS_E_HOLD_WRITES_TIMEOUT: super::super::Foundation::HRESULT = -2147212524;
+                const VSS_E_INSUFFICIENT_STORAGE: super::super::Foundation::HRESULT = -2147212513;
+                const VSS_E_INVALID_XML_DOCUMENT: super::super::Foundation::HRESULT = -2147212527;
+                const VSS_E_LEGACY_PROVIDER: super::super::Foundation::HRESULT = -2147212297;
+                const VSS_E_MAXIMUM_DIFFAREA_ASSOCIATIONS_REACHED: super::super::Foundation::HRESULT = -2147212514;
+                const VSS_E_MAXIMUM_NUMBER_OF_REMOTE_MACHINES_REACHED: super::super::Foundation::HRESULT = -2147212510;
+                const VSS_E_MAXIMUM_NUMBER_OF_SNAPSHOTS_REACHED: super::super::Foundation::HRESULT = -2147212521;
+                const VSS_E_MAXIMUM_NUMBER_OF_VOLUMES_REACHED: super::super::Foundation::HRESULT = -2147212526;
+                const VSS_E_MISSING_DISK: super::super::Foundation::HRESULT = -2147212296;
+                const VSS_E_MISSING_HIDDEN_VOLUME: super::super::Foundation::HRESULT = -2147212295;
+                const VSS_E_MISSING_VOLUME: super::super::Foundation::HRESULT = -2147212294;
+                const VSS_E_NESTED_VOLUME_LIMIT: super::super::Foundation::HRESULT = -2147212500;
+                const VSS_E_NONTRANSPORTABLE_BCD: super::super::Foundation::HRESULT = -2147212291;
+                const VSS_E_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2147212497;
+                const VSS_E_NO_SNAPSHOTS_IMPORTED: super::super::Foundation::HRESULT = -2147212512;
+                const VSS_E_OBJECT_ALREADY_EXISTS: super::super::Foundation::HRESULT = -2147212531;
+                const VSS_E_OBJECT_NOT_FOUND: super::super::Foundation::HRESULT = -2147212536;
+                const VSS_E_PROVIDER_ALREADY_REGISTERED: super::super::Foundation::HRESULT = -2147212541;
+                const VSS_E_PROVIDER_IN_USE: super::super::Foundation::HRESULT = -2147212537;
+                const VSS_E_PROVIDER_NOT_REGISTERED: super::super::Foundation::HRESULT = -2147212540;
+                const VSS_E_PROVIDER_VETO: super::super::Foundation::HRESULT = -2147212538;
+                const VSS_E_REBOOT_REQUIRED: super::super::Foundation::HRESULT = -2147212505;
+                const VSS_E_REMOTE_SERVER_UNAVAILABLE: super::super::Foundation::HRESULT = -2147212509;
+                const VSS_E_REMOTE_SERVER_UNSUPPORTED: super::super::Foundation::HRESULT = -2147212508;
+                const VSS_E_RESYNC_IN_PROGRESS: super::super::Foundation::HRESULT = -2147212289;
+                const VSS_E_REVERT_IN_PROGRESS: super::super::Foundation::HRESULT = -2147212507;
+                const VSS_E_REVERT_VOLUME_LOST: super::super::Foundation::HRESULT = -2147212506;
+                const VSS_E_SNAPSHOT_NOT_IN_SET: super::super::Foundation::HRESULT = -2147212501;
+                const VSS_E_SNAPSHOT_SET_IN_PROGRESS: super::super::Foundation::HRESULT = -2147212522;
+                const VSS_E_SOME_SNAPSHOTS_NOT_IMPORTED: super::super::Foundation::HRESULT = -2147212511;
+                const VSS_E_TRANSACTION_FREEZE_TIMEOUT: super::super::Foundation::HRESULT = -2147212504;
+                const VSS_E_TRANSACTION_THAW_TIMEOUT: super::super::Foundation::HRESULT = -2147212503;
+                const VSS_E_UNEXPECTED: super::super::Foundation::HRESULT = -2147212542;
+                const VSS_E_UNEXPECTED_PROVIDER_ERROR: super::super::Foundation::HRESULT = -2147212529;
+                const VSS_E_UNEXPECTED_WRITER_ERROR: super::super::Foundation::HRESULT = -2147212523;
+                const VSS_E_UNSELECTED_VOLUME: super::super::Foundation::HRESULT = -2147212502;
+                const VSS_E_UNSUPPORTED_CONTEXT: super::super::Foundation::HRESULT = -2147212517;
+                const VSS_E_VOLUME_IN_USE: super::super::Foundation::HRESULT = -2147212515;
+                const VSS_E_VOLUME_NOT_LOCAL: super::super::Foundation::HRESULT = -2147212499;
+                const VSS_E_VOLUME_NOT_SUPPORTED: super::super::Foundation::HRESULT = -2147212532;
+                const VSS_E_VOLUME_NOT_SUPPORTED_BY_PROVIDER: super::super::Foundation::HRESULT = -2147212530;
+                const VSS_E_WRITERERROR_INCONSISTENTSNAPSHOT: super::super::Foundation::HRESULT = -2147212304;
+                const VSS_E_WRITERERROR_NONRETRYABLE: super::super::Foundation::HRESULT = -2147212300;
+                const VSS_E_WRITERERROR_OUTOFRESOURCES: super::super::Foundation::HRESULT = -2147212303;
+                const VSS_E_WRITERERROR_PARTIAL_FAILURE: super::super::Foundation::HRESULT = -2147212490;
+                const VSS_E_WRITERERROR_RECOVERY_FAILED: super::super::Foundation::HRESULT = -2147212299;
+                const VSS_E_WRITERERROR_RETRYABLE: super::super::Foundation::HRESULT = -2147212301;
+                const VSS_E_WRITERERROR_TIMEOUT: super::super::Foundation::HRESULT = -2147212302;
+                const VSS_E_WRITER_ALREADY_SUBSCRIBED: super::super::Foundation::HRESULT = -2147212518;
+                const VSS_E_WRITER_INFRASTRUCTURE: super::super::Foundation::HRESULT = -2147212520;
+                const VSS_E_WRITER_NOT_RESPONDING: super::super::Foundation::HRESULT = -2147212519;
+                const VSS_E_WRITER_STATUS_NOT_AVAILABLE: super::super::Foundation::HRESULT = -2147212279;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_file_restore_status")]
+                enum VSS_FILE_RESTORE_STATUS {
+                    VSS_RS_UNDEFINED = 0,
+                    VSS_RS_NONE = 1,
+                    VSS_RS_ALL = 2,
+                    VSS_RS_FAILED = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_file_spec_backup_type")]
+                enum VSS_FILE_SPEC_BACKUP_TYPE {
+                    VSS_FSBT_FULL_BACKUP_REQUIRED = 1,
+                    VSS_FSBT_DIFFERENTIAL_BACKUP_REQUIRED = 2,
+                    VSS_FSBT_INCREMENTAL_BACKUP_REQUIRED = 4,
+                    VSS_FSBT_LOG_BACKUP_REQUIRED = 8,
+                    VSS_FSBT_FULL_SNAPSHOT_REQUIRED = 256,
+                    VSS_FSBT_DIFFERENTIAL_SNAPSHOT_REQUIRED = 512,
+                    VSS_FSBT_INCREMENTAL_SNAPSHOT_REQUIRED = 1024,
+                    VSS_FSBT_LOG_SNAPSHOT_REQUIRED = 2048,
+                    VSS_FSBT_CREATED_DURING_BACKUP = 65536,
+                    VSS_FSBT_ALL_BACKUP_REQUIRED = 15,
+                    VSS_FSBT_ALL_SNAPSHOT_REQUIRED = 3840,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_hardware_options")]
+                enum VSS_HARDWARE_OPTIONS {
+                    VSS_BREAKEX_FLAG_MASK_LUNS = 1,
+                    VSS_BREAKEX_FLAG_MAKE_READ_WRITE = 2,
+                    VSS_BREAKEX_FLAG_REVERT_IDENTITY_ALL = 4,
+                    VSS_BREAKEX_FLAG_REVERT_IDENTITY_NONE = 8,
+                    VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE = 256,
+                    VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY = 512,
+                    VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY = 1024,
+                    VSS_ONLUNSTATECHANGE_DO_MASK_LUNS = 2048,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ns-vsmgmt-vss_mgmt_object_prop")]
+                struct VSS_MGMT_OBJECT_PROP {
+                    Type: VSS_MGMT_OBJECT_TYPE,
+                    Obj: VSS_MGMT_OBJECT_UNION,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ne-vsmgmt-vss_mgmt_object_type")]
+                enum VSS_MGMT_OBJECT_TYPE {
+                    VSS_MGMT_OBJECT_UNKNOWN = 0,
+                    VSS_MGMT_OBJECT_VOLUME = 1,
+                    VSS_MGMT_OBJECT_DIFF_VOLUME = 2,
+                    VSS_MGMT_OBJECT_DIFF_AREA = 3,
+                }
+                union VSS_MGMT_OBJECT_UNION {
+                    Vol: VSS_VOLUME_PROP,
+                    DiffVol: VSS_DIFF_VOLUME_PROP,
+                    DiffArea: VSS_DIFF_AREA_PROP,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ns-vss-vss_object_prop")]
+                struct VSS_OBJECT_PROP {
+                    Type: VSS_OBJECT_TYPE,
+                    Obj: VSS_OBJECT_UNION,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_object_type")]
+                enum VSS_OBJECT_TYPE {
+                    VSS_OBJECT_UNKNOWN = 0,
+                    VSS_OBJECT_NONE = 1,
+                    VSS_OBJECT_SNAPSHOT_SET = 2,
+                    VSS_OBJECT_SNAPSHOT = 3,
+                    VSS_OBJECT_PROVIDER = 4,
+                    VSS_OBJECT_TYPE_COUNT = 5,
+                }
+                union VSS_OBJECT_UNION {
+                    Snap: VSS_SNAPSHOT_PROP,
+                    Prov: VSS_PROVIDER_PROP,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ne-vsmgmt-vss_protection_fault")]
+                enum VSS_PROTECTION_FAULT {
+                    VSS_PROTECTION_FAULT_NONE = 0,
+                    VSS_PROTECTION_FAULT_DIFF_AREA_MISSING = 1,
+                    VSS_PROTECTION_FAULT_IO_FAILURE_DURING_ONLINE = 2,
+                    VSS_PROTECTION_FAULT_META_DATA_CORRUPTION = 3,
+                    VSS_PROTECTION_FAULT_MEMORY_ALLOCATION_FAILURE = 4,
+                    VSS_PROTECTION_FAULT_MAPPED_MEMORY_FAILURE = 5,
+                    VSS_PROTECTION_FAULT_COW_READ_FAILURE = 6,
+                    VSS_PROTECTION_FAULT_COW_WRITE_FAILURE = 7,
+                    VSS_PROTECTION_FAULT_DIFF_AREA_FULL = 8,
+                    VSS_PROTECTION_FAULT_GROW_TOO_SLOW = 9,
+                    VSS_PROTECTION_FAULT_GROW_FAILED = 10,
+                    VSS_PROTECTION_FAULT_DESTROY_ALL_SNAPSHOTS = 11,
+                    VSS_PROTECTION_FAULT_FILE_SYSTEM_FAILURE = 12,
+                    VSS_PROTECTION_FAULT_IO_FAILURE = 13,
+                    VSS_PROTECTION_FAULT_DIFF_AREA_REMOVED = 14,
+                    VSS_PROTECTION_FAULT_EXTERNAL_WRITER_TO_DIFF_AREA = 15,
+                    VSS_PROTECTION_FAULT_MOUNT_DURING_CLUSTER_OFFLINE = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ne-vsmgmt-vss_protection_level")]
+                enum VSS_PROTECTION_LEVEL {
+                    VSS_PROTECTION_LEVEL_ORIGINAL_VOLUME = 0,
+                    VSS_PROTECTION_LEVEL_SNAPSHOT = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_provider_capabilities")]
+                enum VSS_PROVIDER_CAPABILITIES {
+                    VSS_PRV_CAPABILITY_LEGACY = 1,
+                    VSS_PRV_CAPABILITY_COMPLIANT = 2,
+                    VSS_PRV_CAPABILITY_LUN_REPOINT = 4,
+                    VSS_PRV_CAPABILITY_LUN_RESYNC = 8,
+                    VSS_PRV_CAPABILITY_OFFLINE_CREATION = 16,
+                    VSS_PRV_CAPABILITY_MULTIPLE_IMPORT = 32,
+                    VSS_PRV_CAPABILITY_RECYCLING = 64,
+                    VSS_PRV_CAPABILITY_PLEX = 128,
+                    VSS_PRV_CAPABILITY_DIFFERENTIAL = 256,
+                    VSS_PRV_CAPABILITY_CLUSTERED = 512,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ns-vss-vss_provider_prop")]
+                struct VSS_PROVIDER_PROP {
+                    m_ProviderId: GUID,
+                    m_pwszProviderName: *mut u16,
+                    m_eProviderType: VSS_PROVIDER_TYPE,
+                    m_pwszProviderVersion: *mut u16,
+                    m_ProviderVersionId: GUID,
+                    m_ClassId: GUID,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_provider_type")]
+                enum VSS_PROVIDER_TYPE {
+                    VSS_PROV_UNKNOWN = 0,
+                    VSS_PROV_SYSTEM = 1,
+                    VSS_PROV_SOFTWARE = 2,
+                    VSS_PROV_HARDWARE = 3,
+                    VSS_PROV_FILESHARE = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_recovery_options")]
+                enum VSS_RECOVERY_OPTIONS {
+                    VSS_RECOVERY_REVERT_IDENTITY_ALL = 256,
+                    VSS_RECOVERY_NO_VOLUME_CHECK = 512,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_restoremethod_enum")]
+                enum VSS_RESTOREMETHOD_ENUM {
+                    VSS_RME_UNDEFINED = 0,
+                    VSS_RME_RESTORE_IF_NOT_THERE = 1,
+                    VSS_RME_RESTORE_IF_CAN_REPLACE = 2,
+                    VSS_RME_STOP_RESTORE_START = 3,
+                    VSS_RME_RESTORE_TO_ALTERNATE_LOCATION = 4,
+                    VSS_RME_RESTORE_AT_REBOOT = 5,
+                    VSS_RME_RESTORE_AT_REBOOT_IF_CANNOT_REPLACE = 6,
+                    VSS_RME_CUSTOM = 7,
+                    VSS_RME_RESTORE_STOP_START = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_restore_target")]
+                enum VSS_RESTORE_TARGET {
+                    VSS_RT_UNDEFINED = 0,
+                    VSS_RT_ORIGINAL = 1,
+                    VSS_RT_ALTERNATE = 2,
+                    VSS_RT_DIRECTED = 3,
+                    VSS_RT_ORIGINAL_LOCATION = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_restore_type")]
+                enum VSS_RESTORE_TYPE {
+                    VSS_RTYPE_UNDEFINED = 0,
+                    VSS_RTYPE_BY_COPY = 1,
+                    VSS_RTYPE_IMPORT = 2,
+                    VSS_RTYPE_OTHER = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_rollforward_type")]
+                enum VSS_ROLLFORWARD_TYPE {
+                    VSS_RF_UNDEFINED = 0,
+                    VSS_RF_NONE = 1,
+                    VSS_RF_ALL = 2,
+                    VSS_RF_PARTIAL = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_snapshot_compatibility")]
+                enum VSS_SNAPSHOT_COMPATIBILITY {
+                    VSS_SC_DISABLE_DEFRAG = 1,
+                    VSS_SC_DISABLE_CONTENTINDEX = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_snapshot_context")]
+                enum VSS_SNAPSHOT_CONTEXT {
+                    VSS_CTX_BACKUP = 0,
+                    VSS_CTX_FILE_SHARE_BACKUP = 16,
+                    VSS_CTX_NAS_ROLLBACK = 25,
+                    VSS_CTX_APP_ROLLBACK = 9,
+                    VSS_CTX_CLIENT_ACCESSIBLE = 29,
+                    VSS_CTX_CLIENT_ACCESSIBLE_WRITERS = 13,
+                    VSS_CTX_ALL = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ns-vss-vss_snapshot_prop")]
+                struct VSS_SNAPSHOT_PROP {
+                    m_SnapshotId: GUID,
+                    m_SnapshotSetId: GUID,
+                    m_lSnapshotsCount: i32,
+                    m_pwszSnapshotDeviceObject: *mut u16,
+                    m_pwszOriginalVolumeName: *mut u16,
+                    m_pwszOriginatingMachine: *mut u16,
+                    m_pwszServiceMachine: *mut u16,
+                    m_pwszExposedName: *mut u16,
+                    m_pwszExposedPath: *mut u16,
+                    m_ProviderId: GUID,
+                    m_lSnapshotAttributes: i32,
+                    m_tsCreationTimestamp: i64,
+                    m_eStatus: VSS_SNAPSHOT_STATE,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_snapshot_property_id")]
+                enum VSS_SNAPSHOT_PROPERTY_ID {
+                    VSS_SPROPID_UNKNOWN = 0,
+                    VSS_SPROPID_SNAPSHOT_ID = 1,
+                    VSS_SPROPID_SNAPSHOT_SET_ID = 2,
+                    VSS_SPROPID_SNAPSHOTS_COUNT = 3,
+                    VSS_SPROPID_SNAPSHOT_DEVICE = 4,
+                    VSS_SPROPID_ORIGINAL_VOLUME = 5,
+                    VSS_SPROPID_ORIGINATING_MACHINE = 6,
+                    VSS_SPROPID_SERVICE_MACHINE = 7,
+                    VSS_SPROPID_EXPOSED_NAME = 8,
+                    VSS_SPROPID_EXPOSED_PATH = 9,
+                    VSS_SPROPID_PROVIDER_ID = 10,
+                    VSS_SPROPID_SNAPSHOT_ATTRIBUTES = 11,
+                    VSS_SPROPID_CREATION_TIMESTAMP = 12,
+                    VSS_SPROPID_STATUS = 13,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_snapshot_state")]
+                enum VSS_SNAPSHOT_STATE {
+                    VSS_SS_UNKNOWN = 0,
+                    VSS_SS_PREPARING = 1,
+                    VSS_SS_PROCESSING_PREPARE = 2,
+                    VSS_SS_PREPARED = 3,
+                    VSS_SS_PROCESSING_PRECOMMIT = 4,
+                    VSS_SS_PRECOMMITTED = 5,
+                    VSS_SS_PROCESSING_COMMIT = 6,
+                    VSS_SS_COMMITTED = 7,
+                    VSS_SS_PROCESSING_POSTCOMMIT = 8,
+                    VSS_SS_PROCESSING_PREFINALCOMMIT = 9,
+                    VSS_SS_PREFINALCOMMITTED = 10,
+                    VSS_SS_PROCESSING_POSTFINALCOMMIT = 11,
+                    VSS_SS_CREATED = 12,
+                    VSS_SS_ABORTED = 13,
+                    VSS_SS_DELETED = 14,
+                    VSS_SS_POSTCOMMITTED = 15,
+                    VSS_SS_COUNT = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_source_type")]
+                enum VSS_SOURCE_TYPE {
+                    VSS_ST_UNDEFINED = 0,
+                    VSS_ST_TRANSACTEDDB = 1,
+                    VSS_ST_NONTRANSACTEDDB = 2,
+                    VSS_ST_OTHER = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_subscribe_mask")]
+                enum VSS_SUBSCRIBE_MASK {
+                    VSS_SM_POST_SNAPSHOT_FLAG = 1,
+                    VSS_SM_BACKUP_EVENTS_FLAG = 2,
+                    VSS_SM_RESTORE_EVENTS_FLAG = 4,
+                    VSS_SM_IO_THROTTLING_FLAG = 8,
+                    VSS_SM_ALL_FLAGS = -1,
+                }
+                const VSS_S_ASYNC_CANCELLED: super::super::Foundation::HRESULT = 271115;
+                const VSS_S_ASYNC_FINISHED: super::super::Foundation::HRESULT = 271114;
+                const VSS_S_ASYNC_PENDING: super::super::Foundation::HRESULT = 271113;
+                const VSS_S_SOME_SNAPSHOTS_NOT_IMPORTED: super::super::Foundation::HRESULT = 271137;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_usage_type")]
+                enum VSS_USAGE_TYPE {
+                    VSS_UT_UNDEFINED = 0,
+                    VSS_UT_BOOTABLESYSTEMSTATE = 1,
+                    VSS_UT_SYSTEMSERVICE = 2,
+                    VSS_UT_USERDATA = 3,
+                    VSS_UT_OTHER = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ns-vsmgmt-vss_volume_prop")]
+                struct VSS_VOLUME_PROP {
+                    m_pwszVolumeName: *mut u16,
+                    m_pwszVolumeDisplayName: *mut u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vsmgmt/ns-vsmgmt-vss_volume_protection_info")]
+                struct VSS_VOLUME_PROTECTION_INFO {
+                    m_protectionLevel: VSS_PROTECTION_LEVEL,
+                    m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
+                    m_protectionFault: VSS_PROTECTION_FAULT,
+                    m_failureStatus: i32,
+                    m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
+                    m_reserved: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_volume_snapshot_attributes")]
+                enum VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
+                    VSS_VOLSNAP_ATTR_PERSISTENT = 1,
+                    VSS_VOLSNAP_ATTR_NO_AUTORECOVERY = 2,
+                    VSS_VOLSNAP_ATTR_CLIENT_ACCESSIBLE = 4,
+                    VSS_VOLSNAP_ATTR_NO_AUTO_RELEASE = 8,
+                    VSS_VOLSNAP_ATTR_NO_WRITERS = 16,
+                    VSS_VOLSNAP_ATTR_TRANSPORTABLE = 32,
+                    VSS_VOLSNAP_ATTR_NOT_SURFACED = 64,
+                    VSS_VOLSNAP_ATTR_NOT_TRANSACTED = 128,
+                    VSS_VOLSNAP_ATTR_HARDWARE_ASSISTED = 65536,
+                    VSS_VOLSNAP_ATTR_DIFFERENTIAL = 131072,
+                    VSS_VOLSNAP_ATTR_PLEX = 262144,
+                    VSS_VOLSNAP_ATTR_IMPORTED = 524288,
+                    VSS_VOLSNAP_ATTR_EXPOSED_LOCALLY = 1048576,
+                    VSS_VOLSNAP_ATTR_EXPOSED_REMOTELY = 2097152,
+                    VSS_VOLSNAP_ATTR_AUTORECOVER = 4194304,
+                    VSS_VOLSNAP_ATTR_ROLLBACK_RECOVERY = 8388608,
+                    VSS_VOLSNAP_ATTR_DELAYED_POSTSNAPSHOT = 16777216,
+                    VSS_VOLSNAP_ATTR_TXF_RECOVERY = 33554432,
+                    VSS_VOLSNAP_ATTR_FILE_SHARE = 67108864,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vswriter/ne-vswriter-vss_writerrestore_enum")]
+                enum VSS_WRITERRESTORE_ENUM {
+                    VSS_WRE_UNDEFINED = 0,
+                    VSS_WRE_NEVER = 1,
+                    VSS_WRE_IF_REPLACE_FAILS = 2,
+                    VSS_WRE_ALWAYS = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/vss/ne-vss-vss_writer_state")]
+                enum VSS_WRITER_STATE {
+                    VSS_WS_UNKNOWN = 0,
+                    VSS_WS_STABLE = 1,
+                    VSS_WS_WAITING_FOR_FREEZE = 2,
+                    VSS_WS_WAITING_FOR_THAW = 3,
+                    VSS_WS_WAITING_FOR_POST_SNAPSHOT = 4,
+                    VSS_WS_WAITING_FOR_BACKUP_COMPLETE = 5,
+                    VSS_WS_FAILED_AT_IDENTIFY = 6,
+                    VSS_WS_FAILED_AT_PREPARE_BACKUP = 7,
+                    VSS_WS_FAILED_AT_PREPARE_SNAPSHOT = 8,
+                    VSS_WS_FAILED_AT_FREEZE = 9,
+                    VSS_WS_FAILED_AT_THAW = 10,
+                    VSS_WS_FAILED_AT_POST_SNAPSHOT = 11,
+                    VSS_WS_FAILED_AT_BACKUP_COMPLETE = 12,
+                    VSS_WS_FAILED_AT_PRE_RESTORE = 13,
+                    VSS_WS_FAILED_AT_POST_RESTORE = 14,
+                    VSS_WS_FAILED_AT_BACKUPSHUTDOWN = 15,
+                    VSS_WS_COUNT = 16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(190458962, 16057, 18186, 150, 226, 108, 109, 69, 112, 228, 15)]
+                struct VssSnapshotMgmt {}
+            }
+        }
+    }
+}

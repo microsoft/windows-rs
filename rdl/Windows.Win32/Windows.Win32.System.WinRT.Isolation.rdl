@@ -1,0 +1,14 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                #[win32]
+                mod Isolation {
+                    interface IIsolatedEnvironmentInterop: super::super::Com::IUnknown {
+                        fn GetHostHwndInterop(&self, containerHwnd: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::RetVal] hostHwnd: *mut super::super::super::Foundation::HWND) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

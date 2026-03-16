@@ -1,0 +1,107 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            #[win32]
+            mod LegacyWindowsEnvironmentFeatures {
+                #[repr(u32)]
+                enum EMPTY_VOLUME_CACHE_FLAGS {
+                    EVCF_HASSETTINGS = 1,
+                    EVCF_ENABLEBYDEFAULT = 2,
+                    EVCF_REMOVEFROMLIST = 4,
+                    EVCF_ENABLEBYDEFAULT_AUTO = 8,
+                    EVCF_DONTSHOWIFZERO = 16,
+                    EVCF_SETTINGSMODE = 32,
+                    EVCF_OUTOFDISKSPACE = 64,
+                    EVCF_USERCONSENTOBTAINED = 128,
+                    EVCF_SYSTEMAUTORUN = 256,
+                }
+                const EVCCBF_LASTNOTIFICATION: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/shlobj/nn-shlobj-iadesktopp2")]
+                interface IADesktopP2: super::super::System::Com::IUnknown {
+                    fn ReReadWallpaper(&self) -> super::super::Foundation::HRESULT;
+                    fn GetADObjectFlags(&self, pdwFlags: *mut u32, dwMask: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/shlobj/nf-shlobj-iadesktopp2-updatealldesktopsubscriptions")]
+                    fn UpdateAllDesktopSubscriptions(&self) -> super::super::Foundation::HRESULT;
+                    fn MakeDynamicChanges(&self, pOleObj: super::super::System::Ole::IOleObject) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/shlobj/nn-shlobj-iactivedesktopp")]
+                interface IActiveDesktopP: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/shlobj/nf-shlobj-iactivedesktopp-setsafemode")]
+                    fn SetSafeMode(&self, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn EnsureUpdateHTML(&self) -> super::super::Foundation::HRESULT;
+                    fn SetScheme(&self, #[Windows::Win32::Foundation::Metadata::Const] pwszSchemeName: super::super::Foundation::PWSTR, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                    fn GetScheme(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] pwszSchemeName: super::super::Foundation::PWSTR, pdwcchBuffer: *mut u32, dwFlags: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IBriefcaseInitiator: super::super::System::Com::IUnknown {
+                    fn IsMonikerInBriefcase(&self, pmk: super::super::System::Com::IMoniker) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nn-emptyvc-iemptyvolumecache")]
+                interface IEmptyVolumeCache: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache-initialize")]
+                    fn Initialize(&self, hkRegKey: super::super::System::Registry::HKEY, #[Windows::Win32::Foundation::Metadata::Const] pcwszVolume: super::super::Foundation::PWSTR, ppwszDisplayName: *mut super::super::Foundation::PWSTR, ppwszDescription: *mut super::super::Foundation::PWSTR, pdwFlags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache-getspaceused")]
+                    fn GetSpaceUsed(&self, pdwlSpaceUsed: *mut u64, picb: IEmptyVolumeCacheCallBack) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache-purge")]
+                    fn Purge(&self, dwlSpaceToFree: u64, picb: IEmptyVolumeCacheCallBack) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache-showproperties")]
+                    fn ShowProperties(&self, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache-deactivate")]
+                    fn Deactivate(&self, pdwFlags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nn-emptyvc-iemptyvolumecache2")]
+                interface IEmptyVolumeCache2: IEmptyVolumeCache {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecache2-initializeex")]
+                    fn InitializeEx(&self, hkRegKey: super::super::System::Registry::HKEY, #[Windows::Win32::Foundation::Metadata::Const] pcwszVolume: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pcwszKeyName: super::super::Foundation::PWSTR, ppwszDisplayName: *mut super::super::Foundation::PWSTR, ppwszDescription: *mut super::super::Foundation::PWSTR, ppwszBtnText: *mut super::super::Foundation::PWSTR, pdwFlags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nn-emptyvc-iemptyvolumecachecallback")]
+                interface IEmptyVolumeCacheCallBack: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecachecallback-scanprogress")]
+                    fn ScanProgress(&self, dwlSpaceUsed: u64, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] pcwszStatus: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emptyvc/nf-emptyvc-iemptyvolumecachecallback-purgeprogress")]
+                    fn PurgeProgress(&self, dwlSpaceFreed: u64, dwlSpaceToFree: u64, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] pcwszStatus: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/reconcil/nn-reconcil-ireconcilableobject")]
+                interface IReconcilableObject: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/reconcil/nf-reconcil-ireconcilableobject-reconcile")]
+                    fn Reconcile(&self, pInitiator: IReconcileInitiator, dwFlags: u32, hwndOwner: super::super::Foundation::HWND, hwndProgressFeedback: super::super::Foundation::HWND, ulcInput: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] rgpmkOtherInput: *mut super::super::System::Com::IMoniker, plOutIndex: *mut i32, pstgNewResidues: super::super::System::Com::StructuredStorage::IStorage, #[Windows::Win32::Foundation::Metadata::Reserved] pvReserved: *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/reconcil/nf-reconcil-ireconcilableobject-getprogressfeedbackmaxestimate")]
+                    fn GetProgressFeedbackMaxEstimate(&self, pulProgressMax: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/lwef/ireconcileinitiator")]
+                interface IReconcileInitiator: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/reconcil/nf-reconcil-ireconcileinitiator-setabortcallback")]
+                    fn SetAbortCallback(&self, punkForAbort: super::super::System::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/reconcil/nf-reconcil-ireconcileinitiator-setprogressfeedback")]
+                    fn SetProgressFeedback(&self, ulProgress: u32, ulProgressMax: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                enum RECONCILEF {
+                    RECONCILEF_MAYBOTHERUSER = 1,
+                    RECONCILEF_FEEDBACKWINDOWVALID = 2,
+                    RECONCILEF_NORESIDUESOK = 4,
+                    RECONCILEF_OMITSELFRESIDUE = 8,
+                    RECONCILEF_RESUMERECONCILIATION = 16,
+                    RECONCILEF_YOUMAYDOTHEUPDATES = 32,
+                    RECONCILEF_ONLYYOUWERECHANGED = 64,
+                    ALL_RECONCILE_FLAGS = 127,
+                }
+                const REC_E_ABORTED: super::super::Foundation::HRESULT = -2147217408;
+                const REC_E_INEEDTODOTHEUPDATES: super::super::Foundation::HRESULT = -2147217404;
+                const REC_E_NOCALLBACK: super::super::Foundation::HRESULT = -2147217407;
+                const REC_E_NORESIDUES: super::super::Foundation::HRESULT = -2147217406;
+                const REC_E_TOODIFFERENT: super::super::Foundation::HRESULT = -2147217405;
+                const REC_S_IDIDTHEUPDATES: super::super::Foundation::HRESULT = 266240;
+                const REC_S_NOTCOMPLETE: super::super::Foundation::HRESULT = 266241;
+                const REC_S_NOTCOMPLETEBUTPROPAGATE: super::super::Foundation::HRESULT = 266242;
+                const STATEBITS_FLAT: u32 = 1;
+            }
+        }
+    }
+}

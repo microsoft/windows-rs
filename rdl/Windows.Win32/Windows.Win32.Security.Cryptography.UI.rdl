@@ -1,0 +1,613 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            mod Cryptography {
+                #[win32]
+                mod UI {
+                    const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072;
+                    const ACTION_REVOCATION_DEFAULT_ONLINE: u32 = 65536;
+                    const CERTVIEW_CRYPTUI_LPARAM: u32 = 8388608;
+                    const CERT_CERTIFICATE_ACTION_VERIFY: GUID = 0x7801ebd0_cf4b_11d0_851f_0060979387ea;
+                    const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
+                    const CERT_DISPWELL_DISTRUST_ADD_CA_CERT: u32 = 8;
+                    const CERT_DISPWELL_DISTRUST_ADD_LEAF_CERT: u32 = 9;
+                    const CERT_DISPWELL_DISTRUST_CA_CERT: u32 = 6;
+                    const CERT_DISPWELL_DISTRUST_LEAF_CERT: u32 = 7;
+                    const CERT_DISPWELL_SELECT: u32 = 1;
+                    const CERT_DISPWELL_TRUST_ADD_CA_CERT: u32 = 4;
+                    const CERT_DISPWELL_TRUST_ADD_LEAF_CERT: u32 = 5;
+                    const CERT_DISPWELL_TRUST_CA_CERT: u32 = 2;
+                    const CERT_DISPWELL_TRUST_LEAF_CERT: u32 = 3;
+                    struct CERT_FILTER_DATA {
+                        dwSize: u32,
+                        cExtensionChecks: u32,
+                        arrayExtensionChecks: *mut CERT_FILTER_EXTENSION_MATCH,
+                        dwCheckingFlags: u32,
+                    }
+                    struct CERT_FILTER_EXTENSION_MATCH {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szExtensionOID: super::super::super::Foundation::PSTR,
+                        dwTestOperation: u32,
+                        pbTestData: *mut u8,
+                        cbTestData: u32,
+                    }
+                    const CERT_FILTER_INCLUDE_V1_CERTS: u32 = 1;
+                    const CERT_FILTER_ISSUER_CERTS_ONLY: u32 = 16;
+                    const CERT_FILTER_KEY_EXISTS: u32 = 32;
+                    const CERT_FILTER_LEAF_CERTS_ONLY: u32 = 8;
+                    const CERT_FILTER_OP_EQUALITY: u32 = 3;
+                    const CERT_FILTER_OP_EXISTS: u32 = 1;
+                    const CERT_FILTER_OP_NOT_EXISTS: u32 = 2;
+                    const CERT_FILTER_VALID_SIGNATURE: u32 = 4;
+                    const CERT_FILTER_VALID_TIME_RANGE: u32 = 2;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cert_selectui_input")]
+                    struct CERT_SELECTUI_INPUT {
+                        hStore: super::HCERTSTORE,
+                        prgpChain: *mut *mut super::CERT_CHAIN_CONTEXT,
+                        cChain: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptdlg/ns-cryptdlg-cert_select_struct_a")]
+                    struct CERT_SELECT_STRUCT_A {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pTemplateName: super::super::super::Foundation::PSTR,
+                        dwFlags: CERT_SELECT_STRUCT_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PSTR,
+                        cCertStore: u32,
+                        arrayCertStore: *mut super::HCERTSTORE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szPurposeOid: super::super::super::Foundation::PSTR,
+                        cCertContext: u32,
+                        arrayCertContext: *mut *mut super::CERT_CONTEXT,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        pfnHook: PFNCMHOOKPROC,
+                        pfnFilter: PFNCMFILTERPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szHelpFileName: super::super::super::Foundation::PSTR,
+                        dwHelpId: u32,
+                        hprov: usize,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum CERT_SELECT_STRUCT_FLAGS {
+                        CSS_HIDE_PROPERTIES = 1,
+                        CSS_ENABLEHOOK = 2,
+                        CSS_ALLOWMULTISELECT = 4,
+                        CSS_SHOW_HELP = 16,
+                        CSS_ENABLETEMPLATE = 32,
+                        CSS_ENABLETEMPLATEHANDLE = 64,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptdlg/ns-cryptdlg-cert_select_struct_w")]
+                    struct CERT_SELECT_STRUCT_W {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pTemplateName: super::super::super::Foundation::PWSTR,
+                        dwFlags: CERT_SELECT_STRUCT_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PWSTR,
+                        cCertStore: u32,
+                        arrayCertStore: *mut super::HCERTSTORE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szPurposeOid: super::super::super::Foundation::PSTR,
+                        cCertContext: u32,
+                        arrayCertContext: *mut *mut super::CERT_CONTEXT,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        pfnHook: PFNCMHOOKPROC,
+                        pfnFilter: PFNCMFILTERPROC,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szHelpFileName: super::super::super::Foundation::PWSTR,
+                        dwHelpId: u32,
+                        hprov: usize,
+                    }
+                    const CERT_TRUST_DO_FULL_SEARCH: u32 = 1;
+                    const CERT_TRUST_DO_FULL_TRUST: u32 = 5;
+                    const CERT_TRUST_MASK: u32 = 16777215;
+                    const CERT_TRUST_PERMIT_MISSING_CRLS: u32 = 2;
+                    const CERT_VALIDITY_AFTER_END: u32 = 2;
+                    const CERT_VALIDITY_BEFORE_START: u32 = 1;
+                    const CERT_VALIDITY_CERTIFICATE_REVOKED: u32 = 8;
+                    const CERT_VALIDITY_CRL_OUT_OF_DATE: u32 = 1073741824;
+                    const CERT_VALIDITY_EXPLICITLY_DISTRUSTED: u32 = 16777216;
+                    const CERT_VALIDITY_EXTENDED_USAGE_FAILURE: u32 = 32;
+                    const CERT_VALIDITY_ISSUER_DISTRUST: u32 = 33554432;
+                    const CERT_VALIDITY_ISSUER_INVALID: u32 = 256;
+                    const CERT_VALIDITY_KEY_USAGE_EXT_FAILURE: u32 = 16;
+                    const CERT_VALIDITY_MASK_TRUST: u32 = 4294901760;
+                    const CERT_VALIDITY_MASK_VALIDITY: u32 = 65535;
+                    const CERT_VALIDITY_NAME_CONSTRAINTS_FAILURE: u32 = 64;
+                    const CERT_VALIDITY_NO_CRL_FOUND: u32 = 536870912;
+                    const CERT_VALIDITY_NO_ISSUER_CERT_FOUND: u32 = 268435456;
+                    const CERT_VALIDITY_NO_TRUST_DATA: u32 = 2147483648;
+                    const CERT_VALIDITY_OTHER_ERROR: u32 = 2048;
+                    const CERT_VALIDITY_OTHER_EXTENSION_FAILURE: u32 = 512;
+                    const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024;
+                    const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4;
+                    const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128;
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    struct CERT_VERIFY_CERTIFICATE_TRUST {
+                        cbSize: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pccert: *mut super::CERT_CONTEXT,
+                        dwFlags: u32,
+                        dwIgnoreErr: u32,
+                        pdwErrors: *mut u32,
+                        pszUsageOid: super::super::super::Foundation::PSTR,
+                        hprov: usize,
+                        cRootStores: u32,
+                        rghstoreRoots: *mut super::HCERTSTORE,
+                        cStores: u32,
+                        rghstoreCAs: *mut super::HCERTSTORE,
+                        cTrustStores: u32,
+                        rghstoreTrust: *mut super::HCERTSTORE,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        pfnTrustHelper: PFNTRUSTHELPER,
+                        pcChain: *mut u32,
+                        prgChain: *mut *mut *mut super::CERT_CONTEXT,
+                        prgdwErrors: *mut *mut u32,
+                        prgpbTrustInfo: *mut *mut super::CRYPT_INTEGER_BLOB,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptdlg/ns-cryptdlg-cert_viewproperties_struct_a")]
+                    struct CERT_VIEWPROPERTIES_STRUCT_A {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCertContext: *mut super::CERT_CONTEXT,
+                        arrayPurposes: *mut super::super::super::Foundation::PSTR,
+                        cArrayPurposes: u32,
+                        cRootStores: u32,
+                        rghstoreRoots: *mut super::HCERTSTORE,
+                        cStores: u32,
+                        rghstoreCAs: *mut super::HCERTSTORE,
+                        cTrustStores: u32,
+                        rghstoreTrust: *mut super::HCERTSTORE,
+                        hprov: usize,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        dwPad: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szHelpFileName: super::super::super::Foundation::PSTR,
+                        dwHelpId: u32,
+                        nStartPage: u32,
+                        cArrayPropSheetPages: u32,
+                        arrayPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+                        CM_ENABLEHOOK = 1,
+                        CM_SHOW_HELP = 2,
+                        CM_SHOW_HELPICON = 4,
+                        CM_ENABLETEMPLATE = 8,
+                        CM_HIDE_ADVANCEPAGE = 16,
+                        CM_HIDE_TRUSTPAGE = 32,
+                        CM_NO_NAMECHANGE = 64,
+                        CM_NO_EDITTRUST = 128,
+                        CM_HIDE_DETAILPAGE = 256,
+                        CM_ADD_CERT_STORES = 512,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptdlg/ns-cryptdlg-cert_viewproperties_struct_w")]
+                    struct CERT_VIEWPROPERTIES_STRUCT_W {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        hInstance: super::super::super::Foundation::HINSTANCE,
+                        dwFlags: CERT_VIEWPROPERTIES_STRUCT_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCertContext: *mut super::CERT_CONTEXT,
+                        arrayPurposes: *mut super::super::super::Foundation::PSTR,
+                        cArrayPurposes: u32,
+                        cRootStores: u32,
+                        rghstoreRoots: *mut super::HCERTSTORE,
+                        cStores: u32,
+                        rghstoreCAs: *mut super::HCERTSTORE,
+                        cTrustStores: u32,
+                        rghstoreTrust: *mut super::HCERTSTORE,
+                        hprov: usize,
+                        lCustData: super::super::super::Foundation::LPARAM,
+                        dwPad: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szHelpFileName: super::super::super::Foundation::PWSTR,
+                        dwHelpId: u32,
+                        nStartPage: u32,
+                        cArrayPropSheetPages: u32,
+                        arrayPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
+                    }
+                    const CM_VIEWFLAGS_MASK: u32 = 16777215;
+                    const CRYPTDLG_ACTION_MASK: u32 = 4294901760;
+                    const CRYPTDLG_CACHE_ONLY_URL_RETRIEVAL: u32 = 268435456;
+                    const CRYPTDLG_DISABLE_AIA: u32 = 134217728;
+                    const CRYPTDLG_POLICY_MASK: u32 = 65535;
+                    const CRYPTDLG_REVOCATION_CACHE: u32 = 1073741824;
+                    const CRYPTDLG_REVOCATION_DEFAULT: u32 = 0;
+                    const CRYPTDLG_REVOCATION_NONE: u32 = 536870912;
+                    const CRYPTDLG_REVOCATION_ONLINE: u32 = 2147483648;
+                    const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4;
+                    const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_cert_mgr_struct")]
+                    struct CRYPTUI_CERT_MGR_STRUCT {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        dwFlags: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszTitle: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pszInitUsageOID: super::super::super::Foundation::PSTR,
+                    }
+                    const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_initdialog_struct")]
+                    struct CRYPTUI_INITDIALOG_STRUCT {
+                        lParam: super::super::super::Foundation::LPARAM,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCertContext: *mut super::CERT_CONTEXT,
+                    }
+                    const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32;
+                    const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: u64 = 8;
+                    const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u64 = 4;
+                    const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u64 = 2;
+                    const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1;
+                    const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16;
+                    #[repr(u32)]
+                    #[flags]
+                    enum CRYPTUI_VIEWCERTIFICATE_FLAGS {
+                        CRYPTUI_HIDE_HIERARCHYPAGE = 1,
+                        CRYPTUI_HIDE_DETAILPAGE = 2,
+                        CRYPTUI_DISABLE_EDITPROPERTIES = 4,
+                        CRYPTUI_ENABLE_EDITPROPERTIES = 8,
+                        CRYPTUI_DISABLE_ADDTOSTORE = 16,
+                        CRYPTUI_ENABLE_ADDTOSTORE = 32,
+                        CRYPTUI_ACCEPT_DECLINE_STYLE = 64,
+                        CRYPTUI_IGNORE_UNTRUSTED_ROOT = 128,
+                        CRYPTUI_DONT_OPEN_STORES = 256,
+                        CRYPTUI_ONLY_OPEN_ROOT_STORE = 512,
+                        CRYPTUI_WARN_UNTRUSTED_ROOT = 1024,
+                        CRYPTUI_ENABLE_REVOCATION_CHECKING = 2048,
+                        CRYPTUI_WARN_REMOTE_TRUST = 4096,
+                        CRYPTUI_DISABLE_EXPORT = 8192,
+                        CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT = 16384,
+                        CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN = 32768,
+                        CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT = 2048,
+                        CRYPTUI_DISABLE_HTMLLINK = 65536,
+                        CRYPTUI_DISABLE_ISSUERSTATEMENT = 131072,
+                        CRYPTUI_CACHE_ONLY_URL_RETRIEVAL = 262144,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_viewcertificate_structa")]
+                    struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCertContext: *mut super::CERT_CONTEXT,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        rgszPurposes: *mut super::super::super::Foundation::PSTR,
+                        cPurposes: u32,
+                        Anonymous: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pCryptProviderData: *mut super::super::WinTrust::CRYPT_PROVIDER_DATA,
+                            hWVTStateData: super::super::super::Foundation::HANDLE,
+                        },
+                        fpCryptProviderDataTrustedUsage: super::super::super::Foundation::BOOL,
+                        idxSigner: u32,
+                        idxCert: u32,
+                        fCounterSigner: super::super::super::Foundation::BOOL,
+                        idxCounterSigner: u32,
+                        cStores: u32,
+                        rghStores: *mut super::HCERTSTORE,
+                        cPropSheetPages: u32,
+                        rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEA,
+                        nStartPage: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_viewcertificate_structw")]
+                    struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
+                        dwSize: u32,
+                        hwndParent: super::super::super::Foundation::HWND,
+                        dwFlags: CRYPTUI_VIEWCERTIFICATE_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        szTitle: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pCertContext: *mut super::CERT_CONTEXT,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        rgszPurposes: *mut super::super::super::Foundation::PSTR,
+                        cPurposes: u32,
+                        Anonymous: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pCryptProviderData: *mut super::super::WinTrust::CRYPT_PROVIDER_DATA,
+                            hWVTStateData: super::super::super::Foundation::HANDLE,
+                        },
+                        fpCryptProviderDataTrustedUsage: super::super::super::Foundation::BOOL,
+                        idxSigner: u32,
+                        idxCert: u32,
+                        fCounterSigner: super::super::super::Foundation::BOOL,
+                        idxCounterSigner: u32,
+                        cStores: u32,
+                        rghStores: *mut super::HCERTSTORE,
+                        cPropSheetPages: u32,
+                        rgPropSheetPages: *mut super::super::super::UI::Controls::PROPSHEETPAGEW,
+                        nStartPage: u32,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+                        CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN = 1,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT = 2,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_ADD_NONE = 0,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_DIGITAL_SIGN {
+                        CRYPTUI_WIZ_DIGITAL_SIGN_CERT = 1,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_STORE = 2,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_PVK = 3,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_NONE = 0,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_blob_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
+                        dwSize: u32,
+                        pGuidSubject: *mut GUID,
+                        cbBlob: u32,
+                        pbBlob: *mut u8,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszDisplayName: super::super::super::Foundation::PWSTR,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_cert_pvk_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
+                        dwSize: u32,
+                        pwszSigningCertFileName: super::super::super::Foundation::PWSTR,
+                        dwPvkChoice: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION,
+                        Anonymous: union {
+                            pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
+                            pPvkProvInfo: *mut super::CRYPT_KEY_PROV_INFO,
+                        },
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_context")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
+                        dwSize: u32,
+                        cbBlob: u32,
+                        pbBlob: *mut u8,
+                    }
+                    const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_extended_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
+                        dwSize: u32,
+                        dwAttrFlags: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszDescription: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszMoreInfoLocation: super::super::super::Foundation::PWSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pszHashAlg: super::super::super::Foundation::PSTR,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszSigningCertDisplayString: super::super::super::Foundation::PWSTR,
+                        hAdditionalCertStore: super::HCERTSTORE,
+                        psAuthenticated: *mut super::CRYPT_ATTRIBUTES,
+                        psUnauthenticated: *mut super::CRYPT_ATTRIBUTES,
+                    }
+                    const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
+                        dwSize: u32,
+                        dwSubjectChoice: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT,
+                        Anonymous1: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pwszFileName: super::super::super::Foundation::PWSTR,
+                            pSignBlobInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
+                        },
+                        dwSigningCertChoice: CRYPTUI_WIZ_DIGITAL_SIGN,
+                        Anonymous2: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pSigningCertContext: *mut super::CERT_CONTEXT,
+                            pSigningCertStore: *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO,
+                            pSigningCertPvkInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO,
+                        },
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszTimestampURL: super::super::super::Foundation::PWSTR,
+                        dwAdditionalCertChoice: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE,
+                        pSignExtInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_pvk_file_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
+                        dwSize: u32,
+                        pwszPvkFileName: super::super::super::Foundation::PWSTR,
+                        pwszProvName: super::super::super::Foundation::PWSTR,
+                        dwProvType: u32,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+                        CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE = 1,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV = 2,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+                        CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL = 1,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_digital_sign_store_info")]
+                    struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
+                        dwSize: u32,
+                        cCertStore: u32,
+                        rghCertStore: *mut super::HCERTSTORE,
+                        pFilterCallback: PFNCFILTERPROC,
+                        pvCallbackData: *mut void,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+                        CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB = 2,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE = 1,
+                        CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_NONE = 0,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_export_certcontext_info")]
+                    struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
+                        dwSize: u32,
+                        dwExportFormat: CRYPTUI_WIZ_EXPORT_FORMAT,
+                        fExportChain: super::super::super::Foundation::BOOL,
+                        fExportPrivateKeys: super::super::super::Foundation::BOOL,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszPassword: super::super::super::Foundation::PWSTR,
+                        fStrongEncryption: super::super::super::Foundation::BOOL,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_EXPORT_FORMAT {
+                        CRYPTUI_WIZ_EXPORT_FORMAT_DER = 1,
+                        CRYPTUI_WIZ_EXPORT_FORMAT_PFX = 2,
+                        CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7 = 3,
+                        CRYPTUI_WIZ_EXPORT_FORMAT_BASE64 = 4,
+                        CRYPTUI_WIZ_EXPORT_FORMAT_CRL = 6,
+                        CRYPTUI_WIZ_EXPORT_FORMAT_CTL = 7,
+                    }
+                    const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_export_info")]
+                    struct CRYPTUI_WIZ_EXPORT_INFO {
+                        dwSize: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszExportFileName: super::super::super::Foundation::PWSTR,
+                        dwSubjectChoice: CRYPTUI_WIZ_EXPORT_SUBJECT,
+                        Anonymous: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pCertContext: *mut super::CERT_CONTEXT,
+                            pCTLContext: *mut super::CTL_CONTEXT,
+                            pCRLContext: *mut super::CRL_CONTEXT,
+                            hCertStore: super::HCERTSTORE,
+                        },
+                        cStores: u32,
+                        rghStores: *mut super::HCERTSTORE,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_EXPORT_SUBJECT {
+                        CRYPTUI_WIZ_EXPORT_CERT_CONTEXT = 1,
+                        CRYPTUI_WIZ_EXPORT_CTL_CONTEXT = 2,
+                        CRYPTUI_WIZ_EXPORT_CRL_CONTEXT = 3,
+                        CRYPTUI_WIZ_EXPORT_CERT_STORE = 4,
+                        CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY = 5,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    enum CRYPTUI_WIZ_FLAGS {
+                        CRYPTUI_WIZ_NO_UI = 1,
+                        CRYPTUI_WIZ_IGNORE_NO_UI_FLAG_FOR_CSPS = 2,
+                        CRYPTUI_WIZ_NO_UI_EXCEPT_CSP = 3,
+                        CRYPTUI_WIZ_IMPORT_ALLOW_CERT = 131072,
+                        CRYPTUI_WIZ_IMPORT_ALLOW_CRL = 262144,
+                        CRYPTUI_WIZ_IMPORT_ALLOW_CTL = 524288,
+                        CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE = 65536,
+                        CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE = 1048576,
+                        CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER = 2097152,
+                        CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE = 4194304,
+                        CRYPTUI_WIZ_EXPORT_PRIVATE_KEY = 256,
+                        CRYPTUI_WIZ_EXPORT_NO_DELETE_PRIVATE_KEY = 512,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/ns-cryptuiapi-cryptui_wiz_import_src_info")]
+                    struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
+                        dwSize: u32,
+                        dwSubjectChoice: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION,
+                        Anonymous: union {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pwszFileName: super::super::super::Foundation::PWSTR,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            pCertContext: *mut super::CERT_CONTEXT,
+                            pCTLContext: *mut super::CTL_CONTEXT,
+                            pCRLContext: *mut super::CRL_CONTEXT,
+                            hCertStore: super::HCERTSTORE,
+                        },
+                        dwFlags: super::CRYPT_KEY_FLAGS,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwszPassword: super::super::super::Foundation::PWSTR,
+                    }
+                    #[repr(u32)]
+                    enum CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+                        CRYPTUI_WIZ_IMPORT_SUBJECT_FILE = 1,
+                        CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT = 2,
+                        CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT = 3,
+                        CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT = 4,
+                        CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE = 5,
+                    }
+                    const CRYTPDLG_FLAGS_MASK: u32 = 4278190080;
+                    const CSS_SELECTCERT_MASK: u32 = 16777215;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptdlg/ns-cryptdlg-ctl_modify_request")]
+                    struct CTL_MODIFY_REQUEST {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pccert: *mut super::CERT_CONTEXT,
+                        dwOperation: CTL_MODIFY_REQUEST_OPERATION,
+                        dwError: u32,
+                    }
+                    #[repr(u32)]
+                    enum CTL_MODIFY_REQUEST_OPERATION {
+                        CTL_MODIFY_REQUEST_ADD_TRUSTED = 3,
+                        CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED = 1,
+                        CTL_MODIFY_REQUEST_REMOVE = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-certselectiongetserializedblob")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CertSelectionGetSerializedBlob(pcsi: *mut CERT_SELECTUI_INPUT, ppOutBuffer: *mut *mut void, pulOutBufferSize: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuidlgcertmgr")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIDlgCertMgr(pCryptUICertMgr: *mut CRYPTUI_CERT_MGR_STRUCT) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuidlgselectcertificatefromstore")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIDlgSelectCertificateFromStore(hCertStore: super::HCERTSTORE, hwnd: super::super::super::Foundation::HWND, pwszTitle: super::super::super::Foundation::PWSTR, pwszDisplayString: super::super::super::Foundation::PWSTR, dwDontUseColumn: u32, dwFlags: u32, pvReserved: *mut void) -> *mut super::CERT_CONTEXT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Ansi]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuidlgviewcertificatea")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIDlgViewCertificateA(pCertViewInfo: *mut CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfPropertiesChanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Unicode]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuidlgviewcertificatew")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIDlgViewCertificateW(pCertViewInfo: *mut CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfPropertiesChanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuidlgviewcontext")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIDlgViewContext(dwContextType: u32, pvContext: *mut void, hwnd: super::super::super::Foundation::HWND, pwszTitle: super::super::super::Foundation::PWSTR, dwFlags: u32, pvReserved: *mut void) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuiwizdigitalsign")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIWizDigitalSign(dwFlags: u32, hwndParent: super::super::super::Foundation::HWND, pwszWizardTitle: super::super::super::Foundation::PWSTR, pDigitalSignInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppSignContext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuiwizexport")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIWizExport(dwFlags: CRYPTUI_WIZ_FLAGS, hwndParent: super::super::super::Foundation::HWND, pwszWizardTitle: super::super::super::Foundation::PWSTR, pExportInfo: *mut CRYPTUI_WIZ_EXPORT_INFO, pvoid: *mut void) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuiwizfreedigitalsigncontext")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIWizFreeDigitalSignContext(pSignContext: *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/cryptuiapi/nf-cryptuiapi-cryptuiwizimport")]
+                    #[library("CRYPTUI.dll")]
+                    extern fn CryptUIWizImport(dwFlags: CRYPTUI_WIZ_FLAGS, hwndParent: super::super::super::Foundation::HWND, pwszWizardTitle: super::super::super::Foundation::PWSTR, pImportSrc: *mut CRYPTUI_WIZ_IMPORT_SRC_INFO, hDestCertStore: super::HCERTSTORE) -> super::super::super::Foundation::BOOL;
+                    extern fn PFNCFILTERPROC(pCertContext: *mut super::CERT_CONTEXT, pfInitialSelectedCert: *mut super::super::super::Foundation::BOOL, pvCallbackData: *mut void) -> super::super::super::Foundation::BOOL;
+                    extern fn PFNCMFILTERPROC(pCertContext: *mut super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL;
+                    extern fn PFNCMHOOKPROC(hwndDialog: super::super::super::Foundation::HWND, message: u32, wParam: super::super::super::Foundation::WPARAM, lParam: super::super::super::Foundation::LPARAM) -> u32;
+                    extern fn PFNTRUSTHELPER(pCertContext: *mut super::CERT_CONTEXT, lCustData: super::super::super::Foundation::LPARAM, fLeafCertificate: super::super::super::Foundation::BOOL, pbTrustBlob: *mut u8) -> super::super::super::Foundation::HRESULT;
+                    const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1;
+                    const SELCERT_ALGORITHM: u32 = 105;
+                    const SELCERT_CERTLIST: u32 = 102;
+                    const SELCERT_FINEPRINT: u32 = 101;
+                    const SELCERT_ISSUED_TO: u32 = 103;
+                    const SELCERT_PROPERTIES: u32 = 100;
+                    const SELCERT_SERIAL_NUM: u32 = 106;
+                    const SELCERT_THUMBPRINT: u32 = 107;
+                    const SELCERT_VALIDITY: u32 = 104;
+                    #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
+                    const szCERT_CERTIFICATE_ACTION_VERIFY: String = "{7801ebd0-cf4b-11d0-851f-0060979387ea}";
+                }
+            }
+        }
+    }
+}

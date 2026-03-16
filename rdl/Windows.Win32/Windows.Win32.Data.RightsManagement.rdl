@@ -1,0 +1,440 @@
+mod Windows {
+    mod Win32 {
+        mod Data {
+            #[win32]
+            mod RightsManagement {
+                const DRMACTSERVINFOVERSION: u32 = 0;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmattesttype")]
+                enum DRMATTESTTYPE {
+                    DRMATTESTTYPE_FULLENVIRONMENT = 0,
+                    DRMATTESTTYPE_HASHONLY = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmacquireadvisories")]
+                #[library("msdrm.dll")]
+                extern fn DRMAcquireAdvisories(hLicenseStorage: u32, wszLicense: super::super::Foundation::PWSTR, wszURL: super::super::Foundation::PWSTR, pvContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmacquireissuancelicensetemplate")]
+                #[library("msdrm.dll")]
+                extern fn DRMAcquireIssuanceLicenseTemplate(hClient: u32, uFlags: u32, pvReserved: *mut void, cTemplates: u32, pwszTemplateIds: *mut super::super::Foundation::PWSTR, wszUrl: super::super::Foundation::PWSTR, pvContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmacquirelicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMAcquireLicense(hSession: u32, uFlags: u32, wszGroupIdentityCredential: super::super::Foundation::PWSTR, wszRequestedRights: super::super::Foundation::PWSTR, wszCustomData: super::super::Foundation::PWSTR, wszURL: super::super::Foundation::PWSTR, pvContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmactivate")]
+                #[library("msdrm.dll")]
+                extern fn DRMActivate(hClient: u32, uFlags: u32, uLangID: u32, pActServInfo: *mut DRM_ACTSERV_INFO, pvContext: *mut void, hParentWnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmaddlicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMAddLicense(hLicenseStorage: u32, uFlags: u32, wszLicense: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmaddrightwithuser")]
+                #[library("msdrm.dll")]
+                extern fn DRMAddRightWithUser(hIssuanceLicense: u32, hRight: u32, hUser: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmattest")]
+                #[library("msdrm.dll")]
+                extern fn DRMAttest(hEnablingPrincipal: u32, wszData: super::super::Foundation::PWSTR, eType: DRMATTESTTYPE, pcAttestedBlob: *mut u32, wszAttestedBlob: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ns-msdrmdefs-drmboundlicenseparams")]
+                struct DRMBOUNDLICENSEPARAMS {
+                    uVersion: u32,
+                    hEnablingPrincipal: u32,
+                    hSecureStore: u32,
+                    wszRightsRequested: super::super::Foundation::PWSTR,
+                    wszRightsGroup: super::super::Foundation::PWSTR,
+                    idResource: DRMID,
+                    cAuthenticatorCount: u32,
+                    rghAuthenticators: *mut u32,
+                    wszDefaultEnablingPrincipalCredentials: super::super::Foundation::PWSTR,
+                    dwFlags: u32,
+                }
+                const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1;
+                extern fn DRMCALLBACK(param0: DRM_STATUS_MSG, param1: super::super::Foundation::HRESULT, param2: *mut void, param3: *mut void) -> super::super::Foundation::HRESULT;
+                const DRMCALLBACKVERSION: u32 = 1;
+                const DRMCLIENTSTRUCTVERSION: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmchecksecurity")]
+                #[library("msdrm.dll")]
+                extern fn DRMCheckSecurity(hEnv: u32, cLevel: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmclearallrights")]
+                #[library("msdrm.dll")]
+                extern fn DRMClearAllRights(hIssuanceLicense: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcloseenvironmenthandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMCloseEnvironmentHandle(hEnv: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmclosehandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMCloseHandle(handle: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmclosepubhandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMClosePubHandle(hPub: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmclosequeryhandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMCloseQueryHandle(hQuery: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmclosesession")]
+                #[library("msdrm.dll")]
+                extern fn DRMCloseSession(hSession: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmconstructcertificatechain")]
+                #[library("msdrm.dll")]
+                extern fn DRMConstructCertificateChain(cCertificates: u32, rgwszCertificates: *mut super::super::Foundation::PWSTR, pcChain: *mut u32, wszChain: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateboundlicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateBoundLicense(hEnv: u32, pParams: *mut DRMBOUNDLICENSEPARAMS, wszLicenseChain: super::super::Foundation::PWSTR, phBoundLicense: *mut u32, phErrorLog: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateclientsession")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateClientSession(pfnCallback: DRMCALLBACK, uCallbackVersion: u32, wszGroupIDProviderType: super::super::Foundation::PWSTR, wszGroupID: super::super::Foundation::PWSTR, phClient: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateenablingbitsdecryptor")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateEnablingBitsDecryptor(hBoundLicense: u32, wszRight: super::super::Foundation::PWSTR, hAuxLib: u32, wszAuxPlug: super::super::Foundation::PWSTR, phDecryptor: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateenablingbitsencryptor")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateEnablingBitsEncryptor(hBoundLicense: u32, wszRight: super::super::Foundation::PWSTR, hAuxLib: u32, wszAuxPlug: super::super::Foundation::PWSTR, phEncryptor: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateenablingprincipal")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateEnablingPrincipal(hEnv: u32, hLibrary: u32, wszObject: super::super::Foundation::PWSTR, pidPrincipal: *mut DRMID, wszCredentials: super::super::Foundation::PWSTR, phEnablingPrincipal: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateissuancelicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateIssuanceLicense(pstTimeFrom: *mut super::super::Foundation::SYSTEMTIME, pstTimeUntil: *mut super::super::Foundation::SYSTEMTIME, wszReferralInfoName: super::super::Foundation::PWSTR, wszReferralInfoURL: super::super::Foundation::PWSTR, hOwner: u32, wszIssuanceLicense: super::super::Foundation::PWSTR, hBoundLicense: u32, phIssuanceLicense: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreatelicensestoragesession")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateLicenseStorageSession(hEnv: u32, hDefaultLibrary: u32, hClient: u32, uFlags: u32, wszIssuanceLicense: super::super::Foundation::PWSTR, phLicenseStorage: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateright")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateRight(wszRightName: super::super::Foundation::PWSTR, pstFrom: *mut super::super::Foundation::SYSTEMTIME, pstUntil: *mut super::super::Foundation::SYSTEMTIME, cExtendedInfo: u32, pwszExtendedInfoName: *mut super::super::Foundation::PWSTR, pwszExtendedInfoValue: *mut super::super::Foundation::PWSTR, phRight: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmcreateuser")]
+                #[library("msdrm.dll")]
+                extern fn DRMCreateUser(wszUserName: super::super::Foundation::PWSTR, wszUserId: super::super::Foundation::PWSTR, wszUserIdType: super::super::Foundation::PWSTR, phUser: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmdecode")]
+                #[library("msdrm.dll")]
+                extern fn DRMDecode(wszAlgID: super::super::Foundation::PWSTR, wszEncodedString: super::super::Foundation::PWSTR, puDecodedDataLen: *mut u32, pbDecodedData: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmdeconstructcertificatechain")]
+                #[library("msdrm.dll")]
+                extern fn DRMDeconstructCertificateChain(wszChain: super::super::Foundation::PWSTR, iWhich: u32, pcCert: *mut u32, wszCert: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmdecrypt")]
+                #[library("msdrm.dll")]
+                extern fn DRMDecrypt(hCryptoProvider: u32, iPosition: u32, cNumInBytes: u32, pbInData: *mut u8, pcNumOutBytes: *mut u32, pbOutData: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmdeletelicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMDeleteLicense(hSession: u32, wszLicenseId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmduplicateenvironmenthandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMDuplicateEnvironmentHandle(hToCopy: u32, phCopy: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmduplicatehandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMDuplicateHandle(hToCopy: u32, phCopy: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmduplicatepubhandle")]
+                #[library("msdrm.dll")]
+                extern fn DRMDuplicatePubHandle(hPubIn: u32, phPubOut: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmduplicatesession")]
+                #[library("msdrm.dll")]
+                extern fn DRMDuplicateSession(hSessionIn: u32, phSessionOut: *mut u32) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmencodingtype")]
+                enum DRMENCODINGTYPE {
+                    DRMENCODINGTYPE_BASE64 = 0,
+                    DRMENCODINGTYPE_STRING = 1,
+                    DRMENCODINGTYPE_LONG = 2,
+                    DRMENCODINGTYPE_TIME = 3,
+                    DRMENCODINGTYPE_UINT = 4,
+                    DRMENCODINGTYPE_RAW = 5,
+                }
+                const DRMENVHANDLE_INVALID: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmencode")]
+                #[library("msdrm.dll")]
+                extern fn DRMEncode(wszAlgID: super::super::Foundation::PWSTR, uDataLen: u32, pbDecodedData: *mut u8, puEncodedStringLen: *mut u32, wszEncodedString: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmencrypt")]
+                #[library("msdrm.dll")]
+                extern fn DRMEncrypt(hCryptoProvider: u32, iPosition: u32, cNumInBytes: u32, pbInData: *mut u8, pcNumOutBytes: *mut u32, pbOutData: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmenumeratelicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMEnumerateLicense(hSession: u32, uFlags: u32, uIndex: u32, pfSharedFlag: *mut super::super::Foundation::BOOL, puCertificateDataLen: *mut u32, wszCertificateData: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmglobaloptions")]
+                enum DRMGLOBALOPTIONS {
+                    DRMGLOBALOPTIONS_USE_WINHTTP = 0,
+                    DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetapplicationspecificdata")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetApplicationSpecificData(hIssuanceLicense: u32, uIndex: u32, puNameLength: *mut u32, wszName: super::super::Foundation::PWSTR, puValueLength: *mut u32, wszValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetboundlicenseattribute")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetBoundLicenseAttribute(hQueryRoot: u32, wszAttribute: super::super::Foundation::PWSTR, iWhich: u32, peEncoding: *mut DRMENCODINGTYPE, pcBuffer: *mut u32, pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetboundlicenseattributecount")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetBoundLicenseAttributeCount(hQueryRoot: u32, wszAttribute: super::super::Foundation::PWSTR, pcAttributes: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetboundlicenseobject")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetBoundLicenseObject(hQueryRoot: u32, wszSubObjectType: super::super::Foundation::PWSTR, iWhich: u32, phSubObject: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetboundlicenseobjectcount")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetBoundLicenseObjectCount(hQueryRoot: u32, wszSubObjectType: super::super::Foundation::PWSTR, pcSubObjects: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetcertificatechaincount")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetCertificateChainCount(wszChain: super::super::Foundation::PWSTR, pcCertCount: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetclientversion")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetClientVersion(pDRMClientVersionInfo: *mut DRM_CLIENT_VERSION_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetenvironmentinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetEnvironmentInfo(handle: u32, wszAttribute: super::super::Foundation::PWSTR, peEncoding: *mut DRMENCODINGTYPE, pcBuffer: *mut u32, pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetInfo(handle: u32, wszAttribute: super::super::Foundation::PWSTR, peEncoding: *mut DRMENCODINGTYPE, pcBuffer: *mut u32, pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetintervaltime")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetIntervalTime(hIssuanceLicense: u32, pcDays: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetissuancelicenseinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetIssuanceLicenseInfo(hIssuanceLicense: u32, pstTimeFrom: *mut super::super::Foundation::SYSTEMTIME, pstTimeUntil: *mut super::super::Foundation::SYSTEMTIME, uFlags: u32, puDistributionPointNameLength: *mut u32, wszDistributionPointName: super::super::Foundation::PWSTR, puDistributionPointURLLength: *mut u32, wszDistributionPointURL: super::super::Foundation::PWSTR, phOwner: *mut u32, pfOfficial: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetissuancelicensetemplate")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetIssuanceLicenseTemplate(hIssuanceLicense: u32, puIssuanceLicenseTemplateLength: *mut u32, wszIssuanceLicenseTemplate: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetmetadata")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetMetaData(hIssuanceLicense: u32, puContentIdLength: *mut u32, wszContentId: super::super::Foundation::PWSTR, puContentIdTypeLength: *mut u32, wszContentIdType: super::super::Foundation::PWSTR, puSKUIdLength: *mut u32, wszSKUId: super::super::Foundation::PWSTR, puSKUIdTypeLength: *mut u32, wszSKUIdType: super::super::Foundation::PWSTR, puContentTypeLength: *mut u32, wszContentType: super::super::Foundation::PWSTR, puContentNameLength: *mut u32, wszContentName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetnameanddescription")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetNameAndDescription(hIssuanceLicense: u32, uIndex: u32, pulcid: *mut u32, puNameLength: *mut u32, wszName: super::super::Foundation::PWSTR, puDescriptionLength: *mut u32, wszDescription: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetownerlicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetOwnerLicense(hIssuanceLicense: u32, puOwnerLicenseLength: *mut u32, wszOwnerLicense: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetprocaddress")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetProcAddress(hLibrary: u32, wszProcName: super::super::Foundation::PWSTR, ppfnProcAddress: *mut super::super::Foundation::FARPROC) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetrevocationpoint")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetRevocationPoint(hIssuanceLicense: u32, puIdLength: *mut u32, wszId: super::super::Foundation::PWSTR, puIdTypeLength: *mut u32, wszIdType: super::super::Foundation::PWSTR, puURLLength: *mut u32, wszRL: super::super::Foundation::PWSTR, pstFrequency: *mut super::super::Foundation::SYSTEMTIME, puNameLength: *mut u32, wszName: super::super::Foundation::PWSTR, puPublicKeyLength: *mut u32, wszPublicKey: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetrightextendedinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetRightExtendedInfo(hRight: u32, uIndex: u32, puExtendedInfoNameLength: *mut u32, wszExtendedInfoName: super::super::Foundation::PWSTR, puExtendedInfoValueLength: *mut u32, wszExtendedInfoValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetrightinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetRightInfo(hRight: u32, puRightNameLength: *mut u32, wszRightName: super::super::Foundation::PWSTR, pstFrom: *mut super::super::Foundation::SYSTEMTIME, pstUntil: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetsecurityprovider")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetSecurityProvider(uFlags: u32, puTypeLen: *mut u32, wszType: super::super::Foundation::PWSTR, puPathLen: *mut u32, wszPath: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetservicelocation")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetServiceLocation(hClient: u32, uServiceType: u32, uServiceLocation: u32, wszIssuanceLicense: super::super::Foundation::PWSTR, puServiceURLLength: *mut u32, wszServiceURL: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetsignedissuancelicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetSignedIssuanceLicense(hEnv: u32, hIssuanceLicense: u32, uFlags: u32, pbSymKey: *mut u8, cbSymKey: u32, wszSymKeyType: super::super::Foundation::PWSTR, wszClientLicensorCertificate: super::super::Foundation::PWSTR, pfnCallback: DRMCALLBACK, wszURL: super::super::Foundation::PWSTR, pvContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetsignedissuancelicenseex")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetSignedIssuanceLicenseEx(hEnv: u32, hIssuanceLicense: u32, uFlags: u32, pbSymKey: *mut u8, cbSymKey: u32, wszSymKeyType: super::super::Foundation::PWSTR, pvReserved: *mut void, hEnablingPrincipal: u32, hBoundLicenseCLC: u32, pfnCallback: DRMCALLBACK, pvContext: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgettime")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetTime(hEnv: u32, eTimerIdType: DRMTIMETYPE, poTimeObject: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetunboundlicenseattribute")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUnboundLicenseAttribute(hQueryRoot: u32, wszAttributeType: super::super::Foundation::PWSTR, iWhich: u32, peEncoding: *mut DRMENCODINGTYPE, pcBuffer: *mut u32, pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetunboundlicenseattributecount")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUnboundLicenseAttributeCount(hQueryRoot: u32, wszAttributeType: super::super::Foundation::PWSTR, pcAttributes: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetunboundlicenseobject")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUnboundLicenseObject(hQueryRoot: u32, wszSubObjectType: super::super::Foundation::PWSTR, iIndex: u32, phSubQuery: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetunboundlicenseobjectcount")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUnboundLicenseObjectCount(hQueryRoot: u32, wszSubObjectType: super::super::Foundation::PWSTR, pcSubObjects: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetusagepolicy")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUsagePolicy(hIssuanceLicense: u32, uIndex: u32, peUsagePolicyType: *mut DRM_USAGEPOLICY_TYPE, pfExclusion: *mut super::super::Foundation::BOOL, puNameLength: *mut u32, wszName: super::super::Foundation::PWSTR, puMinVersionLength: *mut u32, wszMinVersion: super::super::Foundation::PWSTR, puMaxVersionLength: *mut u32, wszMaxVersion: super::super::Foundation::PWSTR, puPublicKeyLength: *mut u32, wszPublicKey: super::super::Foundation::PWSTR, puDigestAlgorithmLength: *mut u32, wszDigestAlgorithm: super::super::Foundation::PWSTR, pcbDigest: *mut u32, pbDigest: *mut u8) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetuserinfo")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUserInfo(hUser: u32, puUserNameLength: *mut u32, wszUserName: super::super::Foundation::PWSTR, puUserIdLength: *mut u32, wszUserId: super::super::Foundation::PWSTR, puUserIdTypeLength: *mut u32, wszUserIdType: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetuserrights")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUserRights(hIssuanceLicense: u32, hUser: u32, uIndex: u32, phRight: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmgetusers")]
+                #[library("msdrm.dll")]
+                extern fn DRMGetUsers(hIssuanceLicense: u32, uIndex: u32, phUser: *mut u32) -> super::super::Foundation::HRESULT;
+                const DRMHANDLE_INVALID: u32 = 0;
+                const DRMHSESSION_INVALID: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ns-msdrmdefs-drmid")]
+                struct DRMID {
+                    uVersion: u32,
+                    wszIDType: super::super::Foundation::PWSTR,
+                    wszID: super::super::Foundation::PWSTR,
+                }
+                const DRMIDVERSION: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drminitenvironment")]
+                #[library("msdrm.dll")]
+                extern fn DRMInitEnvironment(eSecurityProviderType: DRMSECURITYPROVIDERTYPE, eSpecification: DRMSPECTYPE, wszSecurityProvider: super::super::Foundation::PWSTR, wszManifestCredentials: super::super::Foundation::PWSTR, wszMachineCredentials: super::super::Foundation::PWSTR, phEnv: *mut u32, phDefaultLibrary: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmisactivated")]
+                #[library("msdrm.dll")]
+                extern fn DRMIsActivated(hClient: u32, uFlags: u32, pActServInfo: *mut DRM_ACTSERV_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmiswindowprotected")]
+                #[library("msdrm.dll")]
+                extern fn DRMIsWindowProtected(hwnd: super::super::Foundation::HWND, pfProtected: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                const DRMLICENSEACQDATAVERSION: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmloadlibrary")]
+                #[library("msdrm.dll")]
+                extern fn DRMLoadLibrary(hEnv: u32, eSpecification: DRMSPECTYPE, wszLibraryProvider: super::super::Foundation::PWSTR, wszCredentials: super::super::Foundation::PWSTR, phLibrary: *mut u32) -> super::super::Foundation::HRESULT;
+                const DRMPUBHANDLE_INVALID: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmparseunboundlicense")]
+                #[library("msdrm.dll")]
+                extern fn DRMParseUnboundLicense(wszCertificate: super::super::Foundation::PWSTR, phQueryRoot: *mut u32) -> super::super::Foundation::HRESULT;
+                const DRMQUERYHANDLE_INVALID: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmregistercontent")]
+                #[library("msdrm.dll")]
+                extern fn DRMRegisterContent(fRegister: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmregisterprotectedwindow")]
+                #[library("msdrm.dll")]
+                extern fn DRMRegisterProtectedWindow(hEnv: u32, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmregisterrevocationlist")]
+                #[library("msdrm.dll")]
+                extern fn DRMRegisterRevocationList(hEnv: u32, wszRevocationList: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmrepair")]
+                #[library("msdrm.dll")]
+                extern fn DRMRepair() -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmsecurityprovidertype")]
+                enum DRMSECURITYPROVIDERTYPE {
+                    DRMSECURITYPROVIDERTYPE_SOFTWARESECREP = 0,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmspectype")]
+                enum DRMSPECTYPE {
+                    DRMSPECTYPE_UNKNOWN = 0,
+                    DRMSPECTYPE_FILENAME = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetapplicationspecificdata")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetApplicationSpecificData(hIssuanceLicense: u32, fDelete: super::super::Foundation::BOOL, wszName: super::super::Foundation::PWSTR, wszValue: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetglobaloptions")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetGlobalOptions(eGlobalOptions: DRMGLOBALOPTIONS, pvdata: *mut void, dwlen: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetintervaltime")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetIntervalTime(hIssuanceLicense: u32, cDays: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetmetadata")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetMetaData(hIssuanceLicense: u32, wszContentId: super::super::Foundation::PWSTR, wszContentIdType: super::super::Foundation::PWSTR, wszSKUId: super::super::Foundation::PWSTR, wszSKUIdType: super::super::Foundation::PWSTR, wszContentType: super::super::Foundation::PWSTR, wszContentName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetnameanddescription")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetNameAndDescription(hIssuanceLicense: u32, fDelete: super::super::Foundation::BOOL, lcid: u32, wszName: super::super::Foundation::PWSTR, wszDescription: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetrevocationpoint")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetRevocationPoint(hIssuanceLicense: u32, fDelete: super::super::Foundation::BOOL, wszId: super::super::Foundation::PWSTR, wszIdType: super::super::Foundation::PWSTR, wszURL: super::super::Foundation::PWSTR, pstFrequency: *mut super::super::Foundation::SYSTEMTIME, wszName: super::super::Foundation::PWSTR, wszPublicKey: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmsetusagepolicy")]
+                #[library("msdrm.dll")]
+                extern fn DRMSetUsagePolicy(hIssuanceLicense: u32, eUsagePolicyType: DRM_USAGEPOLICY_TYPE, fDelete: super::super::Foundation::BOOL, fExclusion: super::super::Foundation::BOOL, wszName: super::super::Foundation::PWSTR, wszMinVersion: super::super::Foundation::PWSTR, wszMaxVersion: super::super::Foundation::PWSTR, wszPublicKey: super::super::Foundation::PWSTR, wszDigestAlgorithm: super::super::Foundation::PWSTR, pbDigest: *mut u8, cbDigest: u32) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drmtimetype")]
+                enum DRMTIMETYPE {
+                    DRMTIMETYPE_SYSTEMUTC = 0,
+                    DRMTIMETYPE_SYSTEMLOCAL = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrm/nf-msdrm-drmverify")]
+                #[library("msdrm.dll")]
+                extern fn DRMVerify(wszData: super::super::Foundation::PWSTR, pcAttestedData: *mut u32, wszAttestedData: super::super::Foundation::PWSTR, peType: *mut DRMATTESTTYPE, pcPrincipal: *mut u32, wszPrincipal: super::super::Foundation::PWSTR, pcManifest: *mut u32, wszManifest: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                const DRM_ACTIVATE_CANCEL: u32 = 8;
+                const DRM_ACTIVATE_DELAYED: u32 = 64;
+                const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2;
+                const DRM_ACTIVATE_MACHINE: u32 = 1;
+                const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32;
+                const DRM_ACTIVATE_SILENT: u32 = 16;
+                const DRM_ACTIVATE_TEMPORARY: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ns-msdrmdefs-drm_actserv_info")]
+                struct DRM_ACTSERV_INFO {
+                    uVersion: u32,
+                    wszPubKey: super::super::Foundation::PWSTR,
+                    wszURL: super::super::Foundation::PWSTR,
+                }
+                const DRM_ADD_LICENSE_NOPERSIST: u32 = 0;
+                const DRM_ADD_LICENSE_PERSIST: u32 = 1;
+                const DRM_AILT_CANCEL: u32 = 4;
+                const DRM_AILT_NONSILENT: u32 = 1;
+                const DRM_AILT_OBTAIN_ALL: u32 = 2;
+                const DRM_AL_CANCEL: u32 = 4;
+                const DRM_AL_FETCHNOADVISORY: u32 = 8;
+                const DRM_AL_NONSILENT: u32 = 1;
+                const DRM_AL_NOPERSIST: u32 = 2;
+                const DRM_AL_NOUI: u32 = 16;
+                const DRM_AUTO_GENERATE_KEY: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ns-msdrmdefs-drm_client_version_info")]
+                struct DRM_CLIENT_VERSION_INFO {
+                    uStructVersion: u32,
+                    dwVersion: [u32; 4],
+                    wszHierarchy: [u16; 256],
+                    wszProductId: [u16; 256],
+                    wszProductDescription: [u16; 256],
+                }
+                const DRM_DEFAULTGROUPIDTYPE_PASSPORT: String = "PassportAuthProvider";
+                const DRM_DEFAULTGROUPIDTYPE_WINDOWSAUTH: String = "WindowsAuthProvider";
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drm_distribution_point_info")]
+                enum DRM_DISTRIBUTION_POINT_INFO {
+                    DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION = 0,
+                    DRM_DISTRIBUTION_POINT_PUBLISHING = 1,
+                    DRM_DISTRIBUTION_POINT_REFERRAL_INFO = 2,
+                }
+                const DRM_EL_CLIENTLICENSOR: u32 = 128;
+                const DRM_EL_CLIENTLICENSOR_LID: u32 = 256;
+                const DRM_EL_EUL: u32 = 32;
+                const DRM_EL_EUL_LID: u32 = 64;
+                const DRM_EL_EXPIRED: u32 = 4096;
+                const DRM_EL_GROUPIDENTITY: u32 = 2;
+                const DRM_EL_GROUPIDENTITY_LID: u32 = 8;
+                const DRM_EL_GROUPIDENTITY_NAME: u32 = 4;
+                const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384;
+                const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768;
+                const DRM_EL_ISSUERNAME: u32 = 8192;
+                const DRM_EL_MACHINE: u32 = 1;
+                const DRM_EL_REVOCATIONLIST: u32 = 1024;
+                const DRM_EL_REVOCATIONLIST_LID: u32 = 2048;
+                const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512;
+                const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ns-msdrmdefs-drm_license_acq_data")]
+                struct DRM_LICENSE_ACQ_DATA {
+                    uVersion: u32,
+                    wszURL: super::super::Foundation::PWSTR,
+                    wszLocalFilename: super::super::Foundation::PWSTR,
+                    pbPostData: *mut u8,
+                    dwPostDataSize: u32,
+                    wszFriendlyName: super::super::Foundation::PWSTR,
+                }
+                const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2;
+                const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2;
+                const DRM_LOCKBOXTYPE_NONE: u32 = 0;
+                const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1;
+                const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32;
+                const DRM_REUSE_KEY: u32 = 64;
+                const DRM_SERVER_ISSUANCELICENSE: u32 = 8;
+                const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2;
+                const DRM_SERVICE_LOCATION_INTERNET: u32 = 1;
+                const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1;
+                const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2;
+                const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8;
+                const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4;
+                const DRM_SERVICE_TYPE_SILENT: u32 = 16;
+                const DRM_SIGN_CANCEL: u32 = 4;
+                const DRM_SIGN_OFFLINE: u32 = 2;
+                const DRM_SIGN_ONLINE: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drm_status_msg")]
+                enum DRM_STATUS_MSG {
+                    DRM_MSG_ACTIVATE_MACHINE = 0,
+                    DRM_MSG_ACTIVATE_GROUPIDENTITY = 1,
+                    DRM_MSG_ACQUIRE_LICENSE = 2,
+                    DRM_MSG_ACQUIRE_ADVISORY = 3,
+                    DRM_MSG_SIGN_ISSUANCE_LICENSE = 4,
+                    DRM_MSG_ACQUIRE_CLIENTLICENSOR = 5,
+                    DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msdrmdefs/ne-msdrmdefs-drm_usagepolicy_type")]
+                enum DRM_USAGEPOLICY_TYPE {
+                    DRM_USAGEPOLICY_TYPE_BYNAME = 0,
+                    DRM_USAGEPOLICY_TYPE_BYPUBLICKEY = 1,
+                    DRM_USAGEPOLICY_TYPE_BYDIGEST = 2,
+                    DRM_USAGEPOLICY_TYPE_OSEXCLUSION = 3,
+                }
+                const MSDRM_CLIENT_ZONE: u32 = 52992;
+                const MSDRM_POLICY_ZONE: u32 = 37632;
+            }
+        }
+    }
+}

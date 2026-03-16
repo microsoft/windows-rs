@@ -1,0 +1,100 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            mod Xps {
+                #[win32]
+                mod Printing {
+                    const ID_DOCUMENTPACKAGETARGET_MSXPS: GUID = 0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda;
+                    const ID_DOCUMENTPACKAGETARGET_OPENXPS: GUID = 0x0056bb72_8c9c_4612_bd0f_93012a87099d;
+                    const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: GUID = 0x63dbd720_8b14_4577_b074_7bb11b596d28;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nn-documenttarget-iprintdocumentpackagestatusevent")]
+                    interface IPrintDocumentPackageStatusEvent: super::super::super::System::Com::IDispatch {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nf-documenttarget-iprintdocumentpackagestatusevent-packagestatusupdated")]
+                        fn PackageStatusUpdated(&self, packageStatus: *mut PrintDocumentPackageStatus) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nn-documenttarget-iprintdocumentpackagetarget")]
+                    interface IPrintDocumentPackageTarget: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nf-documenttarget-iprintdocumentpackagetarget-getpackagetargettypes")]
+                        fn GetPackageTargetTypes(&self, targetCount: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] targetTypes: *mut *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nf-documenttarget-iprintdocumentpackagetarget-getpackagetarget")]
+                        fn GetPackageTarget(&self, #[Windows::Win32::Foundation::Metadata::Const] guidTargetType: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvTarget: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nf-documenttarget-iprintdocumentpackagetarget-cancel")]
+                        fn Cancel(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPrintDocumentPackageTarget2: super::super::super::System::Com::IUnknown {
+                        fn GetIsTargetIppPrinter(&self, isIppPrinter: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        fn GetTargetIppPrintDevice(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppvTarget: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nn-documenttarget-iprintdocumentpackagetargetfactory")]
+                    interface IPrintDocumentPackageTargetFactory: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/nf-documenttarget-iprintdocumentpackagetargetfactory-createdocumentpackagetargetforprintjob")]
+                        fn CreateDocumentPackageTargetForPrintJob(&self, #[Windows::Win32::Foundation::Metadata::Const] printerName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] jobName: super::super::super::Foundation::PWSTR, jobOutputStream: super::super::super::System::Com::IStream, jobPrintTicketStream: super::super::super::System::Com::IStream, docPackageTarget: *mut IPrintDocumentPackageTarget) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nn-xpsprint-ixpsprintjob")]
+                    interface IXpsPrintJob: super::super::super::System::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nf-xpsprint-ixpsprintjob-cancel")]
+                        fn Cancel(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nf-xpsprint-ixpsprintjob-getjobstatus")]
+                        fn GetJobStatus(&self, jobStatus: *mut XPS_JOB_STATUS) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nn-xpsprint-ixpsprintjobstream")]
+                    interface IXpsPrintJobStream: super::super::super::System::Com::ISequentialStream {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nf-xpsprint-ixpsprintjobstream-close")]
+                        fn Close(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/ne-documenttarget-printdocumentpackagecompletion")]
+                    enum PrintDocumentPackageCompletion {
+                        PrintDocumentPackageCompletion_InProgress = 0,
+                        PrintDocumentPackageCompletion_Completed = 1,
+                        PrintDocumentPackageCompletion_Canceled = 2,
+                        PrintDocumentPackageCompletion_Failed = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/documenttarget/ns-documenttarget-printdocumentpackagestatus")]
+                    struct PrintDocumentPackageStatus {
+                        JobId: u32,
+                        CurrentDocument: i32,
+                        CurrentPage: i32,
+                        CurrentPageTotal: i32,
+                        Completion: PrintDocumentPackageCompletion,
+                        PackageStatus: super::super::super::Foundation::HRESULT,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Guid(1212311198, 39239, 18154, 139, 162, 216, 204, 228, 50, 194, 202)]
+                    struct PrintDocumentPackageTarget {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(881783165, 27777, 18818, 146, 180, 238, 24, 138, 67, 134, 122)]
+                    struct PrintDocumentPackageTargetFactory {}
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nf-xpsprint-startxpsprintjob")]
+                    #[library("XPSPRINT.dll")]
+                    extern fn StartXpsPrintJob(printerName: super::super::super::Foundation::PWSTR, jobName: super::super::super::Foundation::PWSTR, outputFileName: super::super::super::Foundation::PWSTR, progressEvent: super::super::super::Foundation::HANDLE, completionEvent: super::super::super::Foundation::HANDLE, printablePagesOn: *mut u8, printablePagesOnCount: u32, xpsPrintJob: *mut IXpsPrintJob, documentStream: *mut IXpsPrintJobStream, printTicketStream: *mut IXpsPrintJobStream) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/nf-xpsprint-startxpsprintjob1")]
+                    #[library("XPSPRINT.dll")]
+                    extern fn StartXpsPrintJob1(printerName: super::super::super::Foundation::PWSTR, jobName: super::super::super::Foundation::PWSTR, outputFileName: super::super::super::Foundation::PWSTR, progressEvent: super::super::super::Foundation::HANDLE, completionEvent: super::super::super::Foundation::HANDLE, xpsPrintJob: *mut IXpsPrintJob, printContentReceiver: *mut super::IXpsOMPackageTarget) -> super::super::super::Foundation::HRESULT;
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/ne-xpsprint-xps_job_completion")]
+                    enum XPS_JOB_COMPLETION {
+                        XPS_JOB_IN_PROGRESS = 0,
+                        XPS_JOB_COMPLETED = 1,
+                        XPS_JOB_CANCELLED = 2,
+                        XPS_JOB_FAILED = 3,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/xpsprint/ns-xpsprint-xps_job_status")]
+                    struct XPS_JOB_STATUS {
+                        jobId: u32,
+                        currentDocument: i32,
+                        currentPage: i32,
+                        currentPageTotal: i32,
+                        completion: XPS_JOB_COMPLETION,
+                        jobStatus: super::super::super::Foundation::HRESULT,
+                    }
+                }
+            }
+        }
+    }
+}

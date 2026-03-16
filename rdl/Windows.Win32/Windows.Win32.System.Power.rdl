@@ -1,0 +1,1638 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Power {
+                struct ACPI_REAL_TIME {
+                    Year: u16,
+                    Month: u8,
+                    Day: u8,
+                    Hour: u8,
+                    Minute: u8,
+                    Second: u8,
+                    Valid: u8,
+                    Milliseconds: u16,
+                    TimeZone: i16,
+                    DayLight: u8,
+                    Reserved1: [u8; 3],
+                }
+                const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1;
+                struct ACPI_TIME_AND_ALARM_CAPABILITIES {
+                    AcWakeSupported: super::super::Foundation::BOOLEAN,
+                    DcWakeSupported: super::super::Foundation::BOOLEAN,
+                    S4AcWakeSupported: super::super::Foundation::BOOLEAN,
+                    S4DcWakeSupported: super::super::Foundation::BOOLEAN,
+                    S5AcWakeSupported: super::super::Foundation::BOOLEAN,
+                    S5DcWakeSupported: super::super::Foundation::BOOLEAN,
+                    S4S5WakeStatusSupported: super::super::Foundation::BOOLEAN,
+                    DeepestWakeSystemState: u32,
+                    RealTimeFeaturesSupported: super::super::Foundation::BOOLEAN,
+                    RealTimeResolution: ACPI_TIME_RESOLUTION,
+                }
+                const ACPI_TIME_IN_DAYLIGHT: u32 = 2;
+                #[repr(i32)]
+                enum ACPI_TIME_RESOLUTION {
+                    AcpiTimeResolutionMilliseconds = 0,
+                    AcpiTimeResolutionSeconds = 1,
+                    AcpiTimeResolutionMax = 2,
+                }
+                const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047;
+                const ACTIVE_COOLING: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-administrator_power_policy")]
+                struct ADMINISTRATOR_POWER_POLICY {
+                    MinSleep: SYSTEM_POWER_STATE,
+                    MaxSleep: SYSTEM_POWER_STATE,
+                    MinVideoTimeout: u32,
+                    MaxVideoTimeout: u32,
+                    MinSpindownTimeout: u32,
+                    MaxSpindownTimeout: u32,
+                }
+                const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824;
+                struct BATTERY_CHARGER_STATUS {
+                    Type: BATTERY_CHARGING_SOURCE_TYPE,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    VaData: [u32; 1],
+                }
+                const BATTERY_CHARGING: u32 = 4;
+                struct BATTERY_CHARGING_SOURCE {
+                    Type: BATTERY_CHARGING_SOURCE_TYPE,
+                    MaxCurrent: u32,
+                }
+                struct BATTERY_CHARGING_SOURCE_INFORMATION {
+                    Type: BATTERY_CHARGING_SOURCE_TYPE,
+                    SourceOnline: super::super::Foundation::BOOLEAN,
+                }
+                #[repr(i32)]
+                enum BATTERY_CHARGING_SOURCE_TYPE {
+                    BatteryChargingSourceType_AC = 1,
+                    BatteryChargingSourceType_USB = 2,
+                    BatteryChargingSourceType_Wireless = 3,
+                    BatteryChargingSourceType_Max = 4,
+                }
+                const BATTERY_CLASS_MAJOR_VERSION: u32 = 1;
+                const BATTERY_CLASS_MINOR_VERSION: u32 = 0;
+                const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1;
+                const BATTERY_CRITICAL: u32 = 8;
+                const BATTERY_CYCLE_COUNT_WMI_GUID: GUID = 0xef98db24_0014_4c25_a50b_c724ae5cd371;
+                const BATTERY_DISCHARGING: u32 = 2;
+                const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: GUID = 0x40b40565_96f7_4435_8694_97e0e4395905;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-information-str")]
+                struct BATTERY_INFORMATION {
+                    Capabilities: u32,
+                    Technology: u8,
+                    Reserved: [u8; 3],
+                    Chemistry: [u8; 4],
+                    DesignedCapacity: u32,
+                    FullChargedCapacity: u32,
+                    DefaultAlert1: u32,
+                    DefaultAlert2: u32,
+                    CriticalBias: u32,
+                    CycleCount: u32,
+                }
+                const BATTERY_IS_SHORT_TERM: u32 = 536870912;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-manufacture-date-str")]
+                struct BATTERY_MANUFACTURE_DATE {
+                    Day: u8,
+                    Month: u8,
+                    Year: u16,
+                }
+                const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1;
+                const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2;
+                const BATTERY_POWER_ON_LINE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-query-information-str")]
+                struct BATTERY_QUERY_INFORMATION {
+                    BatteryTag: u32,
+                    InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
+                    AtRate: u32,
+                }
+                #[repr(i32)]
+                enum BATTERY_QUERY_INFORMATION_LEVEL {
+                    BatteryInformation = 0,
+                    BatteryGranularityInformation = 1,
+                    BatteryTemperature = 2,
+                    BatteryEstimatedTime = 3,
+                    BatteryDeviceName = 4,
+                    BatteryManufactureDate = 5,
+                    BatteryManufactureName = 6,
+                    BatteryUniqueID = 7,
+                    BatterySerialNumber = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-battery_reporting_scale")]
+                struct BATTERY_REPORTING_SCALE {
+                    Granularity: u32,
+                    Capacity: u32,
+                }
+                const BATTERY_RUNTIME_WMI_GUID: GUID = 0x535a3767_1ac2_49bc_a077_3f7a02e40aec;
+                const BATTERY_SEALED: u32 = 268435456;
+                const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8;
+                const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1;
+                const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4;
+                const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-set-information-str")]
+                struct BATTERY_SET_INFORMATION {
+                    BatteryTag: u32,
+                    InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Buffer: [u8; 1],
+                }
+                #[repr(i32)]
+                enum BATTERY_SET_INFORMATION_LEVEL {
+                    BatteryCriticalBias = 0,
+                    BatteryCharge = 1,
+                    BatteryDischarge = 2,
+                    BatteryChargingSource = 3,
+                    BatteryChargerId = 4,
+                    BatteryChargerStatus = 5,
+                }
+                const BATTERY_STATIC_DATA_WMI_GUID: GUID = 0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-status-str")]
+                struct BATTERY_STATUS {
+                    PowerState: u32,
+                    Capacity: u32,
+                    Voltage: u32,
+                    Rate: i32,
+                }
+                const BATTERY_STATUS_CHANGE_WMI_GUID: GUID = 0xcddfa0c3_7c5b_4e43_a034_059fa5b84364;
+                const BATTERY_STATUS_WMI_GUID: GUID = 0xfc4670d1_ebbf_416e_87ce_374a4ebc111a;
+                const BATTERY_SYSTEM_BATTERY: u32 = 2147483648;
+                const BATTERY_TAG_CHANGE_WMI_GUID: GUID = 0x5e1f6e19_8786_4d23_94fc_9e746bd5d888;
+                const BATTERY_TAG_INVALID: u32 = 0;
+                const BATTERY_TEMPERATURE_WMI_GUID: GUID = 0x1a52a14d_adce_4a44_9a3e_c8d8f15ff2c2;
+                const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295;
+                const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295;
+                const BATTERY_UNKNOWN_RATE: u32 = 2147483648;
+                const BATTERY_UNKNOWN_TIME: u32 = 4294967295;
+                const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
+                struct BATTERY_USB_CHARGER_STATUS {
+                    Type: BATTERY_CHARGING_SOURCE_TYPE,
+                    Reserved: u32,
+                    Flags: u32,
+                    MaxCurrent: u32,
+                    Voltage: u32,
+                    PortType: USB_CHARGER_PORT,
+                    PortId: u64,
+                    PowerSourceInformation: *mut void,
+                    OemCharger: GUID,
+                }
+                const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1;
+                const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/battery-wait-status-str")]
+                struct BATTERY_WAIT_STATUS {
+                    BatteryTag: u32,
+                    Timeout: u32,
+                    PowerState: u32,
+                    LowCapacity: u32,
+                    HighCapacity: u32,
+                }
+                struct CM_POWER_DATA {
+                    PD_Size: u32,
+                    PD_MostRecentPowerState: DEVICE_POWER_STATE,
+                    PD_Capabilities: u32,
+                    PD_D1Latency: u32,
+                    PD_D2Latency: u32,
+                    PD_D3Latency: u32,
+                    PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
+                    PD_DeepestSystemWake: SYSTEM_POWER_STATE,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powerbase/nf-powerbase-callntpowerinformation")]
+                #[library("POWRPROF.dll")]
+                extern fn CallNtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, InputBuffer: *mut void, InputBufferLength: u32, OutputBuffer: *mut void, OutputBufferLength: u32) -> super::super::Foundation::NTSTATUS;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-canuserwritepwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
+                const DEVICEPOWER_AND_OPERATION: u32 = 1073741824;
+                const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2;
+                const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912;
+                const DEVICEPOWER_FILTER_HARDWARE: u32 = 268435456;
+                const DEVICEPOWER_FILTER_ON_NAME: u32 = 33554432;
+                const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728;
+                const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864;
+                const DEVICEPOWER_HARDWAREID: u32 = 2147483648;
+                const DEVICEPOWER_SET_WAKEENABLED: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-device_notify_subscribe_parameters")]
+                struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+                    Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
+                    Context: *mut void,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum DEVICE_POWER_CAPABILITIES {
+                    PDCAP_D0_SUPPORTED = 1,
+                    PDCAP_D1_SUPPORTED = 2,
+                    PDCAP_D2_SUPPORTED = 4,
+                    PDCAP_D3_SUPPORTED = 8,
+                    PDCAP_WAKE_FROM_D0_SUPPORTED = 16,
+                    PDCAP_WAKE_FROM_D1_SUPPORTED = 32,
+                    PDCAP_WAKE_FROM_D2_SUPPORTED = 64,
+                    PDCAP_WAKE_FROM_D3_SUPPORTED = 128,
+                    PDCAP_WARM_EJECT_SUPPORTED = 256,
+                    PDCAP_S0_SUPPORTED = 65536,
+                    PDCAP_S1_SUPPORTED = 131072,
+                    PDCAP_S2_SUPPORTED = 262144,
+                    PDCAP_S3_SUPPORTED = 524288,
+                    PDCAP_WAKE_FROM_S0_SUPPORTED = 1048576,
+                    PDCAP_WAKE_FROM_S1_SUPPORTED = 2097152,
+                    PDCAP_WAKE_FROM_S2_SUPPORTED = 4194304,
+                    PDCAP_WAKE_FROM_S3_SUPPORTED = 8388608,
+                    PDCAP_S4_SUPPORTED = 16777216,
+                    PDCAP_S5_SUPPORTED = 33554432,
+                }
+                #[repr(i32)]
+                enum DEVICE_POWER_STATE {
+                    PowerDeviceUnspecified = 0,
+                    PowerDeviceD0 = 1,
+                    PowerDeviceD1 = 2,
+                    PowerDeviceD2 = 3,
+                    PowerDeviceD3 = 4,
+                    PowerDeviceMaximum = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-deletepwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn DeletePwrScheme(uiID: u32) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-devicepowerclose")]
+                #[library("POWRPROF.dll")]
+                extern fn DevicePowerClose() -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-devicepowerenumdevices")]
+                #[library("POWRPROF.dll")]
+                extern fn DevicePowerEnumDevices(QueryIndex: u32, QueryInterpretationFlags: u32, QueryFlags: u32, pReturnBuffer: *mut u8, pBufferSize: *mut u32) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-devicepoweropen")]
+                #[library("POWRPROF.dll")]
+                extern fn DevicePowerOpen(DebugMask: u32) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-devicepowersetdevicestate")]
+                #[library("POWRPROF.dll")]
+                extern fn DevicePowerSetDeviceState(DeviceDescription: super::super::Foundation::PWSTR, SetFlags: u32, SetData: *mut void) -> u32;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/ne-powersetting-effective_power_mode")]
+                enum EFFECTIVE_POWER_MODE {
+                    EffectivePowerModeBatterySaver = 0,
+                    EffectivePowerModeBetterBattery = 1,
+                    EffectivePowerModeBalanced = 2,
+                    EffectivePowerModeHighPerformance = 3,
+                    EffectivePowerModeMaxPerformance = 4,
+                    EffectivePowerModeGameMode = 5,
+                    EffectivePowerModeMixedReality = 6,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                extern fn EFFECTIVE_POWER_MODE_CALLBACK(Mode: EFFECTIVE_POWER_MODE, Context: *mut void);
+                const EFFECTIVE_POWER_MODE_V1: u32 = 1;
+                const EFFECTIVE_POWER_MODE_V2: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_channel_measurement_data")]
+                struct EMI_CHANNEL_MEASUREMENT_DATA {
+                    AbsoluteEnergy: u64,
+                    AbsoluteTime: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_channel_v2")]
+                struct EMI_CHANNEL_V2 {
+                    MeasurementUnit: EMI_MEASUREMENT_UNIT,
+                    ChannelNameSize: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    ChannelName: [u16; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_measurement_data_v2")]
+                struct EMI_MEASUREMENT_DATA_V2 {
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ne-emi-emi_measurement_unit")]
+                enum EMI_MEASUREMENT_UNIT {
+                    EmiMeasurementUnitPicowattHours = 0,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_metadata_size")]
+                struct EMI_METADATA_SIZE {
+                    MetadataSize: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_metadata_v1")]
+                struct EMI_METADATA_V1 {
+                    MeasurementUnit: EMI_MEASUREMENT_UNIT,
+                    HardwareOEM: [u16; 16],
+                    HardwareModel: [u16; 16],
+                    HardwareRevision: u16,
+                    MeteredHardwareNameSize: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    MeteredHardwareName: [u16; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_metadata_v2")]
+                struct EMI_METADATA_V2 {
+                    HardwareOEM: [u16; 16],
+                    HardwareModel: [u16; 16],
+                    HardwareRevision: u16,
+                    ChannelCount: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Channels: [EMI_CHANNEL_V2; 1],
+                }
+                const EMI_NAME_MAX: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ns-emi-emi_version")]
+                struct EMI_VERSION {
+                    EmiVersion: u16,
+                }
+                const EMI_VERSION_V1: u32 = 1;
+                const EMI_VERSION_V2: u32 = 2;
+                #[repr(u32)]
+                #[flags]
+                enum EXECUTION_STATE {
+                    ES_AWAYMODE_REQUIRED = 64,
+                    ES_CONTINUOUS = 2147483648,
+                    ES_DISPLAY_REQUIRED = 2,
+                    ES_SYSTEM_REQUIRED = 1,
+                    ES_USER_PRESENT = 4,
+                }
+                const EnableMultiBatteryDisplay: u32 = 2;
+                const EnablePasswordLogon: u32 = 4;
+                const EnableSysTrayBatteryMeter: u32 = 1;
+                const EnableVideoDimDisplay: u32 = 16;
+                const EnableWakeOnRing: u32 = 8;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-enumpwrschemes")]
+                #[library("POWRPROF.dll")]
+                extern fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lParam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-global_machine_power_policy")]
+                struct GLOBAL_MACHINE_POWER_POLICY {
+                    Revision: u32,
+                    LidOpenWakeAc: SYSTEM_POWER_STATE,
+                    LidOpenWakeDc: SYSTEM_POWER_STATE,
+                    BroadcastCapacityResolution: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-global_power_policy")]
+                struct GLOBAL_POWER_POLICY {
+                    user: GLOBAL_USER_POWER_POLICY,
+                    mach: GLOBAL_MACHINE_POWER_POLICY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-global_user_power_policy")]
+                struct GLOBAL_USER_POWER_POLICY {
+                    Revision: u32,
+                    PowerButtonAc: POWER_ACTION_POLICY,
+                    PowerButtonDc: POWER_ACTION_POLICY,
+                    SleepButtonAc: POWER_ACTION_POLICY,
+                    SleepButtonDc: POWER_ACTION_POLICY,
+                    LidCloseAc: POWER_ACTION_POLICY,
+                    LidCloseDc: POWER_ACTION_POLICY,
+                    DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+                    GlobalFlags: u32,
+                }
+                const GUID_CLASS_INPUT: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
+                const GUID_DEVICE_ACPI_TIME: GUID = 0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c;
+                const GUID_DEVICE_APPLICATIONLAUNCH_BUTTON: GUID = 0x629758ee_986e_4d9e_8e47_de27f8ab054d;
+                const GUID_DEVICE_BATTERY: GUID = 0x72631e54_78a4_11d0_bcf7_00aa00b7b32a;
+                const GUID_DEVICE_ENERGY_METER: GUID = 0x45bd8344_7ed6_49cf_a440_c276c933b053;
+                const GUID_DEVICE_FAN: GUID = 0x05ecd13d_81da_4a2a_8a4c_524f23dd4dc9;
+                const GUID_DEVICE_LID: GUID = 0x4afa3d52_74a7_11d0_be5e_00a0c9062857;
+                const GUID_DEVICE_MEMORY: GUID = 0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021;
+                const GUID_DEVICE_MESSAGE_INDICATOR: GUID = 0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4;
+                const GUID_DEVICE_PROCESSOR: GUID = 0x97fadb10_4e33_40ae_359c_8bef029dbdd0;
+                const GUID_DEVICE_SYS_BUTTON: GUID = 0x4afa3d53_74a7_11d0_be5e_00a0c9062857;
+                const GUID_DEVICE_THERMAL_ZONE: GUID = 0x4afa3d51_74a7_11d0_be5e_00a0c9062857;
+                const GUID_DEVINTERFACE_THERMAL_COOLING: GUID = 0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f;
+                const GUID_DEVINTERFACE_THERMAL_MANAGER: GUID = 0x927ec093_69a4_4bc0_bd02_711664714463;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-getactivepwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn GetActivePwrScheme(puiID: *mut u32) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-getcurrentpowerpolicies")]
+                #[library("POWRPROF.dll")]
+                extern fn GetCurrentPowerPolicies(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getdevicepowerstate")]
+                #[library("KERNEL32.dll")]
+                extern fn GetDevicePowerState(hDevice: super::super::Foundation::HANDLE, pfOn: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powerbase/nf-powerbase-getpwrcapabilities")]
+                #[library("POWRPROF.dll")]
+                extern fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-getpwrdiskspindownrange")]
+                #[library("POWRPROF.dll")]
+                extern fn GetPwrDiskSpindownRange(puiMax: *mut u32, puiMin: *mut u32) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getsystempowerstatus")]
+                #[library("KERNEL32.dll")]
+                extern fn GetSystemPowerStatus(lpSystemPowerStatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("UnregisterPowerSettingNotification")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HPOWERNOTIFY {
+                    Value: isize,
+                }
+                const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888;
+                const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276;
+                const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/ioctl-battery-query-information")]
+                const IOCTL_BATTERY_QUERY_INFORMATION: u32 = 2703428;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/ioctl-battery-query-status")]
+                const IOCTL_BATTERY_QUERY_STATUS: u32 = 2703436;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/ioctl-battery-query-tag")]
+                const IOCTL_BATTERY_QUERY_TAG: u32 = 2703424;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/ioctl-battery-set-information")]
+                const IOCTL_BATTERY_SET_INFORMATION: u32 = 2719816;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ni-emi-ioctl_emi_get_measurement")]
+                const IOCTL_EMI_GET_MEASUREMENT: u32 = 2244620;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ni-emi-ioctl_emi_get_metadata")]
+                const IOCTL_EMI_GET_METADATA: u32 = 2244616;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ni-emi-ioctl_emi_get_metadata_size")]
+                const IOCTL_EMI_GET_METADATA_SIZE: u32 = 2244612;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/emi/ni-emi-ioctl_emi_get_version")]
+                const IOCTL_EMI_GET_VERSION: u32 = 2244608;
+                const IOCTL_GET_ACPI_TIME_AND_ALARM_CAPABILITIES: u32 = 2703900;
+                const IOCTL_GET_PROCESSOR_OBJ_INFO: u32 = 2703744;
+                const IOCTL_GET_SYS_BUTTON_CAPS: u32 = 2703680;
+                const IOCTL_GET_SYS_BUTTON_EVENT: u32 = 2703684;
+                const IOCTL_GET_WAKE_ALARM_POLICY: u32 = 2736652;
+                const IOCTL_GET_WAKE_ALARM_SYSTEM_POWERSTATE: u32 = 2703896;
+                const IOCTL_GET_WAKE_ALARM_VALUE: u32 = 2736648;
+                const IOCTL_NOTIFY_SWITCH_EVENT: u32 = 2703616;
+                const IOCTL_QUERY_LID: u32 = 2703552;
+                const IOCTL_RUN_ACTIVE_COOLING_METHOD: u32 = 2719880;
+                const IOCTL_SET_SYS_MESSAGE_INDICATOR: u32 = 2720192;
+                const IOCTL_SET_WAKE_ALARM_POLICY: u32 = 2720260;
+                const IOCTL_SET_WAKE_ALARM_VALUE: u32 = 2720256;
+                const IOCTL_THERMAL_QUERY_INFORMATION: u32 = 2703488;
+                const IOCTL_THERMAL_READ_POLICY: u32 = 2703508;
+                const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504;
+                const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876;
+                const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884;
+                #[library("POWRPROF.dll")]
+                extern fn IsAdminOverrideActive(papp: *mut ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-ispwrhibernateallowed")]
+                #[library("POWRPROF.dll")]
+                extern fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-ispwrshutdownallowed")]
+                #[library("POWRPROF.dll")]
+                extern fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-ispwrsuspendallowed")]
+                #[library("POWRPROF.dll")]
+                extern fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-issystemresumeautomatic")]
+                #[library("KERNEL32.dll")]
+                extern fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL;
+                #[repr(i32)]
+                enum LATENCY_TIME {
+                    LT_DONT_CARE = 0,
+                    LT_LOWEST_LATENCY = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-machine_power_policy")]
+                struct MACHINE_POWER_POLICY {
+                    Revision: u32,
+                    MinSleepAc: SYSTEM_POWER_STATE,
+                    MinSleepDc: SYSTEM_POWER_STATE,
+                    ReducedLatencySleepAc: SYSTEM_POWER_STATE,
+                    ReducedLatencySleepDc: SYSTEM_POWER_STATE,
+                    DozeTimeoutAc: u32,
+                    DozeTimeoutDc: u32,
+                    DozeS4TimeoutAc: u32,
+                    DozeS4TimeoutDc: u32,
+                    MinThrottleAc: u8,
+                    MinThrottleDc: u8,
+                    pad1: [u8; 2],
+                    OverThrottledAc: POWER_ACTION_POLICY,
+                    OverThrottledDc: POWER_ACTION_POLICY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-machine_processor_power_policy")]
+                struct MACHINE_PROCESSOR_POWER_POLICY {
+                    Revision: u32,
+                    ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
+                    ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
+                }
+                const MAX_ACTIVE_COOLING_LEVELS: u32 = 10;
+                const MAX_BATTERY_STRING_SIZE: u32 = 128;
+                const PASSIVE_COOLING: u32 = 1;
+                extern fn PDEVICE_NOTIFY_CALLBACK_ROUTINE(Context: *mut void, Type: u32, Setting: *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/ns-winuser-powerbroadcast_setting")]
+                struct POWERBROADCAST_SETTING {
+                    PowerSetting: GUID,
+                    DataLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-power_action")]
+                enum POWER_ACTION {
+                    PowerActionNone = 0,
+                    PowerActionReserved = 1,
+                    PowerActionSleep = 2,
+                    PowerActionHibernate = 3,
+                    PowerActionShutdown = 4,
+                    PowerActionShutdownReset = 5,
+                    PowerActionShutdownOff = 6,
+                    PowerActionWarmEject = 7,
+                    PowerActionDisplayOff = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-power_action_policy")]
+                struct POWER_ACTION_POLICY {
+                    Action: POWER_ACTION,
+                    Flags: u32,
+                    EventCode: POWER_ACTION_POLICY_EVENT_CODE,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum POWER_ACTION_POLICY_EVENT_CODE {
+                    POWER_FORCE_TRIGGER_RESET = 2147483648,
+                    POWER_LEVEL_USER_NOTIFY_EXEC = 4,
+                    POWER_LEVEL_USER_NOTIFY_SOUND = 2,
+                    POWER_LEVEL_USER_NOTIFY_TEXT = 1,
+                    POWER_USER_NOTIFY_BUTTON = 8,
+                    POWER_USER_NOTIFY_SHUTDOWN = 16,
+                }
+                const POWER_ATTRIBUTE_HIDE: u32 = 1;
+                const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
+                #[repr(u16)]
+                enum POWER_COOLING_MODE {
+                    PO_TZ_ACTIVE = 0,
+                    PO_TZ_PASSIVE = 1,
+                    PO_TZ_INVALID_MODE = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ne-powrprof-power_data_accessor")]
+                enum POWER_DATA_ACCESSOR {
+                    ACCESS_AC_POWER_SETTING_INDEX = 0,
+                    ACCESS_DC_POWER_SETTING_INDEX = 1,
+                    ACCESS_FRIENDLY_NAME = 2,
+                    ACCESS_DESCRIPTION = 3,
+                    ACCESS_POSSIBLE_POWER_SETTING = 4,
+                    ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME = 5,
+                    ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION = 6,
+                    ACCESS_DEFAULT_AC_POWER_SETTING = 7,
+                    ACCESS_DEFAULT_DC_POWER_SETTING = 8,
+                    ACCESS_POSSIBLE_VALUE_MIN = 9,
+                    ACCESS_POSSIBLE_VALUE_MAX = 10,
+                    ACCESS_POSSIBLE_VALUE_INCREMENT = 11,
+                    ACCESS_POSSIBLE_VALUE_UNITS = 12,
+                    ACCESS_ICON_RESOURCE = 13,
+                    ACCESS_DEFAULT_SECURITY_DESCRIPTOR = 14,
+                    ACCESS_ATTRIBUTES = 15,
+                    ACCESS_SCHEME = 16,
+                    ACCESS_SUBGROUP = 17,
+                    ACCESS_INDIVIDUAL_SETTING = 18,
+                    ACCESS_ACTIVE_SCHEME = 19,
+                    ACCESS_CREATE_SCHEME = 20,
+                    ACCESS_AC_POWER_SETTING_MAX = 21,
+                    ACCESS_DC_POWER_SETTING_MAX = 22,
+                    ACCESS_AC_POWER_SETTING_MIN = 23,
+                    ACCESS_DC_POWER_SETTING_MIN = 24,
+                    ACCESS_PROFILE = 25,
+                    ACCESS_OVERLAY_SCHEME = 26,
+                    ACCESS_ACTIVE_OVERLAY_SCHEME = 27,
+                }
+                struct POWER_IDLE_RESILIENCY {
+                    CoalescingTimeout: u32,
+                    IdleResiliencyPeriod: u32,
+                }
+                #[repr(i32)]
+                enum POWER_INFORMATION_LEVEL {
+                    SystemPowerPolicyAc = 0,
+                    SystemPowerPolicyDc = 1,
+                    VerifySystemPolicyAc = 2,
+                    VerifySystemPolicyDc = 3,
+                    SystemPowerCapabilities = 4,
+                    SystemBatteryState = 5,
+                    SystemPowerStateHandler = 6,
+                    ProcessorStateHandler = 7,
+                    SystemPowerPolicyCurrent = 8,
+                    AdministratorPowerPolicy = 9,
+                    SystemReserveHiberFile = 10,
+                    ProcessorInformation = 11,
+                    SystemPowerInformation = 12,
+                    ProcessorStateHandler2 = 13,
+                    LastWakeTime = 14,
+                    LastSleepTime = 15,
+                    SystemExecutionState = 16,
+                    SystemPowerStateNotifyHandler = 17,
+                    ProcessorPowerPolicyAc = 18,
+                    ProcessorPowerPolicyDc = 19,
+                    VerifyProcessorPowerPolicyAc = 20,
+                    VerifyProcessorPowerPolicyDc = 21,
+                    ProcessorPowerPolicyCurrent = 22,
+                    SystemPowerStateLogging = 23,
+                    SystemPowerLoggingEntry = 24,
+                    SetPowerSettingValue = 25,
+                    NotifyUserPowerSetting = 26,
+                    PowerInformationLevelUnused0 = 27,
+                    SystemMonitorHiberBootPowerOff = 28,
+                    SystemVideoState = 29,
+                    TraceApplicationPowerMessage = 30,
+                    TraceApplicationPowerMessageEnd = 31,
+                    ProcessorPerfStates = 32,
+                    ProcessorIdleStates = 33,
+                    ProcessorCap = 34,
+                    SystemWakeSource = 35,
+                    SystemHiberFileInformation = 36,
+                    TraceServicePowerMessage = 37,
+                    ProcessorLoad = 38,
+                    PowerShutdownNotification = 39,
+                    MonitorCapabilities = 40,
+                    SessionPowerInit = 41,
+                    SessionDisplayState = 42,
+                    PowerRequestCreate = 43,
+                    PowerRequestAction = 44,
+                    GetPowerRequestList = 45,
+                    ProcessorInformationEx = 46,
+                    NotifyUserModeLegacyPowerEvent = 47,
+                    GroupPark = 48,
+                    ProcessorIdleDomains = 49,
+                    WakeTimerList = 50,
+                    SystemHiberFileSize = 51,
+                    ProcessorIdleStatesHv = 52,
+                    ProcessorPerfStatesHv = 53,
+                    ProcessorPerfCapHv = 54,
+                    ProcessorSetIdle = 55,
+                    LogicalProcessorIdling = 56,
+                    UserPresence = 57,
+                    PowerSettingNotificationName = 58,
+                    GetPowerSettingValue = 59,
+                    IdleResiliency = 60,
+                    SessionRITState = 61,
+                    SessionConnectNotification = 62,
+                    SessionPowerCleanup = 63,
+                    SessionLockState = 64,
+                    SystemHiberbootState = 65,
+                    PlatformInformation = 66,
+                    PdcInvocation = 67,
+                    MonitorInvocation = 68,
+                    FirmwareTableInformationRegistered = 69,
+                    SetShutdownSelectedTime = 70,
+                    SuspendResumeInvocation = 71,
+                    PlmPowerRequestCreate = 72,
+                    ScreenOff = 73,
+                    CsDeviceNotification = 74,
+                    PlatformRole = 75,
+                    LastResumePerformance = 76,
+                    DisplayBurst = 77,
+                    ExitLatencySamplingPercentage = 78,
+                    RegisterSpmPowerSettings = 79,
+                    PlatformIdleStates = 80,
+                    ProcessorIdleVeto = 81,
+                    PlatformIdleVeto = 82,
+                    SystemBatteryStatePrecise = 83,
+                    ThermalEvent = 84,
+                    PowerRequestActionInternal = 85,
+                    BatteryDeviceState = 86,
+                    PowerInformationInternal = 87,
+                    ThermalStandby = 88,
+                    SystemHiberFileType = 89,
+                    PhysicalPowerButtonPress = 90,
+                    QueryPotentialDripsConstraint = 91,
+                    EnergyTrackerCreate = 92,
+                    EnergyTrackerQuery = 93,
+                    UpdateBlackBoxRecorder = 94,
+                    SessionAllowExternalDmaDevices = 95,
+                    SendSuspendResumeNotification = 96,
+                    BlackBoxRecorderDirectAccessBuffer = 97,
+                    PowerInformationLevelMaximum = 98,
+                }
+                struct POWER_MONITOR_INVOCATION {
+                    Console: super::super::Foundation::BOOLEAN,
+                    RequestReason: POWER_MONITOR_REQUEST_REASON,
+                }
+                #[repr(i32)]
+                enum POWER_MONITOR_REQUEST_REASON {
+                    MonitorRequestReasonUnknown = 0,
+                    MonitorRequestReasonPowerButton = 1,
+                    MonitorRequestReasonRemoteConnection = 2,
+                    MonitorRequestReasonScMonitorpower = 3,
+                    MonitorRequestReasonUserInput = 4,
+                    MonitorRequestReasonAcDcDisplayBurst = 5,
+                    MonitorRequestReasonUserDisplayBurst = 6,
+                    MonitorRequestReasonPoSetSystemState = 7,
+                    MonitorRequestReasonSetThreadExecutionState = 8,
+                    MonitorRequestReasonFullWake = 9,
+                    MonitorRequestReasonSessionUnlock = 10,
+                    MonitorRequestReasonScreenOffRequest = 11,
+                    MonitorRequestReasonIdleTimeout = 12,
+                    MonitorRequestReasonPolicyChange = 13,
+                    MonitorRequestReasonSleepButton = 14,
+                    MonitorRequestReasonLid = 15,
+                    MonitorRequestReasonBatteryCountChange = 16,
+                    MonitorRequestReasonGracePeriod = 17,
+                    MonitorRequestReasonPnP = 18,
+                    MonitorRequestReasonDP = 19,
+                    MonitorRequestReasonSxTransition = 20,
+                    MonitorRequestReasonSystemIdle = 21,
+                    MonitorRequestReasonNearProximity = 22,
+                    MonitorRequestReasonThermalStandby = 23,
+                    MonitorRequestReasonResumePdc = 24,
+                    MonitorRequestReasonResumeS4 = 25,
+                    MonitorRequestReasonTerminal = 26,
+                    MonitorRequestReasonPdcSignal = 27,
+                    MonitorRequestReasonAcDcDisplayBurstSuppressed = 28,
+                    MonitorRequestReasonSystemStateEntered = 29,
+                    MonitorRequestReasonWinrt = 30,
+                    MonitorRequestReasonUserInputKeyboard = 31,
+                    MonitorRequestReasonUserInputMouse = 32,
+                    MonitorRequestReasonUserInputTouchpad = 33,
+                    MonitorRequestReasonUserInputPen = 34,
+                    MonitorRequestReasonUserInputAccelerometer = 35,
+                    MonitorRequestReasonUserInputHid = 36,
+                    MonitorRequestReasonUserInputPoUserPresent = 37,
+                    MonitorRequestReasonUserInputSessionSwitch = 38,
+                    MonitorRequestReasonUserInputInitialization = 39,
+                    MonitorRequestReasonPdcSignalWindowsMobilePwrNotif = 40,
+                    MonitorRequestReasonPdcSignalWindowsMobileShell = 41,
+                    MonitorRequestReasonPdcSignalHeyCortana = 42,
+                    MonitorRequestReasonPdcSignalHolographicShell = 43,
+                    MonitorRequestReasonPdcSignalFingerprint = 44,
+                    MonitorRequestReasonDirectedDrips = 45,
+                    MonitorRequestReasonDim = 46,
+                    MonitorRequestReasonBuiltinPanel = 47,
+                    MonitorRequestReasonDisplayRequiredUnDim = 48,
+                    MonitorRequestReasonBatteryCountChangeSuppressed = 49,
+                    MonitorRequestReasonResumeModernStandby = 50,
+                    MonitorRequestReasonTerminalInit = 51,
+                    MonitorRequestReasonPdcSignalSensorsHumanPresence = 52,
+                    MonitorRequestReasonBatteryPreCritical = 53,
+                    MonitorRequestReasonUserInputTouch = 54,
+                    MonitorRequestReasonMax = 55,
+                }
+                #[repr(i32)]
+                enum POWER_MONITOR_REQUEST_TYPE {
+                    MonitorRequestTypeOff = 0,
+                    MonitorRequestTypeOnAndPresent = 1,
+                    MonitorRequestTypeToggleOn = 2,
+                }
+                struct POWER_PLATFORM_INFORMATION {
+                    AoAc: super::super::Foundation::BOOLEAN,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-power_platform_role")]
+                enum POWER_PLATFORM_ROLE {
+                    PlatformRoleUnspecified = 0,
+                    PlatformRoleDesktop = 1,
+                    PlatformRoleMobile = 2,
+                    PlatformRoleWorkstation = 3,
+                    PlatformRoleEnterpriseServer = 4,
+                    PlatformRoleSOHOServer = 5,
+                    PlatformRoleAppliancePC = 6,
+                    PlatformRolePerformanceServer = 7,
+                    PlatformRoleSlate = 8,
+                    PlatformRoleMaximum = 9,
+                }
+                #[repr(u32)]
+                enum POWER_PLATFORM_ROLE_VERSION {
+                    POWER_PLATFORM_ROLE_V1 = 1,
+                    POWER_PLATFORM_ROLE_V2 = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-power_policy")]
+                struct POWER_POLICY {
+                    user: USER_POWER_POLICY,
+                    mach: MACHINE_POWER_POLICY,
+                }
+                #[repr(i32)]
+                enum POWER_REQUEST_TYPE {
+                    PowerRequestDisplayRequired = 0,
+                    PowerRequestSystemRequired = 1,
+                    PowerRequestAwayModeRequired = 2,
+                    PowerRequestExecutionRequired = 3,
+                }
+                struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
+                    IsAllowed: super::super::Foundation::BOOLEAN,
+                }
+                struct POWER_SESSION_CONNECT {
+                    Connected: super::super::Foundation::BOOLEAN,
+                    Console: super::super::Foundation::BOOLEAN,
+                }
+                struct POWER_SESSION_RIT_STATE {
+                    Active: super::super::Foundation::BOOLEAN,
+                    LastInputTime: u64,
+                }
+                struct POWER_SESSION_TIMEOUTS {
+                    InputTimeout: u32,
+                    DisplayTimeout: u32,
+                }
+                struct POWER_SESSION_WINLOGON {
+                    SessionId: u32,
+                    Console: super::super::Foundation::BOOLEAN,
+                    Locked: super::super::Foundation::BOOLEAN,
+                }
+                #[repr(i32)]
+                enum POWER_SETTING_ALTITUDE {
+                    ALTITUDE_GROUP_POLICY = 0,
+                    ALTITUDE_USER = 1,
+                    ALTITUDE_RUNTIME_OVERRIDE = 2,
+                    ALTITUDE_PROVISIONING = 3,
+                    ALTITUDE_OEM_CUSTOMIZATION = 4,
+                    ALTITUDE_INTERNAL_OVERRIDE = 5,
+                    ALTITUDE_OS_DEFAULT = 6,
+                }
+                struct POWER_USER_PRESENCE {
+                    UserPresence: POWER_USER_PRESENCE_TYPE,
+                }
+                #[repr(i32)]
+                enum POWER_USER_PRESENCE_TYPE {
+                    UserNotPresent = 0,
+                    UserPresent = 1,
+                    UserUnknown = 255,
+                }
+                const PPM_FIRMWARE_ACPI1C2: u32 = 1;
+                const PPM_FIRMWARE_ACPI1C3: u32 = 2;
+                const PPM_FIRMWARE_ACPI1TSTATES: u32 = 4;
+                const PPM_FIRMWARE_CPC: u32 = 262144;
+                const PPM_FIRMWARE_CSD: u32 = 16;
+                const PPM_FIRMWARE_CST: u32 = 8;
+                const PPM_FIRMWARE_LPI: u32 = 524288;
+                const PPM_FIRMWARE_OSC: u32 = 65536;
+                const PPM_FIRMWARE_PCCH: u32 = 16384;
+                const PPM_FIRMWARE_PCCP: u32 = 32768;
+                const PPM_FIRMWARE_PCT: u32 = 32;
+                const PPM_FIRMWARE_PDC: u32 = 131072;
+                const PPM_FIRMWARE_PPC: u32 = 256;
+                const PPM_FIRMWARE_PSD: u32 = 512;
+                const PPM_FIRMWARE_PSS: u32 = 64;
+                const PPM_FIRMWARE_PTC: u32 = 1024;
+                const PPM_FIRMWARE_TPC: u32 = 4096;
+                const PPM_FIRMWARE_TSD: u32 = 8192;
+                const PPM_FIRMWARE_TSS: u32 = 2048;
+                const PPM_FIRMWARE_XPSS: u32 = 128;
+                const PPM_IDLESTATES_DATA_GUID: GUID = 0xba138e10_e250_4ad7_8616_cf1a7ad410e7;
+                const PPM_IDLESTATE_CHANGE_GUID: GUID = 0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c;
+                struct PPM_IDLESTATE_EVENT {
+                    NewState: u32,
+                    OldState: u32,
+                    Processors: u64,
+                }
+                struct PPM_IDLE_ACCOUNTING {
+                    StateCount: u32,
+                    TotalTransitions: u32,
+                    ResetCount: u32,
+                    StartTime: u64,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_IDLE_STATE_ACCOUNTING; 1],
+                }
+                struct PPM_IDLE_ACCOUNTING_EX {
+                    StateCount: u32,
+                    TotalTransitions: u32,
+                    ResetCount: u32,
+                    AbortCount: u32,
+                    StartTime: u64,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
+                }
+                const PPM_IDLE_ACCOUNTING_EX_GUID: GUID = 0xd67abd39_81f8_4a5e_8152_72e31ec912ee;
+                const PPM_IDLE_ACCOUNTING_GUID: GUID = 0xe2a26f78_ae07_4ee0_a30f_ce54f55a94cd;
+                const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1;
+                const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4;
+                const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3;
+                const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0;
+                const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2;
+                struct PPM_IDLE_STATE_ACCOUNTING {
+                    IdleTransitions: u32,
+                    FailedTransitions: u32,
+                    InvalidBucketIndex: u32,
+                    TotalTime: u64,
+                    IdleTimeBuckets: [u32; 6],
+                }
+                struct PPM_IDLE_STATE_ACCOUNTING_EX {
+                    TotalTime: u64,
+                    IdleTransitions: u32,
+                    FailedTransitions: u32,
+                    InvalidBucketIndex: u32,
+                    MinTimeUs: u32,
+                    MaxTimeUs: u32,
+                    CancelledTransitions: u32,
+                    IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
+                }
+                struct PPM_IDLE_STATE_BUCKET_EX {
+                    TotalTimeUs: u64,
+                    MinTimeUs: u32,
+                    MaxTimeUs: u32,
+                    Count: u32,
+                }
+                const PPM_PERFMON_PERFSTATE_GUID: GUID = 0x7fd18652_0cfe_40d2_b0a1_0b066a87759e;
+                const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3;
+                const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0;
+                const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2;
+                const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4;
+                const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1;
+                const PPM_PERFSTATES_DATA_GUID: GUID = 0x5708cc20_7d40_4bf4_b4aa_2b01338d0126;
+                const PPM_PERFSTATE_CHANGE_GUID: GUID = 0xa5b32ddd_7f39_4abc_b892_900e43b59ebb;
+                const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: GUID = 0x995e6b7f_d653_497a_b978_36a30c29bf01;
+                struct PPM_PERFSTATE_DOMAIN_EVENT {
+                    State: u32,
+                    Latency: u32,
+                    Speed: u32,
+                    Processors: u64,
+                }
+                struct PPM_PERFSTATE_EVENT {
+                    State: u32,
+                    Status: u32,
+                    Latency: u32,
+                    Speed: u32,
+                    Processor: u32,
+                }
+                struct PPM_THERMALCHANGE_EVENT {
+                    ThermalConstraint: u32,
+                    Processors: u64,
+                }
+                const PPM_THERMALCONSTRAINT_GUID: GUID = 0xa852c2c8_1a4c_423b_8c2c_f30d82931a88;
+                const PPM_THERMAL_POLICY_CHANGE_GUID: GUID = 0x48f377b8_6880_4c7b_8bdc_380176c6654d;
+                struct PPM_THERMAL_POLICY_EVENT {
+                    Mode: u8,
+                    Processors: u64,
+                }
+                struct PPM_WMI_IDLE_STATE {
+                    Latency: u32,
+                    Power: u32,
+                    TimeCheck: u32,
+                    PromotePercent: u8,
+                    DemotePercent: u8,
+                    StateType: u8,
+                    Reserved: u8,
+                    StateFlags: u32,
+                    Context: u32,
+                    IdleHandler: u32,
+                    Reserved1: u32,
+                }
+                struct PPM_WMI_IDLE_STATES {
+                    Type: u32,
+                    Count: u32,
+                    TargetState: u32,
+                    OldState: u32,
+                    TargetProcessors: u64,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_WMI_IDLE_STATE; 1],
+                }
+                struct PPM_WMI_IDLE_STATES_EX {
+                    Type: u32,
+                    Count: u32,
+                    TargetState: u32,
+                    OldState: u32,
+                    TargetProcessors: *mut void,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_WMI_IDLE_STATE; 1],
+                }
+                struct PPM_WMI_LEGACY_PERFSTATE {
+                    Frequency: u32,
+                    Flags: u32,
+                    PercentFrequency: u32,
+                }
+                struct PPM_WMI_PERF_STATE {
+                    Frequency: u32,
+                    Power: u32,
+                    PercentFrequency: u8,
+                    IncreaseLevel: u8,
+                    DecreaseLevel: u8,
+                    Type: u8,
+                    IncreaseTime: u32,
+                    DecreaseTime: u32,
+                    Control: u64,
+                    Status: u64,
+                    HitCount: u32,
+                    Reserved1: u32,
+                    Reserved2: u64,
+                    Reserved3: u64,
+                }
+                struct PPM_WMI_PERF_STATES {
+                    Count: u32,
+                    MaxFrequency: u32,
+                    CurrentState: u32,
+                    MaxPerfState: u32,
+                    MinPerfState: u32,
+                    LowestPerfState: u32,
+                    ThermalConstraint: u32,
+                    BusyAdjThreshold: u8,
+                    PolicyType: u8,
+                    Type: u8,
+                    Reserved: u8,
+                    TimerInterval: u32,
+                    TargetProcessors: u64,
+                    PStateHandler: u32,
+                    PStateContext: u32,
+                    TStateHandler: u32,
+                    TStateContext: u32,
+                    FeedbackHandler: u32,
+                    Reserved1: u32,
+                    Reserved2: u64,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_WMI_PERF_STATE; 1],
+                }
+                struct PPM_WMI_PERF_STATES_EX {
+                    Count: u32,
+                    MaxFrequency: u32,
+                    CurrentState: u32,
+                    MaxPerfState: u32,
+                    MinPerfState: u32,
+                    LowestPerfState: u32,
+                    ThermalConstraint: u32,
+                    BusyAdjThreshold: u8,
+                    PolicyType: u8,
+                    Type: u8,
+                    Reserved: u8,
+                    TimerInterval: u32,
+                    TargetProcessors: *mut void,
+                    PStateHandler: u32,
+                    PStateContext: u32,
+                    TStateHandler: u32,
+                    TStateContext: u32,
+                    FeedbackHandler: u32,
+                    Reserved1: u32,
+                    Reserved2: u64,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    State: [PPM_WMI_PERF_STATE; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Constant("{1462028317, 54703, 19487, 161, 3, 160, 110, 40, 242, 4, 198}, 1")]
+                const PROCESSOR_NUMBER_PKEY: super::super::Foundation::DEVPROPKEY;
+                struct PROCESSOR_OBJECT_INFO {
+                    PhysicalID: u32,
+                    PBlkAddress: u32,
+                    PBlkLength: u8,
+                }
+                struct PROCESSOR_OBJECT_INFO_EX {
+                    PhysicalID: u32,
+                    PBlkAddress: u32,
+                    PBlkLength: u8,
+                    InitialApicId: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/processor-power-information-str")]
+                struct PROCESSOR_POWER_INFORMATION {
+                    Number: u32,
+                    MaxMhz: u32,
+                    CurrentMhz: u32,
+                    MhzLimit: u32,
+                    MaxIdleState: u32,
+                    CurrentIdleState: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-processor_power_policy")]
+                struct PROCESSOR_POWER_POLICY {
+                    Revision: u32,
+                    DynamicThrottle: u8,
+                    Spare: [u8; 3],
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("DisableCStates", 0, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 1, 31)]
+                    _bitfield: u32,
+                    PolicyCount: u32,
+                    Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-processor_power_policy_info")]
+                struct PROCESSOR_POWER_POLICY_INFO {
+                    TimeCheck: u32,
+                    DemoteLimit: u32,
+                    PromoteLimit: u32,
+                    DemotePercent: u8,
+                    PromotePercent: u8,
+                    Spare: [u8; 2],
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("AllowDemotion", 0, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("AllowPromotion", 1, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 30)]
+                    _bitfield: u32,
+                }
+                extern fn PWRSCHEMESENUMPROC(Index: u32, NameSize: u32, Name: super::super::Foundation::PWSTR, DescriptionSize: u32, Description: super::super::Foundation::PWSTR, Policy: *mut POWER_POLICY, Context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+                extern fn PWRSCHEMESENUMPROC_V1(Index: u32, NameSize: u32, Name: *mut i8, DescriptionSize: u32, Description: *mut i8, Policy: *mut POWER_POLICY, Context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powercanrestoreindividualdefaultpowerscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerCanRestoreIndividualDefaultPowerScheme(SchemeGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-powerclearrequest")]
+                #[library("KERNEL32.dll")]
+                extern fn PowerClearRequest(PowerRequest: super::super::Foundation::HANDLE, RequestType: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powercreatepossiblesetting")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerCreatePossibleSetting(RootSystemPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, PossibleSettingIndex: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-powercreaterequest")]
+                #[library("KERNEL32.dll")]
+                extern fn PowerCreateRequest(Context: *mut super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powercreatesetting")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerCreateSetting(RootSystemPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerdeletescheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerDeleteScheme(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerdetermineplatformrole")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powerbase/nf-powerbase-powerdetermineplatformroleex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerDeterminePlatformRoleEx(Version: POWER_PLATFORM_ROLE_VERSION) -> POWER_PLATFORM_ROLE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerduplicatescheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerDuplicateScheme(RootPowerKey: super::Registry::HKEY, SourceSchemeGuid: *mut GUID, DestinationSchemeGuid: *mut *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerenumerate")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerEnumerate(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, AccessFlags: POWER_DATA_ACCESSOR, Index: u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powergetactivescheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerGetActiveScheme(UserRootPowerKey: super::Registry::HKEY, ActivePolicyGuid: *mut *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerimportpowerscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerImportPowerScheme(RootPowerKey: super::Registry::HKEY, ImportFileNamePath: super::super::Foundation::PWSTR, DestinationSchemeGuid: *mut *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerissettingrangedefined")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerIsSettingRangeDefined(SubKeyGuid: *mut GUID, SettingGuid: *mut GUID) -> super::super::Foundation::BOOLEAN;
+                #[library("POWRPROF.dll")]
+                extern fn PowerOpenSystemPowerKey(phSystemPowerKey: *mut super::Registry::HKEY, Access: u32, OpenExisting: super::super::Foundation::BOOL) -> u32;
+                #[library("POWRPROF.dll")]
+                extern fn PowerOpenUserPowerKey(phUserPowerKey: *mut super::Registry::HKEY, Access: u32, OpenExisting: super::super::Foundation::BOOL) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadacdefaultindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadACDefaultIndex(RootPowerKey: super::Registry::HKEY, SchemePersonalityGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, AcDefaultIndex: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerreadacvalue")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadACValue(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Type: *mut u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadacvalueindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadACValueIndex(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, AcValueIndex: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreaddcdefaultindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadDCDefaultIndex(RootPowerKey: super::Registry::HKEY, SchemePersonalityGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, DcDefaultIndex: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerreaddcvalue")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadDCValue(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Type: *mut u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreaddcvalueindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadDCValueIndex(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, DcValueIndex: *mut u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreaddescription")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadDescription(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadfriendlyname")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadFriendlyName(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadiconresourcespecifier")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadIconResourceSpecifier(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadpossibledescription")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadPossibleDescription(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadpossiblefriendlyname")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadPossibleFriendlyName(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadpossiblevalue")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadPossibleValue(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Type: *mut u32, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadsettingattributes")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadSettingAttributes(SubGroupGuid: *mut GUID, PowerSettingGuid: *mut GUID) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadvalueincrement")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadValueIncrement(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueIncrement: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadvaluemax")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadValueMax(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueMaximum: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadvaluemin")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadValueMin(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueMinimum: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreadvalueunitsspecifier")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReadValueUnitsSpecifier(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerregisterforeffectivepowermodenotifications")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerRegisterForEffectivePowerModeNotifications(Version: u32, Callback: EFFECTIVE_POWER_MODE_CALLBACK, Context: *mut void, RegistrationHandle: *mut *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powerbase/nf-powerbase-powerregistersuspendresumenotification")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerRegisterSuspendResumeNotification(Flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, Recipient: super::super::Foundation::HANDLE, RegistrationHandle: *mut *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerremovepowersetting")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerRemovePowerSetting(PowerSettingSubKeyGuid: *mut GUID, PowerSettingGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreplacedefaultpowerschemes")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReplaceDefaultPowerSchemes() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerreportthermalevent")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerReportThermalEvent(Event: *mut THERMAL_EVENT) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerrestoredefaultpowerschemes")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerRestoreDefaultPowerSchemes() -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerrestoreindividualdefaultpowerscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerRestoreIndividualDefaultPowerScheme(SchemeGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powersetactivescheme")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerSetActiveScheme(UserRootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-powersetrequest")]
+                #[library("KERNEL32.dll")]
+                extern fn PowerSetRequest(PowerRequest: super::super::Foundation::HANDLE, RequestType: POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powersettingaccesscheck")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerSettingAccessCheck(AccessFlags: POWER_DATA_ACCESSOR, PowerGuid: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powersettingaccesscheckex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerSettingAccessCheckEx(AccessFlags: POWER_DATA_ACCESSOR, PowerGuid: *mut GUID, AccessType: super::Registry::REG_SAM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powersettingregisternotification")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerSettingRegisterNotification(SettingGuid: *mut GUID, Flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS, Recipient: super::super::Foundation::HANDLE, RegistrationHandle: *mut *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powersettingunregisternotification")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerSettingUnregisterNotification(RegistrationHandle: HPOWERNOTIFY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerunregisterfromeffectivepowermodenotifications")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerUnregisterFromEffectivePowerModeNotifications(RegistrationHandle: *mut void) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powerbase/nf-powerbase-powerunregistersuspendresumenotification")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerUnregisterSuspendResumeNotification(RegistrationHandle: HPOWERNOTIFY) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwriteacdefaultindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteACDefaultIndex(RootSystemPowerKey: super::Registry::HKEY, SchemePersonalityGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, DefaultAcIndex: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerwriteacvalueindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteACValueIndex(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, AcValueIndex: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritedcdefaultindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteDCDefaultIndex(RootSystemPowerKey: super::Registry::HKEY, SchemePersonalityGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, DefaultDcIndex: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powersetting/nf-powersetting-powerwritedcvalueindex")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteDCValueIndex(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, DcValueIndex: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritedescription")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteDescription(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritefriendlyname")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteFriendlyName(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwriteiconresourcespecifier")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteIconResourceSpecifier(RootPowerKey: super::Registry::HKEY, SchemeGuid: *mut GUID, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritepossibledescription")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWritePossibleDescription(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritepossiblefriendlyname")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWritePossibleFriendlyName(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritepossiblevalue")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWritePossibleValue(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Type: u32, PossibleSettingIndex: u32, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritesettingattributes")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteSettingAttributes(SubGroupGuid: *mut GUID, PowerSettingGuid: *mut GUID, Attributes: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritevalueincrement")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteValueIncrement(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueIncrement: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritevaluemax")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteValueMax(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueMaximum: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritevaluemin")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteValueMin(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, ValueMinimum: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-powerwritevalueunitsspecifier")]
+                #[library("POWRPROF.dll")]
+                extern fn PowerWriteValueUnitsSpecifier(RootPowerKey: super::Registry::HKEY, SubGroupOfPowerSettingsGuid: *mut GUID, PowerSettingGuid: *mut GUID, Buffer: *mut u8, BufferSize: u32) -> super::super::Foundation::WIN32_ERROR;
+                struct RESUME_PERFORMANCE {
+                    PostTimeMs: u32,
+                    TotalResumeTimeMs: u64,
+                    ResumeCompleteTimestamp: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-readglobalpwrpolicy")]
+                #[library("POWRPROF.dll")]
+                extern fn ReadGlobalPwrPolicy(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-readprocessorpwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn ReadProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-readpwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn ReadPwrScheme(uiID: u32, pPowerPolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-registerpowersettingnotification")]
+                #[library("USER32.dll")]
+                extern fn RegisterPowerSettingNotification(hRecipient: super::super::Foundation::HANDLE, PowerSettingGuid: *mut GUID, Flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-registersuspendresumenotification")]
+                #[library("USER32.dll")]
+                extern fn RegisterSuspendResumeNotification(hRecipient: super::super::Foundation::HANDLE, Flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-requestwakeuplatency")]
+                #[library("KERNEL32.dll")]
+                extern fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL;
+                struct SET_POWER_SETTING_VALUE {
+                    Version: u32,
+                    Guid: GUID,
+                    PowerCondition: SYSTEM_POWER_CONDITION,
+                    DataLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_battery_state")]
+                struct SYSTEM_BATTERY_STATE {
+                    AcOnLine: super::super::Foundation::BOOLEAN,
+                    BatteryPresent: super::super::Foundation::BOOLEAN,
+                    Charging: super::super::Foundation::BOOLEAN,
+                    Discharging: super::super::Foundation::BOOLEAN,
+                    Spare1: [super::super::Foundation::BOOLEAN; 3],
+                    Tag: u8,
+                    MaxCapacity: u32,
+                    RemainingCapacity: u32,
+                    Rate: u32,
+                    EstimatedTime: u32,
+                    DefaultAlert1: u32,
+                    DefaultAlert2: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_power_capabilities")]
+                struct SYSTEM_POWER_CAPABILITIES {
+                    PowerButtonPresent: super::super::Foundation::BOOLEAN,
+                    SleepButtonPresent: super::super::Foundation::BOOLEAN,
+                    LidPresent: super::super::Foundation::BOOLEAN,
+                    SystemS1: super::super::Foundation::BOOLEAN,
+                    SystemS2: super::super::Foundation::BOOLEAN,
+                    SystemS3: super::super::Foundation::BOOLEAN,
+                    SystemS4: super::super::Foundation::BOOLEAN,
+                    SystemS5: super::super::Foundation::BOOLEAN,
+                    HiberFilePresent: super::super::Foundation::BOOLEAN,
+                    FullWake: super::super::Foundation::BOOLEAN,
+                    VideoDimPresent: super::super::Foundation::BOOLEAN,
+                    ApmPresent: super::super::Foundation::BOOLEAN,
+                    UpsPresent: super::super::Foundation::BOOLEAN,
+                    ThermalControl: super::super::Foundation::BOOLEAN,
+                    ProcessorThrottle: super::super::Foundation::BOOLEAN,
+                    ProcessorMinThrottle: u8,
+                    ProcessorMaxThrottle: u8,
+                    FastSystemS4: super::super::Foundation::BOOLEAN,
+                    Hiberboot: super::super::Foundation::BOOLEAN,
+                    WakeAlarmPresent: super::super::Foundation::BOOLEAN,
+                    AoAc: super::super::Foundation::BOOLEAN,
+                    DiskSpinDown: super::super::Foundation::BOOLEAN,
+                    HiberFileType: u8,
+                    AoAcConnectivitySupported: super::super::Foundation::BOOLEAN,
+                    spare3: [u8; 6],
+                    SystemBatteriesPresent: super::super::Foundation::BOOLEAN,
+                    BatteriesAreShortTerm: super::super::Foundation::BOOLEAN,
+                    BatteryScale: [BATTERY_REPORTING_SCALE; 3],
+                    AcOnLineWake: SYSTEM_POWER_STATE,
+                    SoftLidWake: SYSTEM_POWER_STATE,
+                    RtcWake: SYSTEM_POWER_STATE,
+                    MinDeviceWakeState: SYSTEM_POWER_STATE,
+                    DefaultLowLatencyWake: SYSTEM_POWER_STATE,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-system_power_condition")]
+                enum SYSTEM_POWER_CONDITION {
+                    PoAc = 0,
+                    PoDc = 1,
+                    PoHot = 2,
+                    PoConditionMaximum = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Power/system-power-information-str")]
+                struct SYSTEM_POWER_INFORMATION {
+                    MaxIdlenessAllowed: u32,
+                    Idleness: u32,
+                    TimeRemaining: u32,
+                    CoolingMode: POWER_COOLING_MODE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_power_level")]
+                struct SYSTEM_POWER_LEVEL {
+                    Enable: super::super::Foundation::BOOLEAN,
+                    Spare: [u8; 3],
+                    BatteryLevel: u32,
+                    PowerPolicy: POWER_ACTION_POLICY,
+                    MinSystemState: SYSTEM_POWER_STATE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-system_power_policy")]
+                struct SYSTEM_POWER_POLICY {
+                    Revision: u32,
+                    PowerButton: POWER_ACTION_POLICY,
+                    SleepButton: POWER_ACTION_POLICY,
+                    LidClose: POWER_ACTION_POLICY,
+                    LidOpenWake: SYSTEM_POWER_STATE,
+                    Reserved: u32,
+                    Idle: POWER_ACTION_POLICY,
+                    IdleTimeout: u32,
+                    IdleSensitivity: u8,
+                    DynamicThrottle: u8,
+                    Spare2: [u8; 2],
+                    MinSleep: SYSTEM_POWER_STATE,
+                    MaxSleep: SYSTEM_POWER_STATE,
+                    ReducedLatencySleep: SYSTEM_POWER_STATE,
+                    WinLogonFlags: u32,
+                    Spare3: u32,
+                    DozeS4Timeout: u32,
+                    BroadcastCapacityResolution: u32,
+                    DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+                    VideoTimeout: u32,
+                    VideoDimDisplay: super::super::Foundation::BOOLEAN,
+                    VideoReserved: [u32; 3],
+                    SpindownTimeout: u32,
+                    OptimizeForPower: super::super::Foundation::BOOLEAN,
+                    FanThrottleTolerance: u8,
+                    ForcedThrottle: u8,
+                    MinThrottle: u8,
+                    OverThrottled: POWER_ACTION_POLICY,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ne-winnt-system_power_state")]
+                enum SYSTEM_POWER_STATE {
+                    PowerSystemUnspecified = 0,
+                    PowerSystemWorking = 1,
+                    PowerSystemSleeping1 = 2,
+                    PowerSystemSleeping2 = 3,
+                    PowerSystemSleeping3 = 4,
+                    PowerSystemHibernate = 5,
+                    PowerSystemShutdown = 6,
+                    PowerSystemMaximum = 7,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/ns-winbase-system_power_status")]
+                struct SYSTEM_POWER_STATUS {
+                    ACLineStatus: u8,
+                    BatteryFlag: u8,
+                    BatteryLifePercent: u8,
+                    SystemStatusFlag: u8,
+                    BatteryLifeTime: u32,
+                    BatteryFullLifeTime: u32,
+                }
+                const SYS_BUTTON_LID: u32 = 4;
+                const SYS_BUTTON_LID_CHANGED: u32 = 524288;
+                const SYS_BUTTON_LID_CLOSED: u32 = 131072;
+                const SYS_BUTTON_LID_INITIAL: u32 = 262144;
+                const SYS_BUTTON_LID_OPEN: u32 = 65536;
+                const SYS_BUTTON_LID_STATE_MASK: u32 = 196608;
+                const SYS_BUTTON_POWER: u32 = 1;
+                const SYS_BUTTON_SLEEP: u32 = 2;
+                const SYS_BUTTON_WAKE: u32 = 2147483648;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-setactivepwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn SetActivePwrScheme(uiID: u32, pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-setsuspendstate")]
+                #[library("POWRPROF.dll")]
+                extern fn SetSuspendState(bHibernate: super::super::Foundation::BOOLEAN, bForce: super::super::Foundation::BOOLEAN, bWakeupEventsDisabled: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setsystempowerstate")]
+                #[library("KERNEL32.dll")]
+                extern fn SetSystemPowerState(fSuspend: super::super::Foundation::BOOL, fForce: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate")]
+                #[library("KERNEL32.dll")]
+                extern fn SetThreadExecutionState(esFlags: EXECUTION_STATE) -> EXECUTION_STATE;
+                const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1;
+                const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-thermal_event")]
+                struct THERMAL_EVENT {
+                    Version: u32,
+                    Size: u32,
+                    Type: u32,
+                    Temperature: u32,
+                    TripPointTemperature: u32,
+                    Initiator: super::super::Foundation::PWSTR,
+                }
+                const THERMAL_EVENT_VERSION: u32 = 1;
+                struct THERMAL_INFORMATION {
+                    ThermalStamp: u32,
+                    ThermalConstant1: u32,
+                    ThermalConstant2: u32,
+                    Processors: usize,
+                    SamplingPeriod: u32,
+                    CurrentTemperature: u32,
+                    PassiveTripPoint: u32,
+                    CriticalTripPoint: u32,
+                    ActiveTripPointCount: u8,
+                    ActiveTripPoint: [u32; 10],
+                }
+                struct THERMAL_POLICY {
+                    Version: u32,
+                    WaitForUpdate: super::super::Foundation::BOOLEAN,
+                    Hibernate: super::super::Foundation::BOOLEAN,
+                    Critical: super::super::Foundation::BOOLEAN,
+                    ThermalStandby: super::super::Foundation::BOOLEAN,
+                    ActivationReasons: u32,
+                    PassiveLimit: u32,
+                    ActiveLevel: u32,
+                    OverThrottled: super::super::Foundation::BOOLEAN,
+                }
+                const THERMAL_POLICY_VERSION_1: u32 = 1;
+                const THERMAL_POLICY_VERSION_2: u32 = 2;
+                struct THERMAL_WAIT_READ {
+                    Timeout: u32,
+                    LowTemperature: u32,
+                    HighTemperature: u32,
+                }
+                const TZ_ACTIVATION_REASON_CURRENT: u32 = 2;
+                const TZ_ACTIVATION_REASON_THERMAL: u32 = 1;
+                const UNKNOWN_CAPACITY: u32 = 4294967295;
+                const UNKNOWN_CURRENT: u32 = 4294967295;
+                const UNKNOWN_RATE: u32 = 2147483648;
+                const UNKNOWN_VOLTAGE: u32 = 4294967295;
+                #[repr(i32)]
+                enum USB_CHARGER_PORT {
+                    UsbChargerPort_Legacy = 0,
+                    UsbChargerPort_TypeC = 1,
+                    UsbChargerPort_Max = 2,
+                }
+                #[repr(i32)]
+                enum USER_ACTIVITY_PRESENCE {
+                    PowerUserPresent = 0,
+                    PowerUserNotPresent = 1,
+                    PowerUserInactive = 2,
+                    PowerUserMaximum = 3,
+                    PowerUserInvalid = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/ns-powrprof-user_power_policy")]
+                struct USER_POWER_POLICY {
+                    Revision: u32,
+                    IdleAc: POWER_ACTION_POLICY,
+                    IdleDc: POWER_ACTION_POLICY,
+                    IdleTimeoutAc: u32,
+                    IdleTimeoutDc: u32,
+                    IdleSensitivityAc: u8,
+                    IdleSensitivityDc: u8,
+                    ThrottlePolicyAc: u8,
+                    ThrottlePolicyDc: u8,
+                    MaxSleepAc: SYSTEM_POWER_STATE,
+                    MaxSleepDc: SYSTEM_POWER_STATE,
+                    Reserved: [u32; 2],
+                    VideoTimeoutAc: u32,
+                    VideoTimeoutDc: u32,
+                    SpindownTimeoutAc: u32,
+                    SpindownTimeoutDc: u32,
+                    OptimizeForPowerAc: super::super::Foundation::BOOLEAN,
+                    OptimizeForPowerDc: super::super::Foundation::BOOLEAN,
+                    FanThrottleToleranceAc: u8,
+                    FanThrottleToleranceDc: u8,
+                    ForcedThrottleAc: u8,
+                    ForcedThrottleDc: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-unregisterpowersettingnotification")]
+                #[library("USER32.dll")]
+                extern fn UnregisterPowerSettingNotification(Handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winuser/nf-winuser-unregistersuspendresumenotification")]
+                #[library("USER32.dll")]
+                extern fn UnregisterSuspendResumeNotification(Handle: HPOWERNOTIFY) -> super::super::Foundation::BOOL;
+                #[library("POWRPROF.dll")]
+                extern fn ValidatePowerPolicies(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY, pPowerPolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                struct WAKE_ALARM_INFORMATION {
+                    TimerIdentifier: u32,
+                    Timeout: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-writeglobalpwrpolicy")]
+                #[library("POWRPROF.dll")]
+                extern fn WriteGlobalPwrPolicy(pGlobalPowerPolicy: *mut GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-writeprocessorpwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn WriteProcessorPwrScheme(uiID: u32, pMachineProcessorPowerPolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/powrprof/nf-powrprof-writepwrscheme")]
+                #[library("POWRPROF.dll")]
+                extern fn WritePwrScheme(puiID: *mut u32, lpszSchemeName: super::super::Foundation::PWSTR, lpszDescription: super::super::Foundation::PWSTR, lpScheme: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN;
+            }
+        }
+    }
+}

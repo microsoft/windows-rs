@@ -1,0 +1,1096 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Com {
+                #[win32]
+                mod StructuredStorage {
+                    struct BSTRBLOB {
+                        cbSize: u32,
+                        pData: *mut u8,
+                    }
+                    struct CABOOL {
+                        cElems: u32,
+                        pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
+                    }
+                    struct CABSTR {
+                        cElems: u32,
+                        pElems: *mut super::super::super::Foundation::BSTR,
+                    }
+                    struct CABSTRBLOB {
+                        cElems: u32,
+                        pElems: *mut BSTRBLOB,
+                    }
+                    struct CAC {
+                        cElems: u32,
+                        pElems: super::super::super::Foundation::PSTR,
+                    }
+                    struct CACLIPDATA {
+                        cElems: u32,
+                        pElems: *mut CLIPDATA,
+                    }
+                    struct CACLSID {
+                        cElems: u32,
+                        pElems: *mut GUID,
+                    }
+                    struct CACY {
+                        cElems: u32,
+                        pElems: *mut super::CY,
+                    }
+                    struct CADATE {
+                        cElems: u32,
+                        pElems: *mut f64,
+                    }
+                    struct CADBL {
+                        cElems: u32,
+                        pElems: *mut f64,
+                    }
+                    struct CAFILETIME {
+                        cElems: u32,
+                        pElems: *mut super::super::super::Foundation::FILETIME,
+                    }
+                    struct CAFLT {
+                        cElems: u32,
+                        pElems: *mut f32,
+                    }
+                    struct CAH {
+                        cElems: u32,
+                        pElems: *mut i64,
+                    }
+                    struct CAI {
+                        cElems: u32,
+                        pElems: *mut i16,
+                    }
+                    struct CAL {
+                        cElems: u32,
+                        pElems: *mut i32,
+                    }
+                    struct CALPSTR {
+                        cElems: u32,
+                        pElems: *mut super::super::super::Foundation::PSTR,
+                    }
+                    struct CALPWSTR {
+                        cElems: u32,
+                        pElems: *mut super::super::super::Foundation::PWSTR,
+                    }
+                    struct CAPROPVARIANT {
+                        cElems: u32,
+                        pElems: *mut PROPVARIANT,
+                    }
+                    struct CASCODE {
+                        cElems: u32,
+                        pElems: *mut i32,
+                    }
+                    struct CAUB {
+                        cElems: u32,
+                        pElems: *mut u8,
+                    }
+                    struct CAUH {
+                        cElems: u32,
+                        pElems: *mut u64,
+                    }
+                    struct CAUI {
+                        cElems: u32,
+                        pElems: *mut u16,
+                    }
+                    struct CAUL {
+                        cElems: u32,
+                        pElems: *mut u32,
+                    }
+                    const CCH_MAX_PROPSTG_NAME: u32 = 31;
+                    #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                    struct CLIPDATA {
+                        cbSize: u32,
+                        ulClipFmt: i32,
+                        pClipData: *mut u8,
+                    }
+                    const CWCSTORAGENAME: u32 = 32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-clearpropvariantarray")]
+                    #[library("PROPSYS.dll")]
+                    extern fn ClearPropVariantArray(rgPropVar: *mut PROPVARIANT, cVars: u32);
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-cogetinstancefromfile")]
+                    #[library("OLE32.dll")]
+                    extern fn CoGetInstanceFromFile(pServerInfo: *mut super::COSERVERINFO, pClsid: *mut GUID, punkOuter: super::IUnknown, dwClsCtx: super::CLSCTX, grfMode: u32, pwszName: super::super::super::Foundation::PWSTR, dwCount: u32, pResults: *mut super::MULTI_QI) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-cogetinstancefromistorage")]
+                    #[library("OLE32.dll")]
+                    extern fn CoGetInstanceFromIStorage(pServerInfo: *mut super::COSERVERINFO, pClsid: *mut GUID, punkOuter: super::IUnknown, dwClsCtx: super::CLSCTX, pstg: IStorage, dwCount: u32, pResults: *mut super::MULTI_QI) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-cogetinterfaceandreleasestream")]
+                    #[library("OLE32.dll")]
+                    extern fn CoGetInterfaceAndReleaseStream(pStm: super::IStream, iid: *mut GUID, ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-createilockbytesonhglobal")]
+                    #[library("OLE32.dll")]
+                    extern fn CreateILockBytesOnHGlobal(hGlobal: super::super::super::Foundation::HGLOBAL, fDeleteOnRelease: super::super::super::Foundation::BOOL, pplkbyt: *mut ILockBytes) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-createstreamonhglobal")]
+                    #[library("OLE32.dll")]
+                    extern fn CreateStreamOnHGlobal(hGlobal: super::super::super::Foundation::HGLOBAL, fDeleteOnRelease: super::super::super::Foundation::BOOL, ppstm: *mut super::IStream) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-fmtidtopropstgname")]
+                    #[library("OLE32.dll")]
+                    extern fn FmtIdToPropStgName(pfmtid: *mut GUID, oszName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-freepropvariantarray")]
+                    #[library("OLE32.dll")]
+                    extern fn FreePropVariantArray(cVariants: u32, rgvars: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-getconvertstg")]
+                    #[library("OLE32.dll")]
+                    extern fn GetConvertStg(pStg: IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-gethglobalfromilockbytes")]
+                    #[library("OLE32.dll")]
+                    extern fn GetHGlobalFromILockBytes(plkbyt: ILockBytes, phglobal: *mut super::super::super::Foundation::HGLOBAL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-gethglobalfromstream")]
+                    #[library("OLE32.dll")]
+                    extern fn GetHGlobalFromStream(pstm: super::IStream, phglobal: *mut super::super::super::Foundation::HGLOBAL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-idirectwriterlock")]
+                    interface IDirectWriterLock: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-idirectwriterlock-waitforwriteaccess")]
+                        fn WaitForWriteAccess(&self, dwTimeout: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-idirectwriterlock-releasewriteaccess")]
+                        fn ReleaseWriteAccess(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-idirectwriterlock-havewriteaccess")]
+                        fn HaveWriteAccess(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nn-propidlbase-ienumstatpropsetstg")]
+                    interface IEnumSTATPROPSETSTG: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropsetstg-next")]
+                        fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut STATPROPSETSTG, pceltFetched: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropsetstg-skip")]
+                        fn Skip(&self, celt: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropsetstg-reset")]
+                        fn Reset(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropsetstg-clone")]
+                        fn Clone(&self, ppenum: *mut IEnumSTATPROPSETSTG) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nn-propidlbase-ienumstatpropstg")]
+                    interface IEnumSTATPROPSTG: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropstg-next")]
+                        fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut STATPROPSTG, pceltFetched: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropstg-skip")]
+                        fn Skip(&self, celt: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropstg-reset")]
+                        fn Reset(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ienumstatpropstg-clone")]
+                        fn Clone(&self, ppenum: *mut IEnumSTATPROPSTG) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-ienumstatstg")]
+                    interface IEnumSTATSTG: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ienumstatstg-next")]
+                        fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgelt: *mut super::STATSTG, pceltFetched: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ienumstatstg-skip")]
+                        fn Skip(&self, celt: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ienumstatstg-reset")]
+                        fn Reset(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ienumstatstg-clone")]
+                        fn Clone(&self, ppenum: *mut IEnumSTATSTG) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-ifilllockbytes")]
+                    interface IFillLockBytes: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ifilllockbytes-fillappend")]
+                        fn FillAppend(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] pv: *mut void, cb: u32, pcbWritten: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ifilllockbytes-fillat")]
+                        fn FillAt(&self, ulOffset: u64, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] pv: *mut void, cb: u32, pcbWritten: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ifilllockbytes-setfillsize")]
+                        fn SetFillSize(&self, ulSize: u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ifilllockbytes-terminate")]
+                        fn Terminate(&self, bCanceled: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-ilayoutstorage")]
+                    interface ILayoutStorage: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilayoutstorage-layoutscript")]
+                        fn LayoutScript(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pStorageLayout: *mut super::StorageLayout, nEntries: u32, #[Windows::Win32::Foundation::Metadata::Reserved] glfInterleavedFlag: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilayoutstorage-beginmonitor")]
+                        fn BeginMonitor(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilayoutstorage-endmonitor")]
+                        fn EndMonitor(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilayoutstorage-relayoutdocfile")]
+                        fn ReLayoutDocfile(&self, pwcsNewDfName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilayoutstorage-relayoutdocfileonilockbytes")]
+                        fn ReLayoutDocfileOnILockBytes(&self, pILockBytes: ILockBytes) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-ilockbytes")]
+                    interface ILockBytes: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-readat")]
+                        fn ReadAt(&self, ulOffset: u64, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] pv: *mut void, cb: u32, pcbRead: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-writeat")]
+                        fn WriteAt(&self, ulOffset: u64, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 2)] pv: *mut void, cb: u32, pcbWritten: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-flush")]
+                        fn Flush(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-setsize")]
+                        fn SetSize(&self, cb: u64) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-lockregion")]
+                        fn LockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-unlockregion")]
+                        fn UnlockRegion(&self, libOffset: u64, cb: u64, dwLockType: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ilockbytes-stat")]
+                        fn Stat(&self, pstatstg: *mut super::STATSTG, grfStatFlag: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Stg/imemoryallocator")]
+                    interface IMemoryAllocator {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Stg/imemoryallocator-allocate")]
+                        fn Allocate(&self, cbSize: u32) -> *mut void;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/Stg/imemoryallocator-free")]
+                        fn Free(&self, pv: *mut void);
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-ipersiststorage")]
+                    interface IPersistStorage: super::IPersist {
+                        #[Windows::Win32::Foundation::Metadata::CanReturnMultipleSuccessValues]
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-isdirty")]
+                        fn IsDirty(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-initnew")]
+                        fn InitNew(&self, pStg: IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-load")]
+                        fn Load(&self, pStg: IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-save")]
+                        fn Save(&self, pStgSave: IStorage, fSameAsLoad: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-savecompleted")]
+                        fn SaveCompleted(&self, pStgNew: IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-ipersiststorage-handsoffstorage")]
+                        fn HandsOffStorage(&self) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oaidl/nn-oaidl-ipropertybag")]
+                    interface IPropertyBag: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oaidl/nf-oaidl-ipropertybag-read")]
+                        fn Read(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropName: super::super::super::Foundation::PWSTR, pVar: *mut super::super::Variant::VARIANT, pErrorLog: super::IErrorLog) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/oaidl/nf-oaidl-ipropertybag-write")]
+                        fn Write(&self, #[Windows::Win32::Foundation::Metadata::Const] pszPropName: super::super::super::Foundation::PWSTR, pVar: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IPropertyBag2: super::IUnknown {
+                        fn Read(&self, cProperties: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pPropBag: *mut PROPBAG2, pErrLog: super::IErrorLog, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pvarValue: *mut super::super::Variant::VARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] phrError: *mut super::super::super::Foundation::HRESULT) -> super::super::super::Foundation::HRESULT;
+                        fn Write(&self, cProperties: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pPropBag: *mut PROPBAG2, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pvarValue: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                        fn CountProperties(&self, pcProperties: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn GetPropertyInfo(&self, iProperty: u32, cProperties: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pPropBag: *mut PROPBAG2, pcProperties: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        fn LoadObject(&self, #[Windows::Win32::Foundation::Metadata::Const] pstrName: super::super::super::Foundation::PWSTR, dwHint: u32, pUnkObject: super::IUnknown, pErrLog: super::IErrorLog) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nn-propidl-ipropertysetstorage")]
+                    interface IPropertySetStorage: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-ipropertysetstorage-create")]
+                        fn Create(&self, #[Windows::Win32::Foundation::Metadata::Const] rfmtid: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pclsid: *mut GUID, grfFlags: u32, grfMode: u32, ppprstg: *mut IPropertyStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-ipropertysetstorage-open")]
+                        fn Open(&self, #[Windows::Win32::Foundation::Metadata::Const] rfmtid: *mut GUID, grfMode: u32, ppprstg: *mut IPropertyStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-ipropertysetstorage-delete")]
+                        fn Delete(&self, #[Windows::Win32::Foundation::Metadata::Const] rfmtid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-ipropertysetstorage-enum")]
+                        fn Enum(&self, ppenum: *mut IEnumSTATPROPSETSTG) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nn-propidlbase-ipropertystorage")]
+                    interface IPropertyStorage: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-readmultiple")]
+                        fn ReadMultiple(&self, cpspec: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpspec: *mut PROPSPEC, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-writemultiple")]
+                        fn WriteMultiple(&self, cpspec: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpspec: *mut PROPSPEC, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpropvar: *mut PROPVARIANT, propidNameFirst: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-deletemultiple")]
+                        fn DeleteMultiple(&self, cpspec: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpspec: *mut PROPSPEC) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-readpropertynames")]
+                        fn ReadPropertyNames(&self, cpropid: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpropid: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rglpwstrName: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-writepropertynames")]
+                        fn WritePropertyNames(&self, cpropid: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpropid: *mut u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rglpwstrName: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-deletepropertynames")]
+                        fn DeletePropertyNames(&self, cpropid: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgpropid: *mut u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-commit")]
+                        fn Commit(&self, grfCommitFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-revert")]
+                        fn Revert(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-enum")]
+                        fn Enum(&self, ppenum: *mut IEnumSTATPROPSTG) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-settimes")]
+                        fn SetTimes(&self, #[Windows::Win32::Foundation::Metadata::Const] pctime: *mut super::super::super::Foundation::FILETIME, #[Windows::Win32::Foundation::Metadata::Const] patime: *mut super::super::super::Foundation::FILETIME, #[Windows::Win32::Foundation::Metadata::Const] pmtime: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-setclass")]
+                        fn SetClass(&self, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/nf-propidlbase-ipropertystorage-stat")]
+                        fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-irootstorage")]
+                    interface IRootStorage: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-irootstorage-switchtofile")]
+                        fn SwitchToFile(&self, pszFile: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nn-objidl-istorage")]
+                    interface IStorage: super::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-createstream")]
+                        fn CreateStream(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, grfMode: super::STGM, reserved1: u32, reserved2: u32, ppstm: *mut super::IStream) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-openstream")]
+                        fn OpenStream(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Reserved] reserved1: *mut void, grfMode: super::STGM, reserved2: u32, ppstm: *mut super::IStream) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-createstorage")]
+                        fn CreateStorage(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, grfMode: super::STGM, reserved1: u32, reserved2: u32, ppstg: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-openstorage")]
+                        fn OpenStorage(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, pstgPriority: IStorage, grfMode: super::STGM, snbExclude: *mut *mut u16, reserved: u32, ppstg: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-copyto")]
+                        fn CopyTo(&self, ciidExclude: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgiidExclude: *mut GUID, snbExclude: *mut *mut u16, pstgDest: IStorage) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-moveelementto")]
+                        fn MoveElementTo(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, pstgDest: IStorage, #[Windows::Win32::Foundation::Metadata::Const] pwcsNewName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::AssociatedEnum("STGMOVE")] grfFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-commit")]
+                        fn Commit(&self, grfCommitFlags: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-revert")]
+                        fn Revert(&self) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-enumelements")]
+                        fn EnumElements(&self, #[Windows::Win32::Foundation::Metadata::Reserved] reserved1: u32, #[Windows::Win32::Foundation::Metadata::Reserved] reserved2: *mut void, #[Windows::Win32::Foundation::Metadata::Reserved] reserved3: u32, ppenum: *mut IEnumSTATSTG) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-destroyelement")]
+                        fn DestroyElement(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-renameelement")]
+                        fn RenameElement(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsOldName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pwcsNewName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-setelementtimes")]
+                        fn SetElementTimes(&self, #[Windows::Win32::Foundation::Metadata::Const] pwcsName: super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pctime: *mut super::super::super::Foundation::FILETIME, #[Windows::Win32::Foundation::Metadata::Const] patime: *mut super::super::super::Foundation::FILETIME, #[Windows::Win32::Foundation::Metadata::Const] pmtime: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-setclass")]
+                        fn SetClass(&self, #[Windows::Win32::Foundation::Metadata::Const] clsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-setstatebits")]
+                        fn SetStateBits(&self, grfStateBits: u32, grfMask: u32) -> super::super::super::Foundation::HRESULT;
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/nf-objidl-istorage-stat")]
+                        fn Stat(&self, pstatstg: *mut super::STATSTG, grfStatFlag: u32) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfrombooleanvector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromBooleanVector(prgf: *mut super::super::super::Foundation::BOOL, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfrombuffer")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromBuffer(pv: *mut void, cb: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromclsid")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromCLSID(clsid: *mut GUID, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromdoublevector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromDoubleVector(prgn: *mut f64, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromfiletime")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromFileTime(pftIn: *mut super::super::super::Foundation::FILETIME, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromfiletimevector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromFileTimeVector(prgft: *mut super::super::super::Foundation::FILETIME, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromguidasstring")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromGUIDAsString(guid: *mut GUID, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromint16vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromInt16Vector(prgn: *mut i16, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromint32vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromInt32Vector(prgn: *mut i32, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromint64vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromInt64Vector(prgn: *mut i64, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfrompropvariantvectorelem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromPropVariantVectorElem(propvarIn: *mut PROPVARIANT, iElem: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromresource")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromstringasvector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromStringAsVector(psz: super::super::super::Foundation::PWSTR, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromstringvector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromStringVector(prgsz: *mut super::super::super::Foundation::PWSTR, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromuint16vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromUInt16Vector(prgn: *mut u16, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromuint32vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromUInt32Vector(prgn: *mut u32, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantfromuint64vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantFromUInt64Vector(prgn: *mut u64, cElems: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-initpropvariantvectorfrompropvariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn InitPropVariantVectorFromPropVariant(propvarSingle: *mut PROPVARIANT, ppropvarVector: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    struct OLESTREAM {
+                        lpstbl: *mut OLESTREAMVTBL,
+                    }
+                    struct OLESTREAMVTBL {
+                        Get: isize,
+                        Put: isize,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-oleconvertistoragetoolestream")]
+                    #[library("ole32.dll")]
+                    extern fn OleConvertIStorageToOLESTREAM(pstg: IStorage, lpolestream: *mut OLESTREAM) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-oleconvertistoragetoolestreamex")]
+                    #[library("ole32.dll")]
+                    extern fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfFormat: u16, lWidth: i32, lHeight: i32, dwSize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-oleconvertolestreamtoistorage")]
+                    #[library("ole32.dll")]
+                    extern fn OleConvertOLESTREAMToIStorage(lpolestream: *mut OLESTREAM, pstg: IStorage, ptd: *mut super::DVTARGETDEVICE) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-oleconvertolestreamtoistorageex")]
+                    #[library("ole32.dll")]
+                    extern fn OleConvertOLESTREAMToIStorageEx(polestm: *mut OLESTREAM, pstg: IStorage, pcfFormat: *mut u16, plwWidth: *mut i32, plHeight: *mut i32, pdwSize: *mut u32, pmedium: *mut super::STGMEDIUM) -> super::super::super::Foundation::HRESULT;
+                    const PIDDI_THUMBNAIL: i32 = 2;
+                    const PIDDSI_BYTECOUNT: u32 = 4;
+                    const PIDDSI_CATEGORY: u32 = 2;
+                    const PIDDSI_COMPANY: u32 = 15;
+                    const PIDDSI_DOCPARTS: u32 = 13;
+                    const PIDDSI_HEADINGPAIR: u32 = 12;
+                    const PIDDSI_HIDDENCOUNT: u32 = 9;
+                    const PIDDSI_LINECOUNT: u32 = 5;
+                    const PIDDSI_LINKSDIRTY: u32 = 16;
+                    const PIDDSI_MANAGER: u32 = 14;
+                    const PIDDSI_MMCLIPCOUNT: u32 = 10;
+                    const PIDDSI_NOTECOUNT: u32 = 8;
+                    const PIDDSI_PARCOUNT: u32 = 6;
+                    const PIDDSI_PRESFORMAT: u32 = 3;
+                    const PIDDSI_SCALE: u32 = 11;
+                    const PIDDSI_SLIDECOUNT: u32 = 7;
+                    const PIDMSI_COPYRIGHT: i32 = 11;
+                    const PIDMSI_EDITOR: i32 = 2;
+                    const PIDMSI_OWNER: i32 = 8;
+                    const PIDMSI_PRODUCTION: i32 = 10;
+                    const PIDMSI_PROJECT: i32 = 6;
+                    const PIDMSI_RATING: i32 = 9;
+                    const PIDMSI_SEQUENCE_NO: i32 = 5;
+                    const PIDMSI_SOURCE: i32 = 4;
+                    const PIDMSI_STATUS: i32 = 7;
+                    #[repr(i32)]
+                    enum PIDMSI_STATUS_VALUE {
+                        PIDMSI_STATUS_NORMAL = 0,
+                        PIDMSI_STATUS_NEW = 1,
+                        PIDMSI_STATUS_PRELIM = 2,
+                        PIDMSI_STATUS_DRAFT = 3,
+                        PIDMSI_STATUS_INPROGRESS = 4,
+                        PIDMSI_STATUS_EDIT = 5,
+                        PIDMSI_STATUS_REVIEW = 6,
+                        PIDMSI_STATUS_PROOF = 7,
+                        PIDMSI_STATUS_FINAL = 8,
+                        PIDMSI_STATUS_OTHER = 32767,
+                    }
+                    const PIDMSI_SUPPLIER: i32 = 3;
+                    const PIDSI_APPNAME: i32 = 18;
+                    const PIDSI_AUTHOR: i32 = 4;
+                    const PIDSI_CHARCOUNT: i32 = 16;
+                    const PIDSI_COMMENTS: i32 = 6;
+                    const PIDSI_CREATE_DTM: i32 = 12;
+                    const PIDSI_DOC_SECURITY: i32 = 19;
+                    const PIDSI_EDITTIME: i32 = 10;
+                    const PIDSI_KEYWORDS: i32 = 5;
+                    const PIDSI_LASTAUTHOR: i32 = 8;
+                    const PIDSI_LASTPRINTED: i32 = 11;
+                    const PIDSI_LASTSAVE_DTM: i32 = 13;
+                    const PIDSI_PAGECOUNT: i32 = 14;
+                    const PIDSI_REVNUMBER: i32 = 9;
+                    const PIDSI_SUBJECT: i32 = 3;
+                    const PIDSI_TEMPLATE: i32 = 7;
+                    const PIDSI_THUMBNAIL: i32 = 17;
+                    const PIDSI_TITLE: i32 = 2;
+                    const PIDSI_WORDCOUNT: i32 = 15;
+                    const PID_BEHAVIOR: u32 = 2147483651;
+                    const PID_CODEPAGE: u32 = 1;
+                    const PID_DICTIONARY: u32 = 0;
+                    const PID_FIRST_NAME_DEFAULT: u32 = 4095;
+                    const PID_FIRST_USABLE: u32 = 2;
+                    const PID_ILLEGAL: u32 = 4294967295;
+                    const PID_LOCALE: u32 = 2147483648;
+                    const PID_MAX_READONLY: u32 = 3221225471;
+                    const PID_MIN_READONLY: u32 = 2147483648;
+                    const PID_MODIFY_TIME: u32 = 2147483649;
+                    const PID_SECURITY: u32 = 2147483650;
+                    struct PROPBAG2 {
+                        dwType: u32,
+                        vt: super::super::Variant::VARENUM,
+                        cfType: u16,
+                        dwHint: u32,
+                        pstrName: super::super::super::Foundation::PWSTR,
+                        clsid: GUID,
+                    }
+                    const PROPSETFLAG_ANSI: u32 = 2;
+                    const PROPSETFLAG_CASE_SENSITIVE: u32 = 8;
+                    const PROPSETFLAG_DEFAULT: u32 = 0;
+                    const PROPSETFLAG_NONSIMPLE: u32 = 1;
+                    const PROPSETFLAG_UNBUFFERED: u32 = 4;
+                    const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295;
+                    const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/ns-propidlbase-propspec")]
+                    struct PROPSPEC {
+                        ulKind: PROPSPEC_KIND,
+                        Anonymous: union {
+                            propid: u32,
+                            lpwstr: super::super::super::Foundation::PWSTR,
+                        },
+                    }
+                    #[repr(u32)]
+                    enum PROPSPEC_KIND {
+                        PRSPEC_LPWSTR = 0,
+                        PRSPEC_PROPID = 1,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/ns-propidlbase-propvariant")]
+                    struct PROPVARIANT {
+                        Anonymous: union {
+                            Anonymous: struct {
+                                vt: super::super::Variant::VARENUM,
+                                wReserved1: u16,
+                                wReserved2: u16,
+                                wReserved3: u16,
+                                Anonymous: union {
+                                    cVal: super::super::super::Foundation::CHAR,
+                                    bVal: u8,
+                                    iVal: i16,
+                                    uiVal: u16,
+                                    lVal: i32,
+                                    ulVal: u32,
+                                    intVal: i32,
+                                    uintVal: u32,
+                                    hVal: i64,
+                                    uhVal: u64,
+                                    fltVal: f32,
+                                    dblVal: f64,
+                                    boolVal: super::super::super::Foundation::VARIANT_BOOL,
+                                    __OBSOLETE__VARIANT_BOOL: super::super::super::Foundation::VARIANT_BOOL,
+                                    scode: i32,
+                                    cyVal: super::CY,
+                                    date: f64,
+                                    filetime: super::super::super::Foundation::FILETIME,
+                                    puuid: *mut GUID,
+                                    pclipdata: *mut CLIPDATA,
+                                    bstrVal: super::super::super::Foundation::BSTR,
+                                    bstrblobVal: BSTRBLOB,
+                                    blob: super::BLOB,
+                                    pszVal: super::super::super::Foundation::PSTR,
+                                    pwszVal: super::super::super::Foundation::PWSTR,
+                                    punkVal: super::IUnknown,
+                                    pdispVal: super::IDispatch,
+                                    pStream: super::IStream,
+                                    pStorage: IStorage,
+                                    pVersionedStream: *mut VERSIONEDSTREAM,
+                                    parray: *mut super::SAFEARRAY,
+                                    cac: CAC,
+                                    caub: CAUB,
+                                    cai: CAI,
+                                    caui: CAUI,
+                                    cal: CAL,
+                                    caul: CAUL,
+                                    cah: CAH,
+                                    cauh: CAUH,
+                                    caflt: CAFLT,
+                                    cadbl: CADBL,
+                                    cabool: CABOOL,
+                                    cascode: CASCODE,
+                                    cacy: CACY,
+                                    cadate: CADATE,
+                                    cafiletime: CAFILETIME,
+                                    cauuid: CACLSID,
+                                    caclipdata: CACLIPDATA,
+                                    cabstr: CABSTR,
+                                    cabstrblob: CABSTRBLOB,
+                                    calpstr: CALPSTR,
+                                    calpwstr: CALPWSTR,
+                                    capropvar: CAPROPVARIANT,
+                                    pcVal: super::super::super::Foundation::PSTR,
+                                    pbVal: *mut u8,
+                                    piVal: *mut i16,
+                                    puiVal: *mut u16,
+                                    plVal: *mut i32,
+                                    pulVal: *mut u32,
+                                    pintVal: *mut i32,
+                                    puintVal: *mut u32,
+                                    pfltVal: *mut f32,
+                                    pdblVal: *mut f64,
+                                    pboolVal: *mut super::super::super::Foundation::VARIANT_BOOL,
+                                    pdecVal: *mut super::super::super::Foundation::DECIMAL,
+                                    pscode: *mut i32,
+                                    pcyVal: *mut super::CY,
+                                    pdate: *mut f64,
+                                    pbstrVal: *mut super::super::super::Foundation::BSTR,
+                                    ppunkVal: *mut super::IUnknown,
+                                    ppdispVal: *mut super::IDispatch,
+                                    pparray: *mut *mut super::SAFEARRAY,
+                                    pvarVal: *mut PROPVARIANT,
+                                },
+                            },
+                            decVal: super::super::super::Foundation::DECIMAL,
+                        },
+                    }
+                    #[repr(i32)]
+                    #[flags]
+                    enum PROPVAR_CHANGE_FLAGS {
+                        PVCHF_DEFAULT = 0,
+                        PVCHF_NOVALUEPROP = 1,
+                        PVCHF_ALPHABOOL = 2,
+                        PVCHF_NOUSEROVERRIDE = 4,
+                        PVCHF_LOCALBOOL = 8,
+                        PVCHF_NOHEXSTRING = 16,
+                    }
+                    #[repr(i32)]
+                    #[flags]
+                    enum PROPVAR_COMPARE_FLAGS {
+                        PVCF_DEFAULT = 0,
+                        PVCF_TREATEMPTYASGREATERTHAN = 1,
+                        PVCF_USESTRCMP = 2,
+                        PVCF_USESTRCMPC = 4,
+                        PVCF_USESTRCMPI = 8,
+                        PVCF_USESTRCMPIC = 16,
+                        PVCF_DIGITSASNUMBERS_CASESENSITIVE = 32,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/ne-propvarutil-propvar_compare_unit")]
+                    enum PROPVAR_COMPARE_UNIT {
+                        PVCU_DEFAULT = 0,
+                        PVCU_SECOND = 1,
+                        PVCU_MINUTE = 2,
+                        PVCU_HOUR = 3,
+                        PVCU_DAY = 4,
+                        PVCU_MONTH = 5,
+                        PVCU_YEAR = 6,
+                    }
+                    const PRSPEC_INVALID: u32 = 4294967295;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-propstgnametofmtid")]
+                    #[library("OLE32.dll")]
+                    extern fn PropStgNameToFmtId(oszName: super::super::super::Foundation::PWSTR, pfmtid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantchangetype")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantChangeType(ppropvarDest: *mut PROPVARIANT, propvarSrc: *mut PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::Variant::VARENUM) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-propvariantclear")]
+                    #[library("OLE32.dll")]
+                    extern fn PropVariantClear(pvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantcompareex")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantCompareEx(propvar1: *mut PROPVARIANT, propvar2: *mut PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/combaseapi/nf-combaseapi-propvariantcopy")]
+                    #[library("OLE32.dll")]
+                    extern fn PropVariantCopy(pvarDest: *mut PROPVARIANT, pvarSrc: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetbooleanelem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetBooleanElem(propvar: *mut PROPVARIANT, iElem: u32, pfVal: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetdoubleelem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetDoubleElem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut f64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetelementcount")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetElementCount(propvar: *mut PROPVARIANT) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetfiletimeelem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetFileTimeElem(propvar: *mut PROPVARIANT, iElem: u32, pftVal: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetint16elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetInt16Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut i16) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetint32elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetInt32Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut i32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetint64elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetInt64Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut i64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetstringelem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetStringElem(propvar: *mut PROPVARIANT, iElem: u32, ppszVal: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetuint16elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetUInt16Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut u16) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetuint32elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetUInt32Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvariantgetuint64elem")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantGetUInt64Elem(propvar: *mut PROPVARIANT, iElem: u32, pnVal: *mut u64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttobstr")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBSTR(propvar: *mut PROPVARIANT, pbstrOut: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoboolean")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBoolean(propvarIn: *mut PROPVARIANT, pfRet: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttobooleanvector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBooleanVector(propvar: *mut PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttobooleanvectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBooleanVectorAlloc(propvar: *mut PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttobooleanwithdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBooleanWithDefault(propvarIn: *mut PROPVARIANT, fDefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttobuffer")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToBuffer(propvar: *mut PROPVARIANT, pv: *mut void, cb: u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttodouble")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToDouble(propvarIn: *mut PROPVARIANT, pdblRet: *mut f64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttodoublevector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToDoubleVector(propvar: *mut PROPVARIANT, prgn: *mut f64, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttodoublevectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToDoubleVectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut f64, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttodoublewithdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToDoubleWithDefault(propvarIn: *mut PROPVARIANT, dblDefault: f64) -> f64;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttofiletime")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToFileTime(propvar: *mut PROPVARIANT, pstfOut: super::super::Variant::PSTIME_FLAGS, pftOut: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttofiletimevector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToFileTimeVector(propvar: *mut PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttofiletimevectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToFileTimeVectorAlloc(propvar: *mut PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoguid")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToGUID(propvar: *mut PROPVARIANT, pguid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint16")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt16(propvarIn: *mut PROPVARIANT, piRet: *mut i16) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint16vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt16Vector(propvar: *mut PROPVARIANT, prgn: *mut i16, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint16vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt16VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut i16, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint16withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt16WithDefault(propvarIn: *mut PROPVARIANT, iDefault: i16) -> i16;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint32")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt32(propvarIn: *mut PROPVARIANT, plRet: *mut i32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint32vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt32Vector(propvar: *mut PROPVARIANT, prgn: *mut i32, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint32vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt32VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut i32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint32withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt32WithDefault(propvarIn: *mut PROPVARIANT, lDefault: i32) -> i32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint64")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt64(propvarIn: *mut PROPVARIANT, pllRet: *mut i64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint64vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt64Vector(propvar: *mut PROPVARIANT, prgn: *mut i64, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint64vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt64VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut i64, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttoint64withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToInt64WithDefault(propvarIn: *mut PROPVARIANT, llDefault: i64) -> i64;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttostring")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToString(propvar: *mut PROPVARIANT, psz: super::super::super::Foundation::PWSTR, cch: u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttostringalloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToStringAlloc(propvar: *mut PROPVARIANT, ppszOut: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttostringvector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToStringVector(propvar: *mut PROPVARIANT, prgsz: *mut super::super::super::Foundation::PWSTR, crgsz: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttostringvectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToStringVectorAlloc(propvar: *mut PROPVARIANT, pprgsz: *mut *mut super::super::super::Foundation::PWSTR, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttostringwithdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToStringWithDefault(propvarIn: *mut PROPVARIANT, pszDefault: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::PWSTR;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint16")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt16(propvarIn: *mut PROPVARIANT, puiRet: *mut u16) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint16vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt16Vector(propvar: *mut PROPVARIANT, prgn: *mut u16, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint16vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt16VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut u16, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint16withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt16WithDefault(propvarIn: *mut PROPVARIANT, uiDefault: u16) -> u16;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint32")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt32(propvarIn: *mut PROPVARIANT, pulRet: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint32vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt32Vector(propvar: *mut PROPVARIANT, prgn: *mut u32, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint32vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt32VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint32withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt32WithDefault(propvarIn: *mut PROPVARIANT, ulDefault: u32) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint64")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt64(propvarIn: *mut PROPVARIANT, pullRet: *mut u64) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint64vector")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt64Vector(propvar: *mut PROPVARIANT, prgn: *mut u64, crgn: u32, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint64vectoralloc")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt64VectorAlloc(propvar: *mut PROPVARIANT, pprgn: *mut *mut u64, pcElem: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttouint64withdefault")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToUInt64WithDefault(propvarIn: *mut PROPVARIANT, ullDefault: u64) -> u64;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-propvarianttovariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToVariant(pPropVar: *mut PROPVARIANT, pVar: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propsys/nf-propsys-propvarianttowinrtpropertyvalue")]
+                    #[library("PROPSYS.dll")]
+                    extern fn PropVariantToWinRTPropertyValue(propvar: *mut PROPVARIANT, riid: *mut GUID, ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-readclassstg")]
+                    #[library("OLE32.dll")]
+                    extern fn ReadClassStg(pStg: IStorage, pclsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-readclassstm")]
+                    #[library("OLE32.dll")]
+                    extern fn ReadClassStm(pStm: super::IStream, pclsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-readfmtusertypestg")]
+                    #[library("OLE32.dll")]
+                    extern fn ReadFmtUserTypeStg(pstg: IStorage, pcf: *mut u16, lplpszUserType: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objidl/ns-objidl-remsnb")]
+                    struct RemSNB {
+                        ulCntStr: u32,
+                        ulCntChar: u32,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        rgString: [u16; 1],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/ns-propidl-serializedpropertyvalue")]
+                    struct SERIALIZEDPROPERTYVALUE {
+                        dwType: u32,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        rgb: [u8; 1],
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/ns-propidlbase-statpropsetstg")]
+                    struct STATPROPSETSTG {
+                        fmtid: GUID,
+                        clsid: GUID,
+                        grfFlags: u32,
+                        mtime: super::super::super::Foundation::FILETIME,
+                        ctime: super::super::super::Foundation::FILETIME,
+                        atime: super::super::super::Foundation::FILETIME,
+                        dwOSVersion: u32,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidlbase/ns-propidlbase-statpropstg")]
+                    struct STATPROPSTG {
+                        lpwstrName: super::super::super::Foundation::PWSTR,
+                        propid: u32,
+                        vt: super::super::Variant::VARENUM,
+                    }
+                    #[repr(u32)]
+                    enum STGFMT {
+                        STGFMT_STORAGE = 0,
+                        STGFMT_NATIVE = 1,
+                        STGFMT_FILE = 3,
+                        STGFMT_ANY = 4,
+                        STGFMT_DOCFILE = 5,
+                        STGFMT_DOCUMENT = 0,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wtypes/ne-wtypes-stgmove")]
+                    enum STGMOVE {
+                        STGMOVE_MOVE = 0,
+                        STGMOVE_COPY = 1,
+                        STGMOVE_SHALLOWCOPY = 2,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/ns-coml2api-stgoptions")]
+                    struct STGOPTIONS {
+                        usVersion: u16,
+                        reserved: u16,
+                        ulSectorSize: u32,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        pwcsTemplateFile: super::super::super::Foundation::PWSTR,
+                    }
+                    const STGOPTIONS_VERSION: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-setconvertstg")]
+                    #[library("OLE32.dll")]
+                    extern fn SetConvertStg(pStg: IStorage, fConvert: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-stgconvertpropertytovariant")]
+                    #[library("ole32.dll")]
+                    extern fn StgConvertPropertyToVariant(pprop: *mut SERIALIZEDPROPERTYVALUE, CodePage: u16, pvar: *mut PROPVARIANT, pma: IMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propidl/nf-propidl-stgconvertvarianttoproperty")]
+                    #[library("ole32.dll")]
+                    extern fn StgConvertVariantToProperty(pvar: *mut PROPVARIANT, CodePage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, fReserved: super::super::super::Foundation::BOOLEAN, pcIndirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgcreatedocfile")]
+                    #[library("OLE32.dll")]
+                    extern fn StgCreateDocfile(pwcsName: super::super::super::Foundation::PWSTR, grfMode: super::STGM, reserved: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgcreatedocfileonilockbytes")]
+                    #[library("OLE32.dll")]
+                    extern fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfMode: super::STGM, reserved: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgcreatepropsetstg")]
+                    #[library("OLE32.dll")]
+                    extern fn StgCreatePropSetStg(pStorage: IStorage, dwReserved: u32, ppPropSetStg: *mut IPropertySetStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgcreatepropstg")]
+                    #[library("OLE32.dll")]
+                    extern fn StgCreatePropStg(pUnk: super::IUnknown, fmtid: *mut GUID, pclsid: *mut GUID, grfFlags: u32, dwReserved: u32, ppPropStg: *mut IPropertyStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgcreatestorageex")]
+                    #[library("OLE32.dll")]
+                    extern fn StgCreateStorageEx(pwcsName: super::super::super::Foundation::PWSTR, grfMode: super::STGM, stgfmt: STGFMT, grfAttrs: u32, pStgOptions: *mut STGOPTIONS, pSecurityDescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *mut GUID, ppObjectOpen: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-stgdeserializepropvariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn StgDeserializePropVariant(pprop: *mut SERIALIZEDPROPERTYVALUE, cbMax: u32, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-stggetifilllockbytesonfile")]
+                    #[library("ole32.dll")]
+                    extern fn StgGetIFillLockBytesOnFile(pwcsName: super::super::super::Foundation::PWSTR, ppflb: *mut IFillLockBytes) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-stggetifilllockbytesonilockbytes")]
+                    #[library("ole32.dll")]
+                    extern fn StgGetIFillLockBytesOnILockBytes(pilb: ILockBytes, ppflb: *mut IFillLockBytes) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgisstoragefile")]
+                    #[library("OLE32.dll")]
+                    extern fn StgIsStorageFile(pwcsName: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgisstorageilockbytes")]
+                    #[library("OLE32.dll")]
+                    extern fn StgIsStorageILockBytes(plkbyt: ILockBytes) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-stgopenasyncdocfileonifilllockbytes")]
+                    #[library("ole32.dll")]
+                    extern fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: IFillLockBytes, grfMode: u32, asyncFlags: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/objbase/nf-objbase-stgopenlayoutdocfile")]
+                    #[library("dflayout.dll")]
+                    extern fn StgOpenLayoutDocfile(pwcsDfName: super::super::super::Foundation::PWSTR, grfMode: u32, reserved: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgopenpropstg")]
+                    #[library("OLE32.dll")]
+                    extern fn StgOpenPropStg(pUnk: super::IUnknown, fmtid: *mut GUID, grfFlags: u32, dwReserved: u32, ppPropStg: *mut IPropertyStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgopenstorage")]
+                    #[library("OLE32.dll")]
+                    extern fn StgOpenStorage(pwcsName: super::super::super::Foundation::PWSTR, pstgPriority: IStorage, grfMode: super::STGM, snbExclude: *mut *mut u16, reserved: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgopenstorageex")]
+                    #[library("OLE32.dll")]
+                    extern fn StgOpenStorageEx(pwcsName: super::super::super::Foundation::PWSTR, grfMode: super::STGM, stgfmt: STGFMT, grfAttrs: u32, pStgOptions: *mut STGOPTIONS, pSecurityDescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *mut GUID, ppObjectOpen: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgopenstorageonilockbytes")]
+                    #[library("OLE32.dll")]
+                    extern fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, pstgPriority: IStorage, grfMode: super::STGM, snbExclude: *mut *mut u16, reserved: u32, ppstgOpen: *mut IStorage) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propapi/nf-propapi-stgpropertylengthasvariant")]
+                    #[library("ole32.dll")]
+                    extern fn StgPropertyLengthAsVariant(pProp: *mut SERIALIZEDPROPERTYVALUE, cbProp: u32, CodePage: u16, bReserved: u8) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-stgserializepropvariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn StgSerializePropVariant(ppropvar: *mut PROPVARIANT, ppProp: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-stgsettimes")]
+                    #[library("OLE32.dll")]
+                    extern fn StgSetTimes(lpszName: super::super::super::Foundation::PWSTR, pctime: *mut super::super::super::Foundation::FILETIME, patime: *mut super::super::super::Foundation::FILETIME, pmtime: *mut super::super::super::Foundation::FILETIME) -> super::super::super::Foundation::HRESULT;
+                    struct VERSIONEDSTREAM {
+                        guidVersion: GUID,
+                        pStream: super::IStream,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propvarutil/nf-propvarutil-varianttopropvariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn VariantToPropVariant(pVar: *mut super::super::Variant::VARIANT, pPropVar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/propsys/nf-propsys-winrtpropertyvaluetopropvariant")]
+                    #[library("PROPSYS.dll")]
+                    extern fn WinRTPropertyValueToPropVariant(punkPropertyValue: super::IUnknown, ppropvar: *mut PROPVARIANT) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-writeclassstg")]
+                    #[library("OLE32.dll")]
+                    extern fn WriteClassStg(pStg: IStorage, rclsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/coml2api/nf-coml2api-writeclassstm")]
+                    #[library("OLE32.dll")]
+                    extern fn WriteClassStm(pStm: super::IStream, rclsid: *mut GUID) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ole2/nf-ole2-writefmtusertypestg")]
+                    #[library("OLE32.dll")]
+                    extern fn WriteFmtUserTypeStg(pstg: IStorage, cf: u16, lpszUserType: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::HRESULT;
+                }
+            }
+        }
+    }
+}

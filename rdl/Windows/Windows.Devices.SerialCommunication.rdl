@@ -1,0 +1,165 @@
+mod Windows {
+    mod Devices {
+        #[winrt]
+        mod SerialCommunication {
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ErrorReceivedEventArgs {
+                #[default]
+                IErrorReceivedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ErrorReceivedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IErrorReceivedEventArgs {
+                #[special]
+                fn get_Error(&self) -> SerialError;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(PinChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPinChangedEventArgs {
+                #[special]
+                fn get_PinChange(&self) -> SerialPinChange;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SerialDevice)]
+            interface ISerialDevice: super::super::Foundation::IClosable {
+                #[special]
+                fn get_BaudRate(&self) -> u32;
+                #[special]
+                fn put_BaudRate(&self, value: u32);
+                #[special]
+                fn get_BreakSignalState(&self) -> bool;
+                #[special]
+                fn put_BreakSignalState(&self, value: bool);
+                #[special]
+                fn get_BytesReceived(&self) -> u32;
+                #[special]
+                fn get_CarrierDetectState(&self) -> bool;
+                #[special]
+                fn get_ClearToSendState(&self) -> bool;
+                #[special]
+                fn get_DataBits(&self) -> u16;
+                #[special]
+                fn put_DataBits(&self, value: u16);
+                #[special]
+                fn get_DataSetReadyState(&self) -> bool;
+                #[special]
+                fn get_Handshake(&self) -> SerialHandshake;
+                #[special]
+                fn put_Handshake(&self, value: SerialHandshake);
+                #[special]
+                fn get_IsDataTerminalReadyEnabled(&self) -> bool;
+                #[special]
+                fn put_IsDataTerminalReadyEnabled(&self, value: bool);
+                #[special]
+                fn get_IsRequestToSendEnabled(&self) -> bool;
+                #[special]
+                fn put_IsRequestToSendEnabled(&self, value: bool);
+                #[special]
+                fn get_Parity(&self) -> SerialParity;
+                #[special]
+                fn put_Parity(&self, value: SerialParity);
+                #[special]
+                fn get_PortName(&self) -> String;
+                #[special]
+                fn get_ReadTimeout(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn put_ReadTimeout(&self, value: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_StopBits(&self) -> SerialStopBitCount;
+                #[special]
+                fn put_StopBits(&self, value: SerialStopBitCount);
+                #[special]
+                fn get_UsbVendorId(&self) -> u16;
+                #[special]
+                fn get_UsbProductId(&self) -> u16;
+                #[special]
+                fn get_WriteTimeout(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn put_WriteTimeout(&self, value: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_InputStream(&self) -> super::super::Storage::Streams::IInputStream;
+                #[special]
+                fn get_OutputStream(&self) -> super::super::Storage::Streams::IOutputStream;
+                #[special]
+                fn add_ErrorReceived(&self, reportHandler: super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ErrorReceived(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_PinChanged(&self, reportHandler: super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_PinChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SerialDevice)]
+            interface ISerialDeviceStatics {
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromPortName")]
+                fn GetDeviceSelector(&self, portName: String) -> String;
+                fn GetDeviceSelectorFromUsbVidPid(&self, vendorId: u16, productId: u16) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<SerialDevice>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PinChangedEventArgs {
+                #[default]
+                IPinChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ISerialDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class SerialDevice {
+                #[default]
+                ISerialDevice,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SerialError {
+                Frame = 0,
+                BufferOverrun = 1,
+                ReceiveFull = 2,
+                ReceiveParity = 3,
+                TransmitFull = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SerialHandshake {
+                None = 0,
+                RequestToSend = 1,
+                XOnXOff = 2,
+                RequestToSendXOnXOff = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SerialParity {
+                None = 0,
+                Odd = 1,
+                Even = 2,
+                Mark = 3,
+                Space = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SerialPinChange {
+                BreakSignal = 0,
+                CarrierDetect = 1,
+                ClearToSend = 2,
+                DataSetReady = 3,
+                RingIndicator = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SerialStopBitCount {
+                One = 0,
+                OnePointFive = 1,
+                Two = 2,
+            }
+        }
+    }
+}

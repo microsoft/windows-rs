@@ -1,0 +1,22 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod WinRT {
+                #[win32]
+                mod Direct3D11 {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.directx.direct3d11.interop/nf-windows-graphics-directx-direct3d11-interop-createdirect3d11devicefromdxgidevice")]
+                    #[library("d3d11.dll")]
+                    extern fn CreateDirect3D11DeviceFromDXGIDevice(dxgiDevice: super::super::super::Graphics::Dxgi::IDXGIDevice, graphicsDevice: *mut super::IInspectable) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.directx.direct3d11.interop/nf-windows-graphics-directx-direct3d11-interop-createdirect3d11surfacefromdxgisurface")]
+                    #[library("d3d11.dll")]
+                    extern fn CreateDirect3D11SurfaceFromDXGISurface(dgxiSurface: super::super::super::Graphics::Dxgi::IDXGISurface, graphicsSurface: *mut super::IInspectable) -> super::super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.directx.direct3d11.interop/ns-windows-graphics-directx-direct3d11-interop-idirect3ddxgiinterfaceaccess")]
+                    interface IDirect3DDxgiInterfaceAccess: super::super::Com::IUnknown {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/windows.graphics.directx.direct3d11.interop/nf-windows-graphics-directx-direct3d11-interop-idirect3ddxgiinterfaceaccess-getinterface")]
+                        fn GetInterface(&self, #[Windows::Win32::Foundation::Metadata::Const] iid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] p: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

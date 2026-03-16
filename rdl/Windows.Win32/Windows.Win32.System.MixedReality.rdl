@@ -1,0 +1,19 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod MixedReality {
+                const PERCEPTIONFIELD_StateStream_TimeStamps: GUID = 0xaa886119_f32f_49bf_92ca_f9ddf784d297;
+                struct PERCEPTION_PAYLOAD_FIELD {
+                    FieldId: GUID,
+                    OffsetInBytes: u32,
+                    SizeInBytes: u32,
+                }
+                struct PERCEPTION_STATE_STREAM_TIMESTAMPS {
+                    InputTimestampInQpcCounts: i64,
+                    AvailableTimestampInQpcCounts: i64,
+                }
+            }
+        }
+    }
+}

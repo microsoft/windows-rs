@@ -1,0 +1,235 @@
+mod Windows {
+    mod Gaming {
+        mod XboxLive {
+            #[winrt]
+            mod Storage {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class GameSaveBlobGetResult {
+                    #[default]
+                    IGameSaveBlobGetResult,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                class GameSaveBlobInfo {
+                    #[default]
+                    IGameSaveBlobInfo,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameSaveBlobInfoGetResult {
+                    #[default]
+                    IGameSaveBlobInfoGetResult,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class GameSaveBlobInfoQuery {
+                    #[default]
+                    IGameSaveBlobInfoQuery,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameSaveContainer {
+                    #[default]
+                    IGameSaveContainer,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameSaveContainerInfo {
+                    #[default]
+                    IGameSaveContainerInfo,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                class GameSaveContainerInfoGetResult {
+                    #[default]
+                    IGameSaveContainerInfoGetResult,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                class GameSaveContainerInfoQuery {
+                    #[default]
+                    IGameSaveContainerInfoQuery,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                enum GameSaveErrorStatus {
+                    Ok = 0,
+                    Abort = -2147467260,
+                    InvalidContainerName = -2138898431,
+                    NoAccess = -2138898430,
+                    OutOfLocalStorage = -2138898429,
+                    UserCanceled = -2138898428,
+                    UpdateTooBig = -2138898427,
+                    QuotaExceeded = -2138898426,
+                    ProvidedBufferTooSmall = -2138898425,
+                    BlobNotFound = -2138898424,
+                    NoXboxLiveInfo = -2138898423,
+                    ContainerNotInSync = -2138898422,
+                    ContainerSyncFailed = -2138898421,
+                    UserHasNoXboxLiveInfo = -2138898420,
+                    ObjectExpired = -2138898419,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameSaveOperationResult {
+                    #[default]
+                    IGameSaveOperationResult,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGameSaveProviderStatics, 65536, "Windows.Gaming.XboxLive.StorageApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameSaveProvider {
+                    #[default]
+                    IGameSaveProvider,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class GameSaveProviderGetResult {
+                    #[default]
+                    IGameSaveProviderGetResult,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveBlobGetResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveBlobGetResult {
+                    #[special]
+                    fn get_Status(&self) -> GameSaveErrorStatus;
+                    #[special]
+                    fn get_Value(&self) -> super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveBlobInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveBlobInfo {
+                    #[special]
+                    fn get_Name(&self) -> String;
+                    #[special]
+                    fn get_Size(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveBlobInfoGetResult)]
+                interface IGameSaveBlobInfoGetResult {
+                    #[special]
+                    fn get_Status(&self) -> GameSaveErrorStatus;
+                    #[special]
+                    fn get_Value(&self) -> super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveBlobInfoQuery)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveBlobInfoQuery {
+                    #[Windows::Foundation::Metadata::Overload("GetBlobInfoAsync")]
+                    #[Windows::Foundation::Metadata::DefaultOverload]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetBlobInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
+                    #[Windows::Foundation::Metadata::Overload("GetBlobInfoWithIndexAndMaxAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetBlobInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveContainer)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveContainer {
+                    #[special]
+                    fn get_Name(&self) -> String;
+                    #[special]
+                    fn get_Provider(&self) -> GameSaveProvider;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SubmitUpdatesAsync(&self, blobsToWrite: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>, blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReadAsync(&self, blobsToRead: super::super::super::Foundation::Collections::IMapView<String, super::super::super::Storage::Streams::IBuffer>) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetAsync(&self, blobsToRead: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SubmitPropertySetUpdatesAsync(&self, blobsToWrite: super::super::super::Foundation::Collections::IPropertySet, blobsToDelete: super::super::super::Foundation::Collections::IIterable<String>, displayName: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    fn CreateBlobInfoQuery(&self, blobNamePrefix: String) -> GameSaveBlobInfoQuery;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveContainerInfo)]
+                interface IGameSaveContainerInfo {
+                    #[special]
+                    fn get_Name(&self) -> String;
+                    #[special]
+                    fn get_TotalSize(&self) -> u64;
+                    #[special]
+                    fn get_DisplayName(&self) -> String;
+                    #[special]
+                    fn get_LastModifiedTime(&self) -> super::super::super::Foundation::DateTime;
+                    #[special]
+                    fn get_NeedsSync(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveContainerInfoGetResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveContainerInfoGetResult {
+                    #[special]
+                    fn get_Status(&self) -> GameSaveErrorStatus;
+                    #[special]
+                    fn get_Value(&self) -> super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveContainerInfoQuery)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveContainerInfoQuery {
+                    #[Windows::Foundation::Metadata::Overload("GetContainerInfoAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::DefaultOverload]
+                    fn GetContainerInfoAsync(&self) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("GetContainerInfoWithIndexAndMaxAsync")]
+                    fn GetContainerInfoAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetItemCountAsync(&self) -> super::super::super::Foundation::IAsyncOperation<u32>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveOperationResult)]
+                interface IGameSaveOperationResult {
+                    #[special]
+                    fn get_Status(&self) -> GameSaveErrorStatus;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                interface IGameSaveProvider {
+                    #[special]
+                    fn get_User(&self) -> super::super::super::System::User;
+                    fn CreateContainer(&self, name: String) -> GameSaveContainer;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DeleteContainerAsync(&self, name: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>;
+                    #[Windows::Foundation::Metadata::DefaultOverload]
+                    #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQuery")]
+                    fn CreateContainerInfoQuery(&self) -> GameSaveContainerInfoQuery;
+                    #[Windows::Foundation::Metadata::Overload("CreateContainerInfoQueryWithName")]
+                    fn CreateContainerInfoQuery(&self, containerNamePrefix: String) -> GameSaveContainerInfoQuery;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetRemainingBytesInQuotaAsync(&self) -> super::super::super::Foundation::IAsyncOperation<i64>;
+                    #[special]
+                    fn get_ContainersChangedSinceLastSync(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveProviderGetResult)]
+                interface IGameSaveProviderGetResult {
+                    #[special]
+                    fn get_Status(&self) -> GameSaveErrorStatus;
+                    #[special]
+                    fn get_Value(&self) -> GameSaveProvider;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::StorageApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameSaveProvider)]
+                interface IGameSaveProviderStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetForUserAsync(&self, user: super::super::super::System::User, serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetSyncOnDemandForUserAsync(&self, user: super::super::super::System::User, serviceConfigId: String) -> super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>;
+                }
+            }
+        }
+    }
+}

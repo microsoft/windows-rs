@@ -1,0 +1,1144 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            #[win32]
+            mod ExtensibleAuthenticationProtocol {
+                const CERTIFICATE_HASH_LENGTH: u32 = 20;
+                const EAPCODE_Failure: u32 = 4;
+                const EAPCODE_Request: u32 = 1;
+                const EAPCODE_Response: u32 = 2;
+                const EAPCODE_Success: u32 = 3;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ns-eaphostpeertypes-eaphost_auth_info")]
+                struct EAPHOST_AUTH_INFO {
+                    status: EAPHOST_AUTH_STATUS,
+                    dwErrorCode: u32,
+                    dwReasonCode: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ne-eaphostpeertypes-eaphost_auth_status")]
+                enum EAPHOST_AUTH_STATUS {
+                    EapHostInvalidSession = 0,
+                    EapHostAuthNotStarted = 1,
+                    EapHostAuthIdentityExchange = 2,
+                    EapHostAuthNegotiatingType = 3,
+                    EapHostAuthInProgress = 4,
+                    EapHostAuthSucceeded = 5,
+                    EapHostAuthFailed = 6,
+                }
+                struct EAPHOST_IDENTITY_UI_PARAMS {
+                    eapMethodType: EAP_METHOD_TYPE,
+                    dwFlags: u32,
+                    dwSizeofConnectionData: u32,
+                    pConnectionData: *mut u8,
+                    dwSizeofUserData: u32,
+                    pUserData: *mut u8,
+                    dwSizeofUserDataOut: u32,
+                    pUserDataOut: *mut u8,
+                    pwszIdentity: super::super::Foundation::PWSTR,
+                    dwError: u32,
+                    pEapError: *mut EAP_ERROR,
+                }
+                struct EAPHOST_INTERACTIVE_UI_PARAMS {
+                    dwSizeofContextData: u32,
+                    pContextData: *mut u8,
+                    dwSizeofInteractiveUIData: u32,
+                    pInteractiveUIData: *mut u8,
+                    dwError: u32,
+                    pEapError: *mut EAP_ERROR,
+                }
+                const EAPHOST_METHOD_API_VERSION: u32 = 1;
+                const EAPHOST_PEER_API_VERSION: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_attribute")]
+                struct EAP_ATTRIBUTE {
+                    eaType: EAP_ATTRIBUTE_TYPE,
+                    dwLength: u32,
+                    pValue: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_attributes")]
+                struct EAP_ATTRIBUTES {
+                    dwNumberOfAttributes: u32,
+                    pAttribs: *mut EAP_ATTRIBUTE,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eap_attribute_type")]
+                enum EAP_ATTRIBUTE_TYPE {
+                    eatMinimum = 0,
+                    eatUserName = 1,
+                    eatUserPassword = 2,
+                    eatMD5CHAPPassword = 3,
+                    eatNASIPAddress = 4,
+                    eatNASPort = 5,
+                    eatServiceType = 6,
+                    eatFramedProtocol = 7,
+                    eatFramedIPAddress = 8,
+                    eatFramedIPNetmask = 9,
+                    eatFramedRouting = 10,
+                    eatFilterId = 11,
+                    eatFramedMTU = 12,
+                    eatFramedCompression = 13,
+                    eatLoginIPHost = 14,
+                    eatLoginService = 15,
+                    eatLoginTCPPort = 16,
+                    eatUnassigned17 = 17,
+                    eatReplyMessage = 18,
+                    eatCallbackNumber = 19,
+                    eatCallbackId = 20,
+                    eatUnassigned21 = 21,
+                    eatFramedRoute = 22,
+                    eatFramedIPXNetwork = 23,
+                    eatState = 24,
+                    eatClass = 25,
+                    eatVendorSpecific = 26,
+                    eatSessionTimeout = 27,
+                    eatIdleTimeout = 28,
+                    eatTerminationAction = 29,
+                    eatCalledStationId = 30,
+                    eatCallingStationId = 31,
+                    eatNASIdentifier = 32,
+                    eatProxyState = 33,
+                    eatLoginLATService = 34,
+                    eatLoginLATNode = 35,
+                    eatLoginLATGroup = 36,
+                    eatFramedAppleTalkLink = 37,
+                    eatFramedAppleTalkNetwork = 38,
+                    eatFramedAppleTalkZone = 39,
+                    eatAcctStatusType = 40,
+                    eatAcctDelayTime = 41,
+                    eatAcctInputOctets = 42,
+                    eatAcctOutputOctets = 43,
+                    eatAcctSessionId = 44,
+                    eatAcctAuthentic = 45,
+                    eatAcctSessionTime = 46,
+                    eatAcctInputPackets = 47,
+                    eatAcctOutputPackets = 48,
+                    eatAcctTerminateCause = 49,
+                    eatAcctMultiSessionId = 50,
+                    eatAcctLinkCount = 51,
+                    eatAcctEventTimeStamp = 55,
+                    eatMD5CHAPChallenge = 60,
+                    eatNASPortType = 61,
+                    eatPortLimit = 62,
+                    eatLoginLATPort = 63,
+                    eatTunnelType = 64,
+                    eatTunnelMediumType = 65,
+                    eatTunnelClientEndpoint = 66,
+                    eatTunnelServerEndpoint = 67,
+                    eatARAPPassword = 70,
+                    eatARAPFeatures = 71,
+                    eatARAPZoneAccess = 72,
+                    eatARAPSecurity = 73,
+                    eatARAPSecurityData = 74,
+                    eatPasswordRetry = 75,
+                    eatPrompt = 76,
+                    eatConnectInfo = 77,
+                    eatConfigurationToken = 78,
+                    eatEAPMessage = 79,
+                    eatSignature = 80,
+                    eatARAPChallengeResponse = 84,
+                    eatAcctInterimInterval = 85,
+                    eatNASIPv6Address = 95,
+                    eatFramedInterfaceId = 96,
+                    eatFramedIPv6Prefix = 97,
+                    eatLoginIPv6Host = 98,
+                    eatFramedIPv6Route = 99,
+                    eatFramedIPv6Pool = 100,
+                    eatARAPGuestLogon = 8096,
+                    eatCertificateOID = 8097,
+                    eatEAPConfiguration = 8098,
+                    eatPEAPEmbeddedEAPTypeId = 8099,
+                    eatPEAPFastRoamedSession = 8100,
+                    eatFastRoamedSession = 8100,
+                    eatEAPTLV = 8102,
+                    eatCredentialsChanged = 8103,
+                    eatInnerEapMethodType = 8104,
+                    eatClearTextPassword = 8107,
+                    eatQuarantineSoH = 8150,
+                    eatCertificateThumbprint = 8250,
+                    eatPeerId = 9000,
+                    eatServerId = 9001,
+                    eatMethodId = 9002,
+                    eatEMSK = 9003,
+                    eatSessionId = 9004,
+                    eatReserved = -1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapmethodauthenticatorapis/ns-eapmethodauthenticatorapis-eap_authenticator_method_routines")]
+                struct EAP_AUTHENTICATOR_METHOD_ROUTINES {
+                    dwSizeInBytes: u32,
+                    pEapType: *mut EAP_METHOD_TYPE,
+                    EapMethodAuthenticatorInitialize: isize,
+                    EapMethodAuthenticatorBeginSession: isize,
+                    EapMethodAuthenticatorUpdateInnerMethodParams: isize,
+                    EapMethodAuthenticatorReceivePacket: isize,
+                    EapMethodAuthenticatorSendPacket: isize,
+                    EapMethodAuthenticatorGetAttributes: isize,
+                    EapMethodAuthenticatorSetAttributes: isize,
+                    EapMethodAuthenticatorGetResult: isize,
+                    EapMethodAuthenticatorEndSession: isize,
+                    EapMethodAuthenticatorShutdown: isize,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatortypes/ne-eapauthenticatortypes-eap_authenticator_send_timeout")]
+                enum EAP_AUTHENTICATOR_SEND_TIMEOUT {
+                    EAP_AUTHENTICATOR_SEND_TIMEOUT_NONE = 0,
+                    EAP_AUTHENTICATOR_SEND_TIMEOUT_BASIC = 1,
+                    EAP_AUTHENTICATOR_SEND_TIMEOUT_INTERACTIVE = 2,
+                }
+                const EAP_AUTHENTICATOR_VALUENAME_CONFIGUI: String = "AuthenticatorConfigUIPath";
+                const EAP_AUTHENTICATOR_VALUENAME_DLL_PATH: String = "AuthenticatorDllPath";
+                const EAP_AUTHENTICATOR_VALUENAME_FRIENDLY_NAME: String = "AuthenticatorFriendlyName";
+                const EAP_AUTHENTICATOR_VALUENAME_PROPERTIES: String = "Properties";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_config_input_field_array")]
+                struct EAP_CONFIG_INPUT_FIELD_ARRAY {
+                    dwVersion: u32,
+                    dwNumberOfFields: u32,
+                    pFields: *mut EAP_CONFIG_INPUT_FIELD_DATA,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_config_input_field_data")]
+                struct EAP_CONFIG_INPUT_FIELD_DATA {
+                    dwSize: u32,
+                    Type: EAP_CONFIG_INPUT_FIELD_TYPE,
+                    dwFlagProps: u32,
+                    pwszLabel: super::super::Foundation::PWSTR,
+                    pwszData: super::super::Foundation::PWSTR,
+                    dwMinDataLength: u32,
+                    dwMaxDataLength: u32,
+                }
+                const EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT: u32 = 0;
+                const EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1;
+                const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eap_config_input_field_type")]
+                enum EAP_CONFIG_INPUT_FIELD_TYPE {
+                    EapConfigInputUsername = 0,
+                    EapConfigInputPassword = 1,
+                    EapConfigInputNetworkUsername = 2,
+                    EapConfigInputNetworkPassword = 3,
+                    EapConfigInputPin = 4,
+                    EapConfigInputPSK = 5,
+                    EapConfigInputEdit = 6,
+                    EapConfigSmartCardUsername = 7,
+                    EapConfigSmartCardError = 8,
+                }
+                const EAP_CREDENTIAL_VERSION: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_cred_expiry_req")]
+                struct EAP_CRED_EXPIRY_REQ {
+                    curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+                    newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_error")]
+                struct EAP_ERROR {
+                    dwWinError: u32,
+                    r#type: EAP_METHOD_TYPE,
+                    dwReasonCode: u32,
+                    rootCauseGuid: GUID,
+                    repairGuid: GUID,
+                    helpLinkGuid: GUID,
+                    pRootCauseString: super::super::Foundation::PWSTR,
+                    pRepairString: super::super::Foundation::PWSTR,
+                }
+                const EAP_E_AUTHENTICATION_FAILED: u32 = 2151809045;
+                const EAP_E_CERT_STORE_INACCESSIBLE: u32 = 2151809040;
+                const EAP_E_EAPHOST_EAPQEC_INACCESSIBLE: u32 = 2151809043;
+                const EAP_E_EAPHOST_FIRST: i32 = -2143158272;
+                const EAP_E_EAPHOST_IDENTITY_UNKNOWN: u32 = 2151809044;
+                const EAP_E_EAPHOST_LAST: i32 = -2143158017;
+                const EAP_E_EAPHOST_METHOD_INVALID_PACKET: u32 = 2151809047;
+                const EAP_E_EAPHOST_METHOD_NOT_INSTALLED: u32 = 2151809041;
+                const EAP_E_EAPHOST_METHOD_OPERATION_NOT_SUPPORTED: u32 = 2151809056;
+                const EAP_E_EAPHOST_REMOTE_INVALID_PACKET: u32 = 2151809048;
+                const EAP_E_EAPHOST_THIRDPARTY_METHOD_HOST_RESET: u32 = 2151809042;
+                const EAP_E_EAPHOST_XML_MALFORMED: u32 = 2151809049;
+                const EAP_E_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO: u32 = 2151809050;
+                const EAP_E_NO_SMART_CARD_READER: u32 = 2151809299;
+                const EAP_E_SERVER_CERT_EXPIRED: u32 = 2151809538;
+                const EAP_E_SERVER_CERT_INVALID: u32 = 2151809537;
+                const EAP_E_SERVER_CERT_NOT_FOUND: u32 = 2151809536;
+                const EAP_E_SERVER_CERT_OTHER_ERROR: u32 = 2151809540;
+                const EAP_E_SERVER_CERT_REVOKED: u32 = 2151809539;
+                const EAP_E_SERVER_FIRST: i32 = -2143157760;
+                const EAP_E_SERVER_LAST: i32 = -2143157505;
+                const EAP_E_SERVER_ROOT_CERT_FIRST: i32 = -2143157248;
+                const EAP_E_SERVER_ROOT_CERT_INVALID: u32 = 2151810049;
+                const EAP_E_SERVER_ROOT_CERT_LAST: i32 = -2143156993;
+                const EAP_E_SERVER_ROOT_CERT_NAME_REQUIRED: u32 = 2151810054;
+                const EAP_E_SERVER_ROOT_CERT_NOT_FOUND: u32 = 2151810048;
+                const EAP_E_SIM_NOT_VALID: u32 = 2151810304;
+                const EAP_E_USER_CERT_EXPIRED: u32 = 2151809282;
+                const EAP_E_USER_CERT_INVALID: u32 = 2151809281;
+                const EAP_E_USER_CERT_NOT_FOUND: u32 = 2151809280;
+                const EAP_E_USER_CERT_OTHER_ERROR: u32 = 2151809284;
+                const EAP_E_USER_CERT_REJECTED: u32 = 2151809285;
+                const EAP_E_USER_CERT_REVOKED: u32 = 2151809283;
+                const EAP_E_USER_CREDENTIALS_REJECTED: u32 = 2151809297;
+                const EAP_E_USER_FIRST: i32 = -2143158016;
+                const EAP_E_USER_LAST: i32 = -2143157761;
+                const EAP_E_USER_NAME_PASSWORD_REJECTED: u32 = 2151809298;
+                const EAP_E_USER_ROOT_CERT_EXPIRED: u32 = 2151809794;
+                const EAP_E_USER_ROOT_CERT_FIRST: i32 = -2143157504;
+                const EAP_E_USER_ROOT_CERT_INVALID: u32 = 2151809793;
+                const EAP_E_USER_ROOT_CERT_LAST: i32 = -2143157249;
+                const EAP_E_USER_ROOT_CERT_NOT_FOUND: u32 = 2151809792;
+                const EAP_FLAG_CONFG_READONLY: u32 = 524288;
+                const EAP_FLAG_FULL_AUTH: u32 = 4096;
+                const EAP_FLAG_GUEST_ACCESS: u32 = 64;
+                const EAP_FLAG_LOGON: u32 = 4;
+                const EAP_FLAG_MACHINE_AUTH: u32 = 32;
+                const EAP_FLAG_NON_INTERACTIVE: u32 = 2;
+                const EAP_FLAG_ONLY_EAP_TLS: u32 = 16777216;
+                const EAP_FLAG_PREFER_ALT_CREDENTIALS: u32 = 8192;
+                const EAP_FLAG_PREVIEW: u32 = 8;
+                const EAP_FLAG_PRE_LOGON: u32 = 131072;
+                const EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512;
+                const EAP_FLAG_Reserved1: u32 = 1;
+                const EAP_FLAG_Reserved2: u32 = 16;
+                const EAP_FLAG_Reserved3: u32 = 128;
+                const EAP_FLAG_Reserved4: u32 = 256;
+                const EAP_FLAG_Reserved5: u32 = 1024;
+                const EAP_FLAG_Reserved6: u32 = 2048;
+                const EAP_FLAG_Reserved7: u32 = 16384;
+                const EAP_FLAG_Reserved8: u32 = 1048576;
+                const EAP_FLAG_Reserved9: u32 = 4194304;
+                const EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432;
+                const EAP_FLAG_SUPRESS_UI: u32 = 65536;
+                const EAP_FLAG_USER_AUTH: u32 = 262144;
+                const EAP_FLAG_VPN: u32 = 8388608;
+                const EAP_GROUP_MASK: i32 = 65280;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_interactive_ui_data")]
+                struct EAP_INTERACTIVE_UI_DATA {
+                    dwVersion: u32,
+                    dwSize: u32,
+                    dwDataType: EAP_INTERACTIVE_UI_DATA_TYPE,
+                    cbUiData: u32,
+                    pbUiData: EAP_UI_DATA_FORMAT,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eap_interactive_ui_data_type")]
+                enum EAP_INTERACTIVE_UI_DATA_TYPE {
+                    EapCredReq = 0,
+                    EapCredResp = 1,
+                    EapCredExpiryReq = 2,
+                    EapCredExpiryResp = 3,
+                    EapCredLogonReq = 4,
+                    EapCredLogonResp = 5,
+                }
+                const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1;
+                const EAP_INVALID_PACKET: u32 = 2151809048;
+                const EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED: u32 = 1078067222;
+                const EAP_I_EAPHOST_FIRST: i32 = -2143158272;
+                const EAP_I_EAPHOST_LAST: i32 = -2143158017;
+                const EAP_I_USER_ACCOUNT_OTHER_ERROR: u32 = 1078067472;
+                const EAP_I_USER_FIRST: i32 = 1078067456;
+                const EAP_I_USER_LAST: i32 = 1078067711;
+                const EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatoractiondefine/ne-eapauthenticatoractiondefine-eap_method_authenticator_response_action")]
+                enum EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION {
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_DISCARD = 0,
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_SEND = 1,
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_RESULT = 2,
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_RESPOND = 3,
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_AUTHENTICATE = 4,
+                    EAP_METHOD_AUTHENTICATOR_RESPONSE_HANDLE_IDENTITY = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatoractiondefine/ns-eapauthenticatoractiondefine-eap_method_authenticator_result")]
+                struct EAP_METHOD_AUTHENTICATOR_RESULT {
+                    fIsSuccess: super::super::Foundation::BOOL,
+                    dwFailureReason: u32,
+                    pAuthAttribs: *mut EAP_ATTRIBUTES,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_info")]
+                struct EAP_METHOD_INFO {
+                    eaptype: EAP_METHOD_TYPE,
+                    pwszAuthorName: super::super::Foundation::PWSTR,
+                    pwszFriendlyName: super::super::Foundation::PWSTR,
+                    eapProperties: u32,
+                    pInnerMethodInfo: *mut EAP_METHOD_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_info_array")]
+                struct EAP_METHOD_INFO_ARRAY {
+                    dwNumberOfMethods: u32,
+                    pEapMethods: *mut EAP_METHOD_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_info_array_ex")]
+                struct EAP_METHOD_INFO_ARRAY_EX {
+                    dwNumberOfMethods: u32,
+                    pEapMethods: *mut EAP_METHOD_INFO_EX,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_info_ex")]
+                struct EAP_METHOD_INFO_EX {
+                    eaptype: EAP_METHOD_TYPE,
+                    pwszAuthorName: super::super::Foundation::PWSTR,
+                    pwszFriendlyName: super::super::Foundation::PWSTR,
+                    eapProperties: u32,
+                    pInnerMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY_EX,
+                }
+                const EAP_METHOD_INVALID_PACKET: u32 = 2151809047;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property")]
+                struct EAP_METHOD_PROPERTY {
+                    eapMethodPropertyType: EAP_METHOD_PROPERTY_TYPE,
+                    eapMethodPropertyValueType: EAP_METHOD_PROPERTY_VALUE_TYPE,
+                    eapMethodPropertyValue: EAP_METHOD_PROPERTY_VALUE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property_array")]
+                struct EAP_METHOD_PROPERTY_ARRAY {
+                    dwNumberOfProperties: u32,
+                    pMethodProperty: *mut EAP_METHOD_PROPERTY,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eap_method_property_type")]
+                enum EAP_METHOD_PROPERTY_TYPE {
+                    emptPropCipherSuiteNegotiation = 0,
+                    emptPropMutualAuth = 1,
+                    emptPropIntegrity = 2,
+                    emptPropReplayProtection = 3,
+                    emptPropConfidentiality = 4,
+                    emptPropKeyDerivation = 5,
+                    emptPropKeyStrength64 = 6,
+                    emptPropKeyStrength128 = 7,
+                    emptPropKeyStrength256 = 8,
+                    emptPropKeyStrength512 = 9,
+                    emptPropKeyStrength1024 = 10,
+                    emptPropDictionaryAttackResistance = 11,
+                    emptPropFastReconnect = 12,
+                    emptPropCryptoBinding = 13,
+                    emptPropSessionIndependence = 14,
+                    emptPropFragmentation = 15,
+                    emptPropChannelBinding = 16,
+                    emptPropNap = 17,
+                    emptPropStandalone = 18,
+                    emptPropMppeEncryption = 19,
+                    emptPropTunnelMethod = 20,
+                    emptPropSupportsConfig = 21,
+                    emptPropCertifiedMethod = 22,
+                    emptPropHiddenMethod = 23,
+                    emptPropMachineAuth = 24,
+                    emptPropUserAuth = 25,
+                    emptPropIdentityPrivacy = 26,
+                    emptPropMethodChaining = 27,
+                    emptPropSharedStateEquivalence = 28,
+                    emptLegacyMethodPropertyFlag = 31,
+                    emptPropVendorSpecific = 255,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property_value")]
+                union EAP_METHOD_PROPERTY_VALUE {
+                    empvBool: EAP_METHOD_PROPERTY_VALUE_BOOL,
+                    empvDword: EAP_METHOD_PROPERTY_VALUE_DWORD,
+                    empvString: EAP_METHOD_PROPERTY_VALUE_STRING,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property_value_bool")]
+                struct EAP_METHOD_PROPERTY_VALUE_BOOL {
+                    length: u32,
+                    value: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property_value_dword")]
+                struct EAP_METHOD_PROPERTY_VALUE_DWORD {
+                    length: u32,
+                    value: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_property_value_string")]
+                struct EAP_METHOD_PROPERTY_VALUE_STRING {
+                    length: u32,
+                    value: *mut u8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eap_method_property_value_type")]
+                enum EAP_METHOD_PROPERTY_VALUE_TYPE {
+                    empvtBool = 0,
+                    empvtDword = 1,
+                    empvtString = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_method_type")]
+                struct EAP_METHOD_TYPE {
+                    eapType: EAP_TYPE,
+                    dwAuthorId: u32,
+                }
+                const EAP_PEER_FLAG_GUEST_ACCESS: u32 = 64;
+                const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapmethodpeerapis/ns-eapmethodpeerapis-eap_peer_method_routines")]
+                struct EAP_PEER_METHOD_ROUTINES {
+                    dwVersion: u32,
+                    pEapType: *mut EAP_TYPE,
+                    EapPeerInitialize: isize,
+                    EapPeerGetIdentity: isize,
+                    EapPeerBeginSession: isize,
+                    EapPeerSetCredentials: isize,
+                    EapPeerProcessRequestPacket: isize,
+                    EapPeerGetResponsePacket: isize,
+                    EapPeerGetResult: isize,
+                    EapPeerGetUIContext: isize,
+                    EapPeerSetUIContext: isize,
+                    EapPeerGetResponseAttributes: isize,
+                    EapPeerSetResponseAttributes: isize,
+                    EapPeerEndSession: isize,
+                    EapPeerShutdown: isize,
+                }
+                const EAP_PEER_VALUENAME_CONFIGUI: String = "PeerConfigUIPath";
+                const EAP_PEER_VALUENAME_DLL_PATH: String = "PeerDllPath";
+                const EAP_PEER_VALUENAME_FRIENDLY_NAME: String = "PeerFriendlyName";
+                const EAP_PEER_VALUENAME_IDENTITY: String = "PeerIdentityPath";
+                const EAP_PEER_VALUENAME_INTERACTIVEUI: String = "PeerInteractiveUIPath";
+                const EAP_PEER_VALUENAME_INVOKE_NAMEDLG: String = "PeerInvokeUsernameDialog";
+                const EAP_PEER_VALUENAME_INVOKE_PWDDLG: String = "PeerInvokePasswordDialog";
+                const EAP_PEER_VALUENAME_PROPERTIES: String = "Properties";
+                const EAP_PEER_VALUENAME_REQUIRE_CONFIGUI: String = "PeerRequireConfigUI";
+                const EAP_REGISTRY_LOCATION: String = "System\\CurrentControlSet\\Services\\EapHost\\Methods";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_type")]
+                struct EAP_TYPE {
+                    r#type: u8,
+                    dwVendorId: u32,
+                    dwVendorType: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eap_ui_data_format")]
+                union EAP_UI_DATA_FORMAT {
+                    credData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
+                    credExpiryData: *mut EAP_CRED_EXPIRY_REQ,
+                    credLogonData: *mut EAP_CONFIG_INPUT_FIELD_ARRAY,
+                }
+                const EAP_UI_INPUT_FIELD_PROPS_DEFAULT: u32 = 0;
+                const EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE: u32 = 1;
+                const EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
+                const EAP_UI_INPUT_FIELD_PROPS_READ_ONLY: u32 = 4;
+                const EAP_VALUENAME_PROPERTIES: String = "Properties";
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eapcertificatecredential")]
+                struct EapCertificateCredential {
+                    certHash: [u8; 20],
+                    password: super::super::Foundation::PWSTR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapmethodtypes/ne-eapmethodtypes-eapcode")]
+                enum EapCode {
+                    EapCodeMinimum = 1,
+                    EapCodeRequest = 1,
+                    EapCodeResponse = 2,
+                    EapCodeSuccess = 3,
+                    EapCodeFailure = 4,
+                    EapCodeMaximum = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eapcredential")]
+                struct EapCredential {
+                    credType: EapCredentialType,
+                    credData: EapCredentialTypeData,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ne-eaptypes-eapcredentialtype")]
+                enum EapCredentialType {
+                    EAP_EMPTY_CREDENTIAL = 0,
+                    EAP_USERNAME_PASSWORD_CREDENTIAL = 1,
+                    EAP_WINLOGON_CREDENTIAL = 2,
+                    EAP_CERTIFICATE_CREDENTIAL = 3,
+                    EAP_SIM_CREDENTIAL = 4,
+                }
+                union EapCredentialTypeData {
+                    username_password: EapUsernamePasswordCredential,
+                    certificate: EapCertificateCredential,
+                    sim: EapSimCredential,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ne-eaphostpeertypes-eaphostpeerauthparams")]
+                enum EapHostPeerAuthParams {
+                    EapHostPeerAuthStatus = 1,
+                    EapHostPeerIdentity = 2,
+                    EapHostPeerIdentityExtendedInfo = 3,
+                    EapHostNapInfo = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerbeginsession")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerBeginSession(dwFlags: u32, eapType: EAP_METHOD_TYPE, pAttributeArray: *mut EAP_ATTRIBUTES, hTokenImpersonateUser: super::super::Foundation::HANDLE, dwSizeofConnectionData: u32, pConnectionData: *mut u8, dwSizeofUserData: u32, pUserData: *mut u8, dwMaxSendPacketSize: u32, pConnectionId: *mut GUID, func: NotificationHandler, pContextData: *mut void, pSessionId: *mut u32, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerclearconnection")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerClearConnection(pConnectionId: *mut GUID, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerconfigblob2xml")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerConfigBlob2Xml(dwFlags: u32, eapMethodType: EAP_METHOD_TYPE, dwSizeOfConfigIn: u32, pConfigIn: *mut u8, ppConfigDoc: *mut super::super::Data::Xml::MsXml::IXMLDOMDocument2, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerconfigxml2blob")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerConfigXml2Blob(dwFlags: u32, pConfigDoc: super::super::Data::Xml::MsXml::IXMLDOMNode, pdwSizeOfConfigOut: *mut u32, ppConfigOut: *mut *mut u8, pEapMethodType: *mut EAP_METHOD_TYPE, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeercredentialsxml2blob")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerCredentialsXml2Blob(dwFlags: u32, pCredentialsDoc: super::super::Data::Xml::MsXml::IXMLDOMNode, dwSizeOfConfigIn: u32, pConfigIn: *mut u8, pdwSizeOfCredentialsOut: *mut u32, ppCredentialsOut: *mut *mut u8, pEapMethodType: *mut EAP_METHOD_TYPE, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerendsession")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerEndSession(sessionHandle: u32, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerfreeeaperror")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerFreeEapError(pEapError: *mut EAP_ERROR);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerfreeerrormemory")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerFreeErrorMemory(pEapError: *mut EAP_ERROR);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerfreememory")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerFreeMemory(pData: *mut u8);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerfreeruntimememory")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerFreeRuntimeMemory(pData: *mut u8);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetauthstatus")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetAuthStatus(sessionHandle: u32, authParam: EapHostPeerAuthParams, pcbAuthData: *mut u32, ppAuthData: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetdatatounplumbcredentials")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetDataToUnplumbCredentials(pConnectionIdThatLastSavedCreds: *mut GUID, phCredentialImpersonationToken: *mut isize, sessionHandle: u32, ppEapError: *mut *mut EAP_ERROR, fSaveToCredMan: *mut super::super::Foundation::BOOL) -> u32;
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetEncryptedPassword(dwSizeofPassword: u32, szPassword: super::super::Foundation::PWSTR, ppszEncPassword: *mut super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetidentity")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetIdentity(dwVersion: u32, dwFlags: u32, eapMethodType: EAP_METHOD_TYPE, dwSizeofConnectionData: u32, pConnectionData: *mut u8, dwSizeofUserData: u32, pUserData: *mut u8, hTokenImpersonateUser: super::super::Foundation::HANDLE, pfInvokeUI: *mut super::super::Foundation::BOOL, pdwSizeOfUserDataOut: *mut u32, ppUserDataOut: *mut *mut u8, ppwszIdentity: *mut super::super::Foundation::PWSTR, ppEapError: *mut *mut EAP_ERROR, ppvReserved: *mut *mut u8) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeergetmethodproperties")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerGetMethodProperties(dwVersion: u32, dwFlags: u32, eapMethodType: EAP_METHOD_TYPE, hUserImpersonationToken: super::super::Foundation::HANDLE, dwEapConnDataSize: u32, pbEapConnData: *mut u8, dwUserDataSize: u32, pbUserData: *mut u8, pMethodPropertyArray: *mut EAP_METHOD_PROPERTY_ARRAY, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeergetmethods")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerGetMethods(pEapMethodInfoArray: *mut EAP_METHOD_INFO_ARRAY, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetresponseattributes")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetResponseAttributes(sessionHandle: u32, pAttribs: *mut EAP_ATTRIBUTES, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetresult")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetResult(sessionHandle: u32, reason: EapHostPeerMethodResultReason, ppResult: *mut EapHostPeerMethodResult, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetsendpacket")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetSendPacket(sessionHandle: u32, pcbSendPacket: *mut u32, ppSendPacket: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeergetuicontext")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerGetUIContext(sessionHandle: u32, pdwSizeOfUIContextData: *mut u32, ppUIContextData: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerinitialize")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerInitialize() -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerinvokeconfigui")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerInvokeConfigUI(hwndParent: super::super::Foundation::HWND, dwFlags: u32, eapMethodType: EAP_METHOD_TYPE, dwSizeOfConfigIn: u32, pConfigIn: *mut u8, pdwSizeOfConfigOut: *mut u32, ppConfigOut: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerinvokeidentityui")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerInvokeIdentityUI(dwVersion: u32, eapMethodType: EAP_METHOD_TYPE, dwFlags: u32, hwndParent: super::super::Foundation::HWND, dwSizeofConnectionData: u32, pConnectionData: *mut u8, dwSizeofUserData: u32, pUserData: *mut u8, pdwSizeOfUserDataOut: *mut u32, ppUserDataOut: *mut *mut u8, ppwszIdentity: *mut super::super::Foundation::PWSTR, ppEapError: *mut *mut EAP_ERROR, ppvReserved: *mut *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerinvokeinteractiveui")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerInvokeInteractiveUI(hwndParent: super::super::Foundation::HWND, dwSizeofUIContextData: u32, pUIContextData: *mut u8, pdwSizeOfDataFromInteractiveUI: *mut u32, ppDataFromInteractiveUI: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ns-eaphostpeertypes-eaphostpeermethodresult")]
+                struct EapHostPeerMethodResult {
+                    fIsSuccess: super::super::Foundation::BOOL,
+                    dwFailureReasonCode: u32,
+                    fSaveConnectionData: super::super::Foundation::BOOL,
+                    dwSizeofConnectionData: u32,
+                    pConnectionData: *mut u8,
+                    fSaveUserData: super::super::Foundation::BOOL,
+                    dwSizeofUserData: u32,
+                    pUserData: *mut u8,
+                    pAttribArray: *mut EAP_ATTRIBUTES,
+                    isolationState: ISOLATION_STATE,
+                    pEapMethodInfo: *mut EAP_METHOD_INFO,
+                    pEapError: *mut EAP_ERROR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ne-eaphostpeertypes-eaphostpeermethodresultreason")]
+                enum EapHostPeerMethodResultReason {
+                    EapHostPeerMethodResultAltSuccessReceived = 1,
+                    EapHostPeerMethodResultTimeout = 2,
+                    EapHostPeerMethodResultFromMethod = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeerprocessreceivedpacket")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerProcessReceivedPacket(sessionHandle: u32, cbReceivePacket: u32, pReceivePacket: *mut u8, pEapOutput: *mut EapHostPeerResponseAction, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerquerycredentialinputfields")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerQueryCredentialInputFields(hUserImpersonationToken: super::super::Foundation::HANDLE, eapMethodType: EAP_METHOD_TYPE, dwFlags: u32, dwEapConnDataSize: u32, pbEapConnData: *mut u8, pEapConfigInputFieldArray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerqueryinteractiveuiinputfields")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerQueryInteractiveUIInputFields(dwVersion: u32, dwFlags: u32, dwSizeofUIContextData: u32, pUIContextData: *mut u8, pEapInteractiveUIData: *mut EAP_INTERACTIVE_UI_DATA, ppEapError: *mut *mut EAP_ERROR, ppvReserved: *mut *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerqueryuiblobfrominteractiveuiinputfields")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwVersion: u32, dwFlags: u32, dwSizeofUIContextData: u32, pUIContextData: *mut u8, pEapInteractiveUIData: *mut EAP_INTERACTIVE_UI_DATA, pdwSizeOfDataFromInteractiveUI: *mut u32, ppDataFromInteractiveUI: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR, ppvReserved: *mut *mut void) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeerconfigapis/nf-eaphostpeerconfigapis-eaphostpeerqueryuserblobfromcredentialinputfields")]
+                #[library("eappcfg.dll")]
+                extern fn EapHostPeerQueryUserBlobFromCredentialInputFields(hUserImpersonationToken: super::super::Foundation::HANDLE, eapMethodType: EAP_METHOD_TYPE, dwFlags: u32, dwEapConnDataSize: u32, pbEapConnData: *mut u8, pEapConfigInputFieldArray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, pdwUserBlobSize: *mut u32, ppbUserBlob: *mut *mut u8, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ne-eaphostpeertypes-eaphostpeerresponseaction")]
+                enum EapHostPeerResponseAction {
+                    EapHostPeerResponseDiscard = 0,
+                    EapHostPeerResponseSend = 1,
+                    EapHostPeerResponseResult = 2,
+                    EapHostPeerResponseInvokeUi = 3,
+                    EapHostPeerResponseRespond = 4,
+                    EapHostPeerResponseStartAuthentication = 5,
+                    EapHostPeerResponseNone = 6,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeersetresponseattributes")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerSetResponseAttributes(sessionHandle: u32, pAttribs: *mut EAP_ATTRIBUTES, pEapOutput: *mut EapHostPeerResponseAction, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeersetuicontext")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerSetUIContext(sessionHandle: u32, dwSizeOfUIContextData: u32, pUIContextData: *mut u8, pEapOutput: *mut EapHostPeerResponseAction, ppEapError: *mut *mut EAP_ERROR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eappapis/nf-eappapis-eaphostpeeruninitialize")]
+                #[library("eappprxy.dll")]
+                extern fn EapHostPeerUninitialize();
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapmethodtypes/ns-eapmethodtypes-eappacket")]
+                struct EapPacket {
+                    Code: u8,
+                    Id: u8,
+                    Length: [u8; 2],
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatoractiondefine/ns-eapauthenticatoractiondefine-eappeermethodoutput")]
+                struct EapPeerMethodOutput {
+                    action: EapPeerMethodResponseAction,
+                    fAllowNotifications: super::super::Foundation::BOOL,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatoractiondefine/ne-eapauthenticatoractiondefine-eappeermethodresponseaction")]
+                enum EapPeerMethodResponseAction {
+                    EapPeerMethodResponseActionDiscard = 0,
+                    EapPeerMethodResponseActionSend = 1,
+                    EapPeerMethodResponseActionResult = 2,
+                    EapPeerMethodResponseActionInvokeUI = 3,
+                    EapPeerMethodResponseActionRespond = 4,
+                    EapPeerMethodResponseActionNone = 5,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapmethodpeerapis/ns-eapmethodpeerapis-eappeermethodresult")]
+                struct EapPeerMethodResult {
+                    fIsSuccess: super::super::Foundation::BOOL,
+                    dwFailureReasonCode: u32,
+                    fSaveConnectionData: super::super::Foundation::BOOL,
+                    dwSizeofConnectionData: u32,
+                    pConnectionData: *mut u8,
+                    fSaveUserData: super::super::Foundation::BOOL,
+                    dwSizeofUserData: u32,
+                    pUserData: *mut u8,
+                    pAttribArray: *mut EAP_ATTRIBUTES,
+                    pEapError: *mut EAP_ERROR,
+                    pNgcKerbTicket: *mut NgcTicketContext,
+                    fSaveToCredMan: super::super::Foundation::BOOL,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eapauthenticatoractiondefine/ne-eapauthenticatoractiondefine-eappeermethodresultreason")]
+                enum EapPeerMethodResultReason {
+                    EapPeerMethodResultUnknown = 1,
+                    EapPeerMethodResultSuccess = 2,
+                    EapPeerMethodResultFailure = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eapsimcredential")]
+                struct EapSimCredential {
+                    iccID: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaptypes/ns-eaptypes-eapusernamepasswordcredential")]
+                struct EapUsernamePasswordCredential {
+                    username: super::super::Foundation::PWSTR,
+                    password: super::super::Foundation::PWSTR,
+                }
+                const FACILITY_EAP_MESSAGE: u32 = 2114;
+                const GUID_EapHost_Cause_CertStoreInaccessible: GUID = 0x9612fc67_6150_4209_a85e_a8d800000004;
+                const GUID_EapHost_Cause_EapNegotiationFailed: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001c;
+                const GUID_EapHost_Cause_EapQecInaccessible: GUID = 0x9612fc67_6150_4209_a85e_a8d800000312;
+                const GUID_EapHost_Cause_Generic_AuthFailure: GUID = 0x9612fc67_6150_4209_a85e_a8d800000104;
+                const GUID_EapHost_Cause_IdentityUnknown: GUID = 0x9612fc67_6150_4209_a85e_a8d800000204;
+                const GUID_EapHost_Cause_MethodDLLNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000001;
+                const GUID_EapHost_Cause_MethodDoesNotSupportOperation: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001e;
+                const GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso: GUID = 0xda18bd32_004f_41fa_ae08_0bc85e5845ac;
+                const GUID_EapHost_Cause_No_SmartCardReader_Found: GUID = 0x9612fc67_6150_4209_a85e_a8d80000002b;
+                const GUID_EapHost_Cause_Server_CertExpired: GUID = 0x9612fc67_6150_4209_a85e_a8d800000005;
+                const GUID_EapHost_Cause_Server_CertInvalid: GUID = 0x9612fc67_6150_4209_a85e_a8d800000006;
+                const GUID_EapHost_Cause_Server_CertNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000007;
+                const GUID_EapHost_Cause_Server_CertOtherError: GUID = 0x9612fc67_6150_4209_a85e_a8d800000108;
+                const GUID_EapHost_Cause_Server_CertRevoked: GUID = 0x9612fc67_6150_4209_a85e_a8d800000008;
+                const GUID_EapHost_Cause_Server_Root_CertNameRequired: GUID = 0x9612fc67_6150_4209_a85e_a8d800000012;
+                const GUID_EapHost_Cause_Server_Root_CertNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000112;
+                const GUID_EapHost_Cause_SimNotValid: GUID = 0x9612fc67_6150_4209_a85e_a8d800000304;
+                const GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset: GUID = 0x9612fc67_6150_4209_a85e_a8d800000212;
+                const GUID_EapHost_Cause_User_Account_OtherProblem: GUID = 0x9612fc67_6150_4209_a85e_a8d80000010e;
+                const GUID_EapHost_Cause_User_CertExpired: GUID = 0x9612fc67_6150_4209_a85e_a8d800000009;
+                const GUID_EapHost_Cause_User_CertInvalid: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000a;
+                const GUID_EapHost_Cause_User_CertNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000b;
+                const GUID_EapHost_Cause_User_CertOtherError: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000c;
+                const GUID_EapHost_Cause_User_CertRejected: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000d;
+                const GUID_EapHost_Cause_User_CertRevoked: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000e;
+                const GUID_EapHost_Cause_User_CredsRejected: GUID = 0x9612fc67_6150_4209_a85e_a8d80000020e;
+                const GUID_EapHost_Cause_User_Root_CertExpired: GUID = 0x9612fc67_6150_4209_a85e_a8d80000000f;
+                const GUID_EapHost_Cause_User_Root_CertInvalid: GUID = 0x9612fc67_6150_4209_a85e_a8d800000010;
+                const GUID_EapHost_Cause_User_Root_CertNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000011;
+                const GUID_EapHost_Cause_XmlMalformed: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001d;
+                const GUID_EapHost_Default: GUID = 0x00000000_0000_0000_0000_000000000000;
+                const GUID_EapHost_Help_ObtainingCerts: GUID = 0xf535eea3_1bdd_46ca_a2fc_a6655939b7e8;
+                const GUID_EapHost_Help_Troubleshooting: GUID = 0x33307acf_0698_41ba_b014_ea0a2eb8d0a8;
+                const GUID_EapHost_Repair_ContactAdmin_AuthFailure: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001f;
+                const GUID_EapHost_Repair_ContactAdmin_CertNameAbsent: GUID = 0x9612fc67_6150_4209_a85e_a8d800000029;
+                const GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible: GUID = 0x9612fc67_6150_4209_a85e_a8d800000024;
+                const GUID_EapHost_Repair_ContactAdmin_IdentityUnknown: GUID = 0x9612fc67_6150_4209_a85e_a8d800000020;
+                const GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount: GUID = 0x9612fc67_6150_4209_a85e_a8d800000025;
+                const GUID_EapHost_Repair_ContactAdmin_InvalidUserCert: GUID = 0x9612fc67_6150_4209_a85e_a8d80000002c;
+                const GUID_EapHost_Repair_ContactAdmin_MethodNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000022;
+                const GUID_EapHost_Repair_ContactAdmin_NegotiationFailed: GUID = 0x9612fc67_6150_4209_a85e_a8d800000021;
+                const GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader: GUID = 0x9612fc67_6150_4209_a85e_a8d80000002a;
+                const GUID_EapHost_Repair_ContactAdmin_RootCertInvalid: GUID = 0x9612fc67_6150_4209_a85e_a8d800000026;
+                const GUID_EapHost_Repair_ContactAdmin_RootCertNotFound: GUID = 0x9612fc67_6150_4209_a85e_a8d800000027;
+                const GUID_EapHost_Repair_ContactAdmin_RootExpired: GUID = 0x9612fc67_6150_4209_a85e_a8d800000028;
+                const GUID_EapHost_Repair_ContactSysadmin: GUID = 0x9612fc67_6150_4209_a85e_a8d800000002;
+                const GUID_EapHost_Repair_Method_Not_Support_Sso: GUID = 0x9612fc67_6150_4209_a85e_a8d80000002d;
+                const GUID_EapHost_Repair_No_ValidSim_Found: GUID = 0x9612fc67_6150_4209_a85e_a8d80000002e;
+                const GUID_EapHost_Repair_RestartNap: GUID = 0x9612fc67_6150_4209_a85e_a8d800000023;
+                const GUID_EapHost_Repair_Retry_Authentication: GUID = 0x9612fc67_6150_4209_a85e_a8d80000011b;
+                const GUID_EapHost_Repair_Server_ClientSelectServerCert: GUID = 0x9612fc67_6150_4209_a85e_a8d800000018;
+                const GUID_EapHost_Repair_User_AuthFailure: GUID = 0x9612fc67_6150_4209_a85e_a8d800000019;
+                const GUID_EapHost_Repair_User_GetNewCert: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001a;
+                const GUID_EapHost_Repair_User_SelectValidCert: GUID = 0x9612fc67_6150_4209_a85e_a8d80000001b;
+                interface IAccountingProviderConfig: super::super::System::Com::IUnknown {
+                    fn Initialize(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMachineName: super::super::Foundation::PWSTR, puConnectionParam: *mut usize) -> super::super::Foundation::HRESULT;
+                    fn Uninitialize(&self, uConnectionParam: usize) -> super::super::Foundation::HRESULT;
+                    fn Configure(&self, uConnectionParam: usize, hWnd: super::super::Foundation::HWND, dwFlags: u32, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                    fn Activate(&self, uConnectionParam: usize, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                    fn Deactivate(&self, uConnectionParam: usize, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                }
+                interface IAuthenticationProviderConfig: super::super::System::Com::IUnknown {
+                    fn Initialize(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMachineName: super::super::Foundation::PWSTR, puConnectionParam: *mut usize) -> super::super::Foundation::HRESULT;
+                    fn Uninitialize(&self, uConnectionParam: usize) -> super::super::Foundation::HRESULT;
+                    fn Configure(&self, uConnectionParam: usize, hWnd: super::super::Foundation::HWND, dwFlags: u32, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                    fn Activate(&self, uConnectionParam: usize, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                    fn Deactivate(&self, uConnectionParam: usize, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nn-rrascfg-ieapproviderconfig")]
+                interface IEAPProviderConfig: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nf-rrascfg-ieapproviderconfig-initialize")]
+                    fn Initialize(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMachineName: super::super::Foundation::PWSTR, dwEapTypeId: u32, puConnectionParam: *mut usize) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nf-rrascfg-ieapproviderconfig-uninitialize")]
+                    fn Uninitialize(&self, dwEapTypeId: u32, uConnectionParam: usize) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nf-rrascfg-ieapproviderconfig-serverinvokeconfigui")]
+                    fn ServerInvokeConfigUI(&self, dwEapTypeId: u32, uConnectionParam: usize, hWnd: super::super::Foundation::HWND, uReserved1: usize, uReserved2: usize) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nf-rrascfg-ieapproviderconfig-routerinvokeconfigui")]
+                    fn RouterInvokeConfigUI(&self, dwEapTypeId: u32, uConnectionParam: usize, hwndParent: super::super::Foundation::HWND, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pConnectionDataIn: *mut u8, dwSizeOfConnectionDataIn: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] ppConnectionDataOut: *mut *mut u8, pdwSizeOfConnectionDataOut: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rrascfg/nf-rrascfg-ieapproviderconfig-routerinvokecredentialsui")]
+                    fn RouterInvokeCredentialsUI(&self, dwEapTypeId: u32, uConnectionParam: usize, hwndParent: super::super::Foundation::HWND, dwFlags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 5)] pConnectionDataIn: *mut u8, dwSizeOfConnectionDataIn: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] pUserDataIn: *mut u8, dwSizeOfUserDataIn: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 9)] ppUserDataOut: *mut *mut u8, pdwSizeOfUserDataOut: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IEAPProviderConfig2: IEAPProviderConfig {
+                    fn ServerInvokeConfigUI2(&self, dwEapTypeId: u32, uConnectionParam: usize, hWnd: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] pConfigDataIn: *mut u8, dwSizeOfConfigDataIn: u32, ppConfigDataOut: *mut *mut u8, pdwSizeOfConfigDataOut: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn GetGlobalConfig(&self, dwEapTypeId: u32, ppConfigDataOut: *mut *mut u8, pdwSizeOfConfigDataOut: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                interface IEAPProviderConfig3: IEAPProviderConfig2 {
+                    fn ServerInvokeCertificateConfigUI(&self, dwEapTypeId: u32, uConnectionParam: usize, hWnd: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] pConfigDataIn: *mut u8, dwSizeOfConfigDataIn: u32, ppConfigDataOut: *mut *mut u8, pdwSizeOfConfigDataOut: *mut u32, uReserved: usize) -> super::super::Foundation::HRESULT;
+                }
+                interface IRouterProtocolConfig: super::super::System::Com::IUnknown {
+                    fn AddProtocol(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMachineName: super::super::Foundation::PWSTR, dwTransportId: u32, dwProtocolId: u32, hWnd: super::super::Foundation::HWND, dwFlags: u32, pRouter: super::super::System::Com::IUnknown, uReserved1: usize) -> super::super::Foundation::HRESULT;
+                    fn RemoveProtocol(&self, #[Windows::Win32::Foundation::Metadata::Const] pszMachineName: super::super::Foundation::PWSTR, dwTransportId: u32, dwProtocolId: u32, hWnd: super::super::Foundation::HWND, dwFlags: u32, pRouter: super::super::System::Com::IUnknown, uReserved1: usize) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/eaphostpeertypes/ne-eaphostpeertypes-isolation_state")]
+                enum ISOLATION_STATE {
+                    ISOLATION_STATE_UNKNOWN = 0,
+                    ISOLATION_STATE_NOT_RESTRICTED = 1,
+                    ISOLATION_STATE_IN_PROBATION = 2,
+                    ISOLATION_STATE_RESTRICTED_ACCESS = 3,
+                }
+                struct LEGACY_IDENTITY_UI_PARAMS {
+                    eapType: u32,
+                    dwFlags: u32,
+                    dwSizeofConnectionData: u32,
+                    pConnectionData: *mut u8,
+                    dwSizeofUserData: u32,
+                    pUserData: *mut u8,
+                    dwSizeofUserDataOut: u32,
+                    pUserDataOut: *mut u8,
+                    pwszIdentity: super::super::Foundation::PWSTR,
+                    dwError: u32,
+                }
+                struct LEGACY_INTERACTIVE_UI_PARAMS {
+                    eapType: u32,
+                    dwSizeofContextData: u32,
+                    pContextData: *mut u8,
+                    dwSizeofInteractiveUIData: u32,
+                    pInteractiveUIData: *mut u8,
+                    dwError: u32,
+                }
+                const MAXEAPCODE: u32 = 4;
+                const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256;
+                const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024;
+                const NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH: u32 = 90;
+                struct NgcTicketContext {
+                    wszTicket: [u16; 45],
+                    hKey: super::Cryptography::NCRYPT_KEY_HANDLE,
+                    hImpersonateToken: super::super::Foundation::HANDLE,
+                }
+                extern fn NotificationHandler(connectionId: GUID, pContextData: *mut void);
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ne-raseapif-ppp_eap_action")]
+                enum PPP_EAP_ACTION {
+                    EAPACTION_NoAction = 0,
+                    EAPACTION_Authenticate = 1,
+                    EAPACTION_Done = 2,
+                    EAPACTION_SendAndDone = 3,
+                    EAPACTION_Send = 4,
+                    EAPACTION_SendWithTimeout = 5,
+                    EAPACTION_SendWithTimeoutInteractive = 6,
+                    EAPACTION_IndicateTLV = 7,
+                    EAPACTION_IndicateIdentity = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ns-raseapif-ppp_eap_info")]
+                struct PPP_EAP_INFO {
+                    dwSizeInBytes: u32,
+                    dwEapTypeId: u32,
+                    RasEapInitialize: isize,
+                    RasEapBegin: isize,
+                    RasEapEnd: isize,
+                    RasEapMakeMessage: isize,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ns-raseapif-ppp_eap_input")]
+                struct PPP_EAP_INPUT {
+                    dwSizeInBytes: u32,
+                    fFlags: u32,
+                    fAuthenticator: super::super::Foundation::BOOL,
+                    pwszIdentity: super::super::Foundation::PWSTR,
+                    pwszPassword: super::super::Foundation::PWSTR,
+                    bInitialId: u8,
+                    pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
+                    fAuthenticationComplete: super::super::Foundation::BOOL,
+                    dwAuthResultCode: u32,
+                    hTokenImpersonateUser: super::super::Foundation::HANDLE,
+                    fSuccessPacketReceived: super::super::Foundation::BOOL,
+                    fDataReceivedFromInteractiveUI: super::super::Foundation::BOOL,
+                    pDataFromInteractiveUI: *mut u8,
+                    dwSizeOfDataFromInteractiveUI: u32,
+                    pConnectionData: *mut u8,
+                    dwSizeOfConnectionData: u32,
+                    pUserData: *mut u8,
+                    dwSizeOfUserData: u32,
+                    hReserved: super::super::Foundation::HANDLE,
+                    guidConnectionId: GUID,
+                    isVpn: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ns-raseapif-ppp_eap_output")]
+                struct PPP_EAP_OUTPUT {
+                    dwSizeInBytes: u32,
+                    Action: PPP_EAP_ACTION,
+                    dwAuthResultCode: u32,
+                    pUserAttributes: *mut RAS_AUTH_ATTRIBUTE,
+                    fInvokeInteractiveUI: super::super::Foundation::BOOL,
+                    pUIContextData: *mut u8,
+                    dwSizeOfUIContextData: u32,
+                    fSaveConnectionData: super::super::Foundation::BOOL,
+                    pConnectionData: *mut u8,
+                    dwSizeOfConnectionData: u32,
+                    fSaveUserData: super::super::Foundation::BOOL,
+                    pUserData: *mut u8,
+                    dwSizeOfUserData: u32,
+                    pNgcKerbTicket: *mut NgcTicketContext,
+                    fSaveToCredMan: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ns-raseapif-ppp_eap_packet")]
+                struct PPP_EAP_PACKET {
+                    Code: u8,
+                    Id: u8,
+                    Length: [u8; 2],
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ns-raseapif-ras_auth_attribute")]
+                struct RAS_AUTH_ATTRIBUTE {
+                    raaType: RAS_AUTH_ATTRIBUTE_TYPE,
+                    dwLength: u32,
+                    Value: *mut void,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/raseapif/ne-raseapif-ras_auth_attribute_type")]
+                enum RAS_AUTH_ATTRIBUTE_TYPE {
+                    raatMinimum = 0,
+                    raatUserName = 1,
+                    raatUserPassword = 2,
+                    raatMD5CHAPPassword = 3,
+                    raatNASIPAddress = 4,
+                    raatNASPort = 5,
+                    raatServiceType = 6,
+                    raatFramedProtocol = 7,
+                    raatFramedIPAddress = 8,
+                    raatFramedIPNetmask = 9,
+                    raatFramedRouting = 10,
+                    raatFilterId = 11,
+                    raatFramedMTU = 12,
+                    raatFramedCompression = 13,
+                    raatLoginIPHost = 14,
+                    raatLoginService = 15,
+                    raatLoginTCPPort = 16,
+                    raatUnassigned17 = 17,
+                    raatReplyMessage = 18,
+                    raatCallbackNumber = 19,
+                    raatCallbackId = 20,
+                    raatUnassigned21 = 21,
+                    raatFramedRoute = 22,
+                    raatFramedIPXNetwork = 23,
+                    raatState = 24,
+                    raatClass = 25,
+                    raatVendorSpecific = 26,
+                    raatSessionTimeout = 27,
+                    raatIdleTimeout = 28,
+                    raatTerminationAction = 29,
+                    raatCalledStationId = 30,
+                    raatCallingStationId = 31,
+                    raatNASIdentifier = 32,
+                    raatProxyState = 33,
+                    raatLoginLATService = 34,
+                    raatLoginLATNode = 35,
+                    raatLoginLATGroup = 36,
+                    raatFramedAppleTalkLink = 37,
+                    raatFramedAppleTalkNetwork = 38,
+                    raatFramedAppleTalkZone = 39,
+                    raatAcctStatusType = 40,
+                    raatAcctDelayTime = 41,
+                    raatAcctInputOctets = 42,
+                    raatAcctOutputOctets = 43,
+                    raatAcctSessionId = 44,
+                    raatAcctAuthentic = 45,
+                    raatAcctSessionTime = 46,
+                    raatAcctInputPackets = 47,
+                    raatAcctOutputPackets = 48,
+                    raatAcctTerminateCause = 49,
+                    raatAcctMultiSessionId = 50,
+                    raatAcctLinkCount = 51,
+                    raatAcctEventTimeStamp = 55,
+                    raatMD5CHAPChallenge = 60,
+                    raatNASPortType = 61,
+                    raatPortLimit = 62,
+                    raatLoginLATPort = 63,
+                    raatTunnelType = 64,
+                    raatTunnelMediumType = 65,
+                    raatTunnelClientEndpoint = 66,
+                    raatTunnelServerEndpoint = 67,
+                    raatARAPPassword = 70,
+                    raatARAPFeatures = 71,
+                    raatARAPZoneAccess = 72,
+                    raatARAPSecurity = 73,
+                    raatARAPSecurityData = 74,
+                    raatPasswordRetry = 75,
+                    raatPrompt = 76,
+                    raatConnectInfo = 77,
+                    raatConfigurationToken = 78,
+                    raatEAPMessage = 79,
+                    raatSignature = 80,
+                    raatARAPChallengeResponse = 84,
+                    raatAcctInterimInterval = 85,
+                    raatNASIPv6Address = 95,
+                    raatFramedInterfaceId = 96,
+                    raatFramedIPv6Prefix = 97,
+                    raatLoginIPv6Host = 98,
+                    raatFramedIPv6Route = 99,
+                    raatFramedIPv6Pool = 100,
+                    raatARAPGuestLogon = 8096,
+                    raatCertificateOID = 8097,
+                    raatEAPConfiguration = 8098,
+                    raatPEAPEmbeddedEAPTypeId = 8099,
+                    raatInnerEAPTypeId = 8099,
+                    raatPEAPFastRoamedSession = 8100,
+                    raatFastRoamedSession = 8100,
+                    raatEAPTLV = 8102,
+                    raatCredentialsChanged = 8103,
+                    raatCertificateThumbprint = 8250,
+                    raatPeerId = 9000,
+                    raatServerId = 9001,
+                    raatMethodId = 9002,
+                    raatEMSK = 9003,
+                    raatSessionId = 9004,
+                    raatReserved = -1,
+                }
+                const RAS_EAP_FLAG_8021X_AUTH: u32 = 128;
+                const RAS_EAP_FLAG_ALTERNATIVE_USER_DB: u32 = 2048;
+                const RAS_EAP_FLAG_CONFG_READONLY: u32 = 524288;
+                const RAS_EAP_FLAG_FIRST_LINK: u32 = 16;
+                const RAS_EAP_FLAG_GUEST_ACCESS: u32 = 64;
+                const RAS_EAP_FLAG_HOSTED_IN_PEAP: u32 = 256;
+                const RAS_EAP_FLAG_LOGON: u32 = 4;
+                const RAS_EAP_FLAG_MACHINE_AUTH: u32 = 32;
+                const RAS_EAP_FLAG_NON_INTERACTIVE: u32 = 2;
+                const RAS_EAP_FLAG_PEAP_FORCE_FULL_AUTH: u32 = 4096;
+                const RAS_EAP_FLAG_PEAP_UPFRONT: u32 = 1024;
+                const RAS_EAP_FLAG_PREVIEW: u32 = 8;
+                const RAS_EAP_FLAG_PRE_LOGON: u32 = 131072;
+                const RAS_EAP_FLAG_RESERVED: u32 = 1048576;
+                const RAS_EAP_FLAG_RESUME_FROM_HIBERNATE: u32 = 512;
+                const RAS_EAP_FLAG_ROUTER: u32 = 1;
+                const RAS_EAP_FLAG_SAVE_CREDMAN: u32 = 2097152;
+                const RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED: u32 = 33554432;
+                const RAS_EAP_REGISTRY_LOCATION: String = "System\\CurrentControlSet\\Services\\Rasman\\PPP\\EAP";
+                const RAS_EAP_ROLE_AUTHENTICATEE: u32 = 2;
+                const RAS_EAP_ROLE_AUTHENTICATOR: u32 = 1;
+                const RAS_EAP_ROLE_EXCLUDE_IN_EAP: u32 = 4;
+                const RAS_EAP_ROLE_EXCLUDE_IN_PEAP: u32 = 8;
+                const RAS_EAP_ROLE_EXCLUDE_IN_VPN: u32 = 16;
+                const RAS_EAP_VALUENAME_CONFIGUI: String = "ConfigUIPath";
+                const RAS_EAP_VALUENAME_CONFIG_CLSID: String = "ConfigCLSID";
+                const RAS_EAP_VALUENAME_DEFAULT_DATA: String = "ConfigData";
+                const RAS_EAP_VALUENAME_ENCRYPTION: String = "MPPEEncryptionSupported";
+                const RAS_EAP_VALUENAME_FILTER_INNERMETHODS: String = "FilterInnerMethods";
+                const RAS_EAP_VALUENAME_FRIENDLY_NAME: String = "FriendlyName";
+                const RAS_EAP_VALUENAME_IDENTITY: String = "IdentityPath";
+                const RAS_EAP_VALUENAME_INTERACTIVEUI: String = "InteractiveUIPath";
+                const RAS_EAP_VALUENAME_INVOKE_NAMEDLG: String = "InvokeUsernameDialog";
+                const RAS_EAP_VALUENAME_INVOKE_PWDDLG: String = "InvokePasswordDialog";
+                const RAS_EAP_VALUENAME_ISTUNNEL_METHOD: String = "IsTunnelMethod";
+                const RAS_EAP_VALUENAME_PATH: String = "Path";
+                const RAS_EAP_VALUENAME_PER_POLICY_CONFIG: String = "PerPolicyConfig";
+                const RAS_EAP_VALUENAME_REQUIRE_CONFIGUI: String = "RequireConfigUI";
+                const RAS_EAP_VALUENAME_ROLES_SUPPORTED: String = "RolesSupported";
+                const RAS_EAP_VALUENAME_STANDALONE_SUPPORTED: String = "StandaloneSupported";
+                const eapPropCertifiedMethod: u32 = 4194304;
+                const eapPropChannelBinding: u32 = 65536;
+                const eapPropCipherSuiteNegotiation: u32 = 1;
+                const eapPropConfidentiality: u32 = 16;
+                const eapPropCryptoBinding: u32 = 8192;
+                const eapPropDictionaryAttackResistance: u32 = 2048;
+                const eapPropFastReconnect: u32 = 4096;
+                const eapPropFragmentation: u32 = 32768;
+                const eapPropHiddenMethod: u32 = 8388608;
+                const eapPropIdentityPrivacy: u32 = 67108864;
+                const eapPropIntegrity: u32 = 4;
+                const eapPropKeyDerivation: u32 = 32;
+                const eapPropKeyStrength1024: u32 = 1024;
+                const eapPropKeyStrength128: u32 = 128;
+                const eapPropKeyStrength256: u32 = 256;
+                const eapPropKeyStrength512: u32 = 512;
+                const eapPropKeyStrength64: u32 = 64;
+                const eapPropMachineAuth: u32 = 16777216;
+                const eapPropMethodChaining: u32 = 134217728;
+                const eapPropMppeEncryption: u32 = 524288;
+                const eapPropMutualAuth: u32 = 2;
+                const eapPropNap: u32 = 131072;
+                const eapPropReplayProtection: u32 = 8;
+                const eapPropReserved: u32 = 2147483648;
+                const eapPropSessionIndependence: u32 = 16384;
+                const eapPropSharedStateEquivalence: u32 = 268435456;
+                const eapPropStandalone: u32 = 262144;
+                const eapPropSupportsConfig: u32 = 2097152;
+                const eapPropTunnelMethod: u32 = 1048576;
+                const eapPropUserAuth: u32 = 33554432;
+                const raatARAPChallenge: u32 = 33;
+                const raatARAPNewPassword: u32 = 20;
+                const raatARAPOldPassword: u32 = 19;
+                const raatARAPPasswordChangeReason: u32 = 21;
+            }
+        }
+    }
+}

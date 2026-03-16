@@ -1,0 +1,802 @@
+mod Windows {
+    mod Devices {
+        mod Display {
+            #[winrt]
+            mod Core {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IDisplayAdapterStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayAdapter {
+                    #[default]
+                    IDisplayAdapter,
+                    IDisplayAdapter2,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayBitsPerChannel {
+                    None = 0,
+                    Bpc6 = 1,
+                    Bpc8 = 2,
+                    Bpc10 = 4,
+                    Bpc12 = 8,
+                    Bpc14 = 16,
+                    Bpc16 = 32,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayDevice {
+                    #[default]
+                    IDisplayDevice,
+                    IDisplayDevice2,
+                    IDisplayDeviceRenderAdapter,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayDeviceCapability {
+                    FlipOverride = 0,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayFence {
+                    #[default]
+                    IDisplayFence,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::Static(IDisplayManagerStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class DisplayManager {
+                    #[default]
+                    IDisplayManager,
+                    IDisplayManager2,
+                    IDisplayManager3,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayManagerChangedEventArgs {
+                    #[default]
+                    IDisplayManagerChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayManagerDisabledEventArgs {
+                    #[default]
+                    IDisplayManagerDisabledEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayManagerEnabledEventArgs {
+                    #[default]
+                    IDisplayManagerEnabledEventArgs,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayManagerOptions {
+                    None = 0,
+                    EnforceSourceOwnership = 1,
+                    VirtualRefreshRateAware = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayManagerPathsFailedOrInvalidatedEventArgs {
+                    #[default]
+                    IDisplayManagerPathsFailedOrInvalidatedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayManagerResult {
+                    Success = 0,
+                    UnknownFailure = 1,
+                    TargetAccessDenied = 2,
+                    TargetStale = 3,
+                    RemoteSessionNotSupported = 4,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayManagerResultWithState {
+                    #[default]
+                    IDisplayManagerResultWithState,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayModeInfo {
+                    #[default]
+                    IDisplayModeInfo,
+                    IDisplayModeInfo2,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayModeQueryOptions {
+                    None = 0,
+                    OnlyPreferredResolution = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::Static(IDisplayMuxDeviceStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayMuxDevice {
+                    #[default]
+                    IDisplayMuxDevice,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayPath {
+                    #[default]
+                    IDisplayPath,
+                    IDisplayPath2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayPathScaling {
+                    Identity = 0,
+                    Centered = 1,
+                    Stretched = 2,
+                    AspectRatioStretched = 3,
+                    Custom = 4,
+                    DriverPreferred = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayPathStatus {
+                    Unknown = 0,
+                    Succeeded = 1,
+                    Pending = 2,
+                    Failed = 3,
+                    FailedAsync = 4,
+                    InvalidatedAsync = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                enum DisplayPresentStatus {
+                    Success = 0,
+                    SourceStatusPreventedPresent = 1,
+                    ScanoutInvalid = 2,
+                    SourceInvalid = 3,
+                    DeviceInvalid = 4,
+                    UnknownFailure = 5,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                struct DisplayPresentationRate {
+                    VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
+                    VerticalSyncsPerPresentation: i32,
+                }
+                #[Windows::Foundation::Metadata::Static(IDisplayPrimaryDescriptionStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IDisplayPrimaryDescriptionFactory, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class DisplayPrimaryDescription {
+                    #[default]
+                    IDisplayPrimaryDescription,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayRotation {
+                    None = 0,
+                    Clockwise90Degrees = 1,
+                    Clockwise180Degrees = 2,
+                    Clockwise270Degrees = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayScanout {
+                    #[default]
+                    IDisplayScanout,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                enum DisplayScanoutOptions {
+                    None = 0,
+                    AllowTearing = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplaySource {
+                    #[default]
+                    IDisplaySource,
+                    IDisplaySource2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                enum DisplaySourceStatus {
+                    Active = 0,
+                    PoweredOff = 1,
+                    Invalid = 2,
+                    OwnedByAnotherDevice = 3,
+                    Unowned = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayState {
+                    #[default]
+                    IDisplayState,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayStateApplyOptions {
+                    None = 0,
+                    FailIfStateChanged = 1,
+                    ForceReapply = 2,
+                    ForceModeEnumeration = 4,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayStateFunctionalizeOptions {
+                    None = 0,
+                    FailIfStateChanged = 1,
+                    ValidateTopologyOnly = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayStateOperationResult {
+                    #[default]
+                    IDisplayStateOperationResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayStateOperationStatus {
+                    Success = 0,
+                    PartialFailure = 1,
+                    UnknownFailure = 2,
+                    TargetOwnershipLost = 3,
+                    SystemStateChanged = 4,
+                    TooManyPathsForAdapter = 5,
+                    ModesNotSupported = 6,
+                    RemoteSessionNotSupported = 7,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplaySurface {
+                    #[default]
+                    IDisplaySurface,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayTarget {
+                    #[default]
+                    IDisplayTarget,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayTargetPersistence {
+                    None = 0,
+                    BootPersisted = 1,
+                    TemporaryPersisted = 2,
+                    PathPersisted = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayTask {
+                    #[default]
+                    IDisplayTask,
+                    IDisplayTask2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayTaskPool {
+                    #[default]
+                    IDisplayTaskPool,
+                    IDisplayTaskPool2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                class DisplayTaskResult {
+                    #[default]
+                    IDisplayTaskResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayTaskSignalKind {
+                    OnPresentFlipAway = 0,
+                    OnPresentFlipTo = 1,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class DisplayView {
+                    #[default]
+                    IDisplayView,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::Static(IDisplayWireFormatStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Activatable(IDisplayWireFormatFactory, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DisplayWireFormat {
+                    #[default]
+                    IDisplayWireFormat,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayWireFormatColorSpace {
+                    BT709 = 0,
+                    BT2020 = 1,
+                    ProfileDefinedWideColorGamut = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayWireFormatEotf {
+                    Sdr = 0,
+                    HdrSmpte2084 = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayWireFormatHdrMetadata {
+                    None = 0,
+                    Hdr10 = 1,
+                    Hdr10Plus = 2,
+                    DolbyVisionLowLatency = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum DisplayWireFormatPixelEncoding {
+                    Rgb444 = 0,
+                    Ycc444 = 1,
+                    Ycc422 = 2,
+                    Ycc420 = 3,
+                    Intensity = 4,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayAdapter {
+                    #[special]
+                    fn get_Id(&self) -> super::super::super::Graphics::DisplayAdapterId;
+                    #[special]
+                    fn get_DeviceInterfacePath(&self) -> String;
+                    #[special]
+                    fn get_SourceCount(&self) -> u32;
+                    #[special]
+                    fn get_PciVendorId(&self) -> u32;
+                    #[special]
+                    fn get_PciDeviceId(&self) -> u32;
+                    #[special]
+                    fn get_PciSubSystemId(&self) -> u32;
+                    #[special]
+                    fn get_PciRevision(&self) -> u32;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                interface IDisplayAdapter2 {
+                    #[special]
+                    fn get_IsIndirectDisplayDevice(&self) -> bool;
+                    #[special]
+                    fn get_PreferredRenderAdapter(&self) -> DisplayAdapter;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayAdapter)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayAdapterStatics {
+                    fn FromId(&self, id: super::super::super::Graphics::DisplayAdapterId) -> DisplayAdapter;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
+                interface IDisplayDevice {
+                    fn CreateScanoutSource(&self, target: DisplayTarget) -> DisplaySource;
+                    fn CreatePrimary(&self, target: DisplayTarget, desc: DisplayPrimaryDescription) -> DisplaySurface;
+                    fn CreateTaskPool(&self) -> DisplayTaskPool;
+                    fn CreatePeriodicFence(&self, target: DisplayTarget, offsetFromVBlank: super::super::super::Foundation::TimeSpan) -> DisplayFence;
+                    fn WaitForVBlank(&self, source: DisplaySource);
+                    fn CreateSimpleScanout(&self, pSource: DisplaySource, pSurface: DisplaySurface, SubResourceIndex: u32, SyncInterval: u32) -> DisplayScanout;
+                    fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface IDisplayDevice2 {
+                    fn CreateSimpleScanoutWithDirtyRectsAndOptions(&self, source: DisplaySource, surface: DisplaySurface, subresourceIndex: u32, syncInterval: u32, dirtyRects: super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>, options: DisplayScanoutOptions) -> DisplayScanout;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayDevice)]
+                interface IDisplayDeviceRenderAdapter {
+                    #[special]
+                    fn get_RenderAdapterId(&self) -> super::super::super::Graphics::DisplayAdapterId;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayFence)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayFence {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
+                interface IDisplayManager {
+                    fn GetCurrentTargets(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayTarget>;
+                    fn GetCurrentAdapters(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>;
+                    fn TryAcquireTarget(&self, target: DisplayTarget) -> DisplayManagerResult;
+                    fn ReleaseTarget(&self, target: DisplayTarget);
+                    fn TryReadCurrentStateForAllTargets(&self) -> DisplayManagerResultWithState;
+                    fn TryAcquireTargetsAndReadCurrentState(&self, targets: super::super::super::Foundation::Collections::IIterable<DisplayTarget>) -> DisplayManagerResultWithState;
+                    fn TryAcquireTargetsAndCreateEmptyState(&self, targets: super::super::super::Foundation::Collections::IIterable<DisplayTarget>) -> DisplayManagerResultWithState;
+                    fn TryAcquireTargetsAndCreateSubstate(&self, existingState: DisplayState, targets: super::super::super::Foundation::Collections::IIterable<DisplayTarget>) -> DisplayManagerResultWithState;
+                    fn CreateDisplayDevice(&self, adapter: DisplayAdapter) -> DisplayDevice;
+                    #[special]
+                    fn add_Enabled(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Enabled(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_Disabled(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Disabled(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_Changed(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Changed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_PathsFailedOrInvalidated(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn Start(&self);
+                    fn Stop(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
+                interface IDisplayManager2 {
+                    fn TryReadCurrentStateForModeQuery(&self) -> DisplayManagerResultWithState;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
+                interface IDisplayManager3 {
+                    fn CreateDisplayDeviceForIndirectAdapter(&self, indirectAdapter: DisplayAdapter, renderAdapter: DisplayAdapter) -> DisplayDevice;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerChangedEventArgs)]
+                interface IDisplayManagerChangedEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerDisabledEventArgs)]
+                interface IDisplayManagerDisabledEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerEnabledEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayManagerEnabledEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerPathsFailedOrInvalidatedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayManagerPathsFailedOrInvalidatedEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManagerResultWithState)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayManagerResultWithState {
+                    #[special]
+                    fn get_ErrorCode(&self) -> DisplayManagerResult;
+                    #[special]
+                    fn get_ExtendedErrorCode(&self) -> HRESULT;
+                    #[special]
+                    fn get_State(&self) -> DisplayState;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
+                interface IDisplayManagerStatics {
+                    fn Create(&self, options: DisplayManagerOptions) -> DisplayManager;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayModeInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayModeInfo {
+                    #[special]
+                    fn get_SourceResolution(&self) -> super::super::super::Graphics::SizeInt32;
+                    #[special]
+                    fn get_IsStereo(&self) -> bool;
+                    #[special]
+                    fn get_SourcePixelFormat(&self) -> super::super::super::Graphics::DirectX::DirectXPixelFormat;
+                    #[special]
+                    fn get_TargetResolution(&self) -> super::super::super::Graphics::SizeInt32;
+                    #[special]
+                    fn get_PresentationRate(&self) -> DisplayPresentationRate;
+                    #[special]
+                    fn get_IsInterlaced(&self) -> bool;
+                    fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> DisplayBitsPerChannel;
+                    fn IsWireFormatSupported(&self, wireFormat: DisplayWireFormat) -> bool;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayModeInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface IDisplayModeInfo2 {
+                    #[special]
+                    fn get_PhysicalPresentationRate(&self) -> DisplayPresentationRate;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayMuxDevice)]
+                interface IDisplayMuxDevice {
+                    #[special]
+                    fn get_Id(&self) -> String;
+                    #[special]
+                    fn get_IsActive(&self) -> bool;
+                    fn GetAvailableMuxTargets(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayTarget>;
+                    #[special]
+                    fn get_CurrentTarget(&self) -> DisplayTarget;
+                    #[special]
+                    fn get_PreferredTarget(&self) -> DisplayTarget;
+                    #[special]
+                    fn get_IsAutomaticTargetSwitchingEnabled(&self) -> bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetPreferredTarget(&self, target: DisplayTarget) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetAutomaticTargetSwitching(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[special]
+                    fn add_Changed(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplayMuxDevice, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Changed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayMuxDevice)]
+                interface IDisplayMuxDeviceStatics {
+                    fn GetDeviceSelector(&self) -> String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FromIdAsync(&self, deviceInterfaceId: String) -> super::super::super::Foundation::IAsyncOperation<DisplayMuxDevice>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPath)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayPath {
+                    #[special]
+                    fn get_View(&self) -> DisplayView;
+                    #[special]
+                    fn get_Target(&self) -> DisplayTarget;
+                    #[special]
+                    fn get_Status(&self) -> DisplayPathStatus;
+                    #[special]
+                    fn get_SourceResolution(&self) -> super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>;
+                    #[special]
+                    fn put_SourceResolution(&self, value: super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>);
+                    #[special]
+                    fn get_SourcePixelFormat(&self) -> super::super::super::Graphics::DirectX::DirectXPixelFormat;
+                    #[special]
+                    fn put_SourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat);
+                    #[special]
+                    fn get_IsStereo(&self) -> bool;
+                    #[special]
+                    fn put_IsStereo(&self, value: bool);
+                    #[special]
+                    fn get_TargetResolution(&self) -> super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>;
+                    #[special]
+                    fn put_TargetResolution(&self, value: super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>);
+                    #[special]
+                    fn get_PresentationRate(&self) -> super::super::super::Foundation::IReference<DisplayPresentationRate>;
+                    #[special]
+                    fn put_PresentationRate(&self, value: super::super::super::Foundation::IReference<DisplayPresentationRate>);
+                    #[special]
+                    fn get_IsInterlaced(&self) -> super::super::super::Foundation::IReference<bool>;
+                    #[special]
+                    fn put_IsInterlaced(&self, value: super::super::super::Foundation::IReference<bool>);
+                    #[special]
+                    fn get_WireFormat(&self) -> DisplayWireFormat;
+                    #[special]
+                    fn put_WireFormat(&self, value: DisplayWireFormat);
+                    #[special]
+                    fn get_Rotation(&self) -> DisplayRotation;
+                    #[special]
+                    fn put_Rotation(&self, value: DisplayRotation);
+                    #[special]
+                    fn get_Scaling(&self) -> DisplayPathScaling;
+                    #[special]
+                    fn put_Scaling(&self, value: DisplayPathScaling);
+                    fn FindModes(&self, flags: DisplayModeQueryOptions) -> super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>;
+                    fn ApplyPropertiesFromMode(&self, modeResult: DisplayModeInfo);
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMap<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPath)]
+                interface IDisplayPath2 {
+                    #[special]
+                    fn get_PhysicalPresentationRate(&self) -> super::super::super::Foundation::IReference<DisplayPresentationRate>;
+                    #[special]
+                    fn put_PhysicalPresentationRate(&self, value: super::super::super::Foundation::IReference<DisplayPresentationRate>);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPrimaryDescription)]
+                interface IDisplayPrimaryDescription {
+                    #[special]
+                    fn get_Width(&self) -> u32;
+                    #[special]
+                    fn get_Height(&self) -> u32;
+                    #[special]
+                    fn get_Format(&self) -> super::super::super::Graphics::DirectX::DirectXPixelFormat;
+                    #[special]
+                    fn get_ColorSpace(&self) -> super::super::super::Graphics::DirectX::DirectXColorSpace;
+                    #[special]
+                    fn get_IsStereo(&self) -> bool;
+                    #[special]
+                    fn get_MultisampleDescription(&self) -> super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPrimaryDescription)]
+                interface IDisplayPrimaryDescriptionFactory {
+                    fn CreateInstance(&self, width: u32, height: u32, pixelFormat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorSpace: super::super::super::Graphics::DirectX::DirectXColorSpace, isStereo: bool, multisampleDescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> DisplayPrimaryDescription;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayPrimaryDescription)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayPrimaryDescriptionStatics {
+                    fn CreateWithProperties(&self, extraProperties: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<GUID, Object>>, width: u32, height: u32, pixelFormat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorSpace: super::super::super::Graphics::DirectX::DirectXColorSpace, isStereo: bool, multisampleDescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> DisplayPrimaryDescription;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayScanout)]
+                interface IDisplayScanout {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplaySource {
+                    #[special]
+                    fn get_AdapterId(&self) -> super::super::super::Graphics::DisplayAdapterId;
+                    #[special]
+                    fn get_SourceId(&self) -> u32;
+                    fn GetMetadata(&self, Key: GUID) -> super::super::super::Storage::Streams::IBuffer;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface IDisplaySource2 {
+                    #[special]
+                    fn get_Status(&self) -> DisplaySourceStatus;
+                    #[special]
+                    fn add_StatusChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<DisplaySource, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_StatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayState)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayState {
+                    #[special]
+                    fn get_IsReadOnly(&self) -> bool;
+                    #[special]
+                    fn get_IsStale(&self) -> bool;
+                    #[special]
+                    fn get_Targets(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayTarget>;
+                    #[special]
+                    fn get_Views(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayView>;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMap<GUID, Object>;
+                    #[Windows::Foundation::Metadata::Overload("ConnectTarget")]
+                    #[Windows::Foundation::Metadata::DefaultOverload]
+                    fn ConnectTarget(&self, target: DisplayTarget) -> DisplayPath;
+                    #[Windows::Foundation::Metadata::Overload("ConnectTargetToView")]
+                    fn ConnectTarget(&self, target: DisplayTarget, view: DisplayView) -> DisplayPath;
+                    fn CanConnectTargetToView(&self, target: DisplayTarget, view: DisplayView) -> bool;
+                    fn GetViewForTarget(&self, target: DisplayTarget) -> DisplayView;
+                    fn GetPathForTarget(&self, target: DisplayTarget) -> DisplayPath;
+                    fn DisconnectTarget(&self, target: DisplayTarget);
+                    fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> DisplayStateOperationResult;
+                    fn TryApply(&self, options: DisplayStateApplyOptions) -> DisplayStateOperationResult;
+                    fn Clone(&self) -> DisplayState;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayStateOperationResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayStateOperationResult {
+                    #[special]
+                    fn get_Status(&self) -> DisplayStateOperationStatus;
+                    #[special]
+                    fn get_ExtendedErrorCode(&self) -> HRESULT;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySurface)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplaySurface {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTarget)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayTarget {
+                    #[special]
+                    fn get_Adapter(&self) -> DisplayAdapter;
+                    #[special]
+                    fn get_DeviceInterfacePath(&self) -> String;
+                    #[special]
+                    fn get_AdapterRelativeId(&self) -> u32;
+                    #[special]
+                    fn get_IsConnected(&self) -> bool;
+                    #[special]
+                    fn get_IsVirtualModeEnabled(&self) -> bool;
+                    #[special]
+                    fn get_IsVirtualTopologyEnabled(&self) -> bool;
+                    #[special]
+                    fn get_UsageKind(&self) -> super::DisplayMonitorUsageKind;
+                    #[special]
+                    fn get_MonitorPersistence(&self) -> DisplayTargetPersistence;
+                    #[special]
+                    fn get_StableMonitorId(&self) -> String;
+                    fn TryGetMonitor(&self) -> super::DisplayMonitor;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, Object>;
+                    #[special]
+                    fn get_IsStale(&self) -> bool;
+                    fn IsSame(&self, otherTarget: DisplayTarget) -> bool;
+                    fn IsEqual(&self, otherTarget: DisplayTarget) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTask)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayTask {
+                    fn SetScanout(&self, scanout: DisplayScanout);
+                    fn SetWait(&self, readyFence: DisplayFence, readyFenceValue: u64);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTask)]
+                interface IDisplayTask2 {
+                    fn SetSignal(&self, signalKind: DisplayTaskSignalKind, fence: DisplayFence);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTaskPool)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayTaskPool {
+                    fn CreateTask(&self) -> DisplayTask;
+                    #[Windows::Foundation::Metadata::Deprecated("Use TryExecuteTask instead of ExecuteTask. For more info see MSDN", Deprecate, 851968, "Windows.Foundation.UniversalApiContract")]
+                    fn ExecuteTask(&self, task: DisplayTask);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTaskPool)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface IDisplayTaskPool2 {
+                    fn TryExecuteTask(&self, task: DisplayTask) -> DisplayTaskResult;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTaskResult)]
+                interface IDisplayTaskResult {
+                    #[special]
+                    fn get_PresentStatus(&self) -> DisplayPresentStatus;
+                    #[special]
+                    fn get_PresentId(&self) -> u64;
+                    #[special]
+                    fn get_SourceStatus(&self) -> DisplaySourceStatus;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayView)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayView {
+                    #[special]
+                    fn get_Paths(&self) -> super::super::super::Foundation::Collections::IVectorView<DisplayPath>;
+                    #[special]
+                    fn get_ContentResolution(&self) -> super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>;
+                    #[special]
+                    fn put_ContentResolution(&self, value: super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>);
+                    fn SetPrimaryPath(&self, path: DisplayPath);
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMap<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayWireFormat)]
+                interface IDisplayWireFormat {
+                    #[special]
+                    fn get_PixelEncoding(&self) -> DisplayWireFormatPixelEncoding;
+                    #[special]
+                    fn get_BitsPerChannel(&self) -> i32;
+                    #[special]
+                    fn get_ColorSpace(&self) -> DisplayWireFormatColorSpace;
+                    #[special]
+                    fn get_Eotf(&self) -> DisplayWireFormatEotf;
+                    #[special]
+                    fn get_HdrMetadata(&self) -> DisplayWireFormatHdrMetadata;
+                    #[special]
+                    fn get_Properties(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, Object>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayWireFormat)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IDisplayWireFormatFactory {
+                    fn CreateInstance(&self, pixelEncoding: DisplayWireFormatPixelEncoding, bitsPerChannel: i32, colorSpace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrMetadata: DisplayWireFormatHdrMetadata) -> DisplayWireFormat;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DisplayWireFormat)]
+                interface IDisplayWireFormatStatics {
+                    fn CreateWithProperties(&self, extraProperties: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<GUID, Object>>, pixelEncoding: DisplayWireFormatPixelEncoding, bitsPerChannel: i32, colorSpace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrMetadata: DisplayWireFormatHdrMetadata) -> DisplayWireFormat;
+                }
+            }
+        }
+    }
+}

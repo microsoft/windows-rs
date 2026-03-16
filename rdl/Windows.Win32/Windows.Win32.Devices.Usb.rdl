@@ -1,0 +1,2511 @@
+mod Windows {
+    mod Win32 {
+        mod Devices {
+            #[win32]
+            mod Usb {
+                struct ALTERNATE_INTERFACE {
+                    InterfaceNumber: u16,
+                    AlternateInterfaceNumber: u16,
+                }
+                const BMREQUEST_CLASS: u32 = 1;
+                const BMREQUEST_DEVICE_TO_HOST: u32 = 1;
+                const BMREQUEST_HOST_TO_DEVICE: u32 = 0;
+                const BMREQUEST_STANDARD: u32 = 0;
+                const BMREQUEST_TO_DEVICE: u32 = 0;
+                const BMREQUEST_TO_ENDPOINT: u32 = 2;
+                const BMREQUEST_TO_INTERFACE: u32 = 1;
+                const BMREQUEST_TO_OTHER: u32 = 3;
+                const BMREQUEST_VENDOR: u32 = 2;
+                union BM_REQUEST_TYPE {
+                    s: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Recipient", 0, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 3)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Type", 5, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dir", 7, 1)]
+                        _bitfield: u8,
+                    },
+                    B: u8,
+                }
+                const BULKIN_FLAG: u32 = 128;
+                struct CHANNEL_INFO {
+                    EventChannelSize: u32,
+                    uReadDataAlignment: u32,
+                    uWriteDataAlignment: u32,
+                }
+                struct DEVICE_DESCRIPTOR {
+                    usVendorId: u16,
+                    usProductId: u16,
+                    usBcdDevice: u16,
+                    usLanguageId: u16,
+                }
+                const DEVICE_SPEED: u32 = 1;
+                struct DRV_VERSION {
+                    major: u32,
+                    minor: u32,
+                    internal: u32,
+                }
+                const FILE_DEVICE_USB: u32 = 34;
+                const FILE_DEVICE_USB_SCAN: u32 = 32768;
+                const FullSpeed: u32 = 2;
+                const GUID_DEVINTERFACE_USB_BILLBOARD: GUID = 0x5e9adaef_f879_473f_b807_4e5ea77d1b1c;
+                const GUID_DEVINTERFACE_USB_DEVICE: GUID = 0xa5dcbf10_6530_11d2_901f_00c04fb951ed;
+                const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: GUID = 0x3abf6f2d_71c4_462a_8a92_1e6861e6af27;
+                const GUID_DEVINTERFACE_USB_HUB: GUID = 0xf18a0e88_c30c_11d0_8815_00a0c906bed8;
+                const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = 0xd8dd60df_4589_4cc7_9cd2_659d9e648a9f;
+                const GUID_USB_PERFORMANCE_TRACING: GUID = 0xd5de77a6_6ae9_425c_b1e2_f5615fd348a9;
+                const GUID_USB_TRANSFER_TRACING: GUID = 0x681eb8aa_403d_452c_9f8a_f0616fac9540;
+                const GUID_USB_WMI_DEVICE_PERF_INFO: GUID = 0x66c1aa3c_499f_49a0_a9a5_61e2359f6407;
+                const GUID_USB_WMI_NODE_INFO: GUID = 0x9c179357_dc7a_4f41_b66b_323b9ddcb5b1;
+                const GUID_USB_WMI_STD_DATA: GUID = 0x4e623b20_cb14_11d1_b331_00a0c959bbd2;
+                const GUID_USB_WMI_STD_NOTIFICATION: GUID = 0x4e623b20_cb14_11d1_b331_00a0c959bbd2;
+                const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: GUID = 0x9bbbf831_a2f2_43b4_96d1_86944b5914b3;
+                const GUID_USB_WMI_TRACING: GUID = 0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f;
+                const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257;
+                const HCD_DIAGNOSTIC_MODE_ON: u32 = 256;
+                const HCD_DISABLE_PORT: u32 = 268;
+                const HCD_ENABLE_PORT: u32 = 269;
+                const HCD_GET_DRIVERKEY_NAME: u32 = 265;
+                const HCD_GET_ROOT_HUB_NAME: u32 = 258;
+                const HCD_GET_STATS_1: u32 = 255;
+                const HCD_GET_STATS_2: u32 = 266;
+                struct HCD_ISO_STAT_COUNTERS {
+                    LateUrbs: u16,
+                    DoubleBufferedPackets: u16,
+                    TransfersCF_5ms: u16,
+                    TransfersCF_2ms: u16,
+                    TransfersCF_1ms: u16,
+                    MaxInterruptLatency: u16,
+                    BadStartFrame: u16,
+                    StaleUrbs: u16,
+                    IsoPacketNotAccesed: u16,
+                    IsoPacketHWError: u16,
+                    SmallestUrbPacketCount: u16,
+                    LargestUrbPacketCount: u16,
+                    IsoCRC_Error: u16,
+                    IsoOVERRUN_Error: u16,
+                    IsoINTERNAL_Error: u16,
+                    IsoUNKNOWN_Error: u16,
+                    IsoBytesTransferred: u32,
+                    LateMissedCount: u16,
+                    HWIsoMissedCount: u16,
+                    Reserved7: [u32; 8],
+                }
+                struct HCD_STAT_COUNTERS {
+                    BytesTransferred: u32,
+                    IsoMissedCount: u16,
+                    DataOverrunErrorCount: u16,
+                    CrcErrorCount: u16,
+                    ScheduleOverrunCount: u16,
+                    TimeoutErrorCount: u16,
+                    InternalHcErrorCount: u16,
+                    BufferOverrunErrorCount: u16,
+                    SWErrorCount: u16,
+                    StallPidCount: u16,
+                    PortDisableCount: u16,
+                }
+                struct HCD_STAT_INFORMATION_1 {
+                    Reserved1: u32,
+                    Reserved2: u32,
+                    ResetCounters: u32,
+                    TimeRead: i64,
+                    Counters: HCD_STAT_COUNTERS,
+                }
+                struct HCD_STAT_INFORMATION_2 {
+                    Reserved1: u32,
+                    Reserved2: u32,
+                    ResetCounters: u32,
+                    TimeRead: i64,
+                    LockedMemoryUsed: i32,
+                    Counters: HCD_STAT_COUNTERS,
+                    IsoCounters: HCD_ISO_STAT_COUNTERS,
+                }
+                const HCD_TRACE_READ_REQUEST: u32 = 275;
+                const HCD_USER_REQUEST: u32 = 270;
+                struct HUB_DEVICE_CONFIG_INFO {
+                    Version: u32,
+                    Length: u32,
+                    HubFlags: USB_HUB_CAP_FLAGS,
+                    HardwareIds: USB_ID_STRING,
+                    CompatibleIds: USB_ID_STRING,
+                    DeviceDescription: USB_ID_STRING,
+                    Reserved: [u32; 19],
+                    UxdSettings: USB_HUB_DEVICE_UXD_SETTINGS,
+                }
+                const HighSpeed: u32 = 3;
+                const IOCTL_ABORT_PIPE: u32 = 2147491844;
+                const IOCTL_CANCEL_IO: u32 = 2147491844;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_activate_usb_bus")]
+                const IOCTL_GENERICUSBFN_ACTIVATE_USB_BUS: u32 = 2277420;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_bus_event_notification")]
+                const IOCTL_GENERICUSBFN_BUS_EVENT_NOTIFICATION: u32 = 2277430;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_control_status_handshake_in")]
+                const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_IN: u32 = 2277400;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_control_status_handshake_out")]
+                const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_OUT: u32 = 2277404;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_deactivate_usb_bus")]
+                const IOCTL_GENERICUSBFN_DEACTIVATE_USB_BUS: u32 = 2277424;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_get_class_info")]
+                const IOCTL_GENERICUSBFN_GET_CLASS_INFO: u32 = 2277410;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_get_class_info_ex")]
+                const IOCTL_GENERICUSBFN_GET_CLASS_INFO_EX: u32 = 2277434;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_get_interface_descriptor_set")]
+                const IOCTL_GENERICUSBFN_GET_INTERFACE_DESCRIPTOR_SET: u32 = 2277438;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_get_pipe_state")]
+                const IOCTL_GENERICUSBFN_GET_PIPE_STATE: u32 = 2277414;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_register_usb_string")]
+                const IOCTL_GENERICUSBFN_REGISTER_USB_STRING: u32 = 2277441;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_set_pipe_state")]
+                const IOCTL_GENERICUSBFN_SET_PIPE_STATE: u32 = 2277417;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_transfer_in")]
+                const IOCTL_GENERICUSBFN_TRANSFER_IN: u32 = 2277389;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_transfer_in_append_zero_pkt")]
+                const IOCTL_GENERICUSBFN_TRANSFER_IN_APPEND_ZERO_PKT: u32 = 2277393;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/genericusbfnioctl/ni-genericusbfnioctl-ioctl_genericusbfn_transfer_out")]
+                const IOCTL_GENERICUSBFN_TRANSFER_OUT: u32 = 2277398;
+                const IOCTL_GET_CHANNEL_ALIGN_RQST: u32 = 2147491860;
+                const IOCTL_GET_DEVICE_DESCRIPTOR: u32 = 2147491864;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ni-usbuser-ioctl_get_hcd_driverkey_name")]
+                const IOCTL_GET_HCD_DRIVERKEY_NAME: u32 = 2229284;
+                const IOCTL_GET_PIPE_CONFIGURATION: u32 = 2147491880;
+                const IOCTL_GET_USB_DESCRIPTOR: u32 = 2147491872;
+                const IOCTL_GET_VERSION: u32 = 2147491840;
+                const IOCTL_INDEX: u32 = 2048;
+                const IOCTL_INTERNAL_USB_CYCLE_PORT: u32 = 2228255;
+                const IOCTL_INTERNAL_USB_ENABLE_PORT: u32 = 2228247;
+                const IOCTL_INTERNAL_USB_FAIL_GET_STATUS_FROM_DEVICE: u32 = 2229347;
+                const IOCTL_INTERNAL_USB_GET_BUSGUID_INFO: u32 = 2229288;
+                const IOCTL_INTERNAL_USB_GET_BUS_INFO: u32 = 2229280;
+                const IOCTL_INTERNAL_USB_GET_CONTROLLER_NAME: u32 = 2229284;
+                const IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO: u32 = 2229327;
+                const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE: u32 = 2229299;
+                const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE_EX: u32 = 2229303;
+                const IOCTL_INTERNAL_USB_GET_HUB_COUNT: u32 = 2228251;
+                const IOCTL_INTERNAL_USB_GET_HUB_NAME: u32 = 2228256;
+                const IOCTL_INTERNAL_USB_GET_PARENT_HUB_INFO: u32 = 2229292;
+                const IOCTL_INTERNAL_USB_GET_PORT_STATUS: u32 = 2228243;
+                const IOCTL_INTERNAL_USB_GET_ROOTHUB_PDO: u32 = 2228239;
+                const IOCTL_INTERNAL_USB_GET_TOPOLOGY_ADDRESS: u32 = 2229311;
+                const IOCTL_INTERNAL_USB_GET_TT_DEVICE_HANDLE: u32 = 2229307;
+                const IOCTL_INTERNAL_USB_NOTIFY_IDLE_READY: u32 = 2229315;
+                const IOCTL_INTERNAL_USB_RECORD_FAILURE: u32 = 2228267;
+                const IOCTL_INTERNAL_USB_REGISTER_COMPOSITE_DEVICE: u32 = 4784131;
+                const IOCTL_INTERNAL_USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 4784139;
+                const IOCTL_INTERNAL_USB_REQ_GLOBAL_RESUME: u32 = 2229323;
+                const IOCTL_INTERNAL_USB_REQ_GLOBAL_SUSPEND: u32 = 2229319;
+                const IOCTL_INTERNAL_USB_RESET_PORT: u32 = 2228231;
+                const IOCTL_INTERNAL_USB_SUBMIT_IDLE_NOTIFICATION: u32 = 2228263;
+                const IOCTL_INTERNAL_USB_SUBMIT_URB: u32 = 2228227;
+                const IOCTL_INTERNAL_USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 4784135;
+                const IOCTL_READ_REGISTERS: u32 = 2147491852;
+                const IOCTL_RESET_PIPE: u32 = 2147491868;
+                const IOCTL_SEND_USB_REQUEST: u32 = 2147491876;
+                const IOCTL_SET_TIMEOUT: u32 = 2147491884;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ni-usbuser-ioctl_usb_diagnostic_mode_off")]
+                const IOCTL_USB_DIAGNOSTIC_MODE_OFF: u32 = 2229252;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ni-usbuser-ioctl_usb_diagnostic_mode_on")]
+                const IOCTL_USB_DIAGNOSTIC_MODE_ON: u32 = 2229248;
+                const IOCTL_USB_DIAG_IGNORE_HUBS_OFF: u32 = 2229276;
+                const IOCTL_USB_DIAG_IGNORE_HUBS_ON: u32 = 2229272;
+                const IOCTL_USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 2229264;
+                const IOCTL_USB_GET_DEVICE_CHARACTERISTICS: u32 = 2229376;
+                const IOCTL_USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 2229368;
+                const IOCTL_USB_GET_HUB_CAPABILITIES: u32 = 2229308;
+                const IOCTL_USB_GET_HUB_CAPABILITIES_EX: u32 = 2229328;
+                const IOCTL_USB_GET_HUB_INFORMATION_EX: u32 = 2229332;
+                const IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 2229312;
+                const IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 2229280;
+                const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION: u32 = 2229260;
+                const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 2229320;
+                const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 2229340;
+                const IOCTL_USB_GET_NODE_CONNECTION_NAME: u32 = 2229268;
+                const IOCTL_USB_GET_NODE_INFORMATION: u32 = 2229256;
+                const IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 2229336;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ni-usbuser-ioctl_usb_get_root_hub_name")]
+                const IOCTL_USB_GET_ROOT_HUB_NAME: u32 = 2229256;
+                const IOCTL_USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 2229348;
+                const IOCTL_USB_HCD_DISABLE_PORT: u32 = 2229296;
+                const IOCTL_USB_HCD_ENABLE_PORT: u32 = 2229300;
+                const IOCTL_USB_HCD_GET_STATS_1: u32 = 2229244;
+                const IOCTL_USB_HCD_GET_STATS_2: u32 = 2229288;
+                const IOCTL_USB_HUB_CYCLE_PORT: u32 = 2229316;
+                const IOCTL_USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229356;
+                const IOCTL_USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229352;
+                const IOCTL_USB_RESET_HUB: u32 = 2229324;
+                const IOCTL_USB_START_TRACKING_FOR_TIME_SYNC: u32 = 2229364;
+                const IOCTL_USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 2229372;
+                const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229360;
+                const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848;
+                const IOCTL_WRITE_REGISTERS: u32 = 2147491856;
+                struct IO_BLOCK {
+                    uOffset: u32,
+                    uLength: u32,
+                    pbyData: *mut u8,
+                    uIndex: u32,
+                }
+                struct IO_BLOCK_EX {
+                    uOffset: u32,
+                    uLength: u32,
+                    pbyData: *mut u8,
+                    uIndex: u32,
+                    bRequest: u8,
+                    bmRequestType: u8,
+                    fTransferDirectionIn: u8,
+                }
+                const KREGMANUSBFNENUMPATH: String = "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\";
+                const KREGUSBFNENUMPATH: String = "\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\";
+                const LowSpeed: u32 = 1;
+                const MAXIMUM_USB_STRING_LENGTH: u32 = 255;
+                const MAX_ALTERNATE_NAME_LENGTH: u32 = 40;
+                const MAX_ASSOCIATION_NAME_LENGTH: u32 = 40;
+                const MAX_CONFIGURATION_NAME_LENGTH: u32 = 40;
+                const MAX_INTERFACE_NAME_LENGTH: u32 = 40;
+                const MAX_NUM_PIPES: u32 = 8;
+                const MAX_NUM_USBFN_ENDPOINTS: u32 = 15;
+                const MAX_SUPPORTED_CONFIGURATIONS: u32 = 12;
+                const MAX_USB_STRING_LENGTH: u32 = 255;
+                const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1;
+                const MS_OS_FLAGS_CONTAINERID: u32 = 2;
+                const MS_OS_STRING_SIGNATURE: String = "MSFT100";
+                const MS_POWER_DESCRIPTOR_INDEX: u32 = 2;
+                struct OS_STRING {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    MicrosoftString: [u16; 7],
+                    bVendorCode: u8,
+                    Anonymous: union {
+                        bPad: u8,
+                        bFlags: u8,
+                    },
+                }
+                const OS_STRING_DESCRIPTOR_INDEX: u32 = 238;
+                struct PACKET_PARAMETERS {
+                    DeviceAddress: u8,
+                    EndpointAddress: u8,
+                    MaximumPacketSize: u16,
+                    Timeout: u32,
+                    Flags: u32,
+                    DataLength: u32,
+                    HubDeviceAddress: u16,
+                    PortTTNumber: u16,
+                    ErrorCount: u8,
+                    Pad: [u8; 3],
+                    UsbdStatusCode: i32,
+                    Data: [u8; 4],
+                }
+                #[repr(i32)]
+                enum PIPE_TYPE {
+                    EVENT_PIPE = 0,
+                    READ_DATA_PIPE = 1,
+                    WRITE_DATA_PIPE = 2,
+                    ALL_PIPE = 3,
+                }
+                const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10;
+                const PORT_LINK_STATE_DISABLED: u32 = 4;
+                const PORT_LINK_STATE_HOT_RESET: u32 = 9;
+                const PORT_LINK_STATE_INACTIVE: u32 = 6;
+                const PORT_LINK_STATE_LOOPBACK: u32 = 11;
+                const PORT_LINK_STATE_POLLING: u32 = 7;
+                const PORT_LINK_STATE_RECOVERY: u32 = 8;
+                const PORT_LINK_STATE_RX_DETECT: u32 = 5;
+                const PORT_LINK_STATE_TEST_MODE: u32 = 11;
+                const PORT_LINK_STATE_U0: u32 = 0;
+                const PORT_LINK_STATE_U1: u32 = 1;
+                const PORT_LINK_STATE_U2: u32 = 2;
+                const PORT_LINK_STATE_U3: u32 = 3;
+                #[repr(i32)]
+                enum RAW_PIPE_TYPE {
+                    USBSCAN_PIPE_CONTROL = 0,
+                    USBSCAN_PIPE_ISOCHRONOUS = 1,
+                    USBSCAN_PIPE_BULK = 2,
+                    USBSCAN_PIPE_INTERRUPT = 3,
+                }
+                struct RAW_RESET_PORT_PARAMETERS {
+                    PortNumber: u16,
+                    PortStatus: u16,
+                }
+                struct RAW_ROOTPORT_FEATURE {
+                    PortNumber: u16,
+                    PortFeature: u16,
+                    PortStatus: u16,
+                }
+                struct RAW_ROOTPORT_PARAMETERS {
+                    PortNumber: u16,
+                    PortStatus: u16,
+                }
+                struct URB {
+                    Anonymous: union {
+                        UrbHeader: _URB_HEADER,
+                        UrbSelectInterface: _URB_SELECT_INTERFACE,
+                        UrbSelectConfiguration: _URB_SELECT_CONFIGURATION,
+                        UrbPipeRequest: _URB_PIPE_REQUEST,
+                        UrbFrameLengthControl: _URB_FRAME_LENGTH_CONTROL,
+                        UrbGetFrameLength: _URB_GET_FRAME_LENGTH,
+                        UrbSetFrameLength: _URB_SET_FRAME_LENGTH,
+                        UrbGetCurrentFrameNumber: _URB_GET_CURRENT_FRAME_NUMBER,
+                        UrbControlTransfer: _URB_CONTROL_TRANSFER,
+                        UrbControlTransferEx: _URB_CONTROL_TRANSFER_EX,
+                        UrbBulkOrInterruptTransfer: _URB_BULK_OR_INTERRUPT_TRANSFER,
+                        UrbIsochronousTransfer: _URB_ISOCH_TRANSFER,
+                        UrbControlDescriptorRequest: _URB_CONTROL_DESCRIPTOR_REQUEST,
+                        UrbControlGetStatusRequest: _URB_CONTROL_GET_STATUS_REQUEST,
+                        UrbControlFeatureRequest: _URB_CONTROL_FEATURE_REQUEST,
+                        UrbControlVendorClassRequest: _URB_CONTROL_VENDOR_OR_CLASS_REQUEST,
+                        UrbControlGetInterfaceRequest: _URB_CONTROL_GET_INTERFACE_REQUEST,
+                        UrbControlGetConfigurationRequest: _URB_CONTROL_GET_CONFIGURATION_REQUEST,
+                        UrbOSFeatureDescriptorRequest: _URB_OS_FEATURE_DESCRIPTOR_REQUEST,
+                        UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
+                        UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
+                    },
+                }
+                const URB_FUNCTION_ABORT_PIPE: u32 = 2;
+                const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9;
+                const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55;
+                const URB_FUNCTION_CLASS_DEVICE: u32 = 26;
+                const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28;
+                const URB_FUNCTION_CLASS_INTERFACE: u32 = 27;
+                const URB_FUNCTION_CLASS_OTHER: u32 = 31;
+                const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16;
+                const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18;
+                const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17;
+                const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34;
+                const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54;
+                const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8;
+                const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50;
+                const URB_FUNCTION_GET_CONFIGURATION: u32 = 38;
+                const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7;
+                const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11;
+                const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36;
+                const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40;
+                const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5;
+                const URB_FUNCTION_GET_INTERFACE: u32 = 39;
+                const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61;
+                const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42;
+                const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19;
+                const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21;
+                const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20;
+                const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33;
+                const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10;
+                const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56;
+                const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53;
+                const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4;
+                const URB_FUNCTION_RESERVED_0X0016: u32 = 22;
+                const URB_FUNCTION_RESERVE_0X001D: u32 = 29;
+                const URB_FUNCTION_RESERVE_0X002B: u32 = 43;
+                const URB_FUNCTION_RESERVE_0X002C: u32 = 44;
+                const URB_FUNCTION_RESERVE_0X002D: u32 = 45;
+                const URB_FUNCTION_RESERVE_0X002E: u32 = 46;
+                const URB_FUNCTION_RESERVE_0X002F: u32 = 47;
+                const URB_FUNCTION_RESERVE_0X0033: u32 = 51;
+                const URB_FUNCTION_RESERVE_0X0034: u32 = 52;
+                const URB_FUNCTION_RESET_PIPE: u32 = 30;
+                const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0;
+                const URB_FUNCTION_SELECT_INTERFACE: u32 = 1;
+                const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12;
+                const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37;
+                const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41;
+                const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13;
+                const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15;
+                const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14;
+                const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35;
+                const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6;
+                const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49;
+                const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48;
+                const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30;
+                const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3;
+                const URB_FUNCTION_VENDOR_DEVICE: u32 = 23;
+                const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25;
+                const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24;
+                const URB_FUNCTION_VENDOR_OTHER: u32 = 32;
+                const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256;
+                const UREGMANUSBFNENUMPATH: String = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\";
+                const UREGUSBFNENUMPATH: String = "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\";
+                const USBDI_VERSION: u32 = 1536;
+                const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
+                const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8;
+                struct USBD_DEVICE_INFORMATION {
+                    OffsetNext: u32,
+                    UsbdDeviceHandle: *mut void,
+                    DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+                }
+                struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
+                    Size: u32,
+                    EndpointAddress: u16,
+                    ResourceId: u32,
+                    Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("RootHubPortNumber", 0, 8)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("RouteString", 8, 20)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Speed", 28, 4)]
+                    _bitfield1: u32,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("UsbDeviceAddress", 0, 8)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("SlotId", 8, 8)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("MultiTT", 16, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("LSOrFSDeviceConnectedToTTHub", 17, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved0", 18, 14)]
+                    _bitfield2: u32,
+                    TransferSegmentLA: i64,
+                    TransferSegmentVA: *mut void,
+                    TransferRingSize: usize,
+                    TransferRingInitialCycleBit: u32,
+                    MessageNumber: u32,
+                    EventRingSegmentLA: i64,
+                    EventRingSegmentVA: *mut void,
+                    EventRingSize: usize,
+                    EventRingInitialCycleBit: u32,
+                }
+                #[repr(i32)]
+                enum USBD_ENDPOINT_OFFLOAD_MODE {
+                    UsbdEndpointOffloadModeNotSupported = 0,
+                    UsbdEndpointOffloadSoftwareAssisted = 1,
+                    UsbdEndpointOffloadHardwareAssisted = 2,
+                }
+                struct USBD_INTERFACE_INFORMATION {
+                    Length: u16,
+                    InterfaceNumber: u8,
+                    AlternateSetting: u8,
+                    Class: u8,
+                    SubClass: u8,
+                    Protocol: u8,
+                    Reserved: u8,
+                    InterfaceHandle: *mut void,
+                    NumberOfPipes: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Pipes: [USBD_PIPE_INFORMATION; 1],
+                }
+                struct USBD_ISO_PACKET_DESCRIPTOR {
+                    Offset: u32,
+                    Length: u32,
+                    Status: i32,
+                }
+                const USBD_ISO_START_FRAME_RANGE: u32 = 1024;
+                const USBD_PF_CHANGE_MAX_PACKET: u32 = 1;
+                const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4;
+                const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256;
+                const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48;
+                const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8;
+                const USBD_PF_PRIORITY_MASK: u32 = 240;
+                const USBD_PF_SHORT_PACKET_OPT: u32 = 2;
+                const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536;
+                const USBD_PF_VIDEO_PRIORITY: u32 = 16;
+                const USBD_PF_VOICE_PRIORITY: u32 = 32;
+                struct USBD_PIPE_INFORMATION {
+                    MaximumPacketSize: u16,
+                    EndpointAddress: u8,
+                    Interval: u8,
+                    PipeType: USBD_PIPE_TYPE,
+                    PipeHandle: *mut void,
+                    MaximumTransferSize: u32,
+                    PipeFlags: u32,
+                }
+                #[repr(i32)]
+                enum USBD_PIPE_TYPE {
+                    UsbdPipeTypeControl = 0,
+                    UsbdPipeTypeIsochronous = 1,
+                    UsbdPipeTypeBulk = 2,
+                    UsbdPipeTypeInterrupt = 3,
+                }
+                const USBD_PORT_CONNECTED: u32 = 2;
+                const USBD_PORT_ENABLED: u32 = 1;
+                const USBD_SHORT_TRANSFER_OK: u32 = 2;
+                const USBD_START_ISO_TRANSFER_ASAP: u32 = 4;
+                struct USBD_STREAM_INFORMATION {
+                    PipeHandle: *mut void,
+                    StreamID: u32,
+                    MaximumTransferSize: u32,
+                    PipeFlags: u32,
+                }
+                const USBD_TRANSFER_DIRECTION: u32 = 1;
+                const USBD_TRANSFER_DIRECTION_IN: u32 = 1;
+                const USBD_TRANSFER_DIRECTION_OUT: u32 = 0;
+                struct USBD_VERSION_INFORMATION {
+                    USBDI_Version: u32,
+                    Supported_USB_Version: u32,
+                }
+                struct USBFN_BUS_CONFIGURATION_INFO {
+                    ConfigurationName: [u16; 40],
+                    IsCurrent: super::super::Foundation::BOOLEAN,
+                    IsActive: super::super::Foundation::BOOLEAN,
+                }
+                #[repr(i32)]
+                enum USBFN_BUS_SPEED {
+                    UsbfnBusSpeedLow = 0,
+                    UsbfnBusSpeedFull = 1,
+                    UsbfnBusSpeedHigh = 2,
+                    UsbfnBusSpeedSuper = 3,
+                    UsbfnBusSpeedMaximum = 4,
+                }
+                struct USBFN_CLASS_INFORMATION_PACKET {
+                    FullSpeedClassInterface: USBFN_CLASS_INTERFACE,
+                    HighSpeedClassInterface: USBFN_CLASS_INTERFACE,
+                    InterfaceName: [u16; 40],
+                    InterfaceGuid: [u16; 39],
+                    HasInterfaceGuid: super::super::Foundation::BOOLEAN,
+                    SuperSpeedClassInterface: USBFN_CLASS_INTERFACE,
+                }
+                struct USBFN_CLASS_INFORMATION_PACKET_EX {
+                    FullSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
+                    HighSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
+                    SuperSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
+                    InterfaceName: [u16; 40],
+                    InterfaceGuid: [u16; 39],
+                    HasInterfaceGuid: super::super::Foundation::BOOLEAN,
+                }
+                struct USBFN_CLASS_INTERFACE {
+                    InterfaceNumber: u8,
+                    PipeCount: u8,
+                    PipeArr: [USBFN_PIPE_INFORMATION; 16],
+                }
+                struct USBFN_CLASS_INTERFACE_EX {
+                    BaseInterfaceNumber: u8,
+                    InterfaceCount: u8,
+                    PipeCount: u8,
+                    PipeArr: [USBFN_PIPE_INFORMATION; 16],
+                }
+                #[repr(i32)]
+                enum USBFN_DEVICE_STATE {
+                    UsbfnDeviceStateMinimum = 0,
+                    UsbfnDeviceStateAttached = 1,
+                    UsbfnDeviceStateDefault = 2,
+                    UsbfnDeviceStateDetached = 3,
+                    UsbfnDeviceStateAddressed = 4,
+                    UsbfnDeviceStateConfigured = 5,
+                    UsbfnDeviceStateSuspended = 6,
+                    UsbfnDeviceStateStateMaximum = 7,
+                }
+                #[repr(i32)]
+                enum USBFN_DIRECTION {
+                    UsbfnDirectionMinimum = 0,
+                    UsbfnDirectionIn = 1,
+                    UsbfnDirectionOut = 2,
+                    UsbfnDirectionTx = 1,
+                    UsbfnDirectionRx = 2,
+                    UsbfnDirectionMaximum = 3,
+                }
+                #[repr(i32)]
+                enum USBFN_EVENT {
+                    UsbfnEventMinimum = 0,
+                    UsbfnEventAttach = 1,
+                    UsbfnEventReset = 2,
+                    UsbfnEventDetach = 3,
+                    UsbfnEventSuspend = 4,
+                    UsbfnEventResume = 5,
+                    UsbfnEventSetupPacket = 6,
+                    UsbfnEventConfigured = 7,
+                    UsbfnEventUnConfigured = 8,
+                    UsbfnEventPortType = 9,
+                    UsbfnEventBusTearDown = 10,
+                    UsbfnEventSetInterface = 11,
+                    UsbfnEventMaximum = 12,
+                }
+                struct USBFN_INTERFACE_INFO {
+                    InterfaceNumber: u8,
+                    Speed: USBFN_BUS_SPEED,
+                    Size: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    InterfaceDescriptorSet: [u8; 1],
+                }
+                const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128;
+                struct USBFN_NOTIFICATION {
+                    Event: USBFN_EVENT,
+                    u: union {
+                        BusSpeed: USBFN_BUS_SPEED,
+                        SetupPacket: USB_DEFAULT_PIPE_SETUP_PACKET,
+                        ConfigurationValue: u16,
+                        PortType: USBFN_PORT_TYPE,
+                        AlternateInterface: ALTERNATE_INTERFACE,
+                    },
+                }
+                struct USBFN_PIPE_INFORMATION {
+                    EpDesc: USB_ENDPOINT_DESCRIPTOR,
+                    PipeId: u32,
+                }
+                #[repr(i32)]
+                enum USBFN_PORT_TYPE {
+                    UsbfnUnknownPort = 0,
+                    UsbfnStandardDownstreamPort = 1,
+                    UsbfnChargingDownstreamPort = 2,
+                    UsbfnDedicatedChargingPort = 3,
+                    UsbfnInvalidDedicatedChargingPort = 4,
+                    UsbfnProprietaryDedicatedChargingPort = 5,
+                    UsbfnPortTypeMaximum = 6,
+                }
+                struct USBFN_USB_STRING {
+                    StringIndex: u8,
+                    UsbString: [u16; 255],
+                }
+                struct USBSCAN_GET_DESCRIPTOR {
+                    DescriptorType: u8,
+                    Index: u8,
+                    LanguageId: u16,
+                }
+                struct USBSCAN_PIPE_CONFIGURATION {
+                    NumberOfPipes: u32,
+                    PipeInfo: [USBSCAN_PIPE_INFORMATION; 8],
+                }
+                struct USBSCAN_PIPE_INFORMATION {
+                    MaximumPacketSize: u16,
+                    EndpointAddress: u8,
+                    Interval: u8,
+                    PipeType: RAW_PIPE_TYPE,
+                }
+                struct USBSCAN_TIMEOUT {
+                    TimeoutRead: u32,
+                    TimeoutWrite: u32,
+                    TimeoutEvent: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_bandwidth_info_request")]
+                struct USBUSER_BANDWIDTH_INFO_REQUEST {
+                    Header: USBUSER_REQUEST_HEADER,
+                    BandwidthInformation: USB_BANDWIDTH_INFO,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_bus_statistics_0_request")]
+                struct USBUSER_BUS_STATISTICS_0_REQUEST {
+                    Header: USBUSER_REQUEST_HEADER,
+                    BusStatistics0: USB_BUS_STATISTICS_0,
+                }
+                const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918;
+                struct USBUSER_CLOSE_RAW_DEVICE {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: USB_CLOSE_RAW_DEVICE_PARAMETERS,
+                }
+                struct USBUSER_CONTROLLER_INFO_0 {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Info0: USB_CONTROLLER_INFO_0,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_controller_unicode_name")]
+                struct USBUSER_CONTROLLER_UNICODE_NAME {
+                    Header: USBUSER_REQUEST_HEADER,
+                    UnicodeName: USB_UNICODE_NAME,
+                }
+                const USBUSER_GET_BANDWIDTH_INFORMATION: u32 = 5;
+                const USBUSER_GET_BUS_STATISTICS_0: u32 = 6;
+                const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2;
+                const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_get_driver_version")]
+                struct USBUSER_GET_DRIVER_VERSION {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: USB_DRIVER_VERSION_PARAMETERS,
+                }
+                const USBUSER_GET_POWER_STATE_MAP: u32 = 4;
+                const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7;
+                const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919;
+                struct USBUSER_GET_USB2HW_VERSION {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: USB_USB2HW_VERSION_PARAMETERS,
+                }
+                const USBUSER_GET_USB2_HW_VERSION: u32 = 9;
+                const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8;
+                const USBUSER_INVALID_REQUEST: u32 = 4294967280;
+                struct USBUSER_OPEN_RAW_DEVICE {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: USB_OPEN_RAW_DEVICE_PARAMETERS,
+                }
+                const USBUSER_OP_CLOSE_RAW_DEVICE: u32 = 536870915;
+                const USBUSER_OP_MASK_DEVONLY_API: u32 = 268435456;
+                const USBUSER_OP_MASK_HCTEST_API: u32 = 536870912;
+                const USBUSER_OP_OPEN_RAW_DEVICE: u32 = 536870914;
+                const USBUSER_OP_RAW_RESET_PORT: u32 = 536870913;
+                const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457;
+                const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916;
+                const USBUSER_PASS_THRU: u32 = 3;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_pass_thru_request")]
+                struct USBUSER_PASS_THRU_REQUEST {
+                    Header: USBUSER_REQUEST_HEADER,
+                    PassThru: USB_PASS_THRU_PARAMETERS,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_power_info_request")]
+                struct USBUSER_POWER_INFO_REQUEST {
+                    Header: USBUSER_REQUEST_HEADER,
+                    PowerInformation: USB_POWER_INFO,
+                }
+                struct USBUSER_RAW_RESET_ROOT_PORT {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: RAW_RESET_PORT_PARAMETERS,
+                }
+                struct USBUSER_REFRESH_HCT_REG {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Flags: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usbuser_request_header")]
+                struct USBUSER_REQUEST_HEADER {
+                    UsbUserRequest: u32,
+                    UsbUserStatusCode: USB_USER_ERROR_CODE,
+                    RequestBufferLength: u32,
+                    ActualBufferLength: u32,
+                }
+                struct USBUSER_ROOTPORT_FEATURE_REQUEST {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: RAW_ROOTPORT_FEATURE,
+                }
+                struct USBUSER_ROOTPORT_PARAMETERS {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: RAW_ROOTPORT_PARAMETERS,
+                }
+                struct USBUSER_SEND_ONE_PACKET {
+                    Header: USBUSER_REQUEST_HEADER,
+                    PacketParameters: PACKET_PARAMETERS,
+                }
+                struct USBUSER_SEND_RAW_COMMAND {
+                    Header: USBUSER_REQUEST_HEADER,
+                    Parameters: USB_SEND_RAW_COMMAND_PARAMETERS,
+                }
+                const USBUSER_SET_ROOTPORT_FEATURE: u32 = 536870917;
+                const USBUSER_USB_REFRESH_HCT_REG: u32 = 10;
+                const USBUSER_VERSION: u32 = 4;
+                const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252;
+                const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41;
+                union USB_20_PORT_CHANGE {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ConnectStatusChange", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortEnableDisableChange", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SuspendChange", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrentIndicatorChange", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ResetChange", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved2", 5, 11)]
+                        _bitfield: u16,
+                    },
+                }
+                union USB_20_PORT_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("CurrentConnectStatus", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortEnabledDisabled", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Suspend", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrent", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reset", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("L1", 5, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved0", 6, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortPower", 8, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LowSpeedDeviceAttached", 9, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HighSpeedDeviceAttached", 10, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortTestMode", 11, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortIndicatorControl", 12, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 13, 3)]
+                        _bitfield: u16,
+                    },
+                }
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204;
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48;
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16;
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0;
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32;
+                const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48;
+                struct USB_30_HUB_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bNumberOfPorts: u8,
+                    wHubCharacteristics: u16,
+                    bPowerOnToPowerGood: u8,
+                    bHubControlCurrent: u8,
+                    bHubHdrDecLat: u8,
+                    wHubDelay: u16,
+                    DeviceRemovable: u16,
+                }
+                const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42;
+                union USB_30_PORT_CHANGE {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ConnectStatusChange", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved2", 1, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrentIndicatorChange", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ResetChange", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("BHResetChange", 5, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortLinkStateChange", 6, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortConfigErrorChange", 7, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved3", 8, 8)]
+                        _bitfield: u16,
+                    },
+                }
+                union USB_30_PORT_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("CurrentConnectStatus", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortEnabledDisabled", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved0", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrent", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reset", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortLinkState", 5, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortPower", 9, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("NegotiatedDeviceSpeed", 10, 3)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 13, 3)]
+                        _bitfield: u16,
+                    },
+                }
+                struct USB_ACQUIRE_INFO {
+                    NotificationType: USB_NOTIFICATION_TYPE,
+                    TotalSize: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Buffer: [u16; 1],
+                }
+                const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_bandwidth_info")]
+                struct USB_BANDWIDTH_INFO {
+                    DeviceCount: u32,
+                    TotalBusBandwidth: u32,
+                    Total32secBandwidth: u32,
+                    AllocedBulkAndControl: u32,
+                    AllocedIso: u32,
+                    AllocedInterrupt_1ms: u32,
+                    AllocedInterrupt_2ms: u32,
+                    AllocedInterrupt_4ms: u32,
+                    AllocedInterrupt_8ms: u32,
+                    AllocedInterrupt_16ms: u32,
+                    AllocedInterrupt_32ms: u32,
+                }
+                struct USB_BOS_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    wTotalLength: u16,
+                    bNumDeviceCaps: u8,
+                }
+                const USB_BOS_DESCRIPTOR_TYPE: u32 = 15;
+                struct USB_BUS_NOTIFICATION {
+                    NotificationType: USB_NOTIFICATION_TYPE,
+                    TotalBandwidth: u32,
+                    ConsumedBandwidth: u32,
+                    ControllerNameLength: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_bus_statistics_0")]
+                struct USB_BUS_STATISTICS_0 {
+                    DeviceCount: u32,
+                    CurrentSystemTime: i64,
+                    CurrentUsbFrame: u32,
+                    BulkBytes: u32,
+                    IsoBytes: u32,
+                    InterruptBytes: u32,
+                    ControlDataBytes: u32,
+                    PciInterruptCount: u32,
+                    HardResetCount: u32,
+                    WorkerSignalCount: u32,
+                    CommonBufferBytes: u32,
+                    WorkerIdleTimeMs: u32,
+                    RootHubEnabled: super::super::Foundation::BOOLEAN,
+                    RootHubDevicePowerState: u8,
+                    Unused: u8,
+                    NameIndex: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct USB_CHANGE_REGISTRATION_HANDLE {
+                    Value: *mut void,
+                }
+                const USB_CHARGING_POLICY_DEFAULT: u32 = 0;
+                const USB_CHARGING_POLICY_ICCHPF: u32 = 1;
+                const USB_CHARGING_POLICY_ICCLPF: u32 = 2;
+                const USB_CHARGING_POLICY_NO_POWER: u32 = 3;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_close_raw_device_parameters")]
+                struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
+                    xxx: u32,
+                }
+                struct USB_COMMON_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                }
+                struct USB_COMPOSITE_DEVICE_INFO {
+                    DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+                    CurrentConfigDescriptor: USB_CONFIGURATION_DESCRIPTOR,
+                    CurrentConfigurationValue: u8,
+                    NumberOfFunctions: u8,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    FunctionInfo: [USB_COMPOSITE_FUNCTION_INFO; 1],
+                }
+                struct USB_COMPOSITE_FUNCTION_INFO {
+                    FunctionNumber: u8,
+                    BaseInterfaceNumber: u8,
+                    NumberOfInterfaces: u8,
+                    FunctionIsIdle: super::super::Foundation::BOOLEAN,
+                }
+                struct USB_CONFIGURATION_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    wTotalLength: u16,
+                    bNumInterfaces: u8,
+                    bConfigurationValue: u8,
+                    iConfiguration: u8,
+                    bmAttributes: u8,
+                    MaxPower: u8,
+                }
+                const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2;
+                struct USB_CONFIGURATION_POWER_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    SelfPowerConsumedD0: [u8; 3],
+                    bPowerSummaryId: u8,
+                    bBusPowerSavingD1: u8,
+                    bSelfPowerSavingD1: u8,
+                    bBusPowerSavingD2: u8,
+                    bSelfPowerSavingD2: u8,
+                    bBusPowerSavingD3: u8,
+                    bSelfPowerSavingD3: u8,
+                    TransitionTimeFromD1: u16,
+                    TransitionTimeFromD2: u16,
+                    TransitionTimeFromD3: u16,
+                }
+                const USB_CONFIG_BUS_POWERED: u32 = 128;
+                const USB_CONFIG_POWERED_MASK: u32 = 192;
+                const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7;
+                const USB_CONFIG_REMOTE_WAKEUP: u32 = 32;
+                const USB_CONFIG_RESERVED: u32 = 31;
+                const USB_CONFIG_SELF_POWERED: u32 = 64;
+                struct USB_CONNECTION_NOTIFICATION {
+                    NotificationType: USB_NOTIFICATION_TYPE,
+                    ConnectionNumber: u32,
+                    RequestedBandwidth: u32,
+                    EnumerationFailReason: u32,
+                    PowerRequested: u32,
+                    HubNameLength: u32,
+                }
+                #[repr(i32)]
+                enum USB_CONNECTION_STATUS {
+                    NoDeviceConnected = 0,
+                    DeviceConnected = 1,
+                    DeviceFailedEnumeration = 2,
+                    DeviceGeneralFailure = 3,
+                    DeviceCausedOvercurrent = 4,
+                    DeviceNotEnoughPower = 5,
+                    DeviceNotEnoughBandwidth = 6,
+                    DeviceHubNestedTooDeeply = 7,
+                    DeviceInLegacyHub = 8,
+                    DeviceEnumerating = 9,
+                    DeviceReset = 10,
+                }
+                struct USB_CONTROLLER_DEVICE_INFO {
+                    PciVendorId: u32,
+                    PciDeviceId: u32,
+                    PciRevision: u32,
+                    NumberOfRootPorts: u32,
+                    HcFeatureFlags: u32,
+                }
+                #[repr(i32)]
+                enum USB_CONTROLLER_FLAVOR {
+                    USB_HcGeneric = 0,
+                    OHCI_Generic = 100,
+                    OHCI_Hydra = 101,
+                    OHCI_NEC = 102,
+                    UHCI_Generic = 200,
+                    UHCI_Piix4 = 201,
+                    UHCI_Piix3 = 202,
+                    UHCI_Ich2 = 203,
+                    UHCI_Reserved204 = 204,
+                    UHCI_Ich1 = 205,
+                    UHCI_Ich3m = 206,
+                    UHCI_Ich4 = 207,
+                    UHCI_Ich5 = 208,
+                    UHCI_Ich6 = 209,
+                    UHCI_Intel = 249,
+                    UHCI_VIA = 250,
+                    UHCI_VIA_x01 = 251,
+                    UHCI_VIA_x02 = 252,
+                    UHCI_VIA_x03 = 253,
+                    UHCI_VIA_x04 = 254,
+                    UHCI_VIA_x0E_FIFO = 264,
+                    EHCI_Generic = 1000,
+                    EHCI_NEC = 2000,
+                    EHCI_Lucent = 3000,
+                    EHCI_NVIDIA_Tegra2 = 4000,
+                    EHCI_NVIDIA_Tegra3 = 4001,
+                    EHCI_Intel_Medfield = 5001,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_controller_info_0")]
+                struct USB_CONTROLLER_INFO_0 {
+                    PciVendorId: u32,
+                    PciDeviceId: u32,
+                    PciRevision: u32,
+                    NumberOfRootPorts: u32,
+                    ControllerFlavor: USB_CONTROLLER_FLAVOR,
+                    HcFeatureFlags: u32,
+                }
+                const USB_CYCLE_PORT: u32 = 7;
+                struct USB_CYCLE_PORT_PARAMS {
+                    ConnectionIndex: u32,
+                    StatusReturned: u32,
+                }
+                const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10;
+                const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0;
+                const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0;
+                const USB_DEFAULT_MAX_PACKET: u32 = 64;
+                struct USB_DEFAULT_PIPE_SETUP_PACKET {
+                    bmRequestType: BM_REQUEST_TYPE,
+                    bRequest: u8,
+                    wValue: union {
+                        Anonymous: struct {
+                            LowByte: u8,
+                            HiByte: u8,
+                        },
+                        W: u16,
+                    },
+                    wIndex: union {
+                        Anonymous: struct {
+                            LowByte: u8,
+                            HiByte: u8,
+                        },
+                        W: u16,
+                    },
+                    wLength: u16,
+                }
+                struct USB_DESCRIPTOR_REQUEST {
+                    ConnectionIndex: u32,
+                    SetupPacket: struct {
+                        bmRequest: u8,
+                        bRequest: u8,
+                        wValue: u16,
+                        wIndex: u16,
+                        wLength: u16,
+                    },
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    Data: [u8; 1],
+                }
+                const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7;
+                const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13;
+                struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    iAddtionalInfoURL: u8,
+                    bNumberOfAlternateModes: u8,
+                    bPreferredAlternateMode: u8,
+                    VconnPower: union {
+                        AsUshort: u16,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("VConnPowerNeededForFullFunctionality", 0, 3)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 3, 12)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("NoVconnPowerRequired", 15, 1)]
+                            _bitfield: u16,
+                        },
+                    },
+                    bmConfigured: [u8; 32],
+                    bReserved: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    AlternateMode: [_Anonymous_e__Struct; 1],
+                }
+                const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4;
+                struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bReserved: u8,
+                    ContainerID: [u8; 16],
+                }
+                struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                }
+                const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16;
+                const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17;
+                struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bcdDescriptorVersion: u8,
+                    bmAttributes: union {
+                        AsUlong: u32,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("GetFirmwareImageHashSupport", 0, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("DisallowFirmwareUpdateSupport", 1, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 30)]
+                            _bitfield: u32,
+                        },
+                    },
+                }
+                const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10;
+                const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047;
+                const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8;
+                struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bReserved: u8,
+                    bmCapabilities: union {
+                        AsUshort: u16,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BatteryCharging", 0, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("USBPowerDelivery", 1, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("USBTypeCCurrent", 2, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 3, 13)]
+                            _bitfield: u16,
+                        },
+                    },
+                    wMinVoltage: u16,
+                    wMaxVoltage: u16,
+                    wReserved: u16,
+                    dwMaxOperatingPower: u32,
+                    dwMaxPeakPower: u32,
+                    dwMaxPeakPowerTime: u32,
+                }
+                const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9;
+                const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5;
+                struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bReserved: u8,
+                    PlatformCapabilityUuid: GUID,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    CapabililityData: [u8; 1],
+                }
+                const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6;
+                struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bReserved: u8,
+                    bmAttributes: union {
+                        AsUlong: u32,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 0, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BatteryCharging", 1, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("USBPowerDelivery", 2, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Provider", 3, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Consumer", 4, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChargingPolicy", 5, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("TypeCCurrent", 6, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved2", 7, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("ACSupply", 8, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Battery", 9, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Other", 10, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("NumBatteries", 11, 3)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("UsesVbus", 14, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved3", 15, 17)]
+                            _bitfield: u32,
+                        },
+                    },
+                    bmProviderPorts: u16,
+                    bmConsumerPorts: u16,
+                    bcdBCVersion: u16,
+                    bcdPDVersion: u16,
+                    bcdUSBTypeCVersion: u16,
+                }
+                const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11;
+                union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
+                    AsUlong32: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkSpeedAttrID", 0, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LaneSpeedExponent", 4, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkTypeMode", 6, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkTypeDir", 7, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 8, 6)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LinkProtocol", 14, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LaneSpeedMantissa", 16, 16)]
+                        _bitfield: u32,
+                    },
+                }
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS: u32 = 0;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS: u32 = 3;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS: u32 = 1;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS: u32 = 2;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC: u32 = 1;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1;
+                const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10;
+                struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bReserved: u8,
+                    bmAttributes: union {
+                        AsUlong: u32,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkSpeedAttrCount", 0, 5)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkSpeedIDCount", 5, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 9, 23)]
+                            _bitfield: u32,
+                        },
+                    },
+                    wFunctionalitySupport: union {
+                        AsUshort: u16,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("SublinkSpeedAttrID", 0, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 4, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("MinRxLaneCount", 8, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("MinTxLaneCount", 12, 4)]
+                            _bitfield: u16,
+                        },
+                    },
+                    wReserved: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    bmSublinkSpeedAttr: [USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED; 1],
+                }
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL: u32 = 2;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH: u32 = 4;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW: u32 = 1;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK: u32 = 65520;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047;
+                const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3;
+                struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bmAttributes: u8,
+                    wSpeedsSupported: u16,
+                    bFunctionalitySupport: u8,
+                    bU1DevExitLat: u8,
+                    wU2DevExitLat: u16,
+                }
+                const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2;
+                const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985;
+                struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bDevCapabilityType: u8,
+                    bmAttributes: union {
+                        AsUlong: u32,
+                        Anonymous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 0, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("LPMCapable", 1, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BESLAndAlternateHIRDSupported", 2, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BaselineBESLValid", 3, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeepBESLValid", 4, 1)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 5, 3)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("BaselineBESL", 8, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeepBESL", 12, 4)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved2", 16, 16)]
+                            _bitfield: u32,
+                        },
+                    },
+                }
+                const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1;
+                struct USB_DEVICE_CHARACTERISTICS {
+                    Version: u32,
+                    Reserved: [u32; 2],
+                    UsbDeviceCharacteristicsFlags: u32,
+                    MaximumSendPathDelayInMilliSeconds: u32,
+                    MaximumCompletionPathDelayInMilliSeconds: u32,
+                }
+                const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: u32 = 1;
+                const USB_DEVICE_CHARACTERISTICS_VERSION_1: u32 = 1;
+                const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254;
+                const USB_DEVICE_CLASS_AUDIO: u32 = 1;
+                const USB_DEVICE_CLASS_AUDIO_VIDEO: u32 = 16;
+                const USB_DEVICE_CLASS_BILLBOARD: u32 = 17;
+                const USB_DEVICE_CLASS_CDC_DATA: u32 = 10;
+                const USB_DEVICE_CLASS_COMMUNICATIONS: u32 = 2;
+                const USB_DEVICE_CLASS_CONTENT_SECURITY: u32 = 13;
+                const USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE: u32 = 220;
+                const USB_DEVICE_CLASS_HUB: u32 = 9;
+                const USB_DEVICE_CLASS_HUMAN_INTERFACE: u32 = 3;
+                const USB_DEVICE_CLASS_IMAGE: u32 = 6;
+                const USB_DEVICE_CLASS_MISCELLANEOUS: u32 = 239;
+                const USB_DEVICE_CLASS_MONITOR: u32 = 4;
+                const USB_DEVICE_CLASS_PERSONAL_HEALTHCARE: u32 = 15;
+                const USB_DEVICE_CLASS_PHYSICAL_INTERFACE: u32 = 5;
+                const USB_DEVICE_CLASS_POWER: u32 = 6;
+                const USB_DEVICE_CLASS_PRINTER: u32 = 7;
+                const USB_DEVICE_CLASS_RESERVED: u32 = 0;
+                const USB_DEVICE_CLASS_SMART_CARD: u32 = 11;
+                const USB_DEVICE_CLASS_STORAGE: u32 = 8;
+                const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255;
+                const USB_DEVICE_CLASS_VIDEO: u32 = 14;
+                const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224;
+                struct USB_DEVICE_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bcdUSB: u16,
+                    bDeviceClass: u8,
+                    bDeviceSubClass: u8,
+                    bDeviceProtocol: u8,
+                    bMaxPacketSize0: u8,
+                    idVendor: u16,
+                    idProduct: u16,
+                    bcdDevice: u16,
+                    iManufacturer: u8,
+                    iProduct: u8,
+                    iSerialNumber: u8,
+                    bNumConfigurations: u8,
+                }
+                const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1;
+                const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32;
+                struct USB_DEVICE_INFO {
+                    DeviceState: USB_DEVICE_STATE,
+                    PortNumber: u16,
+                    DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+                    CurrentConfigurationValue: u8,
+                    Speed: USB_DEVICE_SPEED,
+                    DeviceAddress: u16,
+                    ConnectionIndex: u32,
+                    ConnectionStatus: USB_CONNECTION_STATUS,
+                    PnpHardwareId: [u16; 128],
+                    PnpCompatibleId: [u16; 128],
+                    SerialNumberId: [u16; 128],
+                    PnpDeviceDescription: [u16; 128],
+                    NumberOfOpenPipes: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    PipeList: [USB_PIPE_INFO; 1],
+                }
+                struct USB_DEVICE_NODE_INFO {
+                    Sig: u32,
+                    LengthInBytes: u32,
+                    DeviceDescription: [u16; 40],
+                    NodeType: USB_WMI_DEVICE_NODE_TYPE,
+                    BusAddress: USB_TOPOLOGY_ADDRESS,
+                    Anonymous: union {
+                        UsbDeviceInfo: USB_DEVICE_INFO,
+                        HubDeviceInfo: USB_HUB_DEVICE_INFO,
+                        CompositeDeviceInfo: USB_COMPOSITE_DEVICE_INFO,
+                        ControllerDeviceInfo: USB_CONTROLLER_DEVICE_INFO,
+                        DeviceInformation: [u8; 4],
+                    },
+                }
+                struct USB_DEVICE_PERFORMANCE_INFO {
+                    BulkBytes: u32,
+                    ControlDataBytes: u32,
+                    IsoBytes: u32,
+                    InterruptBytes: u32,
+                    BulkUrbCount: u32,
+                    ControlUrbCount: u32,
+                    IsoUrbCount: u32,
+                    InterruptUrbCount: u32,
+                    AllocedInterrupt: [u32; 6],
+                    AllocedIso: u32,
+                    Total32secBandwidth: u32,
+                    TotalTtBandwidth: u32,
+                    DeviceDescription: [u16; 60],
+                    DeviceSpeed: USB_DEVICE_SPEED,
+                    TotalIsoLatency: u32,
+                    DroppedIsoPackets: u32,
+                    TransferErrors: u32,
+                    PciInterruptCount: u32,
+                    HcIdleState: u32,
+                    HcAsyncIdleState: u32,
+                    HcAsyncCacheFlushCount: u32,
+                    HcPeriodicIdleState: u32,
+                    HcPeriodicCacheFlushCount: u32,
+                }
+                struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bcdUSB: u16,
+                    bDeviceClass: u8,
+                    bDeviceSubClass: u8,
+                    bDeviceProtocol: u8,
+                    bMaxPacketSize0: u8,
+                    bNumConfigurations: u8,
+                    bReserved: u8,
+                }
+                const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6;
+                #[repr(i32)]
+                enum USB_DEVICE_SPEED {
+                    UsbLowSpeed = 0,
+                    UsbFullSpeed = 1,
+                    UsbHighSpeed = 2,
+                    UsbSuperSpeed = 3,
+                }
+                struct USB_DEVICE_STATE {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceConnected", 0, 1)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceStarted", 1, 1)]
+                    _bitfield: u32,
+                }
+                union USB_DEVICE_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SelfPowered", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RemoteWakeup", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("U1Enable", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("U2Enable", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LtmEnable", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 5, 11)]
+                        _bitfield: u16,
+                    },
+                }
+                #[repr(i32)]
+                enum USB_DEVICE_TYPE {
+                    Usb11Device = 0,
+                    Usb20Device = 1,
+                }
+                const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263;
+                const USB_DIAG_IGNORE_HUBS_ON: u32 = 262;
+                const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_driver_version_parameters")]
+                struct USB_DRIVER_VERSION_PARAMETERS {
+                    DriverTrackingCode: u32,
+                    USBDI_Version: u32,
+                    USBUSER_Version: u32,
+                    CheckedPortDriver: super::super::Foundation::BOOLEAN,
+                    CheckedMiniportDriver: super::super::Foundation::BOOLEAN,
+                    USB_Version: u16,
+                }
+                const USB_ENABLE_PORT: u32 = 5;
+                const USB_ENDPOINT_ADDRESS_MASK: u32 = 15;
+                struct USB_ENDPOINT_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bEndpointAddress: u8,
+                    bmAttributes: u8,
+                    wMaxPacketSize: u16,
+                    bInterval: u8,
+                }
+                const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5;
+                const USB_ENDPOINT_DIRECTION_MASK: u32 = 128;
+                union USB_ENDPOINT_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Halt", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 1, 15)]
+                        _bitfield: u16,
+                    },
+                }
+                const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024;
+                const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512;
+                const USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE: u32 = 1024;
+                const USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE: u32 = 1024;
+                const USB_ENDPOINT_TYPE_BULK: u32 = 2;
+                const USB_ENDPOINT_TYPE_BULK_RESERVED_MASK: u32 = 252;
+                const USB_ENDPOINT_TYPE_CONTROL: u32 = 0;
+                const USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK: u32 = 252;
+                const USB_ENDPOINT_TYPE_INTERRUPT: u32 = 3;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS: u32 = 1;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK: u32 = 192;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE: u32 = 8;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS: u32 = 4;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK: u32 = 12;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION: u32 = 0;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS: u32 = 12;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT: u32 = 0;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT: u32 = 16;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT: u32 = 32;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK: u32 = 48;
+                const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED: u32 = 48;
+                const USB_ENDPOINT_TYPE_MASK: u32 = 3;
+                const USB_FAIL_GET_STATUS: u32 = 280;
+                const USB_FEATURE_BATTERY_WAKE_MASK: u32 = 40;
+                const USB_FEATURE_CHARGING_POLICY: u32 = 54;
+                const USB_FEATURE_ENDPOINT_STALL: u32 = 0;
+                const USB_FEATURE_FUNCTION_SUSPEND: u32 = 0;
+                const USB_FEATURE_INTERFACE_POWER_D0: u32 = 2;
+                const USB_FEATURE_INTERFACE_POWER_D1: u32 = 3;
+                const USB_FEATURE_INTERFACE_POWER_D2: u32 = 4;
+                const USB_FEATURE_INTERFACE_POWER_D3: u32 = 5;
+                const USB_FEATURE_LDM_ENABLE: u32 = 53;
+                const USB_FEATURE_LTM_ENABLE: u32 = 50;
+                const USB_FEATURE_OS_IS_PD_AWARE: u32 = 41;
+                const USB_FEATURE_POLICY_MODE: u32 = 42;
+                const USB_FEATURE_REMOTE_WAKEUP: u32 = 1;
+                const USB_FEATURE_TEST_MODE: u32 = 2;
+                const USB_FEATURE_U1_ENABLE: u32 = 48;
+                const USB_FEATURE_U2_ENABLE: u32 = 49;
+                struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
+                    TimeTrackingHandle: super::super::Foundation::HANDLE,
+                    InputFrameNumber: u32,
+                    InputMicroFrameNumber: u32,
+                    QueryPerformanceCounterAtInputFrameOrMicroFrame: i64,
+                    QueryPerformanceCounterFrequency: i64,
+                    PredictedAccuracyInMicroSeconds: u32,
+                    CurrentGenerationID: u32,
+                    CurrentQueryPerformanceCounter: i64,
+                    CurrentHardwareFrameNumber: u32,
+                    CurrentHardwareMicroFrameNumber: u32,
+                    CurrentUSBFrameNumber: u32,
+                }
+                union USB_FUNCTION_SUSPEND_OPTIONS {
+                    AsUchar: u8,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PowerState", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RemoteWakeEnabled", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 6)]
+                        _bitfield: u8,
+                    },
+                }
+                const USB_GETSTATUS_LTM_ENABLE: u32 = 16;
+                const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2;
+                const USB_GETSTATUS_SELF_POWERED: u32 = 1;
+                const USB_GETSTATUS_U1_ENABLE: u32 = 4;
+                const USB_GETSTATUS_U2_ENABLE: u32 = 8;
+                const USB_GET_BUSGUID_INFO: u32 = 266;
+                const USB_GET_BUS_INFO: u32 = 264;
+                const USB_GET_CONTROLLER_NAME: u32 = 265;
+                const USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 260;
+                const USB_GET_DEVICE_CHARACTERISTICS: u32 = 288;
+                const USB_GET_DEVICE_HANDLE: u32 = 268;
+                const USB_GET_DEVICE_HANDLE_EX: u32 = 269;
+                const USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE: u32 = 0;
+                const USB_GET_FIRMWARE_HASH: u32 = 1;
+                const USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 286;
+                const USB_GET_HUB_CAPABILITIES: u32 = 271;
+                const USB_GET_HUB_CAPABILITIES_EX: u32 = 276;
+                const USB_GET_HUB_CONFIG_INFO: u32 = 275;
+                const USB_GET_HUB_COUNT: u32 = 6;
+                const USB_GET_HUB_INFORMATION_EX: u32 = 277;
+                const USB_GET_HUB_NAME: u32 = 8;
+                const USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 272;
+                const USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 264;
+                const USB_GET_NODE_CONNECTION_INFORMATION: u32 = 259;
+                const USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 274;
+                const USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 279;
+                const USB_GET_NODE_CONNECTION_NAME: u32 = 261;
+                const USB_GET_NODE_INFORMATION: u32 = 258;
+                const USB_GET_PARENT_HUB_INFO: u32 = 267;
+                const USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 278;
+                const USB_GET_PORT_STATUS: u32 = 4;
+                const USB_GET_ROOTHUB_PDO: u32 = 3;
+                const USB_GET_TOPOLOGY_ADDRESS: u32 = 271;
+                const USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 281;
+                const USB_GET_TT_DEVICE_HANDLE: u32 = 270;
+                struct USB_HCD_DRIVERKEY_NAME {
+                    ActualLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    DriverKeyName: [u16; 1],
+                }
+                const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1;
+                const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2;
+                const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4;
+                const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8;
+                union USB_HIGH_SPEED_MAXPACKET {
+                    us: u16,
+                }
+                union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
+                    AsUchar8: u8,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ConnectRemoteWakeEnable", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DisconnectRemoteWakeEnable", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrentRemoteWakeEnable", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved0", 3, 5)]
+                        _bitfield: u8,
+                    },
+                }
+                struct USB_HUB_CAPABILITIES {
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIs2xCapable", 0, 1)]
+                    _bitfield: u32,
+                }
+                struct USB_HUB_CAPABILITIES_EX {
+                    CapabilityFlags: USB_HUB_CAP_FLAGS,
+                }
+                union USB_HUB_CAP_FLAGS {
+                    ul: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsHighSpeedCapable", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsHighSpeed", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsMultiTtCapable", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsMultiTt", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsRoot", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsArmedWakeOnConnect", 5, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("HubIsBusPowered", 6, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedMBZ", 7, 25)]
+                        _bitfield: u32,
+                    },
+                }
+                union USB_HUB_CHANGE {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LocalPowerChange", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrentChange", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 14)]
+                        _bitfield: u16,
+                    },
+                }
+                const USB_HUB_CYCLE_PORT: u32 = 273;
+                struct USB_HUB_DESCRIPTOR {
+                    bDescriptorLength: u8,
+                    bDescriptorType: u8,
+                    bNumberOfPorts: u8,
+                    wHubCharacteristics: u16,
+                    bPowerOnToPowerGood: u8,
+                    bHubControlCurrent: u8,
+                    bRemoveAndPowerMask: [u8; 64],
+                }
+                struct USB_HUB_DEVICE_INFO {
+                    HubDescriptor: USB_HUB_DESCRIPTOR,
+                    HubNumber: u32,
+                    DeviceAddress: u16,
+                    HubIsSelfPowered: super::super::Foundation::BOOLEAN,
+                    HubIsRootHub: super::super::Foundation::BOOLEAN,
+                    HubCapabilities: USB_HUB_CAPABILITIES,
+                    NumberOfHubPorts: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    PortInfo: [USB_HUB_PORT_INFORMATION; 1],
+                }
+                struct USB_HUB_DEVICE_UXD_SETTINGS {
+                    Version: u32,
+                    PnpGuid: GUID,
+                    OwnerGuid: GUID,
+                    DeleteOnShutdown: u32,
+                    DeleteOnReload: u32,
+                    DeleteOnDisconnect: u32,
+                    Reserved: [u32; 5],
+                }
+                struct USB_HUB_INFORMATION {
+                    HubDescriptor: USB_HUB_DESCRIPTOR,
+                    HubIsBusPowered: super::super::Foundation::BOOLEAN,
+                }
+                struct USB_HUB_INFORMATION_EX {
+                    HubType: USB_HUB_TYPE,
+                    HighestPortNumber: u16,
+                    u: union {
+                        UsbHubDescriptor: USB_HUB_DESCRIPTOR,
+                        Usb30HubDescriptor: USB_30_HUB_DESCRIPTOR,
+                    },
+                }
+                struct USB_HUB_NAME {
+                    ActualLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    HubName: [u16; 1],
+                }
+                #[repr(i32)]
+                enum USB_HUB_NODE {
+                    UsbHub = 0,
+                    UsbMIParent = 1,
+                }
+                struct USB_HUB_PORT_INFORMATION {
+                    DeviceState: USB_DEVICE_STATE,
+                    PortNumber: u16,
+                    DeviceAddress: u16,
+                    ConnectionIndex: u32,
+                    ConnectionStatus: USB_CONNECTION_STATUS,
+                }
+                union USB_HUB_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("LocalPowerLost", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("OverCurrent", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 14)]
+                        _bitfield: u16,
+                    },
+                }
+                union USB_HUB_STATUS_AND_CHANGE {
+                    AsUlong32: u32,
+                    Anonymous: struct {
+                        HubStatus: USB_HUB_STATUS,
+                        HubChange: USB_HUB_CHANGE,
+                    },
+                }
+                #[repr(i32)]
+                enum USB_HUB_TYPE {
+                    UsbRootHub = 1,
+                    Usb20Hub = 2,
+                    Usb30Hub = 3,
+                }
+                extern fn USB_IDLE_CALLBACK(Context: *mut void);
+                struct USB_IDLE_CALLBACK_INFO {
+                    IdleCallback: USB_IDLE_CALLBACK,
+                    IdleContext: *mut void,
+                }
+                const USB_IDLE_NOTIFICATION: u32 = 9;
+                const USB_IDLE_NOTIFICATION_EX: u32 = 272;
+                struct USB_ID_STRING {
+                    LanguageId: u16,
+                    Pad: u16,
+                    LengthInBytes: u32,
+                    #[Windows::Win32::Foundation::Metadata::NotNullTerminated]
+                    Buffer: super::super::Foundation::PWSTR,
+                }
+                struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bFirstInterface: u8,
+                    bInterfaceCount: u8,
+                    bFunctionClass: u8,
+                    bFunctionSubClass: u8,
+                    bFunctionProtocol: u8,
+                    iFunction: u8,
+                }
+                const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11;
+                struct USB_INTERFACE_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bInterfaceNumber: u8,
+                    bAlternateSetting: u8,
+                    bNumEndpoints: u8,
+                    bInterfaceClass: u8,
+                    bInterfaceSubClass: u8,
+                    bInterfaceProtocol: u8,
+                    iInterface: u8,
+                }
+                const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4;
+                struct USB_INTERFACE_POWER_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bmCapabilitiesFlags: u8,
+                    bBusPowerSavingD1: u8,
+                    bSelfPowerSavingD1: u8,
+                    bBusPowerSavingD2: u8,
+                    bSelfPowerSavingD2: u8,
+                    bBusPowerSavingD3: u8,
+                    bSelfPowerSavingD3: u8,
+                    TransitionTimeFromD1: u16,
+                    TransitionTimeFromD2: u16,
+                    TransitionTimeFromD3: u16,
+                }
+                const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8;
+                union USB_INTERFACE_STATUS {
+                    AsUshort16: u16,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RemoteWakeupCapable", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RemoteWakeupEnabled", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 14)]
+                        _bitfield: u16,
+                    },
+                }
+                struct USB_MI_PARENT_INFORMATION {
+                    NumberOfInterfaces: u32,
+                }
+                struct USB_NODE_CONNECTION_ATTRIBUTES {
+                    ConnectionIndex: u32,
+                    ConnectionStatus: USB_CONNECTION_STATUS,
+                    PortAttributes: u32,
+                }
+                struct USB_NODE_CONNECTION_DRIVERKEY_NAME {
+                    ConnectionIndex: u32,
+                    ActualLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    DriverKeyName: [u16; 1],
+                }
+                struct USB_NODE_CONNECTION_INFORMATION {
+                    ConnectionIndex: u32,
+                    DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+                    CurrentConfigurationValue: u8,
+                    LowSpeed: super::super::Foundation::BOOLEAN,
+                    DeviceIsHub: super::super::Foundation::BOOLEAN,
+                    DeviceAddress: u16,
+                    NumberOfOpenPipes: u32,
+                    ConnectionStatus: USB_CONNECTION_STATUS,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    PipeList: [USB_PIPE_INFO; 1],
+                }
+                struct USB_NODE_CONNECTION_INFORMATION_EX {
+                    ConnectionIndex: u32,
+                    DeviceDescriptor: USB_DEVICE_DESCRIPTOR,
+                    CurrentConfigurationValue: u8,
+                    Speed: u8,
+                    DeviceIsHub: super::super::Foundation::BOOLEAN,
+                    DeviceAddress: u16,
+                    NumberOfOpenPipes: u32,
+                    ConnectionStatus: USB_CONNECTION_STATUS,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    PipeList: [USB_PIPE_INFO; 1],
+                }
+                struct USB_NODE_CONNECTION_INFORMATION_EX_V2 {
+                    ConnectionIndex: u32,
+                    Length: u32,
+                    SupportedUsbProtocols: USB_PROTOCOLS,
+                    Flags: USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS,
+                }
+                union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
+                    ul: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceIsOperatingAtSuperSpeedOrHigher", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceIsSuperSpeedCapableOrHigher", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceIsOperatingAtSuperSpeedPlusOrHigher", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DeviceIsSuperSpeedPlusCapableOrHigher", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedMBZ", 4, 28)]
+                        _bitfield: u32,
+                    },
+                }
+                struct USB_NODE_CONNECTION_NAME {
+                    ConnectionIndex: u32,
+                    ActualLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    NodeName: [u16; 1],
+                }
+                struct USB_NODE_INFORMATION {
+                    NodeType: USB_HUB_NODE,
+                    u: union {
+                        HubInformation: USB_HUB_INFORMATION,
+                        MiParentInformation: USB_MI_PARENT_INFORMATION,
+                    },
+                }
+                struct USB_NOTIFICATION {
+                    NotificationType: USB_NOTIFICATION_TYPE,
+                }
+                #[repr(i32)]
+                enum USB_NOTIFICATION_TYPE {
+                    EnumerationFailure = 0,
+                    InsufficentBandwidth = 1,
+                    InsufficentPower = 2,
+                    OverCurrent = 3,
+                    ResetOvercurrent = 4,
+                    AcquireBusInfo = 5,
+                    AcquireHubName = 6,
+                    AcquireControllerName = 7,
+                    HubOvercurrent = 8,
+                    HubPowerChange = 9,
+                    HubNestedTooDeeply = 10,
+                    ModernDeviceInLegacyHub = 11,
+                }
+                const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283;
+                struct USB_OPEN_RAW_DEVICE_PARAMETERS {
+                    PortStatus: u16,
+                    MaxPacketEp0: u16,
+                }
+                const USB_OTG_DESCRIPTOR_TYPE: u32 = 9;
+                const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7;
+                const USB_PACKETFLAG_ASYNC_IN: u32 = 8;
+                const USB_PACKETFLAG_ASYNC_OUT: u32 = 16;
+                const USB_PACKETFLAG_FULL_SPEED: u32 = 2;
+                const USB_PACKETFLAG_HIGH_SPEED: u32 = 4;
+                const USB_PACKETFLAG_ISO_IN: u32 = 32;
+                const USB_PACKETFLAG_ISO_OUT: u32 = 64;
+                const USB_PACKETFLAG_LOW_SPEED: u32 = 1;
+                const USB_PACKETFLAG_SETUP: u32 = 128;
+                const USB_PACKETFLAG_TOGGLE0: u32 = 256;
+                const USB_PACKETFLAG_TOGGLE1: u32 = 512;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_pass_thru_parameters")]
+                struct USB_PASS_THRU_PARAMETERS {
+                    FunctionGUID: GUID,
+                    ParameterLength: u32,
+                    Parameters: [u8; 4],
+                }
+                struct USB_PIPE_INFO {
+                    EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR,
+                    ScheduleOffset: u32,
+                }
+                const USB_PORTATTR_MINI_CONNECTOR: u32 = 4;
+                const USB_PORTATTR_NO_CONNECTOR: u32 = 1;
+                const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432;
+                const USB_PORTATTR_OEM_CONNECTOR: u32 = 8;
+                const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216;
+                const USB_PORTATTR_SHARED_USB2: u32 = 2;
+                union USB_PORT_CHANGE {
+                    AsUshort16: u16,
+                    Usb20PortChange: USB_20_PORT_CHANGE,
+                    Usb30PortChange: USB_30_PORT_CHANGE,
+                }
+                struct USB_PORT_CONNECTOR_PROPERTIES {
+                    ConnectionIndex: u32,
+                    ActualLength: u32,
+                    UsbPortProperties: USB_PORT_PROPERTIES,
+                    CompanionIndex: u16,
+                    CompanionPortNumber: u16,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    CompanionHubSymbolicLinkName: [u16; 1],
+                }
+                union USB_PORT_EXT_STATUS {
+                    AsUlong32: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RxSublinkSpeedID", 0, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TxSublinkSpeedID", 4, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("RxLaneCount", 8, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("TxLaneCount", 12, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 16, 16)]
+                        _bitfield: u32,
+                    },
+                }
+                union USB_PORT_EXT_STATUS_AND_CHANGE {
+                    AsUlong64: u64,
+                    Anonymous: struct {
+                        PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
+                        PortExtStatus: USB_PORT_EXT_STATUS,
+                    },
+                }
+                union USB_PORT_PROPERTIES {
+                    ul: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortIsUserConnectable", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortIsDebugCapable", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortHasMultipleCompanions", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PortConnectorIsTypeC", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedMBZ", 4, 28)]
+                        _bitfield: u32,
+                    },
+                }
+                union USB_PORT_STATUS {
+                    AsUshort16: u16,
+                    Usb20PortStatus: USB_20_PORT_STATUS,
+                    Usb30PortStatus: USB_30_PORT_STATUS,
+                }
+                union USB_PORT_STATUS_AND_CHANGE {
+                    AsUlong32: u32,
+                    Anonymous: struct {
+                        PortStatus: USB_PORT_STATUS,
+                        PortChange: USB_PORT_CHANGE,
+                    },
+                }
+                const USB_PORT_STATUS_CONNECT: u32 = 1;
+                const USB_PORT_STATUS_ENABLE: u32 = 2;
+                const USB_PORT_STATUS_HIGH_SPEED: u32 = 1024;
+                const USB_PORT_STATUS_LOW_SPEED: u32 = 512;
+                const USB_PORT_STATUS_OVER_CURRENT: u32 = 8;
+                const USB_PORT_STATUS_POWER: u32 = 256;
+                const USB_PORT_STATUS_RESET: u32 = 16;
+                const USB_PORT_STATUS_SUSPEND: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_power_info")]
+                struct USB_POWER_INFO {
+                    SystemState: WDMUSB_POWER_STATE,
+                    HcDevicePowerState: WDMUSB_POWER_STATE,
+                    HcDeviceWake: WDMUSB_POWER_STATE,
+                    HcSystemWake: WDMUSB_POWER_STATE,
+                    RhDevicePowerState: WDMUSB_POWER_STATE,
+                    RhDeviceWake: WDMUSB_POWER_STATE,
+                    RhSystemWake: WDMUSB_POWER_STATE,
+                    LastSystemSleepState: WDMUSB_POWER_STATE,
+                    CanWakeup: super::super::Foundation::BOOLEAN,
+                    IsPowered: super::super::Foundation::BOOLEAN,
+                }
+                union USB_PROTOCOLS {
+                    ul: u32,
+                    Anonymous: struct {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Usb110", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Usb200", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Usb300", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ReservedMBZ", 3, 29)]
+                        _bitfield: u32,
+                    },
+                }
+                const USB_RECORD_FAILURE: u32 = 10;
+                const USB_REGISTER_COMPOSITE_DEVICE: u32 = 0;
+                const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2;
+                const USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 282;
+                const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: u32 = 1;
+                const USB_REQUEST_CLEAR_FEATURE: u32 = 1;
+                const USB_REQUEST_CLEAR_TT_BUFFER: u32 = 8;
+                const USB_REQUEST_GET_CONFIGURATION: u32 = 8;
+                const USB_REQUEST_GET_DESCRIPTOR: u32 = 6;
+                const USB_REQUEST_GET_FIRMWARE_STATUS: u32 = 26;
+                const USB_REQUEST_GET_INTERFACE: u32 = 10;
+                const USB_REQUEST_GET_PORT_ERR_COUNT: u32 = 13;
+                const USB_REQUEST_GET_STATE: u32 = 2;
+                const USB_REQUEST_GET_STATUS: u32 = 0;
+                const USB_REQUEST_GET_TT_STATE: u32 = 10;
+                const USB_REQUEST_ISOCH_DELAY: u32 = 49;
+                const USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 2;
+                const USB_REQUEST_RESET_TT: u32 = 9;
+                const USB_REQUEST_SET_ADDRESS: u32 = 5;
+                const USB_REQUEST_SET_CONFIGURATION: u32 = 9;
+                const USB_REQUEST_SET_DESCRIPTOR: u32 = 7;
+                const USB_REQUEST_SET_FEATURE: u32 = 3;
+                const USB_REQUEST_SET_FIRMWARE_STATUS: u32 = 27;
+                const USB_REQUEST_SET_HUB_DEPTH: u32 = 12;
+                const USB_REQUEST_SET_INTERFACE: u32 = 11;
+                const USB_REQUEST_SET_SEL: u32 = 48;
+                const USB_REQUEST_STOP_TT: u32 = 11;
+                const USB_REQUEST_SYNC_FRAME: u32 = 12;
+                const USB_REQ_GLOBAL_RESUME: u32 = 274;
+                const USB_REQ_GLOBAL_SUSPEND: u32 = 273;
+                const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6;
+                const USB_RESERVED_USER_BASE: u32 = 1024;
+                const USB_RESET_HUB: u32 = 275;
+                const USB_RESET_PORT: u32 = 1;
+                struct USB_ROOT_HUB_NAME {
+                    ActualLength: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    RootHubName: [u16; 1],
+                }
+                struct USB_SEND_RAW_COMMAND_PARAMETERS {
+                    Usb_bmRequest: u8,
+                    Usb_bRequest: u8,
+                    Usb_wVlaue: u16,
+                    Usb_wIndex: u16,
+                    Usb_wLength: u16,
+                    DeviceAddress: u16,
+                    MaximumPacketSize: u16,
+                    Timeout: u32,
+                    DataLength: u32,
+                    UsbdStatusCode: i32,
+                    Data: [u8; 4],
+                }
+                const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285;
+                struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
+                    TimeTrackingHandle: super::super::Foundation::HANDLE,
+                    IsStartupDelayTolerable: super::super::Foundation::BOOLEAN,
+                }
+                const USB_STATUS_EXT_PORT_STATUS: u32 = 2;
+                const USB_STATUS_PD_STATUS: u32 = 1;
+                const USB_STATUS_PORT_STATUS: u32 = 0;
+                const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287;
+                struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
+                    TimeTrackingHandle: super::super::Foundation::HANDLE,
+                }
+                struct USB_STRING_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    bString: [u16; 1],
+                }
+                const USB_STRING_DESCRIPTOR_TYPE: u32 = 3;
+                const USB_SUBMIT_URB: u32 = 0;
+                const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215;
+                const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153;
+                struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    wReserved: u16,
+                    dwBytesPerInterval: u32,
+                }
+                const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49;
+                struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
+                    bLength: u8,
+                    bDescriptorType: u8,
+                    bMaxBurst: u8,
+                    bmAttributes: union {
+                        AsUchar: u8,
+                        Bulk: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("MaxStreams", 0, 5)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 5, 3)]
+                            _bitfield: u8,
+                        },
+                        Isochronous: struct {
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Mult", 0, 2)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved2", 2, 5)]
+                            #[Windows::Win32::Foundation::Metadata::NativeBitfield("SspCompanion", 7, 1)]
+                            _bitfield: u8,
+                        },
+                    },
+                    wBytesPerInterval: u16,
+                }
+                const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48;
+                const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2;
+                const USB_SUPPORT_D0_COMMAND: u32 = 1;
+                const USB_SUPPORT_D1_COMMAND: u32 = 2;
+                const USB_SUPPORT_D1_WAKEUP: u32 = 16;
+                const USB_SUPPORT_D2_COMMAND: u32 = 4;
+                const USB_SUPPORT_D2_WAKEUP: u32 = 32;
+                const USB_SUPPORT_D3_COMMAND: u32 = 8;
+                const USB_TEST_MODE_TEST_FORCE_ENABLE: u32 = 5;
+                const USB_TEST_MODE_TEST_J: u32 = 1;
+                const USB_TEST_MODE_TEST_K: u32 = 2;
+                const USB_TEST_MODE_TEST_PACKET: u32 = 4;
+                const USB_TEST_MODE_TEST_SE0_NAK: u32 = 3;
+                struct USB_TOPOLOGY_ADDRESS {
+                    PciBusNumber: u32,
+                    PciDeviceNumber: u32,
+                    PciFunctionNumber: u32,
+                    Reserved: u32,
+                    RootHubPortNumber: u16,
+                    HubPortNumber: [u16; 5],
+                    Reserved2: u16,
+                }
+                struct USB_TRANSPORT_CHARACTERISTICS {
+                    Version: u32,
+                    TransportCharacteristicsFlags: u32,
+                    CurrentRoundtripLatencyInMilliSeconds: u64,
+                    MaxPotentialBandwidth: u64,
+                }
+                const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2;
+                struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
+                    Handle: USB_CHANGE_REGISTRATION_HANDLE,
+                    UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
+                }
+                struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
+                    ChangeNotificationInputFlags: u32,
+                    Handle: USB_CHANGE_REGISTRATION_HANDLE,
+                    UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
+                }
+                struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
+                    Handle: USB_CHANGE_REGISTRATION_HANDLE,
+                }
+                const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1;
+                const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ns-usbuser-usb_unicode_name")]
+                struct USB_UNICODE_NAME {
+                    Length: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    String: [u16; 1],
+                }
+                const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1;
+                const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284;
+                struct USB_USB2HW_VERSION_PARAMETERS {
+                    Usb2HwRevision: u8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ne-usbuser-usb_user_error_code")]
+                enum USB_USER_ERROR_CODE {
+                    UsbUserSuccess = 0,
+                    UsbUserNotSupported = 1,
+                    UsbUserInvalidRequestCode = 2,
+                    UsbUserFeatureDisabled = 3,
+                    UsbUserInvalidHeaderParameter = 4,
+                    UsbUserInvalidParameter = 5,
+                    UsbUserMiniportError = 6,
+                    UsbUserBufferTooSmall = 7,
+                    UsbUserErrorNotMapped = 8,
+                    UsbUserDeviceNotStarted = 9,
+                    UsbUserNoDeviceConnected = 10,
+                }
+                #[repr(i32)]
+                enum USB_WMI_DEVICE_NODE_TYPE {
+                    UsbDevice = 0,
+                    HubDevice = 1,
+                    CompositeDevice = 2,
+                    UsbController = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/usbuser/ne-usbuser-wdmusb_power_state")]
+                enum WDMUSB_POWER_STATE {
+                    WdmUsbPowerNotMapped = 0,
+                    WdmUsbPowerSystemUnspecified = 100,
+                    WdmUsbPowerSystemWorking = 101,
+                    WdmUsbPowerSystemSleeping1 = 102,
+                    WdmUsbPowerSystemSleeping2 = 103,
+                    WdmUsbPowerSystemSleeping3 = 104,
+                    WdmUsbPowerSystemHibernate = 105,
+                    WdmUsbPowerSystemShutdown = 106,
+                    WdmUsbPowerDeviceUnspecified = 200,
+                    WdmUsbPowerDeviceD0 = 201,
+                    WdmUsbPowerDeviceD1 = 202,
+                    WdmUsbPowerDeviceD2 = 203,
+                    WdmUsbPowerDeviceD3 = 204,
+                }
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("WinUsb_Free")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct WINUSB_INTERFACE_HANDLE {
+                    Value: *mut void,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusbio/ns-winusbio-winusb_pipe_information")]
+                struct WINUSB_PIPE_INFORMATION {
+                    PipeType: USBD_PIPE_TYPE,
+                    PipeId: u8,
+                    MaximumPacketSize: u16,
+                    Interval: u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusbio/ns-winusbio-winusb_pipe_information_ex")]
+                struct WINUSB_PIPE_INFORMATION_EX {
+                    PipeType: USBD_PIPE_TYPE,
+                    PipeId: u8,
+                    MaximumPacketSize: u16,
+                    Interval: u8,
+                    MaximumBytesPerInterval: u32,
+                }
+                #[repr(u32)]
+                enum WINUSB_PIPE_POLICY {
+                    SHORT_PACKET_TERMINATE = 1,
+                    AUTO_CLEAR_STALL = 2,
+                    PIPE_TRANSFER_TIMEOUT = 3,
+                    IGNORE_SHORT_PACKETS = 4,
+                    ALLOW_PARTIAL_READS = 5,
+                    AUTO_FLUSH = 6,
+                    RAW_IO = 7,
+                    MAXIMUM_TRANSFER_SIZE = 8,
+                    RESET_PIPE_ON_RESUME = 9,
+                }
+                #[repr(u32)]
+                enum WINUSB_POWER_POLICY {
+                    AUTO_SUSPEND = 129,
+                    SUSPEND_DELAY = 131,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/ns-winusb-winusb_setup_packet")]
+                struct WINUSB_SETUP_PACKET {
+                    RequestType: u8,
+                    Request: u8,
+                    Value: u16,
+                    Index: u16,
+                    Length: u16,
+                }
+                const WMI_USB_DEVICE_NODE_INFORMATION: u32 = 2;
+                const WMI_USB_DRIVER_INFORMATION: u32 = 0;
+                const WMI_USB_DRIVER_NOTIFICATION: u32 = 1;
+                const WMI_USB_HUB_NODE_INFORMATION: u32 = 4;
+                const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1;
+                const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2;
+                const WinUSB_TestGuid: GUID = 0xda812bff_12c3_46a2_8e2b_dbd3b7834c43;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_abortpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_AbortPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_controltransfer")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ControlTransfer(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SetupPacket: WINUSB_SETUP_PACKET, Buffer: *mut u8, BufferLength: u32, LengthTransferred: *mut u32, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_flushpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_FlushPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_free")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_Free(InterfaceHandle: WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getadjustedframenumber")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetAdjustedFrameNumber(CurrentFrameNumber: *mut u32, TimeStamp: i64) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getassociatedinterface")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetAssociatedInterface(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AssociatedInterfaceIndex: u8, AssociatedInterfaceHandle: *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getcurrentalternatesetting")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetCurrentAlternateSetting(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SettingNumber: *mut u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getcurrentframenumber")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetCurrentFrameNumber(InterfaceHandle: WINUSB_INTERFACE_HANDLE, CurrentFrameNumber: *mut u32, TimeStamp: *mut i64) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getcurrentframenumberandqpc")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetCurrentFrameNumberAndQpc(InterfaceHandle: WINUSB_INTERFACE_HANDLE, FrameQpcInfo: *mut USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getdescriptor")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetDescriptor(InterfaceHandle: WINUSB_INTERFACE_HANDLE, DescriptorType: u8, Index: u8, LanguageID: u16, Buffer: *mut u8, BufferLength: u32, LengthTransferred: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getoverlappedresult")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetOverlappedResult(InterfaceHandle: WINUSB_INTERFACE_HANDLE, lpOverlapped: *mut super::super::System::IO::OVERLAPPED, lpNumberOfBytesTransferred: *mut u32, bWait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getpipepolicy")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetPipePolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, PolicyType: WINUSB_PIPE_POLICY, ValueLength: *mut u32, Value: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_getpowerpolicy")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_GetPowerPolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PolicyType: WINUSB_POWER_POLICY, ValueLength: *mut u32, Value: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_initialize")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_Initialize(DeviceHandle: super::super::Foundation::HANDLE, InterfaceHandle: *mut WINUSB_INTERFACE_HANDLE) -> super::super::Foundation::BOOL;
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ParseConfigurationDescriptor(ConfigurationDescriptor: *mut USB_CONFIGURATION_DESCRIPTOR, StartPosition: *mut void, InterfaceNumber: i32, AlternateSetting: i32, InterfaceClass: i32, InterfaceSubClass: i32, InterfaceProtocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR;
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ParseDescriptors(DescriptorBuffer: *mut void, TotalLength: u32, StartPosition: *mut void, DescriptorType: i32) -> *mut USB_COMMON_DESCRIPTOR;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_querydeviceinformation")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_QueryDeviceInformation(InterfaceHandle: WINUSB_INTERFACE_HANDLE, InformationType: u32, BufferLength: *mut u32, Buffer: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_queryinterfacesettings")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_QueryInterfaceSettings(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateInterfaceNumber: u8, UsbAltInterfaceDescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_querypipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_QueryPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateInterfaceNumber: u8, PipeIndex: u8, PipeInformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_querypipeex")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_QueryPipeEx(InterfaceHandle: WINUSB_INTERFACE_HANDLE, AlternateSettingNumber: u8, PipeIndex: u8, PipeInformationEx: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_readisochpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ReadIsochPipe(BufferHandle: *mut void, Offset: u32, Length: u32, FrameNumber: *mut u32, NumberOfPackets: u32, IsoPacketDescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_readisochpipeasap")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ReadIsochPipeAsap(BufferHandle: *mut void, Offset: u32, Length: u32, ContinueStream: super::super::Foundation::BOOL, NumberOfPackets: u32, IsoPacketDescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_readpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ReadPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, Buffer: *mut u8, BufferLength: u32, LengthTransferred: *mut u32, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_registerisochbuffer")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_RegisterIsochBuffer(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, Buffer: *mut u8, BufferLength: u32, IsochBufferHandle: *mut *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_resetpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_ResetPipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_setcurrentalternatesetting")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_SetCurrentAlternateSetting(InterfaceHandle: WINUSB_INTERFACE_HANDLE, SettingNumber: u8) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_setpipepolicy")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_SetPipePolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, PolicyType: WINUSB_PIPE_POLICY, ValueLength: u32, Value: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_setpowerpolicy")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_SetPowerPolicy(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PolicyType: WINUSB_POWER_POLICY, ValueLength: u32, Value: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_starttrackingfortimesync")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_StartTrackingForTimeSync(InterfaceHandle: WINUSB_INTERFACE_HANDLE, StartTrackingInfo: *mut USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_stoptrackingfortimesync")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_StopTrackingForTimeSync(InterfaceHandle: WINUSB_INTERFACE_HANDLE, StopTrackingInfo: *mut USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_unregisterisochbuffer")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_UnregisterIsochBuffer(IsochBufferHandle: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_writeisochpipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_WriteIsochPipe(BufferHandle: *mut void, Offset: u32, Length: u32, FrameNumber: *mut u32, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_writeisochpipeasap")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_WriteIsochPipeAsap(BufferHandle: *mut void, Offset: u32, Length: u32, ContinueStream: super::super::Foundation::BOOL, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winusb/nf-winusb-winusb_writepipe")]
+                #[library("WINUSB.dll")]
+                extern fn WinUsb_WritePipe(InterfaceHandle: WINUSB_INTERFACE_HANDLE, PipeID: u8, Buffer: *mut u8, BufferLength: u32, LengthTransferred: *mut u32, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                struct _URB_BULK_OR_INTERRUPT_TRANSFER {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    TransferFlags: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                }
+                struct _URB_CONTROL_DESCRIPTOR_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved0: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    Reserved1: u16,
+                    Index: u8,
+                    DescriptorType: u8,
+                    LanguageId: u16,
+                    Reserved2: u16,
+                }
+                struct _URB_CONTROL_FEATURE_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved2: u32,
+                    Reserved3: u32,
+                    Reserved4: *mut void,
+                    Reserved5: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    Reserved0: u16,
+                    FeatureSelector: u16,
+                    Index: u16,
+                    Reserved1: u16,
+                }
+                struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved0: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    Reserved1: [u8; 8],
+                }
+                struct _URB_CONTROL_GET_INTERFACE_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved0: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    Reserved1: [u8; 4],
+                    Interface: u16,
+                    Reserved2: u16,
+                }
+                struct _URB_CONTROL_GET_STATUS_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved0: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    Reserved1: [u8; 4],
+                    Index: u16,
+                    Reserved2: u16,
+                }
+                struct _URB_CONTROL_TRANSFER {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    TransferFlags: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    SetupPacket: [u8; 8],
+                }
+                struct _URB_CONTROL_TRANSFER_EX {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    TransferFlags: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    Timeout: u32,
+                    hca: _URB_HCD_AREA,
+                    SetupPacket: [u8; 8],
+                }
+                struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    TransferFlags: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    RequestTypeReservedBits: u8,
+                    Request: u8,
+                    Value: u16,
+                    Index: u16,
+                    Reserved1: u16,
+                }
+                struct _URB_FRAME_LENGTH_CONTROL {
+                    Hdr: _URB_HEADER,
+                }
+                struct _URB_GET_CURRENT_FRAME_NUMBER {
+                    Hdr: _URB_HEADER,
+                    FrameNumber: u32,
+                }
+                struct _URB_GET_FRAME_LENGTH {
+                    Hdr: _URB_HEADER,
+                    FrameLength: u32,
+                    FrameNumber: u32,
+                }
+                struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    MaximumSendPathDelayInMilliSeconds: u32,
+                    MaximumCompletionPathDelayInMilliSeconds: u32,
+                }
+                struct _URB_HCD_AREA {
+                    Reserved8: [*mut void; 8],
+                }
+                struct _URB_HEADER {
+                    Length: u16,
+                    Function: u16,
+                    Status: i32,
+                    UsbdDeviceHandle: *mut void,
+                    UsbdFlags: u32,
+                }
+                struct _URB_ISOCH_TRANSFER {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    TransferFlags: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    StartFrame: u32,
+                    NumberOfPackets: u32,
+                    ErrorCount: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
+                }
+                struct _URB_OPEN_STATIC_STREAMS {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    NumberOfStreams: u32,
+                    StreamInfoVersion: u16,
+                    StreamInfoSize: u16,
+                    Streams: *mut USBD_STREAM_INFORMATION,
+                }
+                struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
+                    Hdr: _URB_HEADER,
+                    Reserved: *mut void,
+                    Reserved0: u32,
+                    TransferBufferLength: u32,
+                    TransferBuffer: *mut void,
+                    TransferBufferMDL: *mut void,
+                    UrbLink: *mut URB,
+                    hca: _URB_HCD_AREA,
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Recipient", 0, 5)]
+                    #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved1", 5, 3)]
+                    _bitfield: u8,
+                    Reserved2: u8,
+                    InterfaceNumber: u8,
+                    MS_PageIndex: u8,
+                    MS_FeatureDescriptorIndex: u16,
+                    Reserved3: u16,
+                }
+                struct _URB_PIPE_REQUEST {
+                    Hdr: _URB_HEADER,
+                    PipeHandle: *mut void,
+                    Reserved: u32,
+                }
+                struct _URB_SELECT_CONFIGURATION {
+                    Hdr: _URB_HEADER,
+                    ConfigurationDescriptor: *mut USB_CONFIGURATION_DESCRIPTOR,
+                    ConfigurationHandle: *mut void,
+                    Interface: USBD_INTERFACE_INFORMATION,
+                }
+                struct _URB_SELECT_INTERFACE {
+                    Hdr: _URB_HEADER,
+                    ConfigurationHandle: *mut void,
+                    Interface: USBD_INTERFACE_INFORMATION,
+                }
+                struct _URB_SET_FRAME_LENGTH {
+                    Hdr: _URB_HEADER,
+                    FrameLengthDelta: i32,
+                }
+            }
+        }
+    }
+}

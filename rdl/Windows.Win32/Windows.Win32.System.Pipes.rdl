@@ -1,0 +1,120 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Pipes {
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-callnamedpipea")]
+                #[library("KERNEL32.dll")]
+                extern fn CallNamedPipeA(lpNamedPipeName: super::super::Foundation::PSTR, lpInBuffer: *mut void, nInBufferSize: u32, lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, nTimeOut: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-callnamedpipew")]
+                #[library("KERNEL32.dll")]
+                extern fn CallNamedPipeW(lpNamedPipeName: super::super::Foundation::PWSTR, lpInBuffer: *mut void, nInBufferSize: u32, lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, nTimeOut: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-connectnamedpipe")]
+                #[library("KERNEL32.dll")]
+                extern fn ConnectNamedPipe(hNamedPipe: super::super::Foundation::HANDLE, lpOverlapped: *mut super::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-createnamedpipea")]
+                #[library("KERNEL32.dll")]
+                extern fn CreateNamedPipeA(lpName: super::super::Foundation::PSTR, dwOpenMode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwPipeMode: NAMED_PIPE_MODE, nMaxInstances: u32, nOutBufferSize: u32, nInBufferSize: u32, nDefaultTimeOut: u32, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-createnamedpipew")]
+                #[library("KERNEL32.dll")]
+                extern fn CreateNamedPipeW(lpName: super::super::Foundation::PWSTR, dwOpenMode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwPipeMode: NAMED_PIPE_MODE, nMaxInstances: u32, nOutBufferSize: u32, nInBufferSize: u32, nDefaultTimeOut: u32, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-createpipe")]
+                #[library("KERNEL32.dll")]
+                extern fn CreatePipe(hReadPipe: *mut super::super::Foundation::HANDLE, hWritePipe: *mut super::super::Foundation::HANDLE, lpPipeAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, nSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-disconnectnamedpipe")]
+                #[library("KERNEL32.dll")]
+                extern fn DisconnectNamedPipe(hNamedPipe: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipeclientcomputernamea")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeClientComputerNameA(Pipe: super::super::Foundation::HANDLE, ClientComputerName: super::super::Foundation::PSTR, ClientComputerNameLength: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-getnamedpipeclientcomputernamew")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeClientComputerNameW(Pipe: super::super::Foundation::HANDLE, ClientComputerName: super::super::Foundation::PWSTR, ClientComputerNameLength: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipeclientprocessid")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeClientProcessId(Pipe: super::super::Foundation::HANDLE, ClientProcessId: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipeclientsessionid")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeClientSessionId(Pipe: super::super::Foundation::HANDLE, ClientSessionId: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipehandlestatea")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeHandleStateA(hNamedPipe: super::super::Foundation::HANDLE, lpState: *mut NAMED_PIPE_MODE, lpCurInstances: *mut u32, lpMaxCollectionCount: *mut u32, lpCollectDataTimeout: *mut u32, lpUserName: super::super::Foundation::PSTR, nMaxUserNameSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-getnamedpipehandlestatew")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeHandleStateW(hNamedPipe: super::super::Foundation::HANDLE, lpState: *mut NAMED_PIPE_MODE, lpCurInstances: *mut u32, lpMaxCollectionCount: *mut u32, lpCollectDataTimeout: *mut u32, lpUserName: super::super::Foundation::PWSTR, nMaxUserNameSize: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-getnamedpipeinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeInfo(hNamedPipe: super::super::Foundation::HANDLE, lpFlags: *mut NAMED_PIPE_MODE, lpOutBufferSize: *mut u32, lpInBufferSize: *mut u32, lpMaxInstances: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipeserverprocessid")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeServerProcessId(Pipe: super::super::Foundation::HANDLE, ServerProcessId: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getnamedpipeserversessionid")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNamedPipeServerSessionId(Pipe: super::super::Foundation::HANDLE, ServerSessionId: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-impersonatenamedpipeclient")]
+                #[library("ADVAPI32.dll")]
+                extern fn ImpersonateNamedPipeClient(hNamedPipe: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[repr(u32)]
+                #[flags]
+                enum NAMED_PIPE_MODE {
+                    PIPE_WAIT = 0,
+                    PIPE_NOWAIT = 1,
+                    PIPE_READMODE_BYTE = 0,
+                    PIPE_READMODE_MESSAGE = 2,
+                    PIPE_CLIENT_END = 0,
+                    PIPE_SERVER_END = 1,
+                    PIPE_TYPE_BYTE = 0,
+                    PIPE_TYPE_MESSAGE = 4,
+                    PIPE_ACCEPT_REMOTE_CLIENTS = 0,
+                    PIPE_REJECT_REMOTE_CLIENTS = 8,
+                }
+                const NMPWAIT_NOWAIT: u32 = 1;
+                const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0;
+                const NMPWAIT_WAIT_FOREVER: u32 = 4294967295;
+                const PIPE_UNLIMITED_INSTANCES: u32 = 255;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-peeknamedpipe")]
+                #[library("KERNEL32.dll")]
+                extern fn PeekNamedPipe(hNamedPipe: super::super::Foundation::HANDLE, lpBuffer: *mut void, nBufferSize: u32, lpBytesRead: *mut u32, lpTotalBytesAvail: *mut u32, lpBytesLeftThisMessage: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-setnamedpipehandlestate")]
+                #[library("KERNEL32.dll")]
+                extern fn SetNamedPipeHandleState(hNamedPipe: super::super::Foundation::HANDLE, lpMode: *mut NAMED_PIPE_MODE, lpMaxCollectionCount: *mut u32, lpCollectDataTimeout: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-transactnamedpipe")]
+                #[library("KERNEL32.dll")]
+                extern fn TransactNamedPipe(hNamedPipe: super::super::Foundation::HANDLE, lpInBuffer: *mut void, nInBufferSize: u32, lpOutBuffer: *mut void, nOutBufferSize: u32, lpBytesRead: *mut u32, lpOverlapped: *mut super::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.0")]
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-waitnamedpipea")]
+                #[library("KERNEL32.dll")]
+                extern fn WaitNamedPipeA(lpNamedPipeName: super::super::Foundation::PSTR, nTimeOut: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/namedpipeapi/nf-namedpipeapi-waitnamedpipew")]
+                #[library("KERNEL32.dll")]
+                extern fn WaitNamedPipeW(lpNamedPipeName: super::super::Foundation::PWSTR, nTimeOut: u32) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

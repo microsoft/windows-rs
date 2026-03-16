@@ -1,0 +1,19 @@
+mod Windows {
+    mod Data {
+        #[winrt]
+        mod Html {
+            #[Windows::Foundation::Metadata::Static(IHtmlUtilities, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class HtmlUtilities {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HtmlUtilities)]
+            interface IHtmlUtilities {
+                fn ConvertToText(&self, html: String) -> String;
+            }
+        }
+    }
+}

@@ -1,0 +1,593 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Console {
+                const ALTNUMPAD_BIT: u32 = 67108864;
+                const ATTACH_PARENT_PROCESS: u32 = 4294967295;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/addconsolealias")]
+                #[library("KERNEL32.dll")]
+                extern fn AddConsoleAliasA(Source: super::super::Foundation::PSTR, Target: super::super::Foundation::PSTR, ExeName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/addconsolealias")]
+                #[library("KERNEL32.dll")]
+                extern fn AddConsoleAliasW(Source: super::super::Foundation::PWSTR, Target: super::super::Foundation::PWSTR, ExeName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/allocconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn AllocConsole() -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/attachconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn AttachConsole(dwProcessId: u32) -> super::super::Foundation::BOOL;
+                const CAPSLOCK_ON: u32 = 128;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/char-info-str")]
+                struct CHAR_INFO {
+                    Char: union {
+                        UnicodeChar: u16,
+                        AsciiChar: super::super::Foundation::CHAR,
+                    },
+                    Attributes: u16,
+                }
+                #[repr(i32)]
+                enum CONSOLECONTROL {
+                    Reserved1 = 0,
+                    ConsoleNotifyConsoleApplication = 1,
+                    Reserved2 = 2,
+                    ConsoleSetCaretInfo = 3,
+                    Reserved3 = 4,
+                    ConsoleSetForeground = 5,
+                    ConsoleSetWindowOwner = 6,
+                    ConsoleEndTask = 7,
+                }
+                struct CONSOLEENDTASK {
+                    ProcessId: super::super::Foundation::HANDLE,
+                    hwnd: super::super::Foundation::HWND,
+                    ConsoleEventCode: u32,
+                    ConsoleFlags: u32,
+                }
+                struct CONSOLESETFOREGROUND {
+                    hProcess: super::super::Foundation::HANDLE,
+                    bForeground: super::super::Foundation::BOOL,
+                }
+                struct CONSOLEWINDOWOWNER {
+                    hwnd: super::super::Foundation::HWND,
+                    ProcessId: u32,
+                    ThreadId: u32,
+                }
+                struct CONSOLE_CARET_INFO {
+                    hwnd: super::super::Foundation::HWND,
+                    rc: super::super::Foundation::RECT,
+                }
+                #[repr(u16)]
+                #[flags]
+                enum CONSOLE_CHARACTER_ATTRIBUTES {
+                    FOREGROUND_BLUE = 1,
+                    FOREGROUND_GREEN = 2,
+                    FOREGROUND_RED = 4,
+                    FOREGROUND_INTENSITY = 8,
+                    BACKGROUND_BLUE = 16,
+                    BACKGROUND_GREEN = 32,
+                    BACKGROUND_RED = 64,
+                    BACKGROUND_INTENSITY = 128,
+                    COMMON_LVB_LEADING_BYTE = 256,
+                    COMMON_LVB_TRAILING_BYTE = 512,
+                    COMMON_LVB_GRID_HORIZONTAL = 1024,
+                    COMMON_LVB_GRID_LVERTICAL = 2048,
+                    COMMON_LVB_GRID_RVERTICAL = 4096,
+                    COMMON_LVB_REVERSE_VIDEO = 16384,
+                    COMMON_LVB_UNDERSCORE = 32768,
+                    COMMON_LVB_SBCSDBCS = 768,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-cursor-info-str")]
+                struct CONSOLE_CURSOR_INFO {
+                    dwSize: u32,
+                    bVisible: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-font-info-str")]
+                struct CONSOLE_FONT_INFO {
+                    nFont: u32,
+                    dwFontSize: COORD,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-font-infoex")]
+                struct CONSOLE_FONT_INFOEX {
+                    cbSize: u32,
+                    nFont: u32,
+                    dwFontSize: COORD,
+                    FontFamily: u32,
+                    FontWeight: u32,
+                    FaceName: [u16; 32],
+                }
+                const CONSOLE_FULLSCREEN: u32 = 1;
+                const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
+                const CONSOLE_FULLSCREEN_MODE: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-history-info")]
+                struct CONSOLE_HISTORY_INFO {
+                    cbSize: u32,
+                    HistoryBufferSize: u32,
+                    NumberOfHistoryBuffers: u32,
+                    dwFlags: u32,
+                }
+                #[repr(u32)]
+                #[flags]
+                enum CONSOLE_MODE {
+                    ENABLE_PROCESSED_INPUT = 1,
+                    ENABLE_LINE_INPUT = 2,
+                    ENABLE_ECHO_INPUT = 4,
+                    ENABLE_WINDOW_INPUT = 8,
+                    ENABLE_MOUSE_INPUT = 16,
+                    ENABLE_INSERT_MODE = 32,
+                    ENABLE_QUICK_EDIT_MODE = 64,
+                    ENABLE_EXTENDED_FLAGS = 128,
+                    ENABLE_AUTO_POSITION = 256,
+                    ENABLE_VIRTUAL_TERMINAL_INPUT = 512,
+                    ENABLE_PROCESSED_OUTPUT = 1,
+                    ENABLE_WRAP_AT_EOL_OUTPUT = 2,
+                    ENABLE_VIRTUAL_TERMINAL_PROCESSING = 4,
+                    DISABLE_NEWLINE_AUTO_RETURN = 8,
+                    ENABLE_LVB_GRID_WORLDWIDE = 16,
+                }
+                const CONSOLE_MOUSE_DOWN: u32 = 8;
+                const CONSOLE_MOUSE_SELECTION: u32 = 4;
+                const CONSOLE_NO_SELECTION: u32 = 0;
+                struct CONSOLE_PROCESS_INFO {
+                    dwProcessID: u32,
+                    dwFlags: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-readconsole-control")]
+                struct CONSOLE_READCONSOLE_CONTROL {
+                    nLength: u32,
+                    nInitialChars: u32,
+                    dwCtrlWakeupMask: u32,
+                    dwControlKeyState: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-screen-buffer-info-str")]
+                struct CONSOLE_SCREEN_BUFFER_INFO {
+                    dwSize: COORD,
+                    dwCursorPosition: COORD,
+                    wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
+                    srWindow: SMALL_RECT,
+                    dwMaximumWindowSize: COORD,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-screen-buffer-infoex")]
+                struct CONSOLE_SCREEN_BUFFER_INFOEX {
+                    cbSize: u32,
+                    dwSize: COORD,
+                    dwCursorPosition: COORD,
+                    wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
+                    srWindow: SMALL_RECT,
+                    dwMaximumWindowSize: COORD,
+                    wPopupAttributes: u16,
+                    bFullscreenSupported: super::super::Foundation::BOOL,
+                    ColorTable: [super::super::Foundation::COLORREF; 16],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/console-selection-info-str")]
+                struct CONSOLE_SELECTION_INFO {
+                    dwFlags: u32,
+                    dwSelectionAnchor: COORD,
+                    srSelection: SMALL_RECT,
+                }
+                const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1;
+                const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
+                const CONSOLE_TEXTMODE_BUFFER: u32 = 1;
+                const CONSOLE_WINDOWED_MODE: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/coord-str")]
+                struct COORD {
+                    X: i16,
+                    Y: i16,
+                }
+                const CTRL_BREAK_EVENT: u32 = 1;
+                const CTRL_CLOSE_EVENT: u32 = 2;
+                const CTRL_C_EVENT: u32 = 0;
+                const CTRL_LOGOFF_EVENT: u32 = 5;
+                const CTRL_SHUTDOWN_EVENT: u32 = 6;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/closepseudoconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn ClosePseudoConsole(hPC: HPCON);
+                #[library("USER32.dll")]
+                extern fn ConsoleControl(Command: CONSOLECONTROL, ConsoleInformation: *mut void, ConsoleInformationLength: u32) -> super::super::Foundation::NTSTATUS;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/createconsolescreenbuffer")]
+                #[library("KERNEL32.dll")]
+                extern fn CreateConsoleScreenBuffer(dwDesiredAccess: u32, dwShareMode: u32, lpSecurityAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES, dwFlags: u32, lpScreenBufferData: *mut void) -> super::super::Foundation::HANDLE;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/createpseudoconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn CreatePseudoConsole(size: COORD, hInput: super::super::Foundation::HANDLE, hOutput: super::super::Foundation::HANDLE, dwFlags: u32, phPC: *mut HPCON) -> super::super::Foundation::HRESULT;
+                const DOUBLE_CLICK: u32 = 2;
+                const ENHANCED_KEY: u32 = 256;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("KERNEL32.dll")]
+                extern fn ExpungeConsoleCommandHistoryA(ExeName: super::super::Foundation::PSTR);
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("KERNEL32.dll")]
+                extern fn ExpungeConsoleCommandHistoryW(ExeName: super::super::Foundation::PWSTR);
+                const FOCUS_EVENT: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/focus-event-record-str")]
+                struct FOCUS_EVENT_RECORD {
+                    bSetFocus: super::super::Foundation::BOOL,
+                }
+                const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1;
+                const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4;
+                const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8;
+                const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/fillconsoleoutputattribute")]
+                #[library("KERNEL32.dll")]
+                extern fn FillConsoleOutputAttribute(hConsoleOutput: super::super::Foundation::HANDLE, wAttribute: u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfAttrsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/fillconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn FillConsoleOutputCharacterA(hConsoleOutput: super::super::Foundation::HANDLE, cCharacter: super::super::Foundation::CHAR, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/fillconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn FillConsoleOutputCharacterW(hConsoleOutput: super::super::Foundation::HANDLE, cCharacter: u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/flushconsoleinputbuffer")]
+                #[library("KERNEL32.dll")]
+                extern fn FlushConsoleInputBuffer(hConsoleInput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/freeconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn FreeConsole() -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/generateconsolectrlevent")]
+                #[library("KERNEL32.dll")]
+                extern fn GenerateConsoleCtrlEvent(dwCtrlEvent: u32, dwProcessGroupId: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealias")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasA(Source: super::super::Foundation::PSTR, TargetBuffer: super::super::Foundation::PSTR, TargetBufferLength: u32, ExeName: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiasexes")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasExesA(ExeNameBuffer: super::super::Foundation::PSTR, ExeNameBufferLength: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiasexeslength")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasExesLengthA() -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiasexeslength")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasExesLengthW() -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiasexes")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasExesW(ExeNameBuffer: super::super::Foundation::PWSTR, ExeNameBufferLength: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealias")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasW(Source: super::super::Foundation::PWSTR, TargetBuffer: super::super::Foundation::PWSTR, TargetBufferLength: u32, ExeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiases")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasesA(AliasBuffer: super::super::Foundation::PSTR, AliasBufferLength: u32, ExeName: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiaseslength")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasesLengthA(ExeName: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiaseslength")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasesLengthW(ExeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolealiases")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleAliasesW(AliasBuffer: super::super::Foundation::PWSTR, AliasBufferLength: u32, ExeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolecp")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCP() -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCommandHistoryA(Commands: super::super::Foundation::PSTR, CommandBufferLength: u32, ExeName: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCommandHistoryLengthA(ExeName: super::super::Foundation::PSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCommandHistoryLengthW(ExeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCommandHistoryW(Commands: super::super::Foundation::PWSTR, CommandBufferLength: u32, ExeName: super::super::Foundation::PWSTR) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolecursorinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleCursorInfo(hConsoleOutput: super::super::Foundation::HANDLE, lpConsoleCursorInfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoledisplaymode")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleDisplayMode(lpModeFlags: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolefontsize")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleFontSize(hConsoleOutput: super::super::Foundation::HANDLE, nFont: u32) -> COORD;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolehistoryinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleHistoryInfo(lpConsoleHistoryInfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolemode")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleMode(hConsoleHandle: super::super::Foundation::HANDLE, lpMode: *mut CONSOLE_MODE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoleoriginaltitle")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleOriginalTitleA(lpConsoleTitle: super::super::Foundation::PSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoleoriginaltitle")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleOriginalTitleW(lpConsoleTitle: super::super::Foundation::PWSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoleoutputcp")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleOutputCP() -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoleprocesslist")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleProcessList(lpdwProcessList: *mut u32, dwProcessCount: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolescreenbufferinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleScreenBufferInfo(hConsoleOutput: super::super::Foundation::HANDLE, lpConsoleScreenBufferInfo: *mut CONSOLE_SCREEN_BUFFER_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolescreenbufferinfoex")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleScreenBufferInfoEx(hConsoleOutput: super::super::Foundation::HANDLE, lpConsoleScreenBufferInfoEx: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoleselectioninfo")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleSelectionInfo(lpConsoleSelectionInfo: *mut CONSOLE_SELECTION_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoletitle")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleTitleA(lpConsoleTitle: super::super::Foundation::PSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsoletitle")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleTitleW(lpConsoleTitle: super::super::Foundation::PWSTR, nSize: u32) -> u32;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getconsolewindow")]
+                #[library("KERNEL32.dll")]
+                extern fn GetConsoleWindow() -> super::super::Foundation::HWND;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getcurrentconsolefont")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCurrentConsoleFont(hConsoleOutput: super::super::Foundation::HANDLE, bMaximumWindow: super::super::Foundation::BOOL, lpConsoleCurrentFont: *mut CONSOLE_FONT_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getcurrentconsolefontex")]
+                #[library("KERNEL32.dll")]
+                extern fn GetCurrentConsoleFontEx(hConsoleOutput: super::super::Foundation::HANDLE, bMaximumWindow: super::super::Foundation::BOOL, lpConsoleCurrentFontEx: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getlargestconsolewindowsize")]
+                #[library("KERNEL32.dll")]
+                extern fn GetLargestConsoleWindowSize(hConsoleOutput: super::super::Foundation::HANDLE) -> COORD;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getnumberofconsoleinputevents")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNumberOfConsoleInputEvents(hConsoleInput: super::super::Foundation::HANDLE, lpNumberOfEvents: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getnumberofconsolemousebuttons")]
+                #[library("KERNEL32.dll")]
+                extern fn GetNumberOfConsoleMouseButtons(lpNumberOfMouseButtons: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/getstdhandle")]
+                #[library("KERNEL32.dll")]
+                extern fn GetStdHandle(nStdHandle: STD_HANDLE) -> super::super::Foundation::HANDLE;
+                const HISTORY_NO_DUP_FLAG: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::RAIIFree("ClosePseudoConsole")]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct HPCON {
+                    Value: isize,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/input-record-str")]
+                struct INPUT_RECORD {
+                    EventType: u16,
+                    Event: union {
+                        KeyEvent: KEY_EVENT_RECORD,
+                        MouseEvent: MOUSE_EVENT_RECORD,
+                        WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
+                        MenuEvent: MENU_EVENT_RECORD,
+                        FocusEvent: FOCUS_EVENT_RECORD,
+                    },
+                }
+                const KEY_EVENT: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/key-event-record-str")]
+                struct KEY_EVENT_RECORD {
+                    bKeyDown: super::super::Foundation::BOOL,
+                    wRepeatCount: u16,
+                    wVirtualKeyCode: u16,
+                    wVirtualScanCode: u16,
+                    uChar: union {
+                        UnicodeChar: u16,
+                        AsciiChar: super::super::Foundation::CHAR,
+                    },
+                    dwControlKeyState: u32,
+                }
+                const LEFT_ALT_PRESSED: u32 = 2;
+                const LEFT_CTRL_PRESSED: u32 = 8;
+                const MENU_EVENT: u32 = 8;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/menu-event-record-str")]
+                struct MENU_EVENT_RECORD {
+                    dwCommandId: u32,
+                }
+                const MOUSE_EVENT: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/mouse-event-record-str")]
+                struct MOUSE_EVENT_RECORD {
+                    dwMousePosition: COORD,
+                    dwButtonState: u32,
+                    dwControlKeyState: u32,
+                    dwEventFlags: u32,
+                }
+                const MOUSE_HWHEELED: u32 = 8;
+                const MOUSE_MOVED: u32 = 1;
+                const MOUSE_WHEELED: u32 = 4;
+                const NLS_ALPHANUMERIC: u32 = 0;
+                const NLS_DBCSCHAR: u32 = 65536;
+                const NLS_HIRAGANA: u32 = 262144;
+                const NLS_IME_CONVERSION: u32 = 8388608;
+                const NLS_IME_DISABLE: u32 = 536870912;
+                const NLS_KATAKANA: u32 = 131072;
+                const NLS_ROMAN: u32 = 4194304;
+                const NUMLOCK_ON: u32 = 32;
+                extern fn PHANDLER_ROUTINE(CtrlType: u32) -> super::super::Foundation::BOOL;
+                const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/peekconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn PeekConsoleInputA(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/peekconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn PeekConsoleInputW(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> super::super::Foundation::BOOL;
+                const RIGHTMOST_BUTTON_PRESSED: u32 = 2;
+                const RIGHT_ALT_PRESSED: u32 = 1;
+                const RIGHT_CTRL_PRESSED: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleA(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, lpNumberOfCharsRead: *mut u32, pInputControl: *mut CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleInputA(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleInputW(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleoutput")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleOutputA(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, lpReadRegion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleoutputattribute")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleOutputAttribute(hConsoleOutput: super::super::Foundation::HANDLE, lpAttribute: *mut u16, nLength: u32, dwReadCoord: COORD, lpNumberOfAttrsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleOutputCharacterA(hConsoleOutput: super::super::Foundation::HANDLE, lpCharacter: super::super::Foundation::PSTR, nLength: u32, dwReadCoord: COORD, lpNumberOfCharsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleOutputCharacterW(hConsoleOutput: super::super::Foundation::HANDLE, lpCharacter: super::super::Foundation::PWSTR, nLength: u32, dwReadCoord: COORD, lpNumberOfCharsRead: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsoleoutput")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleOutputW(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, lpReadRegion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/readconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn ReadConsoleW(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut void, nNumberOfCharsToRead: u32, lpNumberOfCharsRead: *mut u32, pInputControl: *mut CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/resizepseudoconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn ResizePseudoConsole(hPC: HPCON, size: COORD) -> super::super::Foundation::HRESULT;
+                const SCROLLLOCK_ON: u32 = 64;
+                const SHIFT_PRESSED: u32 = 16;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/small-rect-str")]
+                struct SMALL_RECT {
+                    Left: i16,
+                    Top: i16,
+                    Right: i16,
+                    Bottom: i16,
+                }
+                #[repr(u32)]
+                enum STD_HANDLE {
+                    STD_INPUT_HANDLE = 4294967286,
+                    STD_OUTPUT_HANDLE = 4294967285,
+                    STD_ERROR_HANDLE = 4294967284,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/scrollconsolescreenbuffer")]
+                #[library("KERNEL32.dll")]
+                extern fn ScrollConsoleScreenBufferA(hConsoleOutput: super::super::Foundation::HANDLE, lpScrollRectangle: *mut SMALL_RECT, lpClipRectangle: *mut SMALL_RECT, dwDestinationOrigin: COORD, lpFill: *mut CHAR_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/scrollconsolescreenbuffer")]
+                #[library("KERNEL32.dll")]
+                extern fn ScrollConsoleScreenBufferW(hConsoleOutput: super::super::Foundation::HANDLE, lpScrollRectangle: *mut SMALL_RECT, lpClipRectangle: *mut SMALL_RECT, dwDestinationOrigin: COORD, lpFill: *mut CHAR_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoleactivescreenbuffer")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleActiveScreenBuffer(hConsoleOutput: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolecp")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleCP(wCodePageID: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolectrlhandler")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleCtrlHandler(HandlerRoutine: PHANDLER_ROUTINE, Add: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolecursorinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleCursorInfo(hConsoleOutput: super::super::Foundation::HANDLE, lpConsoleCursorInfo: *mut CONSOLE_CURSOR_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolecursorposition")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleCursorPosition(hConsoleOutput: super::super::Foundation::HANDLE, dwCursorPosition: COORD) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoledisplaymode")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleDisplayMode(hConsoleOutput: super::super::Foundation::HANDLE, dwFlags: u32, lpNewScreenBufferDimensions: *mut COORD) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolehistoryinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleHistoryInfo(lpConsoleHistoryInfo: *mut CONSOLE_HISTORY_INFO) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolemode")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleMode(hConsoleHandle: super::super::Foundation::HANDLE, dwMode: CONSOLE_MODE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleNumberOfCommandsA(Number: u32, ExeName: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleNumberOfCommandsW(Number: u32, ExeName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoleoutputcp")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleOutputCP(wCodePageID: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolescreenbufferinfoex")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleScreenBufferInfoEx(hConsoleOutput: super::super::Foundation::HANDLE, lpConsoleScreenBufferInfoEx: *mut CONSOLE_SCREEN_BUFFER_INFOEX) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolescreenbuffersize")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleScreenBufferSize(hConsoleOutput: super::super::Foundation::HANDLE, dwSize: COORD) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoletextattribute")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleTextAttribute(hConsoleOutput: super::super::Foundation::HANDLE, wAttributes: CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoletitle")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleTitleA(lpConsoleTitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsoletitle")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleTitleW(lpConsoleTitle: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setconsolewindowinfo")]
+                #[library("KERNEL32.dll")]
+                extern fn SetConsoleWindowInfo(hConsoleOutput: super::super::Foundation::HANDLE, bAbsolute: super::super::Foundation::BOOL, lpConsoleWindow: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setcurrentconsolefontex")]
+                #[library("KERNEL32.dll")]
+                extern fn SetCurrentConsoleFontEx(hConsoleOutput: super::super::Foundation::HANDLE, bMaximumWindow: super::super::Foundation::BOOL, lpConsoleCurrentFontEx: *mut CONSOLE_FONT_INFOEX) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/setstdhandle")]
+                #[library("KERNEL32.dll")]
+                extern fn SetStdHandle(nStdHandle: STD_HANDLE, hHandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/processenv/nf-processenv-setstdhandleex")]
+                #[library("KERNEL32.dll")]
+                extern fn SetStdHandleEx(nStdHandle: STD_HANDLE, hHandle: super::super::Foundation::HANDLE, phPrevValue: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+                const WINDOW_BUFFER_SIZE_EVENT: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/window-buffer-size-record-str")]
+                struct WINDOW_BUFFER_SIZE_RECORD {
+                    dwSize: COORD,
+                }
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleA(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: super::super::Foundation::PSTR, nNumberOfCharsToWrite: u32, lpNumberOfCharsWritten: *mut u32, lpReserved: *mut void) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleInputA(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleinput")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleInputW(hConsoleInput: super::super::Foundation::HANDLE, lpBuffer: *mut INPUT_RECORD, nLength: u32, lpNumberOfEventsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleoutput")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleOutputA(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, lpWriteRegion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleoutputattribute")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleOutputAttribute(hConsoleOutput: super::super::Foundation::HANDLE, lpAttribute: *mut u16, nLength: u32, dwWriteCoord: COORD, lpNumberOfAttrsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Ansi]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleOutputCharacterA(hConsoleOutput: super::super::Foundation::HANDLE, lpCharacter: super::super::Foundation::PSTR, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleoutputcharacter")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleOutputCharacterW(hConsoleOutput: super::super::Foundation::HANDLE, lpCharacter: super::super::Foundation::PWSTR, nLength: u32, dwWriteCoord: COORD, lpNumberOfCharsWritten: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsoleoutput")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleOutputW(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: *mut CHAR_INFO, dwBufferSize: COORD, dwBufferCoord: COORD, lpWriteRegion: *mut SMALL_RECT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::Unicode]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/console/writeconsole")]
+                #[library("KERNEL32.dll")]
+                extern fn WriteConsoleW(hConsoleOutput: super::super::Foundation::HANDLE, lpBuffer: super::super::Foundation::PWSTR, nNumberOfCharsToWrite: u32, lpNumberOfCharsWritten: *mut u32, lpReserved: *mut void) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

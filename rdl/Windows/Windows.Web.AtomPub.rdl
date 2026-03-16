@@ -1,0 +1,98 @@
+mod Windows {
+    mod Web {
+        #[winrt]
+        mod AtomPub {
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IAtomPubClientFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AtomPubClient {
+                #[default]
+                IAtomPubClient,
+                super::Syndication::ISyndicationClient,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAtomPubClient: super::Syndication::ISyndicationClient {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RetrieveServiceDocumentAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RetrieveMediaResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RetrieveResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateResourceAsync(&self, uri: super::super::Foundation::Uri, description: String, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateMediaResourceAsync(&self, uri: super::super::Foundation::Uri, mediaType: String, description: String, mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UpdateMediaResourceAsync(&self, uri: super::super::Foundation::Uri, mediaType: String, mediaStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UpdateResourceAsync(&self, uri: super::super::Foundation::Uri, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UpdateResourceItemAsync(&self, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteResourceAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteResourceItemAsync(&self, item: super::Syndication::SyndicationItem) -> super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>;
+                fn CancelAsyncOperations(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
+            interface IAtomPubClientFactory {
+                fn CreateAtomPubClientWithCredentials(&self, serverCredential: super::super::Security::Credentials::PasswordCredential) -> AtomPubClient;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCollection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IResourceCollection: super::Syndication::ISyndicationNode {
+                #[special]
+                fn get_Title(&self) -> super::Syndication::ISyndicationText;
+                #[special]
+                fn get_Uri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                fn get_Categories(&self) -> super::super::Foundation::Collections::IVectorView<super::Syndication::SyndicationCategory>;
+                #[special]
+                fn get_Accepts(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceDocument)]
+            interface IServiceDocument: super::Syndication::ISyndicationNode {
+                #[special]
+                fn get_Workspaces(&self) -> super::super::Foundation::Collections::IVectorView<Workspace>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(Workspace)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IWorkspace: super::Syndication::ISyndicationNode {
+                #[special]
+                fn get_Title(&self) -> super::Syndication::ISyndicationText;
+                #[special]
+                fn get_Collections(&self) -> super::super::Foundation::Collections::IVectorView<ResourceCollection>;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ResourceCollection {
+                #[default]
+                IResourceCollection,
+                super::Syndication::ISyndicationNode,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ServiceDocument {
+                #[default]
+                IServiceDocument,
+                super::Syndication::ISyndicationNode,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class Workspace {
+                #[default]
+                IWorkspace,
+                super::Syndication::ISyndicationNode,
+            }
+        }
+    }
+}

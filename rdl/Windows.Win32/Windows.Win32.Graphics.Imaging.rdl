@@ -1,0 +1,1649 @@
+mod Windows {
+    mod Win32 {
+        mod Graphics {
+            #[win32]
+            mod Imaging {
+                const CATID_WICBitmapDecoders: GUID = 0x7ed96837_96f0_4812_b211_f13c24117ed3;
+                const CATID_WICBitmapEncoders: GUID = 0xac757296_3522_4e11_9862_c17be5a1767e;
+                const CATID_WICFormatConverters: GUID = 0x7835eae8_bf14_49d1_93ce_533a407b2248;
+                const CATID_WICMetadataReader: GUID = 0x05af94d8_7174_4cd2_be4a_4124b80ee4b8;
+                const CATID_WICMetadataWriter: GUID = 0xabe3b9a4_257d_4b97_bd1a_294af496222e;
+                const CATID_WICPixelFormats: GUID = 0x2b46e70f_cda7_473e_89f6_dc9630a2390b;
+                const CLSID_WIC8BIMIPTCDigestMetadataReader: GUID = 0x02805f1e_d5aa_415b_82c5_61c033a988a6;
+                const CLSID_WIC8BIMIPTCDigestMetadataWriter: GUID = 0x2db5e62b_0d67_495f_8f9d_c2f0188647ac;
+                const CLSID_WIC8BIMIPTCMetadataReader: GUID = 0x0010668c_0801_4da6_a4a4_826522b6d28f;
+                const CLSID_WIC8BIMIPTCMetadataWriter: GUID = 0x00108226_ee41_44a2_9e9c_4be4d5b1d2cd;
+                const CLSID_WIC8BIMResolutionInfoMetadataReader: GUID = 0x5805137a_e348_4f7c_b3cc_6db9965a0599;
+                const CLSID_WIC8BIMResolutionInfoMetadataWriter: GUID = 0x4ff2fe0e_e74a_4b71_98c4_ab7dc16707ba;
+                const CLSID_WICAPEMetadataReader: GUID = 0x1767b93a_b021_44ea_920f_863c11f4f768;
+                const CLSID_WICAPEMetadataWriter: GUID = 0xbd6edfca_2890_482f_b233_8d7339a1cf8d;
+                const CLSID_WICAdngDecoder: GUID = 0x981d9411_909e_42a7_8f5d_a747ff052edb;
+                const CLSID_WICApp0MetadataReader: GUID = 0x43324b33_a78f_480f_9111_9638aaccc832;
+                const CLSID_WICApp0MetadataWriter: GUID = 0xf3c633a2_46c8_498e_8fbb_cc6f721bbcde;
+                const CLSID_WICApp13MetadataReader: GUID = 0xaa7e3c50_864c_4604_bc04_8b0b76e637f6;
+                const CLSID_WICApp13MetadataWriter: GUID = 0x7b19a919_a9d6_49e5_bd45_02c34e4e4cd5;
+                const CLSID_WICApp1MetadataReader: GUID = 0xdde33513_774e_4bcd_ae79_02f4adfe62fc;
+                const CLSID_WICApp1MetadataWriter: GUID = 0xee366069_1832_420f_b381_0479ad066f19;
+                const CLSID_WICBmpDecoder: GUID = 0x6b462062_7cbf_400d_9fdb_813dd10f2778;
+                const CLSID_WICBmpEncoder: GUID = 0x69be8bb4_d66d_47c8_865a_ed1589433782;
+                const CLSID_WICDdsDecoder: GUID = 0x9053699f_a341_429d_9e90_ee437cf80c73;
+                const CLSID_WICDdsEncoder: GUID = 0xa61dde94_66ce_4ac1_881b_71680588895e;
+                const CLSID_WICDdsMetadataReader: GUID = 0x276c88ca_7533_4a86_b676_66b36080d484;
+                const CLSID_WICDdsMetadataWriter: GUID = 0xfd688bbd_31ed_4db7_a723_934927d38367;
+                const CLSID_WICDefaultFormatConverter: GUID = 0x1a3f11dc_b514_4b17_8c5f_2154513852f1;
+                const CLSID_WICExifMetadataReader: GUID = 0xd9403860_297f_4a49_bf9b_77898150a442;
+                const CLSID_WICExifMetadataWriter: GUID = 0xc9a14cda_c339_460b_9078_d4debcfabe91;
+                const CLSID_WICFormatConverterHighColor: GUID = 0xac75d454_9f37_48f8_b972_4e19bc856011;
+                const CLSID_WICFormatConverterNChannel: GUID = 0xc17cabb2_d4a3_47d7_a557_339b2efbd4f1;
+                const CLSID_WICFormatConverterWMPhoto: GUID = 0x9cb5172b_d600_46ba_ab77_77bb7e3a00d9;
+                const CLSID_WICGCEMetadataReader: GUID = 0xb92e345d_f52d_41f3_b562_081bc772e3b9;
+                const CLSID_WICGCEMetadataWriter: GUID = 0xaf95dc76_16b2_47f4_b3ea_3c31796693e7;
+                const CLSID_WICGifCommentMetadataReader: GUID = 0x32557d3b_69dc_4f95_836e_f5972b2f6159;
+                const CLSID_WICGifCommentMetadataWriter: GUID = 0xa02797fc_c4ae_418c_af95_e637c7ead2a1;
+                const CLSID_WICGifDecoder: GUID = 0x381dda3c_9ce9_4834_a23e_1f98f8fc52be;
+                const CLSID_WICGifEncoder: GUID = 0x114f5598_0b22_40a0_86a1_c83ea495adbd;
+                const CLSID_WICGpsMetadataReader: GUID = 0x3697790b_223b_484e_9925_c4869218f17a;
+                const CLSID_WICGpsMetadataWriter: GUID = 0xcb8c13e4_62b5_4c96_a48b_6ba6ace39c76;
+                const CLSID_WICHeifDecoder: GUID = 0xe9a4a80a_44fe_4de4_8971_7150b10a5199;
+                const CLSID_WICHeifEncoder: GUID = 0x0dbecec1_9eb3_4860_9c6f_ddbe86634575;
+                const CLSID_WICHeifHDRMetadataReader: GUID = 0x2438de3d_94d9_4be8_84a8_4de95a575e75;
+                const CLSID_WICHeifMetadataReader: GUID = 0xacddfc3f_85ec_41bc_bdef_1bc262e4db05;
+                const CLSID_WICHeifMetadataWriter: GUID = 0x3ae45e79_40bc_4401_ace5_dd3cb16e6afe;
+                const CLSID_WICIMDMetadataReader: GUID = 0x7447a267_0015_42c8_a8f1_fb3b94c68361;
+                const CLSID_WICIMDMetadataWriter: GUID = 0x8c89071f_452e_4e95_9682_9d1024627172;
+                const CLSID_WICIPTCMetadataReader: GUID = 0x03012959_f4f6_44d7_9d09_daa087a9db57;
+                const CLSID_WICIPTCMetadataWriter: GUID = 0x1249b20c_5dd0_44fe_b0b3_8f92c8e6d080;
+                const CLSID_WICIRBMetadataReader: GUID = 0xd4dcd3d7_b4c2_47d9_a6bf_b89ba396a4a3;
+                const CLSID_WICIRBMetadataWriter: GUID = 0x5c5c1935_0235_4434_80bc_251bc1ec39c6;
+                const CLSID_WICIcoDecoder: GUID = 0xc61bfcdf_2e0f_4aad_a8d7_e06bafebcdfe;
+                const CLSID_WICIfdMetadataReader: GUID = 0x8f914656_9d0a_4eb2_9019_0bf96d8a9ee6;
+                const CLSID_WICIfdMetadataWriter: GUID = 0xb1ebfc28_c9bd_47a2_8d33_b948769777a7;
+                const CLSID_WICImagingCategories: GUID = 0xfae3d380_fea4_4623_8c75_c6b61110b681;
+                const CLSID_WICImagingFactory: GUID = 0xcacaf262_9370_4615_a13b_9f5539da4c0a;
+                const CLSID_WICImagingFactory1: GUID = 0xcacaf262_9370_4615_a13b_9f5539da4c0a;
+                const CLSID_WICImagingFactory2: GUID = 0x317d06e8_5f24_433d_bdf7_79ce68d8abc2;
+                const CLSID_WICInteropMetadataReader: GUID = 0xb5c8b898_0074_459f_b700_860d4651ea14;
+                const CLSID_WICInteropMetadataWriter: GUID = 0x122ec645_cd7e_44d8_b186_2c8c20c3b50f;
+                const CLSID_WICJpegChrominanceMetadataReader: GUID = 0x50b1904b_f28f_4574_93f4_0bade82c69e9;
+                const CLSID_WICJpegChrominanceMetadataWriter: GUID = 0x3ff566f0_6e6b_49d4_96e6_b78886692c62;
+                const CLSID_WICJpegCommentMetadataReader: GUID = 0x9f66347c_60c4_4c4d_ab58_d2358685f607;
+                const CLSID_WICJpegCommentMetadataWriter: GUID = 0xe573236f_55b1_4eda_81ea_9f65db0290d3;
+                const CLSID_WICJpegDecoder: GUID = 0x9456a480_e88b_43ea_9e73_0b2d9b71b1ca;
+                const CLSID_WICJpegEncoder: GUID = 0x1a34f5c1_4a5a_46dc_b644_1f4567e7a676;
+                const CLSID_WICJpegLuminanceMetadataReader: GUID = 0x356f2f88_05a6_4728_b9a4_1bfbce04d838;
+                const CLSID_WICJpegLuminanceMetadataWriter: GUID = 0x1d583abc_8a0e_4657_9982_a380ca58fb4b;
+                const CLSID_WICJpegQualcommPhoneEncoder: GUID = 0x68ed5c62_f534_4979_b2b3_686a12b2b34c;
+                const CLSID_WICLSDMetadataReader: GUID = 0x41070793_59e4_479a_a1f7_954adc2ef5fc;
+                const CLSID_WICLSDMetadataWriter: GUID = 0x73c037e7_e5d9_4954_876a_6da81d6e5768;
+                const CLSID_WICPlanarFormatConverter: GUID = 0x184132b8_32f8_4784_9131_dd7224b23438;
+                const CLSID_WICPngBkgdMetadataReader: GUID = 0x0ce7a4a6_03e8_4a60_9d15_282ef32ee7da;
+                const CLSID_WICPngBkgdMetadataWriter: GUID = 0x68e3f2fd_31ae_4441_bb6a_fd7047525f90;
+                const CLSID_WICPngChrmMetadataReader: GUID = 0xf90b5f36_367b_402a_9dd1_bc0fd59d8f62;
+                const CLSID_WICPngChrmMetadataWriter: GUID = 0xe23ce3eb_5608_4e83_bcef_27b1987e51d7;
+                const CLSID_WICPngDecoder: GUID = 0x389ea17b_5078_4cde_b6ef_25c15175c751;
+                const CLSID_WICPngDecoder1: GUID = 0x389ea17b_5078_4cde_b6ef_25c15175c751;
+                const CLSID_WICPngDecoder2: GUID = 0xe018945b_aa86_4008_9bd4_6777a1e40c11;
+                const CLSID_WICPngEncoder: GUID = 0x27949969_876a_41d7_9447_568f6a35a4dc;
+                const CLSID_WICPngGamaMetadataReader: GUID = 0x3692ca39_e082_4350_9e1f_3704cb083cd5;
+                const CLSID_WICPngGamaMetadataWriter: GUID = 0xff036d13_5d4b_46dd_b10f_106693d9fe4f;
+                const CLSID_WICPngHistMetadataReader: GUID = 0x877a0bb7_a313_4491_87b5_2e6d0594f520;
+                const CLSID_WICPngHistMetadataWriter: GUID = 0x8a03e749_672e_446e_bf1f_2c11d233b6ff;
+                const CLSID_WICPngIccpMetadataReader: GUID = 0xf5d3e63b_cb0f_4628_a478_6d8244be36b1;
+                const CLSID_WICPngIccpMetadataWriter: GUID = 0x16671e5f_0ce6_4cc4_9768_e89fe5018ade;
+                const CLSID_WICPngItxtMetadataReader: GUID = 0xaabfb2fa_3e1e_4a8f_8977_5556fb94ea23;
+                const CLSID_WICPngItxtMetadataWriter: GUID = 0x31879719_e751_4df8_981d_68dff67704ed;
+                const CLSID_WICPngSrgbMetadataReader: GUID = 0xfb40360c_547e_4956_a3b9_d4418859ba66;
+                const CLSID_WICPngSrgbMetadataWriter: GUID = 0xa6ee35c6_87ec_47df_9f22_1d5aad840c82;
+                const CLSID_WICPngTextMetadataReader: GUID = 0x4b59afcc_b8c3_408a_b670_89e5fab6fda7;
+                const CLSID_WICPngTextMetadataWriter: GUID = 0xb5ebafb9_253e_4a72_a744_0762d2685683;
+                const CLSID_WICPngTimeMetadataReader: GUID = 0xd94edf02_efe5_4f0d_85c8_f5a68b3000b1;
+                const CLSID_WICPngTimeMetadataWriter: GUID = 0x1ab78400_b5a3_4d91_8ace_33fcd1499be6;
+                const CLSID_WICRAWDecoder: GUID = 0x41945702_8302_44a6_9445_ac98e8afa086;
+                const CLSID_WICSubIfdMetadataReader: GUID = 0x50d42f09_ecd1_4b41_b65d_da1fdaa75663;
+                const CLSID_WICSubIfdMetadataWriter: GUID = 0x8ade5386_8e9b_4f4c_acf2_f0008706b238;
+                const CLSID_WICThumbnailMetadataReader: GUID = 0xfb012959_f4f6_44d7_9d09_daa087a9db57;
+                const CLSID_WICThumbnailMetadataWriter: GUID = 0xd049b20c_5dd0_44fe_b0b3_8f92c8e6d080;
+                const CLSID_WICTiffDecoder: GUID = 0xb54e85d9_fe23_499f_8b88_6acea713752b;
+                const CLSID_WICTiffEncoder: GUID = 0x0131be10_2001_4c5f_a9b0_cc88fab64ce8;
+                const CLSID_WICUnknownMetadataReader: GUID = 0x699745c2_5066_4b82_a8e3_d40478dbec8c;
+                const CLSID_WICUnknownMetadataWriter: GUID = 0xa09cca86_27ba_4f39_9053_121fa4dc08fc;
+                const CLSID_WICWebpAnimMetadataReader: GUID = 0x076f9911_a348_465c_a807_a252f3f2d3de;
+                const CLSID_WICWebpAnmfMetadataReader: GUID = 0x85a10b03_c9f6_439f_be5e_c0fbef67807c;
+                const CLSID_WICWebpDecoder: GUID = 0x7693e886_51c9_4070_8419_9f70738ec8fa;
+                const CLSID_WICWmpDecoder: GUID = 0xa26cec36_234c_4950_ae16_e34aace71d0d;
+                const CLSID_WICWmpEncoder: GUID = 0xac4ce3cb_e1c1_44cd_8215_5a1665509ec2;
+                const CLSID_WICXMPAltMetadataReader: GUID = 0xaa94dcc2_b8b0_4898_b835_000aabd74393;
+                const CLSID_WICXMPAltMetadataWriter: GUID = 0x076c2a6c_f78f_4c46_a723_3583e70876ea;
+                const CLSID_WICXMPBagMetadataReader: GUID = 0xe7e79a30_4f2c_4fab_8d00_394f2d6bbebe;
+                const CLSID_WICXMPBagMetadataWriter: GUID = 0xed822c8c_d6be_4301_a631_0e1416bad28f;
+                const CLSID_WICXMPMetadataReader: GUID = 0x72b624df_ae11_4948_a65c_351eb0829419;
+                const CLSID_WICXMPMetadataWriter: GUID = 0x1765e14e_1bd4_462e_b6b1_590bf1262ac6;
+                const CLSID_WICXMPSeqMetadataReader: GUID = 0x7f12e753_fc71_43d7_a51d_92f35977abb5;
+                const CLSID_WICXMPSeqMetadataWriter: GUID = 0x6d68d1de_d432_4b0f_923a_091183a9bda7;
+                const CLSID_WICXMPStructMetadataReader: GUID = 0x01b90d9a_8209_47f7_9c52_e1244bf50ced;
+                const CLSID_WICXMPStructMetadataWriter: GUID = 0x22c21f93_7ddb_411c_9b17_c5b7bd064abc;
+                const FACILITY_WINCODEC_ERR: u32 = 2200;
+                const GUID_ContainerFormatAdng: GUID = 0xf3ff6d0d_38c0_41c4_b1fe_1f3824f17b84;
+                const GUID_ContainerFormatBmp: GUID = 0x0af1d87e_fcfe_4188_bdeb_a7906471cbe3;
+                const GUID_ContainerFormatDds: GUID = 0x9967cb95_2e85_4ac8_8ca2_83d7ccd425c9;
+                const GUID_ContainerFormatGif: GUID = 0x1f8a5601_7d4d_4cbd_9c82_1bc8d4eeb9a5;
+                const GUID_ContainerFormatHeif: GUID = 0xe1e62521_6787_405b_a339_500715b5763f;
+                const GUID_ContainerFormatIco: GUID = 0xa3a860c4_338f_4c17_919a_fba4b5628f21;
+                const GUID_ContainerFormatJpeg: GUID = 0x19e4a5aa_5662_4fc5_a0c0_1758028e1057;
+                const GUID_ContainerFormatPng: GUID = 0x1b7cfaf4_713f_473c_bbcd_6137425faeaf;
+                const GUID_ContainerFormatRaw: GUID = 0xfe99ce60_f19c_433c_a3ae_00acefa9ca21;
+                const GUID_ContainerFormatTiff: GUID = 0x163bcc30_e2e9_4f0b_961d_a3e9fdb788a3;
+                const GUID_ContainerFormatWebp: GUID = 0xe094b0e2_67f2_45b3_b0ea_115337ca7cf3;
+                const GUID_ContainerFormatWmp: GUID = 0x57a37caa_367a_4540_916b_f183c5093a4b;
+                const GUID_MetadataFormat8BIMIPTC: GUID = 0x0010568c_0852_4e6a_b191_5c33ac5b0430;
+                const GUID_MetadataFormat8BIMIPTCDigest: GUID = 0x1ca32285_9ccd_4786_8bd8_79539db6a006;
+                const GUID_MetadataFormat8BIMResolutionInfo: GUID = 0x739f305d_81db_43cb_ac5e_55013ef9f003;
+                const GUID_MetadataFormatAPE: GUID = 0x2e043dc2_c967_4e05_875e_618bf67e85c3;
+                const GUID_MetadataFormatApp0: GUID = 0x79007028_268d_45d6_a3c2_354e6a504bc9;
+                const GUID_MetadataFormatApp1: GUID = 0x8fd3dfc3_f951_492b_817f_69c2e6d9a5b0;
+                const GUID_MetadataFormatApp13: GUID = 0x326556a2_f502_4354_9cc0_8e3f48eaf6b5;
+                const GUID_MetadataFormatChunkbKGD: GUID = 0xe14d3571_6b47_4dea_b60a_87ce0a78dfb7;
+                const GUID_MetadataFormatChunkcHRM: GUID = 0x9db3655b_2842_44b3_8067_12e9b375556a;
+                const GUID_MetadataFormatChunkgAMA: GUID = 0xf00935a5_1d5d_4cd1_81b2_9324d7eca781;
+                const GUID_MetadataFormatChunkhIST: GUID = 0xc59a82da_db74_48a4_bd6a_b69c4931ef95;
+                const GUID_MetadataFormatChunkiCCP: GUID = 0xeb4349ab_b685_450f_91b5_e802e892536c;
+                const GUID_MetadataFormatChunkiTXt: GUID = 0xc2bec729_0b68_4b77_aa0e_6295a6ac1814;
+                const GUID_MetadataFormatChunksRGB: GUID = 0xc115fd36_cc6f_4e3f_8363_524b87c6b0d9;
+                const GUID_MetadataFormatChunktEXt: GUID = 0x568d8936_c0a9_4923_905d_df2b38238fbc;
+                const GUID_MetadataFormatChunktIME: GUID = 0x6b00ae2d_e24b_460a_98b6_878bd03072fd;
+                const GUID_MetadataFormatDds: GUID = 0x4a064603_8c33_4e60_9c29_136231702d08;
+                const GUID_MetadataFormatExif: GUID = 0x1c3c4f9d_b84a_467d_9493_36cfbd59ea57;
+                const GUID_MetadataFormatGCE: GUID = 0x2a25cad8_deeb_4c69_a788_0ec2266dcafd;
+                const GUID_MetadataFormatGifComment: GUID = 0xc4b6e0e0_cfb4_4ad3_ab33_9aad2355a34a;
+                const GUID_MetadataFormatGps: GUID = 0x7134ab8a_9351_44ad_af62_448db6b502ec;
+                const GUID_MetadataFormatHeif: GUID = 0x817ef3e1_1288_45f4_a852_260d9e7cce83;
+                const GUID_MetadataFormatHeifHDR: GUID = 0x568b8d8a_1e65_438c_8968_d60e1012beb9;
+                const GUID_MetadataFormatIMD: GUID = 0xbd2bb086_4d52_48dd_9677_db483e85ae8f;
+                const GUID_MetadataFormatIPTC: GUID = 0x4fab0914_e129_4087_a1d1_bc812d45a7b5;
+                const GUID_MetadataFormatIRB: GUID = 0x16100d66_8570_4bb9_b92d_fda4b23ece67;
+                const GUID_MetadataFormatIfd: GUID = 0x537396c6_2d8a_4bb6_9bf8_2f0a8e2a3adf;
+                const GUID_MetadataFormatInterop: GUID = 0xed686f8e_681f_4c8b_bd41_a8addbf6b3fc;
+                const GUID_MetadataFormatJpegChrominance: GUID = 0xf73d0dcf_cec6_4f85_9b0e_1c3956b1bef7;
+                const GUID_MetadataFormatJpegComment: GUID = 0x220e5f33_afd3_474e_9d31_7d4fe730f557;
+                const GUID_MetadataFormatJpegLuminance: GUID = 0x86908007_edfc_4860_8d4b_4ee6e83e6058;
+                const GUID_MetadataFormatLSD: GUID = 0xe256031e_6299_4929_b98d_5ac884afba92;
+                const GUID_MetadataFormatSubIfd: GUID = 0x58a2e128_2db9_4e57_bb14_5177891ed331;
+                const GUID_MetadataFormatThumbnail: GUID = 0x243dcee9_8703_40ee_8ef0_22a600b8058c;
+                const GUID_MetadataFormatUnknown: GUID = 0xa45e592f_9078_4a7c_adb5_4edc4fd61b1f;
+                const GUID_MetadataFormatWebpANIM: GUID = 0x6dc4fda6_78e6_4102_ae35_bcfa1edcc78b;
+                const GUID_MetadataFormatWebpANMF: GUID = 0x43c105ee_b93b_4abb_b003_a08c0d870471;
+                const GUID_MetadataFormatXMP: GUID = 0xbb5acc38_f216_4cec_a6c5_5f6e739763a9;
+                const GUID_MetadataFormatXMPAlt: GUID = 0x7b08a675_91aa_481b_a798_4da94908613b;
+                const GUID_MetadataFormatXMPBag: GUID = 0x833cca5f_dcb7_4516_806f_6596ab26dce4;
+                const GUID_MetadataFormatXMPSeq: GUID = 0x63e8df02_eb6c_456c_a224_b25e794fd648;
+                const GUID_MetadataFormatXMPStruct: GUID = 0x22383cf1_ed17_4e2e_af17_d85b8f6b30d0;
+                const GUID_VendorMicrosoft: GUID = 0xf0e749ca_edef_4589_a73a_ee0e626a2a2b;
+                const GUID_VendorMicrosoftBuiltIn: GUID = 0x257a30fd_06b6_462b_aea4_63f70b86e533;
+                const GUID_WICPixelFormat112bpp6ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc937;
+                const GUID_WICPixelFormat112bpp7Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92a;
+                const GUID_WICPixelFormat128bpp7ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc938;
+                const GUID_WICPixelFormat128bpp8Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92b;
+                const GUID_WICPixelFormat128bppPRGBAFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91a;
+                const GUID_WICPixelFormat128bppRGBAFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91e;
+                const GUID_WICPixelFormat128bppRGBAFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc919;
+                const GUID_WICPixelFormat128bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc941;
+                const GUID_WICPixelFormat128bppRGBFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91b;
+                const GUID_WICPixelFormat144bpp8ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc939;
+                const GUID_WICPixelFormat16bppBGR555: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc909;
+                const GUID_WICPixelFormat16bppBGR565: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90a;
+                const GUID_WICPixelFormat16bppBGRA5551: GUID = 0x05ec7c2b_f1e6_4961_ad46_e1cc810a87d2;
+                const GUID_WICPixelFormat16bppCbCr: GUID = 0xff95ba6e_11e0_4263_bb45_01721f3460a4;
+                const GUID_WICPixelFormat16bppCbQuantizedDctCoefficients: GUID = 0xd2c4ff61_56a5_49c2_8b5c_4c1925964837;
+                const GUID_WICPixelFormat16bppCrQuantizedDctCoefficients: GUID = 0x2fe354f0_1680_42d8_9231_e73c0565bfc1;
+                const GUID_WICPixelFormat16bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90b;
+                const GUID_WICPixelFormat16bppGrayFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc913;
+                const GUID_WICPixelFormat16bppGrayHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93e;
+                const GUID_WICPixelFormat16bppYQuantizedDctCoefficients: GUID = 0xa355f433_48e8_4a42_84d8_e2aa26ca80a4;
+                const GUID_WICPixelFormat1bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc901;
+                const GUID_WICPixelFormat24bpp3Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc920;
+                const GUID_WICPixelFormat24bppBGR: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90c;
+                const GUID_WICPixelFormat24bppRGB: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90d;
+                const GUID_WICPixelFormat2bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc906;
+                const GUID_WICPixelFormat2bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc902;
+                const GUID_WICPixelFormat32bpp3ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92e;
+                const GUID_WICPixelFormat32bpp4Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc921;
+                const GUID_WICPixelFormat32bppBGR: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90e;
+                const GUID_WICPixelFormat32bppBGR101010: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc914;
+                const GUID_WICPixelFormat32bppBGRA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc90f;
+                const GUID_WICPixelFormat32bppCMYK: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91c;
+                const GUID_WICPixelFormat32bppGrayFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93f;
+                const GUID_WICPixelFormat32bppGrayFloat: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc911;
+                const GUID_WICPixelFormat32bppPBGRA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc910;
+                const GUID_WICPixelFormat32bppPRGBA: GUID = 0x3cc4a650_a527_4d37_a916_3142c7ebedba;
+                const GUID_WICPixelFormat32bppR10G10B10A2: GUID = 0x604e1bb5_8a3c_4b65_b11c_bc0b8dd75b7f;
+                const GUID_WICPixelFormat32bppR10G10B10A2HDR10: GUID = 0x9c215c5d_1acc_4f0e_a4bc_70fb3ae8fd28;
+                const GUID_WICPixelFormat32bppRGB: GUID = 0xd98c6b95_3efe_47d6_bb25_eb1748ab0cf1;
+                const GUID_WICPixelFormat32bppRGBA: GUID = 0xf5c7ad2d_6a8d_43dd_a7a8_a29935261ae9;
+                const GUID_WICPixelFormat32bppRGBA1010102: GUID = 0x25238d72_fcf9_4522_b514_5578e5ad55e0;
+                const GUID_WICPixelFormat32bppRGBA1010102XR: GUID = 0x00de6b9a_c101_434b_b502_d0165ee1122c;
+                const GUID_WICPixelFormat32bppRGBE: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93d;
+                const GUID_WICPixelFormat40bpp4ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92f;
+                const GUID_WICPixelFormat40bpp5Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc922;
+                const GUID_WICPixelFormat40bppCMYKAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92c;
+                const GUID_WICPixelFormat48bpp3Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc926;
+                const GUID_WICPixelFormat48bpp5ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc930;
+                const GUID_WICPixelFormat48bpp6Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc923;
+                const GUID_WICPixelFormat48bppBGR: GUID = 0xe605a384_b468_46ce_bb2e_36f180e64313;
+                const GUID_WICPixelFormat48bppBGRFixedPoint: GUID = 0x49ca140e_cab6_493b_9ddf_60187c37532a;
+                const GUID_WICPixelFormat48bppRGB: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc915;
+                const GUID_WICPixelFormat48bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc912;
+                const GUID_WICPixelFormat48bppRGBHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93b;
+                const GUID_WICPixelFormat4bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc907;
+                const GUID_WICPixelFormat4bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc903;
+                const GUID_WICPixelFormat56bpp6ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc931;
+                const GUID_WICPixelFormat56bpp7Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc924;
+                const GUID_WICPixelFormat64bpp3ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc934;
+                const GUID_WICPixelFormat64bpp4Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc927;
+                const GUID_WICPixelFormat64bpp7ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc932;
+                const GUID_WICPixelFormat64bpp8Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc925;
+                const GUID_WICPixelFormat64bppBGRA: GUID = 0x1562ff7c_d352_46f9_979e_42976b792246;
+                const GUID_WICPixelFormat64bppBGRAFixedPoint: GUID = 0x356de33c_54d2_4a23_bb04_9b7bf9b1d42d;
+                const GUID_WICPixelFormat64bppCMYK: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91f;
+                const GUID_WICPixelFormat64bppPBGRA: GUID = 0x8c518e8e_a4ec_468b_ae70_c9a35a9c5530;
+                const GUID_WICPixelFormat64bppPRGBA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc917;
+                const GUID_WICPixelFormat64bppPRGBAHalf: GUID = 0x58ad26c2_c623_4d9d_b320_387e49f8c442;
+                const GUID_WICPixelFormat64bppRGB: GUID = 0xa1182111_186d_4d42_bc6a_9c8303a8dff9;
+                const GUID_WICPixelFormat64bppRGBA: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc916;
+                const GUID_WICPixelFormat64bppRGBAFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc91d;
+                const GUID_WICPixelFormat64bppRGBAHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc93a;
+                const GUID_WICPixelFormat64bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc940;
+                const GUID_WICPixelFormat64bppRGBHalf: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc942;
+                const GUID_WICPixelFormat72bpp8ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc933;
+                const GUID_WICPixelFormat80bpp4ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc935;
+                const GUID_WICPixelFormat80bpp5Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc928;
+                const GUID_WICPixelFormat80bppCMYKAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc92d;
+                const GUID_WICPixelFormat8bppAlpha: GUID = 0xe6cd0116_eeba_4161_aa85_27dd9fb3a895;
+                const GUID_WICPixelFormat8bppCb: GUID = 0x1339f224_6bfe_4c3e_9302_e4f3a6d0ca2a;
+                const GUID_WICPixelFormat8bppCr: GUID = 0xb8145053_2116_49f0_8835_ed844b205c51;
+                const GUID_WICPixelFormat8bppGray: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc908;
+                const GUID_WICPixelFormat8bppIndexed: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc904;
+                const GUID_WICPixelFormat8bppY: GUID = 0x91b4db54_2df9_42f0_b449_2909bb3df88e;
+                const GUID_WICPixelFormat96bpp5ChannelsAlpha: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc936;
+                const GUID_WICPixelFormat96bpp6Channels: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc929;
+                const GUID_WICPixelFormat96bppRGBFixedPoint: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc918;
+                const GUID_WICPixelFormat96bppRGBFloat: GUID = 0xe3fed78f_e8db_4acf_84c1_e97f6136b327;
+                const GUID_WICPixelFormatBlackWhite: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc905;
+                const GUID_WICPixelFormatDontCare: GUID = 0x6fddc324_4e03_4bfe_b185_3d77768dc900;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmap")]
+                interface IWICBitmap: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmap-lock")]
+                    fn Lock(&self, #[Windows::Win32::Foundation::Metadata::Const] prcLock: *mut WICRect, flags: u32, ppILock: *mut IWICBitmapLock) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmap-setpalette")]
+                    fn SetPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmap-setresolution")]
+                    fn SetResolution(&self, dpiX: f64, dpiY: f64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapclipper")]
+                interface IWICBitmapClipper: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapclipper-initialize")]
+                    fn Initialize(&self, pISource: IWICBitmapSource, #[Windows::Win32::Foundation::Metadata::Const] prc: *mut WICRect) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapcodecinfo")]
+                interface IWICBitmapCodecInfo: IWICComponentInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getcontainerformat")]
+                    fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getpixelformats")]
+                    fn GetPixelFormats(&self, cFormats: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pguidPixelFormats: *mut GUID, pcActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getcolormanagementversion")]
+                    fn GetColorManagementVersion(&self, cchColorManagementVersion: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzColorManagementVersion: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getdevicemanufacturer")]
+                    fn GetDeviceManufacturer(&self, cchDeviceManufacturer: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzDeviceManufacturer: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getdevicemodels")]
+                    fn GetDeviceModels(&self, cchDeviceModels: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzDeviceModels: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getmimetypes")]
+                    fn GetMimeTypes(&self, cchMimeTypes: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzMimeTypes: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-getfileextensions")]
+                    fn GetFileExtensions(&self, cchFileExtensions: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzFileExtensions: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-doessupportanimation")]
+                    fn DoesSupportAnimation(&self, pfSupportAnimation: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-doessupportchromakey")]
+                    fn DoesSupportChromakey(&self, pfSupportChromakey: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-doessupportlossless")]
+                    fn DoesSupportLossless(&self, pfSupportLossless: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-doessupportmultiframe")]
+                    fn DoesSupportMultiframe(&self, pfSupportMultiframe: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecinfo-matchesmimetype")]
+                    fn MatchesMimeType(&self, #[Windows::Win32::Foundation::Metadata::Const] wzMimeType: super::super::Foundation::PWSTR, pfMatches: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapcodecprogressnotification")]
+                interface IWICBitmapCodecProgressNotification: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapcodecprogressnotification-registerprogressnotification")]
+                    fn RegisterProgressNotification(&self, pfnProgressNotification: PFNProgressNotification, pvData: *mut void, dwProgressFlags: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapdecoder")]
+                interface IWICBitmapDecoder: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-querycapability")]
+                    fn QueryCapability(&self, pIStream: super::super::System::Com::IStream, pdwCapability: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-initialize")]
+                    fn Initialize(&self, pIStream: super::super::System::Com::IStream, cacheOptions: WICDecodeOptions) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getcontainerformat")]
+                    fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getdecoderinfo")]
+                    fn GetDecoderInfo(&self, ppIDecoderInfo: *mut IWICBitmapDecoderInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-copypalette")]
+                    fn CopyPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getmetadataqueryreader")]
+                    fn GetMetadataQueryReader(&self, ppIMetadataQueryReader: *mut IWICMetadataQueryReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getpreview")]
+                    fn GetPreview(&self, ppIBitmapSource: *mut IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getcolorcontexts")]
+                    fn GetColorContexts(&self, cCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppIColorContexts: *mut IWICColorContext, pcActualCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getthumbnail")]
+                    fn GetThumbnail(&self, ppIThumbnail: *mut IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getframecount")]
+                    fn GetFrameCount(&self, pCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoder-getframe")]
+                    fn GetFrame(&self, index: u32, ppIBitmapFrame: *mut IWICBitmapFrameDecode) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapdecoderinfo")]
+                interface IWICBitmapDecoderInfo: IWICBitmapCodecInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoderinfo-getpatterns")]
+                    fn GetPatterns(&self, cbSizePatterns: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 0)] pPatterns: *mut WICBitmapPattern, pcPatterns: *mut u32, pcbPatternsActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoderinfo-matchespattern")]
+                    fn MatchesPattern(&self, pIStream: super::super::System::Com::IStream, pfMatches: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapdecoderinfo-createinstance")]
+                    fn CreateInstance(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppIBitmapDecoder: *mut IWICBitmapDecoder) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapencoder")]
+                interface IWICBitmapEncoder: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-initialize")]
+                    fn Initialize(&self, pIStream: super::super::System::Com::IStream, cacheOption: WICBitmapEncoderCacheOption) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-getcontainerformat")]
+                    fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-getencoderinfo")]
+                    fn GetEncoderInfo(&self, ppIEncoderInfo: *mut IWICBitmapEncoderInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-setcolorcontexts")]
+                    fn SetColorContexts(&self, cCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppIColorContext: *mut IWICColorContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-setpalette")]
+                    fn SetPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-setthumbnail")]
+                    fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-setpreview")]
+                    fn SetPreview(&self, pIPreview: IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-createnewframe")]
+                    fn CreateNewFrame(&self, ppIFrameEncode: *mut IWICBitmapFrameEncode, ppIEncoderOptions: *mut super::super::System::Com::StructuredStorage::IPropertyBag2) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-commit")]
+                    fn Commit(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoder-getmetadataquerywriter")]
+                    fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapencoderinfo")]
+                interface IWICBitmapEncoderInfo: IWICBitmapCodecInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapencoderinfo-createinstance")]
+                    fn CreateInstance(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppIBitmapEncoder: *mut IWICBitmapEncoder) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapfliprotator")]
+                interface IWICBitmapFlipRotator: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapfliprotator-initialize")]
+                    fn Initialize(&self, pISource: IWICBitmapSource, options: WICBitmapTransformOptions) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapframedecode")]
+                interface IWICBitmapFrameDecode: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframedecode-getmetadataqueryreader")]
+                    fn GetMetadataQueryReader(&self, ppIMetadataQueryReader: *mut IWICMetadataQueryReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframedecode-getcolorcontexts")]
+                    fn GetColorContexts(&self, cCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppIColorContexts: *mut IWICColorContext, pcActualCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframedecode-getthumbnail")]
+                    fn GetThumbnail(&self, ppIThumbnail: *mut IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapframeencode")]
+                interface IWICBitmapFrameEncode: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-initialize")]
+                    fn Initialize(&self, pIEncoderOptions: super::super::System::Com::StructuredStorage::IPropertyBag2) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setsize")]
+                    fn SetSize(&self, uiWidth: u32, uiHeight: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setresolution")]
+                    fn SetResolution(&self, dpiX: f64, dpiY: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setpixelformat")]
+                    fn SetPixelFormat(&self, pPixelFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setcolorcontexts")]
+                    fn SetColorContexts(&self, cCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppIColorContext: *mut IWICColorContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setpalette")]
+                    fn SetPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-setthumbnail")]
+                    fn SetThumbnail(&self, pIThumbnail: IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-writepixels")]
+                    fn WritePixels(&self, lineCount: u32, cbStride: u32, cbBufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pbPixels: *mut u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-writesource")]
+                    fn WriteSource(&self, pIBitmapSource: IWICBitmapSource, prc: *mut WICRect) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-commit")]
+                    fn Commit(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapframeencode-getmetadataquerywriter")]
+                    fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmaplock")]
+                interface IWICBitmapLock: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmaplock-getsize")]
+                    fn GetSize(&self, puiWidth: *mut u32, puiHeight: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmaplock-getstride")]
+                    fn GetStride(&self, pcbStride: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmaplock-getdatapointer")]
+                    fn GetDataPointer(&self, pcbBufferSize: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppbData: *mut *mut u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmaplock-getpixelformat")]
+                    fn GetPixelFormat(&self, pPixelFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapscaler")]
+                interface IWICBitmapScaler: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapscaler-initialize")]
+                    fn Initialize(&self, pISource: IWICBitmapSource, uiWidth: u32, uiHeight: u32, mode: WICBitmapInterpolationMode) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapsource")]
+                interface IWICBitmapSource: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsource-getsize")]
+                    fn GetSize(&self, puiWidth: *mut u32, puiHeight: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsource-getpixelformat")]
+                    fn GetPixelFormat(&self, pPixelFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsource-getresolution")]
+                    fn GetResolution(&self, pDpiX: *mut f64, pDpiY: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsource-copypalette")]
+                    fn CopyPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsource-copypixels")]
+                    fn CopyPixels(&self, #[Windows::Win32::Foundation::Metadata::Const] prc: *mut WICRect, cbStride: u32, cbBufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicbitmapsourcetransform")]
+                interface IWICBitmapSourceTransform: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsourcetransform-copypixels")]
+                    fn CopyPixels(&self, #[Windows::Win32::Foundation::Metadata::Const] prc: *mut WICRect, uiWidth: u32, uiHeight: u32, pguidDstFormat: *mut GUID, dstTransform: WICBitmapTransformOptions, nStride: u32, cbBufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsourcetransform-getclosestsize")]
+                    fn GetClosestSize(&self, puiWidth: *mut u32, puiHeight: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsourcetransform-getclosestpixelformat")]
+                    fn GetClosestPixelFormat(&self, pguidDstFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicbitmapsourcetransform-doessupporttransform")]
+                    fn DoesSupportTransform(&self, dstTransform: WICBitmapTransformOptions, pfIsSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwiccolorcontext")]
+                interface IWICColorContext: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-initializefromfilename")]
+                    fn InitializeFromFilename(&self, #[Windows::Win32::Foundation::Metadata::Const] wzFilename: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-initializefrommemory")]
+                    fn InitializeFromMemory(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pbBuffer: *mut u8, cbBufferSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-initializefromexifcolorspace")]
+                    fn InitializeFromExifColorSpace(&self, value: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-gettype")]
+                    fn GetType(&self, pType: *mut WICColorContextType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-getprofilebytes")]
+                    fn GetProfileBytes(&self, cbBuffer: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pbBuffer: *mut u8, pcbActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolorcontext-getexifcolorspace")]
+                    fn GetExifColorSpace(&self, pValue: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwiccolortransform")]
+                interface IWICColorTransform: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccolortransform-initialize")]
+                    fn Initialize(&self, pIBitmapSource: IWICBitmapSource, pIContextSource: IWICColorContext, pIContextDest: IWICColorContext, pixelFmtDest: *mut GUID) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwiccomponentfactory")]
+                interface IWICComponentFactory: IWICImagingFactory {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createmetadatareader")]
+                    fn CreateMetadataReader(&self, #[Windows::Win32::Foundation::Metadata::Const] guidMetadataFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, dwOptions: u32, pIStream: super::super::System::Com::IStream, ppIReader: *mut IWICMetadataReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createmetadatareaderfromcontainer")]
+                    fn CreateMetadataReaderFromContainer(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, dwOptions: u32, pIStream: super::super::System::Com::IStream, ppIReader: *mut IWICMetadataReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createmetadatawriter")]
+                    fn CreateMetadataWriter(&self, #[Windows::Win32::Foundation::Metadata::Const] guidMetadataFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, dwMetadataOptions: u32, ppIWriter: *mut IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createmetadatawriterfromreader")]
+                    fn CreateMetadataWriterFromReader(&self, pIReader: IWICMetadataReader, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, ppIWriter: *mut IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createqueryreaderfromblockreader")]
+                    fn CreateQueryReaderFromBlockReader(&self, pIBlockReader: IWICMetadataBlockReader, ppIQueryReader: *mut IWICMetadataQueryReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createquerywriterfromblockwriter")]
+                    fn CreateQueryWriterFromBlockWriter(&self, pIBlockWriter: IWICMetadataBlockWriter, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwiccomponentfactory-createencoderpropertybag")]
+                    fn CreateEncoderPropertyBag(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ppropOptions: *mut super::super::System::Com::StructuredStorage::PROPBAG2, cCount: u32, ppIPropertyBag: *mut super::super::System::Com::StructuredStorage::IPropertyBag2) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwiccomponentinfo")]
+                interface IWICComponentInfo: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getcomponenttype")]
+                    fn GetComponentType(&self, pType: *mut WICComponentType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getclsid")]
+                    fn GetCLSID(&self, pclsid: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getsigningstatus")]
+                    fn GetSigningStatus(&self, pStatus: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getauthor")]
+                    fn GetAuthor(&self, cchAuthor: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzAuthor: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getvendorguid")]
+                    fn GetVendorGUID(&self, pguidVendor: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getversion")]
+                    fn GetVersion(&self, cchVersion: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzVersion: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getspecversion")]
+                    fn GetSpecVersion(&self, cchSpecVersion: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzSpecVersion: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwiccomponentinfo-getfriendlyname")]
+                    fn GetFriendlyName(&self, cchFriendlyName: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzFriendlyName: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicddsdecoder")]
+                interface IWICDdsDecoder: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsdecoder-getparameters")]
+                    fn GetParameters(&self, pParameters: *mut WICDdsParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsdecoder-getframe")]
+                    fn GetFrame(&self, arrayIndex: u32, mipLevel: u32, sliceIndex: u32, #[Windows::Win32::Foundation::Metadata::RetVal] ppIBitmapFrame: *mut IWICBitmapFrameDecode) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicddsencoder")]
+                interface IWICDdsEncoder: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsencoder-setparameters")]
+                    fn SetParameters(&self, pParameters: *mut WICDdsParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsencoder-getparameters")]
+                    fn GetParameters(&self, pParameters: *mut WICDdsParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsencoder-createnewframe")]
+                    fn CreateNewFrame(&self, ppIFrameEncode: *mut IWICBitmapFrameEncode, pArrayIndex: *mut u32, pMipLevel: *mut u32, pSliceIndex: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicddsframedecode")]
+                interface IWICDdsFrameDecode: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsframedecode-getsizeinblocks")]
+                    fn GetSizeInBlocks(&self, pWidthInBlocks: *mut u32, pHeightInBlocks: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsframedecode-getformatinfo")]
+                    fn GetFormatInfo(&self, pFormatInfo: *mut WICDdsFormatInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicddsframedecode-copyblocks")]
+                    fn CopyBlocks(&self, #[Windows::Win32::Foundation::Metadata::Const] prcBoundsInBlocks: *mut WICRect, cbStride: u32, cbBufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pbBuffer: *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicdevelopraw")]
+                interface IWICDevelopRaw: IWICBitmapFrameDecode {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-queryrawcapabilitiesinfo")]
+                    fn QueryRawCapabilitiesInfo(&self, pInfo: *mut WICRawCapabilitiesInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-loadparameterset")]
+                    fn LoadParameterSet(&self, ParameterSet: WICRawParameterSet) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getcurrentparameterset")]
+                    fn GetCurrentParameterSet(&self, ppCurrentParameterSet: *mut super::super::System::Com::StructuredStorage::IPropertyBag2) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setexposurecompensation")]
+                    fn SetExposureCompensation(&self, ev: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getexposurecompensation")]
+                    fn GetExposureCompensation(&self, pEV: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setwhitepointrgb")]
+                    fn SetWhitePointRGB(&self, Red: u32, Green: u32, Blue: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getwhitepointrgb")]
+                    fn GetWhitePointRGB(&self, pRed: *mut u32, pGreen: *mut u32, pBlue: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setnamedwhitepoint")]
+                    fn SetNamedWhitePoint(&self, WhitePoint: WICNamedWhitePoint) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getnamedwhitepoint")]
+                    fn GetNamedWhitePoint(&self, pWhitePoint: *mut WICNamedWhitePoint) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setwhitepointkelvin")]
+                    fn SetWhitePointKelvin(&self, WhitePointKelvin: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getwhitepointkelvin")]
+                    fn GetWhitePointKelvin(&self, pWhitePointKelvin: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getkelvinrangeinfo")]
+                    fn GetKelvinRangeInfo(&self, pMinKelvinTemp: *mut u32, pMaxKelvinTemp: *mut u32, pKelvinTempStepValue: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setcontrast")]
+                    fn SetContrast(&self, Contrast: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getcontrast")]
+                    fn GetContrast(&self, pContrast: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setgamma")]
+                    fn SetGamma(&self, Gamma: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getgamma")]
+                    fn GetGamma(&self, pGamma: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setsharpness")]
+                    fn SetSharpness(&self, Sharpness: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getsharpness")]
+                    fn GetSharpness(&self, pSharpness: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setsaturation")]
+                    fn SetSaturation(&self, Saturation: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getsaturation")]
+                    fn GetSaturation(&self, pSaturation: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-settint")]
+                    fn SetTint(&self, Tint: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-gettint")]
+                    fn GetTint(&self, pTint: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setnoisereduction")]
+                    fn SetNoiseReduction(&self, NoiseReduction: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getnoisereduction")]
+                    fn GetNoiseReduction(&self, pNoiseReduction: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setdestinationcolorcontext")]
+                    fn SetDestinationColorContext(&self, pColorContext: IWICColorContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-settonecurve")]
+                    fn SetToneCurve(&self, cbToneCurveSize: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 0)] pToneCurve: *mut WICRawToneCurve) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-gettonecurve")]
+                    fn GetToneCurve(&self, cbToneCurveBufferSize: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 0)] pToneCurve: *mut WICRawToneCurve, pcbActualToneCurveBufferSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setrotation")]
+                    fn SetRotation(&self, Rotation: f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getrotation")]
+                    fn GetRotation(&self, pRotation: *mut f64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setrendermode")]
+                    fn SetRenderMode(&self, RenderMode: WICRawRenderMode) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-getrendermode")]
+                    fn GetRenderMode(&self, pRenderMode: *mut WICRawRenderMode) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdevelopraw-setnotificationcallback")]
+                    fn SetNotificationCallback(&self, pCallback: IWICDevelopRawNotificationCallback) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicdeveloprawnotificationcallback")]
+                interface IWICDevelopRawNotificationCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicdeveloprawnotificationcallback-notify")]
+                    fn Notify(&self, NotificationMask: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicenummetadataitem")]
+                interface IWICEnumMetadataItem: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicenummetadataitem-next")]
+                    fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgeltSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgeltId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgeltValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltFetched: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicenummetadataitem-skip")]
+                    fn Skip(&self, celt: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicenummetadataitem-reset")]
+                    fn Reset(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicenummetadataitem-clone")]
+                    fn Clone(&self, ppIEnumMetadataItem: *mut IWICEnumMetadataItem) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicfastmetadataencoder")]
+                interface IWICFastMetadataEncoder: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicfastmetadataencoder-commit")]
+                    fn Commit(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicfastmetadataencoder-getmetadataquerywriter")]
+                    fn GetMetadataQueryWriter(&self, ppIMetadataQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicformatconverter")]
+                interface IWICFormatConverter: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicformatconverter-initialize")]
+                    fn Initialize(&self, pISource: IWICBitmapSource, dstFormat: *mut GUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicformatconverter-canconvert")]
+                    fn CanConvert(&self, srcPixelFormat: *mut GUID, dstPixelFormat: *mut GUID, pfCanConvert: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicformatconverterinfo")]
+                interface IWICFormatConverterInfo: IWICComponentInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicformatconverterinfo-getpixelformats")]
+                    fn GetPixelFormats(&self, cFormats: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pPixelFormatGUIDs: *mut GUID, pcActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicformatconverterinfo-createinstance")]
+                    fn CreateInstance(&self, ppIConverter: *mut IWICFormatConverter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicimagingfactory")]
+                interface IWICImagingFactory: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createdecoderfromfilename")]
+                    fn CreateDecoderFromFilename(&self, #[Windows::Win32::Foundation::Metadata::Const] wzFilename: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, dwDesiredAccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataOptions: WICDecodeOptions, #[Windows::Win32::Foundation::Metadata::RetVal] ppIDecoder: *mut IWICBitmapDecoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createdecoderfromstream")]
+                    fn CreateDecoderFromStream(&self, pIStream: super::super::System::Com::IStream, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, metadataOptions: WICDecodeOptions, #[Windows::Win32::Foundation::Metadata::RetVal] ppIDecoder: *mut IWICBitmapDecoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createdecoderfromfilehandle")]
+                    fn CreateDecoderFromFileHandle(&self, hFile: usize, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, metadataOptions: WICDecodeOptions, #[Windows::Win32::Foundation::Metadata::RetVal] ppIDecoder: *mut IWICBitmapDecoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createcomponentinfo")]
+                    fn CreateComponentInfo(&self, #[Windows::Win32::Foundation::Metadata::Const] clsidComponent: *mut GUID, ppIInfo: *mut IWICComponentInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createdecoder")]
+                    fn CreateDecoder(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, #[Windows::Win32::Foundation::Metadata::RetVal] ppIDecoder: *mut IWICBitmapDecoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createencoder")]
+                    fn CreateEncoder(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, #[Windows::Win32::Foundation::Metadata::RetVal] ppIEncoder: *mut IWICBitmapEncoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createpalette")]
+                    fn CreatePalette(&self, ppIPalette: *mut IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createformatconverter")]
+                    fn CreateFormatConverter(&self, ppIFormatConverter: *mut IWICFormatConverter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapscaler")]
+                    fn CreateBitmapScaler(&self, ppIBitmapScaler: *mut IWICBitmapScaler) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapclipper")]
+                    fn CreateBitmapClipper(&self, ppIBitmapClipper: *mut IWICBitmapClipper) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfliprotator")]
+                    fn CreateBitmapFlipRotator(&self, ppIBitmapFlipRotator: *mut IWICBitmapFlipRotator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createstream")]
+                    fn CreateStream(&self, ppIWICStream: *mut IWICStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createcolorcontext")]
+                    fn CreateColorContext(&self, ppIWICColorContext: *mut IWICColorContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createcolortransformer")]
+                    fn CreateColorTransformer(&self, ppIWICColorTransform: *mut IWICColorTransform) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmap")]
+                    fn CreateBitmap(&self, uiWidth: u32, uiHeight: u32, pixelFormat: *mut GUID, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfromsource")]
+                    fn CreateBitmapFromSource(&self, pIBitmapSource: IWICBitmapSource, option: WICBitmapCreateCacheOption, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfromsourcerect")]
+                    fn CreateBitmapFromSourceRect(&self, pIBitmapSource: IWICBitmapSource, x: u32, y: u32, width: u32, height: u32, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfrommemory")]
+                    fn CreateBitmapFromMemory(&self, uiWidth: u32, uiHeight: u32, pixelFormat: *mut GUID, cbStride: u32, cbBufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] pbBuffer: *mut u8, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfromhbitmap")]
+                    fn CreateBitmapFromHBITMAP(&self, hBitmap: super::Gdi::HBITMAP, hPalette: super::Gdi::HPALETTE, options: WICBitmapAlphaChannelOption, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createbitmapfromhicon")]
+                    fn CreateBitmapFromHICON(&self, hIcon: super::super::UI::WindowsAndMessaging::HICON, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createcomponentenumerator")]
+                    fn CreateComponentEnumerator(&self, componentTypes: u32, options: u32, ppIEnumUnknown: *mut super::super::System::Com::IEnumUnknown) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createfastmetadataencoderfromdecoder")]
+                    fn CreateFastMetadataEncoderFromDecoder(&self, pIDecoder: IWICBitmapDecoder, ppIFastEncoder: *mut IWICFastMetadataEncoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createfastmetadataencoderfromframedecode")]
+                    fn CreateFastMetadataEncoderFromFrameDecode(&self, pIFrameDecoder: IWICBitmapFrameDecode, ppIFastEncoder: *mut IWICFastMetadataEncoder) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createquerywriter")]
+                    fn CreateQueryWriter(&self, #[Windows::Win32::Foundation::Metadata::Const] guidMetadataFormat: *mut GUID, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicimagingfactory-createquerywriterfromreader")]
+                    fn CreateQueryWriterFromReader(&self, pIQueryReader: IWICMetadataQueryReader, #[Windows::Win32::Foundation::Metadata::Const] pguidVendor: *mut GUID, ppIQueryWriter: *mut IWICMetadataQueryWriter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicjpegframedecode")]
+                interface IWICJpegFrameDecode: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-doessupportindexing")]
+                    fn DoesSupportIndexing(&self, pfIndexingSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-setindexing")]
+                    fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalIntervalSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-clearindexing")]
+                    fn ClearIndexing(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-getachuffmantable")]
+                    fn GetAcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pAcHuffmanTable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-getdchuffmantable")]
+                    fn GetDcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pDcHuffmanTable: *mut super::Dxgi::Common::DXGI_JPEG_DC_HUFFMAN_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-getquantizationtable")]
+                    fn GetQuantizationTable(&self, scanIndex: u32, tableIndex: u32, pQuantizationTable: *mut super::Dxgi::Common::DXGI_JPEG_QUANTIZATION_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-getframeheader")]
+                    fn GetFrameHeader(&self, pFrameHeader: *mut WICJpegFrameHeader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-getscanheader")]
+                    fn GetScanHeader(&self, scanIndex: u32, pScanHeader: *mut WICJpegScanHeader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframedecode-copyscan")]
+                    fn CopyScan(&self, scanIndex: u32, scanOffset: u32, cbScanData: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pbScanData: *mut u8, pcbScanDataActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn CopyMinimalStream(&self, streamOffset: u32, cbStreamData: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pbStreamData: *mut u8, pcbStreamDataActual: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicjpegframeencode")]
+                interface IWICJpegFrameEncode: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframeencode-getachuffmantable")]
+                    fn GetAcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pAcHuffmanTable: *mut super::Dxgi::Common::DXGI_JPEG_AC_HUFFMAN_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframeencode-getdchuffmantable")]
+                    fn GetDcHuffmanTable(&self, scanIndex: u32, tableIndex: u32, pDcHuffmanTable: *mut super::Dxgi::Common::DXGI_JPEG_DC_HUFFMAN_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframeencode-getquantizationtable")]
+                    fn GetQuantizationTable(&self, scanIndex: u32, tableIndex: u32, pQuantizationTable: *mut super::Dxgi::Common::DXGI_JPEG_QUANTIZATION_TABLE) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicjpegframeencode-writescan")]
+                    fn WriteScan(&self, cbScanData: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pbScanData: *mut u8) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatablockreader")]
+                interface IWICMetadataBlockReader: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockreader-getcontainerformat")]
+                    fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockreader-getcount")]
+                    fn GetCount(&self, pcCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockreader-getreaderbyindex")]
+                    fn GetReaderByIndex(&self, nIndex: u32, ppIMetadataReader: *mut IWICMetadataReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockreader-getenumerator")]
+                    fn GetEnumerator(&self, ppIEnumMetadata: *mut super::super::System::Com::IEnumUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatablockwriter")]
+                interface IWICMetadataBlockWriter: IWICMetadataBlockReader {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockwriter-initializefromblockreader")]
+                    fn InitializeFromBlockReader(&self, pIMDBlockReader: IWICMetadataBlockReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockwriter-getwriterbyindex")]
+                    fn GetWriterByIndex(&self, nIndex: u32, ppIMetadataWriter: *mut IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockwriter-addwriter")]
+                    fn AddWriter(&self, pIMetadataWriter: IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockwriter-setwriterbyindex")]
+                    fn SetWriterByIndex(&self, nIndex: u32, pIMetadataWriter: IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatablockwriter-removewriterbyindex")]
+                    fn RemoveWriterByIndex(&self, nIndex: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatahandlerinfo")]
+                interface IWICMetadataHandlerInfo: IWICComponentInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-getmetadataformat")]
+                    fn GetMetadataFormat(&self, pguidMetadataFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-getcontainerformats")]
+                    fn GetContainerFormats(&self, cContainerFormats: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pguidContainerFormats: *mut GUID, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-getdevicemanufacturer")]
+                    fn GetDeviceManufacturer(&self, cchDeviceManufacturer: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzDeviceManufacturer: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-getdevicemodels")]
+                    fn GetDeviceModels(&self, cchDeviceModels: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzDeviceModels: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-doesrequirefullstream")]
+                    fn DoesRequireFullStream(&self, pfRequiresFullStream: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-doessupportpadding")]
+                    fn DoesSupportPadding(&self, pfSupportsPadding: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatahandlerinfo-doesrequirefixedsize")]
+                    fn DoesRequireFixedSize(&self, pfFixedSize: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicmetadataqueryreader")]
+                interface IWICMetadataQueryReader: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataqueryreader-getcontainerformat")]
+                    fn GetContainerFormat(&self, pguidContainerFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataqueryreader-getlocation")]
+                    fn GetLocation(&self, cchMaxLength: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] #[out] wzNamespace: super::super::Foundation::PWSTR, pcchActualLength: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataqueryreader-getmetadatabyname")]
+                    fn GetMetadataByName(&self, #[Windows::Win32::Foundation::Metadata::Const] wzName: super::super::Foundation::PWSTR, pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataqueryreader-getenumerator")]
+                    fn GetEnumerator(&self, ppIEnumString: *mut super::super::System::Com::IEnumString) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicmetadataquerywriter")]
+                interface IWICMetadataQueryWriter: IWICMetadataQueryReader {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataquerywriter-setmetadatabyname")]
+                    fn SetMetadataByName(&self, #[Windows::Win32::Foundation::Metadata::Const] wzName: super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicmetadataquerywriter-removemetadatabyname")]
+                    fn RemoveMetadataByName(&self, #[Windows::Win32::Foundation::Metadata::Const] wzName: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatareader")]
+                interface IWICMetadataReader: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getmetadataformat")]
+                    fn GetMetadataFormat(&self, pguidMetadataFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getmetadatahandlerinfo")]
+                    fn GetMetadataHandlerInfo(&self, ppIHandler: *mut IWICMetadataHandlerInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getcount")]
+                    fn GetCount(&self, pcCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getvaluebyindex")]
+                    fn GetValueByIndex(&self, nIndex: u32, pvarSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getvalue")]
+                    fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] pvarSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareader-getenumerator")]
+                    fn GetEnumerator(&self, ppIEnumMetadata: *mut IWICEnumMetadataItem) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatareaderinfo")]
+                interface IWICMetadataReaderInfo: IWICMetadataHandlerInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareaderinfo-getpatterns")]
+                    fn GetPatterns(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, cbSize: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] pPattern: *mut WICMetadataPattern, pcCount: *mut u32, pcbActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareaderinfo-matchespattern")]
+                    fn MatchesPattern(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, pIStream: super::super::System::Com::IStream, pfMatches: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatareaderinfo-createinstance")]
+                    fn CreateInstance(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppIReader: *mut IWICMetadataReader) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatawriter")]
+                interface IWICMetadataWriter: IWICMetadataReader {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriter-setvalue")]
+                    fn SetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] pvarSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriter-setvaluebyindex")]
+                    fn SetValueByIndex(&self, nIndex: u32, #[Windows::Win32::Foundation::Metadata::Const] pvarSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarValue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriter-removevalue")]
+                    fn RemoveValue(&self, #[Windows::Win32::Foundation::Metadata::Const] pvarSchema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, #[Windows::Win32::Foundation::Metadata::Const] pvarId: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriter-removevaluebyindex")]
+                    fn RemoveValueByIndex(&self, nIndex: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicmetadatawriterinfo")]
+                interface IWICMetadataWriterInfo: IWICMetadataHandlerInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriterinfo-getheader")]
+                    fn GetHeader(&self, #[Windows::Win32::Foundation::Metadata::Const] guidContainerFormat: *mut GUID, cbSize: u32, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] pHeader: *mut WICMetadataHeader, pcbActual: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicmetadatawriterinfo-createinstance")]
+                    fn CreateInstance(&self, ppIWriter: *mut IWICMetadataWriter) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicpalette")]
+                interface IWICPalette: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-initializepredefined")]
+                    fn InitializePredefined(&self, ePaletteType: WICBitmapPaletteType, fAddTransparentColor: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-initializecustom")]
+                    fn InitializeCustom(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pColors: *mut u32, cCount: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-initializefrombitmap")]
+                    fn InitializeFromBitmap(&self, pISurface: IWICBitmapSource, cCount: u32, fAddTransparentColor: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-initializefrompalette")]
+                    fn InitializeFromPalette(&self, pIPalette: IWICPalette) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-gettype")]
+                    fn GetType(&self, pePaletteType: *mut WICBitmapPaletteType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-getcolorcount")]
+                    fn GetColorCount(&self, pcCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-getcolors")]
+                    fn GetColors(&self, cCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pColors: *mut u32, pcActualColors: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-isblackwhite")]
+                    fn IsBlackWhite(&self, pfIsBlackWhite: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-isgrayscale")]
+                    fn IsGrayscale(&self, pfIsGrayscale: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpalette-hasalpha")]
+                    fn HasAlpha(&self, pfHasAlpha: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicpersiststream")]
+                interface IWICPersistStream: super::super::System::Com::IPersistStream {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicpersiststream-loadex")]
+                    fn LoadEx(&self, pIStream: super::super::System::Com::IStream, #[Windows::Win32::Foundation::Metadata::Const] pguidPreferredVendor: *mut GUID, dwPersistOptions: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicpersiststream-saveex")]
+                    fn SaveEx(&self, pIStream: super::super::System::Com::IStream, dwPersistOptions: u32, fClearDirty: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicpixelformatinfo")]
+                interface IWICPixelFormatInfo: IWICComponentInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo-getformatguid")]
+                    fn GetFormatGUID(&self, pFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo-getcolorcontext")]
+                    fn GetColorContext(&self, ppIColorContext: *mut IWICColorContext) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo-getbitsperpixel")]
+                    fn GetBitsPerPixel(&self, puiBitsPerPixel: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo-getchannelcount")]
+                    fn GetChannelCount(&self, puiChannelCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo-getchannelmask")]
+                    fn GetChannelMask(&self, uiChannelIndex: u32, cbMaskBuffer: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pbMaskBuffer: *mut u8, pcbActual: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicpixelformatinfo2")]
+                interface IWICPixelFormatInfo2: IWICPixelFormatInfo {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo2-supportstransparency")]
+                    fn SupportsTransparency(&self, pfSupportsTransparency: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicpixelformatinfo2-getnumericrepresentation")]
+                    fn GetNumericRepresentation(&self, pNumericRepresentation: *mut WICPixelFormatNumericRepresentation) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicplanarbitmapframeencode")]
+                interface IWICPlanarBitmapFrameEncode: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarbitmapframeencode-writepixels")]
+                    fn WritePixels(&self, lineCount: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] pPlanes: *mut WICBitmapPlane, cPlanes: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarbitmapframeencode-writesource")]
+                    fn WriteSource(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ppPlanes: *mut IWICBitmapSource, cPlanes: u32, prcSource: *mut WICRect) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicplanarbitmapsourcetransform")]
+                interface IWICPlanarBitmapSourceTransform: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarbitmapsourcetransform-doessupporttransform")]
+                    fn DoesSupportTransform(&self, puiWidth: *mut u32, puiHeight: *mut u32, dstTransform: WICBitmapTransformOptions, dstPlanarOptions: WICPlanarOptions, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] pguidDstFormats: *mut GUID, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] pPlaneDescriptions: *mut WICBitmapPlaneDescription, cPlanes: u32, pfIsSupported: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarbitmapsourcetransform-copypixels")]
+                    fn CopyPixels(&self, #[Windows::Win32::Foundation::Metadata::Const] prcSource: *mut WICRect, uiWidth: u32, uiHeight: u32, dstTransform: WICBitmapTransformOptions, dstPlanarOptions: WICPlanarOptions, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 6)] pDstPlanes: *mut WICBitmapPlane, cPlanes: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicplanarformatconverter")]
+                interface IWICPlanarFormatConverter: IWICBitmapSource {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarformatconverter-initialize")]
+                    fn Initialize(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] ppPlanes: *mut IWICBitmapSource, cPlanes: u32, dstFormat: *mut GUID, dither: WICBitmapDitherType, pIPalette: IWICPalette, alphaThresholdPercent: f64, paletteTranslate: WICBitmapPaletteType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicplanarformatconverter-canconvert")]
+                    fn CanConvert(&self, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pSrcPixelFormats: *mut GUID, cSrcPlanes: u32, dstPixelFormat: *mut GUID, pfCanConvert: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicprogresscallback")]
+                interface IWICProgressCallback: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicprogresscallback-notify")]
+                    fn Notify(&self, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicprogressivelevelcontrol")]
+                interface IWICProgressiveLevelControl: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicprogressivelevelcontrol-getlevelcount")]
+                    fn GetLevelCount(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pcLevels: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicprogressivelevelcontrol-getcurrentlevel")]
+                    fn GetCurrentLevel(&self, #[Windows::Win32::Foundation::Metadata::RetVal] pnLevel: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicprogressivelevelcontrol-setcurrentlevel")]
+                    fn SetCurrentLevel(&self, nLevel: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nn-wincodec-iwicstream")]
+                interface IWICStream: super::super::System::Com::IStream {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicstream-initializefromistream")]
+                    fn InitializeFromIStream(&self, pIStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicstream-initializefromfilename")]
+                    fn InitializeFromFilename(&self, #[Windows::Win32::Foundation::Metadata::Const] wzFileName: super::super::Foundation::PWSTR, dwDesiredAccess: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicstream-initializefrommemory")]
+                    fn InitializeFromMemory(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] pbBuffer: *mut u8, cbBufferSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-iwicstream-initializefromistreamregion")]
+                    fn InitializeFromIStreamRegion(&self, pIStream: super::super::System::Com::IStream, ulOffset: u64, ulMaxSize: u64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nn-wincodecsdk-iwicstreamprovider")]
+                interface IWICStreamProvider: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicstreamprovider-getstream")]
+                    fn GetStream(&self, ppIStream: *mut super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicstreamprovider-getpersistoptions")]
+                    fn GetPersistOptions(&self, pdwPersistOptions: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicstreamprovider-getpreferredvendorguid")]
+                    fn GetPreferredVendorGUID(&self, pguidPreferredVendor: *mut GUID) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-iwicstreamprovider-refreshstream")]
+                    fn RefreshStream(&self) -> super::super::Foundation::HRESULT;
+                }
+                extern fn PFNProgressNotification(pvData: *mut void, uFrameNum: u32, operation: WICProgressOperation, dblProgress: f64) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wic8bimiptcdigestproperties")]
+                enum WIC8BIMIptcDigestProperties {
+                    WIC8BIMIptcDigestPString = 1,
+                    WIC8BIMIptcDigestIptcDigest = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wic8bimiptcproperties")]
+                enum WIC8BIMIptcProperties {
+                    WIC8BIMIptcPString = 0,
+                    WIC8BIMIptcEmbeddedIPTC = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wic8bimresolutioninfoproperties")]
+                enum WIC8BIMResolutionInfoProperties {
+                    WIC8BIMResolutionInfoPString = 1,
+                    WIC8BIMResolutionInfoHResolution = 2,
+                    WIC8BIMResolutionInfoHResolutionUnit = 3,
+                    WIC8BIMResolutionInfoWidthUnit = 4,
+                    WIC8BIMResolutionInfoVResolution = 5,
+                    WIC8BIMResolutionInfoVResolutionUnit = 6,
+                    WIC8BIMResolutionInfoHeightUnit = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapalphachanneloption")]
+                enum WICBitmapAlphaChannelOption {
+                    WICBitmapUseAlpha = 0,
+                    WICBitmapUsePremultipliedAlpha = 1,
+                    WICBitmapIgnoreAlpha = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapcreatecacheoption")]
+                enum WICBitmapCreateCacheOption {
+                    WICBitmapNoCache = 0,
+                    WICBitmapCacheOnDemand = 1,
+                    WICBitmapCacheOnLoad = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapdecodercapabilities")]
+                enum WICBitmapDecoderCapabilities {
+                    WICBitmapDecoderCapabilitySameEncoder = 1,
+                    WICBitmapDecoderCapabilityCanDecodeAllImages = 2,
+                    WICBitmapDecoderCapabilityCanDecodeSomeImages = 4,
+                    WICBitmapDecoderCapabilityCanEnumerateMetadata = 8,
+                    WICBitmapDecoderCapabilityCanDecodeThumbnail = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapdithertype")]
+                enum WICBitmapDitherType {
+                    WICBitmapDitherTypeNone = 0,
+                    WICBitmapDitherTypeSolid = 0,
+                    WICBitmapDitherTypeOrdered4x4 = 1,
+                    WICBitmapDitherTypeOrdered8x8 = 2,
+                    WICBitmapDitherTypeOrdered16x16 = 3,
+                    WICBitmapDitherTypeSpiral4x4 = 4,
+                    WICBitmapDitherTypeSpiral8x8 = 5,
+                    WICBitmapDitherTypeDualSpiral4x4 = 6,
+                    WICBitmapDitherTypeDualSpiral8x8 = 7,
+                    WICBitmapDitherTypeErrorDiffusion = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapencodercacheoption")]
+                enum WICBitmapEncoderCacheOption {
+                    WICBitmapEncoderCacheInMemory = 0,
+                    WICBitmapEncoderCacheTempFile = 1,
+                    WICBitmapEncoderNoCache = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmapinterpolationmode")]
+                enum WICBitmapInterpolationMode {
+                    WICBitmapInterpolationModeNearestNeighbor = 0,
+                    WICBitmapInterpolationModeLinear = 1,
+                    WICBitmapInterpolationModeCubic = 2,
+                    WICBitmapInterpolationModeFant = 3,
+                    WICBitmapInterpolationModeHighQualityCubic = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmaplockflags")]
+                enum WICBitmapLockFlags {
+                    WICBitmapLockRead = 1,
+                    WICBitmapLockWrite = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmappalettetype")]
+                enum WICBitmapPaletteType {
+                    WICBitmapPaletteTypeCustom = 0,
+                    WICBitmapPaletteTypeMedianCut = 1,
+                    WICBitmapPaletteTypeFixedBW = 2,
+                    WICBitmapPaletteTypeFixedHalftone8 = 3,
+                    WICBitmapPaletteTypeFixedHalftone27 = 4,
+                    WICBitmapPaletteTypeFixedHalftone64 = 5,
+                    WICBitmapPaletteTypeFixedHalftone125 = 6,
+                    WICBitmapPaletteTypeFixedHalftone216 = 7,
+                    WICBitmapPaletteTypeFixedWebPalette = 7,
+                    WICBitmapPaletteTypeFixedHalftone252 = 8,
+                    WICBitmapPaletteTypeFixedHalftone256 = 9,
+                    WICBitmapPaletteTypeFixedGray4 = 10,
+                    WICBitmapPaletteTypeFixedGray16 = 11,
+                    WICBitmapPaletteTypeFixedGray256 = 12,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicbitmappattern")]
+                struct WICBitmapPattern {
+                    Position: u64,
+                    Length: u32,
+                    Pattern: *mut u8,
+                    Mask: *mut u8,
+                    EndOfStream: super::super::Foundation::BOOL,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicbitmapplane")]
+                struct WICBitmapPlane {
+                    Format: GUID,
+                    pbBuffer: *mut u8,
+                    cbStride: u32,
+                    cbBufferSize: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicbitmapplanedescription")]
+                struct WICBitmapPlaneDescription {
+                    Format: GUID,
+                    Width: u32,
+                    Height: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicbitmaptransformoptions")]
+                enum WICBitmapTransformOptions {
+                    WICBitmapTransformRotate0 = 0,
+                    WICBitmapTransformRotate90 = 1,
+                    WICBitmapTransformRotate180 = 2,
+                    WICBitmapTransformRotate270 = 3,
+                    WICBitmapTransformFlipHorizontal = 8,
+                    WICBitmapTransformFlipVertical = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wiccolorcontexttype")]
+                enum WICColorContextType {
+                    WICColorContextUninitialized = 0,
+                    WICColorContextProfile = 1,
+                    WICColorContextExifColorSpace = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wiccomponentenumerateoptions")]
+                enum WICComponentEnumerateOptions {
+                    WICComponentEnumerateDefault = 0,
+                    WICComponentEnumerateRefresh = 1,
+                    WICComponentEnumerateDisabled = -2147483648,
+                    WICComponentEnumerateUnsigned = 1073741824,
+                    WICComponentEnumerateBuiltInOnly = 536870912,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wiccomponentsigning")]
+                enum WICComponentSigning {
+                    WICComponentSigned = 1,
+                    WICComponentUnsigned = 2,
+                    WICComponentSafe = 4,
+                    WICComponentDisabled = -2147483648,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wiccomponenttype")]
+                enum WICComponentType {
+                    WICDecoder = 1,
+                    WICEncoder = 2,
+                    WICPixelFormatConverter = 4,
+                    WICMetadataReader = 8,
+                    WICMetadataWriter = 16,
+                    WICPixelFormat = 32,
+                    WICAllComponents = 63,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wicconvertbitmapsource")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICConvertBitmapSource(dstFormat: *mut GUID, pISrc: IWICBitmapSource, ppIDst: *mut IWICBitmapSource) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wiccreatebitmapfromsection")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICCreateBitmapFromSection(width: u32, height: u32, pixelFormat: *mut GUID, hSection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wiccreatebitmapfromsectionex")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelFormat: *mut GUID, hSection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredAccessLevel: WICSectionAccessLevel, ppIBitmap: *mut IWICBitmap) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicddsalphamode")]
+                enum WICDdsAlphaMode {
+                    WICDdsAlphaModeUnknown = 0,
+                    WICDdsAlphaModeStraight = 1,
+                    WICDdsAlphaModePremultiplied = 2,
+                    WICDdsAlphaModeOpaque = 3,
+                    WICDdsAlphaModeCustom = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicddsdimension")]
+                enum WICDdsDimension {
+                    WICDdsTexture1D = 0,
+                    WICDdsTexture2D = 1,
+                    WICDdsTexture3D = 2,
+                    WICDdsTextureCube = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicddsformatinfo")]
+                struct WICDdsFormatInfo {
+                    DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
+                    BytesPerBlock: u32,
+                    BlockWidth: u32,
+                    BlockHeight: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicddsparameters")]
+                struct WICDdsParameters {
+                    Width: u32,
+                    Height: u32,
+                    Depth: u32,
+                    MipLevels: u32,
+                    ArraySize: u32,
+                    DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
+                    Dimension: WICDdsDimension,
+                    AlphaMode: WICDdsAlphaMode,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicdecodeoptions")]
+                enum WICDecodeOptions {
+                    WICDecodeMetadataCacheOnDemand = 0,
+                    WICDecodeMetadataCacheOnLoad = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-wicgetmetadatacontentsize")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICGetMetadataContentSize(guidContainerFormat: *mut GUID, pIWriter: IWICMetadataWriter, pcbSize: *mut u64) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicgifapplicationextensionproperties")]
+                enum WICGifApplicationExtensionProperties {
+                    WICGifApplicationExtensionApplication = 1,
+                    WICGifApplicationExtensionData = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicgifcommentextensionproperties")]
+                enum WICGifCommentExtensionProperties {
+                    WICGifCommentExtensionText = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicgifgraphiccontrolextensionproperties")]
+                enum WICGifGraphicControlExtensionProperties {
+                    WICGifGraphicControlExtensionDisposal = 1,
+                    WICGifGraphicControlExtensionUserInputFlag = 2,
+                    WICGifGraphicControlExtensionTransparencyFlag = 3,
+                    WICGifGraphicControlExtensionDelay = 4,
+                    WICGifGraphicControlExtensionTransparentColorIndex = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicgifimagedescriptorproperties")]
+                enum WICGifImageDescriptorProperties {
+                    WICGifImageDescriptorLeft = 1,
+                    WICGifImageDescriptorTop = 2,
+                    WICGifImageDescriptorWidth = 3,
+                    WICGifImageDescriptorHeight = 4,
+                    WICGifImageDescriptorLocalColorTableFlag = 5,
+                    WICGifImageDescriptorInterlaceFlag = 6,
+                    WICGifImageDescriptorSortFlag = 7,
+                    WICGifImageDescriptorLocalColorTableSize = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicgiflogicalscreendescriptorproperties")]
+                enum WICGifLogicalScreenDescriptorProperties {
+                    WICGifLogicalScreenSignature = 1,
+                    WICGifLogicalScreenDescriptorWidth = 2,
+                    WICGifLogicalScreenDescriptorHeight = 3,
+                    WICGifLogicalScreenDescriptorGlobalColorTableFlag = 4,
+                    WICGifLogicalScreenDescriptorColorResolution = 5,
+                    WICGifLogicalScreenDescriptorSortFlag = 6,
+                    WICGifLogicalScreenDescriptorGlobalColorTableSize = 7,
+                    WICGifLogicalScreenDescriptorBackgroundColorIndex = 8,
+                    WICGifLogicalScreenDescriptorPixelAspectRatio = 9,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicheifhdrproperties")]
+                enum WICHeifHdrProperties {
+                    WICHeifHdrMaximumLuminanceLevel = 1,
+                    WICHeifHdrMaximumFrameAverageLuminanceLevel = 2,
+                    WICHeifHdrMinimumMasteringDisplayLuminanceLevel = 3,
+                    WICHeifHdrMaximumMasteringDisplayLuminanceLevel = 4,
+                    WICHeifHdrCustomVideoPrimaries = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicheifproperties")]
+                enum WICHeifProperties {
+                    WICHeifOrientation = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicimageparameters")]
+                struct WICImageParameters {
+                    PixelFormat: super::Direct2D::Common::D2D1_PIXEL_FORMAT,
+                    DpiX: f32,
+                    DpiY: f32,
+                    Top: f32,
+                    Left: f32,
+                    PixelWidth: u32,
+                    PixelHeight: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegchrominanceproperties")]
+                enum WICJpegChrominanceProperties {
+                    WICJpegChrominanceTable = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegcommentproperties")]
+                enum WICJpegCommentProperties {
+                    WICJpegCommentText = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicjpegframeheader")]
+                struct WICJpegFrameHeader {
+                    Width: u32,
+                    Height: u32,
+                    TransferMatrix: WICJpegTransferMatrix,
+                    ScanType: WICJpegScanType,
+                    cComponents: u32,
+                    ComponentIdentifiers: u32,
+                    SampleFactors: u32,
+                    QuantizationTableIndices: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegindexingoptions")]
+                enum WICJpegIndexingOptions {
+                    WICJpegIndexingOptionsGenerateOnDemand = 0,
+                    WICJpegIndexingOptionsGenerateOnLoad = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegluminanceproperties")]
+                enum WICJpegLuminanceProperties {
+                    WICJpegLuminanceTable = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicjpegscanheader")]
+                struct WICJpegScanHeader {
+                    cComponents: u32,
+                    RestartInterval: u32,
+                    ComponentSelectors: u32,
+                    HuffmanTableIndices: u32,
+                    StartSpectralSelection: u8,
+                    EndSpectralSelection: u8,
+                    SuccessiveApproximationHigh: u8,
+                    SuccessiveApproximationLow: u8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegscantype")]
+                enum WICJpegScanType {
+                    WICJpegScanTypeInterleaved = 0,
+                    WICJpegScanTypePlanarComponents = 1,
+                    WICJpegScanTypeProgressive = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegtransfermatrix")]
+                enum WICJpegTransferMatrix {
+                    WICJpegTransferMatrixIdentity = 0,
+                    WICJpegTransferMatrixBT601 = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicjpegycrcbsubsamplingoption")]
+                enum WICJpegYCrCbSubsamplingOption {
+                    WICJpegYCrCbSubsamplingDefault = 0,
+                    WICJpegYCrCbSubsampling420 = 1,
+                    WICJpegYCrCbSubsampling422 = 2,
+                    WICJpegYCrCbSubsampling444 = 3,
+                    WICJpegYCrCbSubsampling440 = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wicmapguidtoshortname")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICMapGuidToShortName(guid: *mut GUID, cchName: u32, wzName: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wicmapschematoname")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICMapSchemaToName(guidMetadataFormat: *mut GUID, pwzSchema: super::super::Foundation::PWSTR, cchName: u32, wzName: super::super::Foundation::PWSTR, pcchActual: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/nf-wincodec-wicmapshortnametoguid")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICMapShortNameToGuid(wzName: super::super::Foundation::PWSTR, pguid: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-wicmatchmetadatacontent")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICMatchMetadataContent(guidContainerFormat: *mut GUID, pguidVendor: *mut GUID, pIStream: super::super::System::Com::IStream, pguidMetadataFormat: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/ne-wincodecsdk-wicmetadatacreationoptions")]
+                enum WICMetadataCreationOptions {
+                    WICMetadataCreationDefault = 0,
+                    WICMetadataCreationAllowUnknown = 0,
+                    WICMetadataCreationFailUnknown = 65536,
+                    WICMetadataCreationMask = -65536,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/ns-wincodecsdk-wicmetadataheader")]
+                struct WICMetadataHeader {
+                    Position: u64,
+                    Length: u32,
+                    Header: *mut u8,
+                    DataOffset: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/ns-wincodecsdk-wicmetadatapattern")]
+                struct WICMetadataPattern {
+                    Position: u64,
+                    Length: u32,
+                    Pattern: *mut u8,
+                    Mask: *mut u8,
+                    DataOffset: u64,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicnamedwhitepoint")]
+                enum WICNamedWhitePoint {
+                    WICWhitePointDefault = 1,
+                    WICWhitePointDaylight = 2,
+                    WICWhitePointCloudy = 4,
+                    WICWhitePointShade = 8,
+                    WICWhitePointTungsten = 16,
+                    WICWhitePointFluorescent = 32,
+                    WICWhitePointFlash = 64,
+                    WICWhitePointUnderwater = 128,
+                    WICWhitePointCustom = 256,
+                    WICWhitePointAutoWhiteBalance = 512,
+                    WICWhitePointAsShot = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/ne-wincodecsdk-wicpersistoptions")]
+                enum WICPersistOptions {
+                    WICPersistOptionDefault = 0,
+                    WICPersistOptionLittleEndian = 0,
+                    WICPersistOptionBigEndian = 1,
+                    WICPersistOptionStrictFormat = 2,
+                    WICPersistOptionNoCacheStream = 4,
+                    WICPersistOptionPreferUTF8 = 8,
+                    WICPersistOptionMask = 65535,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpixelformatnumericrepresentation")]
+                enum WICPixelFormatNumericRepresentation {
+                    WICPixelFormatNumericRepresentationUnspecified = 0,
+                    WICPixelFormatNumericRepresentationIndexed = 1,
+                    WICPixelFormatNumericRepresentationUnsignedInteger = 2,
+                    WICPixelFormatNumericRepresentationSignedInteger = 3,
+                    WICPixelFormatNumericRepresentationFixed = 4,
+                    WICPixelFormatNumericRepresentationFloat = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicplanaroptions")]
+                enum WICPlanarOptions {
+                    WICPlanarOptionsDefault = 0,
+                    WICPlanarOptionsPreserveSubsampling = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngbkgdproperties")]
+                enum WICPngBkgdProperties {
+                    WICPngBkgdBackgroundColor = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngchrmproperties")]
+                enum WICPngChrmProperties {
+                    WICPngChrmWhitePointX = 1,
+                    WICPngChrmWhitePointY = 2,
+                    WICPngChrmRedX = 3,
+                    WICPngChrmRedY = 4,
+                    WICPngChrmGreenX = 5,
+                    WICPngChrmGreenY = 6,
+                    WICPngChrmBlueX = 7,
+                    WICPngChrmBlueY = 8,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngfilteroption")]
+                enum WICPngFilterOption {
+                    WICPngFilterUnspecified = 0,
+                    WICPngFilterNone = 1,
+                    WICPngFilterSub = 2,
+                    WICPngFilterUp = 3,
+                    WICPngFilterAverage = 4,
+                    WICPngFilterPaeth = 5,
+                    WICPngFilterAdaptive = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpnggamaproperties")]
+                enum WICPngGamaProperties {
+                    WICPngGamaGamma = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpnghistproperties")]
+                enum WICPngHistProperties {
+                    WICPngHistFrequencies = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngiccpproperties")]
+                enum WICPngIccpProperties {
+                    WICPngIccpProfileName = 1,
+                    WICPngIccpProfileData = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngitxtproperties")]
+                enum WICPngItxtProperties {
+                    WICPngItxtKeyword = 1,
+                    WICPngItxtCompressionFlag = 2,
+                    WICPngItxtLanguageTag = 3,
+                    WICPngItxtTranslatedKeyword = 4,
+                    WICPngItxtText = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngsrgbproperties")]
+                enum WICPngSrgbProperties {
+                    WICPngSrgbRenderingIntent = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicpngtimeproperties")]
+                enum WICPngTimeProperties {
+                    WICPngTimeYear = 1,
+                    WICPngTimeMonth = 2,
+                    WICPngTimeDay = 3,
+                    WICPngTimeHour = 4,
+                    WICPngTimeMinute = 5,
+                    WICPngTimeSecond = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicprogressnotification")]
+                enum WICProgressNotification {
+                    WICProgressNotificationBegin = 65536,
+                    WICProgressNotificationEnd = 131072,
+                    WICProgressNotificationFrequent = 262144,
+                    WICProgressNotificationAll = -65536,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicprogressoperation")]
+                enum WICProgressOperation {
+                    WICProgressOperationCopyPixels = 1,
+                    WICProgressOperationWritePixels = 2,
+                    WICProgressOperationAll = 65535,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicrawcapabilities")]
+                enum WICRawCapabilities {
+                    WICRawCapabilityNotSupported = 0,
+                    WICRawCapabilityGetSupported = 1,
+                    WICRawCapabilityFullySupported = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::StructSizeField("cbSize")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicrawcapabilitiesinfo")]
+                struct WICRawCapabilitiesInfo {
+                    cbSize: u32,
+                    CodecMajorVersion: u32,
+                    CodecMinorVersion: u32,
+                    ExposureCompensationSupport: WICRawCapabilities,
+                    ContrastSupport: WICRawCapabilities,
+                    RGBWhitePointSupport: WICRawCapabilities,
+                    NamedWhitePointSupport: WICRawCapabilities,
+                    NamedWhitePointSupportMask: u32,
+                    KelvinWhitePointSupport: WICRawCapabilities,
+                    GammaSupport: WICRawCapabilities,
+                    TintSupport: WICRawCapabilities,
+                    SaturationSupport: WICRawCapabilities,
+                    SharpnessSupport: WICRawCapabilities,
+                    NoiseReductionSupport: WICRawCapabilities,
+                    DestinationColorProfileSupport: WICRawCapabilities,
+                    ToneCurveSupport: WICRawCapabilities,
+                    RotationSupport: WICRawRotationCapabilities,
+                    RenderModeSupport: WICRawCapabilities,
+                }
+                const WICRawChangeNotification_Contrast: u32 = 16;
+                const WICRawChangeNotification_DestinationColorContext: u32 = 1024;
+                const WICRawChangeNotification_ExposureCompensation: u32 = 1;
+                const WICRawChangeNotification_Gamma: u32 = 32;
+                const WICRawChangeNotification_KelvinWhitePoint: u32 = 4;
+                const WICRawChangeNotification_NamedWhitePoint: u32 = 2;
+                const WICRawChangeNotification_NoiseReduction: u32 = 512;
+                const WICRawChangeNotification_RGBWhitePoint: u32 = 8;
+                const WICRawChangeNotification_RenderMode: u32 = 8192;
+                const WICRawChangeNotification_Rotation: u32 = 4096;
+                const WICRawChangeNotification_Saturation: u32 = 128;
+                const WICRawChangeNotification_Sharpness: u32 = 64;
+                const WICRawChangeNotification_Tint: u32 = 256;
+                const WICRawChangeNotification_ToneCurve: u32 = 2048;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicrawparameterset")]
+                enum WICRawParameterSet {
+                    WICAsShotParameterSet = 1,
+                    WICUserAdjustedParameterSet = 2,
+                    WICAutoAdjustedParameterSet = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicrawrendermode")]
+                enum WICRawRenderMode {
+                    WICRawRenderModeDraft = 1,
+                    WICRawRenderModeNormal = 2,
+                    WICRawRenderModeBestQuality = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicrawrotationcapabilities")]
+                enum WICRawRotationCapabilities {
+                    WICRawRotationCapabilityNotSupported = 0,
+                    WICRawRotationCapabilityGetSupported = 1,
+                    WICRawRotationCapabilityNinetyDegreesSupported = 2,
+                    WICRawRotationCapabilityFullySupported = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicrawtonecurve")]
+                struct WICRawToneCurve {
+                    cPoints: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    aPoints: [WICRawToneCurvePoint; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicrawtonecurvepoint")]
+                struct WICRawToneCurvePoint {
+                    Input: f64,
+                    Output: f64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ns-wincodec-wicrect")]
+                struct WICRect {
+                    X: i32,
+                    Y: i32,
+                    Width: i32,
+                    Height: i32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicsectionaccesslevel")]
+                enum WICSectionAccessLevel {
+                    WICSectionAccessLevelRead = 1,
+                    WICSectionAccessLevelReadWrite = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodecsdk/nf-wincodecsdk-wicserializemetadatacontent")]
+                #[library("WindowsCodecs.dll")]
+                extern fn WICSerializeMetadataContent(guidContainerFormat: *mut GUID, pIWriter: IWICMetadataWriter, dwPersistOptions: u32, pIStream: super::super::System::Com::IStream) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wictiffcompressionoption")]
+                enum WICTiffCompressionOption {
+                    WICTiffCompressionDontCare = 0,
+                    WICTiffCompressionNone = 1,
+                    WICTiffCompressionCCITT3 = 2,
+                    WICTiffCompressionCCITT4 = 3,
+                    WICTiffCompressionLZW = 4,
+                    WICTiffCompressionRLE = 5,
+                    WICTiffCompressionZIP = 6,
+                    WICTiffCompressionLZWHDifferencing = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicwebpanimproperties")]
+                enum WICWebpAnimProperties {
+                    WICWebpAnimLoopCount = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/wincodec/ne-wincodec-wicwebpanmfproperties")]
+                enum WICWebpAnmfProperties {
+                    WICWebpAnmfFrameDuration = 1,
+                }
+                const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0;
+                const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464;
+                const WIC_JPEG_MAX_COMPONENT_COUNT: u32 = 4;
+                const WIC_JPEG_MAX_TABLE_INDEX: u32 = 3;
+                const WIC_JPEG_QUANTIZATION_BASELINE_ONE: u32 = 0;
+                const WIC_JPEG_QUANTIZATION_BASELINE_THREE: u32 = 65792;
+                const WIC_JPEG_SAMPLE_FACTORS_ONE: u32 = 17;
+                const WIC_JPEG_SAMPLE_FACTORS_THREE_420: u32 = 1118498;
+                const WIC_JPEG_SAMPLE_FACTORS_THREE_422: u32 = 1118497;
+                const WIC_JPEG_SAMPLE_FACTORS_THREE_440: u32 = 1118482;
+                const WIC_JPEG_SAMPLE_FACTORS_THREE_444: u32 = 1118481;
+                const WINCODEC_ERR_ABORTED: i32 = -2147467260;
+                const WINCODEC_ERR_ACCESSDENIED: i32 = -2147024891;
+                const WINCODEC_ERR_BASE: u32 = 8192;
+                const WINCODEC_ERR_GENERIC_ERROR: i32 = -2147467259;
+                const WINCODEC_ERR_INVALIDPARAMETER: i32 = -2147024809;
+                const WINCODEC_ERR_NOTIMPLEMENTED: i32 = -2147467263;
+                const WINCODEC_ERR_OUTOFMEMORY: i32 = -2147024882;
+                const WINCODEC_SDK_VERSION: u32 = 567;
+                const WINCODEC_SDK_VERSION1: u32 = 566;
+                const WINCODEC_SDK_VERSION2: u32 = 567;
+            }
+        }
+    }
+}

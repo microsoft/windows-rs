@@ -1,0 +1,18 @@
+mod Windows {
+    mod Graphics {
+        #[winrt]
+        mod Effects {
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IGraphicsEffect: IGraphicsEffectSource {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, name: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
+            interface IGraphicsEffectSource {}
+        }
+    }
+}

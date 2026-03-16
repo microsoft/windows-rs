@@ -1,0 +1,536 @@
+mod Windows {
+    mod Media {
+        mod Streaming {
+            #[winrt]
+            mod Adaptive {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IAdaptiveMediaSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class AdaptiveMediaSource {
+                    #[default]
+                    IAdaptiveMediaSource,
+                    super::super::Core::IMediaSource,
+                    IAdaptiveMediaSource2,
+                    IAdaptiveMediaSource3,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class AdaptiveMediaSourceAdvancedSettings {
+                    #[default]
+                    IAdaptiveMediaSourceAdvancedSettings,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class AdaptiveMediaSourceCorrelatedTimes {
+                    #[default]
+                    IAdaptiveMediaSourceCorrelatedTimes,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class AdaptiveMediaSourceCreationResult {
+                    #[default]
+                    IAdaptiveMediaSourceCreationResult,
+                    IAdaptiveMediaSourceCreationResult2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AdaptiveMediaSourceCreationStatus {
+                    Success = 0,
+                    ManifestDownloadFailure = 1,
+                    ManifestParseFailure = 2,
+                    UnsupportedManifestContentType = 3,
+                    UnsupportedManifestVersion = 4,
+                    UnsupportedManifestProfile = 5,
+                    UnknownFailure = 6,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AdaptiveMediaSourceDiagnosticAvailableEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourceDiagnosticAvailableEventArgs,
+                    IAdaptiveMediaSourceDiagnosticAvailableEventArgs2,
+                    IAdaptiveMediaSourceDiagnosticAvailableEventArgs3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum AdaptiveMediaSourceDiagnosticType {
+                    ManifestUnchangedUponReload = 0,
+                    ManifestMismatchUponReload = 1,
+                    ManifestSignaledEndOfLiveEventUponReload = 2,
+                    MediaSegmentSkipped = 3,
+                    ResourceNotFound = 4,
+                    ResourceTimedOut = 5,
+                    ResourceParsingError = 6,
+                    BitrateDisabled = 7,
+                    FatalMediaSourceError = 8,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class AdaptiveMediaSourceDiagnostics {
+                    #[default]
+                    IAdaptiveMediaSourceDiagnostics,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadBitrateChangedEventArgs,
+                    IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum AdaptiveMediaSourceDownloadBitrateChangedReason {
+                    SufficientInboundBitsPerSecond = 0,
+                    InsufficientInboundBitsPerSecond = 1,
+                    LowBufferLevel = 2,
+                    PositionChanged = 3,
+                    TrackSelectionChanged = 4,
+                    DesiredBitratesChanged = 5,
+                    ErrorInPreviousBitrate = 6,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AdaptiveMediaSourceDownloadCompletedEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadCompletedEventArgs,
+                    IAdaptiveMediaSourceDownloadCompletedEventArgs2,
+                    IAdaptiveMediaSourceDownloadCompletedEventArgs3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class AdaptiveMediaSourceDownloadFailedEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadFailedEventArgs,
+                    IAdaptiveMediaSourceDownloadFailedEventArgs2,
+                    IAdaptiveMediaSourceDownloadFailedEventArgs3,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AdaptiveMediaSourceDownloadRequestedDeferral {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadRequestedDeferral,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AdaptiveMediaSourceDownloadRequestedEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadRequestedEventArgs,
+                    IAdaptiveMediaSourceDownloadRequestedEventArgs2,
+                    IAdaptiveMediaSourceDownloadRequestedEventArgs3,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class AdaptiveMediaSourceDownloadResult {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadResult,
+                    IAdaptiveMediaSourceDownloadResult2,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AdaptiveMediaSourceDownloadStatistics {
+                    #[default]
+                    IAdaptiveMediaSourceDownloadStatistics,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
+                    #[default]
+                    IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AdaptiveMediaSourceResourceType {
+                    Manifest = 0,
+                    InitializationSegment = 1,
+                    MediaSegment = 2,
+                    Key = 3,
+                    InitializationVector = 4,
+                    MediaSegmentIndex = 5,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                interface IAdaptiveMediaSource: super::super::Core::IMediaSource {
+                    #[special]
+                    fn get_IsLive(&self) -> bool;
+                    #[special]
+                    fn get_DesiredLiveOffset(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn put_DesiredLiveOffset(&self, value: super::super::super::Foundation::TimeSpan);
+                    #[special]
+                    fn get_InitialBitrate(&self) -> u32;
+                    #[special]
+                    fn put_InitialBitrate(&self, value: u32);
+                    #[special]
+                    fn get_CurrentDownloadBitrate(&self) -> u32;
+                    #[special]
+                    fn get_CurrentPlaybackBitrate(&self) -> u32;
+                    #[special]
+                    fn get_AvailableBitrates(&self) -> super::super::super::Foundation::Collections::IVectorView<u32>;
+                    #[special]
+                    fn get_DesiredMinBitrate(&self) -> super::super::super::Foundation::IReference<u32>;
+                    #[special]
+                    fn put_DesiredMinBitrate(&self, value: super::super::super::Foundation::IReference<u32>);
+                    #[special]
+                    fn get_DesiredMaxBitrate(&self) -> super::super::super::Foundation::IReference<u32>;
+                    #[special]
+                    fn put_DesiredMaxBitrate(&self, value: super::super::super::Foundation::IReference<u32>);
+                    #[special]
+                    fn get_AudioOnlyPlayback(&self) -> bool;
+                    #[special]
+                    fn get_InboundBitsPerSecond(&self) -> u64;
+                    #[special]
+                    fn get_InboundBitsPerSecondWindow(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn put_InboundBitsPerSecondWindow(&self, value: super::super::super::Foundation::TimeSpan);
+                    #[special]
+                    fn add_DownloadBitrateChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DownloadBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_PlaybackBitrateChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_PlaybackBitrateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_DownloadRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DownloadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_DownloadCompleted(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadCompletedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DownloadCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_DownloadFailed(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSource, AdaptiveMediaSourceDownloadFailedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DownloadFailed(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface IAdaptiveMediaSource2 {
+                    #[special]
+                    fn get_AdvancedSettings(&self) -> AdaptiveMediaSourceAdvancedSettings;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                interface IAdaptiveMediaSource3 {
+                    #[special]
+                    fn get_MinLiveOffset(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_MaxSeekableWindowSize(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_DesiredSeekableWindowSize(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn put_DesiredSeekableWindowSize(&self, value: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>);
+                    #[special]
+                    fn get_Diagnostics(&self) -> AdaptiveMediaSourceDiagnostics;
+                    fn GetCorrelatedTimes(&self) -> AdaptiveMediaSourceCorrelatedTimes;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceAdvancedSettings)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                interface IAdaptiveMediaSourceAdvancedSettings {
+                    #[special]
+                    fn get_AllSegmentsIndependent(&self) -> bool;
+                    #[special]
+                    fn put_AllSegmentsIndependent(&self, value: bool);
+                    #[special]
+                    fn get_DesiredBitrateHeadroomRatio(&self) -> super::super::super::Foundation::IReference<f64>;
+                    #[special]
+                    fn put_DesiredBitrateHeadroomRatio(&self, value: super::super::super::Foundation::IReference<f64>);
+                    #[special]
+                    fn get_BitrateDowngradeTriggerRatio(&self) -> super::super::super::Foundation::IReference<f64>;
+                    #[special]
+                    fn put_BitrateDowngradeTriggerRatio(&self, value: super::super::super::Foundation::IReference<f64>);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCorrelatedTimes)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IAdaptiveMediaSourceCorrelatedTimes {
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_PresentationTimeStamp(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_ProgramDateTime(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCreationResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAdaptiveMediaSourceCreationResult {
+                    #[special]
+                    fn get_Status(&self) -> AdaptiveMediaSourceCreationStatus;
+                    #[special]
+                    fn get_MediaSource(&self) -> AdaptiveMediaSource;
+                    #[special]
+                    fn get_HttpResponseMessage(&self) -> super::super::super::Web::Http::HttpResponseMessage;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceCreationResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IAdaptiveMediaSourceCreationResult2 {
+                    #[special]
+                    fn get_ExtendedError(&self) -> HRESULT;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs {
+                    #[special]
+                    fn get_DiagnosticType(&self) -> AdaptiveMediaSourceDiagnosticType;
+                    #[special]
+                    fn get_RequestId(&self) -> super::super::super::Foundation::IReference<i32>;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_SegmentId(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_ResourceType(&self) -> super::super::super::Foundation::IReference<AdaptiveMediaSourceResourceType>;
+                    #[special]
+                    fn get_ResourceUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_ResourceByteRangeOffset(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_ResourceByteRangeLength(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_Bitrate(&self) -> super::super::super::Foundation::IReference<u32>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs2 {
+                    #[special]
+                    fn get_ExtendedError(&self) -> HRESULT;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnosticAvailableEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IAdaptiveMediaSourceDiagnosticAvailableEventArgs3 {
+                    #[special]
+                    fn get_ResourceDuration(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_ResourceContentType(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDiagnostics)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IAdaptiveMediaSourceDiagnostics {
+                    #[special]
+                    fn add_DiagnosticAvailable(&self, handler: super::super::super::Foundation::TypedEventHandler<AdaptiveMediaSourceDiagnostics, AdaptiveMediaSourceDiagnosticAvailableEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_DiagnosticAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadBitrateChangedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadBitrateChangedEventArgs {
+                    #[special]
+                    fn get_OldValue(&self) -> u32;
+                    #[special]
+                    fn get_NewValue(&self) -> u32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadBitrateChangedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2 {
+                    #[special]
+                    fn get_Reason(&self) -> AdaptiveMediaSourceDownloadBitrateChangedReason;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadCompletedEventArgs {
+                    #[special]
+                    fn get_ResourceType(&self) -> AdaptiveMediaSourceResourceType;
+                    #[special]
+                    fn get_ResourceUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_ResourceByteRangeOffset(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_ResourceByteRangeLength(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_HttpResponseMessage(&self) -> super::super::super::Web::Http::HttpResponseMessage;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadCompletedEventArgs2 {
+                    #[special]
+                    fn get_RequestId(&self) -> i32;
+                    #[special]
+                    fn get_Statistics(&self) -> AdaptiveMediaSourceDownloadStatistics;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadCompletedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IAdaptiveMediaSourceDownloadCompletedEventArgs3 {
+                    #[special]
+                    fn get_ResourceDuration(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_ResourceContentType(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAdaptiveMediaSourceDownloadFailedEventArgs {
+                    #[special]
+                    fn get_ResourceType(&self) -> AdaptiveMediaSourceResourceType;
+                    #[special]
+                    fn get_ResourceUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_ResourceByteRangeOffset(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_ResourceByteRangeLength(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_HttpResponseMessage(&self) -> super::super::super::Web::Http::HttpResponseMessage;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadFailedEventArgs2 {
+                    #[special]
+                    fn get_RequestId(&self) -> i32;
+                    #[special]
+                    fn get_ExtendedError(&self) -> HRESULT;
+                    #[special]
+                    fn get_Statistics(&self) -> AdaptiveMediaSourceDownloadStatistics;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadFailedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IAdaptiveMediaSourceDownloadFailedEventArgs3 {
+                    #[special]
+                    fn get_ResourceDuration(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_ResourceContentType(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedDeferral)]
+                interface IAdaptiveMediaSourceDownloadRequestedDeferral {
+                    fn Complete(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadRequestedEventArgs {
+                    #[special]
+                    fn get_ResourceType(&self) -> AdaptiveMediaSourceResourceType;
+                    #[special]
+                    fn get_ResourceUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn get_ResourceByteRangeOffset(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_ResourceByteRangeLength(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn get_Result(&self) -> AdaptiveMediaSourceDownloadResult;
+                    fn GetDeferral(&self) -> AdaptiveMediaSourceDownloadRequestedDeferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadRequestedEventArgs2 {
+                    #[special]
+                    fn get_RequestId(&self) -> i32;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadRequestedEventArgs)]
+                interface IAdaptiveMediaSourceDownloadRequestedEventArgs3 {
+                    #[special]
+                    fn get_ResourceDuration(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_ResourceContentType(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAdaptiveMediaSourceDownloadResult {
+                    #[special]
+                    fn get_ResourceUri(&self) -> super::super::super::Foundation::Uri;
+                    #[special]
+                    fn put_ResourceUri(&self, value: super::super::super::Foundation::Uri);
+                    #[special]
+                    fn get_InputStream(&self) -> super::super::super::Storage::Streams::IInputStream;
+                    #[special]
+                    fn put_InputStream(&self, value: super::super::super::Storage::Streams::IInputStream);
+                    #[special]
+                    fn get_Buffer(&self) -> super::super::super::Storage::Streams::IBuffer;
+                    #[special]
+                    fn put_Buffer(&self, value: super::super::super::Storage::Streams::IBuffer);
+                    #[special]
+                    fn get_ContentType(&self) -> String;
+                    #[special]
+                    fn put_ContentType(&self, value: String);
+                    #[special]
+                    fn get_ExtendedStatus(&self) -> u32;
+                    #[special]
+                    fn put_ExtendedStatus(&self, value: u32);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadResult)]
+                interface IAdaptiveMediaSourceDownloadResult2 {
+                    #[special]
+                    fn get_ResourceByteRangeOffset(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn put_ResourceByteRangeOffset(&self, value: super::super::super::Foundation::IReference<u64>);
+                    #[special]
+                    fn get_ResourceByteRangeLength(&self) -> super::super::super::Foundation::IReference<u64>;
+                    #[special]
+                    fn put_ResourceByteRangeLength(&self, value: super::super::super::Foundation::IReference<u64>);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourceDownloadStatistics)]
+                interface IAdaptiveMediaSourceDownloadStatistics {
+                    #[special]
+                    fn get_ContentBytesReceivedCount(&self) -> u64;
+                    #[special]
+                    fn get_TimeToHeadersReceived(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_TimeToFirstByteReceived(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                    #[special]
+                    fn get_TimeToLastByteReceived(&self) -> super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
+                    #[special]
+                    fn get_OldValue(&self) -> u32;
+                    #[special]
+                    fn get_NewValue(&self) -> u32;
+                    #[special]
+                    fn get_AudioOnly(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveMediaSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAdaptiveMediaSourceStatics {
+                    fn IsContentTypeSupported(&self, contentType: String) -> bool;
+                    #[Windows::Foundation::Metadata::Overload("CreateFromUriAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    #[Windows::Foundation::Metadata::Overload("CreateFromUriWithDownloaderAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateFromUriAsync(&self, uri: super::super::super::Foundation::Uri, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("CreateFromStreamAsync")]
+                    fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("CreateFromStreamWithDownloaderAsync")]
+                    fn CreateFromStreamAsync(&self, stream: super::super::super::Storage::Streams::IInputStream, uri: super::super::super::Foundation::Uri, contentType: String, httpClient: super::super::super::Web::Http::HttpClient) -> super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>;
+                }
+            }
+        }
+    }
+}

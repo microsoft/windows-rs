@@ -1,0 +1,1342 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            #[winrt]
+            mod Input {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AccessKeyDisplayDismissedEventArgs {
+                    #[default]
+                    IAccessKeyDisplayDismissedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AccessKeyDisplayRequestedEventArgs {
+                    #[default]
+                    IAccessKeyDisplayRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AccessKeyInvokedEventArgs {
+                    #[default]
+                    IAccessKeyInvokedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Static(IAccessKeyManagerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IAccessKeyManagerStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class AccessKeyManager {
+                    #[default]
+                    IAccessKeyManager,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CanExecuteRequestedEventArgs {
+                    #[default]
+                    ICanExecuteRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class CharacterReceivedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    ICharacterReceivedRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class ContextRequestedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IContextRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn DoubleTappedEventHandler(sender: Object, e: DoubleTappedRoutedEventArgs);
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DoubleTappedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IDoubleTappedRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class ExecuteRequestedEventArgs {
+                    #[default]
+                    IExecuteRequestedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class FindNextElementOptions {
+                    #[default]
+                    IFindNextElementOptions,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum FocusInputDeviceKind {
+                    None = 0,
+                    Mouse = 1,
+                    Touch = 2,
+                    Pen = 3,
+                    Keyboard = 4,
+                    GameController = 5,
+                }
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics7, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics6, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IFocusManagerStatics5, 393216, "Windows.Foundation.UniversalApiContract")]
+                class FocusManager {
+                    #[default]
+                    IFocusManager,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class FocusManagerGotFocusEventArgs {
+                    #[default]
+                    IFocusManagerGotFocusEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class FocusManagerLostFocusEventArgs {
+                    #[default]
+                    IFocusManagerLostFocusEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class FocusMovementResult {
+                    #[default]
+                    IFocusMovementResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum FocusNavigationDirection {
+                    Next = 0,
+                    Previous = 1,
+                    Up = 2,
+                    Down = 3,
+                    Left = 4,
+                    Right = 5,
+                    None = 6,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GettingFocusEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IGettingFocusEventArgs,
+                    IGettingFocusEventArgs2,
+                    IGettingFocusEventArgs3,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn HoldingEventHandler(sender: Object, e: HoldingRoutedEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class HoldingRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IHoldingRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyDisplayDismissedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAccessKeyDisplayDismissedEventArgs {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyDisplayRequestedEventArgs)]
+                interface IAccessKeyDisplayRequestedEventArgs {
+                    #[special]
+                    fn get_PressedKeys(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyInvokedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAccessKeyInvokedEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAccessKeyManager {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAccessKeyManagerStatics {
+                    #[special]
+                    fn get_IsDisplayModeEnabled(&self) -> bool;
+                    #[special]
+                    fn add_IsDisplayModeEnabledChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<Object, Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_IsDisplayModeEnabledChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn ExitDisplayMode(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AccessKeyManager)]
+                interface IAccessKeyManagerStatics2 {
+                    #[special]
+                    fn get_AreKeyTipsEnabled(&self) -> bool;
+                    #[special]
+                    fn put_AreKeyTipsEnabled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CanExecuteRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface ICanExecuteRequestedEventArgs {
+                    #[special]
+                    fn get_Parameter(&self) -> Object;
+                    #[special]
+                    fn get_CanExecute(&self) -> bool;
+                    #[special]
+                    fn put_CanExecute(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CharacterReceivedRoutedEventArgs)]
+                interface ICharacterReceivedRoutedEventArgs {
+                    #[special]
+                    fn get_Character(&self) -> u16;
+                    #[special]
+                    fn get_KeyStatus(&self) -> super::super::Core::CorePhysicalKeyStatus;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ICommand {
+                    #[special]
+                    fn add_CanExecuteChanged(&self, handler: super::super::super::Foundation::EventHandler<Object>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_CanExecuteChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn CanExecute(&self, parameter: Object) -> bool;
+                    fn Execute(&self, parameter: Object);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContextRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IContextRequestedEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn TryGetPosition(&self, relativeTo: super::UIElement, point: &mut super::super::super::Foundation::Point) -> bool;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DoubleTappedRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDoubleTappedRoutedEventArgs {
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetPosition(&self, relativeTo: super::UIElement) -> super::super::super::Foundation::Point;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ExecuteRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IExecuteRequestedEventArgs {
+                    #[special]
+                    fn get_Parameter(&self) -> Object;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(FindNextElementOptions)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IFindNextElementOptions {
+                    #[special]
+                    fn get_SearchRoot(&self) -> super::DependencyObject;
+                    #[special]
+                    fn put_SearchRoot(&self, value: super::DependencyObject);
+                    #[special]
+                    fn get_ExclusionRect(&self) -> super::super::super::Foundation::Rect;
+                    #[special]
+                    fn put_ExclusionRect(&self, value: super::super::super::Foundation::Rect);
+                    #[special]
+                    fn get_HintRect(&self) -> super::super::super::Foundation::Rect;
+                    #[special]
+                    fn put_HintRect(&self, value: super::super::super::Foundation::Rect);
+                    #[special]
+                    fn get_XYFocusNavigationStrategyOverride(&self) -> XYFocusNavigationStrategyOverride;
+                    #[special]
+                    fn put_XYFocusNavigationStrategyOverride(&self, value: XYFocusNavigationStrategyOverride);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                interface IFocusManager {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManagerGotFocusEventArgs)]
+                interface IFocusManagerGotFocusEventArgs {
+                    #[special]
+                    fn get_NewFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn get_CorrelationId(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManagerLostFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IFocusManagerLostFocusEventArgs {
+                    #[special]
+                    fn get_OldFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn get_CorrelationId(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                interface IFocusManagerStatics {
+                    fn GetFocusedElement(&self) -> Object;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IFocusManagerStatics2 {
+                    #[Windows::Foundation::Metadata::Overload("TryMoveFocus")]
+                    fn TryMoveFocus(&self, focusNavigationDirection: FocusNavigationDirection) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                interface IFocusManagerStatics3 {
+                    #[Windows::Foundation::Metadata::Overload("FindNextFocusableElement")]
+                    fn FindNextFocusableElement(&self, focusNavigationDirection: FocusNavigationDirection) -> super::UIElement;
+                    #[Windows::Foundation::Metadata::Overload("FindNextFocusableElementWithHint")]
+                    fn FindNextFocusableElement(&self, focusNavigationDirection: FocusNavigationDirection, hintRect: super::super::super::Foundation::Rect) -> super::UIElement;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IFocusManagerStatics4 {
+                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusWithOptions")]
+                    fn TryMoveFocus(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> bool;
+                    #[Windows::Foundation::Metadata::Overload("FindNextElement")]
+                    fn FindNextElement(&self, focusNavigationDirection: FocusNavigationDirection) -> super::DependencyObject;
+                    fn FindFirstFocusableElement(&self, searchScope: super::DependencyObject) -> super::DependencyObject;
+                    fn FindLastFocusableElement(&self, searchScope: super::DependencyObject) -> super::DependencyObject;
+                    #[Windows::Foundation::Metadata::Overload("FindNextElementWithOptions")]
+                    fn FindNextElement(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::DependencyObject;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IFocusManagerStatics5 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryFocusAsync(&self, element: super::DependencyObject, value: super::FocusState) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusAsync")]
+                    fn TryMoveFocusAsync(&self, focusNavigationDirection: FocusNavigationDirection) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("TryMoveFocusWithOptionsAsync")]
+                    fn TryMoveFocusAsync(&self, focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions) -> super::super::super::Foundation::IAsyncOperation<FocusMovementResult>;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                interface IFocusManagerStatics6 {
+                    #[special]
+                    fn add_GotFocus(&self, handler: super::super::super::Foundation::EventHandler<FocusManagerGotFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_GotFocus(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_LostFocus(&self, handler: super::super::super::Foundation::EventHandler<FocusManagerLostFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_LostFocus(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_GettingFocus(&self, handler: super::super::super::Foundation::EventHandler<GettingFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_GettingFocus(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_LosingFocus(&self, handler: super::super::super::Foundation::EventHandler<LosingFocusEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_LosingFocus(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusManager)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IFocusManagerStatics7 {
+                    #[Windows::Foundation::Metadata::Overload("GetFocusedElement")]
+                    fn GetFocusedElement(&self, xamlRoot: super::XamlRoot) -> Object;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FocusMovementResult)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IFocusMovementResult {
+                    #[special]
+                    fn get_Succeeded(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GettingFocusEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGettingFocusEventArgs {
+                    #[special]
+                    fn get_OldFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn get_NewFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn put_NewFocusedElement(&self, value: super::DependencyObject);
+                    #[special]
+                    fn get_FocusState(&self) -> super::FocusState;
+                    #[special]
+                    fn get_Direction(&self) -> FocusNavigationDirection;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_InputDevice(&self) -> FocusInputDeviceKind;
+                    #[special]
+                    fn get_Cancel(&self) -> bool;
+                    #[special]
+                    fn put_Cancel(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GettingFocusEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGettingFocusEventArgs2 {
+                    fn TryCancel(&self) -> bool;
+                    fn TrySetNewFocusedElement(&self, element: super::DependencyObject) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GettingFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGettingFocusEventArgs3 {
+                    #[special]
+                    fn get_CorrelationId(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(HoldingRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IHoldingRoutedEventArgs {
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_HoldingState(&self) -> super::super::Input::HoldingState;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetPosition(&self, relativeTo: super::UIElement) -> super::super::super::Foundation::Point;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InertiaExpansionBehavior)]
+                interface IInertiaExpansionBehavior {
+                    #[special]
+                    fn get_DesiredDeceleration(&self) -> f64;
+                    #[special]
+                    fn put_DesiredDeceleration(&self, value: f64);
+                    #[special]
+                    fn get_DesiredExpansion(&self) -> f64;
+                    #[special]
+                    fn put_DesiredExpansion(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(InertiaRotationBehavior)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IInertiaRotationBehavior {
+                    #[special]
+                    fn get_DesiredDeceleration(&self) -> f64;
+                    #[special]
+                    fn put_DesiredDeceleration(&self, value: f64);
+                    #[special]
+                    fn get_DesiredRotation(&self) -> f64;
+                    #[special]
+                    fn put_DesiredRotation(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InertiaTranslationBehavior)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInertiaTranslationBehavior {
+                    #[special]
+                    fn get_DesiredDeceleration(&self) -> f64;
+                    #[special]
+                    fn put_DesiredDeceleration(&self, value: f64);
+                    #[special]
+                    fn get_DesiredDisplacement(&self) -> f64;
+                    #[special]
+                    fn put_DesiredDisplacement(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InputScope)]
+                interface IInputScope {
+                    #[special]
+                    fn get_Names(&self) -> super::super::super::Foundation::Collections::IVector<InputScopeName>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InputScopeName)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInputScopeName {
+                    #[special]
+                    fn get_NameValue(&self) -> InputScopeNameValue;
+                    #[special]
+                    fn put_NameValue(&self, value: InputScopeNameValue);
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(InputScopeName)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IInputScopeNameFactory {
+                    fn CreateInstance(&self, nameValue: InputScopeNameValue) -> InputScopeName;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IKeyRoutedEventArgs {
+                    #[special]
+                    fn get_Key(&self) -> super::super::super::System::VirtualKey;
+                    #[special]
+                    fn get_KeyStatus(&self) -> super::super::Core::CorePhysicalKeyStatus;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IKeyRoutedEventArgs2 {
+                    #[special]
+                    fn get_OriginalKey(&self) -> super::super::super::System::VirtualKey;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IKeyRoutedEventArgs3 {
+                    #[special]
+                    fn get_DeviceId(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardAccelerator)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IKeyboardAccelerator {
+                    #[special]
+                    fn get_Key(&self) -> super::super::super::System::VirtualKey;
+                    #[special]
+                    fn put_Key(&self, value: super::super::super::System::VirtualKey);
+                    #[special]
+                    fn get_Modifiers(&self) -> super::super::super::System::VirtualKeyModifiers;
+                    #[special]
+                    fn put_Modifiers(&self, value: super::super::super::System::VirtualKeyModifiers);
+                    #[special]
+                    fn get_IsEnabled(&self) -> bool;
+                    #[special]
+                    fn put_IsEnabled(&self, value: bool);
+                    #[special]
+                    fn get_ScopeOwner(&self) -> super::DependencyObject;
+                    #[special]
+                    fn put_ScopeOwner(&self, value: super::DependencyObject);
+                    #[special]
+                    fn add_Invoked(&self, handler: super::super::super::Foundation::TypedEventHandler<KeyboardAccelerator, KeyboardAcceleratorInvokedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Invoked(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardAccelerator)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IKeyboardAcceleratorFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> KeyboardAccelerator;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardAcceleratorInvokedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IKeyboardAcceleratorInvokedEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_Element(&self) -> super::DependencyObject;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardAcceleratorInvokedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IKeyboardAcceleratorInvokedEventArgs2 {
+                    #[special]
+                    fn get_KeyboardAccelerator(&self) -> KeyboardAccelerator;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardAccelerator)]
+                interface IKeyboardAcceleratorStatics {
+                    #[special]
+                    fn get_KeyProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_ModifiersProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_IsEnabledProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_ScopeOwnerProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(LosingFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ILosingFocusEventArgs {
+                    #[special]
+                    fn get_OldFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn get_NewFocusedElement(&self) -> super::DependencyObject;
+                    #[special]
+                    fn put_NewFocusedElement(&self, value: super::DependencyObject);
+                    #[special]
+                    fn get_FocusState(&self) -> super::FocusState;
+                    #[special]
+                    fn get_Direction(&self) -> FocusNavigationDirection;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_InputDevice(&self) -> FocusInputDeviceKind;
+                    #[special]
+                    fn get_Cancel(&self) -> bool;
+                    #[special]
+                    fn put_Cancel(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LosingFocusEventArgs)]
+                interface ILosingFocusEventArgs2 {
+                    fn TryCancel(&self) -> bool;
+                    fn TrySetNewFocusedElement(&self, element: super::DependencyObject) -> bool;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LosingFocusEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface ILosingFocusEventArgs3 {
+                    #[special]
+                    fn get_CorrelationId(&self) -> GUID;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationCompletedRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IManipulationCompletedRoutedEventArgs {
+                    #[special]
+                    fn get_Container(&self) -> super::UIElement;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::Point;
+                    #[special]
+                    fn get_IsInertial(&self) -> bool;
+                    #[special]
+                    fn get_Cumulative(&self) -> super::super::Input::ManipulationDelta;
+                    #[special]
+                    fn get_Velocities(&self) -> super::super::Input::ManipulationVelocities;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationDeltaRoutedEventArgs)]
+                interface IManipulationDeltaRoutedEventArgs {
+                    #[special]
+                    fn get_Container(&self) -> super::UIElement;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::Point;
+                    #[special]
+                    fn get_IsInertial(&self) -> bool;
+                    #[special]
+                    fn get_Delta(&self) -> super::super::Input::ManipulationDelta;
+                    #[special]
+                    fn get_Cumulative(&self) -> super::super::Input::ManipulationDelta;
+                    #[special]
+                    fn get_Velocities(&self) -> super::super::Input::ManipulationVelocities;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    fn Complete(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationInertiaStartingRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IManipulationInertiaStartingRoutedEventArgs {
+                    #[special]
+                    fn get_Container(&self) -> super::UIElement;
+                    #[special]
+                    fn get_ExpansionBehavior(&self) -> InertiaExpansionBehavior;
+                    #[special]
+                    fn put_ExpansionBehavior(&self, value: InertiaExpansionBehavior);
+                    #[special]
+                    fn get_RotationBehavior(&self) -> InertiaRotationBehavior;
+                    #[special]
+                    fn put_RotationBehavior(&self, value: InertiaRotationBehavior);
+                    #[special]
+                    fn get_TranslationBehavior(&self) -> InertiaTranslationBehavior;
+                    #[special]
+                    fn put_TranslationBehavior(&self, value: InertiaTranslationBehavior);
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_Delta(&self) -> super::super::Input::ManipulationDelta;
+                    #[special]
+                    fn get_Cumulative(&self) -> super::super::Input::ManipulationDelta;
+                    #[special]
+                    fn get_Velocities(&self) -> super::super::Input::ManipulationVelocities;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationPivot)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IManipulationPivot {
+                    #[special]
+                    fn get_Center(&self) -> super::super::super::Foundation::Point;
+                    #[special]
+                    fn put_Center(&self, value: super::super::super::Foundation::Point);
+                    #[special]
+                    fn get_Radius(&self) -> f64;
+                    #[special]
+                    fn put_Radius(&self, value: f64);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationPivot)]
+                interface IManipulationPivotFactory {
+                    fn CreateInstanceWithCenterAndRadius(&self, center: super::super::super::Foundation::Point, radius: f64) -> ManipulationPivot;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationStartedRoutedEventArgs)]
+                interface IManipulationStartedRoutedEventArgs {
+                    #[special]
+                    fn get_Container(&self) -> super::UIElement;
+                    #[special]
+                    fn get_Position(&self) -> super::super::super::Foundation::Point;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_Cumulative(&self) -> super::super::Input::ManipulationDelta;
+                    fn Complete(&self);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationStartedRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IManipulationStartedRoutedEventArgsFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ManipulationStartedRoutedEventArgs;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ManipulationStartingRoutedEventArgs)]
+                interface IManipulationStartingRoutedEventArgs {
+                    #[special]
+                    fn get_Mode(&self) -> ManipulationModes;
+                    #[special]
+                    fn put_Mode(&self, value: ManipulationModes);
+                    #[special]
+                    fn get_Container(&self) -> super::UIElement;
+                    #[special]
+                    fn put_Container(&self, value: super::UIElement);
+                    #[special]
+                    fn get_Pivot(&self) -> ManipulationPivot;
+                    #[special]
+                    fn put_Pivot(&self, value: ManipulationPivot);
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NoFocusCandidateFoundEventArgs)]
+                interface INoFocusCandidateFoundEventArgs {
+                    #[special]
+                    fn get_Direction(&self) -> FocusNavigationDirection;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    #[special]
+                    fn get_InputDevice(&self) -> FocusInputDeviceKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Pointer)]
+                interface IPointer {
+                    #[special]
+                    fn get_PointerId(&self) -> u32;
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_IsInContact(&self) -> bool;
+                    #[special]
+                    fn get_IsInRange(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PointerRoutedEventArgs)]
+                interface IPointerRoutedEventArgs {
+                    #[special]
+                    fn get_Pointer(&self) -> Pointer;
+                    #[special]
+                    fn get_KeyModifiers(&self) -> super::super::super::System::VirtualKeyModifiers;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetCurrentPoint(&self, relativeTo: super::UIElement) -> super::super::Input::PointerPoint;
+                    fn GetIntermediatePoints(&self, relativeTo: super::UIElement) -> super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PointerRoutedEventArgs)]
+                interface IPointerRoutedEventArgs2 {
+                    #[special]
+                    fn get_IsGenerated(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProcessKeyboardAcceleratorEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IProcessKeyboardAcceleratorEventArgs {
+                    #[special]
+                    fn get_Key(&self) -> super::super::super::System::VirtualKey;
+                    #[special]
+                    fn get_Modifiers(&self) -> super::super::super::System::VirtualKeyModifiers;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RightTappedRoutedEventArgs)]
+                interface IRightTappedRoutedEventArgs {
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetPosition(&self, relativeTo: super::UIElement) -> super::super::super::Foundation::Point;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(StandardUICommand)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IStandardUICommand {
+                    #[special]
+                    fn get_Kind(&self) -> StandardUICommandKind;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StandardUICommand)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IStandardUICommand2 {
+                    #[special]
+                    fn put_Kind(&self, value: StandardUICommandKind);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StandardUICommand)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IStandardUICommandFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> StandardUICommand;
+                    fn CreateInstanceWithKind(&self, kind: StandardUICommandKind, baseInterface: Object, innerInterface: &mut Object) -> StandardUICommand;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(StandardUICommand)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IStandardUICommandStatics {
+                    #[special]
+                    fn get_KindProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(TappedRoutedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ITappedRoutedEventArgs {
+                    #[special]
+                    fn get_PointerDeviceType(&self) -> super::super::super::Devices::Input::PointerDeviceType;
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetPosition(&self, relativeTo: super::UIElement) -> super::super::super::Foundation::Point;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUICommand)]
+                interface IXamlUICommand {
+                    #[special]
+                    fn get_Label(&self) -> String;
+                    #[special]
+                    fn put_Label(&self, value: String);
+                    #[special]
+                    fn get_IconSource(&self) -> super::Controls::IconSource;
+                    #[special]
+                    fn put_IconSource(&self, value: super::Controls::IconSource);
+                    #[special]
+                    fn get_KeyboardAccelerators(&self) -> super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>;
+                    #[special]
+                    fn get_AccessKey(&self) -> String;
+                    #[special]
+                    fn put_AccessKey(&self, value: String);
+                    #[special]
+                    fn get_Description(&self) -> String;
+                    #[special]
+                    fn put_Description(&self, value: String);
+                    #[special]
+                    fn get_Command(&self) -> ICommand;
+                    #[special]
+                    fn put_Command(&self, value: ICommand);
+                    #[special]
+                    fn add_ExecuteRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<XamlUICommand, ExecuteRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ExecuteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_CanExecuteRequested(&self, handler: super::super::super::Foundation::TypedEventHandler<XamlUICommand, CanExecuteRequestedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_CanExecuteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn NotifyCanExecuteChanged(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUICommand)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IXamlUICommandFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> XamlUICommand;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlUICommand)]
+                interface IXamlUICommandStatics {
+                    #[special]
+                    fn get_LabelProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_IconSourceProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_KeyboardAcceleratorsProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_AccessKeyProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_DescriptionProperty(&self) -> super::DependencyProperty;
+                    #[special]
+                    fn get_CommandProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class InertiaExpansionBehavior {
+                    #[default]
+                    IInertiaExpansionBehavior,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InertiaRotationBehavior {
+                    #[default]
+                    IInertiaRotationBehavior,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InertiaTranslationBehavior {
+                    #[default]
+                    IInertiaTranslationBehavior,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class InputScope: super::DependencyObject {
+                    #[default]
+                    IInputScope,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "NameValue")]
+                #[Windows::Foundation::Metadata::Activatable(IInputScopeNameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class InputScopeName: super::DependencyObject {
+                    #[default]
+                    IInputScopeName,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum InputScopeNameValue {
+                    Default = 0,
+                    Url = 1,
+                    EmailSmtpAddress = 5,
+                    PersonalFullName = 7,
+                    CurrencyAmountAndSymbol = 20,
+                    CurrencyAmount = 21,
+                    DateMonthNumber = 23,
+                    DateDayNumber = 24,
+                    DateYear = 25,
+                    Digits = 28,
+                    Number = 29,
+                    Password = 31,
+                    TelephoneNumber = 32,
+                    TelephoneCountryCode = 33,
+                    TelephoneAreaCode = 34,
+                    TelephoneLocalNumber = 35,
+                    TimeHour = 37,
+                    TimeMinutesOrSeconds = 38,
+                    NumberFullWidth = 39,
+                    AlphanumericHalfWidth = 40,
+                    AlphanumericFullWidth = 41,
+                    Hiragana = 44,
+                    KatakanaHalfWidth = 45,
+                    KatakanaFullWidth = 46,
+                    Hanja = 47,
+                    HangulHalfWidth = 48,
+                    HangulFullWidth = 49,
+                    Search = 50,
+                    Formula = 51,
+                    SearchIncremental = 52,
+                    ChineseHalfWidth = 53,
+                    ChineseFullWidth = 54,
+                    NativeScript = 55,
+                    Text = 57,
+                    Chat = 58,
+                    NameOrPhoneNumber = 59,
+                    EmailNameOrAddress = 60,
+                    Private = 61,
+                    Maps = 62,
+                    NumericPassword = 63,
+                    NumericPin = 64,
+                    AlphanumericPin = 65,
+                    FormulaNumber = 67,
+                    ChatWithoutEmoji = 68,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn KeyEventHandler(sender: Object, e: KeyRoutedEventArgs);
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class KeyRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IKeyRoutedEventArgs,
+                    IKeyRoutedEventArgs2,
+                    IKeyRoutedEventArgs3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum KeyTipPlacementMode {
+                    Auto = 0,
+                    Bottom = 1,
+                    Top = 2,
+                    Left = 3,
+                    Right = 4,
+                    Center = 5,
+                    Hidden = 6,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(IKeyboardAcceleratorFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Static(IKeyboardAcceleratorStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                class KeyboardAccelerator: super::DependencyObject {
+                    #[default]
+                    IKeyboardAccelerator,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class KeyboardAcceleratorInvokedEventArgs {
+                    #[default]
+                    IKeyboardAcceleratorInvokedEventArgs,
+                    IKeyboardAcceleratorInvokedEventArgs2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                enum KeyboardAcceleratorPlacementMode {
+                    Auto = 0,
+                    Hidden = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum KeyboardNavigationMode {
+                    Local = 0,
+                    Cycle = 1,
+                    Once = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class LosingFocusEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    ILosingFocusEventArgs,
+                    ILosingFocusEventArgs2,
+                    ILosingFocusEventArgs3,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn ManipulationCompletedEventHandler(sender: Object, e: ManipulationCompletedRoutedEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class ManipulationCompletedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IManipulationCompletedRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn ManipulationDeltaEventHandler(sender: Object, e: ManipulationDeltaRoutedEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class ManipulationDeltaRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IManipulationDeltaRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn ManipulationInertiaStartingEventHandler(sender: Object, e: ManipulationInertiaStartingRoutedEventArgs);
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ManipulationInertiaStartingRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IManipulationInertiaStartingRoutedEventArgs,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum ManipulationModes {
+                    None = 0,
+                    TranslateX = 1,
+                    TranslateY = 2,
+                    TranslateRailsX = 4,
+                    TranslateRailsY = 8,
+                    Rotate = 16,
+                    Scale = 32,
+                    TranslateInertia = 64,
+                    RotateInertia = 128,
+                    ScaleInertia = 256,
+                    All = 65535,
+                    System = 65536,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(IManipulationPivotFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ManipulationPivot {
+                    #[default]
+                    IManipulationPivot,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn ManipulationStartedEventHandler(sender: Object, e: ManipulationStartedRoutedEventArgs);
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Composable(IManipulationStartedRoutedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class ManipulationStartedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IManipulationStartedRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn ManipulationStartingEventHandler(sender: Object, e: ManipulationStartingRoutedEventArgs);
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ManipulationStartingRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IManipulationStartingRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class NoFocusCandidateFoundEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    INoFocusCandidateFoundEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class Pointer {
+                    #[default]
+                    IPointer,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn PointerEventHandler(sender: Object, e: PointerRoutedEventArgs);
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class PointerRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IPointerRoutedEventArgs,
+                    IPointerRoutedEventArgs2,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                class ProcessKeyboardAcceleratorEventArgs {
+                    #[default]
+                    IProcessKeyboardAcceleratorEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn RightTappedEventHandler(sender: Object, e: RightTappedRoutedEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class RightTappedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    IRightTappedRoutedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::Static(IStandardUICommandStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Composable(IStandardUICommandFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class StandardUICommand: XamlUICommand {
+                    #[default]
+                    IStandardUICommand,
+                    IStandardUICommand2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum StandardUICommandKind {
+                    None = 0,
+                    Cut = 1,
+                    Copy = 2,
+                    Paste = 3,
+                    SelectAll = 4,
+                    Delete = 5,
+                    Share = 6,
+                    Save = 7,
+                    Open = 8,
+                    Close = 9,
+                    Pause = 10,
+                    Play = 11,
+                    Stop = 12,
+                    Forward = 13,
+                    Backward = 14,
+                    Undo = 15,
+                    Redo = 16,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn TappedEventHandler(sender: Object, e: TappedRoutedEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TappedRoutedEventArgs: super::RoutedEventArgs {
+                    #[default]
+                    ITappedRoutedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum XYFocusKeyboardNavigationMode {
+                    Auto = 0,
+                    Enabled = 1,
+                    Disabled = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum XYFocusNavigationStrategy {
+                    Auto = 0,
+                    Projection = 1,
+                    NavigationDirectionDistance = 2,
+                    RectilinearDistance = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum XYFocusNavigationStrategyOverride {
+                    None = 0,
+                    Auto = 1,
+                    Projection = 2,
+                    NavigationDirectionDistance = 3,
+                    RectilinearDistance = 4,
+                }
+                #[Windows::Foundation::Metadata::Composable(IXamlUICommandFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::Static(IXamlUICommandStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class XamlUICommand: super::DependencyObject {
+                    #[default]
+                    IXamlUICommand,
+                    ICommand,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+mod Windows {
+    mod ApplicationModel {
+        mod Store {
+            #[winrt]
+            mod LicenseManagement {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LicenseManager)]
+                interface ILicenseManagerStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn AddLicenseAsync(&self, license: super::super::super::Storage::Streams::IBuffer) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetSatisfactionInfosAsync(&self, contentIds: super::super::super::Foundation::Collections::IIterable<String>, keyIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LicenseManager)]
+                interface ILicenseManagerStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RefreshLicensesAsync(&self, refreshOption: LicenseRefreshOption) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LicenseSatisfactionInfo)]
+                interface ILicenseSatisfactionInfo {
+                    #[special]
+                    fn get_SatisfiedByDevice(&self) -> bool;
+                    #[special]
+                    fn get_SatisfiedByOpenLicense(&self) -> bool;
+                    #[special]
+                    fn get_SatisfiedByTrial(&self) -> bool;
+                    #[special]
+                    fn get_SatisfiedByPass(&self) -> bool;
+                    #[special]
+                    fn get_SatisfiedByInstallMedia(&self) -> bool;
+                    #[special]
+                    fn get_SatisfiedBySignedInUser(&self) -> bool;
+                    #[special]
+                    fn get_IsSatisfied(&self) -> bool;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(LicenseSatisfactionResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface ILicenseSatisfactionResult {
+                    #[special]
+                    fn get_LicenseSatisfactionInfos(&self) -> super::super::super::Foundation::Collections::IMapView<String, LicenseSatisfactionInfo>;
+                    #[special]
+                    fn get_ExtendedError(&self) -> HRESULT;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ILicenseManagerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ILicenseManagerStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class LicenseManager {}
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum LicenseRefreshOption {
+                    RunningLicenses = 0,
+                    AllLicenses = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class LicenseSatisfactionInfo {
+                    #[default]
+                    ILicenseSatisfactionInfo,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class LicenseSatisfactionResult {
+                    #[default]
+                    ILicenseSatisfactionResult,
+                }
+            }
+        }
+    }
+}

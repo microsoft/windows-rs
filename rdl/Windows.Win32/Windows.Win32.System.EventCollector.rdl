@@ -1,0 +1,195 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod EventCollector {
+                const EC_CREATE_NEW: u32 = 1;
+                const EC_OPEN_ALWAYS: u32 = 0;
+                const EC_OPEN_EXISTING: u32 = 2;
+                const EC_READ_ACCESS: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_configuration_mode")]
+                enum EC_SUBSCRIPTION_CONFIGURATION_MODE {
+                    EcConfigurationModeNormal = 0,
+                    EcConfigurationModeCustom = 1,
+                    EcConfigurationModeMinLatency = 2,
+                    EcConfigurationModeMinBandwidth = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_content_format")]
+                enum EC_SUBSCRIPTION_CONTENT_FORMAT {
+                    EcContentFormatEvents = 1,
+                    EcContentFormatRenderedText = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_credentials_type")]
+                enum EC_SUBSCRIPTION_CREDENTIALS_TYPE {
+                    EcSubscriptionCredDefault = 0,
+                    EcSubscriptionCredNegotiate = 1,
+                    EcSubscriptionCredDigest = 2,
+                    EcSubscriptionCredBasic = 3,
+                    EcSubscriptionCredLocalMachine = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_delivery_mode")]
+                enum EC_SUBSCRIPTION_DELIVERY_MODE {
+                    EcDeliveryModePull = 1,
+                    EcDeliveryModePush = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_property_id")]
+                enum EC_SUBSCRIPTION_PROPERTY_ID {
+                    EcSubscriptionEnabled = 0,
+                    EcSubscriptionEventSources = 1,
+                    EcSubscriptionEventSourceAddress = 2,
+                    EcSubscriptionEventSourceEnabled = 3,
+                    EcSubscriptionEventSourceUserName = 4,
+                    EcSubscriptionEventSourcePassword = 5,
+                    EcSubscriptionDescription = 6,
+                    EcSubscriptionURI = 7,
+                    EcSubscriptionConfigurationMode = 8,
+                    EcSubscriptionExpires = 9,
+                    EcSubscriptionQuery = 10,
+                    EcSubscriptionTransportName = 11,
+                    EcSubscriptionTransportPort = 12,
+                    EcSubscriptionDeliveryMode = 13,
+                    EcSubscriptionDeliveryMaxItems = 14,
+                    EcSubscriptionDeliveryMaxLatencyTime = 15,
+                    EcSubscriptionHeartbeatInterval = 16,
+                    EcSubscriptionLocale = 17,
+                    EcSubscriptionContentFormat = 18,
+                    EcSubscriptionLogFile = 19,
+                    EcSubscriptionPublisherName = 20,
+                    EcSubscriptionCredentialsType = 21,
+                    EcSubscriptionCommonUserName = 22,
+                    EcSubscriptionCommonPassword = 23,
+                    EcSubscriptionHostName = 24,
+                    EcSubscriptionReadExistingEvents = 25,
+                    EcSubscriptionDialect = 26,
+                    EcSubscriptionType = 27,
+                    EcSubscriptionAllowedIssuerCAs = 28,
+                    EcSubscriptionAllowedSubjects = 29,
+                    EcSubscriptionDeniedSubjects = 30,
+                    EcSubscriptionAllowedSourceDomainComputers = 31,
+                    EcSubscriptionPropertyIdEND = 32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_runtime_status_active_status")]
+                enum EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
+                    EcRuntimeStatusActiveStatusDisabled = 1,
+                    EcRuntimeStatusActiveStatusActive = 2,
+                    EcRuntimeStatusActiveStatusInactive = 3,
+                    EcRuntimeStatusActiveStatusTrying = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_runtime_status_info_id")]
+                enum EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
+                    EcSubscriptionRunTimeStatusActive = 0,
+                    EcSubscriptionRunTimeStatusLastError = 1,
+                    EcSubscriptionRunTimeStatusLastErrorMessage = 2,
+                    EcSubscriptionRunTimeStatusLastErrorTime = 3,
+                    EcSubscriptionRunTimeStatusNextRetryTime = 4,
+                    EcSubscriptionRunTimeStatusEventSources = 5,
+                    EcSubscriptionRunTimeStatusLastHeartbeatTime = 6,
+                    EcSubscriptionRunTimeStatusInfoIdEND = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_subscription_type")]
+                enum EC_SUBSCRIPTION_TYPE {
+                    EcSubscriptionTypeSourceInitiated = 0,
+                    EcSubscriptionTypeCollectorInitiated = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ns-evcoll-ec_variant")]
+                struct EC_VARIANT {
+                    Anonymous: union {
+                        BooleanVal: super::super::Foundation::BOOL,
+                        UInt32Val: u32,
+                        DateTimeVal: u64,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        StringVal: super::super::Foundation::PWSTR,
+                        BinaryVal: *mut u8,
+                        BooleanArr: *mut super::super::Foundation::BOOL,
+                        Int32Arr: *mut i32,
+                        StringArr: *mut super::super::Foundation::PWSTR,
+                        PropertyHandleVal: isize,
+                    },
+                    Count: u32,
+                    Type: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/ne-evcoll-ec_variant_type")]
+                enum EC_VARIANT_TYPE {
+                    EcVarTypeNull = 0,
+                    EcVarTypeBoolean = 1,
+                    EcVarTypeUInt32 = 2,
+                    EcVarTypeDateTime = 3,
+                    EcVarTypeString = 4,
+                    EcVarObjectArrayPropertyHandle = 5,
+                }
+                const EC_VARIANT_TYPE_ARRAY: u32 = 128;
+                const EC_VARIANT_TYPE_MASK: u32 = 127;
+                const EC_WRITE_ACCESS: u32 = 2;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecclose")]
+                #[library("WecApi.dll")]
+                extern fn EcClose(Object: isize) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecdeletesubscription")]
+                #[library("WecApi.dll")]
+                extern fn EcDeleteSubscription(SubscriptionName: super::super::Foundation::PWSTR, Flags: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecenumnextsubscription")]
+                #[library("WecApi.dll")]
+                extern fn EcEnumNextSubscription(SubscriptionEnum: isize, SubscriptionNameBufferSize: u32, SubscriptionNameBuffer: super::super::Foundation::PWSTR, SubscriptionNameBufferUsed: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecgetobjectarrayproperty")]
+                #[library("WecApi.dll")]
+                extern fn EcGetObjectArrayProperty(ObjectArray: isize, PropertyId: EC_SUBSCRIPTION_PROPERTY_ID, ArrayIndex: u32, Flags: u32, PropertyValueBufferSize: u32, PropertyValueBuffer: *mut EC_VARIANT, PropertyValueBufferUsed: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecgetobjectarraysize")]
+                #[library("WecApi.dll")]
+                extern fn EcGetObjectArraySize(ObjectArray: isize, ObjectArraySize: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecgetsubscriptionproperty")]
+                #[library("WecApi.dll")]
+                extern fn EcGetSubscriptionProperty(Subscription: isize, PropertyId: EC_SUBSCRIPTION_PROPERTY_ID, Flags: u32, PropertyValueBufferSize: u32, PropertyValueBuffer: *mut EC_VARIANT, PropertyValueBufferUsed: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecgetsubscriptionruntimestatus")]
+                #[library("WecApi.dll")]
+                extern fn EcGetSubscriptionRunTimeStatus(SubscriptionName: super::super::Foundation::PWSTR, StatusInfoId: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, EventSourceName: super::super::Foundation::PWSTR, Flags: u32, StatusValueBufferSize: u32, StatusValueBuffer: *mut EC_VARIANT, StatusValueBufferUsed: *mut u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecinsertobjectarrayelement")]
+                #[library("WecApi.dll")]
+                extern fn EcInsertObjectArrayElement(ObjectArray: isize, ArrayIndex: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecopensubscription")]
+                #[library("WecApi.dll")]
+                extern fn EcOpenSubscription(SubscriptionName: super::super::Foundation::PWSTR, AccessMask: u32, Flags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecopensubscriptionenum")]
+                #[library("WecApi.dll")]
+                extern fn EcOpenSubscriptionEnum(Flags: u32) -> isize;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecremoveobjectarrayelement")]
+                #[library("WecApi.dll")]
+                extern fn EcRemoveObjectArrayElement(ObjectArray: isize, ArrayIndex: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecretrysubscription")]
+                #[library("WecApi.dll")]
+                extern fn EcRetrySubscription(SubscriptionName: super::super::Foundation::PWSTR, EventSourceName: super::super::Foundation::PWSTR, Flags: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecsavesubscription")]
+                #[library("WecApi.dll")]
+                extern fn EcSaveSubscription(Subscription: isize, Flags: u32) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecsetobjectarrayproperty")]
+                #[library("WecApi.dll")]
+                extern fn EcSetObjectArrayProperty(ObjectArray: isize, PropertyId: EC_SUBSCRIPTION_PROPERTY_ID, ArrayIndex: u32, Flags: u32, PropertyValue: *mut EC_VARIANT) -> super::super::Foundation::BOOL;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/evcoll/nf-evcoll-ecsetsubscriptionproperty")]
+                #[library("WecApi.dll")]
+                extern fn EcSetSubscriptionProperty(Subscription: isize, PropertyId: EC_SUBSCRIPTION_PROPERTY_ID, Flags: u32, PropertyValue: *mut EC_VARIANT) -> super::super::Foundation::BOOL;
+            }
+        }
+    }
+}

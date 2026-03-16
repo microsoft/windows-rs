@@ -1,0 +1,1476 @@
+mod Windows {
+    mod ApplicationModel {
+        #[winrt]
+        mod Email {
+            #[Windows::Foundation::Metadata::Activatable(IEmailAttachmentFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IEmailAttachmentFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailAttachment {
+                #[default]
+                IEmailAttachment,
+                IEmailAttachment2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailAttachmentDownloadState {
+                NotDownloaded = 0,
+                Downloading = 1,
+                Downloaded = 2,
+                Failed = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailBatchStatus {
+                Success = 0,
+                ServerSearchSyncManagerError = 1,
+                ServerSearchUnknownError = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailCertificateValidationStatus {
+                Success = 0,
+                NoMatch = 1,
+                InvalidUsage = 2,
+                InvalidCertificate = 3,
+                Revoked = 4,
+                ChainRevoked = 5,
+                RevocationServerFailure = 6,
+                Expired = 7,
+                Untrusted = 8,
+                ServerError = 9,
+                UnknownFailure = 10,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailConversation {
+                #[default]
+                IEmailConversation,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailConversationBatch {
+                #[default]
+                IEmailConversationBatch,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmailConversationReader {
+                #[default]
+                IEmailConversationReader,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailFlagState {
+                Unflagged = 0,
+                Flagged = 1,
+                Completed = 2,
+                Cleared = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailFolder {
+                #[default]
+                IEmailFolder,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailImportance {
+                Normal = 0,
+                High = 1,
+                Low = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IEmailIrmInfoFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmailIrmInfo {
+                #[default]
+                IEmailIrmInfo,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IEmailIrmTemplateFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailIrmTemplate {
+                #[default]
+                IEmailIrmTemplate,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmailItemCounts {
+                #[default]
+                IEmailItemCounts,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailbox {
+                #[default]
+                IEmailMailbox,
+                IEmailMailbox2,
+                IEmailMailbox3,
+                IEmailMailbox4,
+                IEmailMailbox5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMailboxAction {
+                #[default]
+                IEmailMailboxAction,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxActionKind {
+                MarkMessageAsSeen = 0,
+                MarkMessageRead = 1,
+                ChangeMessageFlagState = 2,
+                MoveMessage = 3,
+                SaveDraft = 4,
+                SendMessage = 5,
+                CreateResponseReplyMessage = 6,
+                CreateResponseReplyAllMessage = 7,
+                CreateResponseForwardMessage = 8,
+                MoveFolder = 9,
+                MarkFolderForSyncEnabled = 10,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
+                None = 0,
+                StrongAlgorithm = 1,
+                AnyAlgorithm = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmailMailboxAutoReply {
+                #[default]
+                IEmailMailboxAutoReply,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxAutoReplyMessageResponseKind {
+                Html = 0,
+                PlainText = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class EmailMailboxAutoReplySettings {
+                #[default]
+                IEmailMailboxAutoReplySettings,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMailboxCapabilities {
+                #[default]
+                IEmailMailboxCapabilities,
+                IEmailMailboxCapabilities2,
+                IEmailMailboxCapabilities3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMailboxChange {
+                #[default]
+                IEmailMailboxChange,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxChangeReader {
+                #[default]
+                IEmailMailboxChangeReader,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxChangeTracker {
+                #[default]
+                IEmailMailboxChangeTracker,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxChangeType {
+                MessageCreated = 0,
+                MessageModified = 1,
+                MessageDeleted = 2,
+                FolderCreated = 3,
+                FolderModified = 4,
+                FolderDeleted = 5,
+                ChangeTrackingLost = 6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxChangedDeferral {
+                #[default]
+                IEmailMailboxChangedDeferral,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxChangedEventArgs {
+                #[default]
+                IEmailMailboxChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxCreateFolderResult {
+                #[default]
+                IEmailMailboxCreateFolderResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailMailboxCreateFolderStatus {
+                Success = 0,
+                NetworkError = 1,
+                PermissionsError = 2,
+                ServerError = 3,
+                UnknownFailure = 4,
+                NameCollision = 5,
+                ServerRejected = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailMailboxDeleteFolderStatus {
+                Success = 0,
+                NetworkError = 1,
+                PermissionsError = 2,
+                ServerError = 3,
+                UnknownFailure = 4,
+                CouldNotDeleteEverything = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailMailboxEmptyFolderStatus {
+                Success = 0,
+                NetworkError = 1,
+                PermissionsError = 2,
+                ServerError = 3,
+                UnknownFailure = 4,
+                CouldNotDeleteEverything = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxOtherAppReadAccess {
+                SystemOnly = 0,
+                Full = 1,
+                None = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxOtherAppWriteAccess {
+                None = 0,
+                Limited = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailMailboxPolicies {
+                #[default]
+                IEmailMailboxPolicies,
+                IEmailMailboxPolicies2,
+                IEmailMailboxPolicies3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxSmimeEncryptionAlgorithm {
+                Any = 0,
+                TripleDes = 1,
+                Des = 2,
+                RC2128Bit = 3,
+                RC264Bit = 4,
+                RC240Bit = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxSmimeSigningAlgorithm {
+                Any = 0,
+                Sha1 = 1,
+                MD5 = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMailboxSyncManager {
+                #[default]
+                IEmailMailboxSyncManager,
+                IEmailMailboxSyncManager2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMailboxSyncStatus {
+                Idle = 0,
+                Syncing = 1,
+                UpToDate = 2,
+                AuthenticationError = 3,
+                PolicyError = 4,
+                UnknownError = 5,
+                ManualAccountRemovalRequired = 6,
+            }
+            #[Windows::Foundation::Metadata::Static(IEmailManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IEmailManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IEmailManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class EmailManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailManagerForUser {
+                #[default]
+                IEmailManagerForUser,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class EmailMeetingInfo {
+                #[default]
+                IEmailMeetingInfo,
+                IEmailMeetingInfo2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMeetingResponseType {
+                Accept = 0,
+                Decline = 1,
+                Tentative = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMessage {
+                #[default]
+                IEmailMessage,
+                IEmailMessage2,
+                IEmailMessage3,
+                IEmailMessage4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailMessageBatch {
+                #[default]
+                IEmailMessageBatch,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMessageBodyKind {
+                Html = 0,
+                PlainText = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMessageDownloadState {
+                PartiallyDownloaded = 0,
+                Downloading = 1,
+                Downloaded = 2,
+                Failed = 3,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmailMessageReader {
+                #[default]
+                IEmailMessageReader,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailMessageResponseKind {
+                None = 0,
+                Reply = 1,
+                ReplyAll = 2,
+                Forward = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailMessageSmimeKind {
+                None = 0,
+                ClearSigned = 1,
+                OpaqueSigned = 2,
+                Encrypted = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailQueryKind {
+                All = 0,
+                Important = 1,
+                Flagged = 2,
+                Unread = 3,
+                Read = 4,
+                Unseen = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IEmailQueryOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class EmailQueryOptions {
+                #[default]
+                IEmailQueryOptions,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailQuerySearchFields {
+                None = 0,
+                Subject = 1,
+                Sender = 2,
+                Preview = 4,
+                Recipients = 8,
+                All = 4294967295,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailQuerySearchScope {
+                Local = 0,
+                Server = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailQuerySortDirection {
+                Descending = 0,
+                Ascending = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailQuerySortProperty {
+                Date = 0,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailQueryTextSearch {
+                #[default]
+                IEmailQueryTextSearch,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IEmailRecipientFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailRecipient {
+                #[default]
+                IEmailRecipient,
+            }
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailRecipientResolutionResult {
+                #[default]
+                IEmailRecipientResolutionResult,
+                IEmailRecipientResolutionResult2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum EmailRecipientResolutionStatus {
+                Success = 0,
+                RecipientNotFound = 1,
+                AmbiguousRecipient = 2,
+                NoCertificate = 3,
+                CertificateRequestLimitReached = 4,
+                CannotResolveDistributionList = 5,
+                ServerError = 6,
+                UnknownFailure = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailSpecialFolderKind {
+                None = 0,
+                Root = 1,
+                Inbox = 2,
+                Outbox = 3,
+                Drafts = 4,
+                DeletedItems = 5,
+                Sent = 6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EmailStore {
+                #[default]
+                IEmailStore,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum EmailStoreAccessType {
+                AppMailboxesReadWrite = 0,
+                AllMailboxesLimitedReadWrite = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EmailStoreNotificationTriggerDetails {
+                #[default]
+                IEmailStoreNotificationTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
+            interface IEmailAttachment {
+                #[special]
+                fn get_FileName(&self) -> String;
+                #[special]
+                fn put_FileName(&self, value: String);
+                #[special]
+                fn get_Data(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn put_Data(&self, value: super::super::Storage::Streams::IRandomAccessStreamReference);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailAttachment2 {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_ContentId(&self) -> String;
+                #[special]
+                fn put_ContentId(&self, value: String);
+                #[special]
+                fn get_ContentLocation(&self) -> String;
+                #[special]
+                fn put_ContentLocation(&self, value: String);
+                #[special]
+                fn get_DownloadState(&self) -> EmailAttachmentDownloadState;
+                #[special]
+                fn put_DownloadState(&self, value: EmailAttachmentDownloadState);
+                #[special]
+                fn get_EstimatedDownloadSizeInBytes(&self) -> u64;
+                #[special]
+                fn put_EstimatedDownloadSizeInBytes(&self, value: u64);
+                #[special]
+                fn get_IsFromBaseMessage(&self) -> bool;
+                #[special]
+                fn get_IsInline(&self) -> bool;
+                #[special]
+                fn put_IsInline(&self, value: bool);
+                #[special]
+                fn get_MimeType(&self) -> String;
+                #[special]
+                fn put_MimeType(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailAttachmentFactory {
+                fn Create(&self, fileName: String, data: super::super::Storage::Streams::IRandomAccessStreamReference) -> EmailAttachment;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailAttachment)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailAttachmentFactory2 {
+                fn Create(&self, fileName: String, data: super::super::Storage::Streams::IRandomAccessStreamReference, mimeType: String) -> EmailAttachment;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailConversation)]
+            interface IEmailConversation {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_MailboxId(&self) -> String;
+                #[special]
+                fn get_FlagState(&self) -> EmailFlagState;
+                #[special]
+                fn get_HasAttachment(&self) -> bool;
+                #[special]
+                fn get_Importance(&self) -> EmailImportance;
+                #[special]
+                fn get_LastEmailResponseKind(&self) -> EmailMessageResponseKind;
+                #[special]
+                fn get_MessageCount(&self) -> u32;
+                #[special]
+                fn get_MostRecentMessageId(&self) -> String;
+                #[special]
+                fn get_MostRecentMessageTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_Preview(&self) -> String;
+                #[special]
+                fn get_LatestSender(&self) -> EmailRecipient;
+                #[special]
+                fn get_Subject(&self) -> String;
+                #[special]
+                fn get_UnreadMessageCount(&self) -> u32;
+                #[Windows::Foundation::Metadata::Overload("FindMessagesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindMessagesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("FindMessagesWithCountAsync")]
+                fn FindMessagesAsync(&self, count: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMessage>>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailConversationBatch)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailConversationBatch {
+                #[special]
+                fn get_Conversations(&self) -> super::super::Foundation::Collections::IVectorView<EmailConversation>;
+                #[special]
+                fn get_Status(&self) -> EmailBatchStatus;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailConversationReader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailConversationReader {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<EmailConversationBatch>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailFolder)]
+            interface IEmailFolder {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_RemoteId(&self) -> String;
+                #[special]
+                fn put_RemoteId(&self, value: String);
+                #[special]
+                fn get_MailboxId(&self) -> String;
+                #[special]
+                fn get_ParentFolderId(&self) -> String;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_IsSyncEnabled(&self) -> bool;
+                #[special]
+                fn put_IsSyncEnabled(&self, value: bool);
+                #[special]
+                fn get_LastSuccessfulSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn put_LastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn get_Kind(&self) -> EmailSpecialFolderKind;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFolderAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindChildFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailFolder>>;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
+                fn GetConversationReader(&self) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
+                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
+                fn GetMessageReader(&self) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
+                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMessageCountsAsync(&self) -> super::super::Foundation::IAsyncOperation<EmailItemCounts>;
+                #[Windows::Foundation::Metadata::Overload("TryMoveAsync")]
+                fn TryMoveAsync(&self, newParentFolder: EmailFolder) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("TryMoveWithNewNameAsync")]
+                fn TryMoveAsync(&self, newParentFolder: EmailFolder, newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TrySaveAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn SaveMessageAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmInfo)]
+            interface IEmailIrmInfo {
+                #[special]
+                fn get_CanEdit(&self) -> bool;
+                #[special]
+                fn put_CanEdit(&self, value: bool);
+                #[special]
+                fn get_CanExtractData(&self) -> bool;
+                #[special]
+                fn put_CanExtractData(&self, value: bool);
+                #[special]
+                fn get_CanForward(&self) -> bool;
+                #[special]
+                fn put_CanForward(&self, value: bool);
+                #[special]
+                fn get_CanModifyRecipientsOnResponse(&self) -> bool;
+                #[special]
+                fn put_CanModifyRecipientsOnResponse(&self, value: bool);
+                #[special]
+                fn get_CanPrintData(&self) -> bool;
+                #[special]
+                fn put_CanPrintData(&self, value: bool);
+                #[special]
+                fn get_CanRemoveIrmOnResponse(&self) -> bool;
+                #[special]
+                fn put_CanRemoveIrmOnResponse(&self, value: bool);
+                #[special]
+                fn get_CanReply(&self) -> bool;
+                #[special]
+                fn put_CanReply(&self, value: bool);
+                #[special]
+                fn get_CanReplyAll(&self) -> bool;
+                #[special]
+                fn put_CanReplyAll(&self, value: bool);
+                #[special]
+                fn get_ExpirationDate(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn put_ExpirationDate(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn get_IsIrmOriginator(&self) -> bool;
+                #[special]
+                fn put_IsIrmOriginator(&self, value: bool);
+                #[special]
+                fn get_IsProgramaticAccessAllowed(&self) -> bool;
+                #[special]
+                fn put_IsProgramaticAccessAllowed(&self, value: bool);
+                #[special]
+                fn get_Template(&self) -> EmailIrmTemplate;
+                #[special]
+                fn put_Template(&self, value: EmailIrmTemplate);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmInfo)]
+            interface IEmailIrmInfoFactory {
+                fn Create(&self, expiration: super::super::Foundation::DateTime, irmTemplate: EmailIrmTemplate) -> EmailIrmInfo;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmTemplate)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailIrmTemplate {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn put_Id(&self, value: String);
+                #[special]
+                fn get_Description(&self) -> String;
+                #[special]
+                fn put_Description(&self, value: String);
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailIrmTemplate)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailIrmTemplateFactory {
+                fn Create(&self, id: String, name: String, description: String) -> EmailIrmTemplate;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailItemCounts)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailItemCounts {
+                #[special]
+                fn get_Flagged(&self) -> u32;
+                #[special]
+                fn get_Important(&self) -> u32;
+                #[special]
+                fn get_Total(&self) -> u32;
+                #[special]
+                fn get_Unread(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
+            interface IEmailMailbox {
+                #[special]
+                fn get_Capabilities(&self) -> EmailMailboxCapabilities;
+                #[special]
+                fn get_ChangeTracker(&self) -> EmailMailboxChangeTracker;
+                #[special]
+                fn get_DisplayName(&self) -> String;
+                #[special]
+                fn put_DisplayName(&self, value: String);
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_IsOwnedByCurrentApp(&self) -> bool;
+                #[special]
+                fn get_IsDataEncryptedUnderLock(&self) -> bool;
+                #[special]
+                fn get_MailAddress(&self) -> String;
+                #[special]
+                fn put_MailAddress(&self, value: String);
+                #[special]
+                fn get_MailAddressAliases(&self) -> super::super::Foundation::Collections::IVector<String>;
+                #[special]
+                fn get_OtherAppReadAccess(&self) -> EmailMailboxOtherAppReadAccess;
+                #[special]
+                fn put_OtherAppReadAccess(&self, value: EmailMailboxOtherAppReadAccess);
+                #[special]
+                fn get_OtherAppWriteAccess(&self) -> EmailMailboxOtherAppWriteAccess;
+                #[special]
+                fn put_OtherAppWriteAccess(&self, value: EmailMailboxOtherAppWriteAccess);
+                #[special]
+                fn get_Policies(&self) -> EmailMailboxPolicies;
+                #[special]
+                fn get_SourceDisplayName(&self) -> String;
+                #[special]
+                fn get_SyncManager(&self) -> EmailMailboxSyncManager;
+                #[special]
+                fn get_UserDataAccountId(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
+                fn GetConversationReader(&self) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
+                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
+                fn GetMessageReader(&self) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
+                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConversationAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFolderAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetSpecialFolderAsync(&self, folderType: EmailSpecialFolderKind) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn MarkMessageAsSeenAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn MarkFolderAsSeenAsync(&self, folderId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn MarkMessageReadAsync(&self, messageId: String, isRead: bool) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ChangeMessageFlagStateAsync(&self, messageId: String, flagState: EmailFlagState) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryMoveMessageAsync(&self, messageId: String, newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("TryMoveFolderAsync")]
+                fn TryMoveFolderAsync(&self, folderId: String, newParentFolderId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("TryMoveFolderWithNewNameAsync")]
+                fn TryMoveFolderAsync(&self, folderId: String, newParentFolderId: String, newFolderName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteMessageAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn MarkFolderSyncEnabledAsync(&self, folderId: String, isSyncEnabled: bool) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SendMessageAsync")]
+                fn SendMessageAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                fn SaveDraftAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DownloadMessageAsync(&self, messageId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DownloadAttachmentAsync(&self, attachmentId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateResponseMessageAsync(&self, messageId: String, responseType: EmailMessageResponseKind, subject: String, responseHeaderType: EmailMessageBodyKind, responseHeader: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                fn TryUpdateMeetingResponseAsync(&self, meeting: EmailMessage, response: EmailMeetingResponseType, subject: String, comment: String, sendUpdate: bool) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryForwardMeetingAsync(&self, meeting: EmailMessage, recipients: super::super::Foundation::Collections::IIterable<EmailRecipient>, subject: String, forwardHeaderType: EmailMessageBodyKind, forwardHeader: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn TryProposeNewTimeForMeetingAsync(&self, meeting: EmailMessage, newStartTime: super::super::Foundation::DateTime, newDuration: super::super::Foundation::TimeSpan, subject: String, comment: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn add_MailboxChanged(&self, pHandler: super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_MailboxChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[Windows::Foundation::Metadata::Overload("SmartSendMessageAsync")]
+                fn SendMessageAsync(&self, message: EmailMessage, smartSend: bool) -> super::super::Foundation::IAsyncAction;
+                fn TrySetAutoReplySettingsAsync(&self, autoReplySettings: EmailMailboxAutoReplySettings) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryGetAutoReplySettingsAsync(&self, requestedFormat: EmailMailboxAutoReplyMessageResponseKind) -> super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
+            interface IEmailMailbox2: IEmailMailbox {
+                #[special]
+                fn get_LinkedMailboxId(&self) -> String;
+                #[special]
+                fn get_NetworkAccountId(&self) -> String;
+                #[special]
+                fn get_NetworkId(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IEmailMailbox3: IEmailMailbox2 + IEmailMailbox {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ResolveRecipientsAsync(&self, recipients: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ValidateCertificatesAsync(&self, certificates: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryEmptyFolderAsync(&self, folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryCreateFolderAsync(&self, parentFolderId: String, name: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryDeleteFolderAsync(&self, folderId: String) -> super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
+            interface IEmailMailbox4 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RegisterSyncManagerAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailbox)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IEmailMailbox5 {
+                fn GetChangeTracker(&self, identity: String) -> EmailMailboxChangeTracker;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxAction)]
+            interface IEmailMailboxAction {
+                #[special]
+                fn get_Kind(&self) -> EmailMailboxActionKind;
+                #[special]
+                fn get_ChangeNumber(&self) -> u64;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxAutoReply)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMailboxAutoReply {
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn put_IsEnabled(&self, value: bool);
+                #[special]
+                fn get_Response(&self) -> String;
+                #[special]
+                fn put_Response(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxAutoReplySettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMailboxAutoReplySettings {
+                #[special]
+                fn get_IsEnabled(&self) -> bool;
+                #[special]
+                fn put_IsEnabled(&self, value: bool);
+                #[special]
+                fn get_ResponseKind(&self) -> EmailMailboxAutoReplyMessageResponseKind;
+                #[special]
+                fn put_ResponseKind(&self, value: EmailMailboxAutoReplyMessageResponseKind);
+                #[special]
+                fn get_StartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_StartTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_EndTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_EndTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_InternalReply(&self) -> EmailMailboxAutoReply;
+                #[special]
+                fn get_KnownExternalReply(&self) -> EmailMailboxAutoReply;
+                #[special]
+                fn get_UnknownExternalReply(&self) -> EmailMailboxAutoReply;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCapabilities)]
+            interface IEmailMailboxCapabilities {
+                #[special]
+                fn get_CanForwardMeetings(&self) -> bool;
+                #[special]
+                fn get_CanGetAndSetExternalAutoReplies(&self) -> bool;
+                #[special]
+                fn get_CanGetAndSetInternalAutoReplies(&self) -> bool;
+                #[special]
+                fn get_CanUpdateMeetingResponses(&self) -> bool;
+                #[special]
+                fn get_CanServerSearchFolders(&self) -> bool;
+                #[special]
+                fn get_CanServerSearchMailbox(&self) -> bool;
+                #[special]
+                fn get_CanProposeNewTimeForMeetings(&self) -> bool;
+                #[special]
+                fn get_CanSmartSend(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCapabilities)]
+            interface IEmailMailboxCapabilities2 {
+                #[special]
+                fn get_CanResolveRecipients(&self) -> bool;
+                #[special]
+                fn get_CanValidateCertificates(&self) -> bool;
+                #[special]
+                fn get_CanEmptyFolder(&self) -> bool;
+                #[special]
+                fn get_CanCreateFolder(&self) -> bool;
+                #[special]
+                fn get_CanDeleteFolder(&self) -> bool;
+                #[special]
+                fn get_CanMoveFolder(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCapabilities)]
+            interface IEmailMailboxCapabilities3 {
+                #[special]
+                fn put_CanForwardMeetings(&self, value: bool);
+                #[special]
+                fn put_CanGetAndSetExternalAutoReplies(&self, value: bool);
+                #[special]
+                fn put_CanGetAndSetInternalAutoReplies(&self, value: bool);
+                #[special]
+                fn put_CanUpdateMeetingResponses(&self, value: bool);
+                #[special]
+                fn put_CanServerSearchFolders(&self, value: bool);
+                #[special]
+                fn put_CanServerSearchMailbox(&self, value: bool);
+                #[special]
+                fn put_CanProposeNewTimeForMeetings(&self, value: bool);
+                #[special]
+                fn put_CanSmartSend(&self, value: bool);
+                #[special]
+                fn put_CanResolveRecipients(&self, value: bool);
+                #[special]
+                fn put_CanValidateCertificates(&self, value: bool);
+                #[special]
+                fn put_CanEmptyFolder(&self, value: bool);
+                #[special]
+                fn put_CanCreateFolder(&self, value: bool);
+                #[special]
+                fn put_CanDeleteFolder(&self, value: bool);
+                #[special]
+                fn put_CanMoveFolder(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChange)]
+            interface IEmailMailboxChange {
+                #[special]
+                fn get_ChangeType(&self) -> EmailMailboxChangeType;
+                #[special]
+                fn get_MailboxActions(&self) -> super::super::Foundation::Collections::IVector<EmailMailboxAction>;
+                #[special]
+                fn get_Message(&self) -> EmailMessage;
+                #[special]
+                fn get_Folder(&self) -> EmailFolder;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChangeReader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMailboxChangeReader {
+                fn AcceptChanges(&self);
+                fn AcceptChangesThrough(&self, lastChangeToAcknowledge: EmailMailboxChange);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailboxChange>>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChangeTracker)]
+            interface IEmailMailboxChangeTracker {
+                #[special]
+                fn get_IsTracking(&self) -> bool;
+                fn Enable(&self);
+                fn GetChangeReader(&self) -> EmailMailboxChangeReader;
+                fn Reset(&self);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChangedDeferral)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMailboxChangedDeferral {
+                fn Complete(&self);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxChangedEventArgs)]
+            interface IEmailMailboxChangedEventArgs {
+                fn GetDeferral(&self) -> EmailMailboxChangedDeferral;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCreateFolderResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IEmailMailboxCreateFolderResult {
+                #[special]
+                fn get_Status(&self) -> EmailMailboxCreateFolderStatus;
+                #[special]
+                fn get_Folder(&self) -> EmailFolder;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxPolicies)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMailboxPolicies {
+                #[special]
+                fn get_AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation;
+                #[special]
+                fn get_AllowSmimeSoftCertificates(&self) -> bool;
+                #[special]
+                fn get_RequiredSmimeEncryptionAlgorithm(&self) -> super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>;
+                #[special]
+                fn get_RequiredSmimeSigningAlgorithm(&self) -> super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxPolicies)]
+            interface IEmailMailboxPolicies2 {
+                #[special]
+                fn get_MustEncryptSmimeMessages(&self) -> bool;
+                #[special]
+                fn get_MustSignSmimeMessages(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxPolicies)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IEmailMailboxPolicies3 {
+                #[special]
+                fn put_AllowedSmimeEncryptionAlgorithmNegotiation(&self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation);
+                #[special]
+                fn put_AllowSmimeSoftCertificates(&self, value: bool);
+                #[special]
+                fn put_RequiredSmimeEncryptionAlgorithm(&self, value: super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>);
+                #[special]
+                fn put_RequiredSmimeSigningAlgorithm(&self, value: super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>);
+                #[special]
+                fn put_MustEncryptSmimeMessages(&self, value: bool);
+                #[special]
+                fn put_MustSignSmimeMessages(&self, value: bool);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSyncManager)]
+            interface IEmailMailboxSyncManager {
+                #[special]
+                fn get_Status(&self) -> EmailMailboxSyncStatus;
+                #[special]
+                fn get_LastSuccessfulSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn get_LastAttemptedSyncTime(&self) -> super::super::Foundation::DateTime;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SyncAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[special]
+                fn add_SyncStatusChanged(&self, handler: super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_SyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSyncManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IEmailMailboxSyncManager2 {
+                #[special]
+                fn put_Status(&self, value: EmailMailboxSyncStatus);
+                #[special]
+                fn put_LastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime);
+                #[special]
+                fn put_LastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailManagerForUser)]
+            interface IEmailManagerForUser {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowComposeNewEmailAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ShowComposeNewEmailAsync(&self, message: EmailMessage) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailManagerStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self, accessType: EmailStoreAccessType) -> super::super::Foundation::IAsyncOperation<EmailStore>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IEmailManagerStatics3 {
+                fn GetForUser(&self, user: super::super::System::User) -> EmailManagerForUser;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMeetingInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMeetingInfo {
+                #[special]
+                fn get_AllowNewTimeProposal(&self) -> bool;
+                #[special]
+                fn put_AllowNewTimeProposal(&self, value: bool);
+                #[special]
+                fn get_AppointmentRoamingId(&self) -> String;
+                #[special]
+                fn put_AppointmentRoamingId(&self, value: String);
+                #[special]
+                fn get_AppointmentOriginalStartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_AppointmentOriginalStartTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_Duration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn put_Duration(&self, value: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_IsAllDay(&self) -> bool;
+                #[special]
+                fn put_IsAllDay(&self, value: bool);
+                #[special]
+                fn get_IsResponseRequested(&self) -> bool;
+                #[special]
+                fn put_IsResponseRequested(&self, value: bool);
+                #[special]
+                fn get_Location(&self) -> String;
+                #[special]
+                fn put_Location(&self, value: String);
+                #[special]
+                fn get_ProposedStartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_ProposedStartTime(&self, proposedStartTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_ProposedDuration(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_ProposedDuration(&self, duration: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_RecurrenceStartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_RecurrenceStartTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_Recurrence(&self) -> super::Appointments::AppointmentRecurrence;
+                #[special]
+                fn put_Recurrence(&self, value: super::Appointments::AppointmentRecurrence);
+                #[special]
+                fn get_RemoteChangeNumber(&self) -> u64;
+                #[special]
+                fn put_RemoteChangeNumber(&self, value: u64);
+                #[special]
+                fn get_StartTime(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                fn put_StartTime(&self, value: super::super::Foundation::DateTime);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMeetingInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IEmailMeetingInfo2 {
+                #[special]
+                fn get_IsReportedOutOfDateByServer(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMessage {
+                #[special]
+                fn get_Subject(&self) -> String;
+                #[special]
+                fn put_Subject(&self, value: String);
+                #[special]
+                fn get_Body(&self) -> String;
+                #[special]
+                fn put_Body(&self, value: String);
+                #[special]
+                fn get_To(&self) -> super::super::Foundation::Collections::IVector<EmailRecipient>;
+                #[special]
+                fn get_CC(&self) -> super::super::Foundation::Collections::IVector<EmailRecipient>;
+                #[special]
+                fn get_Bcc(&self) -> super::super::Foundation::Collections::IVector<EmailRecipient>;
+                #[special]
+                fn get_Attachments(&self) -> super::super::Foundation::Collections::IVector<EmailAttachment>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMessage2 {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_RemoteId(&self) -> String;
+                #[special]
+                fn put_RemoteId(&self, value: String);
+                #[special]
+                fn get_MailboxId(&self) -> String;
+                #[special]
+                fn get_ConversationId(&self) -> String;
+                #[special]
+                fn get_FolderId(&self) -> String;
+                #[special]
+                fn get_AllowInternetImages(&self) -> bool;
+                #[special]
+                fn put_AllowInternetImages(&self, value: bool);
+                #[special]
+                fn get_ChangeNumber(&self) -> u64;
+                #[special]
+                fn get_DownloadState(&self) -> EmailMessageDownloadState;
+                #[special]
+                fn put_DownloadState(&self, value: EmailMessageDownloadState);
+                #[special]
+                fn get_EstimatedDownloadSizeInBytes(&self) -> u32;
+                #[special]
+                fn put_EstimatedDownloadSizeInBytes(&self, value: u32);
+                #[special]
+                fn get_FlagState(&self) -> EmailFlagState;
+                #[special]
+                fn put_FlagState(&self, value: EmailFlagState);
+                #[special]
+                fn get_HasPartialBodies(&self) -> bool;
+                #[special]
+                fn get_Importance(&self) -> EmailImportance;
+                #[special]
+                fn put_Importance(&self, value: EmailImportance);
+                #[special]
+                fn get_InResponseToMessageId(&self) -> String;
+                #[special]
+                fn get_IrmInfo(&self) -> EmailIrmInfo;
+                #[special]
+                fn put_IrmInfo(&self, value: EmailIrmInfo);
+                #[special]
+                fn get_IsDraftMessage(&self) -> bool;
+                #[special]
+                fn get_IsRead(&self) -> bool;
+                #[special]
+                fn put_IsRead(&self, value: bool);
+                #[special]
+                fn get_IsSeen(&self) -> bool;
+                #[special]
+                fn put_IsSeen(&self, value: bool);
+                #[special]
+                fn get_IsServerSearchMessage(&self) -> bool;
+                #[special]
+                fn get_IsSmartSendable(&self) -> bool;
+                #[special]
+                fn get_MessageClass(&self) -> String;
+                #[special]
+                fn put_MessageClass(&self, value: String);
+                #[special]
+                fn get_NormalizedSubject(&self) -> String;
+                #[special]
+                fn get_OriginalCodePage(&self) -> i32;
+                #[special]
+                fn put_OriginalCodePage(&self, value: i32);
+                #[special]
+                fn get_Preview(&self) -> String;
+                #[special]
+                fn put_Preview(&self, value: String);
+                #[special]
+                fn get_LastResponseKind(&self) -> EmailMessageResponseKind;
+                #[special]
+                fn put_LastResponseKind(&self, value: EmailMessageResponseKind);
+                #[special]
+                fn get_Sender(&self) -> EmailRecipient;
+                #[special]
+                fn put_Sender(&self, value: EmailRecipient);
+                #[special]
+                fn get_SentTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[special]
+                fn put_SentTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::DateTime>);
+                #[special]
+                fn get_MeetingInfo(&self) -> EmailMeetingInfo;
+                #[special]
+                fn put_MeetingInfo(&self, value: EmailMeetingInfo);
+                fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                fn SetBodyStream(&self, r#type: EmailMessageBodyKind, stream: super::super::Storage::Streams::IRandomAccessStreamReference);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IEmailMessage3 {
+                #[special]
+                fn get_SmimeData(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[special]
+                fn put_SmimeData(&self, value: super::super::Storage::Streams::IRandomAccessStreamReference);
+                #[special]
+                fn get_SmimeKind(&self) -> EmailMessageSmimeKind;
+                #[special]
+                fn put_SmimeKind(&self, value: EmailMessageSmimeKind);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessage)]
+            interface IEmailMessage4 {
+                #[special]
+                fn get_ReplyTo(&self) -> super::super::Foundation::Collections::IVector<EmailRecipient>;
+                #[special]
+                fn get_SentRepresenting(&self) -> EmailRecipient;
+                #[special]
+                fn put_SentRepresenting(&self, value: EmailRecipient);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessageBatch)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailMessageBatch {
+                #[special]
+                fn get_Messages(&self) -> super::super::Foundation::Collections::IVectorView<EmailMessage>;
+                #[special]
+                fn get_Status(&self) -> EmailBatchStatus;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailMessageReader)]
+            interface IEmailMessageReader {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<EmailMessageBatch>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailQueryOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailQueryOptions {
+                #[special]
+                fn get_TextSearch(&self) -> EmailQueryTextSearch;
+                #[special]
+                fn get_SortDirection(&self) -> EmailQuerySortDirection;
+                #[special]
+                fn put_SortDirection(&self, value: EmailQuerySortDirection);
+                #[special]
+                fn get_SortProperty(&self) -> EmailQuerySortProperty;
+                #[special]
+                fn put_SortProperty(&self, value: EmailQuerySortProperty);
+                #[special]
+                fn get_Kind(&self) -> EmailQueryKind;
+                #[special]
+                fn put_Kind(&self, value: EmailQueryKind);
+                #[special]
+                fn get_FolderIds(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailQueryOptions)]
+            interface IEmailQueryOptionsFactory {
+                fn CreateWithText(&self, text: String) -> EmailQueryOptions;
+                fn CreateWithTextAndFields(&self, text: String, fields: EmailQuerySearchFields) -> EmailQueryOptions;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailQueryTextSearch)]
+            interface IEmailQueryTextSearch {
+                #[special]
+                fn get_Fields(&self) -> EmailQuerySearchFields;
+                #[special]
+                fn put_Fields(&self, value: EmailQuerySearchFields);
+                #[special]
+                fn get_SearchScope(&self) -> EmailQuerySearchScope;
+                #[special]
+                fn put_SearchScope(&self, value: EmailQuerySearchScope);
+                #[special]
+                fn get_Text(&self) -> String;
+                #[special]
+                fn put_Text(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailRecipient)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailRecipient {
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn put_Name(&self, value: String);
+                #[special]
+                fn get_Address(&self) -> String;
+                #[special]
+                fn put_Address(&self, value: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailRecipient)]
+            interface IEmailRecipientFactory {
+                fn Create(&self, address: String) -> EmailRecipient;
+                fn CreateWithName(&self, address: String, name: String) -> EmailRecipient;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailRecipientResolutionResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IEmailRecipientResolutionResult {
+                #[special]
+                fn get_Status(&self) -> EmailRecipientResolutionStatus;
+                #[special]
+                fn get_PublicKeys(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailRecipientResolutionResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IEmailRecipientResolutionResult2 {
+                #[special]
+                fn put_Status(&self, value: EmailRecipientResolutionStatus);
+                fn SetPublicKeys(&self, value: super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailStore)]
+            interface IEmailStore {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindMailboxesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailMailbox>>;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
+                fn GetConversationReader(&self) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::Overload("GetConversationReaderWithOptions")]
+                fn GetConversationReader(&self, options: EmailQueryOptions) -> EmailConversationReader;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReader")]
+                fn GetMessageReader(&self) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::Overload("GetMessageReaderWithOptions")]
+                fn GetMessageReader(&self, options: EmailQueryOptions) -> EmailMessageReader;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMailboxAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConversationAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailConversation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFolderAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailFolder>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMessageAsync(&self, id: String) -> super::super::Foundation::IAsyncOperation<EmailMessage>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateMailboxAsync")]
+                fn CreateMailboxAsync(&self, accountName: String, accountAddress: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateMailboxInAccountAsync")]
+                fn CreateMailboxAsync(&self, accountName: String, accountAddress: String, userDataAccountId: String) -> super::super::Foundation::IAsyncOperation<EmailMailbox>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmailStoreNotificationTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmailStoreNotificationTriggerDetails {}
+        }
+    }
+}

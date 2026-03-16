@@ -1,0 +1,218 @@
+mod Windows {
+    mod Media {
+        #[winrt]
+        mod DialProtocol {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DialApp {
+                #[default]
+                IDialApp,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DialAppLaunchResult {
+                Launched = 0,
+                FailedToLaunch = 1,
+                NotFound = 2,
+                NetworkFailure = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DialAppState {
+                Unknown = 0,
+                Stopped = 1,
+                Running = 2,
+                NetworkFailure = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DialAppStateDetails {
+                #[default]
+                IDialAppStateDetails,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DialAppStopResult {
+                Stopped = 0,
+                StopFailed = 1,
+                OperationNotSupported = 2,
+                NetworkFailure = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IDialDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DialDevice {
+                #[default]
+                IDialDevice,
+                IDialDevice2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DialDeviceDisplayStatus {
+                None = 0,
+                Connecting = 1,
+                Connected = 2,
+                Disconnecting = 3,
+                Disconnected = 4,
+                Error = 5,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class DialDevicePicker {
+                #[default]
+                IDialDevicePicker,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DialDevicePickerFilter {
+                #[default]
+                IDialDevicePickerFilter,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class DialDeviceSelectedEventArgs {
+                #[default]
+                IDialDeviceSelectedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class DialDisconnectButtonClickedEventArgs {
+                #[default]
+                IDialDisconnectButtonClickedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::Static(IDialReceiverAppStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DialReceiverApp {
+                #[default]
+                IDialReceiverApp,
+                IDialReceiverApp2,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialApp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDialApp {
+                #[special]
+                fn get_AppName(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestLaunchAsync(&self, appArgument: String) -> super::super::Foundation::IAsyncOperation<DialAppLaunchResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StopAsync(&self) -> super::super::Foundation::IAsyncOperation<DialAppStopResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAppStateAsync(&self) -> super::super::Foundation::IAsyncOperation<DialAppStateDetails>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialAppStateDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDialAppStateDetails {
+                #[special]
+                fn get_State(&self) -> DialAppState;
+                #[special]
+                fn get_FullXml(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDevice)]
+            interface IDialDevice {
+                #[special]
+                fn get_Id(&self) -> String;
+                fn GetDialApp(&self, appName: String) -> DialApp;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDevice)]
+            interface IDialDevice2 {
+                #[special]
+                fn get_FriendlyName(&self) -> String;
+                #[special]
+                fn get_Thumbnail(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDevicePicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDialDevicePicker {
+                #[special]
+                fn get_Filter(&self) -> DialDevicePickerFilter;
+                #[special]
+                fn get_Appearance(&self) -> super::super::Devices::Enumeration::DevicePickerAppearance;
+                #[special]
+                fn add_DialDeviceSelected(&self, handler: super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DialDeviceSelected(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_DisconnectButtonClicked(&self, handler: super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DisconnectButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_DialDevicePickerDismissed(&self, handler: super::super::Foundation::TypedEventHandler<DialDevicePicker, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_DialDevicePickerDismissed(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[Windows::Foundation::Metadata::Overload("Show")]
+                fn Show(&self, selection: super::super::Foundation::Rect);
+                #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
+                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsync")]
+                fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                #[Windows::Foundation::Metadata::Overload("PickSingleDialDeviceAsyncWithPlacement")]
+                fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                fn Hide(&self);
+                fn SetDisplayStatus(&self, device: DialDevice, status: DialDeviceDisplayStatus);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDevicePickerFilter)]
+            interface IDialDevicePickerFilter {
+                #[special]
+                fn get_SupportedAppNames(&self) -> super::super::Foundation::Collections::IVector<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDeviceSelectedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDialDeviceSelectedEventArgs {
+                #[special]
+                fn get_SelectedDialDevice(&self) -> DialDevice;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDevice)]
+            interface IDialDeviceStatics {
+                fn GetDeviceSelector(&self, appName: String) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, value: String) -> super::super::Foundation::IAsyncOperation<DialDevice>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeviceInfoSupportsDialAsync(&self, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialDisconnectButtonClickedEventArgs)]
+            interface IDialDisconnectButtonClickedEventArgs {
+                #[special]
+                fn get_Device(&self) -> DialDevice;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialReceiverApp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IDialReceiverApp {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAdditionalDataAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, String>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetAdditionalDataAsync(&self, additionalData: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> super::super::Foundation::IAsyncAction;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialReceiverApp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IDialReceiverApp2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetUniqueDeviceNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DialReceiverApp)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IDialReceiverAppStatics {
+                #[special]
+                fn get_Current(&self) -> DialReceiverApp;
+            }
+        }
+    }
+}

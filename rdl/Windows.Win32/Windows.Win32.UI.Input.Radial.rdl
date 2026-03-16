@@ -1,0 +1,26 @@
+mod Windows {
+    mod Win32 {
+        mod UI {
+            mod Input {
+                #[win32]
+                mod Radial {
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.14393")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerconfigurationinterop")]
+                    interface IRadialControllerConfigurationInterop: super::super::super::System::WinRT::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/radialcontrollerinterop/nf-radialcontrollerinterop-iradialcontrollerconfigurationinterop-getforwindow")]
+                        fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    interface IRadialControllerIndependentInputSourceInterop: super::super::super::System::WinRT::IInspectable {
+                        fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.14393")]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/radialcontrollerinterop/nn-radialcontrollerinterop-iradialcontrollerinterop")]
+                    interface IRadialControllerInterop: super::super::super::System::WinRT::IInspectable {
+                        #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/radialcontrollerinterop/nf-radialcontrollerinterop-iradialcontrollerinterop-createforwindow")]
+                        fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppv: *mut *mut void) -> super::super::super::Foundation::HRESULT;
+                    }
+                }
+            }
+        }
+    }
+}

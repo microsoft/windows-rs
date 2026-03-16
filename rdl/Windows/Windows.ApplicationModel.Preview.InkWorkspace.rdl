@@ -1,0 +1,31 @@
+mod Windows {
+    mod ApplicationModel {
+        mod Preview {
+            #[winrt]
+            mod InkWorkspace {
+                #[Windows::Foundation::Metadata::ExclusiveTo(InkWorkspaceHostedAppManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]
+                interface IInkWorkspaceHostedAppManager {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetThumbnailAsync(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(InkWorkspaceHostedAppManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]
+                interface IInkWorkspaceHostedAppManagerStatics {
+                    fn GetForCurrentApp(&self) -> InkWorkspaceHostedAppManager;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(PreviewInkWorkspaceContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IInkWorkspaceHostedAppManagerStatics, 65536, "Windows.ApplicationModel.Preview.InkWorkspace.PreviewInkWorkspaceContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InkWorkspaceHostedAppManager {
+                    #[default]
+                    IInkWorkspaceHostedAppManager,
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
+                struct PreviewInkWorkspaceContract {}
+            }
+        }
+    }
+}

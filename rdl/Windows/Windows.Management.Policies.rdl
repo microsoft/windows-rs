@@ -1,0 +1,62 @@
+mod Windows {
+    mod Management {
+        #[winrt]
+        mod Policies {
+            #[Windows::Foundation::Metadata::ExclusiveTo(NamedPolicyData)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface INamedPolicyData {
+                #[special]
+                fn get_Area(&self) -> String;
+                #[special]
+                fn get_Name(&self) -> String;
+                #[special]
+                fn get_Kind(&self) -> NamedPolicyKind;
+                #[special]
+                fn get_IsManaged(&self) -> bool;
+                #[special]
+                fn get_IsUserPolicy(&self) -> bool;
+                #[special]
+                fn get_User(&self) -> super::super::System::User;
+                fn GetBoolean(&self) -> bool;
+                fn GetBinary(&self) -> super::super::Storage::Streams::IBuffer;
+                fn GetInt32(&self) -> i32;
+                fn GetInt64(&self) -> i64;
+                fn GetString(&self) -> String;
+                #[special]
+                fn add_Changed(&self, changedHandler: super::super::Foundation::TypedEventHandler<NamedPolicyData, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_Changed(&self, cookie: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(NamedPolicy)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface INamedPolicyStatics {
+                fn GetPolicyFromPath(&self, area: String, name: String) -> NamedPolicyData;
+                fn GetPolicyFromPathForUser(&self, user: super::super::System::User, area: String, name: String) -> NamedPolicyData;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(INamedPolicyStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NamedPolicy {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class NamedPolicyData {
+                #[default]
+                INamedPolicyData,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum NamedPolicyKind {
+                Invalid = 0,
+                Binary = 1,
+                Boolean = 2,
+                Int32 = 3,
+                Int64 = 4,
+                String = 5,
+            }
+        }
+    }
+}

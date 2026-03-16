@@ -1,0 +1,39 @@
+mod Windows {
+    mod Management {
+        mod Deployment {
+            #[winrt]
+            mod Preview {
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IClassicAppManagerStatics, 65536, "Windows.Management.Deployment.Preview.DeploymentPreviewContract")]
+                class ClassicAppManager {}
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
+                struct DeploymentPreviewContract {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(ClassicAppManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
+                interface IClassicAppManagerStatics {
+                    fn FindInstalledApp(&self, appUninstallKey: String) -> InstalledClassicAppInfo;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InstalledClassicAppInfo)]
+                interface IInstalledClassicAppInfo {
+                    #[special]
+                    fn get_DisplayName(&self) -> String;
+                    #[special]
+                    fn get_DisplayVersion(&self) -> String;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                class InstalledClassicAppInfo {
+                    #[default]
+                    IInstalledClassicAppInfo,
+                }
+            }
+        }
+    }
+}

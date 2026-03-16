@@ -1,0 +1,33 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod UserAccessLogging {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ual/ns-ual-ual_data_blob")]
+                struct UAL_DATA_BLOB {
+                    Size: u32,
+                    RoleGuid: GUID,
+                    TenantId: GUID,
+                    Address: super::super::Networking::WinSock::SOCKADDR_STORAGE,
+                    UserName: [u16; 260],
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ual/nf-ual-ualinstrument")]
+                #[library("ualapi.dll")]
+                extern fn UalInstrument(Data: *mut UAL_DATA_BLOB) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ual/nf-ual-ualregisterproduct")]
+                #[library("ualapi.dll")]
+                extern fn UalRegisterProduct(wszProductName: super::super::Foundation::PWSTR, wszRoleName: super::super::Foundation::PWSTR, wszGuid: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ual/nf-ual-ualstart")]
+                #[library("ualapi.dll")]
+                extern fn UalStart(Data: *mut UAL_DATA_BLOB) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/ual/nf-ual-ualstop")]
+                #[library("ualapi.dll")]
+                extern fn UalStop(Data: *mut UAL_DATA_BLOB) -> super::super::Foundation::HRESULT;
+            }
+        }
+    }
+}

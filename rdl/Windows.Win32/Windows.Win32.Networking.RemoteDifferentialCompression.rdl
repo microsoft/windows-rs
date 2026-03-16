@@ -1,0 +1,356 @@
+mod Windows {
+    mod Win32 {
+        mod Networking {
+            #[win32]
+            mod RemoteDifferentialCompression {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-findsimilarfileindexresults")]
+                struct FindSimilarFileIndexResults {
+                    m_FileIndex: u32,
+                    m_MatchCount: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903443, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct FindSimilarResults {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ne-msrdc-generatorparameterstype")]
+                enum GeneratorParametersType {
+                    RDCGENTYPE_Unused = 0,
+                    RDCGENTYPE_FilterMax = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-ifindsimilarresults")]
+                interface IFindSimilarResults: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-ifindsimilarresults-getsize")]
+                    fn GetSize(&self, size: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-ifindsimilarresults-getnextfileid")]
+                    fn GetNextFileId(&self, numTraitsMatched: *mut u32, similarityFileId: *mut SimilarityFileId) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdccomparator")]
+                interface IRdcComparator: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdccomparator-process")]
+                    fn Process(&self, endOfInput: super::super::Foundation::BOOL, endOfOutput: *mut super::super::Foundation::BOOL, inputBuffer: *mut RdcBufferPointer, outputBuffer: *mut RdcNeedPointer, rdc_ErrorCode: *mut RDC_ErrorCode) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcfilereader")]
+                interface IRdcFileReader: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilereader-getfilesize")]
+                    fn GetFileSize(&self, fileSize: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilereader-read")]
+                    fn Read(&self, offsetFileStart: u64, bytesToRead: u32, bytesActuallyRead: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilereader-getfileposition")]
+                    fn GetFilePosition(&self, offsetFromStart: *mut u64) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcfilewriter")]
+                interface IRdcFileWriter: IRdcFileReader {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilewriter-write")]
+                    fn Write(&self, offsetFileStart: u64, bytesToWrite: u32, buffer: *mut u8) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilewriter-truncate")]
+                    fn Truncate(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcfilewriter-deleteonclose")]
+                    fn DeleteOnClose(&self) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcgenerator")]
+                interface IRdcGenerator: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgenerator-getgeneratorparameters")]
+                    fn GetGeneratorParameters(&self, level: u32, iGeneratorParameters: *mut IRdcGeneratorParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgenerator-process")]
+                    fn Process(&self, endOfInput: super::super::Foundation::BOOL, endOfOutput: *mut super::super::Foundation::BOOL, inputBuffer: *mut RdcBufferPointer, depth: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] outputBuffers: *mut *mut RdcBufferPointer, rdc_ErrorCode: *mut RDC_ErrorCode) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcgeneratorfiltermaxparameters")]
+                interface IRdcGeneratorFilterMaxParameters: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorfiltermaxparameters-gethorizonsize")]
+                    fn GetHorizonSize(&self, horizonSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorfiltermaxparameters-sethorizonsize")]
+                    fn SetHorizonSize(&self, horizonSize: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorfiltermaxparameters-gethashwindowsize")]
+                    fn GetHashWindowSize(&self, hashWindowSize: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorfiltermaxparameters-sethashwindowsize")]
+                    fn SetHashWindowSize(&self, hashWindowSize: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcgeneratorparameters")]
+                interface IRdcGeneratorParameters: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorparameters-getgeneratorparameterstype")]
+                    fn GetGeneratorParametersType(&self, parametersType: *mut GeneratorParametersType) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorparameters-getparametersversion")]
+                    fn GetParametersVersion(&self, currentVersion: *mut u32, minimumCompatibleAppVersion: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorparameters-getserializesize")]
+                    fn GetSerializeSize(&self, size: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcgeneratorparameters-serialize")]
+                    fn Serialize(&self, size: u32, parametersBlob: *mut u8, bytesWritten: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdclibrary")]
+                interface IRdcLibrary: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-computedefaultrecursiondepth")]
+                    fn ComputeDefaultRecursionDepth(&self, fileSize: u64, depth: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-creategeneratorparameters")]
+                    fn CreateGeneratorParameters(&self, parametersType: GeneratorParametersType, level: u32, iGeneratorParameters: *mut IRdcGeneratorParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-opengeneratorparameters")]
+                    fn OpenGeneratorParameters(&self, size: u32, #[Windows::Win32::Foundation::Metadata::Const] parametersBlob: *mut u8, iGeneratorParameters: *mut IRdcGeneratorParameters) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-creategenerator")]
+                    fn CreateGenerator(&self, depth: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] iGeneratorParametersArray: *mut IRdcGeneratorParameters, iGenerator: *mut IRdcGenerator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-createcomparator")]
+                    fn CreateComparator(&self, iSeedSignaturesFile: IRdcFileReader, comparatorBufferSize: u32, iComparator: *mut IRdcComparator) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-createsignaturereader")]
+                    fn CreateSignatureReader(&self, iFileReader: IRdcFileReader, iSignatureReader: *mut IRdcSignatureReader) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdclibrary-getrdcversion")]
+                    fn GetRDCVersion(&self, currentVersion: *mut u32, minimumCompatibleAppVersion: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcsignaturereader")]
+                interface IRdcSignatureReader: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcsignaturereader-readheader")]
+                    fn ReadHeader(&self, rdc_ErrorCode: *mut RDC_ErrorCode) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcsignaturereader-readsignatures")]
+                    fn ReadSignatures(&self, rdcSignaturePointer: *mut RdcSignaturePointer, endOfOutput: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-irdcsimilaritygenerator")]
+                interface IRdcSimilarityGenerator: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcsimilaritygenerator-enablesimilarity")]
+                    fn EnableSimilarity(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-irdcsimilaritygenerator-results")]
+                    fn Results(&self, similarityData: *mut SimilarityData) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilarity")]
+                interface ISimilarity: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-createtable")]
+                    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securityDescriptor: *mut u8, recordSize: u32, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-createtableindirect")]
+                    fn CreateTableIndirect(&self, mapping: ISimilarityTraitsMapping, fileIdFile: IRdcFileWriter, truncate: super::super::Foundation::BOOL, recordSize: u32, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-closetable")]
+                    fn CloseTable(&self, isValid: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-append")]
+                    fn Append(&self, similarityFileId: *mut SimilarityFileId, similarityData: *mut SimilarityData) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-findsimilarfileid")]
+                    fn FindSimilarFileId(&self, similarityData: *mut SimilarityData, numberOfMatchesRequired: u16, resultsSize: u32, findSimilarResults: *mut IFindSimilarResults) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-copyandswap")]
+                    fn CopyAndSwap(&self, newSimilarityTables: ISimilarity, reportProgress: ISimilarityReportProgress) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarity-getrecordcount")]
+                    fn GetRecordCount(&self, recordCount: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilarityfileidtable")]
+                interface ISimilarityFileIdTable: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-createtable")]
+                    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securityDescriptor: *mut u8, recordSize: u32, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-createtableindirect")]
+                    fn CreateTableIndirect(&self, fileIdFile: IRdcFileWriter, truncate: super::super::Foundation::BOOL, recordSize: u32, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-closetable")]
+                    fn CloseTable(&self, isValid: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-append")]
+                    fn Append(&self, similarityFileId: *mut SimilarityFileId, similarityFileIndex: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-lookup")]
+                    fn Lookup(&self, similarityFileIndex: u32, similarityFileId: *mut SimilarityFileId) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-invalidate")]
+                    fn Invalidate(&self, similarityFileIndex: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityfileidtable-getrecordcount")]
+                    fn GetRecordCount(&self, recordCount: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilarityreportprogress")]
+                interface ISimilarityReportProgress: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilarityreportprogress-reportprogress")]
+                    fn ReportProgress(&self, percentCompleted: u32) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilaritytabledumpstate")]
+                interface ISimilarityTableDumpState: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytabledumpstate-getnextdata")]
+                    fn GetNextData(&self, resultsSize: u32, resultsUsed: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilaritytraitsmappedview")]
+                interface ISimilarityTraitsMappedView: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmappedview-flush")]
+                    fn Flush(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmappedview-unmap")]
+                    fn Unmap(&self) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmappedview-get")]
+                    fn Get(&self, index: u64, dirty: super::super::Foundation::BOOL, numElements: u32, viewInfo: *mut SimilarityMappedViewInfo) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmappedview-getview")]
+                    fn GetView(&self, #[Windows::Win32::Foundation::Metadata::Const] mappedPageBegin: *mut *mut u8, #[Windows::Win32::Foundation::Metadata::Const] mappedPageEnd: *mut *mut u8);
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilaritytraitsmapping")]
+                interface ISimilarityTraitsMapping: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-closemapping")]
+                    fn CloseMapping(&self);
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-setfilesize")]
+                    fn SetFileSize(&self, fileSize: u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-getfilesize")]
+                    fn GetFileSize(&self, fileSize: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-openmapping")]
+                    fn OpenMapping(&self, accessMode: RdcMappingAccessMode, begin: u64, end: u64, actualEnd: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-resizemapping")]
+                    fn ResizeMapping(&self, accessMode: RdcMappingAccessMode, begin: u64, end: u64, actualEnd: *mut u64) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-getpagesize")]
+                    fn GetPageSize(&self, pageSize: *mut u32);
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitsmapping-createview")]
+                    fn CreateView(&self, minimumMappedPages: u32, accessMode: RdcMappingAccessMode, mappedView: *mut ISimilarityTraitsMappedView) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nn-msrdc-isimilaritytraitstable")]
+                interface ISimilarityTraitsTable: super::super::System::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-createtable")]
+                    fn CreateTable(&self, path: super::super::Foundation::PWSTR, truncate: super::super::Foundation::BOOL, securityDescriptor: *mut u8, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-createtableindirect")]
+                    fn CreateTableIndirect(&self, mapping: ISimilarityTraitsMapping, truncate: super::super::Foundation::BOOL, isNew: *mut RdcCreatedTables) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-closetable")]
+                    fn CloseTable(&self, isValid: super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-append")]
+                    fn Append(&self, data: *mut SimilarityData, fileIndex: u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-findsimilarfileindex")]
+                    fn FindSimilarFileIndex(&self, similarityData: *mut SimilarityData, numberOfMatchesRequired: u16, findSimilarFileIndexResults: *mut FindSimilarFileIndexResults, resultsSize: u32, resultsUsed: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-begindump")]
+                    fn BeginDump(&self, similarityTableDumpState: *mut ISimilarityTableDumpState) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/nf-msrdc-isimilaritytraitstable-getlastindex")]
+                    fn GetLastIndex(&self, fileIndex: *mut u32) -> super::super::Foundation::HRESULT;
+                }
+                const MSRDC_DEFAULT_COMPAREBUFFER: u32 = 3200000;
+                const MSRDC_DEFAULT_HASHWINDOWSIZE_1: u32 = 48;
+                const MSRDC_DEFAULT_HASHWINDOWSIZE_N: u32 = 2;
+                const MSRDC_DEFAULT_HORIZONSIZE_1: u32 = 1024;
+                const MSRDC_DEFAULT_HORIZONSIZE_N: u32 = 128;
+                const MSRDC_MAXIMUM_COMPAREBUFFER: u32 = 1073741824;
+                const MSRDC_MAXIMUM_DEPTH: u32 = 8;
+                const MSRDC_MAXIMUM_HASHWINDOWSIZE: u32 = 96;
+                const MSRDC_MAXIMUM_HORIZONSIZE: u32 = 16384;
+                const MSRDC_MAXIMUM_MATCHESREQUIRED: u32 = 16;
+                const MSRDC_MAXIMUM_TRAITVALUE: u32 = 63;
+                const MSRDC_MINIMUM_COMPAREBUFFER: u32 = 100000;
+                const MSRDC_MINIMUM_COMPATIBLE_APP_VERSION: u32 = 65536;
+                const MSRDC_MINIMUM_DEPTH: u32 = 1;
+                const MSRDC_MINIMUM_HASHWINDOWSIZE: u32 = 2;
+                const MSRDC_MINIMUM_HORIZONSIZE: u32 = 128;
+                const MSRDC_MINIMUM_INPUTBUFFERSIZE: u32 = 1024;
+                const MSRDC_MINIMUM_MATCHESREQUIRED: u32 = 1;
+                const MSRDC_SIGNATURE_HASHSIZE: u32 = 16;
+                const MSRDC_VERSION: u32 = 65536;
+                const RDCE_TABLE_CORRUPT: u32 = 2147745794;
+                const RDCE_TABLE_FULL: u32 = 2147745793;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ne-msrdc-rdc_errorcode")]
+                enum RDC_ErrorCode {
+                    RDC_NoError = 0,
+                    RDC_HeaderVersionNewer = 1,
+                    RDC_HeaderVersionOlder = 2,
+                    RDC_HeaderMissingOrCorrupt = 3,
+                    RDC_HeaderWrongType = 4,
+                    RDC_DataMissingOrCorrupt = 5,
+                    RDC_DataTooManyRecords = 6,
+                    RDC_FileChecksumMismatch = 7,
+                    RDC_ApplicationError = 8,
+                    RDC_Aborted = 9,
+                    RDC_Win32Error = 10,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-rdcbufferpointer")]
+                struct RdcBufferPointer {
+                    m_Size: u32,
+                    m_Used: u32,
+                    m_Data: *mut u8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903435, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcComparator {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ne-msrdc-rdccreatedtables")]
+                enum RdcCreatedTables {
+                    RDCTABLE_InvalidOrUnknown = 0,
+                    RDCTABLE_Existing = 1,
+                    RDCTABLE_New = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903433, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcFileReader {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903432, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcGenerator {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903431, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcGeneratorFilterMaxParameters {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903430, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcGeneratorParameters {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903429, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcLibrary {}
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ne-msrdc-rdcmappingaccessmode")]
+                enum RdcMappingAccessMode {
+                    RDCMAPPING_Undefined = 0,
+                    RDCMAPPING_ReadOnly = 1,
+                    RDCMAPPING_ReadWrite = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-rdcneed")]
+                struct RdcNeed {
+                    m_BlockType: RdcNeedType,
+                    m_FileOffset: u64,
+                    m_BlockLength: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-rdcneedpointer")]
+                struct RdcNeedPointer {
+                    m_Size: u32,
+                    m_Used: u32,
+                    m_Data: *mut RdcNeed,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ne-msrdc-rdcneedtype")]
+                enum RdcNeedType {
+                    RDCNEED_SOURCE = 0,
+                    RDCNEED_TARGET = 1,
+                    RDCNEED_SEED = 2,
+                    RDCNEED_SEED_MAX = 255,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-rdcsignature")]
+                struct RdcSignature {
+                    m_Signature: [u8; 16],
+                    m_BlockLength: u16,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-rdcsignaturepointer")]
+                struct RdcSignaturePointer {
+                    m_Size: u32,
+                    m_Used: u32,
+                    m_Data: *mut RdcSignature,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903434, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcSignatureReader {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903442, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct RdcSimilarityGenerator {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903441, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct Similarity {}
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-similaritydata")]
+                struct SimilarityData {
+                    m_Data: [u8; 16],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-similaritydumpdata")]
+                struct SimilarityDumpData {
+                    m_FileIndex: u32,
+                    m_Data: SimilarityData,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-similarityfileid")]
+                struct SimilarityFileId {
+                    m_FileId: [u8; 32],
+                }
+                const SimilarityFileIdMaxSize: u32 = 32;
+                const SimilarityFileIdMinSize: u32 = 4;
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903440, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityFileIdTable {}
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/msrdc/ns-msrdc-similaritymappedviewinfo")]
+                struct SimilarityMappedViewInfo {
+                    m_Data: *mut u8,
+                    m_Length: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903437, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityReportProgress {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903438, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityTableDumpState {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903445, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityTraitsMappedView {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903444, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityTraitsMapping {}
+                #[Windows::Win32::Foundation::Metadata::Guid(2518903439, 40380, 4570, 158, 63, 0, 17, 17, 74, 227, 17)]
+                struct SimilarityTraitsTable {}
+            }
+        }
+    }
+}

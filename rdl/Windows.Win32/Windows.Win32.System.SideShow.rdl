@@ -1,0 +1,214 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod SideShow {
+                struct APPLICATION_EVENT_DATA {
+                    cbApplicationEventData: u32,
+                    ApplicationId: GUID,
+                    EndpointId: GUID,
+                    dwEventId: u32,
+                    cbEventData: u32,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    bEventData: [u8; 1],
+                }
+                const CONTENT_ID_GLANCE: u32 = 0;
+                const CONTENT_ID_HOME: u32 = 1;
+                struct CONTENT_MISSING_EVENT_DATA {
+                    cbContentMissingEventData: u32,
+                    ApplicationId: GUID,
+                    EndpointId: GUID,
+                    ContentId: u32,
+                }
+                struct DEVICE_USER_CHANGE_EVENT_DATA {
+                    cbDeviceUserChangeEventData: u32,
+                    wszUser: u16,
+                }
+                struct EVENT_DATA_HEADER {
+                    cbEventDataHeader: u32,
+                    guidEventType: GUID,
+                    dwVersion: u32,
+                    cbEventDataSid: u32,
+                }
+                const GUID_DEVINTERFACE_SIDESHOW: GUID = 0x152e5811_feb9_4b00_90f4_d32947ae1681;
+                interface ISideShowBulkCapabilities: ISideShowCapabilities {
+                    fn GetCapabilities(&self, in_keyCollection: ISideShowKeyCollection, inout_pValues: *mut ISideShowPropVariantCollection) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowCapabilities: super::Com::IUnknown {
+                    fn GetCapability(&self, #[Windows::Win32::Foundation::Metadata::Const] in_keyCapability: *mut super::super::Foundation::PROPERTYKEY, inout_pValue: *mut super::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowCapabilitiesCollection: super::Com::IUnknown {
+                    fn GetCount(&self, out_pdwCount: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn GetAt(&self, in_dwIndex: u32, out_ppCapabilities: *mut ISideShowCapabilities) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowContent: super::Com::IUnknown {
+                    fn GetContent(&self, in_pICapabilities: ISideShowCapabilities, out_pdwSize: *mut u32, out_ppbData: *mut *mut u8) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ContentId(&self, out_pcontentId: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_DifferentiateContent(&self, out_pfDifferentiateContent: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowContentManager: super::Com::IUnknown {
+                    fn Add(&self, in_pIContent: ISideShowContent) -> super::super::Foundation::HRESULT;
+                    fn Remove(&self, #[Windows::Win32::Foundation::Metadata::Const] in_contentId: u32) -> super::super::Foundation::HRESULT;
+                    fn RemoveAll(&self) -> super::super::Foundation::HRESULT;
+                    fn SetEventSink(&self, in_pIEvents: ISideShowEvents) -> super::super::Foundation::HRESULT;
+                    fn GetDeviceCapabilities(&self, out_ppCollection: *mut ISideShowCapabilitiesCollection) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowEvents: super::Com::IUnknown {
+                    fn ContentMissing(&self, #[Windows::Win32::Foundation::Metadata::Const] in_contentId: u32, out_ppIContent: *mut ISideShowContent) -> super::super::Foundation::HRESULT;
+                    fn ApplicationEvent(&self, in_pICapabilities: ISideShowCapabilities, #[Windows::Win32::Foundation::Metadata::Const] in_dwEventId: u32, #[Windows::Win32::Foundation::Metadata::Const] in_dwEventSize: u32, #[Windows::Win32::Foundation::Metadata::Const] #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] in_pbEventData: *mut u8) -> super::super::Foundation::HRESULT;
+                    fn DeviceAdded(&self, in_pIDevice: ISideShowCapabilities) -> super::super::Foundation::HRESULT;
+                    fn DeviceRemoved(&self, in_pIDevice: ISideShowCapabilities) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowKeyCollection: super::Com::IUnknown {
+                    fn Add(&self, #[Windows::Win32::Foundation::Metadata::Const] Key: *mut super::super::Foundation::PROPERTYKEY) -> super::super::Foundation::HRESULT;
+                    fn Clear(&self) -> super::super::Foundation::HRESULT;
+                    fn GetAt(&self, #[Windows::Win32::Foundation::Metadata::Const] dwIndex: u32, pKey: *mut super::super::Foundation::PROPERTYKEY) -> super::super::Foundation::HRESULT;
+                    fn GetCount(&self, pcElems: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn RemoveAt(&self, #[Windows::Win32::Foundation::Metadata::Const] dwIndex: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowNotification: super::Com::IUnknown {
+                    #[special]
+                    fn get_NotificationId(&self, out_pNotificationId: *mut u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_NotificationId(&self, in_notificationId: u32) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Title(&self, out_ppwszTitle: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Title(&self, in_pwszTitle: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Message(&self, out_ppwszMessage: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Message(&self, in_pwszMessage: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_Image(&self, out_phIcon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_Image(&self, in_hIcon: super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn get_ExpirationTime(&self, out_pTime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    fn put_ExpirationTime(&self, in_pTime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowNotificationManager: super::Com::IUnknown {
+                    fn Show(&self, in_pINotification: ISideShowNotification) -> super::super::Foundation::HRESULT;
+                    fn Revoke(&self, #[Windows::Win32::Foundation::Metadata::Const] in_notificationId: u32) -> super::super::Foundation::HRESULT;
+                    fn RevokeAll(&self) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowPropVariantCollection: super::Com::IUnknown {
+                    fn Add(&self, #[Windows::Win32::Foundation::Metadata::Const] pValue: *mut super::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    fn Clear(&self) -> super::super::Foundation::HRESULT;
+                    fn GetAt(&self, #[Windows::Win32::Foundation::Metadata::Const] dwIndex: u32, pValue: *mut super::Com::StructuredStorage::PROPVARIANT) -> super::super::Foundation::HRESULT;
+                    fn GetCount(&self, pcElems: *mut u32) -> super::super::Foundation::HRESULT;
+                    fn RemoveAt(&self, #[Windows::Win32::Foundation::Metadata::Const] dwIndex: u32) -> super::super::Foundation::HRESULT;
+                }
+                interface ISideShowSession: super::Com::IUnknown {
+                    fn RegisterContent(&self, in_applicationId: *mut GUID, in_endpointId: *mut GUID, out_ppIContent: *mut ISideShowContentManager) -> super::super::Foundation::HRESULT;
+                    fn RegisterNotifications(&self, in_applicationId: *mut GUID, out_ppINotification: *mut ISideShowNotificationManager) -> super::super::Foundation::HRESULT;
+                }
+                struct NEW_EVENT_DATA_AVAILABLE {
+                    cbNewEventDataAvailable: u32,
+                    dwVersion: u32,
+                }
+                #[repr(i32)]
+                enum SCF_BUTTON_IDS {
+                    SCF_BUTTON_MENU = 1,
+                    SCF_BUTTON_SELECT = 2,
+                    SCF_BUTTON_UP = 3,
+                    SCF_BUTTON_DOWN = 4,
+                    SCF_BUTTON_LEFT = 5,
+                    SCF_BUTTON_RIGHT = 6,
+                    SCF_BUTTON_PLAY = 7,
+                    SCF_BUTTON_PAUSE = 8,
+                    SCF_BUTTON_FASTFORWARD = 9,
+                    SCF_BUTTON_REWIND = 10,
+                    SCF_BUTTON_STOP = 11,
+                    SCF_BUTTON_BACK = 65280,
+                }
+                struct SCF_CONTEXTMENU_EVENT {
+                    PreviousPage: u32,
+                    TargetPage: u32,
+                    PreviousItemId: u32,
+                    MenuPage: u32,
+                    MenuItemId: u32,
+                }
+                struct SCF_EVENT_HEADER {
+                    PreviousPage: u32,
+                    TargetPage: u32,
+                }
+                #[repr(i32)]
+                enum SCF_EVENT_IDS {
+                    SCF_EVENT_NAVIGATION = 1,
+                    SCF_EVENT_MENUACTION = 2,
+                    SCF_EVENT_CONTEXTMENU = 3,
+                }
+                struct SCF_MENUACTION_EVENT {
+                    PreviousPage: u32,
+                    TargetPage: u32,
+                    Button: u32,
+                    ItemId: u32,
+                }
+                struct SCF_NAVIGATION_EVENT {
+                    PreviousPage: u32,
+                    TargetPage: u32,
+                    Button: u32,
+                }
+                const SIDESHOW_APPLICATION_EVENT: GUID = 0x4cb572fa_1d3b_49b3_a17a_2e6bff052854;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 16")]
+                const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 15")]
+                const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 5")]
+                const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 6")]
+                const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 9")]
+                const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 7")]
+                const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 1")]
+                const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::Foundation::PROPERTYKEY;
+                const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: GUID = 0x8abc88a8_857b_4ad7_a35a_b5942f492b99;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 4")]
+                const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 2")]
+                const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 3")]
+                const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 14")]
+                const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 8")]
+                const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::Foundation::PROPERTYKEY;
+                #[Windows::Win32::Foundation::Metadata::Constant("{2327611560, 34171, 19159, 163, 90, 181, 148, 47, 73, 43, 153}, 10")]
+                const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::Foundation::PROPERTYKEY;
+                #[repr(i32)]
+                enum SIDESHOW_COLOR_TYPE {
+                    SIDESHOW_COLOR_TYPE_COLOR = 0,
+                    SIDESHOW_COLOR_TYPE_GREYSCALE = 1,
+                    SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE = 2,
+                }
+                const SIDESHOW_CONTENT_MISSING_EVENT: GUID = 0x5007fba8_d313_439f_bea2_a50201d3e9a8;
+                const SIDESHOW_ENDPOINT_ICAL: GUID = 0x4dff36b5_9dde_4f76_9a2a_96435047063d;
+                const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: GUID = 0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f;
+                const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760;
+                const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761;
+                const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: GUID = 0x57813854_2fc1_411c_a59f_f24927608804;
+                #[repr(i32)]
+                enum SIDESHOW_SCREEN_TYPE {
+                    SIDESHOW_SCREEN_TYPE_BITMAP = 0,
+                    SIDESHOW_SCREEN_TYPE_TEXT = 1,
+                }
+                const SIDESHOW_USER_CHANGE_REQUEST_EVENT: GUID = 0x5009673c_3f7d_4c7e_9971_eaa2e91f1575;
+                #[Windows::Win32::Foundation::Metadata::Guid(3753630712, 6366, 18872, 131, 220, 235, 199, 39, 198, 45, 148)]
+                struct SideShowKeyCollection {}
+                #[Windows::Win32::Foundation::Metadata::Guid(216262767, 54733, 17701, 167, 102, 26, 186, 177, 167, 82, 245)]
+                struct SideShowNotification {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3863016469, 21406, 18723, 150, 205, 95, 9, 59, 194, 80, 205)]
+                struct SideShowPropVariantCollection {}
+                #[Windows::Win32::Foundation::Metadata::Guid(3791995833, 63365, 20130, 152, 30, 196, 255, 167, 107, 188, 124)]
+                struct SideShowSession {}
+                const VERSION_1_WINDOWS_7: u32 = 0;
+            }
+        }
+    }
+}

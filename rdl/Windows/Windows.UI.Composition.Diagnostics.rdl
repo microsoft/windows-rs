@@ -1,0 +1,64 @@
+mod Windows {
+    mod UI {
+        mod Composition {
+            #[winrt]
+            mod Diagnostics {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class CompositionDebugHeatMaps {
+                    #[default]
+                    ICompositionDebugHeatMaps,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                enum CompositionDebugOverdrawContentKinds {
+                    None = 0,
+                    OffscreenRendered = 1,
+                    Colors = 2,
+                    Effects = 4,
+                    Shadows = 8,
+                    Lights = 16,
+                    Surfaces = 32,
+                    SwapChains = 64,
+                    All = 4294967295,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+                #[Windows::Foundation::Metadata::Static(ICompositionDebugSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class CompositionDebugSettings {
+                    #[default]
+                    ICompositionDebugSettings,
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugHeatMaps)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface ICompositionDebugHeatMaps {
+                    fn Hide(&self, subtree: super::Visual);
+                    fn ShowMemoryUsage(&self, subtree: super::Visual);
+                    fn ShowOverdraw(&self, subtree: super::Visual, contentKinds: CompositionDebugOverdrawContentKinds);
+                    fn ShowRedraw(&self, subtree: super::Visual);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugSettings)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ICompositionDebugSettings {
+                    #[special]
+                    fn get_HeatMaps(&self) -> CompositionDebugHeatMaps;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDebugSettings)]
+                interface ICompositionDebugSettingsStatics {
+                    fn TryGetSettings(&self, compositor: super::Compositor) -> CompositionDebugSettings;
+                }
+            }
+        }
+    }
+}

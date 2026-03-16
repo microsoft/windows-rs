@@ -1,0 +1,109 @@
+mod Windows {
+    mod Win32 {
+        mod Security {
+            #[win32]
+            mod EnterpriseData {
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/ne-srpapi-enterprise_data_policies")]
+                enum ENTERPRISE_DATA_POLICIES {
+                    ENTERPRISE_POLICY_NONE = 0,
+                    ENTERPRISE_POLICY_ALLOWED = 1,
+                    ENTERPRISE_POLICY_ENLIGHTENED = 2,
+                    ENTERPRISE_POLICY_EXEMPT = 4,
+                }
+                struct FILE_UNPROTECT_OPTIONS {
+                    audit: u8,
+                }
+                struct HTHREAD_NETWORK_CONTEXT {
+                    ThreadId: u32,
+                    ThreadContext: super::super::Foundation::HANDLE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nn-efswrtinterop-iprotectionpolicymanagerinterop")]
+                interface IProtectionPolicyManagerInterop: super::super::System::WinRT::IInspectable {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop-requestaccessforwindowasync")]
+                    fn RequestAccessForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, targetIdentity: super::super::System::WinRT::HSTRING, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop-getforwindow")]
+                    fn GetForWindow(&self, appWindow: super::super::Foundation::HWND, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] result: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nn-efswrtinterop-iprotectionpolicymanagerinterop2")]
+                interface IProtectionPolicyManagerInterop2: super::super::System::WinRT::IInspectable {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop2-requestaccessforappwithwindowasync")]
+                    fn RequestAccessForAppWithWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, appPackageFamilyName: super::super::System::WinRT::HSTRING, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop2-requestaccesswithauditinginfoforwindowasync")]
+                    fn RequestAccessWithAuditingInfoForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, targetIdentity: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop2-requestaccesswithmessageforwindowasync")]
+                    fn RequestAccessWithMessageForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, targetIdentity: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop2-requestaccessforappwithauditinginfoforwindowasync")]
+                    fn RequestAccessForAppWithAuditingInfoForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, appPackageFamilyName: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/efswrtinterop/nf-efswrtinterop-iprotectionpolicymanagerinterop2-requestaccessforappwithmessageforwindowasync")]
+                    fn RequestAccessForAppWithMessageForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, appPackageFamilyName: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                interface IProtectionPolicyManagerInterop3: super::super::System::WinRT::IInspectable {
+                    fn RequestAccessWithBehaviorForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, targetIdentity: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, behavior: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn RequestAccessForAppWithBehaviorForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceIdentity: super::super::System::WinRT::HSTRING, appPackageFamilyName: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, behavior: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn RequestAccessToFilesForAppForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceItemListUnk: super::super::System::Com::IUnknown, appPackageFamilyName: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceItemListUnk: super::super::System::Com::IUnknown, appPackageFamilyName: super::super::System::WinRT::HSTRING, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, behavior: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn RequestAccessToFilesForProcessForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceItemListUnk: super::super::System::Com::IUnknown, processId: u32, auditInfoUnk: super::super::System::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                    fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync(&self, appWindow: super::super::Foundation::HWND, sourceItemListUnk: super::super::System::Com::IUnknown, processId: u32, auditInfoUnk: super::super::System::Com::IUnknown, messageFromApp: super::super::System::WinRT::HSTRING, behavior: u32, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] #[Windows::Win32::Foundation::Metadata::RetVal] asyncOperation: *mut *mut void) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/edpwin32/nf-edpwin32-protectfiletoenterpriseidentity")]
+                #[library("efswrt.dll")]
+                extern fn ProtectFileToEnterpriseIdentity(fileOrFolderPath: super::super::Foundation::PWSTR, identity: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                enum SRPHOSTING_TYPE {
+                    SRPHOSTING_TYPE_NONE = 0,
+                    SRPHOSTING_TYPE_WINHTTP = 1,
+                    SRPHOSTING_TYPE_WININET = 2,
+                }
+                #[repr(i32)]
+                enum SRPHOSTING_VERSION {
+                    SRPHOSTING_VERSION1 = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpclosethreadnetworkcontext")]
+                #[library("srpapi.dll")]
+                extern fn SrpCloseThreadNetworkContext(threadNetworkContext: *mut HTHREAD_NETWORK_CONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpcreatethreadnetworkcontext")]
+                #[library("srpapi.dll")]
+                extern fn SrpCreateThreadNetworkContext(enterpriseId: super::super::Foundation::PWSTR, threadNetworkContext: *mut HTHREAD_NETWORK_CONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpdisablepermissivemodefileencryption")]
+                #[library("srpapi.dll")]
+                extern fn SrpDisablePermissiveModeFileEncryption() -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpdoespolicyallowappexecution")]
+                #[library("srpapi.dll")]
+                extern fn SrpDoesPolicyAllowAppExecution(packageId: *mut super::super::Storage::Packaging::Appx::PACKAGE_ID, isAllowed: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpenablepermissivemodefileencryption")]
+                #[library("srpapi.dll")]
+                extern fn SrpEnablePermissiveModeFileEncryption(enterpriseId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpgetenterpriseids")]
+                #[library("srpapi.dll")]
+                extern fn SrpGetEnterpriseIds(tokenHandle: super::super::Foundation::HANDLE, numberOfBytes: *mut u32, enterpriseIds: *mut super::super::Foundation::PWSTR, enterpriseIdCount: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpgetenterprisepolicy")]
+                #[library("srpapi.dll")]
+                extern fn SrpGetEnterprisePolicy(tokenHandle: super::super::Foundation::HANDLE, policyFlags: *mut ENTERPRISE_DATA_POLICIES) -> super::super::Foundation::HRESULT;
+                #[library("srpapi.dll")]
+                extern fn SrpHostingInitialize(Version: SRPHOSTING_VERSION, Type: SRPHOSTING_TYPE, pvData: *mut void, cbData: u32) -> super::super::Foundation::HRESULT;
+                #[library("srpapi.dll")]
+                extern fn SrpHostingTerminate(Type: SRPHOSTING_TYPE);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpistokenservice")]
+                #[library("srpapi.dll")]
+                extern fn SrpIsTokenService(TokenHandle: super::super::Foundation::HANDLE, IsTokenService: *mut u8) -> super::super::Foundation::NTSTATUS;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/srpapi/nf-srpapi-srpsettokenenterpriseid")]
+                #[library("srpapi.dll")]
+                extern fn SrpSetTokenEnterpriseId(tokenHandle: super::super::Foundation::HANDLE, enterpriseId: super::super::Foundation::PWSTR) -> super::super::Foundation::HRESULT;
+                #[library("efswrt.dll")]
+                extern fn UnprotectFile(fileOrFolderPath: super::super::Foundation::PWSTR, options: *mut FILE_UNPROTECT_OPTIONS) -> super::super::Foundation::HRESULT;
+            }
+        }
+    }
+}

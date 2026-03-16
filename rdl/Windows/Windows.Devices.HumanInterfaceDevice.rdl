@@ -1,0 +1,309 @@
+mod Windows {
+    mod Devices {
+        #[winrt]
+        mod HumanInterfaceDevice {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class HidBooleanControl {
+                #[default]
+                IHidBooleanControl,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class HidBooleanControlDescription {
+                #[default]
+                IHidBooleanControlDescription,
+                IHidBooleanControlDescription2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class HidCollection {
+                #[default]
+                IHidCollection,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HidCollectionType {
+                Physical = 0,
+                Application = 1,
+                Logical = 2,
+                Report = 3,
+                NamedArray = 4,
+                UsageSwitch = 5,
+                UsageModifier = 6,
+                Other = 7,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IHidDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class HidDevice {
+                #[default]
+                IHidDevice,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class HidFeatureReport {
+                #[default]
+                IHidFeatureReport,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class HidInputReport {
+                #[default]
+                IHidInputReport,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class HidInputReportReceivedEventArgs {
+                #[default]
+                IHidInputReportReceivedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class HidNumericControl {
+                #[default]
+                IHidNumericControl,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class HidNumericControlDescription {
+                #[default]
+                IHidNumericControlDescription,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class HidOutputReport {
+                #[default]
+                IHidOutputReport,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HidReportType {
+                Input = 0,
+                Output = 1,
+                Feature = 2,
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidBooleanControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHidBooleanControl {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn get_UsagePage(&self) -> u16;
+                #[special]
+                fn get_UsageId(&self) -> u16;
+                #[special]
+                fn get_IsActive(&self) -> bool;
+                #[special]
+                fn put_IsActive(&self, value: bool);
+                #[special]
+                fn get_ControlDescription(&self) -> HidBooleanControlDescription;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidBooleanControlDescription)]
+            interface IHidBooleanControlDescription {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn get_ReportId(&self) -> u16;
+                #[special]
+                fn get_ReportType(&self) -> HidReportType;
+                #[special]
+                fn get_UsagePage(&self) -> u16;
+                #[special]
+                fn get_UsageId(&self) -> u16;
+                #[special]
+                fn get_ParentCollections(&self) -> super::super::Foundation::Collections::IVectorView<HidCollection>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidBooleanControlDescription)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IHidBooleanControlDescription2 {
+                #[special]
+                fn get_IsAbsolute(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidCollection)]
+            interface IHidCollection {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn get_Type(&self) -> HidCollectionType;
+                #[special]
+                fn get_UsagePage(&self) -> u32;
+                #[special]
+                fn get_UsageId(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidDevice)]
+            interface IHidDevice: super::super::Foundation::IClosable {
+                #[special]
+                fn get_VendorId(&self) -> u16;
+                #[special]
+                fn get_ProductId(&self) -> u16;
+                #[special]
+                fn get_Version(&self) -> u16;
+                #[special]
+                fn get_UsagePage(&self) -> u16;
+                #[special]
+                fn get_UsageId(&self) -> u16;
+                #[Windows::Foundation::Metadata::Overload("GetInputReportAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetInputReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetInputReportByIdAsync")]
+                fn GetInputReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
+                #[Windows::Foundation::Metadata::Overload("GetFeatureReportAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFeatureReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
+                #[Windows::Foundation::Metadata::Overload("GetFeatureReportByIdAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFeatureReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
+                #[Windows::Foundation::Metadata::Overload("CreateOutputReport")]
+                fn CreateOutputReport(&self) -> HidOutputReport;
+                #[Windows::Foundation::Metadata::Overload("CreateOutputReportById")]
+                fn CreateOutputReport(&self, reportId: u16) -> HidOutputReport;
+                #[Windows::Foundation::Metadata::Overload("CreateFeatureReport")]
+                fn CreateFeatureReport(&self) -> HidFeatureReport;
+                #[Windows::Foundation::Metadata::Overload("CreateFeatureReportById")]
+                fn CreateFeatureReport(&self, reportId: u16) -> HidFeatureReport;
+                fn SendOutputReportAsync(&self, outputReport: HidOutputReport) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn SendFeatureReportAsync(&self, featureReport: HidFeatureReport) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn GetBooleanControlDescriptions(&self, reportType: HidReportType, usagePage: u16, usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>;
+                fn GetNumericControlDescriptions(&self, reportType: HidReportType, usagePage: u16, usageId: u16) -> super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>;
+                #[special]
+                fn add_InputReportReceived(&self, reportHandler: super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_InputReportReceived(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHidDeviceStatics {
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                fn GetDeviceSelector(&self, usagePage: u16, usageId: u16) -> String;
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorVidPid")]
+                fn GetDeviceSelector(&self, usagePage: u16, usageId: u16, vendorId: u16, productId: u16) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String, accessMode: super::super::Storage::FileAccessMode) -> super::super::Foundation::IAsyncOperation<HidDevice>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidFeatureReport)]
+            interface IHidFeatureReport {
+                #[special]
+                fn get_Id(&self) -> u16;
+                #[special]
+                fn get_Data(&self) -> super::super::Storage::Streams::IBuffer;
+                #[special]
+                fn put_Data(&self, value: super::super::Storage::Streams::IBuffer);
+                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidInputReport)]
+            interface IHidInputReport {
+                #[special]
+                fn get_Id(&self) -> u16;
+                #[special]
+                fn get_Data(&self) -> super::super::Storage::Streams::IBuffer;
+                #[special]
+                fn get_ActivatedBooleanControls(&self) -> super::super::Foundation::Collections::IVectorView<HidBooleanControl>;
+                #[special]
+                fn get_TransitionedBooleanControls(&self) -> super::super::Foundation::Collections::IVectorView<HidBooleanControl>;
+                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidInputReportReceivedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHidInputReportReceivedEventArgs {
+                #[special]
+                fn get_Report(&self) -> HidInputReport;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidNumericControl)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHidNumericControl {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn get_IsGrouped(&self) -> bool;
+                #[special]
+                fn get_UsagePage(&self) -> u16;
+                #[special]
+                fn get_UsageId(&self) -> u16;
+                #[special]
+                fn get_Value(&self) -> i64;
+                #[special]
+                fn put_Value(&self, value: i64);
+                #[special]
+                fn get_ScaledValue(&self) -> i64;
+                #[special]
+                fn put_ScaledValue(&self, value: i64);
+                #[special]
+                fn get_ControlDescription(&self) -> HidNumericControlDescription;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidNumericControlDescription)]
+            interface IHidNumericControlDescription {
+                #[special]
+                fn get_Id(&self) -> u32;
+                #[special]
+                fn get_ReportId(&self) -> u16;
+                #[special]
+                fn get_ReportType(&self) -> HidReportType;
+                #[special]
+                fn get_ReportSize(&self) -> u32;
+                #[special]
+                fn get_ReportCount(&self) -> u32;
+                #[special]
+                fn get_UsagePage(&self) -> u16;
+                #[special]
+                fn get_UsageId(&self) -> u16;
+                #[special]
+                fn get_LogicalMinimum(&self) -> i32;
+                #[special]
+                fn get_LogicalMaximum(&self) -> i32;
+                #[special]
+                fn get_PhysicalMinimum(&self) -> i32;
+                #[special]
+                fn get_PhysicalMaximum(&self) -> i32;
+                #[special]
+                fn get_UnitExponent(&self) -> u32;
+                #[special]
+                fn get_Unit(&self) -> u32;
+                #[special]
+                fn get_IsAbsolute(&self) -> bool;
+                #[special]
+                fn get_HasNull(&self) -> bool;
+                #[special]
+                fn get_ParentCollections(&self) -> super::super::Foundation::Collections::IVectorView<HidCollection>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidOutputReport)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHidOutputReport {
+                #[special]
+                fn get_Id(&self) -> u16;
+                #[special]
+                fn get_Data(&self) -> super::super::Storage::Streams::IBuffer;
+                #[special]
+                fn put_Data(&self, value: super::super::Storage::Streams::IBuffer);
+                fn GetBooleanControl(&self, usagePage: u16, usageId: u16) -> HidBooleanControl;
+                fn GetBooleanControlByDescription(&self, controlDescription: HidBooleanControlDescription) -> HidBooleanControl;
+                fn GetNumericControl(&self, usagePage: u16, usageId: u16) -> HidNumericControl;
+                fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
+            }
+        }
+    }
+}

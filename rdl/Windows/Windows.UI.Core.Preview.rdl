@@ -1,0 +1,63 @@
+mod Windows {
+    mod UI {
+        mod Core {
+            #[winrt]
+            mod Preview {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Static(ICoreAppWindowPreviewStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class CoreAppWindowPreview {
+                    #[default]
+                    ICoreAppWindowPreview,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ICoreAppWindowPreview {}
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ICoreAppWindowPreviewStatics {
+                    fn GetIdFromWindow(&self, window: super::super::WindowManagement::AppWindow) -> i32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationCloseRequestedPreviewEventArgs)]
+                interface ISystemNavigationCloseRequestedPreviewEventArgs {
+                    #[special]
+                    fn get_Handled(&self) -> bool;
+                    #[special]
+                    fn put_Handled(&self, value: bool);
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
+                interface ISystemNavigationManagerPreview {
+                    #[special]
+                    fn add_CloseRequested(&self, handler: super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_CloseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
+                interface ISystemNavigationManagerPreviewStatics {
+                    fn GetForCurrentView(&self) -> SystemNavigationManagerPreview;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class SystemNavigationCloseRequestedPreviewEventArgs {
+                    #[default]
+                    ISystemNavigationCloseRequestedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISystemNavigationManagerPreviewStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                class SystemNavigationManagerPreview {
+                    #[default]
+                    ISystemNavigationManagerPreview,
+                }
+            }
+        }
+    }
+}

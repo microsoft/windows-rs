@@ -1,0 +1,10 @@
+mod Windows {
+    mod Gaming {
+        #[winrt]
+        mod XboxLive {
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct StorageApiContract {}
+        }
+    }
+}

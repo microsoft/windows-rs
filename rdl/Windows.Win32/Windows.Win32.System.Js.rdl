@@ -1,0 +1,259 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod Js {
+                const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615;
+                #[library("chakra.dll")]
+                extern fn JsAddRef(r#ref: *mut void, count: *mut u32) -> JsErrorCode;
+                extern fn JsBackgroundWorkItemCallback(callbackState: *mut void);
+                extern fn JsBeforeCollectCallback(callbackState: *mut void);
+                #[library("chakra.dll")]
+                extern fn JsBoolToBoolean(value: u8, booleanValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsBooleanToBool(value: *mut void, boolValue: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCallFunction(function: *mut void, arguments: *mut *mut void, argumentCount: u16, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCollectGarbage(runtime: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsConstructObject(function: *mut void, arguments: *mut *mut void, argumentCount: u16, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsConvertValueToBoolean(value: *mut void, booleanValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsConvertValueToNumber(value: *mut void, numberValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsConvertValueToObject(value: *mut void, object: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsConvertValueToString(value: *mut void, stringValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateArray(length: u32, result: *mut *mut void) -> JsErrorCode;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                #[library("chakra.dll")]
+                extern fn JsCreateContext(runtime: *mut void, debugApplication: super::Diagnostics::Debug::ActiveScript::IDebugApplication32, newContext: *mut *mut void) -> JsErrorCode;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                #[library("chakra.dll")]
+                extern fn JsCreateContext(runtime: *mut void, debugApplication: super::Diagnostics::Debug::ActiveScript::IDebugApplication64, newContext: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateExternalObject(data: *mut void, finalizeCallback: JsFinalizeCallback, object: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateFunction(nativeFunction: JsNativeFunction, callbackState: *mut void, function: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateObject(object: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateRangeError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateReferenceError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeVersion: JsRuntimeVersion, threadService: JsThreadServiceCallback, runtime: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateSyntaxError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateTypeError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsCreateURIError(message: *mut void, error: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDefineProperty(object: *mut void, propertyId: *mut void, propertyDescriptor: *mut void, result: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDeleteIndexedProperty(object: *mut void, index: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDeleteProperty(object: *mut void, propertyId: *mut void, useStrictRules: u8, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDisableRuntimeExecution(runtime: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDisposeRuntime(runtime: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsDoubleToNumber(doubleValue: f64, value: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsEnableRuntimeExecution(runtime: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsEnumerateHeap(enumerator: *mut super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerHeapEnum) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsEquals(object1: *mut void, object2: *mut void, result: *mut bool) -> JsErrorCode;
+                #[repr(u32)]
+                enum JsErrorCode {
+                    JsNoError = 0,
+                    JsErrorCategoryUsage = 65536,
+                    JsErrorInvalidArgument = 65537,
+                    JsErrorNullArgument = 65538,
+                    JsErrorNoCurrentContext = 65539,
+                    JsErrorInExceptionState = 65540,
+                    JsErrorNotImplemented = 65541,
+                    JsErrorWrongThread = 65542,
+                    JsErrorRuntimeInUse = 65543,
+                    JsErrorBadSerializedScript = 65544,
+                    JsErrorInDisabledState = 65545,
+                    JsErrorCannotDisableExecution = 65546,
+                    JsErrorHeapEnumInProgress = 65547,
+                    JsErrorArgumentNotObject = 65548,
+                    JsErrorInProfileCallback = 65549,
+                    JsErrorInThreadServiceCallback = 65550,
+                    JsErrorCannotSerializeDebugScript = 65551,
+                    JsErrorAlreadyDebuggingContext = 65552,
+                    JsErrorAlreadyProfilingContext = 65553,
+                    JsErrorIdleNotEnabled = 65554,
+                    JsErrorCategoryEngine = 131072,
+                    JsErrorOutOfMemory = 131073,
+                    JsErrorCategoryScript = 196608,
+                    JsErrorScriptException = 196609,
+                    JsErrorScriptCompile = 196610,
+                    JsErrorScriptTerminated = 196611,
+                    JsErrorScriptEvalDisabled = 196612,
+                    JsErrorCategoryFatal = 262144,
+                    JsErrorFatal = 262145,
+                }
+                extern fn JsFinalizeCallback(data: *mut void);
+                #[library("chakra.dll")]
+                extern fn JsGetAndClearException(exception: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetCurrentContext(currentContext: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetExtensionAllowed(object: *mut void, value: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetExternalData(object: *mut void, externalData: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetFalseValue(falseValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetGlobalObject(globalObject: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetIndexedProperty(object: *mut void, index: *mut void, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetNullValue(nullValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetOwnPropertyDescriptor(object: *mut void, propertyId: *mut void, propertyDescriptor: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetOwnPropertyNames(object: *mut void, propertyNames: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetProperty(object: *mut void, propertyId: *mut void, value: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetPropertyIdFromName(name: super::super::Foundation::PWSTR, propertyId: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetPropertyNameFromId(propertyId: *mut void, name: *mut *mut u16) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetPrototype(object: *mut void, prototypeObject: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetRuntime(context: *mut void, runtime: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetRuntimeMemoryLimit(runtime: *mut void, memoryLimit: *mut usize) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetRuntimeMemoryUsage(runtime: *mut void, memoryUsage: *mut usize) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetStringLength(stringValue: *mut void, length: *mut i32) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetTrueValue(trueValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetUndefinedValue(undefinedValue: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsGetValueType(value: *mut void, r#type: *mut JsValueType) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsHasException(hasException: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsHasExternalData(object: *mut void, value: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsHasIndexedProperty(object: *mut void, index: *mut void, result: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsHasProperty(object: *mut void, propertyId: *mut void, hasProperty: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsIdle(nextIdleTick: *mut u32) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsIntToNumber(intValue: i32, value: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsIsEnumeratingHeap(isEnumeratingHeap: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsIsRuntimeExecutionDisabled(runtime: *mut void, isDisabled: *mut bool) -> JsErrorCode;
+                extern fn JsMemoryAllocationCallback(callbackState: *mut void, allocationEvent: JsMemoryEventType, allocationSize: usize) -> bool;
+                #[repr(i32)]
+                enum JsMemoryEventType {
+                    JsMemoryAllocate = 0,
+                    JsMemoryFree = 1,
+                    JsMemoryFailure = 2,
+                }
+                extern fn JsNativeFunction(callee: *mut void, isConstructCall: bool, arguments: *mut *mut void, argumentCount: u16, callbackState: *mut void) -> *mut void;
+                #[library("chakra.dll")]
+                extern fn JsNumberToDouble(value: *mut void, doubleValue: *mut f64) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsParseScript(script: super::super::Foundation::PWSTR, sourceContext: usize, sourceUrl: super::super::Foundation::PWSTR, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsParseSerializedScript(script: super::super::Foundation::PWSTR, buffer: *mut u8, sourceContext: usize, sourceUrl: super::super::Foundation::PWSTR, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsPointerToString(stringValue: super::super::Foundation::PWSTR, stringLength: usize, value: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsPreventExtension(object: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsRelease(r#ref: *mut void, count: *mut u32) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsRunScript(script: super::super::Foundation::PWSTR, sourceContext: usize, sourceUrl: super::super::Foundation::PWSTR, result: *mut *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsRunSerializedScript(script: super::super::Foundation::PWSTR, buffer: *mut u8, sourceContext: usize, sourceUrl: super::super::Foundation::PWSTR, result: *mut *mut void) -> JsErrorCode;
+                #[repr(i32)]
+                enum JsRuntimeAttributes {
+                    JsRuntimeAttributeNone = 0,
+                    JsRuntimeAttributeDisableBackgroundWork = 1,
+                    JsRuntimeAttributeAllowScriptInterrupt = 2,
+                    JsRuntimeAttributeEnableIdleProcessing = 4,
+                    JsRuntimeAttributeDisableNativeCodeGeneration = 8,
+                    JsRuntimeAttributeDisableEval = 16,
+                }
+                #[repr(i32)]
+                enum JsRuntimeVersion {
+                    JsRuntimeVersion10 = 0,
+                    JsRuntimeVersion11 = 1,
+                    JsRuntimeVersionEdge = -1,
+                }
+                #[library("chakra.dll")]
+                extern fn JsSerializeScript(script: super::super::Foundation::PWSTR, buffer: *mut u8, bufferSize: *mut u32) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetCurrentContext(context: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetException(exception: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetExternalData(object: *mut void, externalData: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetIndexedProperty(object: *mut void, index: *mut void, value: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetProperty(object: *mut void, propertyId: *mut void, value: *mut void, useStrictRules: u8) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetPrototype(object: *mut void, prototypeObject: *mut void) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetRuntimeBeforeCollectCallback(runtime: *mut void, callbackState: *mut void, beforeCollectCallback: JsBeforeCollectCallback) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetRuntimeMemoryAllocationCallback(runtime: *mut void, callbackState: *mut void, allocationCallback: JsMemoryAllocationCallback) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsSetRuntimeMemoryLimit(runtime: *mut void, memoryLimit: usize) -> JsErrorCode;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
+                #[library("chakra.dll")]
+                extern fn JsStartDebugging(debugApplication: super::Diagnostics::Debug::ActiveScript::IDebugApplication32) -> JsErrorCode;
+                #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                #[library("chakra.dll")]
+                extern fn JsStartDebugging(debugApplication: super::Diagnostics::Debug::ActiveScript::IDebugApplication64) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsStartProfiling(callback: super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerCallback, eventMask: super::Diagnostics::Debug::ActiveScript::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsStopProfiling(reason: super::super::Foundation::HRESULT) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsStrictEquals(object1: *mut void, object2: *mut void, result: *mut bool) -> JsErrorCode;
+                #[library("chakra.dll")]
+                extern fn JsStringToPointer(value: *mut void, stringValue: *mut *mut u16, stringLength: *mut usize) -> JsErrorCode;
+                extern fn JsThreadServiceCallback(callback: JsBackgroundWorkItemCallback, callbackState: *mut void) -> bool;
+                #[library("chakra.dll")]
+                extern fn JsValueToVariant(object: *mut void, variant: *mut super::Variant::VARIANT) -> JsErrorCode;
+                #[repr(i32)]
+                enum JsValueType {
+                    JsUndefined = 0,
+                    JsNull = 1,
+                    JsNumber = 2,
+                    JsString = 3,
+                    JsBoolean = 4,
+                    JsObject = 5,
+                    JsFunction = 6,
+                    JsError = 7,
+                    JsArray = 8,
+                }
+                #[library("chakra.dll")]
+                extern fn JsVariantToValue(variant: *mut super::Variant::VARIANT, value: *mut *mut void) -> JsErrorCode;
+            }
+        }
+    }
+}

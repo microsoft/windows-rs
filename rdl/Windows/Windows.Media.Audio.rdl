@@ -1,0 +1,1320 @@
+mod Windows {
+    mod Media {
+        #[winrt]
+        mod Audio {
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioDeviceInputNode {
+                #[default]
+                IAudioDeviceInputNode,
+                IAudioInputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+                IAudioInputNode2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioDeviceNodeCreationStatus {
+                Success = 0,
+                DeviceNotAvailable = 1,
+                FormatNotSupported = 2,
+                UnknownFailure = 3,
+                AccessDenied = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioDeviceOutputNode {
+                #[default]
+                IAudioDeviceOutputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+                IAudioNodeWithListener,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(IAudioEffectsPackConfigurationStatics, 1048576, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            class AudioEffectsPackConfiguration {
+                #[default]
+                IAudioEffectsPackConfiguration,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum AudioEffectsPackStatus {
+                NotEnabled = 0,
+                Enabled = 1,
+                NotSupported = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AudioFileInputNode {
+                #[default]
+                IAudioFileInputNode,
+                IAudioInputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+                IAudioInputNode2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioFileNodeCreationStatus {
+                Success = 0,
+                FileNotFound = 1,
+                InvalidFileType = 2,
+                FormatNotSupported = 3,
+                UnknownFailure = 4,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AudioFileOutputNode {
+                #[default]
+                IAudioFileOutputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AudioFrameCompletedEventArgs {
+                #[default]
+                IAudioFrameCompletedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AudioFrameInputNode {
+                #[default]
+                IAudioFrameInputNode,
+                IAudioInputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+                IAudioInputNode2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AudioFrameOutputNode {
+                #[default]
+                IAudioFrameOutputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Static(IAudioGraphStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioGraph {
+                #[default]
+                IAudioGraph,
+                super::super::Foundation::IClosable,
+                IAudioGraph2,
+                IAudioGraph3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioGraphBatchUpdater {
+                #[default]
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioGraphConnection {
+                #[default]
+                IAudioGraphConnection,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioGraphCreationStatus {
+                Success = 0,
+                DeviceNotAvailable = 1,
+                FormatNotSupported = 2,
+                UnknownFailure = 3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IAudioGraphSettingsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AudioGraphSettings {
+                #[default]
+                IAudioGraphSettings,
+                IAudioGraphSettings2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioGraphUnrecoverableError {
+                None = 0,
+                AudioDeviceLost = 1,
+                AudioSessionDisconnected = 2,
+                UnknownFailure = 3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AudioGraphUnrecoverableErrorOccurredEventArgs {
+                #[default]
+                IAudioGraphUnrecoverableErrorOccurredEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IAudioNodeEmitterFactory, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class AudioNodeEmitter {
+                #[default]
+                IAudioNodeEmitter,
+                IAudioNodeEmitter2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioNodeEmitterConeProperties {
+                #[default]
+                IAudioNodeEmitterConeProperties,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum AudioNodeEmitterDecayKind {
+                Natural = 0,
+                Custom = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(IAudioNodeEmitterDecayModelStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class AudioNodeEmitterDecayModel {
+                #[default]
+                IAudioNodeEmitterDecayModel,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AudioNodeEmitterNaturalDecayModelProperties {
+                #[default]
+                IAudioNodeEmitterNaturalDecayModelProperties,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum AudioNodeEmitterSettings {
+                None = 0,
+                DisableDoppler = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IAudioNodeEmitterShapeStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AudioNodeEmitterShape {
+                #[default]
+                IAudioNodeEmitterShape,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum AudioNodeEmitterShapeKind {
+                Omnidirectional = 0,
+                Cone = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AudioNodeListener {
+                #[default]
+                IAudioNodeListener,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAudioPlaybackConnectionStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class AudioPlaybackConnection {
+                #[default]
+                IAudioPlaybackConnection,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class AudioPlaybackConnectionOpenResult {
+                #[default]
+                IAudioPlaybackConnectionOpenResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum AudioPlaybackConnectionOpenResultStatus {
+                Success = 0,
+                RequestTimedOut = 1,
+                DeniedBySystem = 2,
+                UnknownFailure = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum AudioPlaybackConnectionState {
+                Closed = 0,
+                Opened = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAudioStateMonitorStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            class AudioStateMonitor {
+                #[default]
+                IAudioStateMonitor,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioSubmixNode {
+                #[default]
+                IAudioInputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+                IAudioInputNode2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class CreateAudioDeviceInputNodeResult {
+                #[default]
+                ICreateAudioDeviceInputNodeResult,
+                ICreateAudioDeviceInputNodeResult2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CreateAudioDeviceOutputNodeResult {
+                #[default]
+                ICreateAudioDeviceOutputNodeResult,
+                ICreateAudioDeviceOutputNodeResult2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CreateAudioFileInputNodeResult {
+                #[default]
+                ICreateAudioFileInputNodeResult,
+                ICreateAudioFileInputNodeResult2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CreateAudioFileOutputNodeResult {
+                #[default]
+                ICreateAudioFileOutputNodeResult,
+                ICreateAudioFileOutputNodeResult2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class CreateAudioGraphResult {
+                #[default]
+                ICreateAudioGraphResult,
+                ICreateAudioGraphResult2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CreateMediaSourceAudioInputNodeResult {
+                #[default]
+                ICreateMediaSourceAudioInputNodeResult,
+                ICreateMediaSourceAudioInputNodeResult2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IEchoEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EchoEffectDefinition {
+                #[default]
+                IEchoEffectDefinition,
+                super::Effects::IAudioEffectDefinition,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class EqualizerBand {
+                #[default]
+                IEqualizerBand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IEqualizerEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class EqualizerEffectDefinition {
+                #[default]
+                IEqualizerEffectDefinition,
+                super::Effects::IAudioEffectDefinition,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FrameInputNodeQuantumStartedEventArgs {
+                #[default]
+                IFrameInputNodeQuantumStartedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceInputNode)]
+            interface IAudioDeviceInputNode: IAudioInputNode + IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn get_Device(&self) -> super::super::Devices::Enumeration::DeviceInformation;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioDeviceOutputNode)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioDeviceOutputNode: IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn get_Device(&self) -> super::super::Devices::Enumeration::DeviceInformation;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectsPackConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IAudioEffectsPackConfiguration {
+                #[special]
+                fn get_DeviceId(&self) -> String;
+                #[special]
+                fn get_EffectsPackId(&self) -> String;
+                #[special]
+                fn get_Status(&self) -> AudioEffectsPackStatus;
+                #[special]
+                fn add_StatusChanged(&self, handler: super::super::Foundation::TypedEventHandler<AudioEffectsPackConfiguration, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_StatusChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectsPackConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IAudioEffectsPackConfigurationStatics {
+                fn GetForDeviceId(&self, effectsPackId: String, deviceId: String) -> AudioEffectsPackConfiguration;
+                fn IsDeviceIdSupported(&self, effectsPackId: String, deviceId: String) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioFileInputNode)]
+            interface IAudioFileInputNode: IAudioInputNode + IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn put_PlaybackSpeedFactor(&self, value: f64);
+                #[special]
+                fn get_PlaybackSpeedFactor(&self) -> f64;
+                #[special]
+                fn get_Position(&self) -> super::super::Foundation::TimeSpan;
+                fn Seek(&self, position: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_StartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_StartTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_EndTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_EndTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_LoopCount(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_LoopCount(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_Duration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_SourceFile(&self) -> super::super::Storage::StorageFile;
+                #[special]
+                fn add_FileCompleted(&self, handler: super::super::Foundation::TypedEventHandler<AudioFileInputNode, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_FileCompleted(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioFileOutputNode)]
+            interface IAudioFileOutputNode: IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn get_File(&self) -> super::super::Storage::IStorageFile;
+                #[special]
+                fn get_FileEncodingProfile(&self) -> super::MediaProperties::MediaEncodingProfile;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FinalizeAsync(&self) -> super::super::Foundation::IAsyncOperation<super::Transcoding::TranscodeFailureReason>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrameCompletedEventArgs)]
+            interface IAudioFrameCompletedEventArgs {
+                #[special]
+                fn get_Frame(&self) -> super::AudioFrame;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrameInputNode)]
+            interface IAudioFrameInputNode: IAudioInputNode + IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn put_PlaybackSpeedFactor(&self, value: f64);
+                #[special]
+                fn get_PlaybackSpeedFactor(&self) -> f64;
+                fn AddFrame(&self, frame: super::AudioFrame);
+                fn DiscardQueuedFrames(&self);
+                #[special]
+                fn get_QueuedSampleCount(&self) -> u64;
+                #[special]
+                fn add_AudioFrameCompleted(&self, handler: super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_AudioFrameCompleted(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_QuantumStarted(&self, handler: super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_QuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrameOutputNode)]
+            interface IAudioFrameOutputNode: IAudioNode + super::super::Foundation::IClosable {
+                fn GetFrame(&self) -> super::AudioFrame;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioGraph: super::super::Foundation::IClosable {
+                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNode")]
+                fn CreateFrameInputNode(&self) -> AudioFrameInputNode;
+                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNodeWithFormat")]
+                fn CreateFrameInputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameInputNode;
+                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatAsync")]
+                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatOnDeviceAsync")]
+                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[Windows::Foundation::Metadata::Overload("CreateFrameOutputNode")]
+                fn CreateFrameOutputNode(&self) -> AudioFrameOutputNode;
+                #[Windows::Foundation::Metadata::Overload("CreateFrameOutputNodeWithFormat")]
+                fn CreateFrameOutputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioFrameOutputNode;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateDeviceOutputNodeAsync(&self) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceOutputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFileInputNodeAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>;
+                #[Windows::Foundation::Metadata::Overload("CreateFileOutputNodeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFileOutputNodeAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateFileOutputNodeWithFileProfileAsync")]
+                fn CreateFileOutputNodeAsync(&self, file: super::super::Storage::IStorageFile, fileEncodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>;
+                #[Windows::Foundation::Metadata::Overload("CreateSubmixNode")]
+                fn CreateSubmixNode(&self) -> AudioSubmixNode;
+                #[Windows::Foundation::Metadata::Overload("CreateSubmixNodeWithFormat")]
+                fn CreateSubmixNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioSubmixNode;
+                fn Start(&self);
+                fn Stop(&self);
+                fn ResetAllNodes(&self);
+                #[special]
+                fn add_QuantumStarted(&self, handler: super::super::Foundation::TypedEventHandler<AudioGraph, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_QuantumStarted(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_QuantumProcessed(&self, handler: super::super::Foundation::TypedEventHandler<AudioGraph, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_QuantumProcessed(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn add_UnrecoverableErrorOccurred(&self, handler: super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_UnrecoverableErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_CompletedQuantumCount(&self) -> u64;
+                #[special]
+                fn get_EncodingProperties(&self) -> super::MediaProperties::AudioEncodingProperties;
+                #[special]
+                fn get_LatencyInSamples(&self) -> i32;
+                #[special]
+                fn get_PrimaryRenderDevice(&self) -> super::super::Devices::Enumeration::DeviceInformation;
+                #[special]
+                fn get_RenderDeviceAudioProcessing(&self) -> super::AudioProcessing;
+                #[special]
+                fn get_SamplesPerQuantum(&self) -> i32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioGraph2: super::super::Foundation::IClosable + IAudioGraph {
+                #[Windows::Foundation::Metadata::Overload("CreateFrameInputNodeWithFormatAndEmitter")]
+                fn CreateFrameInputNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioFrameInputNode;
+                #[Windows::Foundation::Metadata::Overload("CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateDeviceInputNodeAsync(&self, category: super::Capture::MediaCategory, encodingProperties: super::MediaProperties::AudioEncodingProperties, device: super::super::Devices::Enumeration::DeviceInformation, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateFileInputNodeWithEmitterAsync")]
+                fn CreateFileInputNodeAsync(&self, file: super::super::Storage::IStorageFile, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>;
+                #[Windows::Foundation::Metadata::Overload("CreateSubmixNodeWithFormatAndEmitter")]
+                fn CreateSubmixNode(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties, emitter: AudioNodeEmitter) -> AudioSubmixNode;
+                fn CreateBatchUpdater(&self) -> AudioGraphBatchUpdater;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
+            interface IAudioGraph3 {
+                #[Windows::Foundation::Metadata::Overload("CreateMediaSourceAudioInputNodeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateMediaSourceAudioInputNodeAsync(&self, mediaSource: super::Core::MediaSource) -> super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateMediaSourceAudioInputNodeWithEmitterAsync")]
+                fn CreateMediaSourceAudioInputNodeAsync(&self, mediaSource: super::Core::MediaSource, emitter: AudioNodeEmitter) -> super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraphConnection)]
+            interface IAudioGraphConnection {
+                #[special]
+                fn get_Destination(&self) -> IAudioNode;
+                #[special]
+                fn put_Gain(&self, value: f64);
+                #[special]
+                fn get_Gain(&self) -> f64;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraphSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioGraphSettings {
+                #[special]
+                fn get_EncodingProperties(&self) -> super::MediaProperties::AudioEncodingProperties;
+                #[special]
+                fn put_EncodingProperties(&self, value: super::MediaProperties::AudioEncodingProperties);
+                #[special]
+                fn get_PrimaryRenderDevice(&self) -> super::super::Devices::Enumeration::DeviceInformation;
+                #[special]
+                fn put_PrimaryRenderDevice(&self, value: super::super::Devices::Enumeration::DeviceInformation);
+                #[special]
+                fn get_QuantumSizeSelectionMode(&self) -> QuantumSizeSelectionMode;
+                #[special]
+                fn put_QuantumSizeSelectionMode(&self, value: QuantumSizeSelectionMode);
+                #[special]
+                fn get_DesiredSamplesPerQuantum(&self) -> i32;
+                #[special]
+                fn put_DesiredSamplesPerQuantum(&self, value: i32);
+                #[special]
+                fn get_AudioRenderCategory(&self) -> super::Render::AudioRenderCategory;
+                #[special]
+                fn put_AudioRenderCategory(&self, value: super::Render::AudioRenderCategory);
+                #[special]
+                fn get_DesiredRenderDeviceAudioProcessing(&self) -> super::AudioProcessing;
+                #[special]
+                fn put_DesiredRenderDeviceAudioProcessing(&self, value: super::AudioProcessing);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraphSettings)]
+            interface IAudioGraphSettings2 {
+                #[special]
+                fn put_MaxPlaybackSpeedFactor(&self, value: f64);
+                #[special]
+                fn get_MaxPlaybackSpeedFactor(&self) -> f64;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraphSettings)]
+            interface IAudioGraphSettingsFactory {
+                fn Create(&self, audioRenderCategory: super::Render::AudioRenderCategory) -> AudioGraphSettings;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraph)]
+            interface IAudioGraphStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAsync(&self, settings: AudioGraphSettings) -> super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioGraphUnrecoverableErrorOccurredEventArgs)]
+            interface IAudioGraphUnrecoverableErrorOccurredEventArgs {
+                #[special]
+                fn get_Error(&self) -> AudioGraphUnrecoverableError;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioInputNode: IAudioNode + super::super::Foundation::IClosable {
+                #[special]
+                fn get_OutgoingConnections(&self) -> super::super::Foundation::Collections::IVectorView<AudioGraphConnection>;
+                #[Windows::Foundation::Metadata::Overload("AddOutgoingConnection")]
+                fn AddOutgoingConnection(&self, destination: IAudioNode);
+                #[Windows::Foundation::Metadata::Overload("AddOutgoingConnectionWithGain")]
+                fn AddOutgoingConnection(&self, destination: IAudioNode, gain: f64);
+                fn RemoveOutgoingConnection(&self, destination: IAudioNode);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioInputNode2: IAudioNode + super::super::Foundation::IClosable + IAudioInputNode {
+                #[special]
+                fn get_Emitter(&self) -> AudioNodeEmitter;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioNode: super::super::Foundation::IClosable {
+                #[special]
+                fn get_EffectDefinitions(&self) -> super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>;
+                #[special]
+                fn put_OutgoingGain(&self, value: f64);
+                #[special]
+                fn get_OutgoingGain(&self) -> f64;
+                #[special]
+                fn get_EncodingProperties(&self) -> super::MediaProperties::AudioEncodingProperties;
+                #[special]
+                fn get_ConsumeInput(&self) -> bool;
+                #[special]
+                fn put_ConsumeInput(&self, value: bool);
+                fn Start(&self);
+                fn Stop(&self);
+                fn Reset(&self);
+                fn DisableEffectsByDefinition(&self, definition: super::Effects::IAudioEffectDefinition);
+                fn EnableEffectsByDefinition(&self, definition: super::Effects::IAudioEffectDefinition);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioNodeEmitter {
+                #[special]
+                fn get_Position(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn put_Position(&self, value: super::super::Foundation::Numerics::Vector3);
+                #[special]
+                fn get_Direction(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn put_Direction(&self, value: super::super::Foundation::Numerics::Vector3);
+                #[special]
+                fn get_Shape(&self) -> AudioNodeEmitterShape;
+                #[special]
+                fn get_DecayModel(&self) -> AudioNodeEmitterDecayModel;
+                #[special]
+                fn get_Gain(&self) -> f64;
+                #[special]
+                fn put_Gain(&self, value: f64);
+                #[special]
+                fn get_DistanceScale(&self) -> f64;
+                #[special]
+                fn put_DistanceScale(&self, value: f64);
+                #[special]
+                fn get_DopplerScale(&self) -> f64;
+                #[special]
+                fn put_DopplerScale(&self, value: f64);
+                #[special]
+                fn get_DopplerVelocity(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn put_DopplerVelocity(&self, value: super::super::Foundation::Numerics::Vector3);
+                #[special]
+                fn get_IsDopplerDisabled(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioNodeEmitter2 {
+                #[special]
+                fn get_SpatialAudioModel(&self) -> SpatialAudioModel;
+                #[special]
+                fn put_SpatialAudioModel(&self, value: SpatialAudioModel);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterConeProperties)]
+            interface IAudioNodeEmitterConeProperties {
+                #[special]
+                fn get_InnerAngle(&self) -> f64;
+                #[special]
+                fn get_OuterAngle(&self) -> f64;
+                #[special]
+                fn get_OuterAngleGain(&self) -> f64;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterDecayModel)]
+            interface IAudioNodeEmitterDecayModel {
+                #[special]
+                fn get_Kind(&self) -> AudioNodeEmitterDecayKind;
+                #[special]
+                fn get_MinGain(&self) -> f64;
+                #[special]
+                fn get_MaxGain(&self) -> f64;
+                #[special]
+                fn get_NaturalProperties(&self) -> AudioNodeEmitterNaturalDecayModelProperties;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterDecayModel)]
+            interface IAudioNodeEmitterDecayModelStatics {
+                fn CreateNatural(&self, minGain: f64, maxGain: f64, unityGainDistance: f64, cutoffDistance: f64) -> AudioNodeEmitterDecayModel;
+                fn CreateCustom(&self, minGain: f64, maxGain: f64) -> AudioNodeEmitterDecayModel;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioNodeEmitterFactory {
+                fn CreateAudioNodeEmitter(&self, shape: AudioNodeEmitterShape, decayModel: AudioNodeEmitterDecayModel, settings: AudioNodeEmitterSettings) -> AudioNodeEmitter;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterNaturalDecayModelProperties)]
+            interface IAudioNodeEmitterNaturalDecayModelProperties {
+                #[special]
+                fn get_UnityGainDistance(&self) -> f64;
+                #[special]
+                fn get_CutoffDistance(&self) -> f64;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterShape)]
+            interface IAudioNodeEmitterShape {
+                #[special]
+                fn get_Kind(&self) -> AudioNodeEmitterShapeKind;
+                #[special]
+                fn get_ConeProperties(&self) -> AudioNodeEmitterConeProperties;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeEmitterShape)]
+            interface IAudioNodeEmitterShapeStatics {
+                fn CreateCone(&self, innerAngle: f64, outerAngle: f64, outerAngleGain: f64) -> AudioNodeEmitterShape;
+                fn CreateOmnidirectional(&self) -> AudioNodeEmitterShape;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioNodeListener)]
+            interface IAudioNodeListener {
+                #[special]
+                fn get_Position(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn put_Position(&self, value: super::super::Foundation::Numerics::Vector3);
+                #[special]
+                fn get_Orientation(&self) -> super::super::Foundation::Numerics::Quaternion;
+                #[special]
+                fn put_Orientation(&self, value: super::super::Foundation::Numerics::Quaternion);
+                #[special]
+                fn get_SpeedOfSound(&self) -> f64;
+                #[special]
+                fn put_SpeedOfSound(&self, value: f64);
+                #[special]
+                fn get_DopplerVelocity(&self) -> super::super::Foundation::Numerics::Vector3;
+                #[special]
+                fn put_DopplerVelocity(&self, value: super::super::Foundation::Numerics::Vector3);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAudioNodeWithListener: super::super::Foundation::IClosable + IAudioNode {
+                #[special]
+                fn put_Listener(&self, value: AudioNodeListener);
+                #[special]
+                fn get_Listener(&self) -> AudioNodeListener;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioPlaybackConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IAudioPlaybackConnection {
+                fn Start(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_DeviceId(&self) -> String;
+                #[special]
+                fn get_State(&self) -> AudioPlaybackConnectionState;
+                fn Open(&self) -> AudioPlaybackConnectionOpenResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn OpenAsync(&self) -> super::super::Foundation::IAsyncOperation<AudioPlaybackConnectionOpenResult>;
+                #[special]
+                fn add_StateChanged(&self, handler: super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_StateChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioPlaybackConnectionOpenResult)]
+            interface IAudioPlaybackConnectionOpenResult {
+                #[special]
+                fn get_Status(&self) -> AudioPlaybackConnectionOpenResultStatus;
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioPlaybackConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IAudioPlaybackConnectionStatics {
+                fn GetDeviceSelector(&self) -> String;
+                fn TryCreateFromId(&self, id: String) -> AudioPlaybackConnection;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStateMonitor)]
+            interface IAudioStateMonitor {
+                #[special]
+                fn add_SoundLevelChanged(&self, handler: super::super::Foundation::TypedEventHandler<AudioStateMonitor, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_SoundLevelChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                fn get_SoundLevel(&self) -> super::SoundLevel;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStateMonitor)]
+            interface IAudioStateMonitorStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoring")]
+                fn CreateForRenderMonitoring(&self) -> AudioStateMonitor;
+                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoringWithCategory")]
+                fn CreateForRenderMonitoring(&self, category: super::Render::AudioRenderCategory) -> AudioStateMonitor;
+                #[Windows::Foundation::Metadata::Overload("CreateForRenderMonitoringWithCategoryAndDeviceRole")]
+                fn CreateForRenderMonitoring(&self, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
+                fn CreateForRenderMonitoringWithCategoryAndDeviceId(&self, category: super::Render::AudioRenderCategory, deviceId: String) -> AudioStateMonitor;
+                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoring")]
+                fn CreateForCaptureMonitoring(&self) -> AudioStateMonitor;
+                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoringWithCategory")]
+                fn CreateForCaptureMonitoring(&self, category: super::Capture::MediaCategory) -> AudioStateMonitor;
+                #[Windows::Foundation::Metadata::Overload("CreateForCaptureMonitoringWithCategoryAndDeviceRole")]
+                fn CreateForCaptureMonitoring(&self, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole) -> AudioStateMonitor;
+                fn CreateForCaptureMonitoringWithCategoryAndDeviceId(&self, category: super::Capture::MediaCategory, deviceId: String) -> AudioStateMonitor;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioDeviceInputNodeResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICreateAudioDeviceInputNodeResult {
+                #[special]
+                fn get_Status(&self) -> AudioDeviceNodeCreationStatus;
+                #[special]
+                fn get_DeviceInputNode(&self) -> AudioDeviceInputNode;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioDeviceInputNodeResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ICreateAudioDeviceInputNodeResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioDeviceOutputNodeResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICreateAudioDeviceOutputNodeResult {
+                #[special]
+                fn get_Status(&self) -> AudioDeviceNodeCreationStatus;
+                #[special]
+                fn get_DeviceOutputNode(&self) -> AudioDeviceOutputNode;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioDeviceOutputNodeResult)]
+            interface ICreateAudioDeviceOutputNodeResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioFileInputNodeResult)]
+            interface ICreateAudioFileInputNodeResult {
+                #[special]
+                fn get_Status(&self) -> AudioFileNodeCreationStatus;
+                #[special]
+                fn get_FileInputNode(&self) -> AudioFileInputNode;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioFileInputNodeResult)]
+            interface ICreateAudioFileInputNodeResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioFileOutputNodeResult)]
+            interface ICreateAudioFileOutputNodeResult {
+                #[special]
+                fn get_Status(&self) -> AudioFileNodeCreationStatus;
+                #[special]
+                fn get_FileOutputNode(&self) -> AudioFileOutputNode;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioFileOutputNodeResult)]
+            interface ICreateAudioFileOutputNodeResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioGraphResult)]
+            interface ICreateAudioGraphResult {
+                #[special]
+                fn get_Status(&self) -> AudioGraphCreationStatus;
+                #[special]
+                fn get_Graph(&self) -> AudioGraph;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateAudioGraphResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ICreateAudioGraphResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateMediaSourceAudioInputNodeResult)]
+            interface ICreateMediaSourceAudioInputNodeResult {
+                #[special]
+                fn get_Status(&self) -> MediaSourceAudioInputNodeCreationStatus;
+                #[special]
+                fn get_Node(&self) -> MediaSourceAudioInputNode;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CreateMediaSourceAudioInputNodeResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ICreateMediaSourceAudioInputNodeResult2 {
+                #[special]
+                fn get_ExtendedError(&self) -> HRESULT;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EchoEffectDefinition)]
+            interface IEchoEffectDefinition: super::Effects::IAudioEffectDefinition {
+                #[special]
+                fn put_WetDryMix(&self, value: f64);
+                #[special]
+                fn get_WetDryMix(&self) -> f64;
+                #[special]
+                fn put_Feedback(&self, value: f64);
+                #[special]
+                fn get_Feedback(&self) -> f64;
+                #[special]
+                fn put_Delay(&self, value: f64);
+                #[special]
+                fn get_Delay(&self) -> f64;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EchoEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEchoEffectDefinitionFactory {
+                fn Create(&self, audioGraph: AudioGraph) -> EchoEffectDefinition;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EqualizerBand)]
+            interface IEqualizerBand {
+                #[special]
+                fn get_Bandwidth(&self) -> f64;
+                #[special]
+                fn put_Bandwidth(&self, value: f64);
+                #[special]
+                fn get_FrequencyCenter(&self) -> f64;
+                #[special]
+                fn put_FrequencyCenter(&self, value: f64);
+                #[special]
+                fn get_Gain(&self) -> f64;
+                #[special]
+                fn put_Gain(&self, value: f64);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EqualizerEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEqualizerEffectDefinition: super::Effects::IAudioEffectDefinition {
+                #[special]
+                fn get_Bands(&self) -> super::super::Foundation::Collections::IVectorView<EqualizerBand>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(EqualizerEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEqualizerEffectDefinitionFactory {
+                fn Create(&self, audioGraph: AudioGraph) -> EqualizerEffectDefinition;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FrameInputNodeQuantumStartedEventArgs)]
+            interface IFrameInputNodeQuantumStartedEventArgs {
+                #[special]
+                fn get_RequiredSamples(&self) -> i32;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(LimiterEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILimiterEffectDefinition: super::Effects::IAudioEffectDefinition {
+                #[special]
+                fn put_Release(&self, value: u32);
+                #[special]
+                fn get_Release(&self) -> u32;
+                #[special]
+                fn put_Loudness(&self, value: u32);
+                #[special]
+                fn get_Loudness(&self) -> u32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LimiterEffectDefinition)]
+            interface ILimiterEffectDefinitionFactory {
+                fn Create(&self, audioGraph: AudioGraph) -> LimiterEffectDefinition;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceAudioInputNode)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IMediaSourceAudioInputNode: IAudioInputNode + IAudioNode + super::super::Foundation::IClosable + IAudioInputNode2 {
+                #[special]
+                fn put_PlaybackSpeedFactor(&self, value: f64);
+                #[special]
+                fn get_PlaybackSpeedFactor(&self) -> f64;
+                #[special]
+                fn get_Position(&self) -> super::super::Foundation::TimeSpan;
+                fn Seek(&self, position: super::super::Foundation::TimeSpan);
+                #[special]
+                fn get_StartTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_StartTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_EndTime(&self) -> super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[special]
+                fn put_EndTime(&self, value: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
+                #[special]
+                fn get_LoopCount(&self) -> super::super::Foundation::IReference<i32>;
+                #[special]
+                fn put_LoopCount(&self, value: super::super::Foundation::IReference<i32>);
+                #[special]
+                fn get_Duration(&self) -> super::super::Foundation::TimeSpan;
+                #[special]
+                fn get_MediaSource(&self) -> super::Core::MediaSource;
+                #[special]
+                fn add_MediaSourceCompleted(&self, handler: super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_MediaSourceCompleted(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ReverbEffectDefinition)]
+            interface IReverbEffectDefinition: super::Effects::IAudioEffectDefinition {
+                #[special]
+                fn put_WetDryMix(&self, value: f64);
+                #[special]
+                fn get_WetDryMix(&self) -> f64;
+                #[special]
+                fn put_ReflectionsDelay(&self, value: u32);
+                #[special]
+                fn get_ReflectionsDelay(&self) -> u32;
+                #[special]
+                fn put_ReverbDelay(&self, value: u8);
+                #[special]
+                fn get_ReverbDelay(&self) -> u8;
+                #[special]
+                fn put_RearDelay(&self, value: u8);
+                #[special]
+                fn get_RearDelay(&self) -> u8;
+                #[special]
+                fn put_PositionLeft(&self, value: u8);
+                #[special]
+                fn get_PositionLeft(&self) -> u8;
+                #[special]
+                fn put_PositionRight(&self, value: u8);
+                #[special]
+                fn get_PositionRight(&self) -> u8;
+                #[special]
+                fn put_PositionMatrixLeft(&self, value: u8);
+                #[special]
+                fn get_PositionMatrixLeft(&self) -> u8;
+                #[special]
+                fn put_PositionMatrixRight(&self, value: u8);
+                #[special]
+                fn get_PositionMatrixRight(&self) -> u8;
+                #[special]
+                fn put_EarlyDiffusion(&self, value: u8);
+                #[special]
+                fn get_EarlyDiffusion(&self) -> u8;
+                #[special]
+                fn put_LateDiffusion(&self, value: u8);
+                #[special]
+                fn get_LateDiffusion(&self) -> u8;
+                #[special]
+                fn put_LowEQGain(&self, value: u8);
+                #[special]
+                fn get_LowEQGain(&self) -> u8;
+                #[special]
+                fn put_LowEQCutoff(&self, value: u8);
+                #[special]
+                fn get_LowEQCutoff(&self) -> u8;
+                #[special]
+                fn put_HighEQGain(&self, value: u8);
+                #[special]
+                fn get_HighEQGain(&self) -> u8;
+                #[special]
+                fn put_HighEQCutoff(&self, value: u8);
+                #[special]
+                fn get_HighEQCutoff(&self) -> u8;
+                #[special]
+                fn put_RoomFilterFreq(&self, value: f64);
+                #[special]
+                fn get_RoomFilterFreq(&self) -> f64;
+                #[special]
+                fn put_RoomFilterMain(&self, value: f64);
+                #[special]
+                fn get_RoomFilterMain(&self) -> f64;
+                #[special]
+                fn put_RoomFilterHF(&self, value: f64);
+                #[special]
+                fn get_RoomFilterHF(&self) -> f64;
+                #[special]
+                fn put_ReflectionsGain(&self, value: f64);
+                #[special]
+                fn get_ReflectionsGain(&self) -> f64;
+                #[special]
+                fn put_ReverbGain(&self, value: f64);
+                #[special]
+                fn get_ReverbGain(&self) -> f64;
+                #[special]
+                fn put_DecayTime(&self, value: f64);
+                #[special]
+                fn get_DecayTime(&self) -> f64;
+                #[special]
+                fn put_Density(&self, value: f64);
+                #[special]
+                fn get_Density(&self) -> f64;
+                #[special]
+                fn put_RoomSize(&self, value: f64);
+                #[special]
+                fn get_RoomSize(&self) -> f64;
+                #[special]
+                fn put_DisableLateField(&self, value: bool);
+                #[special]
+                fn get_DisableLateField(&self) -> bool;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ReverbEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IReverbEffectDefinitionFactory {
+                fn Create(&self, audioGraph: AudioGraph) -> ReverbEffectDefinition;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SetDefaultSpatialAudioFormatResult)]
+            interface ISetDefaultSpatialAudioFormatResult {
+                #[special]
+                fn get_Status(&self) -> SetDefaultSpatialAudioFormatStatus;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioDeviceConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAudioDeviceConfiguration {
+                #[special]
+                fn get_DeviceId(&self) -> String;
+                #[special]
+                fn get_IsSpatialAudioSupported(&self) -> bool;
+                fn IsSpatialAudioFormatSupported(&self, subtype: String) -> bool;
+                #[special]
+                fn get_ActiveSpatialAudioFormat(&self) -> String;
+                #[special]
+                fn get_DefaultSpatialAudioFormat(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetDefaultSpatialAudioFormatAsync(&self, subtype: String) -> super::super::Foundation::IAsyncOperation<SetDefaultSpatialAudioFormatResult>;
+                #[special]
+                fn add_ConfigurationChanged(&self, handler: super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, Object>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                fn remove_ConfigurationChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioDeviceConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAudioDeviceConfigurationStatics {
+                fn GetForDeviceId(&self, deviceId: String) -> SpatialAudioDeviceConfiguration;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioFormatConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAudioFormatConfiguration {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportLicenseChangedAsync(&self, subtype: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportConfigurationChangedAsync(&self, subtype: String) -> super::super::Foundation::IAsyncAction;
+                #[special]
+                fn get_MixedRealityExclusiveModePolicy(&self) -> MixedRealitySpatialAudioFormatPolicy;
+                #[special]
+                fn put_MixedRealityExclusiveModePolicy(&self, value: MixedRealitySpatialAudioFormatPolicy);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioFormatConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAudioFormatConfigurationStatics {
+                fn GetDefault(&self) -> SpatialAudioFormatConfiguration;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioFormatSubtype)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAudioFormatSubtypeStatics {
+                #[special]
+                fn get_WindowsSonic(&self) -> String;
+                #[special]
+                fn get_DolbyAtmosForHeadphones(&self) -> String;
+                #[special]
+                fn get_DolbyAtmosForHomeTheater(&self) -> String;
+                #[special]
+                fn get_DolbyAtmosForSpeakers(&self) -> String;
+                #[special]
+                fn get_DTSHeadphoneX(&self) -> String;
+                #[special]
+                fn get_DTSXUltra(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAudioFormatSubtype)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface ISpatialAudioFormatSubtypeStatics2 {
+                #[special]
+                fn get_DTSXForHomeTheater(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(ILimiterEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class LimiterEffectDefinition {
+                #[default]
+                ILimiterEffectDefinition,
+                super::Effects::IAudioEffectDefinition,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MediaSourceAudioInputNode {
+                #[default]
+                IMediaSourceAudioInputNode,
+                IAudioInputNode2,
+                IAudioInputNode,
+                IAudioNode,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum MediaSourceAudioInputNodeCreationStatus {
+                Success = 0,
+                FormatNotSupported = 1,
+                NetworkError = 2,
+                UnknownFailure = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum MixedRealitySpatialAudioFormatPolicy {
+                UseMixedRealityDefaultSpatialAudioFormat = 0,
+                UseDeviceConfigurationDefaultSpatialAudioFormat = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum QuantumSizeSelectionMode {
+                SystemDefault = 0,
+                LowestLatency = 1,
+                ClosestToDesired = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IReverbEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class ReverbEffectDefinition {
+                #[default]
+                IReverbEffectDefinition,
+                super::Effects::IAudioEffectDefinition,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SetDefaultSpatialAudioFormatResult {
+                #[default]
+                ISetDefaultSpatialAudioFormatResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum SetDefaultSpatialAudioFormatStatus {
+                Succeeded = 0,
+                AccessDenied = 1,
+                LicenseExpired = 2,
+                LicenseNotValidForAudioEndpoint = 3,
+                NotSupportedOnAudioEndpoint = 4,
+                UnknownError = 5,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAudioDeviceConfigurationStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SpatialAudioDeviceConfiguration {
+                #[default]
+                ISpatialAudioDeviceConfiguration,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatConfigurationStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class SpatialAudioFormatConfiguration {
+                #[default]
+                ISpatialAudioFormatConfiguration,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatSubtypeStatics2, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAudioFormatSubtypeStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            class SpatialAudioFormatSubtype {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum SpatialAudioModel {
+                ObjectBased = 0,
+                FoldDown = 1,
+            }
+        }
+    }
+}

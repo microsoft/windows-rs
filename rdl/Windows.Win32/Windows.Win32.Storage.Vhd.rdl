@@ -1,0 +1,782 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod Vhd {
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-apply_snapshot_vhdset_flag")]
+                enum APPLY_SNAPSHOT_VHDSET_FLAG {
+                    APPLY_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+                    APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-apply_snapshot_vhdset_parameters")]
+                struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+                    Version: APPLY_SNAPSHOT_VHDSET_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            SnapshotId: GUID,
+                            LeafSnapshotId: GUID,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-apply_snapshot_vhdset_version")]
+                enum APPLY_SNAPSHOT_VHDSET_VERSION {
+                    APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+                    APPLY_SNAPSHOT_VHDSET_VERSION_1 = 1,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-attach_virtual_disk_flag")]
+                enum ATTACH_VIRTUAL_DISK_FLAG {
+                    ATTACH_VIRTUAL_DISK_FLAG_NONE = 0,
+                    ATTACH_VIRTUAL_DISK_FLAG_READ_ONLY = 1,
+                    ATTACH_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER = 2,
+                    ATTACH_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME = 4,
+                    ATTACH_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST = 8,
+                    ATTACH_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR = 16,
+                    ATTACH_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY = 32,
+                    ATTACH_VIRTUAL_DISK_FLAG_NON_PNP = 64,
+                    ATTACH_VIRTUAL_DISK_FLAG_RESTRICTED_RANGE = 128,
+                    ATTACH_VIRTUAL_DISK_FLAG_SINGLE_PARTITION = 256,
+                    ATTACH_VIRTUAL_DISK_FLAG_REGISTER_VOLUME = 512,
+                    ATTACH_VIRTUAL_DISK_FLAG_AT_BOOT = 1024,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-attach_virtual_disk_parameters")]
+                struct ATTACH_VIRTUAL_DISK_PARAMETERS {
+                    Version: ATTACH_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            Reserved: u32,
+                        },
+                        Version2: struct {
+                            RestrictedOffset: u64,
+                            RestrictedLength: u64,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-attach_virtual_disk_version")]
+                enum ATTACH_VIRTUAL_DISK_VERSION {
+                    ATTACH_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    ATTACH_VIRTUAL_DISK_VERSION_1 = 1,
+                    ATTACH_VIRTUAL_DISK_VERSION_2 = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-addvirtualdiskparent")]
+                #[library("VirtDisk.dll")]
+                extern fn AddVirtualDiskParent(VirtualDiskHandle: super::super::Foundation::HANDLE, ParentPath: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-applysnapshotvhdset")]
+                #[library("VirtDisk.dll")]
+                extern fn ApplySnapshotVhdSet(VirtualDiskHandle: super::super::Foundation::HANDLE, Parameters: *mut APPLY_SNAPSHOT_VHDSET_PARAMETERS, Flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-attachvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn AttachVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, SecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR, Flags: ATTACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, Parameters: *mut ATTACH_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-breakmirrorvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn BreakMirrorVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-compact_virtual_disk_flag")]
+                enum COMPACT_VIRTUAL_DISK_FLAG {
+                    COMPACT_VIRTUAL_DISK_FLAG_NONE = 0,
+                    COMPACT_VIRTUAL_DISK_FLAG_NO_ZERO_SCAN = 1,
+                    COMPACT_VIRTUAL_DISK_FLAG_NO_BLOCK_MOVES = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-compact_virtual_disk_parameters")]
+                struct COMPACT_VIRTUAL_DISK_PARAMETERS {
+                    Version: COMPACT_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            Reserved: u32,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-compact_virtual_disk_version")]
+                enum COMPACT_VIRTUAL_DISK_VERSION {
+                    COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    COMPACT_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-create_virtual_disk_flag")]
+                enum CREATE_VIRTUAL_DISK_FLAG {
+                    CREATE_VIRTUAL_DISK_FLAG_NONE = 0,
+                    CREATE_VIRTUAL_DISK_FLAG_FULL_PHYSICAL_ALLOCATION = 1,
+                    CREATE_VIRTUAL_DISK_FLAG_PREVENT_WRITES_TO_SOURCE_DISK = 2,
+                    CREATE_VIRTUAL_DISK_FLAG_DO_NOT_COPY_METADATA_FROM_PARENT = 4,
+                    CREATE_VIRTUAL_DISK_FLAG_CREATE_BACKING_STORAGE = 8,
+                    CREATE_VIRTUAL_DISK_FLAG_USE_CHANGE_TRACKING_SOURCE_LIMIT = 16,
+                    CREATE_VIRTUAL_DISK_FLAG_PRESERVE_PARENT_CHANGE_TRACKING_STATE = 32,
+                    CREATE_VIRTUAL_DISK_FLAG_VHD_SET_USE_ORIGINAL_BACKING_STORAGE = 64,
+                    CREATE_VIRTUAL_DISK_FLAG_SPARSE_FILE = 128,
+                    CREATE_VIRTUAL_DISK_FLAG_PMEM_COMPATIBLE = 256,
+                    CREATE_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 512,
+                    CREATE_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS = 1024,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-create_virtual_disk_parameters")]
+                struct CREATE_VIRTUAL_DISK_PARAMETERS {
+                    Version: CREATE_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            UniqueId: GUID,
+                            MaximumSize: u64,
+                            BlockSizeInBytes: u32,
+                            SectorSizeInBytes: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentPath: super::super::Foundation::PWSTR,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourcePath: super::super::Foundation::PWSTR,
+                        },
+                        Version2: struct {
+                            UniqueId: GUID,
+                            MaximumSize: u64,
+                            BlockSizeInBytes: u32,
+                            SectorSizeInBytes: u32,
+                            PhysicalSectorSizeInBytes: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentPath: super::super::Foundation::PWSTR,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourcePath: super::super::Foundation::PWSTR,
+                            OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                            ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            ResiliencyGuid: GUID,
+                        },
+                        Version3: struct {
+                            UniqueId: GUID,
+                            MaximumSize: u64,
+                            BlockSizeInBytes: u32,
+                            SectorSizeInBytes: u32,
+                            PhysicalSectorSizeInBytes: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentPath: super::super::Foundation::PWSTR,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourcePath: super::super::Foundation::PWSTR,
+                            OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                            ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            ResiliencyGuid: GUID,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourceLimitPath: super::super::Foundation::PWSTR,
+                            BackingStorageType: VIRTUAL_STORAGE_TYPE,
+                        },
+                        Version4: struct {
+                            UniqueId: GUID,
+                            MaximumSize: u64,
+                            BlockSizeInBytes: u32,
+                            SectorSizeInBytes: u32,
+                            PhysicalSectorSizeInBytes: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentPath: super::super::Foundation::PWSTR,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourcePath: super::super::Foundation::PWSTR,
+                            OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+                            ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                            ResiliencyGuid: GUID,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SourceLimitPath: super::super::Foundation::PWSTR,
+                            BackingStorageType: VIRTUAL_STORAGE_TYPE,
+                            PmemAddressAbstractionType: GUID,
+                            DataAlignment: u64,
+                        },
+                    },
+                }
+                const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0;
+                const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-create_virtual_disk_version")]
+                enum CREATE_VIRTUAL_DISK_VERSION {
+                    CREATE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    CREATE_VIRTUAL_DISK_VERSION_1 = 1,
+                    CREATE_VIRTUAL_DISK_VERSION_2 = 2,
+                    CREATE_VIRTUAL_DISK_VERSION_3 = 3,
+                    CREATE_VIRTUAL_DISK_VERSION_4 = 4,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-compactvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn CompactVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: COMPACT_VIRTUAL_DISK_FLAG, Parameters: *mut COMPACT_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[library("VirtDisk.dll")]
+                extern fn CompleteForkVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-createvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn CreateVirtualDisk(VirtualStorageType: *mut VIRTUAL_STORAGE_TYPE, Path: super::super::Foundation::PWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, SecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR, Flags: CREATE_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32, Parameters: *mut CREATE_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED, Handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-delete_snapshot_vhdset_flag")]
+                enum DELETE_SNAPSHOT_VHDSET_FLAG {
+                    DELETE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+                    DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-delete_snapshot_vhdset_parameters")]
+                struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+                    Version: DELETE_SNAPSHOT_VHDSET_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            SnapshotId: GUID,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-delete_snapshot_vhdset_version")]
+                enum DELETE_SNAPSHOT_VHDSET_VERSION {
+                    DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+                    DELETE_SNAPSHOT_VHDSET_VERSION_1 = 1,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-dependent_disk_flag")]
+                enum DEPENDENT_DISK_FLAG {
+                    DEPENDENT_DISK_FLAG_NONE = 0,
+                    DEPENDENT_DISK_FLAG_MULT_BACKING_FILES = 1,
+                    DEPENDENT_DISK_FLAG_FULLY_ALLOCATED = 2,
+                    DEPENDENT_DISK_FLAG_READ_ONLY = 4,
+                    DEPENDENT_DISK_FLAG_REMOTE = 8,
+                    DEPENDENT_DISK_FLAG_SYSTEM_VOLUME = 16,
+                    DEPENDENT_DISK_FLAG_SYSTEM_VOLUME_PARENT = 32,
+                    DEPENDENT_DISK_FLAG_REMOVABLE = 64,
+                    DEPENDENT_DISK_FLAG_NO_DRIVE_LETTER = 128,
+                    DEPENDENT_DISK_FLAG_PARENT = 256,
+                    DEPENDENT_DISK_FLAG_NO_HOST_DISK = 512,
+                    DEPENDENT_DISK_FLAG_PERMANENT_LIFETIME = 1024,
+                    DEPENDENT_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 2048,
+                    DEPENDENT_DISK_FLAG_ALWAYS_ALLOW_SPARSE = 4096,
+                    DEPENDENT_DISK_FLAG_SUPPORT_ENCRYPTED_FILES = 8192,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-detach_virtual_disk_flag")]
+                enum DETACH_VIRTUAL_DISK_FLAG {
+                    DETACH_VIRTUAL_DISK_FLAG_NONE = 0,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-deletesnapshotvhdset")]
+                #[library("VirtDisk.dll")]
+                extern fn DeleteSnapshotVhdSet(VirtualDiskHandle: super::super::Foundation::HANDLE, Parameters: *mut DELETE_SNAPSHOT_VHDSET_PARAMETERS, Flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-deletevirtualdiskmetadata")]
+                #[library("VirtDisk.dll")]
+                extern fn DeleteVirtualDiskMetadata(VirtualDiskHandle: super::super::Foundation::HANDLE, Item: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-detachvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn DetachVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: DETACH_VIRTUAL_DISK_FLAG, ProviderSpecificFlags: u32) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-expand_virtual_disk_flag")]
+                enum EXPAND_VIRTUAL_DISK_FLAG {
+                    EXPAND_VIRTUAL_DISK_FLAG_NONE = 0,
+                    EXPAND_VIRTUAL_DISK_FLAG_NOTIFY_CHANGE = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-expand_virtual_disk_parameters")]
+                struct EXPAND_VIRTUAL_DISK_PARAMETERS {
+                    Version: EXPAND_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            NewSize: u64,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-expand_virtual_disk_version")]
+                enum EXPAND_VIRTUAL_DISK_VERSION {
+                    EXPAND_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    EXPAND_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-enumeratevirtualdiskmetadata")]
+                #[library("VirtDisk.dll")]
+                extern fn EnumerateVirtualDiskMetadata(VirtualDiskHandle: super::super::Foundation::HANDLE, NumberOfItems: *mut u32, Items: *mut GUID) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-expandvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn ExpandVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: EXPAND_VIRTUAL_DISK_FLAG, Parameters: *mut EXPAND_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                enum FORK_VIRTUAL_DISK_FLAG {
+                    FORK_VIRTUAL_DISK_FLAG_NONE = 0,
+                    FORK_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
+                }
+                struct FORK_VIRTUAL_DISK_PARAMETERS {
+                    Version: FORK_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ForkedVirtualDiskPath: super::super::Foundation::PWSTR,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                enum FORK_VIRTUAL_DISK_VERSION {
+                    FORK_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    FORK_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[library("VirtDisk.dll")]
+                extern fn ForkVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: FORK_VIRTUAL_DISK_FLAG, Parameters: *mut FORK_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-get_storage_dependency_flag")]
+                enum GET_STORAGE_DEPENDENCY_FLAG {
+                    GET_STORAGE_DEPENDENCY_FLAG_NONE = 0,
+                    GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES = 1,
+                    GET_STORAGE_DEPENDENCY_FLAG_DISK_HANDLE = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-get_virtual_disk_info")]
+                struct GET_VIRTUAL_DISK_INFO {
+                    Version: GET_VIRTUAL_DISK_INFO_VERSION,
+                    Anonymous: union {
+                        Size: struct {
+                            VirtualSize: u64,
+                            PhysicalSize: u64,
+                            BlockSize: u32,
+                            SectorSize: u32,
+                        },
+                        Identifier: GUID,
+                        ParentLocation: struct {
+                            ParentResolved: super::super::Foundation::BOOL,
+                            #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                            ParentLocationBuffer: [u16; 1],
+                        },
+                        ParentIdentifier: GUID,
+                        ParentTimestamp: u32,
+                        VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                        ProviderSubtype: u32,
+                        Is4kAligned: super::super::Foundation::BOOL,
+                        IsLoaded: super::super::Foundation::BOOL,
+                        PhysicalDisk: struct {
+                            LogicalSectorSize: u32,
+                            PhysicalSectorSize: u32,
+                            IsRemote: super::super::Foundation::BOOL,
+                        },
+                        VhdPhysicalSectorSize: u32,
+                        SmallestSafeVirtualSize: u64,
+                        FragmentationPercentage: u32,
+                        VirtualDiskId: GUID,
+                        ChangeTrackingState: struct {
+                            Enabled: super::super::Foundation::BOOL,
+                            NewerChanges: super::super::Foundation::BOOL,
+                            #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                            MostRecentId: [u16; 1],
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-get_virtual_disk_info_version")]
+                enum GET_VIRTUAL_DISK_INFO_VERSION {
+                    GET_VIRTUAL_DISK_INFO_UNSPECIFIED = 0,
+                    GET_VIRTUAL_DISK_INFO_SIZE = 1,
+                    GET_VIRTUAL_DISK_INFO_IDENTIFIER = 2,
+                    GET_VIRTUAL_DISK_INFO_PARENT_LOCATION = 3,
+                    GET_VIRTUAL_DISK_INFO_PARENT_IDENTIFIER = 4,
+                    GET_VIRTUAL_DISK_INFO_PARENT_TIMESTAMP = 5,
+                    GET_VIRTUAL_DISK_INFO_VIRTUAL_STORAGE_TYPE = 6,
+                    GET_VIRTUAL_DISK_INFO_PROVIDER_SUBTYPE = 7,
+                    GET_VIRTUAL_DISK_INFO_IS_4K_ALIGNED = 8,
+                    GET_VIRTUAL_DISK_INFO_PHYSICAL_DISK = 9,
+                    GET_VIRTUAL_DISK_INFO_VHD_PHYSICAL_SECTOR_SIZE = 10,
+                    GET_VIRTUAL_DISK_INFO_SMALLEST_SAFE_VIRTUAL_SIZE = 11,
+                    GET_VIRTUAL_DISK_INFO_FRAGMENTATION = 12,
+                    GET_VIRTUAL_DISK_INFO_IS_LOADED = 13,
+                    GET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID = 14,
+                    GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 15,
+                }
+                #[library("VirtDisk.dll")]
+                extern fn GetAllAttachedVirtualDiskPhysicalPaths(PathsBufferSizeInBytes: *mut u32, PathsBuffer: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-getstoragedependencyinformation")]
+                #[library("VirtDisk.dll")]
+                extern fn GetStorageDependencyInformation(ObjectHandle: super::super::Foundation::HANDLE, Flags: GET_STORAGE_DEPENDENCY_FLAG, StorageDependencyInfoSize: u32, StorageDependencyInfo: *mut STORAGE_DEPENDENCY_INFO, SizeUsed: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-getvirtualdiskinformation")]
+                #[library("VirtDisk.dll")]
+                extern fn GetVirtualDiskInformation(VirtualDiskHandle: super::super::Foundation::HANDLE, VirtualDiskInfoSize: *mut u32, VirtualDiskInfo: *mut GET_VIRTUAL_DISK_INFO, SizeUsed: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-getvirtualdiskmetadata")]
+                #[library("VirtDisk.dll")]
+                extern fn GetVirtualDiskMetadata(VirtualDiskHandle: super::super::Foundation::HANDLE, Item: *mut GUID, MetaDataSize: *mut u32, MetaData: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-getvirtualdiskoperationprogress")]
+                #[library("VirtDisk.dll")]
+                extern fn GetVirtualDiskOperationProgress(VirtualDiskHandle: super::super::Foundation::HANDLE, Overlapped: *mut super::super::System::IO::OVERLAPPED, Progress: *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-getvirtualdiskphysicalpath")]
+                #[library("VirtDisk.dll")]
+                extern fn GetVirtualDiskPhysicalPath(VirtualDiskHandle: super::super::Foundation::HANDLE, DiskPathSizeInBytes: *mut u32, DiskPath: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
+                const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-merge_virtual_disk_flag")]
+                enum MERGE_VIRTUAL_DISK_FLAG {
+                    MERGE_VIRTUAL_DISK_FLAG_NONE = 0,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-merge_virtual_disk_parameters")]
+                struct MERGE_VIRTUAL_DISK_PARAMETERS {
+                    Version: MERGE_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            MergeDepth: u32,
+                        },
+                        Version2: struct {
+                            MergeSourceDepth: u32,
+                            MergeTargetDepth: u32,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-merge_virtual_disk_version")]
+                enum MERGE_VIRTUAL_DISK_VERSION {
+                    MERGE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    MERGE_VIRTUAL_DISK_VERSION_1 = 1,
+                    MERGE_VIRTUAL_DISK_VERSION_2 = 2,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-mirror_virtual_disk_flag")]
+                enum MIRROR_VIRTUAL_DISK_FLAG {
+                    MIRROR_VIRTUAL_DISK_FLAG_NONE = 0,
+                    MIRROR_VIRTUAL_DISK_FLAG_EXISTING_FILE = 1,
+                    MIRROR_VIRTUAL_DISK_FLAG_SKIP_MIRROR_ACTIVATION = 2,
+                    MIRROR_VIRTUAL_DISK_FLAG_ENABLE_SMB_COMPRESSION = 4,
+                    MIRROR_VIRTUAL_DISK_FLAG_IS_LIVE_MIGRATION = 8,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-mirror_virtual_disk_parameters")]
+                struct MIRROR_VIRTUAL_DISK_PARAMETERS {
+                    Version: MIRROR_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            MirrorVirtualDiskPath: super::super::Foundation::PWSTR,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-mirror_virtual_disk_version")]
+                enum MIRROR_VIRTUAL_DISK_VERSION {
+                    MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    MIRROR_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-modify_vhdset_flag")]
+                enum MODIFY_VHDSET_FLAG {
+                    MODIFY_VHDSET_FLAG_NONE = 0,
+                    MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-modify_vhdset_parameters")]
+                struct MODIFY_VHDSET_PARAMETERS {
+                    Version: MODIFY_VHDSET_VERSION,
+                    Anonymous: union {
+                        SnapshotPath: struct {
+                            SnapshotId: GUID,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            SnapshotFilePath: super::super::Foundation::PWSTR,
+                        },
+                        SnapshotId: GUID,
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        DefaultFilePath: super::super::Foundation::PWSTR,
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-modify_vhdset_version")]
+                enum MODIFY_VHDSET_VERSION {
+                    MODIFY_VHDSET_UNSPECIFIED = 0,
+                    MODIFY_VHDSET_SNAPSHOT_PATH = 1,
+                    MODIFY_VHDSET_REMOVE_SNAPSHOT = 2,
+                    MODIFY_VHDSET_DEFAULT_SNAPSHOT_PATH = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-mergevirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn MergeVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: MERGE_VIRTUAL_DISK_FLAG, Parameters: *mut MERGE_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-mirrorvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn MirrorVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: MIRROR_VIRTUAL_DISK_FLAG, Parameters: *mut MIRROR_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-modifyvhdset")]
+                #[library("VirtDisk.dll")]
+                extern fn ModifyVhdSet(VirtualDiskHandle: super::super::Foundation::HANDLE, Parameters: *mut MODIFY_VHDSET_PARAMETERS, Flags: MODIFY_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-open_virtual_disk_flag")]
+                enum OPEN_VIRTUAL_DISK_FLAG {
+                    OPEN_VIRTUAL_DISK_FLAG_NONE = 0,
+                    OPEN_VIRTUAL_DISK_FLAG_NO_PARENTS = 1,
+                    OPEN_VIRTUAL_DISK_FLAG_BLANK_FILE = 2,
+                    OPEN_VIRTUAL_DISK_FLAG_BOOT_DRIVE = 4,
+                    OPEN_VIRTUAL_DISK_FLAG_CACHED_IO = 8,
+                    OPEN_VIRTUAL_DISK_FLAG_CUSTOM_DIFF_CHAIN = 16,
+                    OPEN_VIRTUAL_DISK_FLAG_PARENT_CACHED_IO = 32,
+                    OPEN_VIRTUAL_DISK_FLAG_VHDSET_FILE_ONLY = 64,
+                    OPEN_VIRTUAL_DISK_FLAG_IGNORE_RELATIVE_PARENT_LOCATOR = 128,
+                    OPEN_VIRTUAL_DISK_FLAG_NO_WRITE_HARDENING = 256,
+                    OPEN_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES = 512,
+                    OPEN_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS = 1024,
+                    OPEN_VIRTUAL_DISK_FLAG_SUPPORT_ENCRYPTED_FILES = 2048,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-open_virtual_disk_parameters")]
+                struct OPEN_VIRTUAL_DISK_PARAMETERS {
+                    Version: OPEN_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            RWDepth: u32,
+                        },
+                        Version2: struct {
+                            GetInfoOnly: super::super::Foundation::BOOL,
+                            ReadOnly: super::super::Foundation::BOOL,
+                            ResiliencyGuid: GUID,
+                        },
+                        Version3: struct {
+                            GetInfoOnly: super::super::Foundation::BOOL,
+                            ReadOnly: super::super::Foundation::BOOL,
+                            ResiliencyGuid: GUID,
+                            SnapshotId: GUID,
+                        },
+                    },
+                }
+                const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1;
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-open_virtual_disk_version")]
+                enum OPEN_VIRTUAL_DISK_VERSION {
+                    OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    OPEN_VIRTUAL_DISK_VERSION_1 = 1,
+                    OPEN_VIRTUAL_DISK_VERSION_2 = 2,
+                    OPEN_VIRTUAL_DISK_VERSION_3 = 3,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-openvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn OpenVirtualDisk(VirtualStorageType: *mut VIRTUAL_STORAGE_TYPE, Path: super::super::Foundation::PWSTR, VirtualDiskAccessMask: VIRTUAL_DISK_ACCESS_MASK, Flags: OPEN_VIRTUAL_DISK_FLAG, Parameters: *mut OPEN_VIRTUAL_DISK_PARAMETERS, Handle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                enum QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+                    QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE = 0,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-query_changes_virtual_disk_range")]
+                struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+                    ByteOffset: u64,
+                    ByteLength: u64,
+                    Reserved: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-querychangesvirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn QueryChangesVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, ChangeTrackingId: super::super::Foundation::PWSTR, ByteOffset: u64, ByteLength: u64, Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, Ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, RangeCount: *mut u32, ProcessedLength: *mut u64) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-raw_scsi_virtual_disk_flag")]
+                enum RAW_SCSI_VIRTUAL_DISK_FLAG {
+                    RAW_SCSI_VIRTUAL_DISK_FLAG_NONE = 0,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-raw_scsi_virtual_disk_parameters")]
+                struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+                    Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            RSVDHandle: super::super::Foundation::BOOL,
+                            DataIn: u8,
+                            CdbLength: u8,
+                            SenseInfoLength: u8,
+                            SrbFlags: u32,
+                            DataTransferLength: u32,
+                            DataBuffer: *mut void,
+                            SenseInfo: *mut u8,
+                            Cdb: *mut u8,
+                        },
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-raw_scsi_virtual_disk_response")]
+                struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+                    Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            ScsiStatus: u8,
+                            SenseInfoLength: u8,
+                            DataTransferLength: u32,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-raw_scsi_virtual_disk_version")]
+                enum RAW_SCSI_VIRTUAL_DISK_VERSION {
+                    RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    RAW_SCSI_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-resize_virtual_disk_flag")]
+                enum RESIZE_VIRTUAL_DISK_FLAG {
+                    RESIZE_VIRTUAL_DISK_FLAG_NONE = 0,
+                    RESIZE_VIRTUAL_DISK_FLAG_ALLOW_UNSAFE_VIRTUAL_SIZE = 1,
+                    RESIZE_VIRTUAL_DISK_FLAG_RESIZE_TO_SMALLEST_SAFE_VIRTUAL_SIZE = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-resize_virtual_disk_parameters")]
+                struct RESIZE_VIRTUAL_DISK_PARAMETERS {
+                    Version: RESIZE_VIRTUAL_DISK_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            NewSize: u64,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-resize_virtual_disk_version")]
+                enum RESIZE_VIRTUAL_DISK_VERSION {
+                    RESIZE_VIRTUAL_DISK_VERSION_UNSPECIFIED = 0,
+                    RESIZE_VIRTUAL_DISK_VERSION_1 = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-rawscsivirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn RawSCSIVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Parameters: *mut RAW_SCSI_VIRTUAL_DISK_PARAMETERS, Flags: RAW_SCSI_VIRTUAL_DISK_FLAG, Response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-resizevirtualdisk")]
+                #[library("VirtDisk.dll")]
+                extern fn ResizeVirtualDisk(VirtualDiskHandle: super::super::Foundation::HANDLE, Flags: RESIZE_VIRTUAL_DISK_FLAG, Parameters: *mut RESIZE_VIRTUAL_DISK_PARAMETERS, Overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-set_virtual_disk_info")]
+                struct SET_VIRTUAL_DISK_INFO {
+                    Version: SET_VIRTUAL_DISK_INFO_VERSION,
+                    Anonymous: union {
+                        #[Windows::Win32::Foundation::Metadata::Const]
+                        ParentFilePath: super::super::Foundation::PWSTR,
+                        UniqueIdentifier: GUID,
+                        ParentPathWithDepthInfo: struct {
+                            ChildDepth: u32,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentFilePath: super::super::Foundation::PWSTR,
+                        },
+                        VhdPhysicalSectorSize: u32,
+                        VirtualDiskId: GUID,
+                        ChangeTrackingEnabled: super::super::Foundation::BOOL,
+                        ParentLocator: struct {
+                            LinkageId: GUID,
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            ParentFilePath: super::super::Foundation::PWSTR,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-set_virtual_disk_info_version")]
+                enum SET_VIRTUAL_DISK_INFO_VERSION {
+                    SET_VIRTUAL_DISK_INFO_UNSPECIFIED = 0,
+                    SET_VIRTUAL_DISK_INFO_PARENT_PATH = 1,
+                    SET_VIRTUAL_DISK_INFO_IDENTIFIER = 2,
+                    SET_VIRTUAL_DISK_INFO_PARENT_PATH_WITH_DEPTH = 3,
+                    SET_VIRTUAL_DISK_INFO_PHYSICAL_SECTOR_SIZE = 4,
+                    SET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID = 5,
+                    SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE = 6,
+                    SET_VIRTUAL_DISK_INFO_PARENT_LOCATOR = 7,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-storage_dependency_info")]
+                struct STORAGE_DEPENDENCY_INFO {
+                    Version: STORAGE_DEPENDENCY_INFO_VERSION,
+                    NumberEntries: u32,
+                    Anonymous: union {
+                        Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
+                        Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
+                    },
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-storage_dependency_info_type_1")]
+                struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
+                    DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+                    ProviderSpecificFlags: u32,
+                    VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-storage_dependency_info_type_2")]
+                struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
+                    DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+                    ProviderSpecificFlags: u32,
+                    VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+                    AncestorLevel: u32,
+                    DependencyDeviceName: super::super::Foundation::PWSTR,
+                    HostVolumeName: super::super::Foundation::PWSTR,
+                    DependentVolumeName: super::super::Foundation::PWSTR,
+                    DependentVolumeRelativePath: super::super::Foundation::PWSTR,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-storage_dependency_info_version")]
+                enum STORAGE_DEPENDENCY_INFO_VERSION {
+                    STORAGE_DEPENDENCY_INFO_VERSION_UNSPECIFIED = 0,
+                    STORAGE_DEPENDENCY_INFO_VERSION_1 = 1,
+                    STORAGE_DEPENDENCY_INFO_VERSION_2 = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-setvirtualdiskinformation")]
+                #[library("VirtDisk.dll")]
+                extern fn SetVirtualDiskInformation(VirtualDiskHandle: super::super::Foundation::HANDLE, VirtualDiskInfo: *mut SET_VIRTUAL_DISK_INFO) -> super::super::Foundation::WIN32_ERROR;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows8.0")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-setvirtualdiskmetadata")]
+                #[library("VirtDisk.dll")]
+                extern fn SetVirtualDiskMetadata(VirtualDiskHandle: super::super::Foundation::HANDLE, Item: *mut GUID, MetaDataSize: u32, MetaData: *mut void) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-take_snapshot_vhdset_flag")]
+                enum TAKE_SNAPSHOT_VHDSET_FLAG {
+                    TAKE_SNAPSHOT_VHDSET_FLAG_NONE = 0,
+                    TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-take_snapshot_vhdset_parameters")]
+                struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+                    Version: TAKE_SNAPSHOT_VHDSET_VERSION,
+                    Anonymous: union {
+                        Version1: struct {
+                            SnapshotId: GUID,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-take_snapshot_vhdset_version")]
+                enum TAKE_SNAPSHOT_VHDSET_VERSION {
+                    TAKE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED = 0,
+                    TAKE_SNAPSHOT_VHDSET_VERSION_1 = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.10240")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/nf-virtdisk-takesnapshotvhdset")]
+                #[library("VirtDisk.dll")]
+                extern fn TakeSnapshotVhdSet(VirtualDiskHandle: super::super::Foundation::HANDLE, Parameters: *mut TAKE_SNAPSHOT_VHDSET_PARAMETERS, Flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation::WIN32_ERROR;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ne-virtdisk-virtual_disk_access_mask~r1")]
+                enum VIRTUAL_DISK_ACCESS_MASK {
+                    VIRTUAL_DISK_ACCESS_NONE = 0,
+                    VIRTUAL_DISK_ACCESS_ATTACH_RO = 65536,
+                    VIRTUAL_DISK_ACCESS_ATTACH_RW = 131072,
+                    VIRTUAL_DISK_ACCESS_DETACH = 262144,
+                    VIRTUAL_DISK_ACCESS_GET_INFO = 524288,
+                    VIRTUAL_DISK_ACCESS_CREATE = 1048576,
+                    VIRTUAL_DISK_ACCESS_METAOPS = 2097152,
+                    VIRTUAL_DISK_ACCESS_READ = 851968,
+                    VIRTUAL_DISK_ACCESS_ALL = 4128768,
+                    VIRTUAL_DISK_ACCESS_WRITABLE = 3276800,
+                }
+                const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-virtual_disk_progress")]
+                struct VIRTUAL_DISK_PROGRESS {
+                    OperationStatus: u32,
+                    CurrentValue: u64,
+                    CompletionValue: u64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/virtdisk/ns-virtdisk-virtual_storage_type")]
+                struct VIRTUAL_STORAGE_TYPE {
+                    DeviceId: u32,
+                    VendorId: GUID,
+                }
+                const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1;
+                const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0;
+                const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2;
+                const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4;
+                const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3;
+                const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: GUID = 0xec984aec_a0f9_47e9_901f_71415a66345b;
+                const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: GUID = 0x00000000_0000_0000_0000_000000000000;
+            }
+        }
+    }
+}

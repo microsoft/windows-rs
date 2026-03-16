@@ -1,0 +1,318 @@
+mod Windows {
+    mod Win32 {
+        mod Storage {
+            #[win32]
+            mod ProjectedFileSystem {
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_callbacks")]
+                struct PRJ_CALLBACKS {
+                    StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
+                    EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
+                    GetDirectoryEnumerationCallback: PRJ_GET_DIRECTORY_ENUMERATION_CB,
+                    GetPlaceholderInfoCallback: PRJ_GET_PLACEHOLDER_INFO_CB,
+                    GetFileDataCallback: PRJ_GET_FILE_DATA_CB,
+                    QueryFileNameCallback: PRJ_QUERY_FILE_NAME_CB,
+                    NotificationCallback: PRJ_NOTIFICATION_CB,
+                    CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_callback_data")]
+                struct PRJ_CALLBACK_DATA {
+                    Size: u32,
+                    Flags: PRJ_CALLBACK_DATA_FLAGS,
+                    NamespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT,
+                    CommandId: i32,
+                    FileId: GUID,
+                    DataStreamId: GUID,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    FilePathName: super::super::Foundation::PWSTR,
+                    VersionInfo: *mut PRJ_PLACEHOLDER_VERSION_INFO,
+                    TriggeringProcessId: u32,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    TriggeringProcessImageFileName: super::super::Foundation::PWSTR,
+                    InstanceContext: *mut void,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_callback_data_flags")]
+                enum PRJ_CALLBACK_DATA_FLAGS {
+                    PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN = 1,
+                    PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY = 2,
+                }
+                extern fn PRJ_CANCEL_COMMAND_CB(callbackData: *mut PRJ_CALLBACK_DATA);
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_complete_command_extended_parameters")]
+                struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+                    CommandType: PRJ_COMPLETE_COMMAND_TYPE,
+                    Anonymous: union {
+                        Notification: struct {
+                            NotificationMask: PRJ_NOTIFY_TYPES,
+                        },
+                        Enumeration: struct {
+                            DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_complete_command_type")]
+                enum PRJ_COMPLETE_COMMAND_TYPE {
+                    PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION = 1,
+                    PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION = 2,
+                }
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct PRJ_DIR_ENTRY_BUFFER_HANDLE {
+                    Value: *mut void,
+                }
+                extern fn PRJ_END_DIRECTORY_ENUMERATION_CB(callbackData: *mut PRJ_CALLBACK_DATA, enumerationId: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_extended_info")]
+                struct PRJ_EXTENDED_INFO {
+                    InfoType: PRJ_EXT_INFO_TYPE,
+                    NextInfoOffset: u32,
+                    Anonymous: union {
+                        Symlink: struct {
+                            #[Windows::Win32::Foundation::Metadata::Const]
+                            TargetName: super::super::Foundation::PWSTR,
+                        },
+                    },
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_ext_info_type")]
+                enum PRJ_EXT_INFO_TYPE {
+                    PRJ_EXT_INFO_TYPE_SYMLINK = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_file_basic_info")]
+                struct PRJ_FILE_BASIC_INFO {
+                    IsDirectory: super::super::Foundation::BOOLEAN,
+                    FileSize: i64,
+                    CreationTime: i64,
+                    LastAccessTime: i64,
+                    LastWriteTime: i64,
+                    ChangeTime: i64,
+                    FileAttributes: u32,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_file_state")]
+                enum PRJ_FILE_STATE {
+                    PRJ_FILE_STATE_PLACEHOLDER = 1,
+                    PRJ_FILE_STATE_HYDRATED_PLACEHOLDER = 2,
+                    PRJ_FILE_STATE_DIRTY_PLACEHOLDER = 4,
+                    PRJ_FILE_STATE_FULL = 8,
+                    PRJ_FILE_STATE_TOMBSTONE = 16,
+                }
+                extern fn PRJ_GET_DIRECTORY_ENUMERATION_CB(callbackData: *mut PRJ_CALLBACK_DATA, enumerationId: *mut GUID, searchExpression: super::super::Foundation::PWSTR, dirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> super::super::Foundation::HRESULT;
+                extern fn PRJ_GET_FILE_DATA_CB(callbackData: *mut PRJ_CALLBACK_DATA, byteOffset: u64, length: u32) -> super::super::Foundation::HRESULT;
+                extern fn PRJ_GET_PLACEHOLDER_INFO_CB(callbackData: *mut PRJ_CALLBACK_DATA) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(- 1)]
+                #[Windows::Win32::Foundation::Metadata::InvalidHandleValue(0)]
+                #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+                    Value: *mut void,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_notification")]
+                enum PRJ_NOTIFICATION {
+                    PRJ_NOTIFICATION_FILE_OPENED = 2,
+                    PRJ_NOTIFICATION_NEW_FILE_CREATED = 4,
+                    PRJ_NOTIFICATION_FILE_OVERWRITTEN = 8,
+                    PRJ_NOTIFICATION_PRE_DELETE = 16,
+                    PRJ_NOTIFICATION_PRE_RENAME = 32,
+                    PRJ_NOTIFICATION_PRE_SET_HARDLINK = 64,
+                    PRJ_NOTIFICATION_FILE_RENAMED = 128,
+                    PRJ_NOTIFICATION_HARDLINK_CREATED = 256,
+                    PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION = 512,
+                    PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED = 1024,
+                    PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED = 2048,
+                    PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL = 4096,
+                }
+                extern fn PRJ_NOTIFICATION_CB(callbackData: *mut PRJ_CALLBACK_DATA, isDirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationFileName: super::super::Foundation::PWSTR, operationParameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_notification_mapping")]
+                struct PRJ_NOTIFICATION_MAPPING {
+                    NotificationBitMask: PRJ_NOTIFY_TYPES,
+                    #[Windows::Win32::Foundation::Metadata::Const]
+                    NotificationRoot: super::super::Foundation::PWSTR,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_notification_parameters")]
+                union PRJ_NOTIFICATION_PARAMETERS {
+                    PostCreate: struct {
+                        NotificationMask: PRJ_NOTIFY_TYPES,
+                    },
+                    FileRenamed: struct {
+                        NotificationMask: PRJ_NOTIFY_TYPES,
+                    },
+                    FileDeletedOnHandleClose: struct {
+                        IsFileModified: super::super::Foundation::BOOLEAN,
+                    },
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_notify_types")]
+                enum PRJ_NOTIFY_TYPES {
+                    PRJ_NOTIFY_NONE = 0,
+                    PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS = 1,
+                    PRJ_NOTIFY_FILE_OPENED = 2,
+                    PRJ_NOTIFY_NEW_FILE_CREATED = 4,
+                    PRJ_NOTIFY_FILE_OVERWRITTEN = 8,
+                    PRJ_NOTIFY_PRE_DELETE = 16,
+                    PRJ_NOTIFY_PRE_RENAME = 32,
+                    PRJ_NOTIFY_PRE_SET_HARDLINK = 64,
+                    PRJ_NOTIFY_FILE_RENAMED = 128,
+                    PRJ_NOTIFY_HARDLINK_CREATED = 256,
+                    PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION = 512,
+                    PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED = 1024,
+                    PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED = 2048,
+                    PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL = 4096,
+                    PRJ_NOTIFY_USE_EXISTING_MASK = 4294967295,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_placeholder_id")]
+                enum PRJ_PLACEHOLDER_ID {
+                    PRJ_PLACEHOLDER_ID_LENGTH = 128,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_placeholder_info")]
+                struct PRJ_PLACEHOLDER_INFO {
+                    FileBasicInfo: PRJ_FILE_BASIC_INFO,
+                    EaInformation: struct {
+                        EaBufferSize: u32,
+                        OffsetToFirstEa: u32,
+                    },
+                    SecurityInformation: struct {
+                        SecurityBufferSize: u32,
+                        OffsetToSecurityDescriptor: u32,
+                    },
+                    StreamsInformation: struct {
+                        StreamsInfoBufferSize: u32,
+                        OffsetToFirstStreamInfo: u32,
+                    },
+                    VersionInfo: PRJ_PLACEHOLDER_VERSION_INFO,
+                    #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                    VariableData: [u8; 1],
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_placeholder_version_info")]
+                struct PRJ_PLACEHOLDER_VERSION_INFO {
+                    ProviderID: [u8; 128],
+                    ContentID: [u8; 128],
+                }
+                extern fn PRJ_QUERY_FILE_NAME_CB(callbackData: *mut PRJ_CALLBACK_DATA) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_startvirtualizing_flags")]
+                enum PRJ_STARTVIRTUALIZING_FLAGS {
+                    PRJ_FLAG_NONE = 0,
+                    PRJ_FLAG_USE_NEGATIVE_PATH_CACHE = 1,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_startvirtualizing_options")]
+                struct PRJ_STARTVIRTUALIZING_OPTIONS {
+                    Flags: PRJ_STARTVIRTUALIZING_FLAGS,
+                    PoolThreadCount: u32,
+                    ConcurrentThreadCount: u32,
+                    NotificationMappings: *mut PRJ_NOTIFICATION_MAPPING,
+                    NotificationMappingsCount: u32,
+                }
+                extern fn PRJ_START_DIRECTORY_ENUMERATION_CB(callbackData: *mut PRJ_CALLBACK_DATA, enumerationId: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_update_failure_causes")]
+                enum PRJ_UPDATE_FAILURE_CAUSES {
+                    PRJ_UPDATE_FAILURE_CAUSE_NONE = 0,
+                    PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA = 1,
+                    PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA = 2,
+                    PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE = 4,
+                    PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY = 8,
+                }
+                #[repr(i32)]
+                #[flags]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ne-projectedfslib-prj_update_types")]
+                enum PRJ_UPDATE_TYPES {
+                    PRJ_UPDATE_NONE = 0,
+                    PRJ_UPDATE_ALLOW_DIRTY_METADATA = 1,
+                    PRJ_UPDATE_ALLOW_DIRTY_DATA = 2,
+                    PRJ_UPDATE_ALLOW_TOMBSTONE = 4,
+                    PRJ_UPDATE_RESERVED1 = 8,
+                    PRJ_UPDATE_RESERVED2 = 16,
+                    PRJ_UPDATE_ALLOW_READ_ONLY = 32,
+                    PRJ_UPDATE_MAX_VAL = 64,
+                }
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/ns-projectedfslib-prj_virtualization_instance_info")]
+                struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
+                    InstanceID: GUID,
+                    WriteAlignment: u32,
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjallocatealignedbuffer")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjAllocateAlignedBuffer(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut void;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjclearnegativepathcache")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjClearNegativePathCache(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalEntryNumber: *mut u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjcompletecommand")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjCompleteCommand(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandId: i32, completionResult: super::super::Foundation::HRESULT, extendedParameters: *mut PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjdeletefile")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjDeleteFile(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationFileName: super::super::Foundation::PWSTR, updateFlags: PRJ_UPDATE_TYPES, failureReason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjdoesnamecontainwildcards")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjDoesNameContainWildCards(fileName: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjfilenamecompare")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjFileNameCompare(fileName1: super::super::Foundation::PWSTR, fileName2: super::super::Foundation::PWSTR) -> i32;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjfilenamematch")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjFileNameMatch(fileNameToCheck: super::super::Foundation::PWSTR, pattern: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOLEAN;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjfilldirentrybuffer")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjFillDirEntryBuffer(fileName: super::super::Foundation::PWSTR, fileBasicInfo: *mut PRJ_FILE_BASIC_INFO, dirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.19041")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjfilldirentrybuffer2")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjFillDirEntryBuffer2(dirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, fileName: super::super::Foundation::PWSTR, fileBasicInfo: *mut PRJ_FILE_BASIC_INFO, extendedInfo: *mut PRJ_EXTENDED_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjfreealignedbuffer")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjFreeAlignedBuffer(buffer: *mut void);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjgetondiskfilestate")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjGetOnDiskFileState(destinationFileName: super::super::Foundation::PWSTR, fileState: *mut PRJ_FILE_STATE) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjgetvirtualizationinstanceinfo")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjGetVirtualizationInstanceInfo(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationInstanceInfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjmarkdirectoryasplaceholder")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjMarkDirectoryAsPlaceholder(rootPathName: super::super::Foundation::PWSTR, targetPathName: super::super::Foundation::PWSTR, versionInfo: *mut PRJ_PLACEHOLDER_VERSION_INFO, virtualizationInstanceID: *mut GUID) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjstartvirtualizing")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjStartVirtualizing(virtualizationRootPath: super::super::Foundation::PWSTR, callbacks: *mut PRJ_CALLBACKS, instanceContext: *mut void, options: *mut PRJ_STARTVIRTUALIZING_OPTIONS, namespaceVirtualizationContext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjstopvirtualizing")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjStopVirtualizing(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT);
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjupdatefileifneeded")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjUpdateFileIfNeeded(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationFileName: super::super::Foundation::PWSTR, placeholderInfo: *mut PRJ_PLACEHOLDER_INFO, placeholderInfoSize: u32, updateFlags: PRJ_UPDATE_TYPES, failureReason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjwritefiledata")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjWriteFileData(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, dataStreamId: *mut GUID, buffer: *mut void, byteOffset: u64, length: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.17763")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjwriteplaceholderinfo")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjWritePlaceholderInfo(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationFileName: super::super::Foundation::PWSTR, placeholderInfo: *mut PRJ_PLACEHOLDER_INFO, placeholderInfoSize: u32) -> super::super::Foundation::HRESULT;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows10.0.19041")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/projectedfslib/nf-projectedfslib-prjwriteplaceholderinfo2")]
+                #[library("PROJECTEDFSLIB.dll")]
+                extern fn PrjWritePlaceholderInfo2(namespaceVirtualizationContext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationFileName: super::super::Foundation::PWSTR, placeholderInfo: *mut PRJ_PLACEHOLDER_INFO, placeholderInfoSize: u32, ExtendedInfo: *mut PRJ_EXTENDED_INFO) -> super::super::Foundation::HRESULT;
+            }
+        }
+    }
+}

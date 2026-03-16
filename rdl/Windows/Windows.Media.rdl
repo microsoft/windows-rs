@@ -1,0 +1,825 @@
+mod Windows {
+    #[winrt]
+    mod Media {
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::GCPressure(amount = Low)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class AudioBuffer {
+            #[default]
+            IAudioBuffer,
+            super::Foundation::IMemoryBuffer,
+            super::Foundation::IClosable,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum AudioBufferAccessMode {
+            Read = 0,
+            ReadWrite = 1,
+            Write = 2,
+        }
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Activatable(IAudioFrameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class AudioFrame {
+            #[default]
+            IAudioFrame,
+            IMediaFrame,
+            super::Foundation::IClosable,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum AudioProcessing {
+            Default = 0,
+            Raw = 1,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
+        class AutoRepeatModeChangeRequestedEventArgs {
+            #[default]
+            IAutoRepeatModeChangeRequestedEventArgs,
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(AudioBuffer)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IAudioBuffer: super::Foundation::IMemoryBuffer + super::Foundation::IClosable {
+            #[special]
+            fn get_Capacity(&self) -> u32;
+            #[special]
+            fn get_Length(&self) -> u32;
+            #[special]
+            fn put_Length(&self, value: u32);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrame)]
+        interface IAudioFrame: IMediaFrame + super::Foundation::IClosable {
+            fn LockBuffer(&self, mode: AudioBufferAccessMode) -> AudioBuffer;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AudioFrame)]
+        interface IAudioFrameFactory {
+            fn Create(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] capacity: u32) -> AudioFrame;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AutoRepeatModeChangeRequestedEventArgs)]
+        interface IAutoRepeatModeChangeRequestedEventArgs {
+            #[special]
+            fn get_RequestedAutoRepeatMode(&self) -> MediaPlaybackAutoRepeatMode;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(ImageDisplayProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IImageDisplayProperties {
+            #[special]
+            fn get_Title(&self) -> String;
+            #[special]
+            fn put_Title(&self, value: String);
+            #[special]
+            fn get_Subtitle(&self) -> String;
+            #[special]
+            fn put_Subtitle(&self, value: String);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaControl)]
+        #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(MediaControlContract, 65536)]
+        interface IMediaControl {
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_SoundLevelChanged(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_SoundLevelChanged(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_PlayPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_PlayPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_PausePressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_PausePressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_StopPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_StopPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_PlayPauseTogglePressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_PlayPauseTogglePressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_RecordPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_RecordPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_NextTrackPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_NextTrackPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_PreviousTrackPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_PreviousTrackPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_FastForwardPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_FastForwardPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_RewindPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_RewindPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_ChannelUpPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_ChannelUpPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn add_ChannelDownPressed(&self, handler: super::Foundation::EventHandler<Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn remove_ChannelDownPressed(&self, cookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn get_SoundLevel(&self) -> SoundLevel;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn put_TrackName(&self, value: String);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn get_TrackName(&self) -> String;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn put_ArtistName(&self, value: String);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn get_ArtistName(&self) -> String;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn put_IsPlaying(&self, value: bool);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn get_IsPlaying(&self) -> bool;
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn put_AlbumArt(&self, value: super::Foundation::Uri);
+            #[special]
+            #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+            fn get_AlbumArt(&self) -> super::Foundation::Uri;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaExtension {
+            fn SetProperties(&self, configuration: super::Foundation::Collections::IPropertySet);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaExtensionManager)]
+        interface IMediaExtensionManager {
+            #[Windows::Foundation::Metadata::Overload("RegisterSchemeHandler")]
+            fn RegisterSchemeHandler(&self, activatableClassId: String, scheme: String);
+            #[Windows::Foundation::Metadata::Overload("RegisterSchemeHandlerWithSettings")]
+            fn RegisterSchemeHandler(&self, activatableClassId: String, scheme: String, configuration: super::Foundation::Collections::IPropertySet);
+            #[Windows::Foundation::Metadata::Overload("RegisterByteStreamHandler")]
+            fn RegisterByteStreamHandler(&self, activatableClassId: String, fileExtension: String, mimeType: String);
+            #[Windows::Foundation::Metadata::Overload("RegisterByteStreamHandlerWithSettings")]
+            fn RegisterByteStreamHandler(&self, activatableClassId: String, fileExtension: String, mimeType: String, configuration: super::Foundation::Collections::IPropertySet);
+            #[Windows::Foundation::Metadata::Overload("RegisterAudioDecoder")]
+            fn RegisterAudioDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            #[Windows::Foundation::Metadata::Overload("RegisterAudioDecoderWithSettings")]
+            fn RegisterAudioDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            #[Windows::Foundation::Metadata::Overload("RegisterAudioEncoder")]
+            fn RegisterAudioEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            #[Windows::Foundation::Metadata::Overload("RegisterAudioEncoderWithSettings")]
+            fn RegisterAudioEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            #[Windows::Foundation::Metadata::Overload("RegisterVideoDecoder")]
+            fn RegisterVideoDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            #[Windows::Foundation::Metadata::Overload("RegisterVideoDecoderWithSettings")]
+            fn RegisterVideoDecoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+            #[Windows::Foundation::Metadata::Overload("RegisterVideoEncoder")]
+            fn RegisterVideoEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID);
+            #[Windows::Foundation::Metadata::Overload("RegisterVideoEncoderWithSettings")]
+            fn RegisterVideoEncoder(&self, activatableClassId: String, inputSubtype: GUID, outputSubtype: GUID, configuration: super::Foundation::Collections::IPropertySet);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaExtensionManager)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        interface IMediaExtensionManager2: IMediaExtensionManager {
+            fn RegisterMediaExtensionForAppService(&self, extension: IMediaExtension, connection: super::ApplicationModel::AppService::AppServiceConnection);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaFrame: super::Foundation::IClosable {
+            #[special]
+            fn get_Type(&self) -> String;
+            #[special]
+            fn get_IsReadOnly(&self) -> bool;
+            #[special]
+            fn put_RelativeTime(&self, value: super::Foundation::IReference<super::Foundation::TimeSpan>);
+            #[special]
+            fn get_RelativeTime(&self) -> super::Foundation::IReference<super::Foundation::TimeSpan>;
+            #[special]
+            fn put_SystemRelativeTime(&self, value: super::Foundation::IReference<super::Foundation::TimeSpan>);
+            #[special]
+            fn get_SystemRelativeTime(&self) -> super::Foundation::IReference<super::Foundation::TimeSpan>;
+            #[special]
+            fn put_Duration(&self, value: super::Foundation::IReference<super::Foundation::TimeSpan>);
+            #[special]
+            fn get_Duration(&self) -> super::Foundation::IReference<super::Foundation::TimeSpan>;
+            #[special]
+            fn put_IsDiscontinuous(&self, value: bool);
+            #[special]
+            fn get_IsDiscontinuous(&self) -> bool;
+            #[special]
+            fn get_ExtendedProperties(&self) -> super::Foundation::Collections::IPropertySet;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaMarker {
+            #[special]
+            fn get_Time(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn get_MediaMarkerType(&self) -> String;
+            #[special]
+            fn get_Text(&self) -> String;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaMarkerTypes)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaMarkerTypesStatics {
+            #[special]
+            fn get_Bookmark(&self) -> String;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaMarkers {
+            #[special]
+            fn get_Markers(&self) -> super::Foundation::Collections::IVectorView<IMediaMarker>;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaProcessingTriggerDetails)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMediaProcessingTriggerDetails {
+            #[special]
+            fn get_Arguments(&self) -> super::Foundation::Collections::ValueSet;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
+        interface IMediaTimelineController {
+            fn Start(&self);
+            fn Resume(&self);
+            fn Pause(&self);
+            #[special]
+            fn get_Position(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_Position(&self, value: super::Foundation::TimeSpan);
+            #[special]
+            fn get_ClockRate(&self) -> f64;
+            #[special]
+            fn put_ClockRate(&self, value: f64);
+            #[special]
+            fn get_State(&self) -> MediaTimelineControllerState;
+            #[special]
+            fn add_PositionChanged(&self, positionChangedEventHandler: super::Foundation::TypedEventHandler<MediaTimelineController, Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_PositionChanged(&self, eventCookie: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_StateChanged(&self, stateChangedEventHandler: super::Foundation::TypedEventHandler<MediaTimelineController, Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_StateChanged(&self, eventCookie: super::Foundation::EventRegistrationToken);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        interface IMediaTimelineController2 {
+            #[special]
+            fn get_Duration(&self) -> super::Foundation::IReference<super::Foundation::TimeSpan>;
+            #[special]
+            fn put_Duration(&self, value: super::Foundation::IReference<super::Foundation::TimeSpan>);
+            #[special]
+            fn get_IsLoopingEnabled(&self) -> bool;
+            #[special]
+            fn put_IsLoopingEnabled(&self, value: bool);
+            #[special]
+            fn add_Failed(&self, eventHandler: super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_Failed(&self, token: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_Ended(&self, eventHandler: super::Foundation::TypedEventHandler<MediaTimelineController, Object>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_Ended(&self, token: super::Foundation::EventRegistrationToken);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineControllerFailedEventArgs)]
+        interface IMediaTimelineControllerFailedEventArgs {
+            #[special]
+            fn get_ExtendedError(&self) -> HRESULT;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MusicDisplayProperties)]
+        interface IMusicDisplayProperties {
+            #[special]
+            fn get_Title(&self) -> String;
+            #[special]
+            fn put_Title(&self, value: String);
+            #[special]
+            fn get_AlbumArtist(&self) -> String;
+            #[special]
+            fn put_AlbumArtist(&self, value: String);
+            #[special]
+            fn get_Artist(&self) -> String;
+            #[special]
+            fn put_Artist(&self, value: String);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MusicDisplayProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IMusicDisplayProperties2 {
+            #[special]
+            fn get_AlbumTitle(&self) -> String;
+            #[special]
+            fn put_AlbumTitle(&self, value: String);
+            #[special]
+            fn get_TrackNumber(&self) -> u32;
+            #[special]
+            fn put_TrackNumber(&self, value: u32);
+            #[special]
+            fn get_Genres(&self) -> super::Foundation::Collections::IVector<String>;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(MusicDisplayProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        interface IMusicDisplayProperties3 {
+            #[special]
+            fn get_AlbumTrackCount(&self) -> u32;
+            #[special]
+            fn put_AlbumTrackCount(&self, value: u32);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackPositionChangeRequestedEventArgs)]
+        interface IPlaybackPositionChangeRequestedEventArgs {
+            #[special]
+            fn get_RequestedPlaybackPosition(&self) -> super::Foundation::TimeSpan;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackRateChangeRequestedEventArgs)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IPlaybackRateChangeRequestedEventArgs {
+            #[special]
+            fn get_RequestedPlaybackRate(&self) -> f64;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ShuffleEnabledChangeRequestedEventArgs)]
+        interface IShuffleEnabledChangeRequestedEventArgs {
+            #[special]
+            fn get_RequestedShuffleEnabled(&self) -> bool;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControls)]
+        interface ISystemMediaTransportControls {
+            #[special]
+            fn get_PlaybackStatus(&self) -> MediaPlaybackStatus;
+            #[special]
+            fn put_PlaybackStatus(&self, value: MediaPlaybackStatus);
+            #[special]
+            fn get_DisplayUpdater(&self) -> SystemMediaTransportControlsDisplayUpdater;
+            #[special]
+            fn get_SoundLevel(&self) -> SoundLevel;
+            #[special]
+            fn get_IsEnabled(&self) -> bool;
+            #[special]
+            fn put_IsEnabled(&self, value: bool);
+            #[special]
+            fn get_IsPlayEnabled(&self) -> bool;
+            #[special]
+            fn put_IsPlayEnabled(&self, value: bool);
+            #[special]
+            fn get_IsStopEnabled(&self) -> bool;
+            #[special]
+            fn put_IsStopEnabled(&self, value: bool);
+            #[special]
+            fn get_IsPauseEnabled(&self) -> bool;
+            #[special]
+            fn put_IsPauseEnabled(&self, value: bool);
+            #[special]
+            fn get_IsRecordEnabled(&self) -> bool;
+            #[special]
+            fn put_IsRecordEnabled(&self, value: bool);
+            #[special]
+            fn get_IsFastForwardEnabled(&self) -> bool;
+            #[special]
+            fn put_IsFastForwardEnabled(&self, value: bool);
+            #[special]
+            fn get_IsRewindEnabled(&self) -> bool;
+            #[special]
+            fn put_IsRewindEnabled(&self, value: bool);
+            #[special]
+            fn get_IsPreviousEnabled(&self) -> bool;
+            #[special]
+            fn put_IsPreviousEnabled(&self, value: bool);
+            #[special]
+            fn get_IsNextEnabled(&self) -> bool;
+            #[special]
+            fn put_IsNextEnabled(&self, value: bool);
+            #[special]
+            fn get_IsChannelUpEnabled(&self) -> bool;
+            #[special]
+            fn put_IsChannelUpEnabled(&self, value: bool);
+            #[special]
+            fn get_IsChannelDownEnabled(&self) -> bool;
+            #[special]
+            fn put_IsChannelDownEnabled(&self, value: bool);
+            #[special]
+            fn add_ButtonPressed(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_ButtonPressed(&self, token: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_PropertyChanged(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_PropertyChanged(&self, token: super::Foundation::EventRegistrationToken);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControls)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemMediaTransportControls2 {
+            #[special]
+            fn get_AutoRepeatMode(&self) -> MediaPlaybackAutoRepeatMode;
+            #[special]
+            fn put_AutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode);
+            #[special]
+            fn get_ShuffleEnabled(&self) -> bool;
+            #[special]
+            fn put_ShuffleEnabled(&self, value: bool);
+            #[special]
+            fn get_PlaybackRate(&self) -> f64;
+            #[special]
+            fn put_PlaybackRate(&self, value: f64);
+            fn UpdateTimelineProperties(&self, timelineProperties: SystemMediaTransportControlsTimelineProperties);
+            #[special]
+            fn add_PlaybackPositionChangeRequested(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_PlaybackPositionChangeRequested(&self, token: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_PlaybackRateChangeRequested(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_PlaybackRateChangeRequested(&self, token: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_ShuffleEnabledChangeRequested(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_ShuffleEnabledChangeRequested(&self, token: super::Foundation::EventRegistrationToken);
+            #[special]
+            fn add_AutoRepeatModeChangeRequested(&self, handler: super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>) -> super::Foundation::EventRegistrationToken;
+            #[special]
+            fn remove_AutoRepeatModeChangeRequested(&self, token: super::Foundation::EventRegistrationToken);
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsButtonPressedEventArgs)]
+        interface ISystemMediaTransportControlsButtonPressedEventArgs {
+            #[special]
+            fn get_Button(&self) -> SystemMediaTransportControlsButton;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsDisplayUpdater)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemMediaTransportControlsDisplayUpdater {
+            #[special]
+            fn get_Type(&self) -> MediaPlaybackType;
+            #[special]
+            fn put_Type(&self, value: MediaPlaybackType);
+            #[special]
+            fn get_AppMediaId(&self) -> String;
+            #[special]
+            fn put_AppMediaId(&self, value: String);
+            #[special]
+            fn get_Thumbnail(&self) -> super::Storage::Streams::RandomAccessStreamReference;
+            #[special]
+            fn put_Thumbnail(&self, value: super::Storage::Streams::RandomAccessStreamReference);
+            #[special]
+            fn get_MusicProperties(&self) -> MusicDisplayProperties;
+            #[special]
+            fn get_VideoProperties(&self) -> VideoDisplayProperties;
+            #[special]
+            fn get_ImageProperties(&self) -> ImageDisplayProperties;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CopyFromFileAsync(&self, r#type: MediaPlaybackType, source: super::Storage::StorageFile) -> super::Foundation::IAsyncOperation<bool>;
+            fn ClearAll(&self);
+            fn Update(&self);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsPropertyChangedEventArgs)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemMediaTransportControlsPropertyChangedEventArgs {
+            #[special]
+            fn get_Property(&self) -> SystemMediaTransportControlsProperty;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControls)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemMediaTransportControlsStatics {
+            fn GetForCurrentView(&self) -> SystemMediaTransportControls;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsTimelineProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemMediaTransportControlsTimelineProperties {
+            #[special]
+            fn get_StartTime(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_StartTime(&self, value: super::Foundation::TimeSpan);
+            #[special]
+            fn get_EndTime(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_EndTime(&self, value: super::Foundation::TimeSpan);
+            #[special]
+            fn get_MinSeekTime(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_MinSeekTime(&self, value: super::Foundation::TimeSpan);
+            #[special]
+            fn get_MaxSeekTime(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_MaxSeekTime(&self, value: super::Foundation::TimeSpan);
+            #[special]
+            fn get_Position(&self) -> super::Foundation::TimeSpan;
+            #[special]
+            fn put_Position(&self, value: super::Foundation::TimeSpan);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoDisplayProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IVideoDisplayProperties {
+            #[special]
+            fn get_Title(&self) -> String;
+            #[special]
+            fn put_Title(&self, value: String);
+            #[special]
+            fn get_Subtitle(&self) -> String;
+            #[special]
+            fn put_Subtitle(&self, value: String);
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoDisplayProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IVideoDisplayProperties2 {
+            #[special]
+            fn get_Genres(&self) -> super::Foundation::Collections::IVector<String>;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoEffects)]
+        interface IVideoEffectsStatics {
+            #[special]
+            fn get_VideoStabilization(&self) -> String;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IVideoFrame: IMediaFrame + super::Foundation::IClosable {
+            #[special]
+            fn get_SoftwareBitmap(&self) -> super::Graphics::Imaging::SoftwareBitmap;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CopyToAsync(&self, frame: VideoFrame) -> super::Foundation::IAsyncAction;
+            #[special]
+            fn get_Direct3DSurface(&self) -> super::Graphics::DirectX::Direct3D11::IDirect3DSurface;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        interface IVideoFrame2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CopyToWithBoundsAsync")]
+            fn CopyToAsync(&self, frame: VideoFrame, sourceBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>, destinationBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>) -> super::Foundation::IAsyncAction;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
+        interface IVideoFrameFactory {
+            fn Create(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> VideoFrame;
+            fn CreateWithAlpha(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> VideoFrame;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        interface IVideoFrameStatics {
+            #[Windows::Foundation::Metadata::Overload("CreateAsDirect3D11SurfaceBacked")]
+            fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> VideoFrame;
+            #[Windows::Foundation::Metadata::Overload("CreateAsDirect3D11SurfaceBackedWithDevice")]
+            fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> VideoFrame;
+            fn CreateWithSoftwareBitmap(&self, bitmap: super::Graphics::Imaging::SoftwareBitmap) -> VideoFrame;
+            fn CreateWithDirect3D11Surface(&self, surface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> VideoFrame;
+        }
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class ImageDisplayProperties {
+            #[default]
+            IImageDisplayProperties,
+        }
+        #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(MediaControlContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IMediaControl, 65536, "Windows.Media.MediaControlContract")]
+        #[Windows::Foundation::Metadata::Threading(MTA)]
+        class MediaControl {}
+        #[Windows::Foundation::Metadata::ContractVersion(65536)]
+        #[Windows::Foundation::Metadata::ApiContract]
+        struct MediaControlContract {}
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class MediaExtensionManager {
+            #[default]
+            IMediaExtensionManager,
+            IMediaExtensionManager2,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IMediaMarkerTypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        class MediaMarkerTypes {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum MediaPlaybackAutoRepeatMode {
+            None = 0,
+            Track = 1,
+            List = 2,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum MediaPlaybackStatus {
+            Closed = 0,
+            Changing = 1,
+            Stopped = 2,
+            Playing = 3,
+            Paused = 4,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum MediaPlaybackType {
+            Unknown = 0,
+            Music = 1,
+            Video = 2,
+            Image = 3,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class MediaProcessingTriggerDetails {
+            #[default]
+            IMediaProcessingTriggerDetails,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        struct MediaTimeRange {
+            Start: super::Foundation::TimeSpan,
+            End: super::Foundation::TimeSpan,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        class MediaTimelineController {
+            #[default]
+            IMediaTimelineController,
+            IMediaTimelineController2,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class MediaTimelineControllerFailedEventArgs {
+            #[default]
+            IMediaTimelineControllerFailedEventArgs,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        enum MediaTimelineControllerState {
+            Paused = 0,
+            Running = 1,
+            Stalled = 2,
+            Error = 3,
+        }
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class MusicDisplayProperties {
+            #[default]
+            IMusicDisplayProperties,
+            IMusicDisplayProperties2,
+            IMusicDisplayProperties3,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
+        class PlaybackPositionChangeRequestedEventArgs {
+            #[default]
+            IPlaybackPositionChangeRequestedEventArgs,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
+        class PlaybackRateChangeRequestedEventArgs {
+            #[default]
+            IPlaybackRateChangeRequestedEventArgs,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class ShuffleEnabledChangeRequestedEventArgs {
+            #[default]
+            IShuffleEnabledChangeRequestedEventArgs,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum SoundLevel {
+            Muted = 0,
+            Low = 1,
+            Full = 2,
+        }
+        #[Windows::Foundation::Metadata::Static(ISystemMediaTransportControlsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(MTA)]
+        class SystemMediaTransportControls {
+            #[default]
+            ISystemMediaTransportControls,
+            ISystemMediaTransportControls2,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum SystemMediaTransportControlsButton {
+            Play = 0,
+            Pause = 1,
+            Stop = 2,
+            Record = 3,
+            FastForward = 4,
+            Rewind = 5,
+            Next = 6,
+            Previous = 7,
+            ChannelUp = 8,
+            ChannelDown = 9,
+        }
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class SystemMediaTransportControlsButtonPressedEventArgs {
+            #[default]
+            ISystemMediaTransportControlsButtonPressedEventArgs,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemMediaTransportControlsDisplayUpdater {
+            #[default]
+            ISystemMediaTransportControlsDisplayUpdater,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum SystemMediaTransportControlsProperty {
+            SoundLevel = 0,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        class SystemMediaTransportControlsPropertyChangedEventArgs {
+            #[default]
+            ISystemMediaTransportControlsPropertyChangedEventArgs,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class SystemMediaTransportControlsTimelineProperties {
+            #[default]
+            ISystemMediaTransportControlsTimelineProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class VideoDisplayProperties {
+            #[default]
+            IVideoDisplayProperties,
+            IVideoDisplayProperties2,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IVideoEffectsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class VideoEffects {}
+        #[Windows::Foundation::Metadata::Static(IVideoFrameStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Activatable(IVideoFrameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class VideoFrame {
+            #[default]
+            IVideoFrame,
+            IMediaFrame,
+            super::Foundation::IClosable,
+            IVideoFrame2,
+        }
+    }
+}

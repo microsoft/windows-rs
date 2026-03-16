@@ -1,0 +1,363 @@
+mod Windows {
+    #[winrt]
+    mod UI {
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        struct Color {
+            A: u8,
+            R: u8,
+            G: u8,
+            B: u8,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class ColorHelper {
+            #[default]
+            IColorHelper,
+        }
+        #[Windows::Foundation::Metadata::Static(IColorsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class Colors {
+            #[default]
+            IColors,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        interface IColorHelper {}
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        interface IColorHelperStatics {
+            fn FromArgb(&self, a: u8, r: u8, g: u8, b: u8) -> Color;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        interface IColorHelperStatics2 {
+            fn ToDisplayName(&self, color: Color) -> String;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
+        interface IColors {}
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
+        interface IColorsStatics {
+            #[special]
+            fn get_AliceBlue(&self) -> Color;
+            #[special]
+            fn get_AntiqueWhite(&self) -> Color;
+            #[special]
+            fn get_Aqua(&self) -> Color;
+            #[special]
+            fn get_Aquamarine(&self) -> Color;
+            #[special]
+            fn get_Azure(&self) -> Color;
+            #[special]
+            fn get_Beige(&self) -> Color;
+            #[special]
+            fn get_Bisque(&self) -> Color;
+            #[special]
+            fn get_Black(&self) -> Color;
+            #[special]
+            fn get_BlanchedAlmond(&self) -> Color;
+            #[special]
+            fn get_Blue(&self) -> Color;
+            #[special]
+            fn get_BlueViolet(&self) -> Color;
+            #[special]
+            fn get_Brown(&self) -> Color;
+            #[special]
+            fn get_BurlyWood(&self) -> Color;
+            #[special]
+            fn get_CadetBlue(&self) -> Color;
+            #[special]
+            fn get_Chartreuse(&self) -> Color;
+            #[special]
+            fn get_Chocolate(&self) -> Color;
+            #[special]
+            fn get_Coral(&self) -> Color;
+            #[special]
+            fn get_CornflowerBlue(&self) -> Color;
+            #[special]
+            fn get_Cornsilk(&self) -> Color;
+            #[special]
+            fn get_Crimson(&self) -> Color;
+            #[special]
+            fn get_Cyan(&self) -> Color;
+            #[special]
+            fn get_DarkBlue(&self) -> Color;
+            #[special]
+            fn get_DarkCyan(&self) -> Color;
+            #[special]
+            fn get_DarkGoldenrod(&self) -> Color;
+            #[special]
+            fn get_DarkGray(&self) -> Color;
+            #[special]
+            fn get_DarkGreen(&self) -> Color;
+            #[special]
+            fn get_DarkKhaki(&self) -> Color;
+            #[special]
+            fn get_DarkMagenta(&self) -> Color;
+            #[special]
+            fn get_DarkOliveGreen(&self) -> Color;
+            #[special]
+            fn get_DarkOrange(&self) -> Color;
+            #[special]
+            fn get_DarkOrchid(&self) -> Color;
+            #[special]
+            fn get_DarkRed(&self) -> Color;
+            #[special]
+            fn get_DarkSalmon(&self) -> Color;
+            #[special]
+            fn get_DarkSeaGreen(&self) -> Color;
+            #[special]
+            fn get_DarkSlateBlue(&self) -> Color;
+            #[special]
+            fn get_DarkSlateGray(&self) -> Color;
+            #[special]
+            fn get_DarkTurquoise(&self) -> Color;
+            #[special]
+            fn get_DarkViolet(&self) -> Color;
+            #[special]
+            fn get_DeepPink(&self) -> Color;
+            #[special]
+            fn get_DeepSkyBlue(&self) -> Color;
+            #[special]
+            fn get_DimGray(&self) -> Color;
+            #[special]
+            fn get_DodgerBlue(&self) -> Color;
+            #[special]
+            fn get_Firebrick(&self) -> Color;
+            #[special]
+            fn get_FloralWhite(&self) -> Color;
+            #[special]
+            fn get_ForestGreen(&self) -> Color;
+            #[special]
+            fn get_Fuchsia(&self) -> Color;
+            #[special]
+            fn get_Gainsboro(&self) -> Color;
+            #[special]
+            fn get_GhostWhite(&self) -> Color;
+            #[special]
+            fn get_Gold(&self) -> Color;
+            #[special]
+            fn get_Goldenrod(&self) -> Color;
+            #[special]
+            fn get_Gray(&self) -> Color;
+            #[special]
+            fn get_Green(&self) -> Color;
+            #[special]
+            fn get_GreenYellow(&self) -> Color;
+            #[special]
+            fn get_Honeydew(&self) -> Color;
+            #[special]
+            fn get_HotPink(&self) -> Color;
+            #[special]
+            fn get_IndianRed(&self) -> Color;
+            #[special]
+            fn get_Indigo(&self) -> Color;
+            #[special]
+            fn get_Ivory(&self) -> Color;
+            #[special]
+            fn get_Khaki(&self) -> Color;
+            #[special]
+            fn get_Lavender(&self) -> Color;
+            #[special]
+            fn get_LavenderBlush(&self) -> Color;
+            #[special]
+            fn get_LawnGreen(&self) -> Color;
+            #[special]
+            fn get_LemonChiffon(&self) -> Color;
+            #[special]
+            fn get_LightBlue(&self) -> Color;
+            #[special]
+            fn get_LightCoral(&self) -> Color;
+            #[special]
+            fn get_LightCyan(&self) -> Color;
+            #[special]
+            fn get_LightGoldenrodYellow(&self) -> Color;
+            #[special]
+            fn get_LightGreen(&self) -> Color;
+            #[special]
+            fn get_LightGray(&self) -> Color;
+            #[special]
+            fn get_LightPink(&self) -> Color;
+            #[special]
+            fn get_LightSalmon(&self) -> Color;
+            #[special]
+            fn get_LightSeaGreen(&self) -> Color;
+            #[special]
+            fn get_LightSkyBlue(&self) -> Color;
+            #[special]
+            fn get_LightSlateGray(&self) -> Color;
+            #[special]
+            fn get_LightSteelBlue(&self) -> Color;
+            #[special]
+            fn get_LightYellow(&self) -> Color;
+            #[special]
+            fn get_Lime(&self) -> Color;
+            #[special]
+            fn get_LimeGreen(&self) -> Color;
+            #[special]
+            fn get_Linen(&self) -> Color;
+            #[special]
+            fn get_Magenta(&self) -> Color;
+            #[special]
+            fn get_Maroon(&self) -> Color;
+            #[special]
+            fn get_MediumAquamarine(&self) -> Color;
+            #[special]
+            fn get_MediumBlue(&self) -> Color;
+            #[special]
+            fn get_MediumOrchid(&self) -> Color;
+            #[special]
+            fn get_MediumPurple(&self) -> Color;
+            #[special]
+            fn get_MediumSeaGreen(&self) -> Color;
+            #[special]
+            fn get_MediumSlateBlue(&self) -> Color;
+            #[special]
+            fn get_MediumSpringGreen(&self) -> Color;
+            #[special]
+            fn get_MediumTurquoise(&self) -> Color;
+            #[special]
+            fn get_MediumVioletRed(&self) -> Color;
+            #[special]
+            fn get_MidnightBlue(&self) -> Color;
+            #[special]
+            fn get_MintCream(&self) -> Color;
+            #[special]
+            fn get_MistyRose(&self) -> Color;
+            #[special]
+            fn get_Moccasin(&self) -> Color;
+            #[special]
+            fn get_NavajoWhite(&self) -> Color;
+            #[special]
+            fn get_Navy(&self) -> Color;
+            #[special]
+            fn get_OldLace(&self) -> Color;
+            #[special]
+            fn get_Olive(&self) -> Color;
+            #[special]
+            fn get_OliveDrab(&self) -> Color;
+            #[special]
+            fn get_Orange(&self) -> Color;
+            #[special]
+            fn get_OrangeRed(&self) -> Color;
+            #[special]
+            fn get_Orchid(&self) -> Color;
+            #[special]
+            fn get_PaleGoldenrod(&self) -> Color;
+            #[special]
+            fn get_PaleGreen(&self) -> Color;
+            #[special]
+            fn get_PaleTurquoise(&self) -> Color;
+            #[special]
+            fn get_PaleVioletRed(&self) -> Color;
+            #[special]
+            fn get_PapayaWhip(&self) -> Color;
+            #[special]
+            fn get_PeachPuff(&self) -> Color;
+            #[special]
+            fn get_Peru(&self) -> Color;
+            #[special]
+            fn get_Pink(&self) -> Color;
+            #[special]
+            fn get_Plum(&self) -> Color;
+            #[special]
+            fn get_PowderBlue(&self) -> Color;
+            #[special]
+            fn get_Purple(&self) -> Color;
+            #[special]
+            fn get_Red(&self) -> Color;
+            #[special]
+            fn get_RosyBrown(&self) -> Color;
+            #[special]
+            fn get_RoyalBlue(&self) -> Color;
+            #[special]
+            fn get_SaddleBrown(&self) -> Color;
+            #[special]
+            fn get_Salmon(&self) -> Color;
+            #[special]
+            fn get_SandyBrown(&self) -> Color;
+            #[special]
+            fn get_SeaGreen(&self) -> Color;
+            #[special]
+            fn get_SeaShell(&self) -> Color;
+            #[special]
+            fn get_Sienna(&self) -> Color;
+            #[special]
+            fn get_Silver(&self) -> Color;
+            #[special]
+            fn get_SkyBlue(&self) -> Color;
+            #[special]
+            fn get_SlateBlue(&self) -> Color;
+            #[special]
+            fn get_SlateGray(&self) -> Color;
+            #[special]
+            fn get_Snow(&self) -> Color;
+            #[special]
+            fn get_SpringGreen(&self) -> Color;
+            #[special]
+            fn get_SteelBlue(&self) -> Color;
+            #[special]
+            fn get_Tan(&self) -> Color;
+            #[special]
+            fn get_Teal(&self) -> Color;
+            #[special]
+            fn get_Thistle(&self) -> Color;
+            #[special]
+            fn get_Tomato(&self) -> Color;
+            #[special]
+            fn get_Transparent(&self) -> Color;
+            #[special]
+            fn get_Turquoise(&self) -> Color;
+            #[special]
+            fn get_Violet(&self) -> Color;
+            #[special]
+            fn get_Wheat(&self) -> Color;
+            #[special]
+            fn get_White(&self) -> Color;
+            #[special]
+            fn get_WhiteSmoke(&self) -> Color;
+            #[special]
+            fn get_Yellow(&self) -> Color;
+            #[special]
+            fn get_YellowGreen(&self) -> Color;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UIContentRoot)]
+        interface IUIContentRoot {
+            #[special]
+            fn get_UIContext(&self) -> UIContext;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(UIContext)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        interface IUIContext {}
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        class UIContentRoot {
+            #[default]
+            IUIContentRoot,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        class UIContext {
+            #[default]
+            IUIContext,
+        }
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 786432)]
+        struct WindowId {
+            Value: u64,
+        }
+    }
+}

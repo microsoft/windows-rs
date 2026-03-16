@@ -1,0 +1,10 @@
+mod Windows {
+    mod Gaming {
+        #[winrt]
+        mod Preview {
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct GamesEnumerationContract {}
+        }
+    }
+}

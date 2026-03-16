@@ -1,0 +1,183 @@
+mod Windows {
+    mod Devices {
+        #[winrt]
+        mod Haptics {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            enum HapticDeviceType {
+                None = 0,
+                Generic = 1,
+                Pen = 2,
+                Touchpad = 3,
+                Mouse = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            struct HapticsControllerOverrideToken {
+                Value: i64,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputHapticsManager)]
+            interface IInputHapticsManager {
+                #[special]
+                fn get_ThreadId(&self) -> u32;
+                #[special]
+                fn get_CurrentHapticsControllerDeviceType(&self) -> HapticDeviceType;
+                #[special]
+                fn get_CurrentHapticsController(&self) -> SimpleHapticsController;
+                #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveform")]
+                fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16) -> bool;
+                #[Windows::Foundation::Metadata::Overload("TrySendHapticWaveformWithIntensity")]
+                fn TrySendHapticWaveform(&self, waveform: u16, waveformFallback: u16, intensity: f64) -> bool;
+                fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformFallback: u16, intensity: f64, playDuration: super::super::Foundation::TimeSpan) -> bool;
+                fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformFallback: u16, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan) -> bool;
+                fn TryStopFeedback(&self) -> bool;
+                fn SetOverrideHapticsController(&self, deviceType: HapticDeviceType, controller: SimpleHapticsController) -> HapticsControllerOverrideToken;
+                fn ClearOverrideHapticsController(&self, token: HapticsControllerOverrideToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(InputHapticsManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IInputHapticsManagerStatics {
+                fn IsSupported(&self) -> bool;
+                fn IsHapticDevicePresent(&self) -> bool;
+                fn GetForCurrentThread(&self) -> InputHapticsManager;
+                fn TryGetForThread(&self, ThreadId: u32) -> InputHapticsManager;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownSimpleHapticsControllerWaveforms)]
+            interface IKnownSimpleHapticsControllerWaveformsStatics {
+                #[special]
+                fn get_Click(&self) -> u16;
+                #[special]
+                fn get_BuzzContinuous(&self) -> u16;
+                #[special]
+                fn get_RumbleContinuous(&self) -> u16;
+                #[special]
+                fn get_Press(&self) -> u16;
+                #[special]
+                fn get_Release(&self) -> u16;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownSimpleHapticsControllerWaveforms)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 917504)]
+            interface IKnownSimpleHapticsControllerWaveformsStatics2 {
+                #[special]
+                fn get_BrushContinuous(&self) -> u16;
+                #[special]
+                fn get_ChiselMarkerContinuous(&self) -> u16;
+                #[special]
+                fn get_EraserContinuous(&self) -> u16;
+                #[special]
+                fn get_Error(&self) -> u16;
+                #[special]
+                fn get_GalaxyPenContinuous(&self) -> u16;
+                #[special]
+                fn get_Hover(&self) -> u16;
+                #[special]
+                fn get_InkContinuous(&self) -> u16;
+                #[special]
+                fn get_MarkerContinuous(&self) -> u16;
+                #[special]
+                fn get_PencilContinuous(&self) -> u16;
+                #[special]
+                fn get_Success(&self) -> u16;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleHapticsController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISimpleHapticsController {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_SupportedFeedback(&self) -> super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>;
+                #[special]
+                fn get_IsIntensitySupported(&self) -> bool;
+                #[special]
+                fn get_IsPlayCountSupported(&self) -> bool;
+                #[special]
+                fn get_IsPlayDurationSupported(&self) -> bool;
+                #[special]
+                fn get_IsReplayPauseIntervalSupported(&self) -> bool;
+                fn StopFeedback(&self);
+                #[Windows::Foundation::Metadata::Overload("SendHapticFeedback")]
+                fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback);
+                #[Windows::Foundation::Metadata::Overload("SendHapticFeedbackWithIntensity")]
+                fn SendHapticFeedback(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64);
+                fn SendHapticFeedbackForDuration(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playDuration: super::super::Foundation::TimeSpan);
+                fn SendHapticFeedbackForPlayCount(&self, feedback: SimpleHapticsControllerFeedback, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleHapticsControllerFeedback)]
+            interface ISimpleHapticsControllerFeedback {
+                #[special]
+                fn get_Waveform(&self) -> u16;
+                #[special]
+                fn get_Duration(&self) -> super::super::Foundation::TimeSpan;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VibrationDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IVibrationDevice {
+                #[special]
+                fn get_Id(&self) -> String;
+                #[special]
+                fn get_SimpleHapticsController(&self) -> SimpleHapticsController;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(VibrationDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IVibrationDeviceStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<VibrationAccessStatus>;
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<VibrationDevice>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<VibrationDevice>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::Static(IInputHapticsManagerStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class InputHapticsManager {
+                #[default]
+                IInputHapticsManager,
+            }
+            #[Windows::Foundation::Metadata::Static(IKnownSimpleHapticsControllerWaveformsStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IKnownSimpleHapticsControllerWaveformsStatics2, 917504, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class KnownSimpleHapticsControllerWaveforms {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SimpleHapticsController {
+                #[default]
+                ISimpleHapticsController,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SimpleHapticsControllerFeedback {
+                #[default]
+                ISimpleHapticsControllerFeedback,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum VibrationAccessStatus {
+                Allowed = 0,
+                DeniedByUser = 1,
+                DeniedBySystem = 2,
+                DeniedByEnergySaver = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IVibrationDeviceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class VibrationDevice {
+                #[default]
+                IVibrationDevice,
+            }
+        }
+    }
+}

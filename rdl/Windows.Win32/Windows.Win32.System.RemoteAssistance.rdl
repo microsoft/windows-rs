@@ -1,0 +1,63 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            #[win32]
+            mod RemoteAssistance {
+                const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7;
+                const DISPID_EVENT_ON_SEND_ERROR: u32 = 8;
+                const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5;
+                const DISPID_EVENT_ON_TERMINATION: u32 = 6;
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nn-rendezvoussession-drendezvoussessionevents")]
+                interface DRendezvousSessionEvents: super::Com::IDispatch {}
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nn-rendezvoussession-irendezvousapplication")]
+                interface IRendezvousApplication: super::Com::IUnknown {
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvousapplication-setrendezvoussession")]
+                    fn SetRendezvousSession(&self, pRendezvousSession: super::Com::IUnknown) -> super::super::Foundation::HRESULT;
+                }
+                #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nn-rendezvoussession-irendezvoussession")]
+                interface IRendezvousSession: super::Com::IUnknown {
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvoussession-get_state")]
+                    fn get_State(&self, pSessionState: *mut RENDEZVOUS_SESSION_STATE) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvoussession-get_remoteuser")]
+                    fn get_RemoteUser(&self, bstrUserName: *mut super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[special]
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvoussession-get_flags")]
+                    fn get_Flags(&self, pFlags: *mut i32) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvoussession-sendcontextdata")]
+                    fn SendContextData(&self, bstrData: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                    #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/nf-rendezvoussession-irendezvoussession-terminate")]
+                    fn Terminate(&self, hr: super::super::Foundation::HRESULT, bstrAppData: super::super::Foundation::BSTR) -> super::super::Foundation::HRESULT;
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/ne-rendezvoussession-rendezvous_session_flags")]
+                enum RENDEZVOUS_SESSION_FLAGS {
+                    RSF_NONE = 0,
+                    RSF_INVITER = 1,
+                    RSF_INVITEE = 2,
+                    RSF_ORIGINAL_INVITER = 4,
+                    RSF_REMOTE_LEGACYSESSION = 8,
+                    RSF_REMOTE_WIN7SESSION = 16,
+                }
+                #[repr(i32)]
+                #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/rendezvoussession/ne-rendezvoussession-rendezvous_session_state")]
+                enum RENDEZVOUS_SESSION_STATE {
+                    RSS_UNKNOWN = 0,
+                    RSS_READY = 1,
+                    RSS_INVITATION = 2,
+                    RSS_ACCEPTED = 3,
+                    RSS_CONNECTED = 4,
+                    RSS_CANCELLED = 5,
+                    RSS_DECLINED = 6,
+                    RSS_TERMINATED = 7,
+                }
+                #[Windows::Win32::Foundation::Metadata::Guid(192807322, 46558, 18426, 137, 102, 144, 130, 248, 47, 177, 146)]
+                struct RendezvousApplication {}
+            }
+        }
+    }
+}

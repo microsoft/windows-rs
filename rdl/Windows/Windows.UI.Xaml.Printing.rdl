@@ -1,0 +1,122 @@
+mod Windows {
+    mod UI {
+        mod Xaml {
+            #[winrt]
+            mod Printing {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class AddPagesEventArgs {
+                    #[default]
+                    IAddPagesEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn AddPagesEventHandler(sender: Object, e: AddPagesEventArgs);
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class GetPreviewPageEventArgs {
+                    #[default]
+                    IGetPreviewPageEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn GetPreviewPageEventHandler(sender: Object, e: GetPreviewPageEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AddPagesEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAddPagesEventArgs {
+                    #[special]
+                    fn get_PrintTaskOptions(&self) -> super::super::super::Graphics::Printing::PrintTaskOptions;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GetPreviewPageEventArgs)]
+                interface IGetPreviewPageEventArgs {
+                    #[special]
+                    fn get_PageNumber(&self) -> i32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PaginateEventArgs)]
+                interface IPaginateEventArgs {
+                    #[special]
+                    fn get_PrintTaskOptions(&self) -> super::super::super::Graphics::Printing::PrintTaskOptions;
+                    #[special]
+                    fn get_CurrentPreviewPageNumber(&self) -> i32;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintDocument)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPrintDocument {
+                    #[special]
+                    fn get_DocumentSource(&self) -> super::super::super::Graphics::Printing::IPrintDocumentSource;
+                    #[special]
+                    fn add_Paginate(&self, handler: PaginateEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_Paginate(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_GetPreviewPage(&self, handler: GetPreviewPageEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_GetPreviewPage(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn add_AddPages(&self, handler: AddPagesEventHandler) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_AddPages(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    fn AddPage(&self, pageVisual: super::UIElement);
+                    fn AddPagesComplete(&self);
+                    fn SetPreviewPageCount(&self, count: i32, r#type: PreviewPageCountType);
+                    fn SetPreviewPage(&self, pageNumber: i32, pageVisual: super::UIElement);
+                    fn InvalidatePreview(&self);
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintDocument)]
+                interface IPrintDocumentFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> PrintDocument;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintDocument)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IPrintDocumentStatics {
+                    #[special]
+                    fn get_DocumentSourceProperty(&self) -> super::DependencyProperty;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class PaginateEventArgs {
+                    #[default]
+                    IPaginateEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn PaginateEventHandler(sender: Object, e: PaginateEventArgs);
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum PreviewPageCountType {
+                    Final = 0,
+                    Intermediate = 1,
+                }
+                #[Windows::Foundation::Metadata::Static(IPrintDocumentStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Composable(IPrintDocumentFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PrintDocument: super::DependencyObject {
+                    #[default]
+                    IPrintDocument,
+                }
+            }
+        }
+    }
+}

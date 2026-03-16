@@ -1,0 +1,89 @@
+mod Windows {
+    mod Devices {
+        mod Gpio {
+            #[winrt]
+            mod Provider {
+                #[Windows::Foundation::Metadata::Activatable(IGpioPinProviderValueChangedEventArgsFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                class GpioPinProviderValueChangedEventArgs {
+                    #[default]
+                    IGpioPinProviderValueChangedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface IGpioControllerProvider {
+                    #[special]
+                    fn get_PinCount(&self) -> i32;
+                    fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> IGpioPinProvider;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface IGpioPinProvider {
+                    #[special]
+                    fn add_ValueChanged(&self, handler: super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>) -> super::super::super::Foundation::EventRegistrationToken;
+                    #[special]
+                    fn remove_ValueChanged(&self, token: super::super::super::Foundation::EventRegistrationToken);
+                    #[special]
+                    fn get_DebounceTimeout(&self) -> super::super::super::Foundation::TimeSpan;
+                    #[special]
+                    fn put_DebounceTimeout(&self, value: super::super::super::Foundation::TimeSpan);
+                    #[special]
+                    fn get_PinNumber(&self) -> i32;
+                    #[special]
+                    fn get_SharingMode(&self) -> ProviderGpioSharingMode;
+                    fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> bool;
+                    fn GetDriveMode(&self) -> ProviderGpioPinDriveMode;
+                    fn SetDriveMode(&self, value: ProviderGpioPinDriveMode);
+                    fn Write(&self, value: ProviderGpioPinValue);
+                    fn Read(&self) -> ProviderGpioPinValue;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinProviderValueChangedEventArgs)]
+                interface IGpioPinProviderValueChangedEventArgs {
+                    #[special]
+                    fn get_Edge(&self) -> ProviderGpioPinEdge;
+                }
+                #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinProviderValueChangedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface IGpioPinProviderValueChangedEventArgsFactory {
+                    fn Create(&self, edge: ProviderGpioPinEdge) -> GpioPinProviderValueChangedEventArgs;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface IGpioProvider {
+                    fn GetControllers(&self) -> super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>;
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderGpioPinDriveMode {
+                    Input = 0,
+                    Output = 1,
+                    InputPullUp = 2,
+                    InputPullDown = 3,
+                    OutputOpenDrain = 4,
+                    OutputOpenDrainPullUp = 5,
+                    OutputOpenSource = 6,
+                    OutputOpenSourcePullDown = 7,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderGpioPinEdge {
+                    FallingEdge = 0,
+                    RisingEdge = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderGpioPinValue {
+                    Low = 0,
+                    High = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderGpioSharingMode {
+                    Exclusive = 0,
+                    SharedReadOnly = 1,
+                }
+            }
+        }
+    }
+}

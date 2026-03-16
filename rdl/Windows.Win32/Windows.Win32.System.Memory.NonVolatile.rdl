@@ -1,0 +1,36 @@
+mod Windows {
+    mod Win32 {
+        mod System {
+            mod Memory {
+                #[win32]
+                mod NonVolatile {
+                    struct NV_MEMORY_RANGE {
+                        BaseAddress: *mut void,
+                        Length: usize,
+                    }
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlDrainNonVolatileFlush(NvToken: *mut void) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlFillNonVolatileMemory(NvToken: *mut void, NvDestination: *mut void, Size: usize, Value: u8, Flags: u32) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlFlushNonVolatileMemory(NvToken: *mut void, NvBuffer: *mut void, Size: usize, Flags: u32) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlFlushNonVolatileMemoryRanges(NvToken: *mut void, NvRanges: *mut NV_MEMORY_RANGE, NumRanges: usize, Flags: u32) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlFreeNonVolatileToken(NvToken: *mut void) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlGetNonVolatileToken(NvBuffer: *mut void, Size: usize, NvToken: *mut *mut void) -> u32;
+                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(Arm64 | X64)]
+                    #[library("ntdll.dll")]
+                    extern fn RtlWriteNonVolatileMemory(NvToken: *mut void, NvDestination: *mut void, Source: *mut void, Size: usize, Flags: u32) -> u32;
+                }
+            }
+        }
+    }
+}
