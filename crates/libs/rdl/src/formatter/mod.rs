@@ -1,3 +1,28 @@
+//! RDL source formatter.
+//!
+//! # Formatter options
+//!
+//! Three alternative implementations are provided for comparison.  All three
+//! expose the same `format(input: &str) -> String` signature and pass the
+//! full test suite.
+//!
+//! | | File | Approach | Dep change |
+//! |---|---|---|---|
+//! | **Option 1** | writer modules | Delete this module; writer functions emit pre-formatted `String` directly; `Layout::reindent()` handles nesting | Drops `logos` + `quote` |
+//! | **Option 2** | `opt2_proc_macro2.rs` | Replace logos with `proc_macro2` `TokenTree` traversal; `Group` nodes handle `{}`, `()`, `[]` depth automatically | Drops `logos` |
+//! | **Option 3** | `mod.rs` (this file) | Keep logos lexer; replace `body_stack`/`last_keyword_is_mod` state with `next_open_brace_is_empty()` lookahead | None |
+//!
+//! **Option 1** source lives on the local branch `rdl-formatter-opt1`; the key
+//! changes are in `src/writer/` (all writer functions return `String`) and
+//! `src/writer/layout.rs` (adds `reindent()`).
+//!
+//! **Option 2** source is in `opt2_proc_macro2.rs` in this directory.
+//!
+//! **Option 3** (this file) is the most conservative change: ~50 net new lines,
+//! no dependency modifications.
+
+pub mod opt2_proc_macro2;
+
 use logos::Logos;
 
 #[derive(Logos, Debug, PartialEq)]
@@ -93,9 +118,12 @@ enum Token<'a> {
 pub fn format(input: &str) -> String {
     let mut output = String::new();
     let mut indent_level = 0;
-    let mut paren_depth = 0;
-    let mut angle_depth = 0;
+    let mut paren_depth = 0i32;
+    let mut angle_depth = 0i32;
     let mut within_brackets = false;
+    // Set when a `:` outside parens/angles introduces an inheritance list
+    // (e.g. `class Foo: Base, IFace {}`).  Cleared when `{` or `;` is seen.
+    let mut in_colon_list = false;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -156,6 +184,15 @@ pub fn format(input: &str) -> String {
             Token::Colon => {
                 output.trim_space();
                 output.push_str(": ");
+                // A colon outside parens and angles starts an inheritance list
+                // when the next `{` at the same depth has an empty body.
+                // e.g. `class Foo: Base, IFace {}` — commas stay on one line.
+                if paren_depth == 0
+                    && angle_depth == 0
+                    && next_open_brace_is_empty(&tokens, token_idx + 1)
+                {
+                    in_colon_list = true;
+                }
             }
             Token::ColonColon => {
                 output.trim_space();
@@ -164,7 +201,7 @@ pub fn format(input: &str) -> String {
             Token::Comma => {
                 output.trim_space();
                 output.push(',');
-                if paren_depth > 0 || angle_depth > 0 {
+                if paren_depth > 0 || angle_depth > 0 || in_colon_list {
                     output.push(' ');
                 } else {
                     output.push('\n');
@@ -221,6 +258,7 @@ pub fn format(input: &str) -> String {
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
+                in_colon_list = false;
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
                     output.push_str("{}");
                     output.push('\n');
@@ -241,6 +279,7 @@ pub fn format(input: &str) -> String {
                 output.push('(');
             }
             Token::Semicolon => {
+                in_colon_list = false;
                 output.trim_space();
                 output.push(';');
 
@@ -264,6 +303,37 @@ pub fn format(input: &str) -> String {
     }
 
     output
+}
+
+/// Returns `true` when scanning forward from `from` (skipping over nested
+/// angle and parenthesis groups) the first `{` encountered at the outer depth
+/// is immediately followed by `}`, meaning the body is empty.
+///
+/// This is used to distinguish an inheritance-list colon (`class Foo: A, B {}`)
+/// from a field-annotation colon (`struct Foo { field: Type }`): only the
+/// former has an empty body, so only it should keep commas inline.
+fn next_open_brace_is_empty(tokens: &[(Result<Token<'_>, ()>, logos::Span)], from: usize) -> bool {
+    let mut angle = 0i32;
+    let mut paren = 0i32;
+    let mut i = from;
+    while i < tokens.len() {
+        match &tokens[i].0 {
+            Ok(Token::LessThan) => angle += 1,
+            Ok(Token::GreaterThan) => angle -= 1,
+            Ok(Token::OpenParenthesis) => paren += 1,
+            Ok(Token::CloseParenthesis) => paren -= 1,
+            Ok(Token::OpenBrace) if angle == 0 && paren == 0 => {
+                // Found `{` at the same depth — check whether the next token is `}`.
+                return matches!(tokens.get(i + 1), Some((Ok(Token::CloseBrace), _)));
+            }
+            // A closing brace or semicolon without a matching open means we've
+            // left the current declaration scope; this is not a class header.
+            Ok(Token::CloseBrace) | Ok(Token::Semicolon) => return false,
+            _ => {}
+        }
+        i += 1;
+    }
+    false
 }
 
 fn at_line_start(output: &str) -> bool {
