@@ -690,7 +690,7 @@ impl IdentMethods for syn::Ident {
 #[test]
 #[should_panic(expected = "error: use namespace not found\n --> .rdl:2:1")]
 fn use_glob_invalid_path() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use NonExistent::*;
@@ -711,7 +711,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: type not found\n --> .rdl:7:12")]
 fn use_glob_unresolved_type() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use Other::*;
@@ -738,7 +738,7 @@ mod Other {
 fn use_glob_resolves_type() {
     let output = std::env::temp_dir().join("windows_rdl_use_glob_resolves_type.winmd");
 
-    Reader::new()
+    reader()
         .input_str(
             r#"
 use Other::*;
@@ -767,7 +767,7 @@ mod Other {
 #[test]
 #[should_panic(expected = "error: type not supported\n --> .rdl:5:12")]
 fn unsupported_type_errors() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]

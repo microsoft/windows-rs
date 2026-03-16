@@ -146,7 +146,7 @@ impl Delegate {
 #[test]
 #[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:25")]
 fn unexpected_self() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -163,7 +163,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: param names must be unique\n --> .rdl:4:33")]
 fn param_name_unique() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -180,7 +180,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:")]
 fn non_type_generic_not_supported() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]

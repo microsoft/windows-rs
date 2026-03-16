@@ -1,7 +1,7 @@
 use windows_rdl::*;
 
 fn roundtrip(winmd: &str, rdl: &str) {
-    Writer::new()
+    writer()
         .input(winmd)
         .output(rdl)
         .namespace("Windows")
@@ -9,7 +9,7 @@ fn roundtrip(winmd: &str, rdl: &str) {
         .write()
         .unwrap();
 
-    Reader::new().input(rdl).output(winmd).write().unwrap();
+    reader().input(rdl).output(winmd).write().unwrap();
 }
 
 fn main() {
