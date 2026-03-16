@@ -149,7 +149,6 @@ fn format_seq(tokens: &[TokenTree], output: &mut String, indent: usize, inline: 
                     in_colon_list = false;
                     let inner: Vec<TokenTree> = g.stream().into_iter().collect();
                     if inner.is_empty() {
-                        trim_space(output);
                         output.push_str("{}\n");
                     } else {
                         if !output.ends_with(' ') {

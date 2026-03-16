@@ -1,4 +1,4 @@
 #[winrt]
 mod Test {
-    struct Base{}
+    struct Base {}
 }

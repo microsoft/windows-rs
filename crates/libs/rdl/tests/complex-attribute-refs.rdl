@@ -3,7 +3,7 @@ mod Test {
     attribute FirstAttribute {
         fn(value: u32);
     }
-    interface IStatics{}
+    interface IStatics {}
     #[First(1)]
     #[Second(2)]
     #[Windows::Foundation::Metadata::Activatable(3)]

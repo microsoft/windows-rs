@@ -14,11 +14,11 @@ mod Test {
         IDerived,
         IDerived2,
     }
-    interface IBase{}
-    interface IDerived{}
-    interface IDerived2{}
-    interface IDerivedFactory{}
-    interface IDerivedFactory2{}
-    interface IDerivedStatics{}
-    interface IDerivedStatics2{}
+    interface IBase {}
+    interface IDerived {}
+    interface IDerived2 {}
+    interface IDerivedFactory {}
+    interface IDerivedFactory2 {}
+    interface IDerivedStatics {}
+    interface IDerivedStatics2 {}
 }

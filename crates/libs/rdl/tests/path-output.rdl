@@ -40,16 +40,16 @@ mod Test {
             }
             #[winrt]
             mod N2 {
-                struct S2{}
+                struct S2 {}
             }
         }
         #[winrt]
         mod N1 {
-            struct S1{}
+            struct S1 {}
         }
     }
     #[winrt]
     mod N0 {
-        struct S0{}
+        struct S0 {}
     }
 }
