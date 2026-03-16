@@ -114,7 +114,7 @@ impl Fn {
 #[test]
 #[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:5:17")]
 fn unexpected_self() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -132,7 +132,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: param names must be unique\n --> .rdl:5:25")]
 fn param_name_unique() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -150,7 +150,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `library` name missing\n --> .rdl:4:5")]
 fn link_missing_name() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -168,7 +168,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: function abi not supported\n --> .rdl:5:12")]
 fn link_abi_not_supported() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
