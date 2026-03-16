@@ -2,13 +2,13 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/special.rdl")
         .output("tests/special.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/special.winmd")
         .output("tests/special.rdl")
         .namespace("Test")

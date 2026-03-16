@@ -2,13 +2,13 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/enum-flags.rdl")
         .output("tests/enum-flags.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/enum-flags.winmd")
         .output("tests/enum-flags.rdl")
         .namespace("Test")
