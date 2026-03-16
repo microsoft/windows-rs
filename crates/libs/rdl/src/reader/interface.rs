@@ -245,7 +245,7 @@ impl Interface {
     expected = "error: non-WinRT interface can only inherit from one interface\n --> .rdl:4:28"
 )]
 fn win32_multiple_required_interfaces() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -262,7 +262,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_typed_first_param() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -281,7 +281,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_wrong_receiver() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -300,7 +300,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:12")]
 fn missing_self_no_params() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -319,7 +319,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:26")]
 fn out_with_args() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -338,7 +338,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `special` attribute does not accept arguments\n --> .rdl:5:9")]
 fn special_with_args() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -358,7 +358,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:20")]
 fn interface_lifetime_generic_errors() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
