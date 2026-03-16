@@ -93,9 +93,12 @@ enum Token<'a> {
 pub fn format(input: &str) -> String {
     let mut output = String::new();
     let mut indent_level = 0;
-    let mut paren_depth = 0;
-    let mut angle_depth = 0;
+    let mut paren_depth = 0i32;
+    let mut angle_depth = 0i32;
     let mut within_brackets = false;
+    // Set when a `:` outside parens/angles starts an inheritance list
+    // (e.g. `class Foo: Base {}`).  Cleared when `{` or `;` is seen.
+    let mut in_colon_list = false;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -156,6 +159,15 @@ pub fn format(input: &str) -> String {
             Token::Colon => {
                 output.trim_space();
                 output.push_str(": ");
+                // A colon outside parens and angles starts an inheritance list
+                // when the next `{` at the same depth has an empty body,
+                // e.g. `class Foo: Base {}` — commas stay on one line.
+                if paren_depth == 0
+                    && angle_depth == 0
+                    && next_open_brace_is_empty(&tokens, token_idx + 1)
+                {
+                    in_colon_list = true;
+                }
             }
             Token::ColonColon => {
                 output.trim_space();
@@ -164,7 +176,7 @@ pub fn format(input: &str) -> String {
             Token::Comma => {
                 output.trim_space();
                 output.push(',');
-                if paren_depth > 0 || angle_depth > 0 {
+                if paren_depth > 0 || angle_depth > 0 || in_colon_list {
                     output.push(' ');
                 } else {
                     output.push('\n');
@@ -221,6 +233,7 @@ pub fn format(input: &str) -> String {
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
+                in_colon_list = false;
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
                     output.push_str("{}");
                     output.push('\n');
@@ -241,6 +254,7 @@ pub fn format(input: &str) -> String {
                 output.push('(');
             }
             Token::Semicolon => {
+                in_colon_list = false;
                 output.trim_space();
                 output.push(';');
 
@@ -268,6 +282,36 @@ pub fn format(input: &str) -> String {
 
 fn at_line_start(output: &str) -> bool {
     output.ends_with('\n') || output.is_empty()
+}
+
+/// Returns `true` when scanning forward from `from` (skipping over nested
+/// angle and parenthesis groups) the first `{` encountered at the outer depth
+/// is immediately followed by `}`, meaning the body is empty.
+///
+/// This distinguishes an inheritance-list colon (`class Foo: Base {}`)
+/// from a field-annotation colon (`struct Foo { field: Type }`): only the
+/// former has an empty body, so only it should keep commas inline.
+fn next_open_brace_is_empty(tokens: &[(Result<Token<'_>, ()>, logos::Span)], from: usize) -> bool {
+    let mut angle = 0i32;
+    let mut paren = 0i32;
+    let mut i = from;
+    while i < tokens.len() {
+        match &tokens[i].0 {
+            Ok(Token::LessThan) => angle += 1,
+            Ok(Token::GreaterThan) => angle -= 1,
+            Ok(Token::OpenParenthesis) => paren += 1,
+            Ok(Token::CloseParenthesis) => paren -= 1,
+            Ok(Token::OpenBrace) if angle == 0 && paren == 0 => {
+                return matches!(tokens.get(i + 1), Some((Ok(Token::CloseBrace), _)));
+            }
+            // A closing brace or semicolon without a matching open means we've
+            // left the current declaration scope.
+            Ok(Token::CloseBrace) | Ok(Token::Semicolon) => return false,
+            _ => {}
+        }
+        i += 1;
+    }
+    false
 }
 
 fn push_attribute(attr: &str, output: &mut String) {
@@ -358,5 +402,35 @@ impl StringMethods for String {
         if self.ends_with(' ') {
             self.pop();
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn colon_list_commas_stay_inline() {
+        // Commas in an inheritance list (empty body) must stay on the same line.
+        let input = "interface IFoo : IBase1 , IBase2 {}";
+        let result = format(input);
+        assert_eq!(result, "interface IFoo: IBase1, IBase2 {}\n");
+    }
+
+    #[test]
+    fn non_colon_list_commas_go_to_new_line() {
+        // Commas inside a non-empty brace body should still produce newlines.
+        let input = "class Foo { A , B , }";
+        let result = format(input);
+        assert_eq!(result, "class Foo {\n    A,\n    B,\n}\n");
+    }
+
+    #[test]
+    fn field_annotation_colon_does_not_set_colon_list() {
+        // A field annotation colon (non-empty body) must not be treated as an
+        // inheritance colon — each field stays on its own line.
+        let input = "struct Foo { x : u32 , y : u32 , }";
+        let result = format(input);
+        assert_eq!(result, "struct Foo {\n    x: u32,\n    y: u32,\n}\n");
     }
 }
