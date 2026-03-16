@@ -3,7 +3,7 @@ use windows_rdl::*;
 #[test]
 pub fn parse() {
     // Reader::reference with a directory of .winmd files
-    Reader::new()
+    reader()
         .input("tests/path.rdl")
         .reference("../bindgen/default")
         .output("tests/directory.winmd")
@@ -11,7 +11,7 @@ pub fn parse() {
         .unwrap();
 
     // Writer::input and Writer::reference with a directory of .winmd files
-    Writer::new()
+    writer()
         .input("tests/directory.winmd")
         .output("tests/directory-output.rdl")
         .namespace("Test")

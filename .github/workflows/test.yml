@@ -375,6 +375,8 @@ jobs:
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
+      - name: Test tool_rdl_roundtrip
+        run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all
