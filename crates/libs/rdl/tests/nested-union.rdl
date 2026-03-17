@@ -8,7 +8,7 @@ mod Test {
         a1: Name2_a1,
         a2: u32,
     }
-    struct Name2_a1 {
+    union Name2_a1 {
         b1: u16,
         b2: i32,
     }
