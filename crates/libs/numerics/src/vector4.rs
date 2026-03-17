@@ -74,6 +74,14 @@ impl Vector4 {
         self / self.length()
     }
 
+    fn impl_neg(&self) -> Self {
+        Self {
+            X: -self.X,
+            Y: -self.Y,
+            Z: -self.Z,
+            W: -self.W,
+        }
+    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             X: self.X + rhs.X,
@@ -124,6 +132,18 @@ impl Vector4 {
     }
 }
 
+impl core::ops::Neg for Vector4 {
+    type Output = Self;
+    fn neg(self) -> Self {
+        self.impl_neg()
+    }
+}
+impl core::ops::Neg for &Vector4 {
+    type Output = Vector4;
+    fn neg(self) -> Vector4 {
+        self.impl_neg()
+    }
+}
 impl core::ops::Add<Self> for Vector4 {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {

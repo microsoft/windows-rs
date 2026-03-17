@@ -31,16 +31,8 @@ impl syn::parse::Parse for Union {
 
 impl Union {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
-        let mut breadcrumbs = vec![];
-        let type_def = encode_body(
-            encoder,
-            &self.name.to_string(),
-            None,
-            false,
-            true,
-            &self.fields,
-            &mut breadcrumbs,
-        )?;
+        let type_def =
+            encode_struct_or_union(encoder, &self.name.to_string(), false, true, &self.fields)?;
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(type_def),
