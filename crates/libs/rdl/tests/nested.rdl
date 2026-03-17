@@ -1,28 +1,21 @@
 #[win32]
 mod Test {
     struct Name {
-        a1: struct {
-            b1: u16,
-            b2: i32,
-        },
-        a2: struct {
-            c1: struct {
-                d1: Windows::Foundation::IStringable,
-            },
-            c2: struct {
-                d1: struct {
-                    e1: struct {
-                        f1: struct {
-                            g1: struct {
-                                h1: bool,
-                            },
-                        },
-                    },
-                },
-            },
-        },
+        a1: Name_a1,
+        a2: Name_a2,
     }
     struct Name2 {
         a1: Name,
+    }
+    struct Name_a1 {
+        b1: u16,
+        b2: i32,
+    }
+    struct Name_a2 {
+        c1: Name_a2_c1,
+        c2: u32,
+    }
+    struct Name_a2_c1 {
+        d1: u8,
     }
 }

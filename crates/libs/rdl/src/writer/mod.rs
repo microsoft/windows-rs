@@ -103,14 +103,16 @@ impl Writer {
 
                 let mut layout = Layout::new();
 
-                for (name, item) in index.namespace_items(namespace) {
-                    layout.insert(
-                        namespace,
-                        name,
-                        item_arches(item),
-                        item_winrt(item),
-                        write(namespace, item).to_string(),
-                    );
+                for (_, item) in index.namespace_items(namespace) {
+                    for (name, tokens) in write_items(namespace, item) {
+                        layout.insert(
+                            namespace,
+                            &name,
+                            item_arches(item),
+                            item_winrt(item),
+                            tokens.to_string(),
+                        );
+                    }
                 }
 
                 let output = layout.to_string();
@@ -135,14 +137,16 @@ impl Writer {
                     }
                 }
 
-                for (name, item) in index.namespace_items(namespace) {
-                    layout.insert(
-                        namespace,
-                        name,
-                        item_arches(item),
-                        item_winrt(item),
-                        write(namespace, item).to_string(),
-                    );
+                for (_, item) in index.namespace_items(namespace) {
+                    for (name, tokens) in write_items(namespace, item) {
+                        layout.insert(
+                            namespace,
+                            &name,
+                            item_arches(item),
+                            item_winrt(item),
+                            tokens.to_string(),
+                        );
+                    }
                 }
             }
 
@@ -190,11 +194,30 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
     }
 }
 
-fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
+fn write_items(namespace: &str, item: &metadata::reader::Item) -> Vec<(String, TokenStream)> {
     match item {
-        metadata::reader::Item::Type(ty) => write_type_def(ty),
-        metadata::reader::Item::Fn(ty) => write_fn(namespace, ty),
-        metadata::reader::Item::Const(ty) => write_const(namespace, ty),
+        metadata::reader::Item::Type(ty) => write_type_def_items(namespace, ty),
+        metadata::reader::Item::Fn(ty) => vec![(ty.name().to_string(), write_fn(namespace, ty))],
+        metadata::reader::Item::Const(ty) => {
+            vec![(ty.name().to_string(), write_const(namespace, ty))]
+        }
+    }
+}
+
+fn write_type_def_items(
+    _namespace: &str,
+    item: &metadata::reader::TypeDef,
+) -> Vec<(String, TokenStream)> {
+    match item.category() {
+        metadata::reader::TypeCategory::Struct => write_struct_items(item),
+        _ => {
+            let tokens = write_type_def(item);
+            if tokens.is_empty() {
+                vec![]
+            } else {
+                vec![(item.name().to_string(), tokens)]
+            }
+        }
     }
 }
 
@@ -455,7 +478,10 @@ fn write_flags_combination(
 
 fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
     match item.category() {
-        metadata::reader::TypeCategory::Struct => write_struct(item),
+        // Structs/unions are handled by write_struct_items (which may return
+        // multiple flat items) so this branch is never reached from the main
+        // write loop.  It is kept for completeness and internal callers.
+        metadata::reader::TypeCategory::Struct => quote! {},
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         metadata::reader::TypeCategory::Class => write_class(item),

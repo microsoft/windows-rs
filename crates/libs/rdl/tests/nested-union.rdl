@@ -1,24 +1,27 @@
 #[win32]
 mod Test {
     union Name {
-        a1: struct {
-            b1: u16,
-            b2: i32,
-        },
+        a1: Name_a1,
         a2: u32,
     }
     struct Name2 {
-        a1: union {
-            b1: u16,
-            b2: i32,
-        },
+        a1: Name2_a1,
         a2: u32,
     }
+    struct Name2_a1 {
+        b1: u16,
+        b2: i32,
+    }
     union Name3 {
-        a1: union {
-            b1: u16,
-            b2: i32,
-        },
+        a1: Name3_a1,
         a2: u32,
+    }
+    union Name3_a1 {
+        b1: u16,
+        b2: i32,
+    }
+    struct Name_a1 {
+        b1: u16,
+        b2: i32,
     }
 }
