@@ -69,7 +69,9 @@ impl Layout {
             output.push('{');
 
             for items in self.winrt.values() {
-                for tokens in items {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
                     output.push_str(tokens);
                 }
             }
@@ -83,7 +85,9 @@ impl Layout {
             output.push('{');
 
             for items in self.win32.values() {
-                for tokens in items {
+                let mut items = items.clone();
+                items.sort();
+                for tokens in &items {
                     output.push_str(tokens);
                 }
             }
