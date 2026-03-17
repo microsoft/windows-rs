@@ -215,8 +215,6 @@ jobs:
         run:  cargo test -p test_constructors_client --target ${{ matrix.target }}
       - name: Test test_core
         run:  cargo test -p test_core --target ${{ matrix.target }}
-      - name: Test test_debug
-        run:  cargo test -p test_debug --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
       - name: Test test_enums
@@ -257,20 +255,18 @@ jobs:
         run:  cargo test -p test_literals --target ${{ matrix.target }}
       - name: Test test_marshal
         run:  cargo test -p test_marshal --target ${{ matrix.target }}
-      - name: Test test_match
-        run:  cargo test -p test_match --target ${{ matrix.target }}
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_core
         run:  cargo test -p test_no_core --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
       - name: Test test_not_dll
@@ -367,12 +363,12 @@ jobs:
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_rdl_roundtrip
         run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace
