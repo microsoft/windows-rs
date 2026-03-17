@@ -144,6 +144,8 @@ pub fn format(input: &str) -> String {
                     output.push_str(",\n");
                     token_idx += 2;
                     continue;
+                } else if matches!(tokens.get(token_idx + 1), Some((Ok(Token::Semicolon), _))) {
+                    // no newline: stay on same line for `}; N]` array syntax
                 } else {
                     output.push('\n');
                 }
