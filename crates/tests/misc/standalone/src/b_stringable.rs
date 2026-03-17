@@ -9,7 +9,7 @@
 windows_core::imp::define_interface!(
     IStringable,
     IStringable_Vtbl,
-    0x96369f54_8eb6_48f0_abce_c1b211e627c3
+    0x54ecba6b_e730_5875_9a87_bd0a3275d061
 );
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer =

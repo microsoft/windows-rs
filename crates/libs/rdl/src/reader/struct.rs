@@ -36,15 +36,20 @@ impl syn::parse::Parse for Struct {
 impl Struct {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let mut breadcrumbs = vec![];
-        encode_body(
+        let type_def = encode_body(
             encoder,
             &self.name.to_string(),
             None,
             self.winrt,
             false,
-            &self.attrs,
             &self.fields,
             &mut breadcrumbs,
+        )?;
+        encode_attrs(
+            encoder,
+            metadata::writer::HasAttribute::TypeDef(type_def),
+            &self.attrs,
+            &[],
         )
     }
 }
@@ -59,10 +64,9 @@ pub fn encode_body(
     outer: Option<metadata::writer::TypeDef>,
     winrt: bool,
     is_union: bool,
-    attrs: &[syn::Attribute],
     fields: &[Field],
     breadcrumbs: &mut Vec<String>,
-) -> Result<(), Error> {
+) -> Result<metadata::writer::TypeDef, Error> {
     breadcrumbs.push(item_name.to_string());
 
     let type_def = define_type(encoder, item_name, outer, winrt, is_union);
@@ -75,18 +79,9 @@ pub fn encode_body(
 
     encode_fields(encoder, fields, type_def, is_union, breadcrumbs)?;
 
-    if outer.is_none() {
-        encode_attrs(
-            encoder,
-            metadata::writer::HasAttribute::TypeDef(type_def),
-            attrs,
-            &[],
-        )?;
-    }
-
     breadcrumbs.pop();
 
-    Ok(())
+    Ok(type_def)
 }
 
 fn define_type(
@@ -209,7 +204,6 @@ fn encode_fields(
                     Some(parent),
                     false,
                     false,
-                    &[],
                     inline_fields,
                     breadcrumbs,
                 )?;
@@ -223,7 +217,6 @@ fn encode_fields(
                     Some(parent),
                     false,
                     true,
-                    &[],
                     inline_fields,
                     breadcrumbs,
                 )?;
@@ -237,7 +230,6 @@ fn encode_fields(
                     Some(parent),
                     false,
                     false,
-                    &[],
                     inline_fields,
                     breadcrumbs,
                 )?;
@@ -251,7 +243,6 @@ fn encode_fields(
                     Some(parent),
                     false,
                     true,
-                    &[],
                     inline_fields,
                     breadcrumbs,
                 )?;

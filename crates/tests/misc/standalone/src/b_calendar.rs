@@ -1147,7 +1147,7 @@ unsafe impl Sync for Calendar {}
 windows_core::imp::define_interface!(
     ICalendar,
     ICalendar_Vtbl,
-    0xca30221d_86d9_40fb_a26b_d44eb7cf08ea
+    0xe27afba8_0ced_53a1_8f56_779f39d2ef0c
 );
 impl windows_core::RuntimeType for ICalendar {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1416,7 +1416,7 @@ pub struct ICalendar_Vtbl {
 windows_core::imp::define_interface!(
     ICalendarFactory,
     ICalendarFactory_Vtbl,
-    0x83f58412_e56b_4c75_a66e_0f63d57758a6
+    0x9eb98acc_93f8_5519_b515_83afc83a6600
 );
 impl windows_core::RuntimeType for ICalendarFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1432,7 +1432,7 @@ pub struct ICalendarFactory_Vtbl {
 windows_core::imp::define_interface!(
     ICalendarFactory2,
     ICalendarFactory2_Vtbl,
-    0xb44b378c_ca7e_4590_9e72_ea2bec1a5115
+    0x8cae764b_8064_5569_b8e6_d5aafe5745b5
 );
 impl windows_core::RuntimeType for ICalendarFactory2 {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -1447,7 +1447,7 @@ pub struct ICalendarFactory2_Vtbl {
 windows_core::imp::define_interface!(
     ITimeZoneOnCalendar,
     ITimeZoneOnCalendar_Vtbl,
-    0xbb3c25e5_46cf_4317_a3f5_02621ad54478
+    0xb3981fd5_2658_52a8_89d6_a99ed86a9c8f
 );
 impl windows_core::RuntimeType for ITimeZoneOnCalendar {
     const SIGNATURE: windows_core::imp::ConstBuffer =

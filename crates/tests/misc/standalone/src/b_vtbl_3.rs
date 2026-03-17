@@ -25,7 +25,7 @@ impl GUID {
     }
 }
 pub type HRESULT = i32;
-pub const IID_IStringable: GUID = GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
+pub const IID_IStringable: GUID = GUID::from_u128(0x54ecba6b_e730_5875_9a87_bd0a3275d061);
 #[repr(C)]
 pub struct IStringable_Vtbl {
     pub base__: IInspectable_Vtbl,
