@@ -411,10 +411,42 @@ fn encode_value(
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
+        metadata::Type::Name(tn) => {
+            let underlying = encoder
+                .reference
+                .get(&tn.namespace, &tn.name)
+                .next()
+                .and_then(|def| def.underlying_type())
+                .or_else(|| rdl_underlying_type(encoder, &tn.namespace, &tn.name));
+
+            match underlying {
+                Some(underlying) => return encode_value(encoder, &underlying, value),
+                None => return encoder.err(value, &format!("constant type not supported: {ty:?}")),
+            }
+        }
         rest => return encoder.err(value, &format!("constant type not supported: {rest:?}")),
     };
 
     Ok(value)
+}
+
+fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option<metadata::Type> {
+    let item = encoder.index.get(namespace, name)?;
+
+    if let Item::Struct(s) = item {
+        let mut fields = s.fields.iter().filter_map(|f| match f {
+            StructField::Regular(field) => Some(field),
+            StructField::Nested { .. } => None,
+        });
+
+        if let Some(field) = fields.next() {
+            if fields.next().is_none() {
+                return encode_type(encoder, &field.ty).ok();
+            }
+        }
+    }
+
+    None
 }
 
 fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
