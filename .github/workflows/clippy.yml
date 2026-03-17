@@ -176,8 +176,6 @@ jobs:
         run:  cargo clippy -p test_composable --tests
       - name: Check test_composable_client
         run:  cargo clippy -p test_composable_client --tests
-      - name: Check test_const_fields
-        run:  cargo clippy -p test_const_fields --tests
       - name: Check test_const_params
         run:  cargo clippy -p test_const_params --tests
       - name: Check test_const_ptrs
