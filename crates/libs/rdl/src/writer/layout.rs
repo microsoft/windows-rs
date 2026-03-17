@@ -34,13 +34,23 @@ impl Layout {
                 .entry(namespace.to_string())
                 .or_default()
                 .winrt
-                .insert(name.to_string(), tokens);
+                .entry(name.to_string())
+                .and_modify(|e| {
+                    e.push(' ');
+                    e.push_str(&tokens);
+                })
+                .or_insert(tokens);
         } else {
             self.modules
                 .entry(namespace.to_string())
                 .or_default()
                 .win32
-                .insert((name.to_string(), arches), tokens);
+                .entry((name.to_string(), arches))
+                .and_modify(|e| {
+                    e.push(' ');
+                    e.push_str(&tokens);
+                })
+                .or_insert(tokens);
         }
     }
 
