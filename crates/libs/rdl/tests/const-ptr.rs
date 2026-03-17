@@ -10,7 +10,7 @@ pub fn parse() {
 
     writer()
         .input("tests/const-ptr.winmd")
-        .output("tests/const-ptr-out.rdl")
+        .output("tests/const-ptr.rdl")
         .namespace("Test")
         .write()
         .unwrap();
