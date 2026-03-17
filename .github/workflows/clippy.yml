@@ -188,8 +188,6 @@ jobs:
         run:  cargo clippy -p test_constructors_client --tests
       - name: Check test_core
         run:  cargo clippy -p test_core --tests
-      - name: Check test_debug
-        run:  cargo clippy -p test_debug --tests
       - name: Check test_deprecated
         run:  cargo clippy -p test_deprecated --tests
       - name: Check test_enums
@@ -230,8 +228,6 @@ jobs:
         run:  cargo clippy -p test_literals --tests
       - name: Check test_marshal
         run:  cargo clippy -p test_marshal --tests
-      - name: Check test_match
-        run:  cargo clippy -p test_match --tests
       - name: Check test_metadata
         run:  cargo clippy -p test_metadata --tests
       - name: Check test_msrv
