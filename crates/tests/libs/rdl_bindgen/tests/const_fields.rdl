@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct Container {
+        Ptr: *const Marker,
+    }
+    struct Marker {
+        X: i32,
+        Y: i32,
+    }
+}

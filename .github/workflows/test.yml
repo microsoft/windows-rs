@@ -203,8 +203,6 @@ jobs:
         run:  cargo test -p test_composable --target ${{ matrix.target }}
       - name: Test test_composable_client
         run:  cargo test -p test_composable_client --target ${{ matrix.target }}
-      - name: Test test_const_fields
-        run:  cargo test -p test_const_fields --target ${{ matrix.target }}
       - name: Test test_const_params
         run:  cargo test -p test_const_params --target ${{ matrix.target }}
       - name: Test test_const_ptrs
@@ -265,10 +263,10 @@ jobs:
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_noexcept
         run:  cargo test -p test_noexcept --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_not_dll
         run:  cargo test -p test_not_dll --target ${{ matrix.target }}
       - name: Test test_numerics
@@ -367,10 +365,10 @@ jobs:
         run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml
