@@ -9,7 +9,7 @@
 windows_core::imp::define_interface!(
     IStringable,
     IStringable_Vtbl,
-    0x54ecba6b_e730_5875_9a87_bd0a3275d061
+    0x96369f54_8eb6_48f0_abce_c1b211e627c3
 );
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -79,7 +79,7 @@ pub struct IStringable_Vtbl {
 windows_core::imp::define_interface!(
     IUriEscapeStatics,
     IUriEscapeStatics_Vtbl,
-    0x76b63289_4635_5d03_b2c7_0937fe2fcc78
+    0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1
 );
 impl windows_core::RuntimeType for IUriEscapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -103,7 +103,7 @@ pub struct IUriEscapeStatics_Vtbl {
 windows_core::imp::define_interface!(
     IUriRuntimeClass,
     IUriRuntimeClass_Vtbl,
-    0x2deae89d_2f5e_5204_b882_41eefff20432
+    0x9e365e57_48b2_4160_956f_c7385120bbfc
 );
 impl windows_core::RuntimeType for IUriRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -179,7 +179,7 @@ pub struct IUriRuntimeClass_Vtbl {
 windows_core::imp::define_interface!(
     IUriRuntimeClassFactory,
     IUriRuntimeClassFactory_Vtbl,
-    0xd96bf1b2_7744_5384_ac8e_c8c869d26933
+    0x44a9796f_723e_4fdf_a218_033e75b0c084
 );
 impl windows_core::RuntimeType for IUriRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -204,7 +204,7 @@ pub struct IUriRuntimeClassFactory_Vtbl {
 windows_core::imp::define_interface!(
     IUriRuntimeClassWithAbsoluteCanonicalUri,
     IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl,
-    0xfed4cde8_6b0f_524a_956a_5ef917c6641f
+    0x758d9661_221c_480f_a339_50656673f46f
 );
 impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const SIGNATURE: windows_core::imp::ConstBuffer =
