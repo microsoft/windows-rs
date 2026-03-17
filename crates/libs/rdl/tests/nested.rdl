@@ -1,21 +1,21 @@
 #[win32]
 mod Test {
     struct Name {
-        a1: Name_a1,
-        a2: Name_a2,
+        a1: Name_0,
+        a2: Name_1,
     }
     struct Name2 {
         a1: Name,
     }
-    struct Name_a1 {
+    struct Name_0 {
         b1: u16,
         b2: i32,
     }
-    struct Name_a2 {
-        c1: Name_a2_c1,
+    struct Name_1 {
+        c1: Name_1_0,
         c2: u32,
     }
-    struct Name_a2_c1 {
+    struct Name_1_0 {
         d1: u8,
     }
 }

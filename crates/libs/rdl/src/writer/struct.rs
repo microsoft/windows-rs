@@ -8,9 +8,10 @@ use windows_metadata::AsRow;
 /// followed by the top-level type itself — so all of them can be inserted into
 /// the layout as independent, flat definitions.
 ///
-/// Nested types that arise from Windows metadata (e.g. anonymous inner structs)
-/// are promoted to the enclosing namespace with a synthesised name derived from
-/// the outer type name and, where possible, the field name that refers to them.
+/// Nested types are promoted to the enclosing namespace with a synthesised name
+/// using the same numeric-suffix scheme as `windows-bindgen`: `OUTER_0`,
+/// `OUTER_1`, `OUTER_0_0`, etc., where the index is the position of the nested
+/// type in the parent's nested-class list.
 pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, TokenStream)> {
     // Nested types are only emitted as part of their enclosing type.
     if item
@@ -51,6 +52,10 @@ pub fn write_struct_items(item: &metadata::reader::TypeDef) -> Vec<(String, Toke
 /// Recursively collect all nested types of `parent`, emitting each as a flat
 /// top-level type.  Returns a map from the nested type's leaf name (as stored
 /// in the metadata) to the synthesised flat name used in the emitted rdl.
+///
+/// The naming scheme matches `windows-bindgen`: each nested type is named
+/// `{outer_flat_name}_{index}` where `index` is the 0-based position of the
+/// nested type in the parent's nested-class list.
 fn collect_nested(
     namespace: &str,
     parent: &metadata::reader::TypeDef,
@@ -59,9 +64,9 @@ fn collect_nested(
 ) -> HashMap<String, String> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
 
-    for nested in parent.index().nested(*parent) {
+    for (index, nested) in parent.index().nested(*parent).enumerate() {
         let nested_leaf = nested.name();
-        let flat_name = compute_flat_name(outer_flat_name, parent, &nested);
+        let flat_name = format!("{outer_flat_name}_{index}");
         flat_names.insert(nested_leaf.to_string(), flat_name.clone());
 
         // Recurse before emitting so that leaves appear before their parents.
@@ -78,58 +83,6 @@ fn collect_nested(
     }
 
     flat_names
-}
-
-/// Compute the flat (un-nested) name for `nested` whose enclosing type has the
-/// flat name `outer_flat_name`.
-///
-/// * If the nested type name starts with `_Anonymous_` we try to find a field of
-///   `outer` that refers to this nested type and derive the suffix from that
-///   field's name.  This converts e.g. `_Anonymous_e__Struct` referenced by a
-///   field called `Options` inside `OUTER` into `OUTER_OPTIONS`.
-/// * Otherwise the suffix is the nested type's own name, giving `OUTER_INNER`.
-fn compute_flat_name(
-    outer_flat_name: &str,
-    outer: &metadata::reader::TypeDef,
-    nested: &metadata::reader::TypeDef,
-) -> String {
-    let nested_name = nested.name();
-
-    let suffix = if nested_name.starts_with("_Anonymous_") {
-        referring_field_name(outer, nested_name)
-            .map(|n| n.to_uppercase())
-            .unwrap_or_else(|| nested_name.to_string())
-    } else {
-        nested_name.to_string()
-    };
-
-    format!("{}_{}", outer_flat_name, suffix)
-}
-
-/// Return the name of the first field in `parent` whose type directly references
-/// `nested_leaf` (the leaf name of a nested type).
-fn referring_field_name(parent: &metadata::reader::TypeDef, nested_leaf: &str) -> Option<String> {
-    for field in parent.fields() {
-        if type_references_nested(&field.ty(), nested_leaf) {
-            return Some(field.name().to_string());
-        }
-    }
-    None
-}
-
-/// Return `true` if `ty` (or any type reachable from it via pointer / array
-/// indirection) directly references a nested type named `nested_leaf`.
-fn type_references_nested(ty: &metadata::Type, nested_leaf: &str) -> bool {
-    match ty {
-        metadata::Type::Name(tn) if tn.namespace.is_empty() => {
-            let leaf = tn.name.rsplit('/').next().unwrap_or(&tn.name);
-            leaf == nested_leaf
-        }
-        metadata::Type::ArrayFixed(inner, _)
-        | metadata::Type::PtrMut(inner, _)
-        | metadata::Type::PtrConst(inner, _) => type_references_nested(inner, nested_leaf),
-        _ => false,
-    }
 }
 
 /// Write a single struct/union field, replacing any reference to a nested type
