@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies]
 windows-bindgen = { workspace = true }
+windows-core = { workspace = true }
 windows-rdl = { workspace = true }
 windows-link = { workspace = true }
 
