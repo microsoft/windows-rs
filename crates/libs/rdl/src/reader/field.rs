@@ -3,13 +3,13 @@
 pub struct Field {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
-    pub ty: FieldTy,
+    pub ty: FieldType,
 }
 
 /// The type of a [`Field`].
 #[allow(clippy::large_enum_variant)]
 #[derive(Debug, Clone)]
-pub enum FieldTy {
+pub enum FieldType {
     /// A plain type reference, e.g. `name: u32` or `name: SomeStruct`.
     Type(syn::Type),
     /// An inline struct definition, e.g. `name: struct { a: u8, b: u16 }`.
@@ -38,7 +38,7 @@ impl syn::parse::Parse for Field {
                 .parse_terminated(Field::parse, syn::Token![,])?
                 .into_iter()
                 .collect();
-            FieldTy::Struct(fields)
+            FieldType::Struct(fields)
         } else if input.peek(syn::Token![union]) {
             input.parse::<syn::Token![union]>()?;
             // Consume optional name.
@@ -49,7 +49,7 @@ impl syn::parse::Parse for Field {
                 .parse_terminated(Field::parse, syn::Token![,])?
                 .into_iter()
                 .collect();
-            FieldTy::Union(fields)
+            FieldType::Union(fields)
         } else if input.peek(syn::token::Bracket) {
             // Fork to peek inside the brackets and check for an inline struct/union.
             let fork = input.fork();
@@ -69,7 +69,7 @@ impl syn::parse::Parse for Field {
                     .collect();
                 inner.parse::<syn::Token![;]>()?;
                 let len: usize = inner.parse::<syn::LitInt>()?.base10_parse()?;
-                FieldTy::StructArray(fields, len)
+                FieldType::StructArray(fields, len)
             } else if bracket_peek.peek(syn::Token![union]) {
                 let inner;
                 syn::bracketed!(inner in input);
@@ -83,12 +83,12 @@ impl syn::parse::Parse for Field {
                     .collect();
                 inner.parse::<syn::Token![;]>()?;
                 let len: usize = inner.parse::<syn::LitInt>()?.base10_parse()?;
-                FieldTy::UnionArray(fields, len)
+                FieldType::UnionArray(fields, len)
             } else {
-                FieldTy::Type(input.parse()?)
+                FieldType::Type(input.parse()?)
             }
         } else {
-            FieldTy::Type(input.parse()?)
+            FieldType::Type(input.parse()?)
         };
 
         Ok(Field { attrs, name, ty })

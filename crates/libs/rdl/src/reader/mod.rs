@@ -437,7 +437,7 @@ fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option
 
     if let Item::Struct(s) = item {
         let mut fields = s.fields.iter().filter_map(|f| match &f.ty {
-            FieldTy::Type(ty) => Some(ty),
+            FieldType::Type(ty) => Some(ty),
             _ => None,
         });
 

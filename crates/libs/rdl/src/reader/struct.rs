@@ -142,7 +142,7 @@ fn encode_fields(
     for field in fields {
         let field_name = field.name.to_string();
         match &field.ty {
-            FieldTy::Type(ty) => {
+            FieldType::Type(ty) => {
                 let mt = encode_type(encoder, ty)?;
                 let field_id =
                     encoder
@@ -158,7 +158,7 @@ fn encode_fields(
                     &[],
                 )?;
             }
-            FieldTy::Struct(_) | FieldTy::Union(_) => {
+            FieldType::Struct(_) | FieldType::Union(_) => {
                 let mt = inline_type(encoder, breadcrumbs, inline_counter);
                 inline_counter += 1;
                 let field_id =
@@ -175,7 +175,7 @@ fn encode_fields(
                     &[],
                 )?;
             }
-            FieldTy::StructArray(_, len) | FieldTy::UnionArray(_, len) => {
+            FieldType::StructArray(_, len) | FieldType::UnionArray(_, len) => {
                 let element = inline_type(encoder, breadcrumbs, inline_counter);
                 inline_counter += 1;
                 let mt = metadata::Type::ArrayFixed(Box::new(element), *len);
@@ -200,7 +200,7 @@ fn encode_fields(
     let mut inline_counter = 0;
     for field in fields {
         match &field.ty {
-            FieldTy::Struct(inline_fields) => {
+            FieldType::Struct(inline_fields) => {
                 let name = inline_name(breadcrumbs, inline_counter);
                 inline_counter += 1;
                 encode_body(
@@ -214,35 +214,7 @@ fn encode_fields(
                     breadcrumbs,
                 )?;
             }
-            FieldTy::Union(inline_fields) => {
-                let name = inline_name(breadcrumbs, inline_counter);
-                inline_counter += 1;
-                encode_body(
-                    encoder,
-                    &name,
-                    Some(parent),
-                    false,
-                    true,
-                    &[],
-                    inline_fields,
-                    breadcrumbs,
-                )?;
-            }
-            FieldTy::StructArray(inline_fields, _) => {
-                let name = inline_name(breadcrumbs, inline_counter);
-                inline_counter += 1;
-                encode_body(
-                    encoder,
-                    &name,
-                    Some(parent),
-                    false,
-                    false,
-                    &[],
-                    inline_fields,
-                    breadcrumbs,
-                )?;
-            }
-            FieldTy::UnionArray(inline_fields, _) => {
+            FieldType::Union(inline_fields) => {
                 let name = inline_name(breadcrumbs, inline_counter);
                 inline_counter += 1;
                 encode_body(
@@ -256,7 +228,35 @@ fn encode_fields(
                     breadcrumbs,
                 )?;
             }
-            FieldTy::Type(_) => {}
+            FieldType::StructArray(inline_fields, _) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    false,
+                    &[],
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::UnionArray(inline_fields, _) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    true,
+                    &[],
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::Type(_) => {}
         }
     }
 
