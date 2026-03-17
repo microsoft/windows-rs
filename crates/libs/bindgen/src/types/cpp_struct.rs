@@ -250,7 +250,7 @@ impl CppStruct {
                 if config.sys {
                     if let Type::CppStruct(ty) = &ty {
                         if ty.is_handle(config.reader)
-                            && ty.def.underlying_type(config.reader).is_pointer()
+                            && ty.def.underlying_type_ext(config.reader).is_pointer()
                         {
                             return true;
                         }

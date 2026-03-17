@@ -5,3 +5,4 @@
 *.winmd
 obj
 bin
+/rdl

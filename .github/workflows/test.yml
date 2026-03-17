@@ -219,10 +219,6 @@ jobs:
         run:  cargo test -p test_debug --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
-      - name: Test test_dispatch
-        run:  cargo test -p test_dispatch --target ${{ matrix.target }}
-      - name: Test test_does_not_return
-        run:  cargo test -p test_does_not_return --target ${{ matrix.target }}
       - name: Test test_enums
         run:  cargo test -p test_enums --target ${{ matrix.target }}
       - name: Test test_error
@@ -265,12 +261,12 @@ jobs:
         run:  cargo test -p test_match --target ${{ matrix.target }}
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_core
         run:  cargo test -p test_no_core --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
@@ -355,8 +351,6 @@ jobs:
         run:  cargo test -p test_win32 --target ${{ matrix.target }}
       - name: Test test_win32_arrays
         run:  cargo test -p test_win32_arrays --target ${{ matrix.target }}
-      - name: Test test_window_long
-        run:  cargo test -p test_window_long --target ${{ matrix.target }}
       - name: Test test_windows_std
         run:  cargo test -p test_windows_std --target ${{ matrix.target }}
       - name: Test test_winrt
@@ -367,14 +361,14 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_rdl_roundtrip
         run:  cargo test -p tool_rdl_roundtrip --target ${{ matrix.target }}
       - name: Test tool_standalone
