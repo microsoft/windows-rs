@@ -280,7 +280,9 @@ fn write_custom_attributes_except<'a>(
     exclude: &[&str],
 ) -> Vec<TokenStream> {
     attributes
-        .filter(|attr| attr.namespace() != "System" && !exclude.contains(&attr.name()))
+        .filter(|attr| {
+            !namespace_starts_with(attr.namespace(), "System") && !exclude.contains(&attr.name())
+        })
         .map(|attr| {
             let attr_ns = attr.namespace();
             let attr_short = attr

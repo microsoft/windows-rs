@@ -3,6 +3,7 @@ use windows_rdl::*;
 fn roundtrip(winmd: &str, rdl: &str) {
     writer()
         .input(winmd)
+        .reference("crates/libs/bindgen/default/Windows.winmd") // for Windows.Foundation.HRESULT
         .output(rdl)
         .namespace("Windows")
         .split()
