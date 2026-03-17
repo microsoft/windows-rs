@@ -439,14 +439,11 @@ fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option
     let item = encoder.index.get(namespace, name)?;
 
     if let Item::Struct(s) = item {
-        let mut fields = s.fields.iter().filter_map(|f| match &f.ty {
-            FieldType::Type(ty) => Some(ty),
-            _ => None,
-        });
+        let mut fields = s.fields.iter();
 
-        if let Some(field_ty) = fields.next() {
+        if let Some(field) = fields.next() {
             if fields.next().is_none() {
-                return encode_type(encoder, field_ty).ok();
+                return encode_type(encoder, &field.ty).ok();
             }
         }
     }
