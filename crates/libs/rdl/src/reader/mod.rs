@@ -413,6 +413,8 @@ fn encode_value(
         metadata::Type::F32 => metadata::Value::F32(encode_neg_lit_float::<f32>(encoder, value)?),
         metadata::Type::F64 => metadata::Value::F64(encode_neg_lit_float::<f64>(encoder, value)?),
         metadata::Type::String => metadata::Value::Utf16(encode_lit_string(encoder, value)?),
+        metadata::Type::ISize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::USize => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
         metadata::Type::PtrMut(_, _) | metadata::Type::PtrConst(_, _) => {
             metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?)
         }
