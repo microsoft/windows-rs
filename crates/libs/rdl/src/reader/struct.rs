@@ -14,7 +14,16 @@ pub struct Struct {
 #[derive(Debug, Clone)]
 pub enum StructField {
     Regular(syn::Field),
-    Nested { name: syn::Ident, def: Struct },
+    Nested {
+        name: syn::Ident,
+        def: Struct,
+    },
+    NestedArray {
+        name: syn::Ident,
+        attrs: Vec<syn::Attribute>,
+        def: Struct,
+        len: usize,
+    },
 }
 
 impl syn::parse::Parse for Struct {
@@ -76,6 +85,61 @@ impl syn::parse::Parse for StructField {
                     is_union: true,
                 },
             })
+        } else if input.peek(syn::token::Bracket) {
+            // Check if this is [struct/union { ... }; N] (nested type inside a fixed array)
+            let fork = input.fork();
+            let bracket_content;
+            syn::bracketed!(bracket_content in fork);
+            let is_nested_struct = bracket_content.peek(syn::Token![struct]);
+            let is_nested_union = bracket_content.peek(syn::Token![union]);
+
+            if is_nested_struct || is_nested_union {
+                let real_content;
+                syn::bracketed!(real_content in input);
+
+                let def: Struct = if is_nested_struct {
+                    real_content.parse()?
+                } else {
+                    let union_token: syn::Token![union] = real_content.parse()?;
+                    let nested_name = real_content.parse()?;
+
+                    let braced_content;
+                    syn::braced!(braced_content in real_content);
+
+                    let fields = braced_content
+                        .parse_terminated(StructField::parse, syn::Token![,])?
+                        .into_iter()
+                        .collect();
+
+                    Struct {
+                        attrs: vec![],
+                        span: union_token.span,
+                        name: nested_name,
+                        fields,
+                        winrt: false,
+                        is_union: true,
+                    }
+                };
+
+                real_content.parse::<syn::Token![;]>()?;
+                let len: usize = real_content.parse::<syn::LitInt>()?.base10_parse()?;
+
+                Ok(StructField::NestedArray {
+                    name,
+                    attrs,
+                    def,
+                    len,
+                })
+            } else {
+                Ok(StructField::Regular(syn::Field {
+                    attrs,
+                    ident: Some(name),
+                    ty: input.parse()?,
+                    vis: syn::Visibility::Inherited,
+                    colon_token: Some(Default::default()),
+                    mutability: syn::FieldMutability::None,
+                }))
+            }
         } else {
             Ok(StructField::Regular(syn::Field {
                 attrs,
@@ -144,6 +208,7 @@ fn collect_nested<'a>(
         .iter()
         .filter_map(|field| match field {
             StructField::Nested { name, def, .. } => Some((name, def)),
+            StructField::NestedArray { name, def, .. } => Some((name, def)),
             _ => None,
         })
         .enumerate()
@@ -248,6 +313,28 @@ fn emit_fields(
                 if is_union {
                     encoder.output.FieldLayout(field_id, 0);
                 }
+            }
+            StructField::NestedArray {
+                name, attrs, len, ..
+            } => {
+                let field_name = name.to_string();
+                let element_type =
+                    metadata::Type::named(encoder.namespace, &nested[&field_name].full_path);
+                let field_type = metadata::Type::ArrayFixed(Box::new(element_type), *len);
+                let field_id = encoder.output.Field(
+                    &field_name,
+                    &field_type,
+                    metadata::FieldAttributes::Public,
+                );
+                if is_union {
+                    encoder.output.FieldLayout(field_id, 0);
+                }
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Field(field_id),
+                    attrs,
+                    &[],
+                )?;
             }
         }
     }

@@ -437,6 +437,7 @@ fn rdl_underlying_type(encoder: &Encoder, namespace: &str, name: &str) -> Option
         let mut fields = s.fields.iter().filter_map(|f| match f {
             StructField::Regular(field) => Some(field),
             StructField::Nested { .. } => None,
+            StructField::NestedArray { .. } => None,
         });
 
         if let Some(field) = fields.next() {
