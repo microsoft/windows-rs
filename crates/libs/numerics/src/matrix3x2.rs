@@ -56,16 +56,6 @@ impl Matrix3x2 {
         }
         matrix
     }
-    fn impl_neg(&self) -> Self {
-        Self {
-            M11: -self.M11,
-            M12: -self.M12,
-            M21: -self.M21,
-            M22: -self.M22,
-            M31: -self.M31,
-            M32: -self.M32,
-        }
-    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             M11: self.M11 + rhs.M11,
@@ -108,18 +98,6 @@ impl Matrix3x2 {
     }
 }
 
-impl core::ops::Neg for Matrix3x2 {
-    type Output = Self;
-    fn neg(self) -> Self {
-        self.impl_neg()
-    }
-}
-impl core::ops::Neg for &Matrix3x2 {
-    type Output = Matrix3x2;
-    fn neg(self) -> Matrix3x2 {
-        self.impl_neg()
-    }
-}
 impl core::ops::Add<Self> for Matrix3x2 {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {

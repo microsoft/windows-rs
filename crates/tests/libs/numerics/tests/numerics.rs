@@ -881,28 +881,6 @@ fn matrix4x4_mul() {
 }
 
 #[test]
-fn matrix3x2_neg() {
-    let value = Matrix3x2 {
-        M11: 1.0,
-        M12: -2.0,
-        M21: 3.0,
-        M22: -4.0,
-        M31: 5.0,
-        M32: -6.0,
-    };
-    let expected = Matrix3x2 {
-        M11: -1.0,
-        M12: 2.0,
-        M21: -3.0,
-        M22: 4.0,
-        M31: -5.0,
-        M32: 6.0,
-    };
-    assert_eq!(-value, expected);
-    assert_eq!(-&value, expected);
-}
-
-#[test]
 fn matrix3x2_identity() {
     let m = Matrix3x2::identity();
     assert_eq!(
@@ -980,48 +958,6 @@ fn matrix3x2_mul_with_identity() {
     };
     assert_eq!(m * Matrix3x2::identity(), m);
     assert_eq!(Matrix3x2::identity() * m, m);
-}
-
-#[test]
-fn matrix4x4_neg() {
-    let value = Matrix4x4 {
-        M11: 1.0,
-        M12: -2.0,
-        M13: 3.0,
-        M14: -4.0,
-        M21: 5.0,
-        M22: -6.0,
-        M23: 7.0,
-        M24: -8.0,
-        M31: 9.0,
-        M32: -10.0,
-        M33: 11.0,
-        M34: -12.0,
-        M41: 13.0,
-        M42: -14.0,
-        M43: 15.0,
-        M44: -16.0,
-    };
-    let expected = Matrix4x4 {
-        M11: -1.0,
-        M12: 2.0,
-        M13: -3.0,
-        M14: 4.0,
-        M21: -5.0,
-        M22: 6.0,
-        M23: -7.0,
-        M24: 8.0,
-        M31: -9.0,
-        M32: 10.0,
-        M33: -11.0,
-        M34: 12.0,
-        M41: -13.0,
-        M42: 14.0,
-        M43: -15.0,
-        M44: 16.0,
-    };
-    assert_eq!(-value, expected);
-    assert_eq!(-&value, expected);
 }
 
 #[test]

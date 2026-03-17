@@ -69,26 +69,6 @@ impl Matrix4x4 {
             M44: 1.0,
         }
     }
-    fn impl_neg(&self) -> Self {
-        Self {
-            M11: -self.M11,
-            M12: -self.M12,
-            M13: -self.M13,
-            M14: -self.M14,
-            M21: -self.M21,
-            M22: -self.M22,
-            M23: -self.M23,
-            M24: -self.M24,
-            M31: -self.M31,
-            M32: -self.M32,
-            M33: -self.M33,
-            M34: -self.M34,
-            M41: -self.M41,
-            M42: -self.M42,
-            M43: -self.M43,
-            M44: -self.M44,
-        }
-    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             M11: self.M11 + rhs.M11,
@@ -171,18 +151,6 @@ impl Matrix4x4 {
     }
 }
 
-impl core::ops::Neg for Matrix4x4 {
-    type Output = Self;
-    fn neg(self) -> Self {
-        self.impl_neg()
-    }
-}
-impl core::ops::Neg for &Matrix4x4 {
-    type Output = Matrix4x4;
-    fn neg(self) -> Matrix4x4 {
-        self.impl_neg()
-    }
-}
 impl core::ops::Add<Self> for Matrix4x4 {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {
