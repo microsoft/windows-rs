@@ -202,6 +202,14 @@ pub unsafe fn WinBioImproveEnd(sessionhandle: u32) -> windows_core::Result<()> {
     unsafe { WinBioImproveEnd(sessionhandle).ok() }
 }
 #[inline]
+pub unsafe fn WinBioIsESSCapable() -> windows_core::Result<u8> {
+    windows_core::link!("winbio.dll" "system" fn WinBioIsESSCapable(value : *mut u8) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WinBioIsESSCapable(&mut result__).map(|| result__)
+    }
+}
+#[inline]
 pub unsafe fn WinBioLocateSensor(sessionhandle: u32, unitid: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winbio.dll" "system" fn WinBioLocateSensor(sessionhandle : u32, unitid : *mut u32) -> windows_core::HRESULT);
     unsafe { WinBioLocateSensor(sessionhandle, unitid.unwrap_or(core::mem::zeroed()) as _).ok() }
@@ -987,6 +995,12 @@ pub struct WINBIO_COMPONENT(pub u32);
 pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
 pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
 pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINBIO_CONNECTED_SENSOR {
+    pub biometricType: u32,
+    pub isEnhancedSignInSecurityCapable: windows_core::BOOL,
+}
 pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1086,6 +1100,25 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub CreateEnrollmentAuthenticated: PIBIO_ENGINE_CREATE_ENROLLMENT_AUTHENTICATED_FN,
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
+pub const WINBIO_ESS_BLOCKED_NON_ESS_CAMERA: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16384i32);
+pub const WINBIO_ESS_BLOCKED_NON_ESS_FPR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8192i32);
+pub const WINBIO_ESS_MANAGED_BY_POLICY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(128i32);
+pub const WINBIO_ESS_REQUIRES_ENABLEMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(64i32);
+pub const WINBIO_ESS_REQUIRES_FACE_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1024i32);
+pub const WINBIO_ESS_REQUIRES_FPR_SENSOR: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2048i32);
+pub const WINBIO_ESS_REQUIRES_ISOLATED_PROCESS: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4096i32);
+pub const WINBIO_ESS_REQUIRES_NON_VBS_BIOMETRIC_ENROLLMENT_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(256i32);
+pub const WINBIO_ESS_REQUIRES_NON_VBS_WINDOWS_HELLO_ABSENCE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(4i32);
+pub const WINBIO_ESS_REQUIRES_TPM2: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(1i32);
+pub const WINBIO_ESS_REQUIRES_VBS_BIOMETRIC_ENROLLMENT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(512i32);
+pub const WINBIO_ESS_REQUIRES_VBS_CAPABLE: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(2i32);
+pub const WINBIO_ESS_REQUIRES_VBS_ENCRYPTION_KEY: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32i32);
+pub const WINBIO_ESS_REQUIRES_VBS_RUNNING: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(16i32);
+pub const WINBIO_ESS_REQUIRES_VBS_WINDOWS_HELLO: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(8i32);
+pub const WINBIO_ESS_SOURCE_DEFAULT: WINBIO_ESS_STATE_FLAGS = WINBIO_ESS_STATE_FLAGS(32768i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WINBIO_ESS_STATE_FLAGS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WINBIO_EVENT {

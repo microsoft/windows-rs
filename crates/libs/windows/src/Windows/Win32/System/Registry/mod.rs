@@ -1600,6 +1600,8 @@ pub const REGSTR_VAL_WRAPPER: windows_core::PCWSTR = windows_core::w!("Wrapper")
 pub const REGSTR_VAL_WRINTTHRESHOLD: windows_core::PCWSTR = windows_core::w!("WRIntThreshold");
 pub const REGSTR_VAL_WRKGRP_FORCEMAPPING: windows_core::PCWSTR = windows_core::w!("WrkgrpForceMapping");
 pub const REGSTR_VAL_WRKGRP_REQUIRED: windows_core::PCWSTR = windows_core::w!("WrkgrpRequired");
+pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2u32;
+pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4u32;
 pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3u32);
 pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
 #[repr(transparent)]

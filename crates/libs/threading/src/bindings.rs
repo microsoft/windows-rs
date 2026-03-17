@@ -9,18 +9,10 @@ windows_link::link!("kernel32.dll" "system" fn SetThreadpoolThreadMinimum(ptpp :
 windows_link::link!("kernel32.dll" "system" fn Sleep(dwmilliseconds : u32));
 windows_link::link!("kernel32.dll" "system" fn TrySubmitThreadpoolCallback(pfns : PTP_SIMPLE_CALLBACK, pv : *mut core::ffi::c_void, pcbe : *const TP_CALLBACK_ENVIRON_V3) -> BOOL);
 pub type BOOL = i32;
-pub type PTP_CALLBACK_INSTANCE = isize;
 pub type PTP_CLEANUP_GROUP = isize;
-pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<
-    unsafe extern "system" fn(
-        objectcontext: *mut core::ffi::c_void,
-        cleanupcontext: *mut core::ffi::c_void,
-    ),
->;
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn()>;
 pub type PTP_POOL = isize;
-pub type PTP_SIMPLE_CALLBACK = Option<
-    unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void),
->;
+pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {

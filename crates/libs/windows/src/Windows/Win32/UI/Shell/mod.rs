@@ -6943,6 +6943,7 @@ pub const COPYENGINE_E_SRC_IS_RW_DVD: windows_core::HRESULT = windows_core::HRES
 pub const COPYENGINE_E_SRC_IS_R_CD: windows_core::HRESULT = windows_core::HRESULT(0x80270017_u32 as _);
 pub const COPYENGINE_E_SRC_IS_R_DVD: windows_core::HRESULT = windows_core::HRESULT(0x8027001A_u32 as _);
 pub const COPYENGINE_E_STREAM_LOSS: windows_core::HRESULT = windows_core::HRESULT(0x8027002D_u32 as _);
+pub const COPYENGINE_E_SUPPRESS_DIALOG: windows_core::HRESULT = windows_core::HRESULT(0x80270050_u32 as _);
 pub const COPYENGINE_E_USER_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0x80270000_u32 as _);
 pub const COPYENGINE_E_WARNED_BY_DLP_POLICY: windows_core::HRESULT = windows_core::HRESULT(0x8027004D_u32 as _);
 pub const COPYENGINE_S_ALREADY_DONE: windows_core::HRESULT = windows_core::HRESULT(0x27000A_u32 as _);
@@ -6953,6 +6954,7 @@ pub const COPYENGINE_S_KEEP_BOTH: windows_core::HRESULT = windows_core::HRESULT(
 pub const COPYENGINE_S_MERGE: windows_core::HRESULT = windows_core::HRESULT(0x270006_u32 as _);
 pub const COPYENGINE_S_NOT_HANDLED: windows_core::HRESULT = windows_core::HRESULT(0x270003_u32 as _);
 pub const COPYENGINE_S_PENDING: windows_core::HRESULT = windows_core::HRESULT(0x27000B_u32 as _);
+pub const COPYENGINE_S_PENDING_BATCH_COPY: windows_core::HRESULT = windows_core::HRESULT(0x270011_u32 as _);
 pub const COPYENGINE_S_PENDING_DELETE: windows_core::HRESULT = windows_core::HRESULT(0x270010_u32 as _);
 pub const COPYENGINE_S_PROGRESS_PAUSE: windows_core::HRESULT = windows_core::HRESULT(0x27000F_u32 as _);
 pub const COPYENGINE_S_USER_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0x270005_u32 as _);
@@ -8035,6 +8037,7 @@ pub const DefFolderMenu: windows_core::GUID = windows_core::GUID::from_u128(0xc6
 pub const DesktopGadget: windows_core::GUID = windows_core::GUID::from_u128(0x924ccc1b_6562_4c85_8657_d177925222b6);
 pub const DesktopWallpaper: windows_core::GUID = windows_core::GUID::from_u128(0xc2cf3110_460e_4fc1_b9d0_8a1c0c9cc4bd);
 pub const DestinationList: windows_core::GUID = windows_core::GUID::from_u128(0x77f10cf0_3db5_4966_b520_b7c54fd35ed6);
+pub const DestinationListBoth: windows_core::GUID = windows_core::GUID::from_u128(0x38fe0cf4_6a59_4729_8e4a_2d580059ede4);
 pub const DocPropShellExtension: windows_core::GUID = windows_core::GUID::from_u128(0x883373c3_bf89_11d1_be35_080036b11a03);
 pub const DriveSizeCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x94357b53_ca29_4b78_83ae_e8fe7409134f);
 pub const DriveTypeCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0xb0a8f3cf_4333_4bab_8873_1ccb1cada48b);
@@ -8852,6 +8855,7 @@ pub const FOLDERTYPEID_StorageProviderPictures: windows_core::GUID = windows_cor
 pub const FOLDERTYPEID_StorageProviderVideos: windows_core::GUID = windows_core::GUID::from_u128(0x51294da1_d7b1_485b_9e9a_17cffe33e187);
 pub const FOLDERTYPEID_UserFiles: windows_core::GUID = windows_core::GUID::from_u128(0xcd0fc69b_71e2_46e5_9690_5bcd9f57aab3);
 pub const FOLDERTYPEID_UsersLibraries: windows_core::GUID = windows_core::GUID::from_u128(0xc4d98f09_6124_4fe0_9942_826416082da9);
+pub const FOLDERTYPEID_VersionControl: windows_core::GUID = windows_core::GUID::from_u128(0x69f1e26b_ec64_4280_bc83_f1eb887ec35a);
 pub const FOLDERTYPEID_Videos: windows_core::GUID = windows_core::GUID::from_u128(0x5fa96407_7e77_483c_ac93_691d05850de8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12653,6 +12657,58 @@ impl IAttachmentExecute_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAttachmentExecute {}
+windows_core::imp::define_interface!(IAttachmentExecute2, IAttachmentExecute2_Vtbl, 0x4f2b781f_a608_4543_abf0_49c246ebbba9);
+impl core::ops::Deref for IAttachmentExecute2 {
+    type Target = IAttachmentExecute;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IAttachmentExecute2, windows_core::IUnknown, IAttachmentExecute);
+impl IAttachmentExecute2 {
+    pub unsafe fn SaveNoVirusCheck(&self) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SaveNoVirusCheck)(windows_core::Interface::as_raw(self)).ok() }
+    }
+    pub unsafe fn SaveWithUINoVirusCheck(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SaveWithUINoVirusCheck)(windows_core::Interface::as_raw(self), hwnd).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAttachmentExecute2_Vtbl {
+    pub base__: IAttachmentExecute_Vtbl,
+    pub SaveNoVirusCheck: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SaveWithUINoVirusCheck: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
+}
+pub trait IAttachmentExecute2_Impl: IAttachmentExecute_Impl {
+    fn SaveNoVirusCheck(&self) -> windows_core::Result<()>;
+    fn SaveWithUINoVirusCheck(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+}
+impl IAttachmentExecute2_Vtbl {
+    pub const fn new<Identity: IAttachmentExecute2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SaveNoVirusCheck<Identity: IAttachmentExecute2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAttachmentExecute2_Impl::SaveNoVirusCheck(this).into()
+            }
+        }
+        unsafe extern "system" fn SaveWithUINoVirusCheck<Identity: IAttachmentExecute2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IAttachmentExecute2_Impl::SaveWithUINoVirusCheck(this, core::mem::transmute_copy(&hwnd)).into()
+            }
+        }
+        Self {
+            base__: IAttachmentExecute_Vtbl::new::<Identity, OFFSET>(),
+            SaveNoVirusCheck: SaveNoVirusCheck::<Identity, OFFSET>,
+            SaveWithUINoVirusCheck: SaveWithUINoVirusCheck::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAttachmentExecute2 as windows_core::Interface>::IID || iid == &<IAttachmentExecute as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IAttachmentExecute2 {}
 windows_core::imp::define_interface!(IAutoComplete, IAutoComplete_Vtbl, 0x00bb2762_6a77_11d0_a535_00c04fd7d062);
 windows_core::imp::interface_hierarchy!(IAutoComplete, windows_core::IUnknown);
 impl IAutoComplete {
@@ -30574,6 +30630,46 @@ impl IObjectWithFolderEnumMode_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IObjectWithFolderEnumMode {}
+windows_core::imp::define_interface!(IObjectWithPackageFullName, IObjectWithPackageFullName_Vtbl, 0xed2aa515_602f_469c_a130_ce69fd0fa878);
+windows_core::imp::interface_hierarchy!(IObjectWithPackageFullName, windows_core::IUnknown);
+impl IObjectWithPackageFullName {
+    pub unsafe fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPackageFullName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IObjectWithPackageFullName_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetPackageFullName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+}
+pub trait IObjectWithPackageFullName_Impl: windows_core::IUnknownImpl {
+    fn GetPackageFullName(&self) -> windows_core::Result<windows_core::PWSTR>;
+}
+impl IObjectWithPackageFullName_Vtbl {
+    pub const fn new<Identity: IObjectWithPackageFullName_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetPackageFullName<Identity: IObjectWithPackageFullName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IObjectWithPackageFullName_Impl::GetPackageFullName(this) {
+                    Ok(ok__) => {
+                        packagefullname.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPackageFullName: GetPackageFullName::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IObjectWithPackageFullName as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IObjectWithPackageFullName {}
 windows_core::imp::define_interface!(IObjectWithProgID, IObjectWithProgID_Vtbl, 0x71e806fb_8dee_46fc_bf8c_7748a8a1ae13);
 windows_core::imp::interface_hierarchy!(IObjectWithProgID, windows_core::IUnknown);
 impl IObjectWithProgID {
@@ -43606,6 +43702,49 @@ impl IStartMenuPinnedList_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IStartMenuPinnedList {}
+windows_core::imp::define_interface!(IStaticVerbProvider, IStaticVerbProvider_Vtbl, 0x4b770da6_d111_4015_96fd_8c1c56f06c55);
+windows_core::imp::interface_hierarchy!(IStaticVerbProvider, windows_core::IUnknown);
+impl IStaticVerbProvider {
+    pub unsafe fn IsVerbSupported<P0>(&self, verbname: P0) -> windows_core::Result<windows_core::BOOL>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsVerbSupported)(windows_core::Interface::as_raw(self), verbname.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStaticVerbProvider_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub IsVerbSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
+}
+pub trait IStaticVerbProvider_Impl: windows_core::IUnknownImpl {
+    fn IsVerbSupported(&self, verbname: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
+}
+impl IStaticVerbProvider_Vtbl {
+    pub const fn new<Identity: IStaticVerbProvider_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn IsVerbSupported<Identity: IStaticVerbProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, verbname: windows_core::PCWSTR, result: *mut windows_core::BOOL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IStaticVerbProvider_Impl::IsVerbSupported(this, core::mem::transmute(&verbname)) {
+                    Ok(ok__) => {
+                        result.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), IsVerbSupported: IsVerbSupported::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IStaticVerbProvider as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IStaticVerbProvider {}
 windows_core::imp::define_interface!(IStorageProviderBanners, IStorageProviderBanners_Vtbl, 0x5efb46d7_47c0_4b68_acda_ded47c90ec91);
 windows_core::imp::interface_hierarchy!(IStorageProviderBanners, windows_core::IUnknown);
 impl IStorageProviderBanners {

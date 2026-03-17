@@ -1923,6 +1923,11 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     unsafe { u_strcspn(string, matchset) }
 }
 #[inline]
+pub unsafe fn u_stringHasBinaryProperty(s: *const u16, length: i32, which: UProperty) -> i8 {
+    windows_core::link!("icu.dll" "C" fn u_stringHasBinaryProperty(s : *const u16, length : i32, which : UProperty) -> i8);
+    unsafe { u_stringHasBinaryProperty(s, length, which) }
+}
+#[inline]
 pub unsafe fn u_strlen(s: *const u16) -> i32 {
     windows_core::link!("icuuc.dll" "C" fn u_strlen(s : *const u16) -> i32);
     unsafe { u_strlen(s) }
@@ -2310,6 +2315,11 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     unsafe { ublock_getCode(c) }
 }
 #[inline]
+pub unsafe fn ubrk_clone(bi: *const UBreakIterator, status: *mut UErrorCode) -> *mut UBreakIterator {
+    windows_core::link!("icu.dll" "C" fn ubrk_clone(bi : *const UBreakIterator, status : *mut UErrorCode) -> *mut UBreakIterator);
+    unsafe { ubrk_clone(bi, status as _) }
+}
+#[inline]
 pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
     windows_core::link!("icuuc.dll" "C" fn ubrk_close(bi : *mut UBreakIterator));
     unsafe { ubrk_close(bi as _) }
@@ -2561,6 +2571,11 @@ where
 {
     windows_core::link!("icuin.dll" "C" fn ucal_getTimeZoneIDForWindowsID(winid : *const u16, len : i32, region : windows_core::PCSTR, id : *mut u16, idcapacity : i32, status : *mut UErrorCode) -> i32);
     unsafe { ucal_getTimeZoneIDForWindowsID(winid, len, region.param().abi(), id as _, idcapacity, status as _) }
+}
+#[inline]
+pub unsafe fn ucal_getTimeZoneOffsetFromLocal(cal: *const *const core::ffi::c_void, nonexistingtimeopt: UTimeZoneLocalOption, duplicatedtimeopt: UTimeZoneLocalOption, rawoffset: *mut i32, dstoffset: *mut i32, status: *mut UErrorCode) {
+    windows_core::link!("icu.dll" "C" fn ucal_getTimeZoneOffsetFromLocal(cal : *const *const core::ffi::c_void, nonexistingtimeopt : UTimeZoneLocalOption, duplicatedtimeopt : UTimeZoneLocalOption, rawoffset : *mut i32, dstoffset : *mut i32, status : *mut UErrorCode));
+    unsafe { ucal_getTimeZoneOffsetFromLocal(cal, nonexistingtimeopt, duplicatedtimeopt, rawoffset as _, dstoffset as _, status as _) }
 }
 #[inline]
 pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8 {
@@ -2845,6 +2860,11 @@ pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex
 pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode) {
     windows_core::link!("icuuc.dll" "C" fn ucnv_cbToUWriteUChars(args : *mut UConverterToUnicodeArgs, source : *const u16, length : i32, offsetindex : i32, err : *mut UErrorCode));
     unsafe { ucnv_cbToUWriteUChars(args as _, source, length, offsetindex, err as _) }
+}
+#[inline]
+pub unsafe fn ucnv_clone(cnv: *const UConverter, status: *mut UErrorCode) -> *mut UConverter {
+    windows_core::link!("icu.dll" "C" fn ucnv_clone(cnv : *const UConverter, status : *mut UErrorCode) -> *mut UConverter);
+    unsafe { ucnv_clone(cnv, status as _) }
 }
 #[inline]
 pub unsafe fn ucnv_close(converter: *mut UConverter) {
@@ -3256,6 +3276,11 @@ where
 pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     windows_core::link!("icuuc.dll" "C" fn ucnvsel_serialize(sel : *const UConverterSelector, buffer : *mut core::ffi::c_void, buffercapacity : i32, status : *mut UErrorCode) -> i32);
     unsafe { ucnvsel_serialize(sel, buffer as _, buffercapacity, status as _) }
+}
+#[inline]
+pub unsafe fn ucol_clone(coll: *const UCollator, status: *mut UErrorCode) -> *mut UCollator {
+    windows_core::link!("icu.dll" "C" fn ucol_clone(coll : *const UCollator, status : *mut UErrorCode) -> *mut UCollator);
+    unsafe { ucol_clone(coll, status as _) }
 }
 #[inline]
 pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32 {
@@ -3998,6 +4023,11 @@ pub unsafe fn udatpg_getDecimal(dtpg: *const *const core::ffi::c_void, plength: 
     unsafe { udatpg_getDecimal(dtpg, plength as _) }
 }
 #[inline]
+pub unsafe fn udatpg_getDefaultHourCycle(dtpg: *const *const core::ffi::c_void, perrorcode: *mut UErrorCode) -> UDateFormatHourCycle {
+    windows_core::link!("icu.dll" "C" fn udatpg_getDefaultHourCycle(dtpg : *const *const core::ffi::c_void, perrorcode : *mut UErrorCode) -> UDateFormatHourCycle);
+    unsafe { udatpg_getDefaultHourCycle(dtpg, perrorcode as _) }
+}
+#[inline]
 pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     windows_core::link!("icu.dll" "C" fn udatpg_getFieldDisplayName(dtpg : *const *const core::ffi::c_void, field : UDateTimePatternField, width : UDateTimePGDisplayWidth, fieldname : *mut u16, capacity : i32, perrorcode : *mut UErrorCode) -> i32);
     unsafe { udatpg_getFieldDisplayName(dtpg, field, width, fieldname as _, capacity, perrorcode as _) }
@@ -4081,6 +4111,16 @@ pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: 
     unsafe { udtitvfmt_format(formatter, fromdate, todate, result as _, resultcapacity, position as _, status as _) }
 }
 #[inline]
+pub unsafe fn udtitvfmt_formatToResult(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut UFormattedDateInterval, status: *mut UErrorCode) {
+    windows_core::link!("icu.dll" "C" fn udtitvfmt_formatToResult(formatter : *const UDateIntervalFormat, fromdate : f64, todate : f64, result : *mut UFormattedDateInterval, status : *mut UErrorCode));
+    unsafe { udtitvfmt_formatToResult(formatter, fromdate, todate, result as _, status as _) }
+}
+#[inline]
+pub unsafe fn udtitvfmt_getContext(formatter: *const UDateIntervalFormat, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
+    windows_core::link!("icu.dll" "C" fn udtitvfmt_getContext(formatter : *const UDateIntervalFormat, r#type : UDisplayContextType, status : *mut UErrorCode) -> UDisplayContext);
+    unsafe { udtitvfmt_getContext(formatter, r#type, status as _) }
+}
+#[inline]
 pub unsafe fn udtitvfmt_open<P0>(locale: P0, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat
 where
     P0: windows_core::Param<windows_core::PCSTR>,
@@ -4097,6 +4137,11 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
 pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue {
     windows_core::link!("icu.dll" "C" fn udtitvfmt_resultAsValue(uresult : *const UFormattedDateInterval, ec : *mut UErrorCode) -> *mut UFormattedValue);
     unsafe { udtitvfmt_resultAsValue(uresult, ec as _) }
+}
+#[inline]
+pub unsafe fn udtitvfmt_setContext(formatter: *mut UDateIntervalFormat, value: UDisplayContext, status: *mut UErrorCode) {
+    windows_core::link!("icu.dll" "C" fn udtitvfmt_setContext(formatter : *mut UDateIntervalFormat, value : UDisplayContext, status : *mut UErrorCode));
+    unsafe { udtitvfmt_setContext(formatter as _, value, status as _) }
 }
 #[inline]
 pub unsafe fn uenum_close(en: *mut UEnumeration) {
@@ -5360,9 +5405,80 @@ pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, uf
     unsafe { unumf_resultNextFieldPosition(uresult, ufpos as _, ec as _) }
 }
 #[inline]
+pub unsafe fn unumf_resultToDecimalNumber<P1>(uresult: *const UFormattedNumber, dest: P1, destcapacity: i32, ec: *mut UErrorCode) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("icu.dll" "C" fn unumf_resultToDecimalNumber(uresult : *const UFormattedNumber, dest : windows_core::PCSTR, destcapacity : i32, ec : *mut UErrorCode) -> i32);
+    unsafe { unumf_resultToDecimalNumber(uresult, dest.param().abi(), destcapacity, ec as _) }
+}
+#[inline]
 pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32 {
     windows_core::link!("icu.dll" "C" fn unumf_resultToString(uresult : *const UFormattedNumber, buffer : *mut u16, buffercapacity : i32, ec : *mut UErrorCode) -> i32);
     unsafe { unumf_resultToString(uresult, buffer as _, buffercapacity, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_close(uformatter: *mut UNumberRangeFormatter) {
+    windows_core::link!("icu.dll" "C" fn unumrf_close(uformatter : *mut UNumberRangeFormatter));
+    unsafe { unumrf_close(uformatter as _) }
+}
+#[inline]
+pub unsafe fn unumrf_closeResult(uresult: *mut UFormattedNumberRange) {
+    windows_core::link!("icu.dll" "C" fn unumrf_closeResult(uresult : *mut UFormattedNumberRange));
+    unsafe { unumrf_closeResult(uresult as _) }
+}
+#[inline]
+pub unsafe fn unumrf_formatDecimalRange<P1, P3>(uformatter: *const UNumberRangeFormatter, first: P1, firstlen: i32, second: P3, secondlen: i32, uresult: *mut UFormattedNumberRange, ec: *mut UErrorCode)
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("icu.dll" "C" fn unumrf_formatDecimalRange(uformatter : *const UNumberRangeFormatter, first : windows_core::PCSTR, firstlen : i32, second : windows_core::PCSTR, secondlen : i32, uresult : *mut UFormattedNumberRange, ec : *mut UErrorCode));
+    unsafe { unumrf_formatDecimalRange(uformatter, first.param().abi(), firstlen, second.param().abi(), secondlen, uresult as _, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_formatDoubleRange(uformatter: *const UNumberRangeFormatter, first: f64, second: f64, uresult: *mut UFormattedNumberRange, ec: *mut UErrorCode) {
+    windows_core::link!("icu.dll" "C" fn unumrf_formatDoubleRange(uformatter : *const UNumberRangeFormatter, first : f64, second : f64, uresult : *mut UFormattedNumberRange, ec : *mut UErrorCode));
+    unsafe { unumrf_formatDoubleRange(uformatter, first, second, uresult as _, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_openForSkeletonWithCollapseAndIdentityFallback<P4>(skeleton: *const u16, skeletonlen: i32, collapse: UNumberRangeCollapse, identityfallback: UNumberRangeIdentityFallback, locale: P4, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberRangeFormatter
+where
+    P4: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("icu.dll" "C" fn unumrf_openForSkeletonWithCollapseAndIdentityFallback(skeleton : *const u16, skeletonlen : i32, collapse : UNumberRangeCollapse, identityfallback : UNumberRangeIdentityFallback, locale : windows_core::PCSTR, perror : *mut UParseError, ec : *mut UErrorCode) -> *mut UNumberRangeFormatter);
+    unsafe { unumrf_openForSkeletonWithCollapseAndIdentityFallback(skeleton, skeletonlen, collapse, identityfallback, locale.param().abi(), perror as _, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumberRange {
+    windows_core::link!("icu.dll" "C" fn unumrf_openResult(ec : *mut UErrorCode) -> *mut UFormattedNumberRange);
+    unsafe { unumrf_openResult(ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_resultAsValue(uresult: *const UFormattedNumberRange, ec: *mut UErrorCode) -> *mut UFormattedValue {
+    windows_core::link!("icu.dll" "C" fn unumrf_resultAsValue(uresult : *const UFormattedNumberRange, ec : *mut UErrorCode) -> *mut UFormattedValue);
+    unsafe { unumrf_resultAsValue(uresult, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_resultGetFirstDecimalNumber<P1>(uresult: *const UFormattedNumberRange, dest: P1, destcapacity: i32, ec: *mut UErrorCode) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("icu.dll" "C" fn unumrf_resultGetFirstDecimalNumber(uresult : *const UFormattedNumberRange, dest : windows_core::PCSTR, destcapacity : i32, ec : *mut UErrorCode) -> i32);
+    unsafe { unumrf_resultGetFirstDecimalNumber(uresult, dest.param().abi(), destcapacity, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_resultGetIdentityResult(uresult: *const UFormattedNumberRange, ec: *mut UErrorCode) -> UNumberRangeIdentityResult {
+    windows_core::link!("icu.dll" "C" fn unumrf_resultGetIdentityResult(uresult : *const UFormattedNumberRange, ec : *mut UErrorCode) -> UNumberRangeIdentityResult);
+    unsafe { unumrf_resultGetIdentityResult(uresult, ec as _) }
+}
+#[inline]
+pub unsafe fn unumrf_resultGetSecondDecimalNumber<P1>(uresult: *const UFormattedNumberRange, dest: P1, destcapacity: i32, ec: *mut UErrorCode) -> i32
+where
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("icu.dll" "C" fn unumrf_resultGetSecondDecimalNumber(uresult : *const UFormattedNumberRange, dest : windows_core::PCSTR, destcapacity : i32, ec : *mut UErrorCode) -> i32);
+    unsafe { unumrf_resultGetSecondDecimalNumber(uresult, dest.param().abi(), destcapacity, ec as _) }
 }
 #[inline]
 pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
@@ -6315,6 +6431,21 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     unsafe { uset_complementAll(set as _, complement) }
 }
 #[inline]
+pub unsafe fn uset_complementAllCodePoints(set: *mut USet, str: *const u16, length: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_complementAllCodePoints(set : *mut USet, str : *const u16, length : i32));
+    unsafe { uset_complementAllCodePoints(set as _, str, length) }
+}
+#[inline]
+pub unsafe fn uset_complementRange(set: *mut USet, start: i32, end: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_complementRange(set : *mut USet, start : i32, end : i32));
+    unsafe { uset_complementRange(set as _, start, end) }
+}
+#[inline]
+pub unsafe fn uset_complementString(set: *mut USet, str: *const u16, length: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_complementString(set : *mut USet, str : *const u16, length : i32));
+    unsafe { uset_complementString(set as _, str, length) }
+}
+#[inline]
 pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     windows_core::link!("icuuc.dll" "C" fn uset_contains(set : *const USet, c : i32) -> i8);
     unsafe { uset_contains(set, c) }
@@ -6370,6 +6501,11 @@ pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     unsafe { uset_getItemCount(set) }
 }
 #[inline]
+pub unsafe fn uset_getRangeCount(set: *const USet) -> i32 {
+    windows_core::link!("icu.dll" "C" fn uset_getRangeCount(set : *const USet) -> i32);
+    unsafe { uset_getRangeCount(set) }
+}
+#[inline]
 pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8 {
     windows_core::link!("icuuc.dll" "C" fn uset_getSerializedRange(set : *const USerializedSet, rangeindex : i32, pstart : *mut i32, pend : *mut i32) -> i8);
     unsafe { uset_getSerializedRange(set, rangeindex, pstart as _, pend as _) }
@@ -6383,6 +6519,11 @@ pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
 pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8 {
     windows_core::link!("icuuc.dll" "C" fn uset_getSerializedSet(fillset : *mut USerializedSet, src : *const u16, srclength : i32) -> i8);
     unsafe { uset_getSerializedSet(fillset as _, src, srclength) }
+}
+#[inline]
+pub unsafe fn uset_hasStrings(set: *const USet) -> i8 {
+    windows_core::link!("icu.dll" "C" fn uset_hasStrings(set : *const USet) -> i8);
+    unsafe { uset_hasStrings(set) }
 }
 #[inline]
 pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
@@ -6430,6 +6571,11 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     unsafe { uset_removeAll(set as _, removeset) }
 }
 #[inline]
+pub unsafe fn uset_removeAllCodePoints(set: *mut USet, str: *const u16, length: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_removeAllCodePoints(set : *mut USet, str : *const u16, length : i32));
+    unsafe { uset_removeAllCodePoints(set as _, str, length) }
+}
+#[inline]
 pub unsafe fn uset_removeAllStrings(set: *mut USet) {
     windows_core::link!("icuuc.dll" "C" fn uset_removeAllStrings(set : *mut USet));
     unsafe { uset_removeAllStrings(set as _) }
@@ -6458,6 +6604,16 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
 pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     windows_core::link!("icuuc.dll" "C" fn uset_retainAll(set : *mut USet, retain : *const USet));
     unsafe { uset_retainAll(set as _, retain) }
+}
+#[inline]
+pub unsafe fn uset_retainAllCodePoints(set: *mut USet, str: *const u16, length: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_retainAllCodePoints(set : *mut USet, str : *const u16, length : i32));
+    unsafe { uset_retainAllCodePoints(set as _, str, length) }
+}
+#[inline]
+pub unsafe fn uset_retainString(set: *mut USet, str: *const u16, length: i32) {
+    windows_core::link!("icu.dll" "C" fn uset_retainString(set : *mut USet, str : *const u16, length : i32));
+    unsafe { uset_retainString(set as _, str, length) }
 }
 #[inline]
 pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -10882,6 +11038,9 @@ impl Default for LOCALESIGNATURE {
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
+pub const LOCALE_CUSTOM_DEFAULT: u32 = 3072u32;
+pub const LOCALE_CUSTOM_UI_DEFAULT: u32 = 5120u32;
+pub const LOCALE_CUSTOM_UNSPECIFIED: u32 = 4096u32;
 pub type LOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type LOCALE_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> windows_core::BOOL>;
 pub type LOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
@@ -10919,6 +11078,7 @@ pub const LOCALE_INEGSEPBYSPACE: u32 = 87u32;
 pub const LOCALE_INEGSIGNPOSN: u32 = 83u32;
 pub const LOCALE_INEGSYMPRECEDES: u32 = 86u32;
 pub const LOCALE_INEUTRAL: u32 = 113u32;
+pub const LOCALE_INVARIANT: u32 = 127u32;
 pub const LOCALE_IOPTIONALCALENDAR: u32 = 4107u32;
 pub const LOCALE_IPAPERSIZE: u32 = 4106u32;
 pub const LOCALE_IPOSITIVEPERCENT: u32 = 117u32;
@@ -10933,6 +11093,7 @@ pub const LOCALE_IUSEUTF8LEGACYACP: u32 = 1638u32;
 pub const LOCALE_IUSEUTF8LEGACYOEMCP: u32 = 2457u32;
 pub const LOCALE_NAME_INVARIANT: windows_core::PCWSTR = windows_core::w!("");
 pub const LOCALE_NAME_SYSTEM_DEFAULT: windows_core::PCWSTR = windows_core::w!("!x-sys-default-locale");
+pub const LOCALE_NEUTRAL: u32 = 0u32;
 pub const LOCALE_NEUTRALDATA: u32 = 16u32;
 pub const LOCALE_NOUSEROVERRIDE: u32 = 2147483648u32;
 pub const LOCALE_REPLACEMENT: u32 = 8u32;
@@ -12145,6 +12306,12 @@ pub const UCAL_SUNDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(1i32);
 pub const UCAL_THURSDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(5i32);
 pub const UCAL_TRADITIONAL: UCalendarType = UCalendarType(0i32);
 pub const UCAL_TUESDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(3i32);
+pub const UCAL_TZ_LOCAL_DAYLIGHT_FORMER: UTimeZoneLocalOption = UTimeZoneLocalOption(7i32);
+pub const UCAL_TZ_LOCAL_DAYLIGHT_LATTER: UTimeZoneLocalOption = UTimeZoneLocalOption(15i32);
+pub const UCAL_TZ_LOCAL_FORMER: UTimeZoneLocalOption = UTimeZoneLocalOption(4i32);
+pub const UCAL_TZ_LOCAL_LATTER: UTimeZoneLocalOption = UTimeZoneLocalOption(12i32);
+pub const UCAL_TZ_LOCAL_STANDARD_FORMER: UTimeZoneLocalOption = UTimeZoneLocalOption(5i32);
+pub const UCAL_TZ_LOCAL_STANDARD_LATTER: UTimeZoneLocalOption = UTimeZoneLocalOption(13i32);
 pub const UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = UTimeZoneTransitionType(0i32);
 pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = UTimeZoneTransitionType(1i32);
 pub const UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = UTimeZoneTransitionType(2i32);
@@ -12477,6 +12644,7 @@ pub const UCURR_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(0i32);
 pub const UCURR_UNCOMMON: UCurrCurrencyType = UCurrCurrencyType(2i32);
 pub const UCURR_USAGE_CASH: UCurrencyUsage = UCurrencyUsage(1i32);
 pub const UCURR_USAGE_STANDARD: UCurrencyUsage = UCurrencyUsage(0i32);
+pub const UCURR_VARIANT_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(3i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCalendarAMPMs(pub i32);
@@ -12740,6 +12908,10 @@ pub const UDAT_HOUR1_FIELD: UDateFormatField = UDateFormatField(15i32);
 pub const UDAT_HOUR24: windows_core::PCSTR = windows_core::s!("H");
 pub const UDAT_HOUR24_MINUTE: windows_core::PCSTR = windows_core::s!("Hm");
 pub const UDAT_HOUR24_MINUTE_SECOND: windows_core::PCSTR = windows_core::s!("Hms");
+pub const UDAT_HOUR_CYCLE_11: UDateFormatHourCycle = UDateFormatHourCycle(0i32);
+pub const UDAT_HOUR_CYCLE_12: UDateFormatHourCycle = UDateFormatHourCycle(1i32);
+pub const UDAT_HOUR_CYCLE_23: UDateFormatHourCycle = UDateFormatHourCycle(2i32);
+pub const UDAT_HOUR_CYCLE_24: UDateFormatHourCycle = UDateFormatHourCycle(3i32);
 pub const UDAT_HOUR_MINUTE: windows_core::PCSTR = windows_core::s!("jm");
 pub const UDAT_HOUR_MINUTE_SECOND: windows_core::PCSTR = windows_core::s!("jms");
 pub const UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = UDateFormatField(5i32);
@@ -12761,6 +12933,7 @@ pub const UDAT_MONTH_DAY: windows_core::PCSTR = windows_core::s!("MMMMd");
 pub const UDAT_MONTH_FIELD: UDateFormatField = UDateFormatField(2i32);
 pub const UDAT_MONTH_WEEKDAY_DAY: windows_core::PCSTR = windows_core::s!("MMMMEEEEd");
 pub const UDAT_NARROW_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(8i32);
+pub const UDAT_NARROW_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(28i32);
 pub const UDAT_NARROW_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(9i32);
 pub const UDAT_NONE: UDateFormatStyle = UDateFormatStyle(-1i32);
 pub const UDAT_NUM_MONTH: windows_core::PCSTR = windows_core::s!("M");
@@ -12813,6 +12986,7 @@ pub const UDAT_STANDALONE_DAY_FIELD: UDateFormatField = UDateFormatField(25i32);
 pub const UDAT_STANDALONE_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(10i32);
 pub const UDAT_STANDALONE_MONTH_FIELD: UDateFormatField = UDateFormatField(26i32);
 pub const UDAT_STANDALONE_NARROW_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(12i32);
+pub const UDAT_STANDALONE_NARROW_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(29i32);
 pub const UDAT_STANDALONE_NARROW_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(15i32);
 pub const UDAT_STANDALONE_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(18i32);
 pub const UDAT_STANDALONE_QUARTER_FIELD: UDateFormatField = UDateFormatField(28i32);
@@ -12892,6 +13066,9 @@ pub struct UDateFormatBooleanAttribute(pub i32);
 pub struct UDateFormatField(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UDateFormatHourCycle(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDateFormatStyle(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12951,6 +13128,7 @@ pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = UFieldCategory(41
 pub const UFIELD_CATEGORY_LIST: UFieldCategory = UFieldCategory(3i32);
 pub const UFIELD_CATEGORY_LIST_SPAN: UFieldCategory = UFieldCategory(4099i32);
 pub const UFIELD_CATEGORY_NUMBER: UFieldCategory = UFieldCategory(2i32);
+pub const UFIELD_CATEGORY_NUMBER_RANGE_SPAN: UFieldCategory = UFieldCategory(4098i32);
 pub const UFIELD_CATEGORY_RELATIVE_DATETIME: UFieldCategory = UFieldCategory(4i32);
 pub const UFIELD_CATEGORY_UNDEFINED: UFieldCategory = UFieldCategory(0i32);
 pub const UFMT_ARRAY: UFormattableType = UFormattableType(4i32);
@@ -13313,6 +13491,8 @@ pub const UNUM_MAX_INTEGER_DIGITS: UNumberFormatAttribute = UNumberFormatAttribu
 pub const UNUM_MAX_SIGNIFICANT_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(18i32);
 pub const UNUM_MEASURE_UNIT_FIELD: UNumberFormatFields = UNumberFormatFields(11i32);
 pub const UNUM_MINIMUM_GROUPING_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(22i32);
+pub const UNUM_MINIMUM_GROUPING_DIGITS_AUTO: UNumberFormatMinimumGroupingDigits = UNumberFormatMinimumGroupingDigits(-2i32);
+pub const UNUM_MINIMUM_GROUPING_DIGITS_MIN2: UNumberFormatMinimumGroupingDigits = UNumberFormatMinimumGroupingDigits(-3i32);
 pub const UNUM_MINUS_SIGN_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(6i32);
 pub const UNUM_MIN_FRACTION_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(7i32);
 pub const UNUM_MIN_INTEGER_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(4i32);
@@ -13363,6 +13543,9 @@ pub const UNUM_ROUND_FLOOR: UNumberFormatRoundingMode = UNumberFormatRoundingMod
 pub const UNUM_ROUND_HALFDOWN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(5i32);
 pub const UNUM_ROUND_HALFEVEN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(4i32);
 pub const UNUM_ROUND_HALFUP: UNumberFormatRoundingMode = UNumberFormatRoundingMode(6i32);
+pub const UNUM_ROUND_HALF_CEILING: UNumberFormatRoundingMode = UNumberFormatRoundingMode(9i32);
+pub const UNUM_ROUND_HALF_FLOOR: UNumberFormatRoundingMode = UNumberFormatRoundingMode(10i32);
+pub const UNUM_ROUND_HALF_ODD: UNumberFormatRoundingMode = UNumberFormatRoundingMode(8i32);
 pub const UNUM_ROUND_UNNECESSARY: UNumberFormatRoundingMode = UNumberFormatRoundingMode(7i32);
 pub const UNUM_ROUND_UP: UNumberFormatRoundingMode = UNumberFormatRoundingMode(3i32);
 pub const UNUM_SCALE: UNumberFormatAttribute = UNumberFormatAttribute(21i32);
@@ -13375,23 +13558,29 @@ pub const UNUM_SIGNIFICANT_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymb
 pub const UNUM_SIGN_ACCOUNTING: UNumberSignDisplay = UNumberSignDisplay(3i32);
 pub const UNUM_SIGN_ACCOUNTING_ALWAYS: UNumberSignDisplay = UNumberSignDisplay(4i32);
 pub const UNUM_SIGN_ACCOUNTING_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(6i32);
+pub const UNUM_SIGN_ACCOUNTING_NEGATIVE: UNumberSignDisplay = UNumberSignDisplay(8i32);
 pub const UNUM_SIGN_ALWAYS: UNumberSignDisplay = UNumberSignDisplay(1i32);
 pub const UNUM_SIGN_ALWAYS_SHOWN: UNumberFormatAttribute = UNumberFormatAttribute(4100i32);
 pub const UNUM_SIGN_AUTO: UNumberSignDisplay = UNumberSignDisplay(0i32);
-pub const UNUM_SIGN_COUNT: UNumberSignDisplay = UNumberSignDisplay(7i32);
+pub const UNUM_SIGN_COUNT: UNumberSignDisplay = UNumberSignDisplay(9i32);
 pub const UNUM_SIGN_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(5i32);
 pub const UNUM_SIGN_FIELD: UNumberFormatFields = UNumberFormatFields(10i32);
+pub const UNUM_SIGN_NEGATIVE: UNumberSignDisplay = UNumberSignDisplay(7i32);
 pub const UNUM_SIGN_NEVER: UNumberSignDisplay = UNumberSignDisplay(2i32);
 pub const UNUM_SIX_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(23i32);
 pub const UNUM_SPELLOUT: UNumberFormatStyle = UNumberFormatStyle(5i32);
 pub const UNUM_THREE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(20i32);
+pub const UNUM_TRAILING_ZERO_AUTO: UNumberTrailingZeroDisplay = UNumberTrailingZeroDisplay(0i32);
+pub const UNUM_TRAILING_ZERO_HIDE_IF_WHOLE: UNumberTrailingZeroDisplay = UNumberTrailingZeroDisplay(1i32);
 pub const UNUM_TWO_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(19i32);
-pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = UNumberUnitWidth(5i32);
+pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = UNumberUnitWidth(7i32);
+pub const UNUM_UNIT_WIDTH_FORMAL: UNumberUnitWidth = UNumberUnitWidth(4i32);
 pub const UNUM_UNIT_WIDTH_FULL_NAME: UNumberUnitWidth = UNumberUnitWidth(2i32);
-pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = UNumberUnitWidth(4i32);
+pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = UNumberUnitWidth(6i32);
 pub const UNUM_UNIT_WIDTH_ISO_CODE: UNumberUnitWidth = UNumberUnitWidth(3i32);
 pub const UNUM_UNIT_WIDTH_NARROW: UNumberUnitWidth = UNumberUnitWidth(0i32);
 pub const UNUM_UNIT_WIDTH_SHORT: UNumberUnitWidth = UNumberUnitWidth(1i32);
+pub const UNUM_UNIT_WIDTH_VARIANT: UNumberUnitWidth = UNumberUnitWidth(5i32);
 pub const UNUM_ZERO_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(4i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13422,6 +13611,9 @@ pub struct UNumberFormatAttributeValue(pub i32);
 pub struct UNumberFormatFields(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UNumberFormatMinimumGroupingDigits(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberFormatPadPosition(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13445,6 +13637,9 @@ pub struct UNumberGroupingStrategy(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberRangeCollapse(pub i32);
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct UNumberRangeFormatter(pub isize);
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberRangeIdentityFallback(pub i32);
 #[repr(transparent)]
@@ -13453,6 +13648,9 @@ pub struct UNumberRangeIdentityResult(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberSignDisplay(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UNumberTrailingZeroDisplay(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberUnitWidth(pub i32);
@@ -14059,6 +14257,9 @@ pub struct UTimeZoneFormatStyle(pub i32);
 pub struct UTimeZoneFormatTimeType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UTimeZoneLocalOption(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UTimeZoneNameType(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -14274,6 +14475,7 @@ pub const U_INPC_TOP_AND_LEFT: UIndicPositionalCategory = UIndicPositionalCatego
 pub const U_INPC_TOP_AND_LEFT_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(12i32);
 pub const U_INPC_TOP_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(13i32);
 pub const U_INPC_VISUAL_ORDER_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(14i32);
+pub const U_INPUT_TOO_LONG_ERROR: UErrorCode = UErrorCode(31i32);
 pub const U_INSC_AVAGRAHA: UIndicSyllabicCategory = UIndicSyllabicCategory(1i32);
 pub const U_INSC_BINDU: UIndicSyllabicCategory = UIndicSyllabicCategory(2i32);
 pub const U_INSC_BRAHMI_JOINING_NUMBER: UIndicSyllabicCategory = UIndicSyllabicCategory(3i32);
@@ -14419,6 +14621,8 @@ pub const U_JG_TAW: UJoiningGroup = UJoiningGroup(41i32);
 pub const U_JG_TEH_MARBUTA: UJoiningGroup = UJoiningGroup(42i32);
 pub const U_JG_TEH_MARBUTA_GOAL: UJoiningGroup = UJoiningGroup(14i32);
 pub const U_JG_TETH: UJoiningGroup = UJoiningGroup(43i32);
+pub const U_JG_THIN_YEH: UJoiningGroup = UJoiningGroup(102i32);
+pub const U_JG_VERTICAL_TAIL: UJoiningGroup = UJoiningGroup(103i32);
 pub const U_JG_WAW: UJoiningGroup = UJoiningGroup(44i32);
 pub const U_JG_YEH: UJoiningGroup = UJoiningGroup(45i32);
 pub const U_JG_YEH_BARREE: UJoiningGroup = UJoiningGroup(46i32);

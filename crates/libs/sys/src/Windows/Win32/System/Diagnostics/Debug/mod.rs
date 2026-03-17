@@ -53,7 +53,6 @@ windows_link::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : su
 windows_link::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
 windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 windows_link::link!("kernel32.dll" "system" fn GetEnabledXStateFeatures() -> u64);
 windows_link::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
 #[cfg(target_arch = "x86")]
@@ -71,7 +70,6 @@ windows_link::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security_WinTrust")]
@@ -114,7 +112,6 @@ windows_link::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut c
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> windows_sys::core::BOOL);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
 windows_link::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
@@ -207,7 +204,6 @@ windows_link::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super:
 windows_link::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
@@ -307,6 +303,7 @@ windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super
 windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymGetParentWindow(phwnd : *mut super::super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
 windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
@@ -523,6 +520,7 @@ pub struct API_VERSION {
     pub Reserved: u16,
 }
 pub const API_VERSION_NUMBER: u32 = 12u32;
+pub const APPLICATION_HANG_KERNEL_LIVEDUMP: BUGCHECK_ERROR = 501u32;
 pub const APP_TAGGING_INITIALIZATION_FAILED: BUGCHECK_ERROR = 266u32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
@@ -682,6 +680,8 @@ pub const BindNoRoomInImage: IMAGEHLP_STATUS_REASON = 2i32;
 pub const BindOutOfMemory: IMAGEHLP_STATUS_REASON = 0i32;
 pub const BindRvaToVaFailed: IMAGEHLP_STATUS_REASON = 1i32;
 pub const BindSymbolsNotUpdated: IMAGEHLP_STATUS_REASON = 13i32;
+pub const BitErrorDdr4: PAGE_OFFLINE_ERROR_TYPES = 0i32;
+pub const BitErrorDdr5: PAGE_OFFLINE_ERROR_TYPES = 2i32;
 pub const CACHE_INITIALIZATION_FAILED: BUGCHECK_ERROR = 102u32;
 pub const CACHE_MANAGER: BUGCHECK_ERROR = 52u32;
 pub const CALL_HAS_NOT_RETURNED_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 419u32;
@@ -1040,6 +1040,7 @@ impl Default for CPU_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const CPU_SCHEDULER_INTERNAL_ERROR: BUGCHECK_ERROR = 512u32;
 pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 486u32;
 pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = 20u32;
 pub const CREATE_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 3u32;
@@ -1185,9 +1186,80 @@ pub const DEVICE_REFERENCE_COUNT_NOT_ZERO: BUGCHECK_ERROR = 54u32;
 pub const DFSC_FILE_SYSTEM: BUGCHECK_ERROR = 267u32;
 pub const DFS_FILE_SYSTEM: BUGCHECK_ERROR = 130u32;
 pub type DIGEST_FUNCTION = Option<unsafe extern "system" fn(refdata: *mut core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> windows_sys::core::BOOL>;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DIMM_ADDRESS {
+    pub Ddr4: DIMM_ADDRESS_0,
+    pub Ddr5: DIMM_ADDRESS_1,
+}
+impl Default for DIMM_ADDRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct DIMM_ADDRESS_0 {
+    pub _bitfield: u64,
+    pub Row: u32,
+    pub Column: u32,
+    pub Info: u64,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct DIMM_ADDRESS_1 {
+    pub _bitfield: u64,
+    pub Row: u32,
+    pub Column: u32,
+    pub Info: u64,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union DIMM_ADDR_VALID_BITS {
+    pub VB_DDR4: DIMM_ADDR_VALID_BITS_DDR4,
+    pub VB_DDR5: DIMM_ADDR_VALID_BITS_DDR5,
+    pub AsUINT32: u32,
+}
+impl Default for DIMM_ADDR_VALID_BITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct DIMM_ADDR_VALID_BITS_DDR4 {
+    pub _bitfield: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct DIMM_ADDR_VALID_BITS_DDR5 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DIMM_INFO {
+    pub DimmAddress: DIMM_ADDRESS,
+    pub ValidBits: DIMM_ADDR_VALID_BITS,
+}
+impl Default for DIMM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DIRECTED_FX_TRANSITION_LIVEDUMP: BUGCHECK_ERROR = 425u32;
 pub const DIRTY_MAPPED_PAGES_CONGESTION: BUGCHECK_ERROR = 235u32;
 pub const DIRTY_NOWRITE_PAGES_CONGESTION: BUGCHECK_ERROR = 253u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISCRIMINATEDUNION_TAG_VALUE {
+    pub value: [u8; 16],
+    pub valueSizeBytes: u8,
+}
+impl Default for DISCRIMINATEDUNION_TAG_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DISORDERLY_SHUTDOWN: BUGCHECK_ERROR = 243u32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1661,6 +1733,7 @@ pub const FACILITY_PIDGENX: FACILITY_CODE = 2561u32;
 pub const FACILITY_PIX: FACILITY_CODE = 2748u32;
 pub const FACILITY_PLA: FACILITY_CODE = 48u32;
 pub const FACILITY_POWERSHELL: FACILITY_CODE = 84u32;
+pub const FACILITY_PPF: FACILITY_CODE = 2344u32;
 pub const FACILITY_PRESENTATION: FACILITY_CODE = 2177u32;
 pub const FACILITY_QUIC: FACILITY_CODE = 65u32;
 pub const FACILITY_RAS: FACILITY_CODE = 83u32;
@@ -1694,12 +1767,15 @@ pub const FACILITY_USERMODE_FILTER_MANAGER: FACILITY_CODE = 31u32;
 pub const FACILITY_USERMODE_HNS: FACILITY_CODE = 59u32;
 pub const FACILITY_USERMODE_HYPERVISOR: FACILITY_CODE = 53u32;
 pub const FACILITY_USERMODE_LICENSING: FACILITY_CODE = 234u32;
+pub const FACILITY_USERMODE_PRM: FACILITY_CODE = 2342u32;
 pub const FACILITY_USERMODE_SDBUS: FACILITY_CODE = 2305u32;
 pub const FACILITY_USERMODE_SPACES: FACILITY_CODE = 231u32;
+pub const FACILITY_USERMODE_UNIONFS: FACILITY_CODE = 2341u32;
 pub const FACILITY_USERMODE_VHD: FACILITY_CODE = 58u32;
 pub const FACILITY_USERMODE_VIRTUALIZATION: FACILITY_CODE = 55u32;
 pub const FACILITY_USERMODE_VOLMGR: FACILITY_CODE = 56u32;
 pub const FACILITY_USERMODE_VOLSNAP: FACILITY_CODE = 130u32;
+pub const FACILITY_USERMODE_WIN_ACCEL: FACILITY_CODE = 2343u32;
 pub const FACILITY_USER_MODE_SECURITY_CORE: FACILITY_CODE = 232u32;
 pub const FACILITY_USN: FACILITY_CODE = 129u32;
 pub const FACILITY_UTC: FACILITY_CODE = 1989u32;
@@ -1766,6 +1842,7 @@ pub const HAL_ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = 345u32;
 pub const HAL_INITIALIZATION_FAILED: BUGCHECK_ERROR = 92u32;
 pub const HAL_IOMMU_INTERNAL_ERROR: BUGCHECK_ERROR = 473u32;
 pub const HAL_MEMORY_ALLOCATION: BUGCHECK_ERROR = 172u32;
+pub const HAL_SPE_INTERNAL_ERROR: BUGCHECK_ERROR = 509u32;
 pub const HANDLE_ERROR_ON_CRITICAL_THREAD: BUGCHECK_ERROR = 493u32;
 pub const HANDLE_LIVE_DUMP: BUGCHECK_ERROR = 492u32;
 pub const HARDWARE_INTERRUPT_STORM: BUGCHECK_ERROR = 242u32;
@@ -2290,7 +2367,7 @@ impl Default for IMAGEHLP_SYMBOL_SRC {
 }
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
 pub type IMAGEHLP_SYMBOL_TYPE_INFO = i32;
-pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = 35i32;
+pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = 39i32;
 pub const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2458,6 +2535,8 @@ pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: IMAGE_DLL_
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: IMAGE_DLL_CHARACTERISTICS = 16u16;
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: IMAGE_DLL_CHARACTERISTICS = 32u16;
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: IMAGE_DLL_CHARACTERISTICS = 4u16;
+pub const IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT: IMAGE_DLL_CHARACTERISTICS = 64u16;
+pub const IMAGE_DLLCHARACTERISTICS_EX_HOTPATCH_COMPATIBLE: IMAGE_DLL_CHARACTERISTICS = 128u16;
 pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: IMAGE_DLL_CHARACTERISTICS = 128u16;
 pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: IMAGE_DLL_CHARACTERISTICS = 16384u16;
 pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: IMAGE_DLL_CHARACTERISTICS = 32u16;
@@ -2602,6 +2681,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub GuardXFGTableDispatchFunctionPointer: u32,
     pub CastGuardOsDeterminedFailureMode: u32,
     pub GuardMemcpyFunctionPointer: u32,
+    pub UmaFunctionPointers: u32,
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
@@ -2655,6 +2735,7 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub GuardXFGTableDispatchFunctionPointer: u64,
     pub CastGuardOsDeterminedFailureMode: u64,
     pub GuardMemcpyFunctionPointer: u64,
+    pub UmaFunctionPointers: u64,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -2917,12 +2998,14 @@ pub const INVALID_CANCEL_OF_FILE_OPEN: BUGCHECK_ERROR = 232u32;
 pub const INVALID_DATA_ACCESS_TRAP: BUGCHECK_ERROR = 4u32;
 pub const INVALID_DRIVER_HANDLE: BUGCHECK_ERROR = 287u32;
 pub const INVALID_EXTENDED_PROCESSOR_STATE: BUGCHECK_ERROR = 305u32;
+pub const INVALID_EXTENSION_STATE: BUGCHECK_ERROR = 515u32;
 pub const INVALID_FLOATING_POINT_STATE: BUGCHECK_ERROR = 231u32;
 pub const INVALID_HIBERNATED_STATE: BUGCHECK_ERROR = 189u32;
 pub const INVALID_IO_BOOST_STATE: BUGCHECK_ERROR = 316u32;
 pub const INVALID_KERNEL_HANDLE: BUGCHECK_ERROR = 147u32;
 pub const INVALID_KERNEL_STACK_ADDRESS: BUGCHECK_ERROR = 462u32;
 pub const INVALID_MDL_RANGE: BUGCHECK_ERROR = 302u32;
+pub const INVALID_MINIMAL_PROCESS_STATE: BUGCHECK_ERROR = 504u32;
 pub const INVALID_PROCESS_ATTACH_ATTEMPT: BUGCHECK_ERROR = 5u32;
 pub const INVALID_PROCESS_DETACH_ATTEMPT: BUGCHECK_ERROR = 6u32;
 pub const INVALID_PUSH_LOCK_FLAGS: BUGCHECK_ERROR = 338u32;
@@ -2935,6 +3018,7 @@ pub const INVALID_THREAD_AFFINITY_STATE: BUGCHECK_ERROR = 488u32;
 pub const INVALID_WORK_QUEUE_ITEM: BUGCHECK_ERROR = 150u32;
 pub const IO1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 105u32;
 pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320u32;
+pub const IOMMU_INTERRUPT_REMAPPING_FAULT: BUGCHECK_ERROR = 507u32;
 pub const IORING: BUGCHECK_ERROR = 499u32;
 pub const IO_OBJECT_INVALID: BUGCHECK_ERROR = 328u32;
 pub const IO_THREADPOOL_DEADLOCK_LIVEDUMP: BUGCHECK_ERROR = 453u32;
@@ -3319,6 +3403,18 @@ pub const MAX_SYM_NAME: u32 = 2000u32;
 pub const MBR_CHECKSUM_MISMATCH: BUGCHECK_ERROR = 139u32;
 pub const MDL_CACHE: BUGCHECK_ERROR = 500u32;
 pub const MEMORY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 101u32;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct MEMORY_DEFECT {
+    pub Version: u32,
+    pub DimmInfo: DIMM_INFO,
+    pub ErrType: PAGE_OFFLINE_ERROR_TYPES,
+}
+impl Default for MEMORY_DEFECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const MEMORY_IMAGE_CORRUPT: BUGCHECK_ERROR = 162u32;
 pub const MEMORY_MANAGEMENT: BUGCHECK_ERROR = 26u32;
 pub const MICROCODE_REVISION_MISMATCH: BUGCHECK_ERROR = 382u32;
@@ -3949,7 +4045,9 @@ impl Default for MINIDUMP_STRING {
 pub const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2u32;
 pub const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4u32;
+pub const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES: u32 = 16u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8u32;
+pub const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: u32 = 32u32;
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
@@ -4057,6 +4155,16 @@ pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct MINIDUMP_SYSTEM_MEMORY_INFO_2 {
+    pub Revision: u16,
+    pub Flags: u16,
+    pub BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
+    pub FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
+    pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
+    pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2,
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
@@ -4138,6 +4246,92 @@ pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub CcDirtyPageThreshold: u64,
     pub ResidentAvailablePages: i64,
     pub SharedCommittedPages: u64,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 {
+    pub IdleProcessTime: u64,
+    pub IoReadTransferCount: u64,
+    pub IoWriteTransferCount: u64,
+    pub IoOtherTransferCount: u64,
+    pub IoReadOperationCount: u32,
+    pub IoWriteOperationCount: u32,
+    pub IoOtherOperationCount: u32,
+    pub AvailablePages: u32,
+    pub CommittedPages: u32,
+    pub CommitLimit: u32,
+    pub PeakCommitment: u32,
+    pub PageFaultCount: u32,
+    pub CopyOnWriteCount: u32,
+    pub TransitionCount: u32,
+    pub CacheTransitionCount: u32,
+    pub DemandZeroCount: u32,
+    pub PageReadCount: u32,
+    pub PageReadIoCount: u32,
+    pub CacheReadCount: u32,
+    pub CacheIoCount: u32,
+    pub DirtyPagesWriteCount: u32,
+    pub DirtyWriteIoCount: u32,
+    pub MappedPagesWriteCount: u32,
+    pub MappedWriteIoCount: u32,
+    pub PagedPoolPages: u32,
+    pub NonPagedPoolPages: u32,
+    pub PagedPoolAllocs: u32,
+    pub PagedPoolFrees: u32,
+    pub NonPagedPoolAllocs: u32,
+    pub NonPagedPoolFrees: u32,
+    pub FreeSystemPtes: u32,
+    pub ResidentSystemCodePage: u32,
+    pub TotalSystemDriverPages: u32,
+    pub TotalSystemCodePages: u32,
+    pub NonPagedPoolLookasideHits: u32,
+    pub PagedPoolLookasideHits: u32,
+    pub AvailablePagedPoolPages: u32,
+    pub ResidentSystemCachePage: u32,
+    pub ResidentPagedPoolPage: u32,
+    pub ResidentSystemDriverPage: u32,
+    pub CcFastReadNoWait: u32,
+    pub CcFastReadWait: u32,
+    pub CcFastReadResourceMiss: u32,
+    pub CcFastReadNotPossible: u32,
+    pub CcFastMdlReadNoWait: u32,
+    pub CcFastMdlReadWait: u32,
+    pub CcFastMdlReadResourceMiss: u32,
+    pub CcFastMdlReadNotPossible: u32,
+    pub CcMapDataNoWait: u32,
+    pub CcMapDataWait: u32,
+    pub CcMapDataNoWaitMiss: u32,
+    pub CcMapDataWaitMiss: u32,
+    pub CcPinMappedDataCount: u32,
+    pub CcPinReadNoWait: u32,
+    pub CcPinReadWait: u32,
+    pub CcPinReadNoWaitMiss: u32,
+    pub CcPinReadWaitMiss: u32,
+    pub CcCopyReadNoWait: u32,
+    pub CcCopyReadWait: u32,
+    pub CcCopyReadNoWaitMiss: u32,
+    pub CcCopyReadWaitMiss: u32,
+    pub CcMdlReadNoWait: u32,
+    pub CcMdlReadWait: u32,
+    pub CcMdlReadNoWaitMiss: u32,
+    pub CcMdlReadWaitMiss: u32,
+    pub CcReadAheadIos: u32,
+    pub CcLazyWriteIos: u32,
+    pub CcLazyWritePages: u32,
+    pub CcDataFlushes: u32,
+    pub CcDataPages: u32,
+    pub ContextSwitches: u32,
+    pub FirstLevelTbFills: u32,
+    pub SecondLevelTbFills: u32,
+    pub SystemCalls: u32,
+    pub CcTotalDirtyPages: u64,
+    pub CcDirtyPageThreshold: u64,
+    pub ResidentAvailablePages: i64,
+    pub SharedCommittedPages: u64,
+    pub MdlPagesAllocated: u64,
+    pub PfnDatabaseCommittedPages: u64,
+    pub SystemPageTableCommittedPages: u64,
+    pub ContiguousPagesAllocated: u64,
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
@@ -4500,10 +4694,12 @@ pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = 128i32;
 pub const MiniDumpFilterTriage: MINIDUMP_TYPE = 1048576i32;
 pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = 16777216i32;
 pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = 131072i32;
+pub const MiniDumpNoIgnoreInaccessibleMemory: MINIDUMP_TYPE = 33554432i32;
 pub const MiniDumpNormal: MINIDUMP_TYPE = 0i32;
 pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = 8388608i32;
 pub const MiniDumpScanMemory: MINIDUMP_TYPE = 16i32;
 pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = 33554431i32;
+pub const MiniDumpValidTypeFlagsEx: MINIDUMP_TYPE = 67108863i32;
 pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = 2097152i32;
 pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = 8192i32;
 pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = 1i32;
@@ -4630,6 +4826,23 @@ pub const PAGE_FAULT_IN_NONPAGED_AREA: BUGCHECK_ERROR = 80u32;
 pub const PAGE_FAULT_IN_NONPAGED_AREA_M: BUGCHECK_ERROR = 268435536u32;
 pub const PAGE_FAULT_WITH_INTERRUPTS_OFF: BUGCHECK_ERROR = 73u32;
 pub const PAGE_NOT_ZERO: BUGCHECK_ERROR = 295u32;
+pub type PAGE_OFFLINE_ERROR_TYPES = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PAGE_OFFLINE_VALID_BITS {
+    pub Anonymous: PAGE_OFFLINE_VALID_BITS_0,
+    pub AsUINT8: u8,
+}
+impl Default for PAGE_OFFLINE_VALID_BITS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PAGE_OFFLINE_VALID_BITS_0 {
+    pub _bitfield: u8,
+}
 pub const PANIC_STACK_SWITCH: BUGCHECK_ERROR = 43u32;
 pub const PASSIVE_INTERRUPT_ERROR: BUGCHECK_ERROR = 315u32;
 pub const PCI_BUS_DRIVER_INTERNAL: BUGCHECK_ERROR = 161u32;
@@ -4725,11 +4938,13 @@ pub const PP1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 144u32;
 pub type PREAD_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> windows_sys::core::BOOL>;
 pub type PREAD_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> windows_sys::core::BOOL>;
 pub const PREVIOUS_FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = 373u32;
+pub const PREVIOUS_MODE_MISMATCH: BUGCHECK_ERROR = 505u32;
 pub const PROCESS1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 107u32;
 pub const PROCESSOR_DRIVER_INTERNAL: BUGCHECK_ERROR = 323u32;
 pub const PROCESSOR_START_TIMEOUT: BUGCHECK_ERROR = 479u32;
 pub const PROCESS_HAS_LOCKED_PAGES: BUGCHECK_ERROR = 118u32;
 pub const PROCESS_INITIALIZATION_FAILED: BUGCHECK_ERROR = 96u32;
+pub const PROCESS_TERMINATE_LIKELY_DEADLOCK: BUGCHECK_ERROR = 513u32;
 pub const PROFILER_CONFIGURATION_ILLEGAL: BUGCHECK_ERROR = 379u32;
 pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = 8i32;
 pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = 134217728i32;
@@ -4835,6 +5050,8 @@ pub const ReadMemoryFailureCallback: MINIDUMP_CALLBACK_TYPE = 14i32;
 pub const RemoveMemoryCallback: MINIDUMP_CALLBACK_TYPE = 9i32;
 pub const ReservedStream0: MINIDUMP_STREAM_TYPE = 1i32;
 pub const ReservedStream1: MINIDUMP_STREAM_TYPE = 2i32;
+pub const RowErrorDdr4: PAGE_OFFLINE_ERROR_TYPES = 1i32;
+pub const RowErrorDdr5: PAGE_OFFLINE_ERROR_TYPES = 3i32;
 pub const SAVER_ACCOUNTPROVSVCINITFAILURE: BUGCHECK_ERROR = 61461u32;
 pub const SAVER_APPBARDISMISSAL: BUGCHECK_ERROR = 61454u32;
 pub const SAVER_APPLISTUNREACHABLE: BUGCHECK_ERROR = 61456u32;
@@ -4877,6 +5094,7 @@ pub const SDBUS_INTERNAL_ERROR: BUGCHECK_ERROR = 346u32;
 pub const SECURE_BOOT_VIOLATION: BUGCHECK_ERROR = 325u32;
 pub const SECURE_FAULT_UNHANDLED: BUGCHECK_ERROR = 397u32;
 pub const SECURE_KERNEL_ERROR: BUGCHECK_ERROR = 395u32;
+pub const SECURE_KERNEL_HIBERNATE_ERROR: BUGCHECK_ERROR = 370u32;
 pub const SECURE_PCI_CONFIG_SPACE_ACCESS_VIOLATION: BUGCHECK_ERROR = 490u32;
 pub const SECURITY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 99u32;
 pub const SECURITY_INITIALIZATION_FAILED: BUGCHECK_ERROR = 95u32;
@@ -4903,8 +5121,10 @@ pub const SLMFLAG_ALT_INDEX: SYM_LOAD_FLAGS = 2u32;
 pub const SLMFLAG_NONE: SYM_LOAD_FLAGS = 0u32;
 pub const SLMFLAG_NO_SYMBOLS: SYM_LOAD_FLAGS = 4u32;
 pub const SLMFLAG_VIRTUAL: SYM_LOAD_FLAGS = 1u32;
+pub const SMB_CLIENT_REQUEST_VALIDATION_FAILURE: BUGCHECK_ERROR = 510u32;
 pub const SMB_REDIRECTOR_LIVEDUMP: BUGCHECK_ERROR = 423u32;
 pub const SMB_SERVER_LIVEDUMP: BUGCHECK_ERROR = 405u32;
+pub const SMB_SRV_REQUEST_VALIDATION_FAILURE: BUGCHECK_ERROR = 506u32;
 pub const SOC_CRITICAL_DEVICE_REMOVED: BUGCHECK_ERROR = 334u32;
 pub const SOC_SUBSYSTEM_FAILURE: BUGCHECK_ERROR = 331u32;
 pub const SOC_SUBSYSTEM_FAILURE_LIVEDUMP: BUGCHECK_ERROR = 349u32;
@@ -5089,7 +5309,9 @@ impl Default for STACKFRAME_EX {
     }
 }
 pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = 320u32;
+pub const STORAGE_DRIVER_LIVEDUMP: BUGCHECK_ERROR = 519u32;
 pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = 240u32;
+pub const STORAGE_STACK_FATAL_ERROR: BUGCHECK_ERROR = 374u32;
 pub const STORE_DATA_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = 455u32;
 pub const STREAMS_INTERNAL_ERROR: BUGCHECK_ERROR = 75u32;
 pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: windows_sys::core::PCSTR, param3: *mut u8, param4: usize) -> windows_sys::core::BOOL>;
@@ -5169,6 +5391,7 @@ impl Default for SYMBOL_INFO_PACKAGEW {
 pub const SYMENUM_OPTIONS_DEFAULT: u32 = 1u32;
 pub const SYMENUM_OPTIONS_INLINE: u32 = 2u32;
 pub const SYMFLAG_CLR_TOKEN: SYMBOL_INFO_FLAGS = 262144u32;
+pub const SYMFLAG_COMPLEX: u32 = 67108864u32;
 pub const SYMFLAG_CONSTANT: SYMBOL_INFO_FLAGS = 256u32;
 pub const SYMFLAG_EXPORT: SYMBOL_INFO_FLAGS = 512u32;
 pub const SYMFLAG_FIXUP_ARM64X: u32 = 16777216u32;
@@ -5378,6 +5601,22 @@ pub const TI_GET_CHILDRENCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 13i32;
 pub const TI_GET_CLASSPARENTID: IMAGEHLP_SYMBOL_TYPE_INFO = 18i32;
 pub const TI_GET_COUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 12i32;
 pub const TI_GET_DATAKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 8i32;
+pub const TI_GET_DISCRIMINATEDUNION_TAG_OFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 36i32;
+pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGES: IMAGEHLP_SYMBOL_TYPE_INFO = 38i32;
+pub const TI_GET_DISCRIMINATEDUNION_TAG_RANGESCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 37i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
+    pub Count: u32,
+    pub Start: u32,
+    pub Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
+}
+impl Default for TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const TI_GET_DISCRIMINATEDUNION_TAG_TYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 35i32;
 pub const TI_GET_INDIRECTVIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = 32i32;
 pub const TI_GET_IS_REFERENCE: IMAGEHLP_SYMBOL_TYPE_INFO = 31i32;
 pub const TI_GET_LENGTH: IMAGEHLP_SYMBOL_TYPE_INFO = 2i32;
@@ -5441,6 +5680,7 @@ pub const UNDNAME_NO_RETURN_UDT_MODEL: u32 = 1024u32;
 pub const UNDNAME_NO_SPECIAL_SYMS: u32 = 16384u32;
 pub const UNDNAME_NO_THISTYPE: u32 = 96u32;
 pub const UNDNAME_NO_THROW_SIGNATURES: u32 = 256u32;
+pub const UNEXPECTED_CODEPATH: BUGCHECK_ERROR = 514u32;
 pub const UNEXPECTED_INITIALIZATION_CALL: BUGCHECK_ERROR = 51u32;
 pub const UNEXPECTED_KERNEL_MODE_TRAP: BUGCHECK_ERROR = 127u32;
 pub const UNEXPECTED_KERNEL_MODE_TRAP_M: BUGCHECK_ERROR = 268435583u32;
@@ -5704,6 +5944,7 @@ impl Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
 }
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
+pub const WHEA_DISABLE_PRM_ADDRESS_TRANSLATION: u32 = 20u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_DRIVER_BUFFER_SET {
@@ -5719,6 +5960,7 @@ impl Default for WHEA_DRIVER_BUFFER_SET {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const WHEA_ENABLE_BATCHED_ROW_OFFLINE: u32 = 21u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
@@ -5824,6 +6066,7 @@ pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
 pub type WHEA_ERROR_SOURCE_STATE = i32;
 pub type WHEA_ERROR_SOURCE_TYPE = i32;
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1073741824u32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
@@ -6126,6 +6369,7 @@ pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Enabled: bool,
 }
 pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = 352u32;
+pub const WIN32K_CALLOUT_UNREGISTER_FAILED: BUGCHECK_ERROR = 508u32;
 pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = 418u32;
 pub const WIN32K_CALLOUT_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 417u32;
 pub const WIN32K_CRITICAL_FAILURE: BUGCHECK_ERROR = 356u32;
@@ -6325,6 +6569,7 @@ pub const WheaErrSrcTypeSei: WHEA_ERROR_SOURCE_TYPE = 18i32;
 pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = 7i32;
 pub const XBOX_360_SYSTEM_CRASH: BUGCHECK_ERROR = 864u32;
 pub const XBOX_360_SYSTEM_CRASH_RESERVED: BUGCHECK_ERROR = 1056u32;
+pub const XBOX_CANNOT_MANAGE_PARTITION_MEMORY: BUGCHECK_ERROR = 861u32;
 pub const XBOX_CORRUPTED_IMAGE: BUGCHECK_ERROR = 855u32;
 pub const XBOX_CORRUPTED_IMAGE_BASE: BUGCHECK_ERROR = 857u32;
 pub const XBOX_INVERTED_FUNCTION_TABLE_OVERFLOW: BUGCHECK_ERROR = 856u32;
@@ -6453,7 +6698,8 @@ pub struct XSTATE_CONFIGURATION {
     pub EnabledUserVisibleSupervisorFeatures: u64,
     pub ExtendedFeatureDisableFeatures: u64,
     pub AllNonLargeFeatureSize: u32,
-    pub Spare: u32,
+    pub MaxSveVectorLength: u16,
+    pub Spare1: u16,
 }
 impl Default for XSTATE_CONFIGURATION {
     fn default() -> Self {
@@ -6495,7 +6741,8 @@ impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
-    pub Reserved1: u32,
+    pub Flags: u8,
+    pub Reserved0: [u8; 3],
     pub Area: *mut XSAVE_AREA,
     pub Reserved2: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -6513,7 +6760,8 @@ impl Default for XSTATE_CONTEXT {
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
-    pub Reserved1: u32,
+    pub Flags: u8,
+    pub Reserved0: [u8; 3],
     pub Area: *mut XSAVE_AREA,
     pub Buffer: *mut core::ffi::c_void,
 }

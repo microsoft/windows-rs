@@ -1,111 +1,122 @@
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmCalloutAdd0(enginehandle: super::super::Foundation::HANDLE, callout: *const FWPM_CALLOUT0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u32>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutAdd0(enginehandle : super::super::Foundation:: HANDLE, callout : *const FWPM_CALLOUT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u32) -> u32);
+pub unsafe fn FwpmCalloutAdd0(enginehandle: FWPM_ENGINE_HANDLE, callout: *const FWPM_CALLOUT0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u32>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutAdd0(enginehandle : FWPM_ENGINE_HANDLE, callout : *const FWPM_CALLOUT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u32) -> u32);
     unsafe { FwpmCalloutAdd0(enginehandle, callout, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_CALLOUT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmCalloutCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_CALLOUT_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_CALLOUT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle : *mut FWPM_CALLOUT_ENUM_HANDLE) -> u32);
     unsafe { FwpmCalloutCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u32) -> u32);
+pub unsafe fn FwpmCalloutDeleteById0(enginehandle: FWPM_ENGINE_HANDLE, id: u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteById0(enginehandle : FWPM_ENGINE_HANDLE, id : u32) -> u32);
     unsafe { FwpmCalloutDeleteById0(enginehandle, id) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmCalloutDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmCalloutDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmCalloutDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_CALLOUT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_CALLOUT_ENUM_HANDLE) -> u32);
     unsafe { FwpmCalloutDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CALLOUT0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmCalloutEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_CALLOUT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_CALLOUT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CALLOUT0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmCalloutEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutGetById0(enginehandle: super::super::Foundation::HANDLE, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u32, callout : *mut *mut FWPM_CALLOUT0) -> u32);
+pub unsafe fn FwpmCalloutGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u32, callout : *mut *mut FWPM_CALLOUT0) -> u32);
     unsafe { FwpmCalloutGetById0(enginehandle, id, callout as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, callout : *mut *mut FWPM_CALLOUT0) -> u32);
+pub unsafe fn FwpmCalloutGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, callout : *mut *mut FWPM_CALLOUT0) -> u32);
     unsafe { FwpmCalloutGetByKey0(enginehandle, key, callout as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmCalloutGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmCalloutGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmCalloutSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmCalloutSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmCalloutSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CALLOUT_SUBSCRIPTION0, callback : FWPM_CALLOUT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmCalloutSubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: FWPM_CALLOUT_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_CALLOUT_SUBSCRIPTION0, callback : FWPM_CALLOUT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmCalloutSubscribeChanges0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmCalloutSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmCalloutSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmCalloutUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmCalloutUnsubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutUnsubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmCalloutUnsubscribeChanges0(enginehandle, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_CONNECTION_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmConnectionCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_CONNECTION_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_CONNECTION_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle : *mut FWPM_CONNECTION_ENUM_HANDLE) -> u32);
     unsafe { FwpmConnectionCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmConnectionDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_CONNECTION_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_CONNECTION_ENUM_HANDLE) -> u32);
     unsafe { FwpmConnectionDestroyEnumHandle0(enginehandle, enumhandle) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CONNECTION0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmConnectionEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_CONNECTION_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_CONNECTION_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_CONNECTION0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmConnectionEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, connection : *mut *mut FWPM_CONNECTION0) -> u32);
+pub unsafe fn FwpmConnectionGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, connection : *mut *mut FWPM_CONNECTION0) -> u32);
     unsafe { FwpmConnectionGetById0(enginehandle, id, connection as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmConnectionGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmConnectionGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmConnectionGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmConnectionSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmConnectionPolicyAdd0(enginehandle: FWPM_ENGINE_HANDLE, connectionpolicy: *const FWPM_PROVIDER_CONTEXT3, ipversion: FWP_IP_VERSION, weight: u64, filterconditions: &[FWPM_FILTER_CONDITION0], sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionPolicyAdd0(enginehandle : FWPM_ENGINE_HANDLE, connectionpolicy : *const FWPM_PROVIDER_CONTEXT3, ipversion : FWP_IP_VERSION, weight : u64, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    unsafe { FwpmConnectionPolicyAdd0(enginehandle, connectionpolicy, ipversion, weight, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[inline]
+pub unsafe fn FwpmConnectionPolicyDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionPolicyDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
+    unsafe { FwpmConnectionPolicyDeleteByKey0(enginehandle, key) }
+}
+#[cfg(feature = "Win32_Security")]
+#[inline]
+pub unsafe fn FwpmConnectionSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmConnectionSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_CONNECTION_SUBSCRIPTION0, callback : FWPM_CONNECTION_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmConnectionSubscribe0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: FWPM_CONNECTION_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionSubscribe0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_CONNECTION_SUBSCRIPTION0, callback : FWPM_CONNECTION_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmConnectionSubscribe0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmConnectionUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmConnectionUnsubscribe0(enginehandle: FWPM_ENGINE_HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionUnsubscribe0(enginehandle : FWPM_ENGINE_HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmConnectionUnsubscribe0(enginehandle, eventshandle as _) }
 }
 #[inline]
@@ -119,115 +130,115 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0(subscriptionhandle: super::super::F
     unsafe { FwpmDynamicKeywordUnsubscribe0(subscriptionhandle) }
 }
 #[inline]
-pub unsafe fn FwpmEngineClose0(enginehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmEngineClose0(enginehandle: FWPM_ENGINE_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : FWPM_ENGINE_HANDLE) -> u32);
     unsafe { FwpmEngineClose0(enginehandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmEngineGetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, value : *mut *mut FWP_VALUE0) -> u32);
+pub unsafe fn FwpmEngineGetOption0(enginehandle: FWPM_ENGINE_HANDLE, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetOption0(enginehandle : FWPM_ENGINE_HANDLE, option : FWPM_ENGINE_OPTION, value : *mut *mut FWP_VALUE0) -> u32);
     unsafe { FwpmEngineGetOption0(enginehandle, option, value as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmEngineGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const FWPM_SESSION0>, enginehandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn FwpmEngineOpen0<P0>(servername: P0, authnservice: u32, authidentity: Option<*const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const FWPM_SESSION0>, enginehandle: *mut FWPM_ENGINE_HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : windows_core::PCWSTR, authnservice : u32, authidentity : *const super::super::System::Rpc:: SEC_WINNT_AUTH_IDENTITY_W, session : *const FWPM_SESSION0, enginehandle : *mut FWPM_ENGINE_HANDLE) -> u32);
     unsafe { FwpmEngineOpen0(servername.param().abi(), authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmEngineSetOption0(enginehandle: super::super::Foundation::HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineSetOption0(enginehandle : super::super::Foundation:: HANDLE, option : FWPM_ENGINE_OPTION, newvalue : *const FWP_VALUE0) -> u32);
+pub unsafe fn FwpmEngineSetOption0(enginehandle: FWPM_ENGINE_HANDLE, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineSetOption0(enginehandle : FWPM_ENGINE_HANDLE, option : FWPM_ENGINE_OPTION, newvalue : *const FWP_VALUE0) -> u32);
     unsafe { FwpmEngineSetOption0(enginehandle, option, newvalue) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmEngineSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmEngineSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmEngineSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterAdd0(enginehandle: super::super::Foundation::HANDLE, filter: *const FWPM_FILTER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterAdd0(enginehandle : super::super::Foundation:: HANDLE, filter : *const FWPM_FILTER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+pub unsafe fn FwpmFilterAdd0(enginehandle: FWPM_ENGINE_HANDLE, filter: *const FWPM_FILTER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterAdd0(enginehandle : FWPM_ENGINE_HANDLE, filter : *const FWPM_FILTER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
     unsafe { FwpmFilterAdd0(enginehandle, filter, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_FILTER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmFilterCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_FILTER_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_FILTER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle : *mut FWPM_FILTER_ENUM_HANDLE) -> u32);
     unsafe { FwpmFilterCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmFilterDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+pub unsafe fn FwpmFilterDeleteById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64) -> u32);
     unsafe { FwpmFilterDeleteById0(enginehandle, id) }
 }
 #[inline]
-pub unsafe fn FwpmFilterDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmFilterDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmFilterDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmFilterDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmFilterDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_FILTER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_FILTER_ENUM_HANDLE) -> u32);
     unsafe { FwpmFilterDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_FILTER0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmFilterEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_FILTER_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_FILTER_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_FILTER0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmFilterEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, filter : *mut *mut FWPM_FILTER0) -> u32);
+pub unsafe fn FwpmFilterGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, filter : *mut *mut FWPM_FILTER0) -> u32);
     unsafe { FwpmFilterGetById0(enginehandle, id, filter as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, filter: *mut *mut FWPM_FILTER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, filter : *mut *mut FWPM_FILTER0) -> u32);
+pub unsafe fn FwpmFilterGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, filter: *mut *mut FWPM_FILTER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, filter : *mut *mut FWPM_FILTER0) -> u32);
     unsafe { FwpmFilterGetByKey0(enginehandle, key, filter as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmFilterGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmFilterGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmFilterSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmFilterSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_FILTER_SUBSCRIPTION0, callback : FWPM_FILTER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmFilterSubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: FWPM_FILTER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_FILTER_SUBSCRIPTION0, callback : FWPM_FILTER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmFilterSubscribeChanges0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, changehandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmFilterSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmFilterSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmFilterSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmFilterUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmFilterUnsubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterUnsubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmFilterUnsubscribeChanges0(enginehandle, changehandle as _) }
 }
 #[inline]
@@ -245,780 +256,780 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd0(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, filterconditions: &[FWPM_FILTER_CONDITION0], sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmIPsecTunnelAdd0(enginehandle: FWPM_ENGINE_HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, filterconditions: &[FWPM_FILTER_CONDITION0], sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : FWPM_ENGINE_HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmIPsecTunnelAdd0(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd1(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmIPsecTunnelAdd1(enginehandle: FWPM_ENGINE_HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : FWPM_ENGINE_HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmIPsecTunnelAdd1(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd2(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmIPsecTunnelAdd2(enginehandle: FWPM_ENGINE_HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : FWPM_ENGINE_HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmIPsecTunnelAdd2(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmIPsecTunnelAdd3(enginehandle: super::super::Foundation::HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : super::super::Foundation:: HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmIPsecTunnelAdd3(enginehandle: FWPM_ENGINE_HANDLE, flags: u32, mainmodepolicy: Option<*const FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3, filterconditions: &[FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : FWPM_ENGINE_HANDLE, flags : u32, mainmodepolicy : *const FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmIPsecTunnelAdd3(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmIPsecTunnelDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmIPsecTunnelDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmIPsecTunnelDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_LAYER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmLayerCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_LAYER_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_LAYER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle : *mut FWPM_LAYER_ENUM_HANDLE) -> u32);
     unsafe { FwpmLayerCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmLayerDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_LAYER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_LAYER_ENUM_HANDLE) -> u32);
     unsafe { FwpmLayerDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_LAYER0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmLayerEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_LAYER_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_LAYER_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_LAYER0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmLayerEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn FwpmLayerGetById0(enginehandle: super::super::Foundation::HANDLE, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u16, layer : *mut *mut FWPM_LAYER0) -> u32);
+pub unsafe fn FwpmLayerGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u16, layer : *mut *mut FWPM_LAYER0) -> u32);
     unsafe { FwpmLayerGetById0(enginehandle, id, layer as _) }
 }
 #[inline]
-pub unsafe fn FwpmLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, layer: *mut *mut FWPM_LAYER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, layer : *mut *mut FWPM_LAYER0) -> u32);
+pub unsafe fn FwpmLayerGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, layer: *mut *mut FWPM_LAYER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, layer : *mut *mut FWPM_LAYER0) -> u32);
     unsafe { FwpmLayerGetByKey0(enginehandle, key, layer as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmLayerGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmLayerSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmLayerSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_NET_EVENT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_NET_EVENT_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_NET_EVENT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle : *mut FWPM_NET_EVENT_ENUM_HANDLE) -> u32);
     unsafe { FwpmNetEventCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmNetEventDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE) -> u32);
     unsafe { FwpmNetEventDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum1(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum1(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum1(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum2(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum2(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum2(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum3(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum3(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum3(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum4(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum4(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum4(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum4(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT4, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum4(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventEnum5(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum5(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventEnum5(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventEnum5(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_NET_EVENT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_NET_EVENT5, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmNetEventEnum5(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventSubscribe0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventSubscribe0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe1(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe1(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK1, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventSubscribe1(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK1, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe1(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK1, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventSubscribe1(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe2(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe2(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK2, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventSubscribe2(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK2, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe2(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK2, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventSubscribe2(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe3(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe3(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK3, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventSubscribe3(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK3, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe3(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK3, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventSubscribe3(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscribe4(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe4(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK4, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventSubscribe4(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: FWPM_NET_EVENT_CALLBACK4, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscribe4(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_NET_EVENT_SUBSCRIPTION0, callback : FWPM_NET_EVENT_CALLBACK4, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventSubscribe4(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmNetEventSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmNetEventSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmNetEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmNetEventUnsubscribe0(enginehandle: FWPM_ENGINE_HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventUnsubscribe0(enginehandle : FWPM_ENGINE_HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmNetEventUnsubscribe0(enginehandle, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmNetEventsGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventsGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmNetEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmNetEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmNetEventsSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventsSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmNetEventsSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderAdd0(enginehandle: super::super::Foundation::HANDLE, provider: *const FWPM_PROVIDER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderAdd0(enginehandle : super::super::Foundation:: HANDLE, provider : *const FWPM_PROVIDER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmProviderAdd0(enginehandle: FWPM_ENGINE_HANDLE, provider: *const FWPM_PROVIDER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderAdd0(enginehandle : FWPM_ENGINE_HANDLE, provider : *const FWPM_PROVIDER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmProviderAdd0(enginehandle, provider, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd0(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd0(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+pub unsafe fn FwpmProviderContextAdd0(enginehandle: FWPM_ENGINE_HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd0(enginehandle : FWPM_ENGINE_HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT0, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
     unsafe { FwpmProviderContextAdd0(enginehandle, providercontext, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd1(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd1(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT1, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+pub unsafe fn FwpmProviderContextAdd1(enginehandle: FWPM_ENGINE_HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd1(enginehandle : FWPM_ENGINE_HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT1, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
     unsafe { FwpmProviderContextAdd1(enginehandle, providercontext, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd2(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd2(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT2, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+pub unsafe fn FwpmProviderContextAdd2(enginehandle: FWPM_ENGINE_HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd2(enginehandle : FWPM_ENGINE_HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT2, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
     unsafe { FwpmProviderContextAdd2(enginehandle, providercontext, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextAdd3(enginehandle: super::super::Foundation::HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd3(enginehandle : super::super::Foundation:: HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT3, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
+pub unsafe fn FwpmProviderContextAdd3(enginehandle: FWPM_ENGINE_HANDLE, providercontext: *const FWPM_PROVIDER_CONTEXT3, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>, id: Option<*mut u64>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextAdd3(enginehandle : FWPM_ENGINE_HANDLE, providercontext : *const FWPM_PROVIDER_CONTEXT3, sd : super::super::Security:: PSECURITY_DESCRIPTOR, id : *mut u64) -> u32);
     unsafe { FwpmProviderContextAdd3(enginehandle, providercontext, sd.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderContextCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_PROVIDER_CONTEXT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut FWPM_PROVIDER_CONTEXT_ENUM_HANDLE) -> u32);
     unsafe { FwpmProviderContextCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+pub unsafe fn FwpmProviderContextDeleteById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64) -> u32);
     unsafe { FwpmProviderContextDeleteById0(enginehandle, id) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmProviderContextDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmProviderContextDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderContextDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_CONTEXT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_CONTEXT_ENUM_HANDLE) -> u32);
     unsafe { FwpmProviderContextDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmProviderContextEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmProviderContextEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmProviderContextEnum1(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum1(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmProviderContextEnum1(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmProviderContextEnum2(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum2(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmProviderContextEnum2(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextEnum3(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum3(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmProviderContextEnum3(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextEnum3(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT3, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmProviderContextEnum3(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
+pub unsafe fn FwpmProviderContextGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
     unsafe { FwpmProviderContextGetById0(enginehandle, id, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
+pub unsafe fn FwpmProviderContextGetById1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
     unsafe { FwpmProviderContextGetById1(enginehandle, id, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
+pub unsafe fn FwpmProviderContextGetById2(enginehandle: FWPM_ENGINE_HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById2(enginehandle : FWPM_ENGINE_HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
     unsafe { FwpmProviderContextGetById2(enginehandle, id, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetById3(enginehandle: super::super::Foundation::HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById3(enginehandle : super::super::Foundation:: HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
+pub unsafe fn FwpmProviderContextGetById3(enginehandle: FWPM_ENGINE_HANDLE, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetById3(enginehandle : FWPM_ENGINE_HANDLE, id : u64, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
     unsafe { FwpmProviderContextGetById3(enginehandle, id, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
+pub unsafe fn FwpmProviderContextGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32);
     unsafe { FwpmProviderContextGetByKey0(enginehandle, key, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetByKey1(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey1(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
+pub unsafe fn FwpmProviderContextGetByKey1(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey1(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32);
     unsafe { FwpmProviderContextGetByKey1(enginehandle, key, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetByKey2(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey2(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
+pub unsafe fn FwpmProviderContextGetByKey2(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey2(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32);
     unsafe { FwpmProviderContextGetByKey2(enginehandle, key, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetByKey3(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey3(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
+pub unsafe fn FwpmProviderContextGetByKey3(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetByKey3(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, providercontext : *mut *mut FWPM_PROVIDER_CONTEXT3) -> u32);
     unsafe { FwpmProviderContextGetByKey3(enginehandle, key, providercontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmProviderContextGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmProviderContextSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderContextSubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback : FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmProviderContextSubscribeChanges0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmProviderContextSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmProviderContextSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderContextUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderContextUnsubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextUnsubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmProviderContextUnsubscribeChanges0(enginehandle, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_PROVIDER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_PROVIDER_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_PROVIDER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle : *mut FWPM_PROVIDER_ENUM_HANDLE) -> u32);
     unsafe { FwpmProviderCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmProviderDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmProviderDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmProviderDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_ENUM_HANDLE) -> u32);
     unsafe { FwpmProviderDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmProviderEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_PROVIDER_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_PROVIDER_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_PROVIDER0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmProviderEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, provider : *mut *mut FWPM_PROVIDER0) -> u32);
+pub unsafe fn FwpmProviderGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, provider : *mut *mut FWPM_PROVIDER0) -> u32);
     unsafe { FwpmProviderGetByKey0(enginehandle, key, provider as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmProviderGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmProviderGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmProviderSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmProviderSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmProviderSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_PROVIDER_SUBSCRIPTION0, callback : FWPM_PROVIDER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderSubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: FWPM_PROVIDER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_PROVIDER_SUBSCRIPTION0, callback : FWPM_PROVIDER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmProviderSubscribeChanges0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmProviderSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmProviderSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmProviderUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmProviderUnsubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderUnsubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmProviderUnsubscribeChanges0(enginehandle, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSessionCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_SESSION_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSessionCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_SESSION_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_SESSION_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle : *mut FWPM_SESSION_ENUM_HANDLE) -> u32);
     unsafe { FwpmSessionCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSessionDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSessionDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_SESSION_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_SESSION_ENUM_HANDLE) -> u32);
     unsafe { FwpmSessionDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmSessionEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SESSION0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmSessionEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_SESSION_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_SESSION_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SESSION0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmSessionEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmSubLayerAdd0(enginehandle: super::super::Foundation::HANDLE, sublayer: *const FWPM_SUBLAYER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerAdd0(enginehandle : super::super::Foundation:: HANDLE, sublayer : *const FWPM_SUBLAYER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmSubLayerAdd0(enginehandle: FWPM_ENGINE_HANDLE, sublayer: *const FWPM_SUBLAYER0, sd: Option<super::super::Security::PSECURITY_DESCRIPTOR>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerAdd0(enginehandle : FWPM_ENGINE_HANDLE, sublayer : *const FWPM_SUBLAYER0, sd : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmSubLayerAdd0(enginehandle, sublayer, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const FWPM_SUBLAYER_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSubLayerCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const FWPM_SUBLAYER_ENUM_TEMPLATE0>, enumhandle: *mut FWPM_SUBLAYER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle : *mut FWPM_SUBLAYER_ENUM_HANDLE) -> u32);
     unsafe { FwpmSubLayerCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerDeleteByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDeleteByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID) -> u32);
+pub unsafe fn FwpmSubLayerDeleteByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDeleteByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID) -> u32);
     unsafe { FwpmSubLayerDeleteByKey0(enginehandle, key) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSubLayerDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_SUBLAYER_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_SUBLAYER_ENUM_HANDLE) -> u32);
     unsafe { FwpmSubLayerDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn FwpmSubLayerEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: FWPM_SUBLAYER_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : FWPM_SUBLAYER_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned : *mut u32) -> u32);
     unsafe { FwpmSubLayerEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerGetByKey0(enginehandle: super::super::Foundation::HANDLE, key: *const windows_core::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, sublayer : *mut *mut FWPM_SUBLAYER0) -> u32);
+pub unsafe fn FwpmSubLayerGetByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: *const windows_core::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, sublayer : *mut *mut FWPM_SUBLAYER0) -> u32);
     unsafe { FwpmSubLayerGetByKey0(enginehandle, key, sublayer as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmSubLayerGetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, key: Option<*const windows_core::GUID>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, key : *const windows_core::GUID, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmSubLayerSetSecurityInfoByKey0(enginehandle, key.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerSubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0, callback : FWPM_SUBLAYER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSubLayerSubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: FWPM_SUBLAYER_CHANGE_CALLBACK0, context: Option<*const core::ffi::c_void>, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_SUBLAYER_SUBSCRIPTION0, callback : FWPM_SUBLAYER_CHANGE_CALLBACK0, context : *const core::ffi::c_void, changehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmSubLayerSubscribeChanges0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn FwpmSubLayerSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { FwpmSubLayerSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn FwpmSubLayerUnsubscribeChanges0(enginehandle: super::super::Foundation::HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerUnsubscribeChanges0(enginehandle : super::super::Foundation:: HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSubLayerUnsubscribeChanges0(enginehandle: FWPM_ENGINE_HANDLE, changehandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerUnsubscribeChanges0(enginehandle : FWPM_ENGINE_HANDLE, changehandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmSubLayerUnsubscribeChanges0(enginehandle, changehandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSystemPortsGet0(enginehandle: Option<super::super::Foundation::HANDLE>, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsGet0(enginehandle : super::super::Foundation:: HANDLE, sysports : *mut *mut FWPM_SYSTEM_PORTS0) -> u32);
+pub unsafe fn FwpmSystemPortsGet0(enginehandle: Option<FWPM_ENGINE_HANDLE>, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsGet0(enginehandle : FWPM_ENGINE_HANDLE, sysports : *mut *mut FWPM_SYSTEM_PORTS0) -> u32);
     unsafe { FwpmSystemPortsGet0(enginehandle.unwrap_or(core::mem::zeroed()) as _, sysports as _) }
 }
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0(enginehandle: Option<super::super::Foundation::HANDLE>, reserved: Option<*const core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: Option<*const core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSystemPortsSubscribe0(enginehandle: Option<FWPM_ENGINE_HANDLE>, reserved: Option<*const core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: Option<*const core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsSubscribe0(enginehandle : FWPM_ENGINE_HANDLE, reserved : *const core::ffi::c_void, callback : FWPM_SYSTEM_PORTS_CALLBACK0, context : *const core::ffi::c_void, sysportshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmSystemPortsSubscribe0(enginehandle.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, callback, context.unwrap_or(core::mem::zeroed()) as _, sysportshandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmSystemPortsUnsubscribe0(enginehandle: Option<super::super::Foundation::HANDLE>, sysportshandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, sysportshandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmSystemPortsUnsubscribe0(enginehandle: Option<FWPM_ENGINE_HANDLE>, sysportshandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmSystemPortsUnsubscribe0(enginehandle : FWPM_ENGINE_HANDLE, sysportshandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmSystemPortsUnsubscribe0(enginehandle.unwrap_or(core::mem::zeroed()) as _, sysportshandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmTransactionAbort0(enginehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionAbort0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmTransactionAbort0(enginehandle: FWPM_ENGINE_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionAbort0(enginehandle : FWPM_ENGINE_HANDLE) -> u32);
     unsafe { FwpmTransactionAbort0(enginehandle) }
 }
 #[inline]
-pub unsafe fn FwpmTransactionBegin0(enginehandle: super::super::Foundation::HANDLE, flags: u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionBegin0(enginehandle : super::super::Foundation:: HANDLE, flags : u32) -> u32);
+pub unsafe fn FwpmTransactionBegin0(enginehandle: FWPM_ENGINE_HANDLE, flags: u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionBegin0(enginehandle : FWPM_ENGINE_HANDLE, flags : u32) -> u32);
     unsafe { FwpmTransactionBegin0(enginehandle, flags) }
 }
 #[inline]
-pub unsafe fn FwpmTransactionCommit0(enginehandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionCommit0(enginehandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmTransactionCommit0(enginehandle: FWPM_ENGINE_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmTransactionCommit0(enginehandle : FWPM_ENGINE_HANDLE) -> u32);
     unsafe { FwpmTransactionCommit0(enginehandle) }
 }
 #[inline]
-pub unsafe fn FwpmvSwitchEventSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: Option<*const core::ffi::c_void>, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback : FWPM_VSWITCH_EVENT_CALLBACK0, context : *const core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmvSwitchEventSubscribe0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: FWPM_VSWITCH_EVENT_CALLBACK0, context: Option<*const core::ffi::c_void>, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventSubscribe0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback : FWPM_VSWITCH_EVENT_CALLBACK0, context : *const core::ffi::c_void, subscriptionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmvSwitchEventSubscribe0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, subscriptionhandle as _) }
 }
 #[inline]
-pub unsafe fn FwpmvSwitchEventUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, subscriptionhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn FwpmvSwitchEventUnsubscribe0(enginehandle: FWPM_ENGINE_HANDLE, subscriptionhandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventUnsubscribe0(enginehandle : FWPM_ENGINE_HANDLE, subscriptionhandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { FwpmvSwitchEventUnsubscribe0(enginehandle, subscriptionhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmvSwitchEventsGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmvSwitchEventsSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { FwpmvSwitchEventsSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecDospGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn IPsecDospGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { IPsecDospGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[inline]
-pub unsafe fn IPsecDospGetStatistics0(enginehandle: super::super::Foundation::HANDLE, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, idpstatistics : *mut IPSEC_DOSP_STATISTICS0) -> u32);
+pub unsafe fn IPsecDospGetStatistics0(enginehandle: FWPM_ENGINE_HANDLE, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospGetStatistics0(enginehandle : FWPM_ENGINE_HANDLE, idpstatistics : *mut IPSEC_DOSP_STATISTICS0) -> u32);
     unsafe { IPsecDospGetStatistics0(enginehandle, idpstatistics as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecDospSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn IPsecDospSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { IPsecDospSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IPsecDospStateCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const IPSEC_DOSP_STATE_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecDospStateCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const IPSEC_DOSP_STATE_ENUM_TEMPLATE0>, enumhandle: *mut IPSEC_DOSP_STATE_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle : *mut IPSEC_DOSP_STATE_ENUM_HANDLE) -> u32);
     unsafe { IPsecDospStateCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn IPsecDospStateDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecDospStateDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_DOSP_STATE_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_DOSP_STATE_ENUM_HANDLE) -> u32);
     unsafe { IPsecDospStateDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn IPsecDospStateEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_DOSP_STATE0, numentries : *mut u32) -> u32);
+pub unsafe fn IPsecDospStateEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_DOSP_STATE_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_DOSP_STATE_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_DOSP_STATE0, numentries : *mut u32) -> u32);
     unsafe { IPsecDospStateEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn IPsecGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS0) -> u32);
+pub unsafe fn IPsecGetStatistics0(enginehandle: FWPM_ENGINE_HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics0(enginehandle : FWPM_ENGINE_HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS0) -> u32);
     unsafe { IPsecGetStatistics0(enginehandle, ipsecstatistics as _) }
 }
 #[inline]
-pub unsafe fn IPsecGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS1) -> u32);
+pub unsafe fn IPsecGetStatistics1(enginehandle: FWPM_ENGINE_HANDLE, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecGetStatistics1(enginehandle : FWPM_ENGINE_HANDLE, ipsecstatistics : *mut IPSEC_STATISTICS1) -> u32);
     unsafe { IPsecGetStatistics1(enginehandle, ipsecstatistics as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecKeyManagerAddAndRegister0(enginehandle: super::super::Foundation::HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerAddAndRegister0(enginehandle : super::super::Foundation:: HANDLE, keymanager : *const IPSEC_KEY_MANAGER0, keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecKeyManagerAddAndRegister0(enginehandle: FWPM_ENGINE_HANDLE, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerAddAndRegister0(enginehandle : FWPM_ENGINE_HANDLE, keymanager : *const IPSEC_KEY_MANAGER0, keymanagercallbacks : *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { IPsecKeyManagerAddAndRegister0(enginehandle, keymanager, keymanagercallbacks, keymgmthandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const core::ffi::c_void, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerGetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, reserved : *const core::ffi::c_void, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { IPsecKeyManagerGetSecurityInfoByKey0(enginehandle, reserved.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: super::super::Foundation::HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle : super::super::Foundation:: HANDLE, reserved : *const core::ffi::c_void, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle: FWPM_ENGINE_HANDLE, reserved: Option<*const core::ffi::c_void>, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerSetSecurityInfoByKey0(enginehandle : FWPM_ENGINE_HANDLE, reserved : *const core::ffi::c_void, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { IPsecKeyManagerSetSecurityInfoByKey0(enginehandle, reserved.unwrap_or(core::mem::zeroed()) as _, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IPsecKeyManagerUnregisterAndDelete0(enginehandle: super::super::Foundation::HANDLE, keymgmthandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerUnregisterAndDelete0(enginehandle : super::super::Foundation:: HANDLE, keymgmthandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecKeyManagerUnregisterAndDelete0(enginehandle: FWPM_ENGINE_HANDLE, keymgmthandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagerUnregisterAndDelete0(enginehandle : FWPM_ENGINE_HANDLE, keymgmthandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { IPsecKeyManagerUnregisterAndDelete0(enginehandle, keymgmthandle) }
 }
 #[inline]
-pub unsafe fn IPsecKeyManagersGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagersGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_KEY_MANAGER0, numentries : *mut u32) -> u32);
+pub unsafe fn IPsecKeyManagersGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecKeyManagersGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut IPSEC_KEY_MANAGER0, numentries : *mut u32) -> u32);
     unsafe { IPsecKeyManagersGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextAddInbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
+pub unsafe fn IPsecSaContextAddInbound0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
     unsafe { IPsecSaContextAddInbound0(enginehandle, id, inboundbundle) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextAddInbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
+pub unsafe fn IPsecSaContextAddInbound1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddInbound1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, inboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
     unsafe { IPsecSaContextAddInbound1(enginehandle, id, inboundbundle) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextAddOutbound0(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound0(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
+pub unsafe fn IPsecSaContextAddOutbound0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE0) -> u32);
     unsafe { IPsecSaContextAddOutbound0(enginehandle, id, outboundbundle) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextAddOutbound1(enginehandle: super::super::Foundation::HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound1(enginehandle : super::super::Foundation:: HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
+pub unsafe fn IPsecSaContextAddOutbound1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextAddOutbound1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, outboundbundle : *const IPSEC_SA_BUNDLE1) -> u32);
     unsafe { IPsecSaContextAddOutbound1(enginehandle, id, outboundbundle) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextCreate0(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: Option<*mut u64>, id: *mut u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate0(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
+pub unsafe fn IPsecSaContextCreate0(enginehandle: FWPM_ENGINE_HANDLE, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: Option<*mut u64>, id: *mut u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate0(enginehandle : FWPM_ENGINE_HANDLE, outboundtraffic : *const IPSEC_TRAFFIC0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
     unsafe { IPsecSaContextCreate0(enginehandle, outboundtraffic, inboundfilterid.unwrap_or(core::mem::zeroed()) as _, id as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextCreate1(enginehandle: super::super::Foundation::HANDLE, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: Option<*const IPSEC_VIRTUAL_IF_TUNNEL_INFO0>, inboundfilterid: Option<*mut u64>, id: *mut u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate1(enginehandle : super::super::Foundation:: HANDLE, outboundtraffic : *const IPSEC_TRAFFIC1, virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
+pub unsafe fn IPsecSaContextCreate1(enginehandle: FWPM_ENGINE_HANDLE, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: Option<*const IPSEC_VIRTUAL_IF_TUNNEL_INFO0>, inboundfilterid: Option<*mut u64>, id: *mut u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreate1(enginehandle : FWPM_ENGINE_HANDLE, outboundtraffic : *const IPSEC_TRAFFIC1, virtualiftunnelinfo : *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid : *mut u64, id : *mut u64) -> u32);
     unsafe { IPsecSaContextCreate1(enginehandle, outboundtraffic, virtualiftunnelinfo.unwrap_or(core::mem::zeroed()) as _, inboundfilterid.unwrap_or(core::mem::zeroed()) as _, id as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaContextCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0>, enumhandle: *mut IPSEC_SA_CONTEXT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle : *mut IPSEC_SA_CONTEXT_ENUM_HANDLE) -> u32);
     unsafe { IPsecSaContextCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+pub unsafe fn IPsecSaContextDeleteById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDeleteById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64) -> u32);
     unsafe { IPsecSaContextDeleteById0(enginehandle, id) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaContextDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_CONTEXT_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_CONTEXT_ENUM_HANDLE) -> u32);
     unsafe { IPsecSaContextDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IPsecSaContextEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned : *mut u32) -> u32);
     unsafe { IPsecSaContextEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IPsecSaContextEnum1(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_CONTEXT_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextEnum1(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_CONTEXT_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned : *mut u32) -> u32);
     unsafe { IPsecSaContextEnum1(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextExpire0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextExpire0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+pub unsafe fn IPsecSaContextExpire0(enginehandle: FWPM_ENGINE_HANDLE, id: u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextExpire0(enginehandle : FWPM_ENGINE_HANDLE, id : u64) -> u32);
     unsafe { IPsecSaContextExpire0(enginehandle, id) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT0) -> u32);
+pub unsafe fn IPsecSaContextGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT0) -> u32);
     unsafe { IPsecSaContextGetById0(enginehandle, id, sacontext as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT1) -> u32);
+pub unsafe fn IPsecSaContextGetById1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetById1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, sacontext : *mut *mut IPSEC_SA_CONTEXT1) -> u32);
     unsafe { IPsecSaContextGetById1(enginehandle, id, sacontext as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextGetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI0, inboundspi : *mut u32) -> u32);
+pub unsafe fn IPsecSaContextGetSpi0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, getspi : *const IPSEC_GETSPI0, inboundspi : *mut u32) -> u32);
     unsafe { IPsecSaContextGetSpi0(enginehandle, id, getspi, inboundspi as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextGetSpi1(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi1(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : *mut u32) -> u32);
+pub unsafe fn IPsecSaContextGetSpi1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextGetSpi1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : *mut u32) -> u32);
     unsafe { IPsecSaContextGetSpi1(enginehandle, id, getspi, inboundspi as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextSetSpi0(enginehandle: super::super::Foundation::HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSetSpi0(enginehandle : super::super::Foundation:: HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : u32) -> u32);
+pub unsafe fn IPsecSaContextSetSpi0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSetSpi0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, getspi : *const IPSEC_GETSPI1, inboundspi : u32) -> u32);
     unsafe { IPsecSaContextSetSpi0(enginehandle, id, getspi, inboundspi) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextSubscribe0(enginehandle: super::super::Foundation::HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscribe0(enginehandle : super::super::Foundation:: HANDLE, subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback : IPSEC_SA_CONTEXT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaContextSubscribe0(enginehandle: FWPM_ENGINE_HANDLE, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: IPSEC_SA_CONTEXT_CALLBACK0, context: Option<*const core::ffi::c_void>, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscribe0(enginehandle : FWPM_ENGINE_HANDLE, subscription : *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback : IPSEC_SA_CONTEXT_CALLBACK0, context : *const core::ffi::c_void, eventshandle : *mut super::super::Foundation:: HANDLE) -> u32);
     unsafe { IPsecSaContextSubscribe0(enginehandle, subscription, callback, context.unwrap_or(core::mem::zeroed()) as _, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextSubscriptionsGet0(enginehandle: super::super::Foundation::HANDLE, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscriptionsGet0(enginehandle : super::super::Foundation:: HANDLE, entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
+pub unsafe fn IPsecSaContextSubscriptionsGet0(enginehandle: FWPM_ENGINE_HANDLE, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextSubscriptionsGet0(enginehandle : FWPM_ENGINE_HANDLE, entries : *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries : *mut u32) -> u32);
     unsafe { IPsecSaContextSubscriptionsGet0(enginehandle, entries as _, numentries as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaContextUnsubscribe0(enginehandle: super::super::Foundation::HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextUnsubscribe0(enginehandle : super::super::Foundation:: HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaContextUnsubscribe0(enginehandle: FWPM_ENGINE_HANDLE, eventshandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextUnsubscribe0(enginehandle : FWPM_ENGINE_HANDLE, eventshandle : super::super::Foundation:: HANDLE) -> u32);
     unsafe { IPsecSaContextUnsubscribe0(enginehandle, eventshandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaContextUpdate0(enginehandle: super::super::Foundation::HANDLE, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextUpdate0(enginehandle : super::super::Foundation:: HANDLE, flags : u64, newvalues : *const IPSEC_SA_CONTEXT1) -> u32);
+pub unsafe fn IPsecSaContextUpdate0(enginehandle: FWPM_ENGINE_HANDLE, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextUpdate0(enginehandle : FWPM_ENGINE_HANDLE, flags : u64, newvalues : *const IPSEC_SA_CONTEXT1) -> u32);
     unsafe { IPsecSaContextUpdate0(enginehandle, flags, newvalues) }
 }
 #[inline]
-pub unsafe fn IPsecSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const IPSEC_SA_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const IPSEC_SA_ENUM_TEMPLATE0>, enumhandle: *mut IPSEC_SA_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle : *mut IPSEC_SA_ENUM_HANDLE) -> u32);
     unsafe { IPsecSaCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn IPsecSaDbGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDbGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { IPsecSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn IPsecSaDbSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDbSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { IPsecSaDbSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IPsecSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IPsecSaDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_ENUM_HANDLE) -> u32);
     unsafe { IPsecSaDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IPsecSaEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
     unsafe { IPsecSaEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IPsecSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IPsecSaEnum1(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IPSEC_SA_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaEnum1(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IPSEC_SA_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
     unsafe { IPsecSaEnum1(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn IkeextGetStatistics0(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics0(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS0) -> u32);
+pub unsafe fn IkeextGetStatistics0(enginehandle: FWPM_ENGINE_HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics0(enginehandle : FWPM_ENGINE_HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS0) -> u32);
     unsafe { IkeextGetStatistics0(enginehandle, ikeextstatistics as _) }
 }
 #[inline]
-pub unsafe fn IkeextGetStatistics1(enginehandle: super::super::Foundation::HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics1(enginehandle : super::super::Foundation:: HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS1) -> u32);
+pub unsafe fn IkeextGetStatistics1(enginehandle: FWPM_ENGINE_HANDLE, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextGetStatistics1(enginehandle : FWPM_ENGINE_HANDLE, ikeextstatistics : *mut IKEEXT_STATISTICS1) -> u32);
     unsafe { IkeextGetStatistics1(enginehandle, ikeextstatistics as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IkeextSaCreateEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumtemplate: Option<*const IKEEXT_SA_ENUM_TEMPLATE0>, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaCreateEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IkeextSaCreateEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumtemplate: Option<*const IKEEXT_SA_ENUM_TEMPLATE0>, enumhandle: *mut IKEEXT_SA_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaCreateEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumtemplate : *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle : *mut IKEEXT_SA_ENUM_HANDLE) -> u32);
     unsafe { IkeextSaCreateEnumHandle0(enginehandle, enumtemplate.unwrap_or(core::mem::zeroed()) as _, enumhandle as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IkeextSaDbGetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDbGetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn IkeextSaDbGetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: *mut super::super::Security::PSID, sidgroup: *mut super::super::Security::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDbGetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *mut super::super::Security:: PSID, sidgroup : *mut super::super::Security:: PSID, dacl : *mut *mut super::super::Security:: ACL, sacl : *mut *mut super::super::Security:: ACL, securitydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     unsafe { IkeextSaDbGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn IkeextSaDbSetSecurityInfo0(enginehandle: super::super::Foundation::HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDbSetSecurityInfo0(enginehandle : super::super::Foundation:: HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
+pub unsafe fn IkeextSaDbSetSecurityInfo0(enginehandle: FWPM_ENGINE_HANDLE, securityinfo: u32, sidowner: Option<*const super::super::Security::SID>, sidgroup: Option<*const super::super::Security::SID>, dacl: Option<*const super::super::Security::ACL>, sacl: Option<*const super::super::Security::ACL>) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDbSetSecurityInfo0(enginehandle : FWPM_ENGINE_HANDLE, securityinfo : u32, sidowner : *const super::super::Security:: SID, sidgroup : *const super::super::Security:: SID, dacl : *const super::super::Security:: ACL, sacl : *const super::super::Security:: ACL) -> u32);
     unsafe { IkeextSaDbSetSecurityInfo0(enginehandle, securityinfo, sidowner.unwrap_or(core::mem::zeroed()) as _, sidgroup.unwrap_or(core::mem::zeroed()) as _, dacl.unwrap_or(core::mem::zeroed()) as _, sacl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaDeleteById0(enginehandle: super::super::Foundation::HANDLE, id: u64) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDeleteById0(enginehandle : super::super::Foundation:: HANDLE, id : u64) -> u32);
+pub unsafe fn IkeextSaDeleteById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDeleteById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64) -> u32);
     unsafe { IkeextSaDeleteById0(enginehandle, id) }
 }
 #[inline]
-pub unsafe fn IkeextSaDestroyEnumHandle0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE) -> u32);
+pub unsafe fn IkeextSaDestroyEnumHandle0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IKEEXT_SA_ENUM_HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IKEEXT_SA_ENUM_HANDLE) -> u32);
     unsafe { IkeextSaDestroyEnumHandle0(enginehandle, enumhandle as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaEnum0(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum0(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IkeextSaEnum0(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IKEEXT_SA_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum0(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IKEEXT_SA_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned : *mut u32) -> u32);
     unsafe { IkeextSaEnum0(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaEnum1(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum1(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IkeextSaEnum1(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IKEEXT_SA_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum1(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IKEEXT_SA_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned : *mut u32) -> u32);
     unsafe { IkeextSaEnum1(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaEnum2(enginehandle: super::super::Foundation::HANDLE, enumhandle: super::super::Foundation::HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum2(enginehandle : super::super::Foundation:: HANDLE, enumhandle : super::super::Foundation:: HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> u32);
+pub unsafe fn IkeextSaEnum2(enginehandle: FWPM_ENGINE_HANDLE, enumhandle: IKEEXT_SA_ENUM_HANDLE, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaEnum2(enginehandle : FWPM_ENGINE_HANDLE, enumhandle : IKEEXT_SA_ENUM_HANDLE, numentriesrequested : u32, entries : *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned : *mut u32) -> u32);
     unsafe { IkeextSaEnum2(enginehandle, enumhandle, numentriesrequested, entries as _, numentriesreturned as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaGetById0(enginehandle: super::super::Foundation::HANDLE, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById0(enginehandle : super::super::Foundation:: HANDLE, id : u64, sa : *mut *mut IKEEXT_SA_DETAILS0) -> u32);
+pub unsafe fn IkeextSaGetById0(enginehandle: FWPM_ENGINE_HANDLE, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById0(enginehandle : FWPM_ENGINE_HANDLE, id : u64, sa : *mut *mut IKEEXT_SA_DETAILS0) -> u32);
     unsafe { IkeextSaGetById0(enginehandle, id, sa as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaGetById1(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: Option<*const windows_core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById1(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS1) -> u32);
+pub unsafe fn IkeextSaGetById1(enginehandle: FWPM_ENGINE_HANDLE, id: u64, salookupcontext: Option<*const windows_core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById1(enginehandle : FWPM_ENGINE_HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS1) -> u32);
     unsafe { IkeextSaGetById1(enginehandle, id, salookupcontext.unwrap_or(core::mem::zeroed()) as _, sa as _) }
 }
 #[inline]
-pub unsafe fn IkeextSaGetById2(enginehandle: super::super::Foundation::HANDLE, id: u64, salookupcontext: Option<*const windows_core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById2(enginehandle : super::super::Foundation:: HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS2) -> u32);
+pub unsafe fn IkeextSaGetById2(enginehandle: FWPM_ENGINE_HANDLE, id: u64, salookupcontext: Option<*const windows_core::GUID>, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaGetById2(enginehandle : FWPM_ENGINE_HANDLE, id : u64, salookupcontext : *const windows_core::GUID, sa : *mut *mut IKEEXT_SA_DETAILS2) -> u32);
     unsafe { IkeextSaGetById2(enginehandle, id, salookupcontext.unwrap_or(core::mem::zeroed()) as _, sa as _) }
 }
 #[repr(transparent)]
@@ -1097,6 +1108,30 @@ pub struct FWPM_CALLOUT_CHANGE0 {
 pub type FWPM_CALLOUT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_CALLOUT_CHANGE0)>;
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_LISTEN_V4: windows_core::GUID = windows_core::GUID::from_u128(0x33486ab5_6d5e_4e65_a00b_a7afed0ba9a1);
 pub const FWPM_CALLOUT_EDGE_TRAVERSAL_ALE_RESOURCE_ASSIGNMENT_V4: windows_core::GUID = windows_core::GUID::from_u128(0x079b1010_f1c5_4fcd_ae05_da41107abd0b);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_CALLOUT_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_CALLOUT_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_CALLOUT_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmCalloutDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmCalloutDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_CALLOUT_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
@@ -1205,6 +1240,7 @@ pub const FWPM_CONDITION_ALE_APP_ID: windows_core::GUID = windows_core::GUID::fr
 pub const FWPM_CONDITION_ALE_EFFECTIVE_NAME: windows_core::GUID = windows_core::GUID::from_u128(0xb1277b9a_b781_40fc_9671_e5f1b989f34e);
 pub const FWPM_CONDITION_ALE_NAP_CONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0x46275a9d_c03f_4d77_b784_1c57f4d02753);
 pub const FWPM_CONDITION_ALE_ORIGINAL_APP_ID: windows_core::GUID = windows_core::GUID::from_u128(0x0e6cd086_e1fb_4212_842f_8a9f993fb3f6);
+pub const FWPM_CONDITION_ALE_PACKAGE_FAMILY_NAME: windows_core::GUID = windows_core::GUID::from_u128(0x81bc78fb_f28d_4886_a604_6acc261f261b);
 pub const FWPM_CONDITION_ALE_PACKAGE_ID: windows_core::GUID = windows_core::GUID::from_u128(0x71bc78fa_f17c_4997_a602_6abb261f351c);
 pub const FWPM_CONDITION_ALE_PROMISCUOUS_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x1c974776_7182_46e9_afd3_b02910e30334);
 pub const FWPM_CONDITION_ALE_REAUTH_REASON: windows_core::GUID = windows_core::GUID::from_u128(0xb482d227_1979_4a98_8044_18bbe6237542);
@@ -1317,6 +1353,7 @@ pub const FWPM_CONDITION_RPC_EP_VALUE: windows_core::GUID = windows_core::GUID::
 pub const FWPM_CONDITION_RPC_IF_FLAG: windows_core::GUID = windows_core::GUID::from_u128(0x238a8a32_3199_467d_871c_272621ab3896);
 pub const FWPM_CONDITION_RPC_IF_UUID: windows_core::GUID = windows_core::GUID::from_u128(0x7c9c7d9f_0075_4d35_a0d1_8311c4cf6af1);
 pub const FWPM_CONDITION_RPC_IF_VERSION: windows_core::GUID = windows_core::GUID::from_u128(0xeabfd9b7_1262_4a2e_adaa_5f96f6fe326d);
+pub const FWPM_CONDITION_RPC_OPNUM: windows_core::GUID = windows_core::GUID::from_u128(0xd58efb76_aab7_4148_a87e_9581134129b9);
 pub const FWPM_CONDITION_RPC_PROTOCOL: windows_core::GUID = windows_core::GUID::from_u128(0x2717bc74_3a35_4ce7_b7ef_c838fabdec45);
 pub const FWPM_CONDITION_RPC_PROXY_AUTH_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x40953fe2_8565_4759_8488_1771b4b4b5db);
 pub const FWPM_CONDITION_RPC_SERVER_NAME: windows_core::GUID = windows_core::GUID::from_u128(0xb605a225_c3b3_48c7_9833_7aefa9527546);
@@ -1384,6 +1421,30 @@ impl Default for FWPM_CONNECTION0_1 {
 }
 pub type FWPM_CONNECTION_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, eventtype: FWPM_CONNECTION_EVENT_TYPE, connection: *const FWPM_CONNECTION0)>;
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_CONNECTION_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_CONNECTION_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_CONNECTION_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmConnectionDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_CONNECTION_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
@@ -1416,6 +1477,30 @@ pub struct FWPM_DISPLAY_DATA0 {
 }
 pub type FWPM_DYNAMIC_KEYWORD_CALLBACK0 = Option<unsafe extern "system" fn(notification: *mut core::ffi::c_void, context: *mut core::ffi::c_void)>;
 pub const FWPM_ENGINE_COLLECT_NET_EVENTS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(0i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_ENGINE_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_ENGINE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_ENGINE_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmEngineClose0(self.0);
+            }
+        }
+    }
+}
+impl Default for FWPM_ENGINE_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const FWPM_ENGINE_MONITOR_IPSEC_CONNECTIONS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(3i32);
 pub const FWPM_ENGINE_NAME_CACHE: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(2i32);
 pub const FWPM_ENGINE_NET_EVENT_MATCH_ANY_KEYWORDS: FWPM_ENGINE_OPTION = FWPM_ENGINE_OPTION(1i32);
@@ -1509,6 +1594,30 @@ impl Default for FWPM_FILTER_CONDITION0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_FILTER_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_FILTER_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_FILTER_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmFilterDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmFilterDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_FILTER_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1578,6 +1687,7 @@ pub const FWPM_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: FWPM_FILTER_FLAGS = F
 pub const FWPM_FILTER_FLAG_PERSISTENT: FWPM_FILTER_FLAGS = FWPM_FILTER_FLAGS(1u32);
 pub const FWPM_FILTER_FLAG_RESERVED0: u32 = 4096u32;
 pub const FWPM_FILTER_FLAG_RESERVED1: u32 = 8192u32;
+pub const FWPM_FILTER_FLAG_RESERVED2: u32 = 16384u32;
 pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024u32;
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256u32;
 #[repr(C)]
@@ -1660,6 +1770,30 @@ pub const FWPM_LAYER_DATAGRAM_DATA_V6_DISCARD: windows_core::GUID = windows_core
 pub const FWPM_LAYER_EGRESS_VSWITCH_ETHERNET: windows_core::GUID = windows_core::GUID::from_u128(0x86c872b0_76fa_4b79_93a4_0750530ae292);
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V4: windows_core::GUID = windows_core::GUID::from_u128(0xb92350b6_91f0_46b6_bdc4_871dfd4a7c98);
 pub const FWPM_LAYER_EGRESS_VSWITCH_TRANSPORT_V6: windows_core::GUID = windows_core::GUID::from_u128(0x1b2def23_1881_40bd_82f4_4254e63141cb);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_LAYER_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_LAYER_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_LAYER_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmLayerDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmLayerDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_LAYER_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
@@ -1733,6 +1867,17 @@ pub struct FWPM_LAYER_STATISTICS0 {
     pub classifyBlockCount: u32,
     pub classifyVetoCount: u32,
     pub numCacheEntries: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FWPM_LAYER_STATISTICS1 {
+    pub layerId: windows_core::GUID,
+    pub classifyPermitCount: u32,
+    pub classifyBlockCount: u32,
+    pub classifyVetoCount: u32,
+    pub numCacheEntries: u32,
+    pub filterCount: u32,
+    pub totalFilterSize: u32,
 }
 pub const FWPM_LAYER_STREAM_PACKET_V4: windows_core::GUID = windows_core::GUID::from_u128(0xaf52d8ec_cb2d_44e5_ad92_f8dc38d2eb29);
 pub const FWPM_LAYER_STREAM_PACKET_V6: windows_core::GUID = windows_core::GUID::from_u128(0x779a8ca3_f099_468f_b5d4_83535c461c02);
@@ -2058,6 +2203,30 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub vSwitchId: FWP_BYTE_BLOB,
     pub vSwitchSourcePort: u32,
     pub vSwitchDestinationPort: u32,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_NET_EVENT_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_NET_EVENT_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_NET_EVENT_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmNetEventDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmNetEventDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_NET_EVENT_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
@@ -2823,6 +2992,30 @@ pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub providerContextId: u64,
 }
 pub type FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_PROVIDER_CONTEXT_CHANGE0)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_PROVIDER_CONTEXT_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderContextDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmProviderContextDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_PROVIDER_CONTEXT_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
@@ -2854,6 +3047,30 @@ impl Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_TYPE(pub i32);
 pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = FWPM_PROVIDER_CONTEXT_TYPE(14i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_PROVIDER_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_PROVIDER_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_PROVIDER_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmProviderDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmProviderDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_PROVIDER_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
@@ -2905,6 +3122,30 @@ pub struct FWPM_SESSION0 {
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for FWPM_SESSION0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_SESSION_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_SESSION_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_SESSION_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmSessionDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmSessionDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_SESSION_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2963,6 +3204,51 @@ impl Default for FWPM_STATISTICS0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FWPM_STATISTICS1 {
+    pub numLayerStatistics: u32,
+    pub layerStatistics: *mut FWPM_LAYER_STATISTICS1,
+    pub inboundAllowedConnectionsV4: u32,
+    pub inboundBlockedConnectionsV4: u32,
+    pub outboundAllowedConnectionsV4: u32,
+    pub outboundBlockedConnectionsV4: u32,
+    pub inboundAllowedConnectionsV6: u32,
+    pub inboundBlockedConnectionsV6: u32,
+    pub outboundAllowedConnectionsV6: u32,
+    pub outboundBlockedConnectionsV6: u32,
+    pub inboundActiveConnectionsV4: u32,
+    pub outboundActiveConnectionsV4: u32,
+    pub inboundActiveConnectionsV6: u32,
+    pub outboundActiveConnectionsV6: u32,
+    pub reauthDirInbound: u64,
+    pub reauthDirOutbound: u64,
+    pub reauthFamilyV4: u64,
+    pub reauthFamilyV6: u64,
+    pub reauthProtoOther: u64,
+    pub reauthProtoIPv4: u64,
+    pub reauthProtoIPv6: u64,
+    pub reauthProtoICMP: u64,
+    pub reauthProtoICMP6: u64,
+    pub reauthProtoUDP: u64,
+    pub reauthProtoTCP: u64,
+    pub reauthReasonPolicyChange: u64,
+    pub reauthReasonNewArrivalInterface: u64,
+    pub reauthReasonNewNextHopInterface: u64,
+    pub reauthReasonProfileCrossing: u64,
+    pub reauthReasonClassifyCompletion: u64,
+    pub reauthReasonIPSecPropertiesChanged: u64,
+    pub reauthReasonMidStreamInspection: u64,
+    pub reauthReasonSocketPropertyChanged: u64,
+    pub reauthReasonNewInboundMCastBCastPacket: u64,
+    pub reauthReasonEDPPolicyChanged: u64,
+    pub reauthReasonProxyHandleChanged: u64,
+}
+impl Default for FWPM_STATISTICS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: windows_core::GUID,
     pub displayData: FWPM_DISPLAY_DATA0,
@@ -2983,6 +3269,30 @@ pub struct FWPM_SUBLAYER_CHANGE0 {
     pub subLayerKey: windows_core::GUID,
 }
 pub type FWPM_SUBLAYER_CHANGE_CALLBACK0 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, change: *const FWPM_SUBLAYER_CHANGE0)>;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct FWPM_SUBLAYER_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl FWPM_SUBLAYER_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for FWPM_SUBLAYER_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn FwpmSubLayerDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                FwpmSubLayerDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for FWPM_SUBLAYER_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
@@ -3142,6 +3452,7 @@ pub const FWPS_FILTER_FLAG_OR_CONDITIONS: u32 = 4u32;
 pub const FWPS_FILTER_FLAG_PERMIT_IF_CALLOUT_UNREGISTERED: u32 = 2u32;
 pub const FWPS_FILTER_FLAG_RESERVED0: u32 = 64u32;
 pub const FWPS_FILTER_FLAG_RESERVED1: u32 = 128u32;
+pub const FWPS_FILTER_FLAG_RESERVED2: u32 = 256u32;
 pub const FWPS_FILTER_FLAG_SILENT_MODE: u32 = 16u32;
 pub const FWPS_INCOMING_FLAG_ABSORB: u32 = 4u32;
 pub const FWPS_INCOMING_FLAG_CACHE_SAFE: u32 = 1u32;
@@ -4597,6 +4908,7 @@ pub const IKEEXT_POLICY_FLAG_IMS_VPN: u32 = 64u32;
 pub const IKEEXT_POLICY_FLAG_MOBIKE_NOT_SUPPORTED: u32 = 16u32;
 pub const IKEEXT_POLICY_FLAG_NO_IMPERSONATION_LUID_VERIFY: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(4u32);
 pub const IKEEXT_POLICY_FLAG_NO_MACHINE_LUID_VERIFY: IKEEXT_POLICY_FLAG = IKEEXT_POLICY_FLAG(2u32);
+pub const IKEEXT_POLICY_FLAG_POINT_TO_SITE: u32 = 512u32;
 pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: u32 = 32u32;
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256u32;
 pub const IKEEXT_PRESHARED_KEY: IKEEXT_AUTHENTICATION_METHOD_TYPE = IKEEXT_AUTHENTICATION_METHOD_TYPE(0i32);
@@ -4794,6 +5106,30 @@ pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
 impl Default for IKEEXT_SA_DETAILS2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct IKEEXT_SA_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl IKEEXT_SA_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for IKEEXT_SA_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn IkeextSaDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                IkeextSaDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for IKEEXT_SA_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5094,6 +5430,30 @@ impl Default for IPSEC_DOSP_STATE0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct IPSEC_DOSP_STATE_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl IPSEC_DOSP_STATE_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for IPSEC_DOSP_STATE_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn IPsecDospStateDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                IPsecDospStateDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for IPSEC_DOSP_STATE_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
@@ -5317,6 +5677,7 @@ pub const IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_GENERAL_NAT_TRAVERSAL: IPSEC_POLICY_
 pub const IPSEC_POLICY_FLAG_NAT_ENCAP_ALLOW_PEER_BEHIND_NAT: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(16u32);
 pub const IPSEC_POLICY_FLAG_ND_BOUNDARY: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(4u32);
 pub const IPSEC_POLICY_FLAG_ND_SECURE: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(2u32);
+pub const IPSEC_POLICY_FLAG_POINT_TO_SITE_TUNNEL: u32 = 131072u32;
 pub const IPSEC_POLICY_FLAG_RESERVED1: u32 = 32768u32;
 pub const IPSEC_POLICY_FLAG_SITE_TO_SITE_TUNNEL: u32 = 65536u32;
 pub const IPSEC_POLICY_FLAG_TUNNEL_ALLOW_OUTBOUND_CLEAR_CONNECTION: IPSEC_POLICY_FLAG = IPSEC_POLICY_FLAG(1024u32);
@@ -5545,6 +5906,30 @@ pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
     pub saContextId: u64,
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct IPSEC_SA_CONTEXT_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl IPSEC_SA_CONTEXT_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for IPSEC_SA_CONTEXT_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaContextDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                IPsecSaContextDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for IPSEC_SA_CONTEXT_ENUM_HANDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
@@ -5633,6 +6018,30 @@ pub union IPSEC_SA_DETAILS1_0 {
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for IPSEC_SA_DETAILS1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct IPSEC_SA_ENUM_HANDLE(pub *mut core::ffi::c_void);
+impl IPSEC_SA_ENUM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for IPSEC_SA_ENUM_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_core::link!("fwpuclnt.dll" "system" fn IPsecSaDestroyEnumHandle0(enginehandle : *mut core::ffi::c_void, enumhandle : *mut core::ffi::c_void) -> u32);
+            unsafe {
+                IPsecSaDestroyEnumHandle0(self.0, 0);
+            }
+        }
+    }
+}
+impl Default for IPSEC_SA_ENUM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

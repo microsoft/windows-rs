@@ -394,6 +394,42 @@ impl Default for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub MeanTensor: *const DML_TENSOR_DESC,
+    pub VarianceTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
+    pub Epsilon: f32,
+}
+impl Default for DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub ScaleTensor: *const DML_TENSOR_DESC,
+    pub BiasTensor: *const DML_TENSOR_DESC,
+    pub FusedAddTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub OutputMeanTensor: *const DML_TENSOR_DESC,
+    pub OutputVarianceTensor: *const DML_TENSOR_DESC,
+    pub Epsilon: f32,
+    pub FusedActivation: *const DML_OPERATOR_DESC,
+}
+impl Default for DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -863,6 +899,36 @@ impl Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub ScaleBias: *const DML_SCALE_BIAS,
+    pub MinMaxDataType: DML_TENSOR_DATA_TYPE,
+    pub Min: DML_SCALAR_UNION,
+    pub Max: DML_SCALAR_UNION,
+}
+impl Default for DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub MinMaxDataType: DML_TENSOR_DATA_TYPE,
+    pub Min: DML_SCALAR_UNION,
+    pub Max: DML_SCALAR_UNION,
+}
+impl Default for DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1241,6 +1307,17 @@ impl Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+}
+impl Default for DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ExponentTensor: *const DML_TENSOR_DESC,
@@ -1468,6 +1545,13 @@ pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32)
 pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
 pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16640i32);
 pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20480i32);
+pub const DML_FEATURE_LEVEL_5_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20736i32);
+pub const DML_FEATURE_LEVEL_5_2: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20992i32);
+pub const DML_FEATURE_LEVEL_6_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(24576i32);
+pub const DML_FEATURE_LEVEL_6_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(24832i32);
+pub const DML_FEATURE_LEVEL_6_2: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(25088i32);
+pub const DML_FEATURE_LEVEL_6_3: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(25344i32);
+pub const DML_FEATURE_LEVEL_6_4: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(25600i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
@@ -1978,6 +2062,8 @@ pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(56
 pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(130i32);
 pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(72i32);
 pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(146i32);
+pub const DML_OPERATOR_BATCH_NORMALIZATION_TRAINING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(151i32);
+pub const DML_OPERATOR_BATCH_NORMALIZATION_TRAINING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(152i32);
 pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(61i32);
 pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(53i32);
 pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(119i32);
@@ -2017,7 +2103,9 @@ pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = DML_OPE
 pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(123i32);
 pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(7i32);
 pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(8i32);
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(153i32);
 pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(142i32);
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(154i32);
 pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(26i32);
 pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(9i32);
 pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(83i32);
@@ -2047,6 +2135,7 @@ pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(2
 pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(102i32);
 pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(101i32);
 pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(24i32);
+pub const DML_OPERATOR_ELEMENT_WISE_NEGATE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(156i32);
 pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(25i32);
 pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
 pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(33i32);
@@ -2092,6 +2181,7 @@ pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = DML_OPE
 pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(133i32);
 pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(95i32);
 pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(64i32);
+pub const DML_OPERATOR_PADDING1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(155i32);
 pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(120i32);
 pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(118i32);
 pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(132i32);
@@ -2103,6 +2193,7 @@ pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = DML_OPERATOR_TY
 pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(76i32);
 pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(139i32);
 pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
+pub const DML_OPERATOR_ROI_ALIGN_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(150i32);
 pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(59i32);
 pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
 pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
@@ -2128,6 +2219,23 @@ pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeOutputIndex: u32,
     pub GraphOutputIndex: u32,
     pub Name: windows_core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DML_PADDING1_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub OutputTensor: *const DML_TENSOR_DESC,
+    pub PaddingMode: DML_PADDING_MODE,
+    pub PaddingValueDataType: DML_TENSOR_DATA_TYPE,
+    pub PaddingValue: DML_SCALAR_UNION,
+    pub DimensionCount: u32,
+    pub StartPadding: *const u32,
+    pub EndPadding: *const u32,
+}
+impl Default for DML_PADDING1_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2352,6 +2460,30 @@ impl Default for DML_ROI_ALIGN1_OPERATOR_DESC {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
+    pub InputTensor: *const DML_TENSOR_DESC,
+    pub InputGradientTensor: *const DML_TENSOR_DESC,
+    pub ROITensor: *const DML_TENSOR_DESC,
+    pub BatchIndicesTensor: *const DML_TENSOR_DESC,
+    pub OutputGradientTensor: *const DML_TENSOR_DESC,
+    pub OutputROIGradientTensor: *const DML_TENSOR_DESC,
+    pub ReductionFunction: DML_REDUCE_FUNCTION,
+    pub InterpolationMode: DML_INTERPOLATION_MODE,
+    pub SpatialScaleX: f32,
+    pub SpatialScaleY: f32,
+    pub InputPixelOffset: f32,
+    pub OutputPixelOffset: f32,
+    pub MinimumSamplesPerOutput: u32,
+    pub MaximumSamplesPerOutput: u32,
+    pub AlignRegionsToCorners: windows_core::BOOL,
+}
+impl Default for DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
@@ -2534,7 +2666,7 @@ impl Default for DML_SPLIT_OPERATOR_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DML_TARGET_VERSION: u32 = 20480u32;
+pub const DML_TARGET_VERSION: u32 = 25600u32;
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

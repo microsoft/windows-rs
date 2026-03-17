@@ -330,6 +330,7 @@ impl Default for DEV_QUERY_RESULT_ACTION_DATA_0 {
 pub struct DEV_QUERY_STATE(pub i32);
 pub const DevObjectTypeAEP: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(5i32);
 pub const DevObjectTypeAEPContainer: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(6i32);
+pub const DevObjectTypeAEPProtocol: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(12i32);
 pub const DevObjectTypeAEPService: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(10i32);
 pub const DevObjectTypeDevice: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(3i32);
 pub const DevObjectTypeDeviceContainer: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(2i32);

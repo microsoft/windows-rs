@@ -166,9 +166,7 @@ windows_link::link!("oleaut32.dll" "system" fn OleTranslateColor(clr : u32, hpal
 windows_link::link!("oledlg.dll" "system" fn OleUIAddVerbMenuA(lpoleobj : * mut core::ffi::c_void, lpszshorttype : windows_sys::core::PCSTR, hmenu : super::super::UI::WindowsAndMessaging:: HMENU, upos : u32, uidverbmin : u32, uidverbmax : u32, baddconvert : windows_sys::core::BOOL, idconvert : u32, lphmenu : *mut super::super::UI::WindowsAndMessaging:: HMENU) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("oledlg.dll" "system" fn OleUIAddVerbMenuW(lpoleobj : * mut core::ffi::c_void, lpszshorttype : windows_sys::core::PCWSTR, hmenu : super::super::UI::WindowsAndMessaging:: HMENU, upos : u32, uidverbmin : u32, uidverbmax : u32, baddconvert : windows_sys::core::BOOL, idconvert : u32, lphmenu : *mut super::super::UI::WindowsAndMessaging:: HMENU) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Media")]
 windows_link::link!("oledlg.dll" "system" fn OleUIBusyA(param0 : *const OLEUIBUSYA) -> u32);
-#[cfg(feature = "Win32_Media")]
 windows_link::link!("oledlg.dll" "system" fn OleUIBusyW(param0 : *const OLEUIBUSYW) -> u32);
 windows_link::link!("oledlg.dll" "system" fn OleUICanConvertOrActivateAs(rclsid : *const windows_sys::core::GUID, fislinkedobject : windows_sys::core::BOOL, wformat : u16) -> windows_sys::core::BOOL);
 windows_link::link!("oledlg.dll" "system" fn OleUIChangeIconA(param0 : *const OLEUICHANGEICONA) -> u32);
@@ -1633,7 +1631,6 @@ pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn
 pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
 pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
 #[repr(C)]
-#[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy)]
 pub struct OLEUIBUSYA {
     pub cbStruct: u32,
@@ -1645,17 +1642,15 @@ pub struct OLEUIBUSYA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: windows_sys::core::PCSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
+    pub hTask: super::super::Foundation::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Media")]
 #[derive(Clone, Copy)]
 pub struct OLEUIBUSYW {
     pub cbStruct: u32,
@@ -1667,10 +1662,9 @@ pub struct OLEUIBUSYW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: windows_sys::core::PCWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub hTask: super::super::Media::HTASK,
+    pub hTask: super::super::Foundation::HTASK,
     pub lphWndDialog: *mut super::super::Foundation::HWND,
 }
-#[cfg(feature = "Win32_Media")]
 impl Default for OLEUIBUSYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

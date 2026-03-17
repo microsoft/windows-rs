@@ -1746,6 +1746,8 @@ pub struct CHANNEL_AGENT_FLAGS(pub i32);
 pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(4i32);
 pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(8i32);
 pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(2i32);
+pub const CI_DATABASE_DECRYPTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC0041838_u32 as _);
+pub const CI_DATABASE_ENCRYPTION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC0041839_u32 as _);
 pub const CI_E_CORRUPT_FWIDX: windows_core::HRESULT = windows_core::HRESULT(0xC004182D_u32 as _);
 pub const CI_E_DIACRITIC_SETTINGS_DIFFER: windows_core::HRESULT = windows_core::HRESULT(0xC004182E_u32 as _);
 pub const CI_E_INCONSISTENT_TRANSACTION: windows_core::HRESULT = windows_core::HRESULT(0xC0041832_u32 as _);
@@ -4697,6 +4699,7 @@ impl Default for FILTERED_DATA_SOURCES {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const FILTER_E_NO_IMAGE_FRAMES: windows_core::HRESULT = windows_core::HRESULT(0x8004170E_u32 as _);
 pub const FLTRDMN_E_CANNOT_DECRYPT_PASSWORD: i32 = -2147212282i32;
 pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
 pub const FLTRDMN_E_FILTER_INIT_FAILED: i32 = -2147212284i32;
@@ -4803,6 +4806,8 @@ pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
 pub const FilterRegistration: windows_core::GUID = windows_core::GUID::from_u128(0x9e175b8d_f52a_11d8_b9a5_505054503030);
 pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
 pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
+pub const GENERATE_METHOD_WITH_BM25: u32 = 5u32;
+pub const GENERATE_METHOD_WITH_TFDOCLEN: u32 = 6u32;
 pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
 pub const GHTR_E_LOCAL_SERVER_UNAVAILABLE: i32 = -2147218055i32;
 pub const GTHR_E_ADDLINKS_FAILED_WILL_RETRY_PARENT: i32 = -2147217989i32;
@@ -5359,8 +5364,8 @@ windows_core::imp::define_interface!(IColumnsInfo, IColumnsInfo_Vtbl, 0x0c733a11
 windows_core::imp::interface_hierarchy!(IColumnsInfo, windows_core::IUnknown);
 impl IColumnsInfo {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), pccolumns as _, prginfo as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
+    pub unsafe fn GetColumnInfo(&self, pccolumns: Option<*mut usize>, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), pccolumns.unwrap_or(core::mem::zeroed()) as _, prginfo as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: Option<*const super::super::Storage::IndexServer::DBID>, rgcolumns: Option<*mut usize>) -> windows_core::Result<()> {
@@ -13587,6 +13592,55 @@ impl ISearchCatalogManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ISearchCatalogManager2 {}
+windows_core::imp::define_interface!(ISearchCatalogManager3, ISearchCatalogManager3_Vtbl, 0xde837e8f_634f_4ab0_bdfc_9fc3a1fc50dc);
+impl core::ops::Deref for ISearchCatalogManager3 {
+    type Target = ISearchCatalogManager2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ISearchCatalogManager3, windows_core::IUnknown, ISearchCatalogManager, ISearchCatalogManager2);
+impl ISearchCatalogManager3 {
+    pub unsafe fn IsContainsSemanticSupported(&self) -> windows_core::Result<windows_core::BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsContainsSemanticSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISearchCatalogManager3_Vtbl {
+    pub base__: ISearchCatalogManager2_Vtbl,
+    pub IsContainsSemanticSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub trait ISearchCatalogManager3_Impl: ISearchCatalogManager2_Impl {
+    fn IsContainsSemanticSupported(&self) -> windows_core::Result<windows_core::BOOL>;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl ISearchCatalogManager3_Vtbl {
+    pub const fn new<Identity: ISearchCatalogManager3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn IsContainsSemanticSupported<Identity: ISearchCatalogManager3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iscontainssemanticsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ISearchCatalogManager3_Impl::IsContainsSemanticSupported(this) {
+                    Ok(ok__) => {
+                        iscontainssemanticsupported.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: ISearchCatalogManager2_Vtbl::new::<Identity, OFFSET>(), IsContainsSemanticSupported: IsContainsSemanticSupported::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISearchCatalogManager3 as windows_core::Interface>::IID || iid == &<ISearchCatalogManager as windows_core::Interface>::IID || iid == &<ISearchCatalogManager2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISearchCatalogManager3 {}
 windows_core::imp::define_interface!(ISearchCrawlScopeManager, ISearchCrawlScopeManager_Vtbl, 0xab310581_ac80_11d1_8df3_00c04fb6ef55);
 windows_core::imp::interface_hierarchy!(ISearchCrawlScopeManager, windows_core::IUnknown);
 impl ISearchCrawlScopeManager {
@@ -19411,6 +19465,7 @@ pub const PRTH_E_OPLOCK_BROKEN: i32 = -2147216874i32;
 pub const PRTH_E_REQUEST_ERROR: u32 = 2147750402u32;
 pub const PRTH_E_RETRY: i32 = -2147216885i32;
 pub const PRTH_E_SERVER_ERROR: u32 = 2147750406u32;
+pub const PRTH_E_TRANSACTION_FAILED: i32 = -2147216858i32;
 pub const PRTH_E_TRUNCATED: i32 = -2147216870i32;
 pub const PRTH_E_VOLUME_MOUNT_POINT: i32 = -2147216871i32;
 pub const PRTH_E_WININET: i32 = -2147216886i32;

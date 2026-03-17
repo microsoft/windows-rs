@@ -112,6 +112,16 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> wind
     unsafe { GetMemoryErrorHandlingCapabilities(capabilities as _).ok() }
 }
 #[inline]
+pub unsafe fn GetMemoryNumaClosestInitiatorNode(targetnodenumber: u32, initiatornodenumber: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetMemoryNumaClosestInitiatorNode(targetnodenumber : u32, initiatornodenumber : *mut u32) -> windows_core::BOOL);
+    unsafe { GetMemoryNumaClosestInitiatorNode(targetnodenumber, initiatornodenumber as _) }
+}
+#[inline]
+pub unsafe fn GetMemoryNumaPerformanceInformation(nodenumber: u32, datatype: u8, perfinfo: *mut *mut WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT) -> windows_core::BOOL {
+    windows_core::link!("api-ms-win-core-memory-l1-1-9.dll" "system" fn GetMemoryNumaPerformanceInformation(nodenumber : u32, datatype : u8, perfinfo : *mut *mut WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT) -> windows_core::BOOL);
+    unsafe { GetMemoryNumaPerformanceInformation(nodenumber, datatype, perfinfo as _) }
+}
+#[inline]
 pub unsafe fn GetProcessHeap() -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { GetProcessHeap() };
@@ -1278,6 +1288,37 @@ pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = OFFER_PRIORITY(1i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_ALL_TARGET_NODE: u32 = 4294967295u32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY {
+    pub InitiatorNodeNumber: u32,
+    pub TargetNodeNumber: u32,
+    pub DataType: u8,
+    pub Flags: WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY_0,
+    pub MinTransferSizeInBytes: u64,
+    pub EntryValue: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT {
+    pub EntryCount: u32,
+    pub PerformanceEntries: [WIN32_MEMORY_NUMA_PERFORMANCE_ENTRY; 1],
+}
+impl Default for WIN32_MEMORY_NUMA_PERFORMANCE_INFORMATION_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_READ_BANDWIDTH: u32 = 2u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_READ_LATENCY: u32 = 1u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_BANDWIDTH: u32 = 8u32;
+pub const WIN32_MEMORY_NUMA_PERFORMANCE_WRITE_LATENCY: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {

@@ -313,6 +313,17 @@ pub struct PSS_THREAD_INFORMATION {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct PSS_THREAD_NAME {
+    pub ThreadNameSize: u16,
+    pub ThreadName: windows_sys::core::PCWSTR,
+}
+impl Default for PSS_THREAD_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PSS_VA_CLONE_INFORMATION {
     pub VaCloneHandle: super::super::super::Foundation::HANDLE,
 }
@@ -352,4 +363,5 @@ pub const PSS_WALK_AUXILIARY_PAGES: PSS_WALK_INFORMATION_CLASS = 0i32;
 pub const PSS_WALK_HANDLES: PSS_WALK_INFORMATION_CLASS = 2i32;
 pub type PSS_WALK_INFORMATION_CLASS = i32;
 pub const PSS_WALK_THREADS: PSS_WALK_INFORMATION_CLASS = 3i32;
+pub const PSS_WALK_THREAD_NAME: PSS_WALK_INFORMATION_CLASS = 4i32;
 pub const PSS_WALK_VA_SPACE: PSS_WALK_INFORMATION_CLASS = 1i32;

@@ -240,7 +240,7 @@ pub struct DPI_AWARENESS(pub i32);
 pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);
 impl DPI_AWARENESS_CONTEXT {
     pub fn is_invalid(&self) -> bool {
-        self.0 == -1 as _ || self.0 == 0 as _
+        self.0.is_null()
     }
 }
 impl Default for DPI_AWARENESS_CONTEXT {

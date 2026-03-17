@@ -46,6 +46,7 @@ pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
 pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
 pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
+pub const CHUNK_IMAGE: CHUNKSTATE = CHUNKSTATE(8i32);
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
 pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
 pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
@@ -221,6 +222,8 @@ pub const DBPROP_GENERICOPTIONS_STRING: u32 = 6u32;
 pub const DBPROP_IGNORENOISEONLYCLAUSES: u32 = 5u32;
 pub const DBPROP_IGNORESBRI: u32 = 14u32;
 pub const DBPROP_MACHINE: u32 = 2u32;
+pub const DBPROP_QUERY_ID: u32 = 18u32;
+pub const DBPROP_SESSION_ID: u32 = 17u32;
 pub const DBPROP_USECONTENTINDEX: u32 = 2u32;
 pub const DBPROP_USEEXTENDEDDBTYPES: u32 = 4u32;
 pub const DBSETFUNC_ALL: u32 = 1u32;
@@ -243,6 +246,9 @@ pub const FILTER_E_NO_TEXT: windows_core::HRESULT = windows_core::HRESULT(0x8004
 pub const FILTER_E_NO_VALUES: windows_core::HRESULT = windows_core::HRESULT(0x80041706_u32 as _);
 pub const FILTER_E_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0x8004170B_u32 as _);
 pub const FILTER_E_UNKNOWNFORMAT: windows_core::HRESULT = windows_core::HRESULT(0x8004170C_u32 as _);
+pub const FILTER_PIXELFORMAT_BGR8: IMAGE_PIXELFORMAT = IMAGE_PIXELFORMAT(2i32);
+pub const FILTER_PIXELFORMAT_BGRA8: IMAGE_PIXELFORMAT = IMAGE_PIXELFORMAT(0i32);
+pub const FILTER_PIXELFORMAT_PBGRA8: IMAGE_PIXELFORMAT = IMAGE_PIXELFORMAT(1i32);
 pub const FILTER_S_LAST_TEXT: windows_core::HRESULT = windows_core::HRESULT(0x41709_u32 as _);
 pub const FILTER_S_LAST_VALUES: windows_core::HRESULT = windows_core::HRESULT(0x4170A_u32 as _);
 pub const FILTER_W_MONIKER_CLIPPED: windows_core::HRESULT = windows_core::HRESULT(0x41704_u32 as _);
@@ -379,6 +385,16 @@ impl IFilter_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for IFilter {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IMAGE_INFO {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: IMAGE_PIXELFORMAT,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IMAGE_PIXELFORMAT(pub i32);
 windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
@@ -432,6 +448,70 @@ impl IPhraseSink_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IPhraseSink {}
+windows_core::imp::define_interface!(IPixelFilter, IPixelFilter_Vtbl, 0x3d7df9a7_8da6_4fbf_a45b_7592f06d93a9);
+impl core::ops::Deref for IPixelFilter {
+    type Target = IFilter;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPixelFilter, windows_core::IUnknown, IFilter);
+impl IPixelFilter {
+    pub unsafe fn GetImageInfo(&self) -> windows_core::Result<IMAGE_INFO> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetImageInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::super::Foundation::RECT, pixelbuffer: &mut [u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPixelsForImage)(windows_core::Interface::as_raw(self), scalingfactor, sourcerect, pixelbuffer.len().try_into().unwrap(), core::mem::transmute(pixelbuffer.as_ptr())).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPixelFilter_Vtbl {
+    pub base__: IFilter_Vtbl,
+    pub GetImageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IMAGE_INFO) -> windows_core::HRESULT,
+    pub GetPixelsForImage: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *const super::super::Foundation::RECT, u32, *mut u8) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+pub trait IPixelFilter_Impl: IFilter_Impl {
+    fn GetImageInfo(&self) -> windows_core::Result<IMAGE_INFO>;
+    fn GetPixelsForImage(&self, scalingfactor: f32, sourcerect: *const super::super::Foundation::RECT, pixelbuffersize: u32, pixelbuffer: *mut u8) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl IPixelFilter_Vtbl {
+    pub const fn new<Identity: IPixelFilter_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetImageInfo<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, imageinfo: *mut IMAGE_INFO) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IPixelFilter_Impl::GetImageInfo(this) {
+                    Ok(ok__) => {
+                        imageinfo.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetPixelsForImage<Identity: IPixelFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scalingfactor: f32, sourcerect: *const super::super::Foundation::RECT, pixelbuffersize: u32, pixelbuffer: *mut u8) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IPixelFilter_Impl::GetPixelsForImage(this, core::mem::transmute_copy(&scalingfactor), core::mem::transmute_copy(&sourcerect), core::mem::transmute_copy(&pixelbuffersize), core::mem::transmute_copy(&pixelbuffer)).into()
+            }
+        }
+        Self {
+            base__: IFilter_Vtbl::new::<Identity, OFFSET>(),
+            GetImageInfo: GetImageInfo::<Identity, OFFSET>,
+            GetPixelsForImage: GetPixelsForImage::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPixelFilter as windows_core::Interface>::IID || iid == &<IFilter as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IPixelFilter {}
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;

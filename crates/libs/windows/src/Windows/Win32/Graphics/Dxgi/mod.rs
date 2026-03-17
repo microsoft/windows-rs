@@ -383,6 +383,7 @@ pub const DXGI_ERROR_REMOTE_OUTOFMEMORY: windows_core::HRESULT = windows_core::H
 pub const DXGI_ERROR_RESTRICT_TO_OUTPUT_STALE: windows_core::HRESULT = windows_core::HRESULT(0x887A0029_u32 as _);
 pub const DXGI_ERROR_SDK_COMPONENT_MISSING: windows_core::HRESULT = windows_core::HRESULT(0x887A002D_u32 as _);
 pub const DXGI_ERROR_SESSION_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x887A0028_u32 as _);
+pub const DXGI_ERROR_SETDISPLAYMODE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0x887A0065_u32 as _);
 pub const DXGI_ERROR_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0x887A0004_u32 as _);
 pub const DXGI_ERROR_WAIT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0x887A0027_u32 as _);
 pub const DXGI_ERROR_WAS_STILL_DRAWING: windows_core::HRESULT = windows_core::HRESULT(0x887A000A_u32 as _);

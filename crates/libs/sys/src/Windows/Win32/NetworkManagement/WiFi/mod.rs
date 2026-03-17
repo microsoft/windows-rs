@@ -95,6 +95,7 @@ pub const DEVPKEY_PciDevice_ExpressSpecVersion: super::super::Foundation::DEVPRO
 pub const DEVPKEY_PciDevice_FirmwareErrorHandling: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 18 };
 pub const DEVPKEY_PciDevice_InterruptMessageMaximum: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 15 };
 pub const DEVPKEY_PciDevice_InterruptSupport: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 14 };
+pub const DEVPKEY_PciDevice_IsTunneledDevice: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 47 };
 pub const DEVPKEY_PciDevice_Label_Id: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 27 };
 pub const DEVPKEY_PciDevice_Label_String: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 28 };
 pub const DEVPKEY_PciDevice_MaxLinkSpeed: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 11 };
@@ -111,12 +112,14 @@ pub const DEVPKEY_PciDevice_SerialNumber: super::super::Foundation::DEVPROPKEY =
 pub const DEVPKEY_PciDevice_SriovSupport: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 26 };
 pub const DEVPKEY_PciDevice_SubClass: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 4 };
 pub const DEVPKEY_PciDevice_SupportedLinkSubState: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 36 };
+pub const DEVPKEY_PciDevice_SupportsDmwrOnEntireDeviceTree: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 46 };
 pub const DEVPKEY_PciDevice_Uncorrectable_Error_Mask: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 19 };
 pub const DEVPKEY_PciDevice_Uncorrectable_Error_Severity: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 20 };
 pub const DEVPKEY_PciDevice_UsbComponentRelation: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 43 };
 pub const DEVPKEY_PciDevice_UsbDvsecPortSpecificAttributes: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 42 };
 pub const DEVPKEY_PciDevice_UsbDvsecPortType: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 41 };
 pub const DEVPKEY_PciDevice_UsbHostRouterName: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 44 };
+pub const DEVPKEY_PciDevice_VirtualChannelControlRegisters: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ab22e31_8264_4b4e_9af5_a8d2d8e33e62), pid: 39 };
 pub const DEVPKEY_PciRootBus_ASPMSupport: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 8 };
 pub const DEVPKEY_PciRootBus_ClockPowerManagementSupport: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 9 };
 pub const DEVPKEY_PciRootBus_CurrentSpeedAndMode: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 2 };
@@ -460,6 +463,12 @@ pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 11i32;
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 14i32;
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 0i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct DOT11_AKM_CIPHER_PAIR {
+    pub akm: RSNA_AKM_SUITE,
+    pub cipher: RSNA_CIPHER_SUITE,
+}
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
@@ -4144,6 +4153,15 @@ pub const OneXRestartReasonOneXUserChanged: ONEX_AUTH_RESTART_REASON = 5i32;
 pub const OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = 0i32;
 pub const OneXRestartReasonQuarantineStateChanged: ONEX_AUTH_RESTART_REASON = 6i32;
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct RSNA_AKM_CIPHER_PAIR {
+    pub akm: RSNA_AKM_SUITE,
+    pub cipher: RSNA_CIPHER_SUITE,
+}
+pub type RSNA_AKM_SUITE = i32;
+pub type RSNA_CIPHER_SUITE = i32;
+pub const RSNA_OUI_PREFIX: u32 = 11276032u32;
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WDIAG_IHV_WLAN_ID {
     pub strProfileName: [u16; 256],
@@ -4423,6 +4441,15 @@ pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64u32;
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WLAN_CONNECTION_QOS_INFO {
+    pub peerCapabilities: WLAN_QOS_CAPABILITIES,
+    pub bMSCSConfigured: windows_sys::core::BOOL,
+    pub bDSCPToUPMappingConfigured: windows_sys::core::BOOL,
+    pub ulNumConfiguredSCSStreams: u32,
+    pub ulNumConfiguredDSCPPolicies: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
@@ -4678,6 +4705,21 @@ impl Default for WLAN_PROFILE_INFO_LIST {
 }
 pub const WLAN_PROFILE_USER: u32 = 2u32;
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WLAN_QOS_CAPABILITIES {
+    pub bMSCSSupported: windows_sys::core::BOOL,
+    pub bDSCPToUPMappingSupported: windows_sys::core::BOOL,
+    pub bSCSSupported: windows_sys::core::BOOL,
+    pub bDSCPPolicySupported: windows_sys::core::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WLAN_QOS_INFO {
+    pub interfaceCapabilities: WLAN_QOS_CAPABILITIES,
+    pub bConnected: windows_sys::core::BOOL,
+    pub connectionQoSInfo: WLAN_CONNECTION_QOS_INFO,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WLAN_RADIO_STATE {
     pub dwNumberOfPhys: u32,
@@ -4727,6 +4769,31 @@ impl Default for WLAN_RAW_DATA_LIST {
 pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WLAN_REALTIME_CONNECTION_QUALITY {
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub ulLinkQuality: u32,
+    pub ulRxRate: u32,
+    pub ulTxRate: u32,
+    pub bIsMLOConnection: windows_sys::core::BOOL,
+    pub ulNumLinks: u32,
+    pub linksInfo: [WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO; 1],
+}
+impl Default for WLAN_REALTIME_CONNECTION_QUALITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO {
+    pub ucLinkID: u8,
+    pub ulChannelCenterFrequencyMhz: u32,
+    pub ulBandwidth: u32,
+    pub lRssi: i32,
+    pub wlanRateSet: WLAN_RATE_SET,
 }
 pub const WLAN_REASON_CODE_AC_BASE: u32 = 131072u32;
 pub const WLAN_REASON_CODE_AC_CONNECT_BASE: u32 = 163840u32;
@@ -4917,6 +4984,9 @@ pub const WLAdvPage: WL_DISPLAY_PAGES = 2i32;
 pub const WLConnectionPage: WL_DISPLAY_PAGES = 0i32;
 pub const WLSecurityPage: WL_DISPLAY_PAGES = 1i32;
 pub type WL_DISPLAY_PAGES = i32;
+pub type WPA_AKM_SUITE = i32;
+pub type WPA_CIPHER_SUITE = i32;
+pub const WPA_OUI_PREFIX: u32 = 15880192u32;
 pub const ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = 2i32;
 pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = 1i32;
 pub const ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = 3i32;
@@ -5022,6 +5092,47 @@ pub const dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE 
 pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = 1i32;
 pub const dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = 3i32;
 pub const dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = 2i32;
+pub const rsna_akm_1x: RSNA_AKM_SUITE = 28053248i32;
+pub const rsna_akm_1x_sha256: RSNA_AKM_SUITE = 95162112i32;
+pub const rsna_akm_1x_sha384: RSNA_AKM_SUITE = 397152000i32;
+pub const rsna_akm_1x_suite_b_sha256: RSNA_AKM_SUITE = 195825408i32;
+pub const rsna_akm_1x_suite_b_sha384: RSNA_AKM_SUITE = 212602624i32;
+pub const rsna_akm_fils_1x_sha256: RSNA_AKM_SUITE = 246157056i32;
+pub const rsna_akm_fils_1x_sha384: RSNA_AKM_SUITE = 262934272i32;
+pub const rsna_akm_ft_1x_sha256: RSNA_AKM_SUITE = 61607680i32;
+pub const rsna_akm_ft_1x_sha384: RSNA_AKM_SUITE = 380374784i32;
+pub const rsna_akm_ft_1x_sha384_cmp_256: RSNA_AKM_SUITE = 229379840i32;
+pub const rsna_akm_ft_fils_1x_sha256: RSNA_AKM_SUITE = 279711488i32;
+pub const rsna_akm_ft_fils_sha384: RSNA_AKM_SUITE = 296488704i32;
+pub const rsna_akm_ft_psk_sha256: RSNA_AKM_SUITE = 78384896i32;
+pub const rsna_akm_ft_psk_sha384: RSNA_AKM_SUITE = 330043136i32;
+pub const rsna_akm_ft_sae_pmk256: RSNA_AKM_SUITE = 162270976i32;
+pub const rsna_akm_ft_sae_pmk384: RSNA_AKM_SUITE = 430706432i32;
+pub const rsna_akm_max: RSNA_AKM_SUITE = 430706432i32;
+pub const rsna_akm_none: RSNA_AKM_SUITE = 11276032i32;
+pub const rsna_akm_owe: RSNA_AKM_SUITE = 313265920i32;
+pub const rsna_akm_peerkey_sha256: RSNA_AKM_SUITE = 179048192i32;
+pub const rsna_akm_psk: RSNA_AKM_SUITE = 44830464i32;
+pub const rsna_akm_psk_sha256: RSNA_AKM_SUITE = 111939328i32;
+pub const rsna_akm_psk_sha384: RSNA_AKM_SUITE = 346820352i32;
+pub const rsna_akm_sae_pmk256: RSNA_AKM_SUITE = 145493760i32;
+pub const rsna_akm_sae_pmk384: RSNA_AKM_SUITE = 413929216i32;
+pub const rsna_akm_tdls_sha256: RSNA_AKM_SUITE = 128716544i32;
+pub const rsna_cipher_bip_cmac_128: RSNA_CIPHER_SUITE = 111939328i32;
+pub const rsna_cipher_bip_cmac_256: RSNA_CIPHER_SUITE = 229379840i32;
+pub const rsna_cipher_bip_gmac_128: RSNA_CIPHER_SUITE = 195825408i32;
+pub const rsna_cipher_bip_gmac_256: RSNA_CIPHER_SUITE = 212602624i32;
+pub const rsna_cipher_ccmp_128: RSNA_CIPHER_SUITE = 78384896i32;
+pub const rsna_cipher_ccmp_256: RSNA_CIPHER_SUITE = 179048192i32;
+pub const rsna_cipher_gcmp_128: RSNA_CIPHER_SUITE = 145493760i32;
+pub const rsna_cipher_gcmp_256: RSNA_CIPHER_SUITE = 162270976i32;
+pub const rsna_cipher_group: RSNA_CIPHER_SUITE = 11276032i32;
+pub const rsna_cipher_max: RSNA_CIPHER_SUITE = 229379840i32;
+pub const rsna_cipher_no_group_traffic: RSNA_CIPHER_SUITE = 128716544i32;
+pub const rsna_cipher_reserved: RSNA_CIPHER_SUITE = 61607680i32;
+pub const rsna_cipher_tkip: RSNA_CIPHER_SUITE = 44830464i32;
+pub const rsna_cipher_wep104: RSNA_CIPHER_SUITE = 95162112i32;
+pub const rsna_cipher_wep40: RSNA_CIPHER_SUITE = 28053248i32;
 pub const wlan_adhoc_network_state_connected: WLAN_ADHOC_NETWORK_STATE = 1i32;
 pub const wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = 0i32;
 pub const wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = 4i32;
@@ -5113,7 +5224,9 @@ pub const wlan_intf_opcode_management_frame_protection_capable: WLAN_INTF_OPCODE
 pub const wlan_intf_opcode_media_streaming_mode: WLAN_INTF_OPCODE = 3i32;
 pub const wlan_intf_opcode_msm_end: WLAN_INTF_OPCODE = 536870911i32;
 pub const wlan_intf_opcode_msm_start: WLAN_INTF_OPCODE = 268435712i32;
+pub const wlan_intf_opcode_qos_info: WLAN_INTF_OPCODE = 20i32;
 pub const wlan_intf_opcode_radio_state: WLAN_INTF_OPCODE = 4i32;
+pub const wlan_intf_opcode_realtime_connection_quality: WLAN_INTF_OPCODE = 19i32;
 pub const wlan_intf_opcode_rssi: WLAN_INTF_OPCODE = 268435714i32;
 pub const wlan_intf_opcode_secondary_sta_interfaces: WLAN_INTF_OPCODE = 17i32;
 pub const wlan_intf_opcode_secondary_sta_synchronized_connections: WLAN_INTF_OPCODE = 18i32;
@@ -5204,3 +5317,14 @@ pub const wlan_secure_permit_list: WLAN_SECURABLE_OBJECT = 0i32;
 pub const wlan_secure_show_denied: WLAN_SECURABLE_OBJECT = 5i32;
 pub const wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = 15i32;
 pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = 16i32;
+pub const wpa_akm_1x: WPA_AKM_SUITE = 32657408i32;
+pub const wpa_akm_max: WPA_AKM_SUITE = 49434624i32;
+pub const wpa_akm_none: WPA_AKM_SUITE = 15880192i32;
+pub const wpa_akm_psk: WPA_AKM_SUITE = 49434624i32;
+pub const wpa_cipher_bip_cmac_128: WPA_CIPHER_SUITE = 116543488i32;
+pub const wpa_cipher_ccmp_128: WPA_CIPHER_SUITE = 82989056i32;
+pub const wpa_cipher_max: WPA_CIPHER_SUITE = 116543488i32;
+pub const wpa_cipher_none: WPA_CIPHER_SUITE = 15880192i32;
+pub const wpa_cipher_tkip: WPA_CIPHER_SUITE = 49434624i32;
+pub const wpa_cipher_wep104: WPA_CIPHER_SUITE = 99766272i32;
+pub const wpa_cipher_wep40: WPA_CIPHER_SUITE = 32657408i32;

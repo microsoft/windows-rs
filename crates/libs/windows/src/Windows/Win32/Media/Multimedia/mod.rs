@@ -837,8 +837,8 @@ pub unsafe fn mciFreeCommandResource(wtable: u32) -> windows_core::BOOL {
     unsafe { mciFreeCommandResource(wtable) }
 }
 #[inline]
-pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
-    windows_core::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super:: HTASK);
+pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::super::Foundation::HTASK {
+    windows_core::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super::super::Foundation:: HTASK);
     unsafe { mciGetCreatorTask(mciid) }
 }
 #[inline]
@@ -4592,7 +4592,7 @@ pub struct MMIOINFO {
     pub fccIOProc: u32,
     pub pIOProc: LPMMIOPROC,
     pub wErrorRet: u32,
-    pub htask: super::HTASK,
+    pub htask: super::super::Foundation::HTASK,
     pub cchBuffer: i32,
     pub pchBuffer: *mut i8,
     pub pchNext: *mut i8,

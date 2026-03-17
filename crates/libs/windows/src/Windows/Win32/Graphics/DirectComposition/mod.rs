@@ -2491,6 +2491,55 @@ impl IDCompositionDevice4_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl windows_core::RuntimeName for IDCompositionDevice4 {}
+windows_core::imp::define_interface!(IDCompositionDevice5, IDCompositionDevice5_Vtbl, 0x2c6bebfe_a603_472f_af34_d2443356e61b);
+impl core::ops::Deref for IDCompositionDevice5 {
+    type Target = IDCompositionDevice4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDCompositionDevice5, windows_core::IUnknown, IDCompositionDevice2, IDCompositionDevice3, IDCompositionDevice4);
+impl IDCompositionDevice5 {
+    pub unsafe fn CreateDynamicTexture(&self) -> windows_core::Result<IDCompositionDynamicTexture> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateDynamicTexture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDCompositionDevice5_Vtbl {
+    pub base__: IDCompositionDevice4_Vtbl,
+    pub CreateDynamicTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub trait IDCompositionDevice5_Impl: IDCompositionDevice4_Impl {
+    fn CreateDynamicTexture(&self) -> windows_core::Result<IDCompositionDynamicTexture>;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl IDCompositionDevice5_Vtbl {
+    pub const fn new<Identity: IDCompositionDevice5_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateDynamicTexture<Identity: IDCompositionDevice5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compositiondynamictexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IDCompositionDevice5_Impl::CreateDynamicTexture(this) {
+                    Ok(ok__) => {
+                        compositiondynamictexture.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: IDCompositionDevice4_Vtbl::new::<Identity, OFFSET>(), CreateDynamicTexture: CreateDynamicTexture::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDCompositionDevice5 as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID || iid == &<IDCompositionDevice3 as windows_core::Interface>::IID || iid == &<IDCompositionDevice4 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl windows_core::RuntimeName for IDCompositionDevice5 {}
 windows_core::imp::define_interface!(IDCompositionDeviceDebug, IDCompositionDeviceDebug_Vtbl, 0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, windows_core::IUnknown);
 impl IDCompositionDeviceDebug {
@@ -2537,6 +2586,58 @@ impl IDCompositionDeviceDebug_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IDCompositionDeviceDebug {}
+windows_core::imp::define_interface!(IDCompositionDynamicTexture, IDCompositionDynamicTexture_Vtbl, 0xa1de1d3f_6405_447f_8e95_1383a34b0277);
+windows_core::imp::interface_hierarchy!(IDCompositionDynamicTexture, windows_core::IUnknown);
+impl IDCompositionDynamicTexture {
+    pub unsafe fn SetTexture<P0>(&self, ptexture: P0, prects: &[super::super::Foundation::RECT]) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IDCompositionTexture>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), ptexture.param().abi(), core::mem::transmute(prects.as_ptr()), prects.len().try_into().unwrap()).ok() }
+    }
+    pub unsafe fn SetTexture2<P0>(&self, ptexture: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IDCompositionTexture>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetTexture2)(windows_core::Interface::as_raw(self), ptexture.param().abi()).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDCompositionDynamicTexture_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::super::Foundation::RECT, usize) -> windows_core::HRESULT,
+    pub SetTexture2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IDCompositionDynamicTexture_Impl: windows_core::IUnknownImpl {
+    fn SetTexture(&self, ptexture: windows_core::Ref<IDCompositionTexture>, prects: *const super::super::Foundation::RECT, rectcount: usize) -> windows_core::Result<()>;
+    fn SetTexture2(&self, ptexture: windows_core::Ref<IDCompositionTexture>) -> windows_core::Result<()>;
+}
+impl IDCompositionDynamicTexture_Vtbl {
+    pub const fn new<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetTexture<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void, prects: *const super::super::Foundation::RECT, rectcount: usize) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDCompositionDynamicTexture_Impl::SetTexture(this, core::mem::transmute_copy(&ptexture), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&rectcount)).into()
+            }
+        }
+        unsafe extern "system" fn SetTexture2<Identity: IDCompositionDynamicTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptexture: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IDCompositionDynamicTexture_Impl::SetTexture2(this, core::mem::transmute_copy(&ptexture)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetTexture: SetTexture::<Identity, OFFSET>,
+            SetTexture2: SetTexture2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDCompositionDynamicTexture as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IDCompositionDynamicTexture {}
 windows_core::imp::define_interface!(IDCompositionEffect, IDCompositionEffect_Vtbl, 0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 windows_core::imp::interface_hierarchy!(IDCompositionEffect, windows_core::IUnknown);
 #[repr(C)]

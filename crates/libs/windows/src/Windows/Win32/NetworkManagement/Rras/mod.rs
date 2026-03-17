@@ -1968,6 +1968,7 @@ pub const ERROR_VPN_GRE_BLOCKED: u32 = 806u32;
 pub const ERROR_VPN_PLUGIN_GENERIC: u32 = 873u32;
 pub const ERROR_VPN_REFUSED: u32 = 808u32;
 pub const ERROR_VPN_TIMEOUT: u32 = 809u32;
+pub const ERROR_WINHTTP_AUTO_PROXY_SERVICE: u32 = 878u32;
 pub const ERROR_WRITING_DEFAULTOFF: u32 = 688u32;
 pub const ERROR_WRITING_DEVICENAME: u32 = 684u32;
 pub const ERROR_WRITING_DEVICETYPE: u32 = 683u32;
@@ -3150,7 +3151,7 @@ impl Default for RASAUTODIALENTRYW {
     }
 }
 pub const RASBASE: u32 = 600u32;
-pub const RASBASEEND: u32 = 877u32;
+pub const RASBASEEND: u32 = 878u32;
 pub const RASCCPCA_MPPC: u32 = 6u32;
 pub const RASCCPCA_STAC: u32 = 5u32;
 pub const RASCCPO_Compression: u32 = 1u32;

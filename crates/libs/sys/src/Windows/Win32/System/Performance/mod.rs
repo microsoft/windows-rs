@@ -133,8 +133,8 @@ windows_link::link!("loadperf.dll" "system" fn SetServiceAsTrustedA(szreserved :
 windows_link::link!("loadperf.dll" "system" fn SetServiceAsTrustedW(szreserved : windows_sys::core::PCWSTR, szservicename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsA(lpcommandline : windows_sys::core::PCSTR, bquietmodearg : windows_sys::core::BOOL) -> u32);
 windows_link::link!("loadperf.dll" "system" fn UnloadPerfCounterTextStringsW(lpcommandline : windows_sys::core::PCWSTR, bquietmodearg : windows_sys::core::BOOL) -> u32);
-windows_link::link!("loadperf.dll" "system" fn UpdatePerfNameFilesA(sznewctrfilepath : windows_sys::core::PCSTR, sznewhlpfilepath : windows_sys::core::PCSTR, szlanguageid : windows_sys::core::PCSTR, dwflags : usize) -> u32);
-windows_link::link!("loadperf.dll" "system" fn UpdatePerfNameFilesW(sznewctrfilepath : windows_sys::core::PCWSTR, sznewhlpfilepath : windows_sys::core::PCWSTR, szlanguageid : windows_sys::core::PCWSTR, dwflags : usize) -> u32);
+windows_link::link!("loadperf.dll" "system" fn UpdatePerfNameFilesA(sznewctrfilepath : windows_sys::core::PCSTR, sznewhlpfilepath : windows_sys::core::PCSTR, szlanguageid : windows_sys::core::PCSTR, dwmodes : usize) -> u32);
+windows_link::link!("loadperf.dll" "system" fn UpdatePerfNameFilesW(sznewctrfilepath : windows_sys::core::PCWSTR, sznewhlpfilepath : windows_sys::core::PCWSTR, szlanguageid : windows_sys::core::PCWSTR, dwmodes : usize) -> u32);
 pub const AppearPropPage: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 pub type AutoPathFormat = i32;
 pub const BootTraceSession: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);

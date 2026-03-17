@@ -1,12 +1,17 @@
 windows_link::link!("kernel32.dll" "system" fn AddConsoleAliasA(source : windows_sys::core::PCSTR, target : windows_sys::core::PCSTR, exename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn AddConsoleAliasW(source : windows_sys::core::PCWSTR, target : windows_sys::core::PCWSTR, exename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn AllocConsole() -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn AllocConsoleWithOptions(options : *const ALLOC_CONSOLE_OPTIONS, result : *mut ALLOC_CONSOLE_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn AttachConsole(dwprocessid : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn CloseConsoleHandle(hconsole : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON));
 windows_link::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+windows_link::link!("kernel32.dll" "system" fn ConsoleMenuControl(hconsoleoutput : super::super::Foundation:: HANDLE, dwcommandidlow : u32, dwcommandidhigh : u32) -> super::super::UI::WindowsAndMessaging:: HMENU);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
 windows_link::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn DuplicateConsoleHandle(hsourcehandle : super::super::Foundation:: HANDLE, dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, dwoptions : u32) -> super::super::Foundation:: HANDLE);
 windows_link::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryA(exename : windows_sys::core::PCSTR));
 windows_link::link!("kernel32.dll" "system" fn ExpungeConsoleCommandHistoryW(exename : windows_sys::core::PCWSTR));
 windows_link::link!("kernel32.dll" "system" fn FillConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, wattribute : u16, nlength : u32, dwwritecoord : COORD, lpnumberofattrswritten : *mut u32) -> windows_sys::core::BOOL);
@@ -26,15 +31,25 @@ windows_link::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthA(exename 
 windows_link::link!("kernel32.dll" "system" fn GetConsoleAliasesLengthW(exename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleAliasesW(aliasbuffer : windows_sys::core::PWSTR, aliasbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCP() -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleCharType(hconsole : super::super::Foundation:: HANDLE, coordcheck : COORD, pdwtype : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(commands : windows_sys::core::PSTR, commandbufferlength : u32, exename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthA(exename : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryLengthW(exename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : windows_sys::core::PWSTR, commandbufferlength : u32, exename : windows_sys::core::PCWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleCursorInfo(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolecursorinfo : *mut CONSOLE_CURSOR_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleCursorMode(hconsolehandle : super::super::Foundation:: HANDLE, pbblink : *mut windows_sys::core::BOOL, pbdbenable : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleDisplayMode(lpmodeflags : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleFontInfo(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : windows_sys::core::BOOL, nlength : u32, lpconsolefontinfo : *mut CONSOLE_FONT_INFO) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleFontSize(hconsoleoutput : super::super::Foundation:: HANDLE, nfont : u32) -> COORD);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleHardwareState(hconsoleoutput : super::super::Foundation:: HANDLE, lpresolution : *mut COORD, lpfontsize : *mut COORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleHistoryInfo(lpconsolehistoryinfo : *mut CONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleInputExeNameA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleInputExeNameW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleInputWaitHandle() -> super::super::Foundation:: HANDLE);
+windows_link::link!("user32.dll" "system" fn GetConsoleKeyboardLayoutNameA(pszlayout : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetConsoleKeyboardLayoutNameW(pszlayout : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleMode(hconsolehandle : super::super::Foundation:: HANDLE, lpmode : *mut CONSOLE_MODE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetConsoleNlsMode(hconsole : super::super::Foundation:: HANDLE, lpdwnlsmode : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleA(lpconsoletitle : windows_sys::core::PSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleW(lpconsoletitle : windows_sys::core::PWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetConsoleOutputCP() -> u32);
@@ -48,13 +63,18 @@ windows_link::link!("kernel32.dll" "system" fn GetConsoleWindow() -> super::supe
 windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFont(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfont : *mut CONSOLE_FONT_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : *mut CONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetLargestConsoleWindowSize(hconsoleoutput : super::super::Foundation:: HANDLE) -> COORD);
+windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleFonts() -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleInputEvents(hconsoleinput : super::super::Foundation:: HANDLE, lpnumberofevents : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetStdHandle(nstdhandle : STD_HANDLE) -> super::super::Foundation:: HANDLE);
+windows_link::link!("kernel32.dll" "system" fn InvalidateConsoleDIBits(hconsoleoutput : super::super::Foundation:: HANDLE, lprect : *const SMALL_RECT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn OpenConsoleW(lpconsoledevice : windows_sys::core::PCWSTR, dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, dwsharemode : u32) -> super::super::Foundation:: HANDLE);
 windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputExA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32, wflags : u16) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputExW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32, wflags : u16) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleOutputA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *mut CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpreadregion : *mut SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, lpattribute : *mut u16, nlength : u32, dwreadcoord : COORD, lpnumberofattrsread : *mut u32) -> windows_sys::core::BOOL);
@@ -62,20 +82,40 @@ windows_link::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterA(hcons
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PWSTR, nlength : u32, dwreadcoord : COORD, lpnumberofcharsread : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleOutputW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *mut CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpreadregion : *mut SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn RegisterConsoleIME(hwndconsoleime : super::super::Foundation:: HWND, lpdwconsolethreadid : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn RegisterConsoleOS2(fos2register : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn RegisterConsoleVDM(dwregisterflags : u32, hstarthardwareevent : super::super::Foundation:: HANDLE, hendhardwareevent : super::super::Foundation:: HANDLE, herrorhardwareevent : super::super::Foundation:: HANDLE, reserved : u32, lpstatelength : *mut u32, lpstate : *mut *mut core::ffi::c_void, vdmbuffersize : COORD, lpvdmbuffer : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ReleasePseudoConsole(hpc : HPCON) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : HPCON, size : COORD) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferA(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferW(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleActiveScreenBuffer(hconsoleoutput : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleCP(wcodepageid : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+windows_link::link!("kernel32.dll" "system" fn SetConsoleCursor(hconsoleoutput : super::super::Foundation:: HANDLE, hcursor : super::super::UI::WindowsAndMessaging:: HCURSOR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleCursorInfo(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolecursorinfo : *const CONSOLE_CURSOR_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleCursorMode(hconsolehandle : super::super::Foundation:: HANDLE, blink : windows_sys::core::BOOL, dbenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleCursorPosition(hconsoleoutput : super::super::Foundation:: HANDLE, dwcursorposition : COORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::super::Foundation:: HANDLE, dwflags : u32, lpnewscreenbufferdimensions : *mut COORD) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleFont(hconsoleoutput : super::super::Foundation:: HANDLE, nfont : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleHardwareState(hconsoleoutput : super::super::Foundation:: HANDLE, dwresolution : COORD, dwfontsize : COORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleHistoryInfo(lpconsolehistoryinfo : *const CONSOLE_HISTORY_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+windows_link::link!("kernel32.dll" "system" fn SetConsoleIcon(hicon : super::super::UI::WindowsAndMessaging:: HICON) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleInputExeNameA(lpexename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleInputExeNameW(lpexename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleKeyShortcuts(bset : windows_sys::core::BOOL, breservekeys : u8, lpappkeys : *const APPKEY, dwnumappkeys : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleLocalEUDC(hconsolehandle : super::super::Foundation:: HANDLE, wcodepoint : u16, cfontsize : COORD, lpsb : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleMenuClose(benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleMode(hconsolehandle : super::super::Foundation:: HANDLE, dwmode : CONSOLE_MODE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleNlsMode(hconsole : super::super::Foundation:: HANDLE, fdwnlsmode : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsA(number : u32, exename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleNumberOfCommandsW(number : u32, exename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetConsoleOS2OemFormat(fos2oemformat : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleOutputCP(wcodepageid : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+windows_link::link!("kernel32.dll" "system" fn SetConsolePalette(hconsoleoutput : super::super::Foundation:: HANDLE, hpalette : super::super::Graphics::Gdi:: HPALETTE, dwusage : u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleScreenBufferInfoEx(hconsoleoutput : super::super::Foundation:: HANDLE, lpconsolescreenbufferinfoex : *const CONSOLE_SCREEN_BUFFER_INFOEX) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleScreenBufferSize(hconsoleoutput : super::super::Foundation:: HANDLE, dwsize : COORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleTextAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, wattributes : CONSOLE_CHARACTER_ATTRIBUTES) -> windows_sys::core::BOOL);
@@ -83,10 +123,17 @@ windows_link::link!("kernel32.dll" "system" fn SetConsoleTitleA(lpconsoletitle :
 windows_link::link!("kernel32.dll" "system" fn SetConsoleTitleW(lpconsoletitle : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetConsoleWindowInfo(hconsoleoutput : super::super::Foundation:: HANDLE, babsolute : windows_sys::core::BOOL, lpconsolewindow : *const SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetCurrentConsoleFontEx(hconsoleoutput : super::super::Foundation:: HANDLE, bmaximumwindow : windows_sys::core::BOOL, lpconsolecurrentfontex : *const CONSOLE_FONT_INFOEX) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetLastConsoleEventActive());
 windows_link::link!("kernel32.dll" "system" fn SetStdHandle(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE, phprevvalue : *mut super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ShowConsoleCursor(hconsoleoutput : super::super::Foundation:: HANDLE, bshow : windows_sys::core::BOOL) -> i32);
+windows_link::link!("kernel32.dll" "system" fn UnregisterConsoleIME() -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn VDMConsoleOperation(ifunction : u32, lpdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn VerifyConsoleIoHandle(hiohandle : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_sys::core::PCSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleInputA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WriteConsoleInputVDMA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WriteConsoleInputVDMW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleInputW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *const INPUT_RECORD, nlength : u32, lpnumberofeventswritten : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputAttribute(hconsoleoutput : super::super::Foundation:: HANDLE, lpattribute : *const u16, nlength : u32, dwwritecoord : COORD, lpnumberofattrswritten : *mut u32) -> windows_sys::core::BOOL);
@@ -94,7 +141,28 @@ windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hcon
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::super::Foundation:: HANDLE, lpcharacter : windows_sys::core::PCWSTR, nlength : u32, dwwritecoord : COORD, lpnumberofcharswritten : *mut u32) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : *const CHAR_INFO, dwbuffersize : COORD, dwbuffercoord : COORD, lpwriteregion : *mut SMALL_RECT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_sys::core::PCWSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type ALLOC_CONSOLE_MODE = i32;
+pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0i32;
+pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1i32;
+pub const ALLOC_CONSOLE_MODE_NO_WINDOW: ALLOC_CONSOLE_MODE = 2i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct ALLOC_CONSOLE_OPTIONS {
+    pub mode: ALLOC_CONSOLE_MODE,
+    pub useShowWindow: windows_sys::core::BOOL,
+    pub showWindow: u16,
+}
+pub type ALLOC_CONSOLE_RESULT = i32;
+pub const ALLOC_CONSOLE_RESULT_EXISTING_CONSOLE: ALLOC_CONSOLE_RESULT = 2i32;
+pub const ALLOC_CONSOLE_RESULT_NEW_CONSOLE: ALLOC_CONSOLE_RESULT = 1i32;
+pub const ALLOC_CONSOLE_RESULT_NO_CONSOLE: ALLOC_CONSOLE_RESULT = 0i32;
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct APPKEY {
+    pub Modifier: u16,
+    pub ScanCode: u16,
+}
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
 pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u16;
@@ -123,6 +191,9 @@ impl Default for CHAR_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const CHAR_TYPE_LEADING: u32 = 2u32;
+pub const CHAR_TYPE_SBCS: u32 = 0u32;
+pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
 pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
 pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u16;
@@ -168,6 +239,11 @@ impl Default for CONSOLEWINDOWOWNER {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const CONSOLE_ALTENTER: u32 = 8u32;
+pub const CONSOLE_ALTESC: u32 = 2u32;
+pub const CONSOLE_ALTPRTSC: u32 = 16u32;
+pub const CONSOLE_ALTSPACE: u32 = 4u32;
+pub const CONSOLE_ALTTAB: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CONSOLE_CARET_INFO {
@@ -180,6 +256,7 @@ impl Default for CONSOLE_CARET_INFO {
     }
 }
 pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
+pub const CONSOLE_CTRLESC: u32 = 64u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_CURSOR_INFO {
@@ -210,6 +287,25 @@ impl Default for CONSOLE_FONT_INFOEX {
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
+pub const CONSOLE_GENERIC: windows_sys::core::PCWSTR = windows_sys::core::w!("CON");
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct CONSOLE_GRAPHICS_BUFFER_INFO {
+    pub dwBitMapInfoLength: u32,
+    pub lpBitMapInfo: *mut super::super::Graphics::Gdi::BITMAPINFO,
+    pub dwUsage: u32,
+    pub hMutex: super::super::Foundation::HANDLE,
+    pub lpBitMap: *mut core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for CONSOLE_GRAPHICS_BUFFER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const CONSOLE_HANDLE_NEVERSET: u32 = 268435456u32;
+pub const CONSOLE_HANDLE_SIGNATURE: u32 = 3u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_HISTORY_INFO {
@@ -218,16 +314,23 @@ pub struct CONSOLE_HISTORY_INFO {
     pub NumberOfHistoryBuffers: u32,
     pub dwFlags: u32,
 }
+pub const CONSOLE_INPUT_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("CONIN$");
 pub type CONSOLE_MODE = u32;
+pub const CONSOLE_MODIFIER_ALT: u32 = 8u32;
+pub const CONSOLE_MODIFIER_CONTROL: u32 = 4u32;
+pub const CONSOLE_MODIFIER_SHIFT: u32 = 3u32;
 pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
+pub const CONSOLE_NOSHORTCUTKEY: u32 = 0u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
+pub const CONSOLE_OUTPUT_STRING: windows_sys::core::PCWSTR = windows_sys::core::w!("CONOUT$");
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_PROCESS_INFO {
     pub dwProcessID: u32,
     pub dwFlags: u32,
 }
+pub const CONSOLE_PRTSC: u32 = 32u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
@@ -236,6 +339,8 @@ pub struct CONSOLE_READCONSOLE_CONTROL {
     pub dwCtrlWakeupMask: u32,
     pub dwControlKeyState: u32,
 }
+pub const CONSOLE_REGISTER_VDM: u32 = 1u32;
+pub const CONSOLE_REGISTER_WOW: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
@@ -270,9 +375,11 @@ pub struct CONSOLE_SELECTION_INFO {
     pub dwSelectionAnchor: COORD,
     pub srSelection: SMALL_RECT,
 }
+pub const CONSOLE_SELECTION_INVERTED: u32 = 16u32;
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
+pub const CONSOLE_UNREGISTER_VDM: u32 = 0u32;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -307,6 +414,35 @@ pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4u32;
 pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8u32;
 pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct ExtKeyDef {
+    pub keys: [ExtKeySubst; 3],
+}
+impl Default for ExtKeyDef {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct ExtKeyDefBuf {
+    pub dwVersion: u32,
+    pub dwCheckSum: u32,
+    pub table: [ExtKeyDef; 26],
+}
+impl Default for ExtKeyDefBuf {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct ExtKeySubst {
+    pub wMod: u16,
+    pub wVirKey: u16,
+    pub wUnicodeChar: u16,
+}
 pub const FOCUS_EVENT: u32 = 16u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -404,6 +540,19 @@ pub const NLS_KATAKANA: u32 = 131072u32;
 pub const NLS_ROMAN: u32 = 4194304u32;
 pub const NUMLOCK_ON: u32 = 32u32;
 pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> windows_sys::core::BOOL>;
+pub const PID_CONSOLE_CTRLKEYSDISABLED: u32 = 4u32;
+pub const PID_CONSOLE_CURSOR_COLOR: u32 = 9u32;
+pub const PID_CONSOLE_CURSOR_TYPE: u32 = 8u32;
+pub const PID_CONSOLE_DEFAULTBACKGROUND: u32 = 12u32;
+pub const PID_CONSOLE_DEFAULTFOREGROUND: u32 = 11u32;
+pub const PID_CONSOLE_FILTERONPASTE: u32 = 3u32;
+pub const PID_CONSOLE_FORCEV2: u32 = 1u32;
+pub const PID_CONSOLE_INTERCEPT_COPY_PASTE: u32 = 10u32;
+pub const PID_CONSOLE_LINESELECTION: u32 = 5u32;
+pub const PID_CONSOLE_TERMINALSCROLLING: u32 = 13u32;
+pub const PID_CONSOLE_WINDOWMAXIMIZED: u32 = 7u32;
+pub const PID_CONSOLE_WINDOWTRANSPARENCY: u32 = 6u32;
+pub const PID_CONSOLE_WRAPTEXT: u32 = 2u32;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
@@ -425,6 +574,14 @@ pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
 pub type STD_HANDLE = u32;
 pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
+pub const VDM_CLIENT_RECT: u32 = 3u32;
+pub const VDM_CLIENT_TO_SCREEN: u32 = 4u32;
+pub const VDM_FULLSCREEN_NOPAINT: u32 = 7u32;
+pub const VDM_HIDE_WINDOW: u32 = 1u32;
+pub const VDM_IS_HIDDEN: u32 = 6u32;
+pub const VDM_IS_ICONIC: u32 = 2u32;
+pub const VDM_SCREEN_TO_CLIENT: u32 = 5u32;
+pub const VDM_SET_VIDEO_MODE: u32 = 8u32;
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

@@ -60,6 +60,7 @@ pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "syste
 pub type REPORT_STORE_TYPES = i32;
 pub type WER_CONSENT = i32;
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
+pub const WER_DUMP_AUX_PROMOTE: u32 = 4u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WER_DUMP_CUSTOM_OPTIONS {
@@ -404,10 +405,11 @@ pub const WerDumpTypeMiniDump: WER_DUMP_TYPE = 2i32;
 pub const WerDumpTypeNone: WER_DUMP_TYPE = 0i32;
 pub const WerDumpTypeTriageDump: WER_DUMP_TYPE = 4i32;
 pub const WerFileTypeAuxiliaryDump: WER_FILE_TYPE = 8i32;
+pub const WerFileTypeAuxiliaryHeapDump: WER_FILE_TYPE = 10i32;
 pub const WerFileTypeCustomDump: WER_FILE_TYPE = 7i32;
 pub const WerFileTypeEtlTrace: WER_FILE_TYPE = 9i32;
 pub const WerFileTypeHeapdump: WER_FILE_TYPE = 3i32;
-pub const WerFileTypeMax: WER_FILE_TYPE = 10i32;
+pub const WerFileTypeMax: WER_FILE_TYPE = 11i32;
 pub const WerFileTypeMicrodump: WER_FILE_TYPE = 1i32;
 pub const WerFileTypeMinidump: WER_FILE_TYPE = 2i32;
 pub const WerFileTypeOther: WER_FILE_TYPE = 5i32;

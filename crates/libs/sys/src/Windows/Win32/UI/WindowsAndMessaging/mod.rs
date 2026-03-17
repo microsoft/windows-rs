@@ -5,6 +5,7 @@ windows_link::link!("user32.dll" "system" fn AnimateWindow(hwnd : super::super::
 windows_link::link!("user32.dll" "system" fn AnyPopup() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn AppendMenuA(hmenu : HMENU, uflags : MENU_ITEM_FLAGS, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn AppendMenuW(hmenu : HMENU, uflags : MENU_ITEM_FLAGS, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ApplyWindowAction(hwnd : super::super::Foundation:: HWND, paction : *mut WINDOW_ACTION) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn ArrangeIconicWindows(hwnd : super::super::Foundation:: HWND) -> u32);
 windows_link::link!("user32.dll" "system" fn BeginDeferWindowPos(nnumwindows : i32) -> HDWP);
 windows_link::link!("user32.dll" "system" fn BringWindowToTop(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
@@ -44,6 +45,8 @@ windows_link::link!("user32.dll" "system" fn ChildWindowFromPoint(hwndparent : s
 windows_link::link!("user32.dll" "system" fn ChildWindowFromPointEx(hwnd : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, flags : CWP_FLAGS) -> super::super::Foundation:: HWND);
 windows_link::link!("user32.dll" "system" fn ClipCursor(lprect : *const super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseWindow(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ConvertPrimaryPointerToMouseDrag() -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ConvertToInterceptWindow(toplevelwindow : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableA(haccelsrc : HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableW(haccelsrc : HACCEL, lpacceldst : *mut ACCEL, caccelentries : i32) -> i32);
 windows_link::link!("user32.dll" "system" fn CopyIcon(hicon : HICON) -> HICON);
@@ -105,6 +108,7 @@ windows_link::link!("user32.dll" "system" fn EnableMenuItem(hmenu : HMENU, uiden
 windows_link::link!("user32.dll" "system" fn EndDeferWindowPos(hwinposinfo : HDWP) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EndDialog(hdlg : super::super::Foundation:: HWND, nresult : isize) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EndMenu() -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn EnterMoveSizeLoop(hwnd : super::super::Foundation:: HWND, ptcursor : super::super::Foundation:: POINT, movesizecode : MOVESIZE_OPERATION) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EnumChildWindows(hwndparent : super::super::Foundation:: HWND, lpenumfunc : WNDENUMPROC, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EnumPropsA(hwnd : super::super::Foundation:: HWND, lpenumfunc : PROPENUMPROCA) -> i32);
 windows_link::link!("user32.dll" "system" fn EnumPropsExA(hwnd : super::super::Foundation:: HWND, lpenumfunc : PROPENUMPROCEXA, lparam : super::super::Foundation:: LPARAM) -> i32);
@@ -142,6 +146,7 @@ windows_link::link!("user32.dll" "system" fn GetClassNameW(hwnd : super::super::
 windows_link::link!("user32.dll" "system" fn GetClassWord(hwnd : super::super::Foundation:: HWND, nindex : i32) -> u16);
 windows_link::link!("user32.dll" "system" fn GetClientRect(hwnd : super::super::Foundation:: HWND, lprect : *mut super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetClipCursor(lprect : *mut super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetCurrentMonitorTopologyId() -> u32);
 windows_link::link!("user32.dll" "system" fn GetCursor() -> HCURSOR);
 windows_link::link!("user32.dll" "system" fn GetCursorInfo(pci : *mut CURSORINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetCursorPos(lppoint : *mut super::super::Foundation:: POINT) -> windows_sys::core::BOOL);
@@ -243,6 +248,7 @@ windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : i8) -> win
 windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharAlphaW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn IsCharLowerW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharUpperA(ch : i8) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsCharUpperW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsChild(hwndparent : super::super::Foundation:: HWND, hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
@@ -251,6 +257,7 @@ windows_link::link!("user32.dll" "system" fn IsDialogMessageW(hdlg : super::supe
 windows_link::link!("user32.dll" "system" fn IsGUIThread(bconvert : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsHungAppWindow(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsIconic(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn IsInterceptWindow(toplevelwindow : super::super::Foundation:: HWND, isintercept : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsMenu(hmenu : HMENU) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsProcessDPIAware() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
@@ -344,6 +351,7 @@ windows_link::link!("user32.dll" "system" fn RegisterClassExA(param0 : *const WN
 windows_link::link!("user32.dll" "system" fn RegisterClassExW(param0 : *const WNDCLASSEXW) -> u16);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> u16);
+windows_link::link!("user32.dll" "system" fn RegisterCloakedNotification(hwnd : super::super::Foundation:: HWND, fregister : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationA(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
 windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationW(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
 windows_link::link!("user32.dll" "system" fn RegisterForTooltipDismissNotification(hwnd : super::super::Foundation:: HWND, tdflags : TOOLTIP_DISMISS_FLAGS) -> windows_sys::core::BOOL);
@@ -791,6 +799,7 @@ pub struct CURSORSHAPE {
 }
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
+pub const CURSOR_INVISIBLE: u32 = 0u32;
 pub const CURSOR_SHOWING: CURSORINFO_FLAGS = 1u32;
 pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u32;
 pub const CWF_CREATE_ONLY: u32 = 1u32;
@@ -1344,6 +1353,14 @@ pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = 12u32;
 pub const FLASHW_TRAY: FLASHWINFO_FLAGS = 2u32;
 pub const FNOINVERT: ACCEL_VIRT_FLAGS = 2u8;
 pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct FRAME_MARGIN {
+    pub left: i16,
+    pub right: i16,
+    pub top: i16,
+    pub bottom: i16,
+}
 pub const FSHIFT: ACCEL_VIRT_FLAGS = 4u8;
 pub const FVIRTKEY: ACCEL_VIRT_FLAGS = 1u8;
 pub const GA_PARENT: GET_ANCESTOR_FLAGS = 1u32;
@@ -1428,6 +1445,7 @@ pub const GUID_IO_VOLUME_MOUNT: windows_sys::core::GUID = windows_sys::core::GUI
 pub const GUID_IO_VOLUME_NAME_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2de97f83_4c06_11d2_a532_00609713055a);
 pub const GUID_IO_VOLUME_NEED_CHKDSK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x799a0960_0a0b_4e03_ad88_2fa7c6ce748a);
 pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2de97f84_4c06_11d2_a532_00609713055a);
+pub const GUID_IO_VOLUME_PREPARE_DELETE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xac0707fb_4a9a_4c81_9e2e_385b79a8fd28);
 pub const GUID_IO_VOLUME_PREPARING_EJECT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc79eb16e_0dac_4e7a_a86c_b25ceeaa88f6);
 pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xaf39da42_6622_41f5_970b_139d092fa3d9);
 pub const GUID_IO_VOLUME_UNLOCK: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a8c3d68_d0cb_11d1_8fef_00a0c9a06d32);
@@ -1761,6 +1779,7 @@ pub const INDEXID_OBJECT: u32 = 0u32;
 pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
 pub const INPUTLANGCHANGE_FORWARD: u32 = 2u32;
 pub const INPUTLANGCHANGE_SYSCHARSET: u32 = 1u32;
+pub const INVALID_MONITOR_TOPOLOGY_ID: u32 = 0u32;
 pub const ISMEX_CALLBACK: u32 = 4u32;
 pub const ISMEX_NOSEND: u32 = 0u32;
 pub const ISMEX_NOTIFY: u32 = 2u32;
@@ -1869,6 +1888,10 @@ pub const LB_SETLOCALE: u32 = 421u32;
 pub const LB_SETSEL: u32 = 389u32;
 pub const LB_SETTABSTOPS: u32 = 402u32;
 pub const LB_SETTOPINDEX: u32 = 407u32;
+pub type LEGACY_TOUCHPAD_FEATURES = i32;
+pub const LEGACY_TOUCHPAD_FEATURE_ENABLE_DISABLE: LEGACY_TOUCHPAD_FEATURES = 1i32;
+pub const LEGACY_TOUCHPAD_FEATURE_NONE: LEGACY_TOUCHPAD_FEATURES = 0i32;
+pub const LEGACY_TOUCHPAD_FEATURE_REVERSE_SCROLL_DIRECTION: LEGACY_TOUCHPAD_FEATURES = 4i32;
 pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = 32u32;
 pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = 1u32;
 pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 16u32;
@@ -2177,10 +2200,22 @@ impl Default for MENUTEMPLATEEX_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const MENU_CHECK_ITEM: u32 = 256u32;
+pub const MENU_DELETE_MENU: u32 = 32u32;
+pub const MENU_ENABLE_ITEM: u32 = 128u32;
+pub const MENU_GET_ITEM_DATA: u32 = 2u32;
+pub const MENU_GET_ITEM_INFO: u32 = 1u32;
+pub const MENU_GET_SUBMENU: u32 = 4u32;
+pub const MENU_INSERT_ITEM: u32 = 16u32;
+pub const MENU_INSERT_MENU: u32 = 8u32;
 pub type MENU_ITEM_FLAGS = u32;
 pub type MENU_ITEM_MASK = u32;
 pub type MENU_ITEM_STATE = u32;
 pub type MENU_ITEM_TYPE = u32;
+pub const MENU_SET_DEFAULT_ITEM: u32 = 512u32;
+pub const MENU_SET_ITEM_DATA: u32 = 1024u32;
+pub const MENU_SET_ITEM_INFO: u32 = 64u32;
+pub const MENU_SET_SUBMENU: u32 = 2048u32;
 pub type MESSAGEBOX_RESULT = i32;
 pub type MESSAGEBOX_STYLE = u32;
 #[repr(C)]
@@ -2348,6 +2383,7 @@ pub struct MOUSEHOOKSTRUCTEX {
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
+pub type MOVESIZE_OPERATION = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MSG {
@@ -2434,6 +2470,15 @@ pub struct MSLLHOOKSTRUCT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
+pub const MSO_MOVE: MOVESIZE_OPERATION = 9i32;
+pub const MSO_SIZE_BOTTOM: MOVESIZE_OPERATION = 6i32;
+pub const MSO_SIZE_BOTTOMLEFT: MOVESIZE_OPERATION = 7i32;
+pub const MSO_SIZE_BOTTOMRIGHT: MOVESIZE_OPERATION = 8i32;
+pub const MSO_SIZE_LEFT: MOVESIZE_OPERATION = 1i32;
+pub const MSO_SIZE_RIGHT: MOVESIZE_OPERATION = 2i32;
+pub const MSO_SIZE_TOP: MOVESIZE_OPERATION = 3i32;
+pub const MSO_SIZE_TOPLEFT: MOVESIZE_OPERATION = 4i32;
+pub const MSO_SIZE_TOPRIGHT: MOVESIZE_OPERATION = 5i32;
 pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 2u32;
 pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 4u32;
 pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 0u32;
@@ -2817,6 +2862,7 @@ pub const SB_LINEDOWN: SCROLLBAR_COMMAND = 1i32;
 pub const SB_LINELEFT: SCROLLBAR_COMMAND = 0i32;
 pub const SB_LINERIGHT: SCROLLBAR_COMMAND = 1i32;
 pub const SB_LINEUP: SCROLLBAR_COMMAND = 0i32;
+pub const SB_MIN: u32 = 0u32;
 pub const SB_PAGEDOWN: SCROLLBAR_COMMAND = 3i32;
 pub const SB_PAGELEFT: SCROLLBAR_COMMAND = 2i32;
 pub const SB_PAGERIGHT: SCROLLBAR_COMMAND = 3i32;
@@ -3144,6 +3190,7 @@ pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4174u
 pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 52u32;
 pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4118u32;
 pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4120u32;
+pub const SPI_GETTOUCHPADPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 174u32;
 pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 156u32;
 pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4158u32;
 pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 124u32;
@@ -3273,6 +3320,7 @@ pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4175u
 pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 53u32;
 pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4119u32;
 pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4121u32;
+pub const SPI_SETTOUCHPADPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 175u32;
 pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 157u32;
 pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4159u32;
 pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 125u32;
@@ -3342,6 +3390,7 @@ pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = 128u32;
 pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16u32;
 pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = 256u32;
 pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = 2u32;
+pub const SWP_NONE: u32 = 0u32;
 pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = 512u32;
 pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = 8u32;
 pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = 512u32;
@@ -3416,6 +3465,35 @@ pub const TKF_HOTKEYSOUND: u32 = 16u32;
 pub const TKF_INDICATOR: u32 = 32u32;
 pub const TKF_TOGGLEKEYSON: u32 = 1u32;
 pub type TOOLTIP_DISMISS_FLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct TOUCHPAD_PARAMETERS_V1 {
+    pub versionNumber: u32,
+    pub maxSupportedContacts: u32,
+    pub legacyTouchpadFeatures: LEGACY_TOUCHPAD_FEATURES,
+    pub _bitfield1: i32,
+    pub _bitfield2: i32,
+    pub sensitivityLevel: TOUCHPAD_SENSITIVITY_LEVEL,
+    pub cursorSpeed: u32,
+    pub feedbackIntensity: u32,
+    pub clickForceSensitivity: u32,
+    pub rightClickZoneWidth: u32,
+    pub rightClickZoneHeight: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct TOUCHPAD_PARAMETERS_V2 {
+    pub Base: TOUCHPAD_PARAMETERS_V1,
+    pub _bitfield: i32,
+}
+pub const TOUCHPAD_PARAMETERS_VERSION_1: u32 = 1u32;
+pub const TOUCHPAD_PARAMETERS_VERSION_2: u32 = 2u32;
+pub type TOUCHPAD_SENSITIVITY_LEVEL = i32;
+pub const TOUCHPAD_SENSITIVITY_LEVEL_HIGH_SENSITIVITY: TOUCHPAD_SENSITIVITY_LEVEL = 1i32;
+pub const TOUCHPAD_SENSITIVITY_LEVEL_LEAST_SENSITIVE: TOUCHPAD_SENSITIVITY_LEVEL = 4i32;
+pub const TOUCHPAD_SENSITIVITY_LEVEL_LOW_SENSITIVITY: TOUCHPAD_SENSITIVITY_LEVEL = 3i32;
+pub const TOUCHPAD_SENSITIVITY_LEVEL_MEDIUM_SENSITIVITY: TOUCHPAD_SENSITIVITY_LEVEL = 2i32;
+pub const TOUCHPAD_SENSITIVITY_LEVEL_MOST_SENSITIVE: TOUCHPAD_SENSITIVITY_LEVEL = 0i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCHPREDICTIONPARAMETERS {
@@ -3516,6 +3594,31 @@ pub struct VolLockBroadcast {
     pub vlb_drive: u8,
     pub vlb_flags: u8,
 }
+pub const WAK_ACTIVATE: WINDOW_ACTION_KINDS = 16i32;
+pub const WAK_COALESCEABLE: WINDOW_ACTION_KINDS = 31i32;
+pub const WAK_DISPLAY_CHANGE: WINDOW_ACTION_KINDS = 512i32;
+pub const WAK_FIT_TO_MONITOR: WINDOW_ACTION_KINDS = 256i32;
+pub const WAK_INSERT_AFTER: WINDOW_ACTION_KINDS = 8i32;
+pub const WAK_MOVE_TO_MONITOR: WINDOW_ACTION_KINDS = 128i32;
+pub const WAK_NONE: WINDOW_ACTION_KINDS = 0i32;
+pub const WAK_NORMAL_RECT: WINDOW_ACTION_KINDS = 64i32;
+pub const WAK_PLACEMENT_STATE: WINDOW_ACTION_KINDS = 32i32;
+pub const WAK_POSITION: WINDOW_ACTION_KINDS = 2i32;
+pub const WAK_SIZE: WINDOW_ACTION_KINDS = 4i32;
+pub const WAK_SYSTEM_OPERATION: WINDOW_ACTION_KINDS = 1024i32;
+pub const WAK_VISIBILITY: WINDOW_ACTION_KINDS = 1i32;
+pub const WAM_ACTIVATE_FOREGROUND: WINDOW_ACTION_MODIFIERS = 2i32;
+pub const WAM_ACTIVATE_INPUT: WINDOW_ACTION_MODIFIERS = 4i32;
+pub const WAM_ACTIVATE_NO_ZORDER: WINDOW_ACTION_MODIFIERS = 8i32;
+pub const WAM_DPI: WINDOW_ACTION_MODIFIERS = 512i32;
+pub const WAM_FRAME_BOUNDS: WINDOW_ACTION_MODIFIERS = 1i32;
+pub const WAM_INSERT_AFTER_NO_OWNER: WINDOW_ACTION_MODIFIERS = 16i32;
+pub const WAM_NONE: WINDOW_ACTION_MODIFIERS = 0i32;
+pub const WAM_RESTORE_TO_ARRANGED: WINDOW_ACTION_MODIFIERS = 128i32;
+pub const WAM_RESTORE_TO_MAXIMIZED: WINDOW_ACTION_MODIFIERS = 64i32;
+pub const WAM_RESTORE_TO_NORMAL: WINDOW_ACTION_MODIFIERS = 32i32;
+pub const WAM_SCALED_TO_MONITOR: WINDOW_ACTION_MODIFIERS = 1024i32;
+pub const WAM_WORK_AREA: WINDOW_ACTION_MODIFIERS = 256i32;
 pub const WA_ACTIVE: u32 = 1u32;
 pub const WA_CLICKACTIVE: u32 = 2u32;
 pub const WA_INACTIVE: u32 = 0u32;
@@ -3585,10 +3688,34 @@ impl Default for WINDOWPOS {
     }
 }
 pub type WINDOWS_HOOK_ID = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINDOW_ACTION {
+    pub kinds: WINDOW_ACTION_KINDS,
+    pub modifiers: WINDOW_ACTION_MODIFIERS,
+    pub visible: windows_sys::core::BOOL,
+    pub position: super::super::Foundation::POINT,
+    pub size: super::super::Foundation::SIZE,
+    pub insertAfter: super::super::Foundation::HWND,
+    pub placementState: WINDOW_PLACEMENT_STATE,
+    pub normalRect: super::super::Foundation::RECT,
+    pub workArea: super::super::Foundation::RECT,
+    pub dpi: u32,
+    pub pointOnMonitor: super::super::Foundation::POINT,
+    pub monitorTopologyId: u32,
+}
+impl Default for WINDOW_ACTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type WINDOW_ACTION_KINDS = i32;
+pub type WINDOW_ACTION_MODIFIERS = i32;
 pub type WINDOW_DISPLAY_AFFINITY = u32;
 pub type WINDOW_EX_STYLE = u32;
 pub type WINDOW_LONG_PTR_INDEX = i32;
 pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
+pub type WINDOW_PLACEMENT_STATE = i32;
 pub type WINDOW_STYLE = u32;
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
@@ -3629,6 +3756,7 @@ pub const WM_CHARTOITEM: u32 = 47u32;
 pub const WM_CHILDACTIVATE: u32 = 34u32;
 pub const WM_CLEAR: u32 = 771u32;
 pub const WM_CLIPBOARDUPDATE: u32 = 797u32;
+pub const WM_CLOAKED_STATE_CHANGED: u32 = 839u32;
 pub const WM_CLOSE: u32 = 16u32;
 pub const WM_COMMAND: u32 = 273u32;
 pub const WM_COMMNOTIFY: u32 = 68u32;
@@ -3713,6 +3841,7 @@ pub const WM_INPUT: u32 = 255u32;
 pub const WM_INPUTLANGCHANGE: u32 = 81u32;
 pub const WM_INPUTLANGCHANGEREQUEST: u32 = 80u32;
 pub const WM_INPUT_DEVICE_CHANGE: u32 = 254u32;
+pub const WM_INTERCEPTED_WINDOW_ACTION: u32 = 838u32;
 pub const WM_KEYDOWN: u32 = 256u32;
 pub const WM_KEYFIRST: u32 = 256u32;
 pub const WM_KEYLAST: u32 = 265u32;
@@ -3961,6 +4090,10 @@ pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::super::Founda
 pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = 4u32;
 pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = 2u32;
 pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = 1u32;
+pub const WPS_ARRANGED: WINDOW_PLACEMENT_STATE = 3i32;
+pub const WPS_MAXIMIZED: WINDOW_PLACEMENT_STATE = 1i32;
+pub const WPS_MINIMIZED: WINDOW_PLACEMENT_STATE = 2i32;
+pub const WPS_NORMAL: WINDOW_PLACEMENT_STATE = 0i32;
 pub const WSF_VISIBLE: i32 = 1i32;
 pub const WS_ACTIVECAPTION: WINDOW_STYLE = 1u32;
 pub const WS_BORDER: WINDOW_STYLE = 8388608u32;
@@ -4022,6 +4155,7 @@ pub const WTS_CONSOLE_DISCONNECT: u32 = 2u32;
 pub const WTS_REMOTE_CONNECT: u32 = 3u32;
 pub const WTS_REMOTE_DISCONNECT: u32 = 4u32;
 pub const WTS_SESSION_CREATE: u32 = 10u32;
+pub const WTS_SESSION_DESKTOP_READY: u32 = 15u32;
 pub const WTS_SESSION_LOCK: u32 = 7u32;
 pub const WTS_SESSION_LOGOFF: u32 = 6u32;
 pub const WTS_SESSION_LOGON: u32 = 5u32;
@@ -4072,4 +4206,5 @@ pub const __WARNING_PRECONDITION_NULLTERMINATION_VIOLATION: u32 = 26035u32;
 pub const __WARNING_RANGE_POSTCONDITION_VIOLATION: u32 = 26061u32;
 pub const __WARNING_RETURNING_BAD_RESULT: u32 = 28196u32;
 pub const __WARNING_RETURN_UNINIT_VAR: u32 = 6101u32;
+pub const __WARNING_UNSAFE_STRING_FUNCTION: u32 = 25025u32;
 pub const __WARNING_USING_UNINIT_VAR: u32 = 6001u32;

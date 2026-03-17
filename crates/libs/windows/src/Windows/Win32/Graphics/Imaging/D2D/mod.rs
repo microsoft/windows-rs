@@ -139,3 +139,52 @@ impl IWICImagingFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IWICImagingFactory2 {}
+windows_core::imp::define_interface!(IWICImagingFactory3, IWICImagingFactory3_Vtbl, 0x489b3d8b_624a_4258_b678_7eece70f299d);
+impl core::ops::Deref for IWICImagingFactory3 {
+    type Target = IWICImagingFactory2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IWICImagingFactory3, windows_core::IUnknown, super::IWICImagingFactory, IWICImagingFactory2);
+impl IWICImagingFactory3 {
+    pub unsafe fn CreateBitmapToneMapper(&self) -> windows_core::Result<super::IWICBitmapToneMapper> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateBitmapToneMapper)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWICImagingFactory3_Vtbl {
+    pub base__: IWICImagingFactory2_Vtbl,
+    pub CreateBitmapToneMapper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+pub trait IWICImagingFactory3_Impl: IWICImagingFactory2_Impl {
+    fn CreateBitmapToneMapper(&self) -> windows_core::Result<super::IWICBitmapToneMapper>;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+impl IWICImagingFactory3_Vtbl {
+    pub const fn new<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateBitmapToneMapper<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptonemapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IWICImagingFactory3_Impl::CreateBitmapToneMapper(this) {
+                    Ok(ok__) => {
+                        pptonemapper.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: IWICImagingFactory2_Vtbl::new::<Identity, OFFSET>(), CreateBitmapToneMapper: CreateBitmapToneMapper::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWICImagingFactory3 as windows_core::Interface>::IID || iid == &<super::IWICImagingFactory as windows_core::Interface>::IID || iid == &<IWICImagingFactory2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IWICImagingFactory3 {}

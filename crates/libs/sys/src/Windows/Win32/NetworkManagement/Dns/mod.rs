@@ -23,6 +23,7 @@ windows_link::link!("dnsapi.dll" "system" fn DnsFreeCustomServers(pcservers : *m
 windows_link::link!("dnsapi.dll" "system" fn DnsFreeProxyName(proxyname : windows_sys::core::PCWSTR));
 windows_link::link!("dnsapi.dll" "system" fn DnsGetApplicationSettings(pcservers : *mut u32, ppdefaultservers : *mut *mut DNS_CUSTOM_SERVER, psettings : *mut DNS_APPLICATION_SETTINGS) -> u32);
 windows_link::link!("dnsapi.dll" "system" fn DnsGetProxyInformation(hostname : windows_sys::core::PCWSTR, proxyinformation : *mut DNS_PROXY_INFORMATION, defaultproxyinformation : *mut DNS_PROXY_INFORMATION, completionroutine : DNS_PROXY_COMPLETION_ROUTINE, completioncontext : *const core::ffi::c_void) -> u32);
+windows_link::link!("dnsapi.dll" "system" fn DnsIsFlatRecord(precord : *const DNS_RECORDA, ullflags : u64, pfflat : *mut windows_sys::core::BOOL) -> i32);
 windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
 windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
 windows_link::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
@@ -32,9 +33,9 @@ windows_link::link!("dnsapi.dll" "system" fn DnsQueryConfig(config : DNS_CONFIG_
 windows_link::link!("dnsapi.dll" "system" fn DnsQueryEx(pqueryrequest : *const DNS_QUERY_REQUEST, pqueryresults : *mut DNS_QUERY_RESULT, pcancelhandle : *mut DNS_QUERY_CANCEL) -> i32);
 windows_link::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *const DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> i32);
 windows_link::link!("dnsapi.dll" "system" fn DnsQueryRawResultFree(queryresults : *const DNS_QUERY_RAW_RESULT));
-windows_link::link!("dnsapi.dll" "system" fn DnsQuery_A(pszname : windows_sys::core::PCSTR, wtype : DNS_TYPE, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-windows_link::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_sys::core::PCSTR, wtype : DNS_TYPE, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-windows_link::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_sys::core::PCWSTR, wtype : DNS_TYPE, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+windows_link::link!("dnsapi.dll" "system" fn DnsQuery_A(pszname : windows_sys::core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+windows_link::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_sys::core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+windows_link::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_sys::core::PCWSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 windows_link::link!("dnsapi.dll" "system" fn DnsRecordCompare(precord1 : *const DNS_RECORDA, precord2 : *const DNS_RECORDA) -> windows_sys::core::BOOL);
 windows_link::link!("dnsapi.dll" "system" fn DnsRecordCopyEx(precord : *const DNS_RECORDA, charsetin : DNS_CHARSET, charsetout : DNS_CHARSET) -> *mut DNS_RECORDA);
 windows_link::link!("dnsapi.dll" "system" fn DnsRecordSetCompare(prr1 : *mut DNS_RECORDA, prr2 : *mut DNS_RECORDA, ppdiff1 : *mut *mut DNS_RECORDA, ppdiff2 : *mut *mut DNS_RECORDA) -> windows_sys::core::BOOL);
@@ -410,6 +411,7 @@ impl Default for DNS_CUSTOM_SERVER {
 #[derive(Clone, Copy)]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: windows_sys::core::PWSTR,
+    pub pwszHostname: windows_sys::core::PWSTR,
 }
 impl Default for DNS_CUSTOM_SERVER_0 {
     fn default() -> Self {
@@ -427,8 +429,10 @@ impl Default for DNS_CUSTOM_SERVER_1 {
     }
 }
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
+pub const DNS_CUSTOM_SERVER_TYPE_DOT: u32 = 3u32;
 pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
 pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
+pub const DNS_CUSTOM_SERVER_UPGRADE_FROM_WELL_KNOWN_SERVERS: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_DHCID_DATA {
@@ -467,7 +471,7 @@ pub struct DNS_HEADER {
     pub NameServerCount: u16,
     pub AdditionalCount: u16,
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
@@ -712,6 +716,7 @@ impl Default for DNS_OPT_DATA {
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
 pub const DNS_PROTOCOL_DOH: u32 = 3u32;
+pub const DNS_PROTOCOL_DOT: u32 = 4u32;
 pub const DNS_PROTOCOL_NO_WIRE: u32 = 5u32;
 pub const DNS_PROTOCOL_TCP: u32 = 2u32;
 pub const DNS_PROTOCOL_UDP: u32 = 1u32;
@@ -772,6 +777,7 @@ impl Default for DNS_QUERY_CANCEL {
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: DNS_QUERY_OPTIONS = 2097152u32;
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: DNS_QUERY_OPTIONS = 33554432u32;
 pub const DNS_QUERY_DNSSEC_OK: DNS_QUERY_OPTIONS = 16777216u32;
+pub const DNS_QUERY_DNSSEC_REQUIRED: DNS_QUERY_OPTIONS = 67108864u32;
 pub const DNS_QUERY_DONT_RESET_TTL_VALUES: DNS_QUERY_OPTIONS = 1048576u32;
 pub const DNS_QUERY_DUAL_ADDR: DNS_QUERY_OPTIONS = 16384u32;
 pub const DNS_QUERY_MULTICAST_ONLY: DNS_QUERY_OPTIONS = 1024u32;
@@ -782,6 +788,7 @@ pub const DNS_QUERY_NO_NETBT: DNS_QUERY_OPTIONS = 128u32;
 pub const DNS_QUERY_NO_RECURSION: DNS_QUERY_OPTIONS = 4u32;
 pub const DNS_QUERY_NO_WIRE_QUERY: DNS_QUERY_OPTIONS = 16u32;
 pub type DNS_QUERY_OPTIONS = u32;
+pub const DNS_QUERY_PARSE_ALL_RECORDS: DNS_QUERY_OPTIONS = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_QUERY_RAW_CANCEL {
@@ -1734,75 +1741,74 @@ impl Default for DNS_TXT_DATAW {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DNS_TYPE = u16;
-pub const DNS_TYPE_A: DNS_TYPE = 1u16;
-pub const DNS_TYPE_A6: DNS_TYPE = 38u16;
-pub const DNS_TYPE_AAAA: DNS_TYPE = 28u16;
-pub const DNS_TYPE_ADDRS: DNS_TYPE = 248u16;
-pub const DNS_TYPE_AFSDB: DNS_TYPE = 18u16;
-pub const DNS_TYPE_ALL: DNS_TYPE = 255u16;
-pub const DNS_TYPE_ANY: DNS_TYPE = 255u16;
-pub const DNS_TYPE_ATMA: DNS_TYPE = 34u16;
-pub const DNS_TYPE_AXFR: DNS_TYPE = 252u16;
-pub const DNS_TYPE_CERT: DNS_TYPE = 37u16;
-pub const DNS_TYPE_CNAME: DNS_TYPE = 5u16;
-pub const DNS_TYPE_DHCID: DNS_TYPE = 49u16;
-pub const DNS_TYPE_DNAME: DNS_TYPE = 39u16;
-pub const DNS_TYPE_DNSKEY: DNS_TYPE = 48u16;
-pub const DNS_TYPE_DS: DNS_TYPE = 43u16;
-pub const DNS_TYPE_EID: DNS_TYPE = 31u16;
-pub const DNS_TYPE_GID: DNS_TYPE = 102u16;
-pub const DNS_TYPE_GPOS: DNS_TYPE = 27u16;
-pub const DNS_TYPE_HINFO: DNS_TYPE = 13u16;
-pub const DNS_TYPE_HTTPS: DNS_TYPE = 65u16;
-pub const DNS_TYPE_ISDN: DNS_TYPE = 20u16;
-pub const DNS_TYPE_IXFR: DNS_TYPE = 251u16;
-pub const DNS_TYPE_KEY: DNS_TYPE = 25u16;
-pub const DNS_TYPE_KX: DNS_TYPE = 36u16;
-pub const DNS_TYPE_LOC: DNS_TYPE = 29u16;
-pub const DNS_TYPE_MAILA: DNS_TYPE = 254u16;
-pub const DNS_TYPE_MAILB: DNS_TYPE = 253u16;
-pub const DNS_TYPE_MB: DNS_TYPE = 7u16;
-pub const DNS_TYPE_MD: DNS_TYPE = 3u16;
-pub const DNS_TYPE_MF: DNS_TYPE = 4u16;
-pub const DNS_TYPE_MG: DNS_TYPE = 8u16;
-pub const DNS_TYPE_MINFO: DNS_TYPE = 14u16;
-pub const DNS_TYPE_MR: DNS_TYPE = 9u16;
-pub const DNS_TYPE_MX: DNS_TYPE = 15u16;
-pub const DNS_TYPE_NAPTR: DNS_TYPE = 35u16;
-pub const DNS_TYPE_NBSTAT: DNS_TYPE = 65282u16;
-pub const DNS_TYPE_NIMLOC: DNS_TYPE = 32u16;
-pub const DNS_TYPE_NS: DNS_TYPE = 2u16;
-pub const DNS_TYPE_NSAP: DNS_TYPE = 22u16;
-pub const DNS_TYPE_NSAPPTR: DNS_TYPE = 23u16;
-pub const DNS_TYPE_NSEC: DNS_TYPE = 47u16;
-pub const DNS_TYPE_NSEC3: DNS_TYPE = 50u16;
-pub const DNS_TYPE_NSEC3PARAM: DNS_TYPE = 51u16;
-pub const DNS_TYPE_NULL: DNS_TYPE = 10u16;
-pub const DNS_TYPE_NXT: DNS_TYPE = 30u16;
-pub const DNS_TYPE_OPT: DNS_TYPE = 41u16;
-pub const DNS_TYPE_PTR: DNS_TYPE = 12u16;
-pub const DNS_TYPE_PX: DNS_TYPE = 26u16;
-pub const DNS_TYPE_RP: DNS_TYPE = 17u16;
-pub const DNS_TYPE_RRSIG: DNS_TYPE = 46u16;
-pub const DNS_TYPE_RT: DNS_TYPE = 21u16;
-pub const DNS_TYPE_SIG: DNS_TYPE = 24u16;
-pub const DNS_TYPE_SINK: DNS_TYPE = 40u16;
-pub const DNS_TYPE_SOA: DNS_TYPE = 6u16;
-pub const DNS_TYPE_SRV: DNS_TYPE = 33u16;
-pub const DNS_TYPE_SVCB: DNS_TYPE = 64u16;
-pub const DNS_TYPE_TEXT: DNS_TYPE = 16u16;
-pub const DNS_TYPE_TKEY: DNS_TYPE = 249u16;
-pub const DNS_TYPE_TLSA: DNS_TYPE = 52u16;
-pub const DNS_TYPE_TSIG: DNS_TYPE = 250u16;
-pub const DNS_TYPE_UID: DNS_TYPE = 101u16;
-pub const DNS_TYPE_UINFO: DNS_TYPE = 100u16;
-pub const DNS_TYPE_UNSPEC: DNS_TYPE = 103u16;
-pub const DNS_TYPE_WINS: DNS_TYPE = 65281u16;
-pub const DNS_TYPE_WINSR: DNS_TYPE = 65282u16;
-pub const DNS_TYPE_WKS: DNS_TYPE = 11u16;
-pub const DNS_TYPE_X25: DNS_TYPE = 19u16;
-pub const DNS_TYPE_ZERO: DNS_TYPE = 0u16;
+pub const DNS_TYPE_A: u32 = 1u32;
+pub const DNS_TYPE_A6: u32 = 38u32;
+pub const DNS_TYPE_AAAA: u32 = 28u32;
+pub const DNS_TYPE_ADDRS: u32 = 248u32;
+pub const DNS_TYPE_AFSDB: u32 = 18u32;
+pub const DNS_TYPE_ALL: u32 = 255u32;
+pub const DNS_TYPE_ANY: u32 = 255u32;
+pub const DNS_TYPE_ATMA: u32 = 34u32;
+pub const DNS_TYPE_AXFR: u32 = 252u32;
+pub const DNS_TYPE_CERT: u32 = 37u32;
+pub const DNS_TYPE_CNAME: u32 = 5u32;
+pub const DNS_TYPE_DHCID: u32 = 49u32;
+pub const DNS_TYPE_DNAME: u32 = 39u32;
+pub const DNS_TYPE_DNSKEY: u32 = 48u32;
+pub const DNS_TYPE_DS: u32 = 43u32;
+pub const DNS_TYPE_EID: u32 = 31u32;
+pub const DNS_TYPE_GID: u32 = 102u32;
+pub const DNS_TYPE_GPOS: u32 = 27u32;
+pub const DNS_TYPE_HINFO: u32 = 13u32;
+pub const DNS_TYPE_HTTPS: u32 = 65u32;
+pub const DNS_TYPE_ISDN: u32 = 20u32;
+pub const DNS_TYPE_IXFR: u32 = 251u32;
+pub const DNS_TYPE_KEY: u32 = 25u32;
+pub const DNS_TYPE_KX: u32 = 36u32;
+pub const DNS_TYPE_LOC: u32 = 29u32;
+pub const DNS_TYPE_MAILA: u32 = 254u32;
+pub const DNS_TYPE_MAILB: u32 = 253u32;
+pub const DNS_TYPE_MB: u32 = 7u32;
+pub const DNS_TYPE_MD: u32 = 3u32;
+pub const DNS_TYPE_MF: u32 = 4u32;
+pub const DNS_TYPE_MG: u32 = 8u32;
+pub const DNS_TYPE_MINFO: u32 = 14u32;
+pub const DNS_TYPE_MR: u32 = 9u32;
+pub const DNS_TYPE_MX: u32 = 15u32;
+pub const DNS_TYPE_NAPTR: u32 = 35u32;
+pub const DNS_TYPE_NBSTAT: u32 = 65282u32;
+pub const DNS_TYPE_NIMLOC: u32 = 32u32;
+pub const DNS_TYPE_NS: u32 = 2u32;
+pub const DNS_TYPE_NSAP: u32 = 22u32;
+pub const DNS_TYPE_NSAPPTR: u32 = 23u32;
+pub const DNS_TYPE_NSEC: u32 = 47u32;
+pub const DNS_TYPE_NSEC3: u32 = 50u32;
+pub const DNS_TYPE_NSEC3PARAM: u32 = 51u32;
+pub const DNS_TYPE_NULL: u32 = 10u32;
+pub const DNS_TYPE_NXT: u32 = 30u32;
+pub const DNS_TYPE_OPT: u32 = 41u32;
+pub const DNS_TYPE_PTR: u32 = 12u32;
+pub const DNS_TYPE_PX: u32 = 26u32;
+pub const DNS_TYPE_RP: u32 = 17u32;
+pub const DNS_TYPE_RRSIG: u32 = 46u32;
+pub const DNS_TYPE_RT: u32 = 21u32;
+pub const DNS_TYPE_SIG: u32 = 24u32;
+pub const DNS_TYPE_SINK: u32 = 40u32;
+pub const DNS_TYPE_SOA: u32 = 6u32;
+pub const DNS_TYPE_SRV: u32 = 33u32;
+pub const DNS_TYPE_SVCB: u32 = 64u32;
+pub const DNS_TYPE_TEXT: u32 = 16u32;
+pub const DNS_TYPE_TKEY: u32 = 249u32;
+pub const DNS_TYPE_TLSA: u32 = 52u32;
+pub const DNS_TYPE_TSIG: u32 = 250u32;
+pub const DNS_TYPE_UID: u32 = 101u32;
+pub const DNS_TYPE_UINFO: u32 = 100u32;
+pub const DNS_TYPE_UNSPEC: u32 = 103u32;
+pub const DNS_TYPE_WINS: u32 = 65281u32;
+pub const DNS_TYPE_WINSR: u32 = 65282u32;
+pub const DNS_TYPE_WKS: u32 = 11u32;
+pub const DNS_TYPE_X25: u32 = 19u32;
+pub const DNS_TYPE_ZERO: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DNS_UNKNOWN_DATA {
@@ -1941,13 +1947,14 @@ pub const DnsSectionQuestion: DNS_SECTION = 0i32;
 pub const DnsSvcbParamAlpn: DNS_SVCB_PARAM_TYPE = 1i32;
 pub const DnsSvcbParamDohPath: DNS_SVCB_PARAM_TYPE = 7i32;
 pub const DnsSvcbParamDohPathOpenDns: DNS_SVCB_PARAM_TYPE = 65432i32;
-pub const DnsSvcbParamDohPathQuad9: DNS_SVCB_PARAM_TYPE = 65380i32;
 pub const DnsSvcbParamEch: DNS_SVCB_PARAM_TYPE = 5i32;
 pub const DnsSvcbParamIpv4Hint: DNS_SVCB_PARAM_TYPE = 4i32;
 pub const DnsSvcbParamIpv6Hint: DNS_SVCB_PARAM_TYPE = 6i32;
 pub const DnsSvcbParamMandatory: DNS_SVCB_PARAM_TYPE = 0i32;
 pub const DnsSvcbParamNoDefaultAlpn: DNS_SVCB_PARAM_TYPE = 2i32;
 pub const DnsSvcbParamPort: DNS_SVCB_PARAM_TYPE = 3i32;
+pub const INTERNET_DEFAULT_DNS_PORT: u32 = 53u32;
+pub const INTERNET_DEFAULT_DOT_PORT: u32 = 853u32;
 pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 #[repr(C)]

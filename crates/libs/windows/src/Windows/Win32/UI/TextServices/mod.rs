@@ -4579,8 +4579,8 @@ impl ITfCandidateListUIElement {
             (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), uindex, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetPageIndex(&self, pindex: &mut [u32], pupagecnt: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPageIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex.as_ptr()), pindex.len().try_into().unwrap(), pupagecnt as _).ok() }
+    pub unsafe fn GetPageIndex(&self, pindex: Option<&mut [u32]>, pupagecnt: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPageIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pindex.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pupagecnt as _).ok() }
     }
     pub unsafe fn SetPageIndex(&self, pindex: &[u32]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPageIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(pindex.as_ptr()), pindex.len().try_into().unwrap()).ok() }

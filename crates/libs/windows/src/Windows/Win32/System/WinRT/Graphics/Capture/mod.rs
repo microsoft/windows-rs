@@ -59,3 +59,72 @@ impl IGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl windows_core::RuntimeName for IGraphicsCaptureItemInterop {}
+windows_core::imp::define_interface!(IMonitorGraphicsCaptureItemInterop, IMonitorGraphicsCaptureItemInterop_Vtbl, 0x33274d14_a076_4048_8416_747e9b04db7b);
+windows_core::imp::interface_hierarchy!(IMonitorGraphicsCaptureItemInterop, windows_core::IUnknown);
+impl IMonitorGraphicsCaptureItemInterop {
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn GetMonitor(&self, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), monitor as _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMonitorGraphicsCaptureItemInterop_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub GetMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    GetMonitor: usize,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub trait IMonitorGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
+    fn GetMonitor(&self, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl IMonitorGraphicsCaptureItemInterop_Vtbl {
+    pub const fn new<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetMonitor<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMonitor: GetMonitor::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMonitorGraphicsCaptureItemInterop as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for IMonitorGraphicsCaptureItemInterop {}
+windows_core::imp::define_interface!(IWindowGraphicsCaptureItemInterop, IWindowGraphicsCaptureItemInterop_Vtbl, 0x38e4c48b_94e6_4c44_9cfa_968193316c0c);
+windows_core::imp::interface_hierarchy!(IWindowGraphicsCaptureItemInterop, windows_core::IUnknown);
+impl IWindowGraphicsCaptureItemInterop {
+    pub unsafe fn GetWindow(&self, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), window as _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowGraphicsCaptureItemInterop_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT,
+}
+pub trait IWindowGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
+    fn GetWindow(&self, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::Result<()>;
+}
+impl IWindowGraphicsCaptureItemInterop_Vtbl {
+    pub const fn new<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetWindow<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window)).into()
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWindowGraphicsCaptureItemInterop as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IWindowGraphicsCaptureItemInterop {}

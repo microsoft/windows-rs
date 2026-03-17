@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn EapHostPeerBeginSession(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: super::super::Foundation::HANDLE, dwsizeofconnectiondata: u32, pconnectiondata: *const u8, dwsizeofuserdata: u32, puserdata: *const u8, dwmaxsendpacketsize: u32, pconnectionid: *const windows_core::GUID, func: NotificationHandler, pcontextdata: *mut core::ffi::c_void, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *mut core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerBeginSession(dwflags, core::mem::transmute(eaptype), pattributearray, htokenimpersonateuser, dwsizeofconnectiondata, pconnectiondata, dwsizeofuserdata, puserdata, dwmaxsendpacketsize, pconnectionid, func, pcontextdata as _, psessionid as _, ppeaperror as _) }
+pub unsafe fn EapHostPeerBeginSession(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: super::super::Foundation::HANDLE, pconnectiondata: &[u8], puserdata: &[u8], dwmaxsendpacketsize: u32, pconnectionid: Option<*const windows_core::GUID>, func: NotificationHandler, pcontextdata: Option<*const core::ffi::c_void>, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *const core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    unsafe { EapHostPeerBeginSession(dwflags, core::mem::transmute(eaptype), pattributearray, htokenimpersonateuser, pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.len().try_into().unwrap(), core::mem::transmute(puserdata.as_ptr()), dwmaxsendpacketsize, pconnectionid.unwrap_or(core::mem::zeroed()) as _, func, pcontextdata.unwrap_or(core::mem::zeroed()) as _, psessionid as _, ppeaperror as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerClearConnection(pconnectionid: *mut windows_core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerClearConnection(pconnectionid : *mut windows_core::GUID, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerClearConnection(pconnectionid as _, ppeaperror as _) }
+pub unsafe fn EapHostPeerClearConnection(pconnectionid: *const windows_core::GUID, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerClearConnection(pconnectionid : *const windows_core::GUID, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    unsafe { EapHostPeerClearConnection(pconnectionid, ppeaperror as _) }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
@@ -38,9 +38,9 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
     unsafe { EapHostPeerEndSession(sessionhandle, ppeaperror as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerFreeEapError(peaperror : *mut EAP_ERROR));
-    unsafe { EapHostPeerFreeEapError(peaperror as _) }
+pub unsafe fn EapHostPeerFreeEapError(peaperror: *const EAP_ERROR) {
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerFreeEapError(peaperror : *const EAP_ERROR));
+    unsafe { EapHostPeerFreeEapError(peaperror) }
 }
 #[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
@@ -53,9 +53,9 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     unsafe { EapHostPeerFreeMemory(pdata as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerFreeRuntimeMemory(pdata : *mut u8));
-    unsafe { EapHostPeerFreeRuntimeMemory(pdata as _) }
+pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *const u8) {
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerFreeRuntimeMemory(pdata : *const u8));
+    unsafe { EapHostPeerFreeRuntimeMemory(pdata) }
 }
 #[inline]
 pub unsafe fn EapHostPeerGetAuthStatus(sessionhandle: u32, authparam: EapHostPeerAuthParams, pcbauthdata: *mut u32, ppauthdata: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -131,9 +131,9 @@ pub unsafe fn EapHostPeerInvokeInteractiveUI(hwndparent: super::super::Foundatio
     unsafe { EapHostPeerInvokeInteractiveUI(hwndparent, puicontextdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puicontextdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofdatafrominteractiveui as _, ppdatafrominteractiveui as _, ppeaperror as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, cbreceivepacket: u32, preceivepacket: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, preceivepacket: &[u8], peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_core::link!("eappprxy.dll" "system" fn EapHostPeerProcessReceivedPacket(sessionhandle : u32, cbreceivepacket : u32, preceivepacket : *const u8, peapoutput : *mut EapHostPeerResponseAction, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerProcessReceivedPacket(sessionhandle, cbreceivepacket, preceivepacket, peapoutput as _, ppeaperror as _) }
+    unsafe { EapHostPeerProcessReceivedPacket(sessionhandle, preceivepacket.len().try_into().unwrap(), core::mem::transmute(preceivepacket.as_ptr()), peapoutput as _, ppeaperror as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
@@ -161,9 +161,9 @@ pub unsafe fn EapHostPeerSetResponseAttributes(sessionhandle: u32, pattribs: *co
     unsafe { EapHostPeerSetResponseAttributes(sessionhandle, pattribs, peapoutput as _, ppeaperror as _) }
 }
 #[inline]
-pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, dwsizeofuicontextdata: u32, puicontextdata: *const u8, peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
+pub unsafe fn EapHostPeerSetUIContext(sessionhandle: u32, puicontextdata: &[u8], peapoutput: *mut EapHostPeerResponseAction, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     windows_core::link!("eappprxy.dll" "system" fn EapHostPeerSetUIContext(sessionhandle : u32, dwsizeofuicontextdata : u32, puicontextdata : *const u8, peapoutput : *mut EapHostPeerResponseAction, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-    unsafe { EapHostPeerSetUIContext(sessionhandle, dwsizeofuicontextdata, puicontextdata, peapoutput as _, ppeaperror as _) }
+    unsafe { EapHostPeerSetUIContext(sessionhandle, puicontextdata.len().try_into().unwrap(), core::mem::transmute(puicontextdata.as_ptr()), peapoutput as _, ppeaperror as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerUninitialize() {
@@ -1358,7 +1358,7 @@ impl Default for NgcTicketContext {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_core::GUID, pcontextdata: *mut core::ffi::c_void)>;
+pub type NotificationHandler = Option<unsafe extern "system" fn(connectionid: windows_core::GUID, pcontextdata: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_EAP_ACTION(pub i32);

@@ -23,8 +23,8 @@ windows_link::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpro
 windows_link::link!("comctl32.dll" "system" fn CreatePropertySheetPageW(constpropsheetpagepointer : *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE);
 windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowA(style : i32, lpsztext : windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
 windows_link::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : windows_sys::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
+#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, maxcount : u32, mode : super::Input::Pointer:: POINTER_FEEDBACK_MODE) -> super::Input::Pointer:: HSYNTHETICPOINTERDEVICE);
 windows_link::link!("comctl32.dll" "system" fn CreateToolbarEx(hwnd : super::super::Foundation:: HWND, ws : u32, wid : u32, nbitmaps : i32, hbminst : super::super::Foundation:: HINSTANCE, wbmid : usize, lpbuttons : *mut TBBUTTON, inumbuttons : i32, dxbutton : i32, dybutton : i32, dxbitmap : i32, dybitmap : i32, ustructsize : u32) -> super::super::Foundation:: HWND);
 windows_link::link!("comctl32.dll" "system" fn CreateUpDownControl(dwstyle : u32, x : i32, y : i32, cx : i32, cy : i32, hparent : super::super::Foundation:: HWND, nid : i32, hinst : super::super::Foundation:: HINSTANCE, hbuddy : super::super::Foundation:: HWND, nupper : i32, nlower : i32, npos : i32) -> super::super::Foundation:: HWND);
 windows_link::link!("comctl32.dll" "system" fn DPA_Clone(hdpa : HDPA, hdpanew : HDPA) -> HDPA);
@@ -62,7 +62,6 @@ windows_link::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i
 windows_link::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn DSA_Sort(pdsa : HDSA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn DestroyPropertySheetPage(param0 : HPROPSHEETPAGE) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
 windows_link::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
 windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
 windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::super::Foundation:: HWND, lppathspec : windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : DLG_DIR_LIST_FILE_TYPE) -> i32);
@@ -239,7 +238,6 @@ windows_link::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *con
 windows_link::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16));
 windows_link::link!("comctl32.dll" "system" fn InitializeFlatSB(param0 : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
 windows_link::link!("uxtheme.dll" "system" fn IsAppThemed() -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharLowerW(ch : u16) -> windows_sys::core::BOOL);
 windows_link::link!("uxtheme.dll" "system" fn IsCompositionActive() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::super::Foundation:: HWND, nidbutton : i32) -> u32);
 windows_link::link!("uxtheme.dll" "system" fn IsThemeActive() -> windows_sys::core::BOOL);
@@ -1822,7 +1820,6 @@ pub const HSS_DISABLED: HORZSCROLLSTATES = 4i32;
 pub const HSS_HOT: HORZSCROLLSTATES = 2i32;
 pub const HSS_NORMAL: HORZSCROLLSTATES = 1i32;
 pub const HSS_PUSHED: HORZSCROLLSTATES = 3i32;
-pub type HSYNTHETICPOINTERDEVICE = *mut core::ffi::c_void;
 pub type HTHEME = isize;
 pub type HTREEITEM = isize;
 pub const HTS_DISABLED: HORZTHUMBSTATES = 4i32;
@@ -3190,20 +3187,21 @@ pub const MENU_POPUPCHECK: MENUPARTS = 11i32;
 pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = 12i32;
 pub const MENU_POPUPGUTTER: MENUPARTS = 13i32;
 pub const MENU_POPUPITEM: MENUPARTS = 14i32;
+pub const MENU_POPUPITEMFOCUSABLE: MENUPARTS = 27i32;
 pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = 26i32;
-pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = 27i32;
 pub const MENU_POPUPSEPARATOR: MENUPARTS = 15i32;
 pub const MENU_POPUPSUBMENU: MENUPARTS = 16i32;
+pub const MENU_POPUPSUBMENUHCHOT: MENUPARTS = 21i32;
 pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = 21i32;
 pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = 6i32;
 pub const MENU_SYSTEMCLOSE: MENUPARTS = 17i32;
-pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = 22i32;
+pub const MENU_SYSTEMCLOSEHCHOT: MENUPARTS = 22i32;
 pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = 18i32;
-pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = 23i32;
+pub const MENU_SYSTEMMAXIMIZEHCHOT: MENUPARTS = 23i32;
 pub const MENU_SYSTEMMINIMIZE: MENUPARTS = 19i32;
-pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = 24i32;
+pub const MENU_SYSTEMMINIMIZEHCHOT: MENUPARTS = 24i32;
 pub const MENU_SYSTEMRESTORE: MENUPARTS = 20i32;
-pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = 25i32;
+pub const MENU_SYSTEMRESTOREHCHOT: MENUPARTS = 25i32;
 pub const MINBS_DISABLED: MINBUTTONSTATES = 4i32;
 pub const MINBS_HOT: MINBUTTONSTATES = 2i32;
 pub const MINBS_NORMAL: MINBUTTONSTATES = 1i32;
@@ -4456,83 +4454,6 @@ pub const PGS_AUTOSCROLL: u32 = 2u32;
 pub const PGS_DRAGNDROP: u32 = 4u32;
 pub const PGS_HORZ: u32 = 1u32;
 pub const PGS_VERT: u32 = 0u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct POINTER_DEVICE_CURSOR_INFO {
-    pub cursorId: u32,
-    pub cursor: POINTER_DEVICE_CURSOR_TYPE,
-}
-pub type POINTER_DEVICE_CURSOR_TYPE = i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = 2i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1i32;
-pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0i32;
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
-pub struct POINTER_DEVICE_INFO {
-    pub displayOrientation: u32,
-    pub device: super::super::Foundation::HANDLE,
-    pub pointerDeviceType: POINTER_DEVICE_TYPE,
-    pub monitor: super::super::Graphics::Gdi::HMONITOR,
-    pub startingCursorId: u32,
-    pub maxActiveContacts: u16,
-    pub productString: [u16; 520],
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for POINTER_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct POINTER_DEVICE_PROPERTY {
-    pub logicalMin: i32,
-    pub logicalMax: i32,
-    pub physicalMin: i32,
-    pub physicalMax: i32,
-    pub unit: u32,
-    pub unitExponent: u32,
-    pub usagePageId: u16,
-    pub usageId: u16,
-}
-pub type POINTER_DEVICE_TYPE = i32;
-pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = 2i32;
-pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = 1i32;
-pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = -1i32;
-pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = 3i32;
-pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = 4i32;
-pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = 1i32;
-pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = 2i32;
-pub type POINTER_FEEDBACK_MODE = i32;
-pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = 3i32;
-#[repr(C)]
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub struct POINTER_TYPE_INFO {
-    pub r#type: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
-    pub Anonymous: POINTER_TYPE_INFO_0,
-}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for POINTER_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-#[derive(Clone, Copy)]
-pub union POINTER_TYPE_INFO_0 {
-    pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
-    pub penInfo: super::Input::Pointer::POINTER_PEN_INFO,
-}
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for POINTER_TYPE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type POPUPCHECKBACKGROUNDSTATES = i32;
 pub type POPUPCHECKSTATES = i32;
 pub type POPUPITEMFOCUSABLESTATES = i32;

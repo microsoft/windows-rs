@@ -145,6 +145,7 @@ pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange2: core::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2>,
     pub deviceOrientation: DEVICE_ORIENTATION_TYPE,
     pub audioMicrophoneBoostChange: core::mem::ManuallyDrop<AUDIO_MICROPHONE_BOOST_NOTIFICATION>,
+    pub audioEnvironmentChange: core::mem::ManuallyDrop<AUDIO_ENVIRONMENT_STATE_CHANGE_NOTIFICATION>,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl Clone for APO_NOTIFICATION_0 {
@@ -193,6 +194,7 @@ impl Default for APO_NOTIFICATION_DESCRIPTOR_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
+pub const APO_NOTIFICATION_TYPE_AUDIO_ENVIRONMENT_STATE_CHANGE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(7i32);
 pub const APO_NOTIFICATION_TYPE_DEVICE_ORIENTATION: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(5i32);
 pub const APO_NOTIFICATION_TYPE_ENDPOINT_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(2i32);
 pub const APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(1i32);
@@ -200,6 +202,44 @@ pub const APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME2: APO_NOTIFICATION_TYPE = APO_NO
 pub const APO_NOTIFICATION_TYPE_MICROPHONE_BOOST: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(6i32);
 pub const APO_NOTIFICATION_TYPE_NONE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(0i32);
 pub const APO_NOTIFICATION_TYPE_SYSTEM_EFFECTS_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(3i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct APO_REFERENCE_STREAM_PROPERTIES(pub i32);
+impl APO_REFERENCE_STREAM_PROPERTIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for APO_REFERENCE_STREAM_PROPERTIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for APO_REFERENCE_STREAM_PROPERTIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for APO_REFERENCE_STREAM_PROPERTIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for APO_REFERENCE_STREAM_PROPERTIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for APO_REFERENCE_STREAM_PROPERTIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+pub const APO_REFERENCE_STREAM_PROPERTIES_NONE: APO_REFERENCE_STREAM_PROPERTIES = APO_REFERENCE_STREAM_PROPERTIES(0i32);
+pub const APO_REFERENCE_STREAM_PROPERTIES_POST_VOLUME_LOOPBACK: APO_REFERENCE_STREAM_PROPERTIES = APO_REFERENCE_STREAM_PROPERTIES(1i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct APO_REG_PROPERTIES {
@@ -264,6 +304,13 @@ impl Default for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct AUDIO_ENVIRONMENT_STATE_CHANGE_NOTIFICATION {
+    pub propertyStore: core::mem::ManuallyDrop<Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
+    pub propertyKey: super::super::super::Foundation::PROPERTYKEY,
 }
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(0i32);
 pub const AUDIO_FLOW_PUSH: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(1i32);
@@ -338,6 +385,13 @@ impl Default for AUDIO_VOLUME_NOTIFICATION_DATA2 {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct AcousticEchoCanceller_Reference_Input {
+    pub apoInitSystemEffects: APOInitSystemEffects3,
+    pub streamProperties: APO_REFERENCE_STREAM_PROPERTIES,
+}
+#[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct AudioFXExtensionParams {
@@ -376,6 +430,55 @@ impl IApoAcousticEchoCancellation_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IApoAcousticEchoCancellation {}
+windows_core::imp::define_interface!(IApoAcousticEchoCancellation2, IApoAcousticEchoCancellation2_Vtbl, 0xf235855f_f06d_45b3_a63f_ee4b71509dc2);
+impl core::ops::Deref for IApoAcousticEchoCancellation2 {
+    type Target = IApoAcousticEchoCancellation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IApoAcousticEchoCancellation2, windows_core::IUnknown, IApoAcousticEchoCancellation);
+impl IApoAcousticEchoCancellation2 {
+    pub unsafe fn GetDesiredReferenceStreamProperties(&self) -> windows_core::Result<APO_REFERENCE_STREAM_PROPERTIES> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesiredReferenceStreamProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IApoAcousticEchoCancellation2_Vtbl {
+    pub base__: IApoAcousticEchoCancellation_Vtbl,
+    pub GetDesiredReferenceStreamProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut APO_REFERENCE_STREAM_PROPERTIES) -> windows_core::HRESULT,
+}
+pub trait IApoAcousticEchoCancellation2_Impl: IApoAcousticEchoCancellation_Impl {
+    fn GetDesiredReferenceStreamProperties(&self) -> windows_core::Result<APO_REFERENCE_STREAM_PROPERTIES>;
+}
+impl IApoAcousticEchoCancellation2_Vtbl {
+    pub const fn new<Identity: IApoAcousticEchoCancellation2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesiredReferenceStreamProperties<Identity: IApoAcousticEchoCancellation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproperties: *mut APO_REFERENCE_STREAM_PROPERTIES) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IApoAcousticEchoCancellation2_Impl::GetDesiredReferenceStreamProperties(this) {
+                    Ok(ok__) => {
+                        pproperties.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: IApoAcousticEchoCancellation_Vtbl::new::<Identity, OFFSET>(),
+            GetDesiredReferenceStreamProperties: GetDesiredReferenceStreamProperties::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IApoAcousticEchoCancellation2 as windows_core::Interface>::IID || iid == &<IApoAcousticEchoCancellation as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IApoAcousticEchoCancellation2 {}
 windows_core::imp::define_interface!(IApoAuxiliaryInputConfiguration, IApoAuxiliaryInputConfiguration_Vtbl, 0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
 windows_core::imp::interface_hierarchy!(IApoAuxiliaryInputConfiguration, windows_core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
@@ -937,6 +1040,76 @@ impl IAudioProcessingObjectNotifications2_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl windows_core::RuntimeName for IAudioProcessingObjectNotifications2 {}
+windows_core::imp::define_interface!(IAudioProcessingObjectPreferredFormatSupport, IAudioProcessingObjectPreferredFormatSupport_Vtbl, 0x51cbd3c4_f1f3_4d2f_a0e1_7e9c4dd0feb3);
+windows_core::imp::interface_hierarchy!(IAudioProcessingObjectPreferredFormatSupport, windows_core::IUnknown);
+impl IAudioProcessingObjectPreferredFormatSupport {
+    pub unsafe fn GetPreferredInputFormat<P0>(&self, outputformat: P0) -> windows_core::Result<IAudioMediaType>
+    where
+        P0: windows_core::Param<IAudioMediaType>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPreferredInputFormat)(windows_core::Interface::as_raw(self), outputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub unsafe fn GetPreferredOutputFormat<P0>(&self, inputformat: P0) -> windows_core::Result<IAudioMediaType>
+    where
+        P0: windows_core::Param<IAudioMediaType>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetPreferredOutputFormat)(windows_core::Interface::as_raw(self), inputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAudioProcessingObjectPreferredFormatSupport_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetPreferredInputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetPreferredOutputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IAudioProcessingObjectPreferredFormatSupport_Impl: windows_core::IUnknownImpl {
+    fn GetPreferredInputFormat(&self, outputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn GetPreferredOutputFormat(&self, inputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+}
+impl IAudioProcessingObjectPreferredFormatSupport_Vtbl {
+    pub const fn new<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetPreferredInputFormat<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputformat: *mut core::ffi::c_void, preferredformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredInputFormat(this, core::mem::transmute_copy(&outputformat)) {
+                    Ok(ok__) => {
+                        preferredformat.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetPreferredOutputFormat<Identity: IAudioProcessingObjectPreferredFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputformat: *mut core::ffi::c_void, preferredformat: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match IAudioProcessingObjectPreferredFormatSupport_Impl::GetPreferredOutputFormat(this, core::mem::transmute_copy(&inputformat)) {
+                    Ok(ok__) => {
+                        preferredformat.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetPreferredInputFormat: GetPreferredInputFormat::<Identity, OFFSET>,
+            GetPreferredOutputFormat: GetPreferredOutputFormat::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAudioProcessingObjectPreferredFormatSupport as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for IAudioProcessingObjectPreferredFormatSupport {}
 windows_core::imp::define_interface!(IAudioProcessingObjectRT, IAudioProcessingObjectRT_Vtbl, 0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRT, windows_core::IUnknown);
 impl IAudioProcessingObjectRT {
@@ -1291,6 +1464,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
 }
 impl windows_core::RuntimeName for IAudioSystemEffectsCustomFormats {}
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd3993a3f_99c2_4402_b5ec_a92a0367664b), pid: 13 };
+pub const PKEY_AudioEnvironment_SpatialAudioActive: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4afb7b88_a653_44a5_99db_687fd74af0bb), pid: 2 };
 pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 15 };
 pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 18 };
 pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 17 };
@@ -1316,11 +1490,14 @@ pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::Foun
 pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 9 };
 pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 8 };
 pub const PKEY_FX_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 6 };
+pub const PKEY_FX_OEM_Preferred_EffectPack_Id: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 36 };
 pub const PKEY_FX_ObjectId: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 27 };
 pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 12 };
 pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 11 };
 pub const PKEY_FX_PostMixEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 2 };
 pub const PKEY_FX_PreMixEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 1 };
+pub const PKEY_FX_RequestSetAsDefault: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 34 };
+pub const PKEY_FX_RequestSetAsDefaultPriority: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 35 };
 pub const PKEY_FX_State: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 28 };
 pub const PKEY_FX_StreamEffectClsid: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 5 };
 pub const PKEY_FX_SupportAppLauncher: super::super::super::Foundation::PROPERTYKEY = super::super::super::Foundation::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd04e05a6_594b_4fb6_a80d_01af5eed7d1d), pid: 21 };

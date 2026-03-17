@@ -54,6 +54,11 @@ pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     unsafe { Tbsi_Revoke_Attestation() }
 }
 #[inline]
+pub unsafe fn Tbsi_Tpm_Vendor_Maintenance_Mode(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("tbs.dll" "system" fn Tbsi_Tpm_Vendor_Maintenance_Mode(pcontextparams : *const TBS_CONTEXT_PARAMS, phcontext : *mut *mut core::ffi::c_void) -> u32);
+    unsafe { Tbsi_Tpm_Vendor_Maintenance_Mode(pcontextparams, phcontext as _) }
+}
+#[inline]
 pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const core::ffi::c_void) -> u32 {
     windows_core::link!("tbs.dll" "system" fn Tbsip_Cancel_Commands(hcontext : *const core::ffi::c_void) -> u32);
     unsafe { Tbsip_Cancel_Commands(hcontext) }

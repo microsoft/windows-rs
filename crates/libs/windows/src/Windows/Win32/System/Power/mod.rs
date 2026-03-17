@@ -159,6 +159,16 @@ pub unsafe fn PowerGetActiveScheme(userrootpowerkey: Option<super::Registry::HKE
     windows_core::link!("powrprof.dll" "system" fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
     unsafe { PowerGetActiveScheme(userrootpowerkey.unwrap_or(core::mem::zeroed()) as _, activepolicyguid as _) }
 }
+#[inline]
+pub unsafe fn PowerGetUserConfiguredACPowerMode(powermodeguid: *mut windows_core::GUID) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredACPowerMode(powermodeguid : *mut windows_core::GUID) -> u32);
+    unsafe { PowerGetUserConfiguredACPowerMode(powermodeguid as _) }
+}
+#[inline]
+pub unsafe fn PowerGetUserConfiguredDCPowerMode(powermodeguid: *mut windows_core::GUID) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerGetUserConfiguredDCPowerMode(powermodeguid : *mut windows_core::GUID) -> u32);
+    unsafe { PowerGetUserConfiguredDCPowerMode(powermodeguid as _) }
+}
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: Option<super::Registry::HKEY>, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR
@@ -332,6 +342,16 @@ pub unsafe fn PowerSetActiveScheme(userrootpowerkey: Option<super::Registry::HKE
 pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
     unsafe { PowerSetRequest(powerrequest, requesttype).ok() }
+}
+#[inline]
+pub unsafe fn PowerSetUserConfiguredACPowerMode(powermodeguid: *const windows_core::GUID) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredACPowerMode(powermodeguid : *const windows_core::GUID) -> u32);
+    unsafe { PowerSetUserConfiguredACPowerMode(powermodeguid) }
+}
+#[inline]
+pub unsafe fn PowerSetUserConfiguredDCPowerMode(powermodeguid: *const windows_core::GUID) -> u32 {
+    windows_core::link!("powrprof.dll" "system" fn PowerSetUserConfiguredDCPowerMode(powermodeguid : *const windows_core::GUID) -> u32);
+    unsafe { PowerSetUserConfiguredDCPowerMode(powermodeguid) }
 }
 #[inline]
 pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>) -> windows_core::WIN32_ERROR {
@@ -567,6 +587,7 @@ pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = POWER_DATA_ACCE
 pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(10i32);
 pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(9i32);
 pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(12i32);
+pub const ACCESS_POWER_MODE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
 pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
 pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(16i32);
 pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(17i32);
@@ -611,6 +632,8 @@ pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 pub struct ACPI_TIME_RESOLUTION(pub i32);
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
+pub const ADAPTER_CLASS_MAJOR_VERSION: u32 = 1u32;
+pub const ADAPTER_CLASS_MINOR_VERSION: u32 = 0u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
@@ -663,6 +686,7 @@ pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
+pub const BATTERY_CLASS_MINOR_VERSION_2: u32 = 2u32;
 pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
 pub const BATTERY_DISCHARGING: u32 = 2u32;
@@ -696,6 +720,8 @@ pub struct BATTERY_MANUFACTURE_DATE {
 }
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
+pub const BATTERY_NOTIFY_VERSION_1: u32 = 1u32;
+pub const BATTERY_NOTIFY_VERSION_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -804,6 +830,7 @@ pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_I
 pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(2i32);
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
 pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
+pub const CHARGE_REQUIREMENT_MAX_POWER_SOURCE_TYPES: u32 = 2u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_POWER_DATA {
@@ -820,6 +847,25 @@ impl Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CUSTOMIZED_IO_CAPABILITIES {
+    pub SupportedInputs: u32,
+    pub SupportedOutputs: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CUSTOMIZED_IO_QUERY_INPUT_RETURN {
+    pub FunctionId: u32,
+    pub ErrorCode: u32,
+    pub Value: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
+    pub FunctionId: u32,
+    pub Value: u32,
 }
 pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(74i32);
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
@@ -1005,6 +1051,8 @@ impl core::ops::Not for EXECUTION_STATE {
 pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(2i32);
 pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
 pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
+pub const EffectivePowerModeEnergySaverHighSavings: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
+pub const EffectivePowerModeEnergySaverStandard: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
 pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
 pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(3i32);
 pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
@@ -1060,9 +1108,13 @@ pub const GUID_DEVICE_FAN: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const GUID_DEVICE_LID: windows_core::GUID = windows_core::GUID::from_u128(0x4afa3d52_74a7_11d0_be5e_00a0c9062857);
 pub const GUID_DEVICE_MEMORY: windows_core::GUID = windows_core::GUID::from_u128(0x3fd0f03d_92e0_45fb_b75c_5ed8ffb01021);
 pub const GUID_DEVICE_MESSAGE_INDICATOR: windows_core::GUID = windows_core::GUID::from_u128(0xcd48a365_fa94_4ce2_a232_a1b764e5d8b4);
+pub const GUID_DEVICE_POWER_ADAPTER: windows_core::GUID = windows_core::GUID::from_u128(0xf76c6c62_7dea_43cd_8689_d9a4af3d8557);
 pub const GUID_DEVICE_PROCESSOR: windows_core::GUID = windows_core::GUID::from_u128(0x97fadb10_4e33_40ae_359c_8bef029dbdd0);
 pub const GUID_DEVICE_SYS_BUTTON: windows_core::GUID = windows_core::GUID::from_u128(0x4afa3d53_74a7_11d0_be5e_00a0c9062857);
 pub const GUID_DEVICE_THERMAL_ZONE: windows_core::GUID = windows_core::GUID::from_u128(0x4afa3d51_74a7_11d0_be5e_00a0c9062857);
+pub const GUID_DEVINTERFACE_CUSTOMIZED_IO: windows_core::GUID = windows_core::GUID::from_u128(0x2ed8544a_8eef_4033_b2a0_04aaa507cecb);
+pub const GUID_DEVINTERFACE_POWER_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x8f366301_091e_4056_b92f_958b27625fce);
+pub const GUID_DEVINTERFACE_TEMPERATURE_SENSOR: windows_core::GUID = windows_core::GUID::from_u128(0x2a6c8538_7895_4d56_8567_795d3844858a);
 pub const GUID_DEVINTERFACE_THERMAL_COOLING: windows_core::GUID = windows_core::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: windows_core::GUID = windows_core::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
 pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(45i32);
@@ -1106,8 +1158,11 @@ pub const IOCTL_GET_WAKE_ALARM_POLICY: u32 = 2736652u32;
 pub const IOCTL_GET_WAKE_ALARM_SYSTEM_POWERSTATE: u32 = 2703896u32;
 pub const IOCTL_GET_WAKE_ALARM_VALUE: u32 = 2736648u32;
 pub const IOCTL_NOTIFY_SWITCH_EVENT: u32 = 2703616u32;
+pub const IOCTL_QUERY_CUSTOMIZED_INPUT_FROM_PLATFORM: u32 = 2704004u32;
+pub const IOCTL_QUERY_CUSTOMIZED_IO_CAPABILITIES: u32 = 2704000u32;
 pub const IOCTL_QUERY_LID: u32 = 2703552u32;
 pub const IOCTL_RUN_ACTIVE_COOLING_METHOD: u32 = 2719880u32;
+pub const IOCTL_SEND_CUSTOMIZED_OUTPUT_TO_PLATFORM: u32 = 2720392u32;
 pub const IOCTL_SET_SYS_MESSAGE_INDICATOR: u32 = 2720192u32;
 pub const IOCTL_SET_WAKE_ALARM_POLICY: u32 = 2720260u32;
 pub const IOCTL_SET_WAKE_ALARM_VALUE: u32 = 2720256u32;
@@ -1162,6 +1217,7 @@ pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL
 pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
 pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
 pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
+pub const MonitorRequestReasonAusterityBatteryDrain: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
 pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
 pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
 pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
@@ -1170,11 +1226,12 @@ pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_R
 pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
 pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
 pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
+pub const MonitorRequestReasonDozeRestrictedStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(56i32);
 pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
 pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
 pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
 pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(58i32);
 pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
 pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
 pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
@@ -1196,6 +1253,7 @@ pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = P
 pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
 pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
 pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
+pub const MonitorRequestReasonSmartRestrictedStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(57i32);
 pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
 pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
 pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
@@ -1300,6 +1358,59 @@ impl core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
         Self(self.0.not())
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POWER_ADAPTER_CHARGE_REQUIREMENT {
+    pub AcAdapterType: u32,
+    pub MinimumPower: u32,
+    pub NominalPower: u32,
+    pub MaximumPower: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union POWER_ADAPTER_POWER_STATES {
+    pub States: POWER_ADAPTER_POWER_STATES_0,
+    pub AsUlong: u32,
+}
+impl Default for POWER_ADAPTER_POWER_STATES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct POWER_ADAPTER_POWER_STATES_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct POWER_ADAPTER_SET_STATUS_BUFFER {
+    pub Version: u8,
+    pub RecOverride: bool,
+    pub Reserved: [u8; 2],
+}
+impl Default for POWER_ADAPTER_SET_STATUS_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct POWER_ADAPTER_STATUS {
+    pub Version: u8,
+    pub Reserved: [u8; 3],
+    pub PowerState: POWER_ADAPTER_POWER_STATES,
+    pub PeakPower: u32,
+    pub MaxOutputPower: u32,
+    pub MaxInputPower: u32,
+    pub RecStartTime: u64,
+    pub RecEndTime: u64,
+}
+impl Default for POWER_ADAPTER_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[repr(transparent)]
@@ -1321,6 +1432,7 @@ pub struct POWER_INFORMATION_LEVEL(pub i32);
 pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(4u32);
 pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
 pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
+pub const POWER_LIMIT_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
@@ -1771,7 +1883,7 @@ pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
 pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
 pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
 pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(87i32);
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(98i32);
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(99i32);
 pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(27i32);
 pub const PowerRequestAction: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(44i32);
 pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(85i32);
@@ -2008,6 +2120,7 @@ pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = POWER_INFORMATION_L
 pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
 pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(8i32);
 pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(1i32);
+pub const SystemPowerSourceState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(98i32);
 pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(6i32);
 pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(23i32);
 pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(17i32);
@@ -2068,6 +2181,8 @@ pub struct THERMAL_WAIT_READ {
     pub LowTemperature: u32,
     pub HighTemperature: u32,
 }
+pub const THERMAL_WAIT_READ_TIMEOUT_IMMEDIATE: u32 = 0u32;
+pub const THERMAL_WAIT_READ_TIMEOUT_NONE: u32 = 4294967295u32;
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
 pub const ThermalEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(84i32);

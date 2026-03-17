@@ -2459,6 +2459,7 @@ pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
 pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
 pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
 pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
+pub const DS_BEHAVIOR_WIN2025: u32 = 10u32;
 pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
 pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
 pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
@@ -2467,6 +2468,7 @@ pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(7i32);
 pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
 pub const DS_CLOSEST_FLAG: u32 = 128u32;
 pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
+pub const DS_DIRECTORY_SERVICE_13_REQUIRED: u32 = 33554432u32;
 pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
 pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
 pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
@@ -2606,6 +2608,7 @@ pub struct DS_DOMAIN_TRUSTSW {
     pub DomainGuid: windows_core::GUID,
 }
 pub const DS_DS_10_FLAG: u32 = 65536u32;
+pub const DS_DS_13_FLAG: u32 = 262144u32;
 pub const DS_DS_8_FLAG: u32 = 16384u32;
 pub const DS_DS_9_FLAG: u32 = 32768u32;
 pub const DS_DS_FLAG: u32 = 16u32;
@@ -3416,6 +3419,9 @@ pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: windows_core::GUID = windows_core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 pub const GUID_COMPUTRS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("aa312825768811d1aded00c04fd8d5cd");
 pub const GUID_COMPUTRS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("aa312825768811d1aded00c04fd8d5cd");
+pub const GUID_DATABASE_32K_PAGES_OPTIONAL_FEATURE_A: windows_core::PCSTR = windows_core::s!("c62a9852731e4f75ae2473ae2775aab8");
+pub const GUID_DATABASE_32K_PAGES_OPTIONAL_FEATURE_BYTE: windows_core::PCSTR = windows_core::s!("\u{c6}*\u{98}Rs\u{1e}Ou\u{ae}$s\u{ae}\'u\u{aa}\u{b8}");
+pub const GUID_DATABASE_32K_PAGES_OPTIONAL_FEATURE_W: windows_core::PCWSTR = windows_core::w!("c62a9852731e4f75ae2473ae2775aab8");
 pub const GUID_DELETED_OBJECTS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("18e2ea80684f11d2b9aa00c04f79f805");
 pub const GUID_DELETED_OBJECTS_CONTAINER_W: windows_core::PCWSTR = windows_core::w!("18e2ea80684f11d2b9aa00c04f79f805");
 pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: windows_core::PCSTR = windows_core::s!("a361b2ffffd211d1aa4b00c04fd7d83a");
