@@ -1,0 +1,13 @@
+#[win32]
+mod Test {
+    struct WithNestedArray {
+        a1: [struct {
+            n1: u8,
+            n2: u16,
+        }; 4],
+        a2: [union {
+            b1: u8,
+            b2: u16,
+        }; 2],
+    }
+}

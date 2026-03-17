@@ -1,12 +1,12 @@
 #[test]
 fn test() {
-    windows_rdl::Reader::new()
+    windows_rdl::reader()
         .input("tests/fn_abi.rdl")
         .output("tests/fn_abi.winmd")
         .write()
         .unwrap();
 
-    windows_rdl::Writer::new()
+    windows_rdl::writer()
         .input("tests/fn_abi.winmd")
         .output("tests/fn_abi_writer.rdl")
         .namespace("Test")

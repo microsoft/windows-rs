@@ -6,7 +6,7 @@ fn main() {
         env!("windir")
     );
 
-    windows_rdl::Reader::new()
+    windows_rdl::reader()
         .input("src/sample.rdl")
         .reference(&windows_foundation)
         .output("sample.winmd")

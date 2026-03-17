@@ -1,15 +1,16 @@
 use windows_rdl::*;
 
 fn roundtrip(winmd: &str, rdl: &str) {
-    Writer::new()
+    writer()
         .input(winmd)
+        .reference("crates/libs/bindgen/default/Windows.winmd") // for Windows.Foundation.HRESULT
         .output(rdl)
         .namespace("Windows")
         .split()
         .write()
         .unwrap();
 
-    Reader::new().input(rdl).output(winmd).write().unwrap();
+    reader().input(rdl).output(winmd).write().unwrap();
 }
 
 fn main() {

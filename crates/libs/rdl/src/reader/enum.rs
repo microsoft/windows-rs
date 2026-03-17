@@ -149,7 +149,7 @@ impl Enum {
 #[test]
 #[should_panic(expected = "error: `repr` must be an integer type\n --> .rdl:4:5")]
 fn repr_must_be_integer() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -169,7 +169,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `flags` attribute does not accept arguments\n --> .rdl:5:5")]
 fn flags_with_args_errors() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]

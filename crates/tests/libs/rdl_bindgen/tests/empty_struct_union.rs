@@ -1,12 +1,12 @@
 #[test]
 fn test() {
-    windows_rdl::Reader::new()
+    windows_rdl::reader()
         .input("tests/empty_struct_union.rdl")
         .output("tests/empty_struct_union.winmd")
         .write()
         .unwrap();
 
-    windows_rdl::Writer::new()
+    windows_rdl::writer()
         .input("tests/empty_struct_union.winmd")
         .output("tests/empty_struct_union.rdl")
         .namespace("Test")

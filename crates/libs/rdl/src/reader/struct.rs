@@ -4,17 +4,9 @@ use super::*;
 pub struct Struct {
     pub attrs: Vec<syn::Attribute>,
     pub span: proc_macro2::Span,
-    pub name: Option<syn::Ident>,
-    pub fields: Vec<StructField>,
+    pub name: syn::Ident,
+    pub fields: Vec<Field>,
     pub winrt: bool,
-    pub is_union: bool,
-}
-
-#[allow(clippy::large_enum_variant)]
-#[derive(Debug, Clone)]
-pub enum StructField {
-    Regular(syn::Field),
-    Nested { name: syn::Ident, def: Struct },
 }
 
 impl syn::parse::Parse for Struct {
@@ -27,7 +19,7 @@ impl syn::parse::Parse for Struct {
         syn::braced!(content in input);
 
         let fields = content
-            .parse_terminated(StructField::parse, syn::Token![,])?
+            .parse_terminated(Field::parse, syn::Token![,])?
             .into_iter()
             .collect();
 
@@ -37,121 +29,59 @@ impl syn::parse::Parse for Struct {
             name,
             fields,
             winrt: false,
-            is_union: false,
         })
-    }
-}
-
-impl syn::parse::Parse for StructField {
-    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
-        let attrs = input.call(syn::Attribute::parse_outer)?;
-        let name = input.parse()?;
-        input.parse::<syn::Token![:]>()?;
-
-        if input.peek(syn::Token![struct]) {
-            Ok(StructField::Nested {
-                name,
-                def: input.parse()?,
-            })
-        } else if input.peek(syn::Token![union]) {
-            let union_token: syn::Token![union] = input.parse()?;
-            let nested_name = input.parse()?;
-
-            let content;
-            syn::braced!(content in input);
-
-            let fields = content
-                .parse_terminated(StructField::parse, syn::Token![,])?
-                .into_iter()
-                .collect();
-
-            Ok(StructField::Nested {
-                name,
-                def: Struct {
-                    attrs: vec![],
-                    span: union_token.span,
-                    name: nested_name,
-                    fields,
-                    winrt: false,
-                    is_union: true,
-                },
-            })
-        } else {
-            Ok(StructField::Regular(syn::Field {
-                attrs,
-                ident: Some(name),
-                ty: input.parse()?,
-                vis: syn::Visibility::Inherited,
-                colon_token: Some(Default::default()),
-                mutability: syn::FieldMutability::None,
-            }))
-        }
     }
 }
 
 impl Struct {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let mut breadcrumbs = vec![];
-        let item_name = self.name.as_ref().unwrap().to_string();
-        encode_struct_inner(encoder, self, &item_name, None, &mut breadcrumbs)
-    }
-}
-
-struct NestedEntry<'a> {
-    full_path: String,
-    def: &'a Struct,
-}
-
-fn encode_struct_inner(
-    encoder: &mut Encoder,
-    item: &Struct,
-    item_name: &str,
-    outer: Option<metadata::writer::TypeDef>,
-    breadcrumbs: &mut Vec<String>,
-) -> Result<(), Error> {
-    breadcrumbs.push(item_name.to_string());
-    let nested = collect_nested(item, breadcrumbs);
-    let type_def = define_type(encoder, item_name, outer, item.winrt, item.is_union);
-
-    emit_fields(encoder, item, &nested, item.is_union)?;
-
-    if outer.is_none() {
+        let type_def = encode_body(
+            encoder,
+            &self.name.to_string(),
+            None,
+            self.winrt,
+            false,
+            &self.fields,
+            &mut breadcrumbs,
+        )?;
         encode_attrs(
             encoder,
             metadata::writer::HasAttribute::TypeDef(type_def),
-            &item.attrs,
+            &self.attrs,
             &[],
-        )?;
+        )
     }
+}
 
+/// Encode a struct or union type body into the metadata output.
+///
+/// This is shared between top-level `Struct`/`Union` encoding and the recursive
+/// encoding of inline nested type definitions.
+pub fn encode_body(
+    encoder: &mut Encoder,
+    item_name: &str,
+    outer: Option<metadata::writer::TypeDef>,
+    winrt: bool,
+    is_union: bool,
+    fields: &[Field],
+    breadcrumbs: &mut Vec<String>,
+) -> Result<metadata::writer::TypeDef, Error> {
+    breadcrumbs.push(item_name.to_string());
+
+    let type_def = define_type(encoder, item_name, outer, winrt, is_union);
+
+    // Register this type as nested before processing children so that the
+    // NestedClass table stays sorted by nested-type row index.
     if let Some(outer) = outer {
         encoder.output.NestedClass(type_def, outer);
     }
 
-    encode_children(encoder, &nested, type_def, breadcrumbs)?;
+    encode_fields(encoder, fields, type_def, is_union, breadcrumbs)?;
+
     breadcrumbs.pop();
 
-    Ok(())
-}
-
-fn collect_nested<'a>(
-    item: &'a Struct,
-    breadcrumbs: &[String],
-) -> BTreeMap<String, NestedEntry<'a>> {
-    let parent_name = breadcrumbs.last().unwrap();
-    let struct_path = breadcrumbs.join("/");
-    item.fields
-        .iter()
-        .filter_map(|field| match field {
-            StructField::Nested { name, def, .. } => Some((name, def)),
-            _ => None,
-        })
-        .enumerate()
-        .map(|(i, (name, def))| {
-            let full_path = format!("{}/{}_{}", struct_path, parent_name, i);
-            (name.to_string(), NestedEntry { full_path, def })
-        })
-        .collect()
+    Ok(type_def)
 }
 
 fn define_type(
@@ -193,63 +123,150 @@ fn define_type(
     )
 }
 
-fn encode_children(
+/// Emit field entries and recursively encode any inline nested type definitions.
+fn encode_fields(
     encoder: &mut Encoder,
-    nested: &BTreeMap<String, NestedEntry>,
-    outer: metadata::writer::TypeDef,
+    fields: &[Field],
+    parent: metadata::writer::TypeDef,
+    is_union: bool,
     breadcrumbs: &mut Vec<String>,
 ) -> Result<(), Error> {
-    for entry in nested.values() {
-        let nested_name = last_segment(&entry.full_path);
-        encode_struct_inner(encoder, entry.def, nested_name, Some(outer), breadcrumbs)?;
-    }
-    Ok(())
-}
-
-fn last_segment(path: &str) -> &str {
-    path.rsplit('/').next().unwrap_or(path)
-}
-
-fn emit_fields(
-    encoder: &mut Encoder,
-    item: &Struct,
-    nested: &BTreeMap<String, NestedEntry>,
-    is_union: bool,
-) -> Result<(), Error> {
-    for field in &item.fields {
-        match field {
-            StructField::Regular(regular) => {
-                let field_name = regular.ident.as_ref().unwrap().to_string();
-                let field_type = encode_type(encoder, &regular.ty)?;
-                let field_id = encoder.output.Field(
-                    &field_name,
-                    &field_type,
-                    metadata::FieldAttributes::Public,
-                );
+    // First pass: emit all field metadata entries, assigning path-based names to
+    // inline struct/union types so they can be referenced before being defined.
+    let mut inline_counter = 0;
+    for field in fields {
+        let field_name = field.name.to_string();
+        match &field.ty {
+            FieldType::Type(ty) => {
+                let mt = encode_type(encoder, ty)?;
+                let field_id =
+                    encoder
+                        .output
+                        .Field(&field_name, &mt, metadata::FieldAttributes::Public);
                 if is_union {
                     encoder.output.FieldLayout(field_id, 0);
                 }
                 encode_attrs(
                     encoder,
                     metadata::writer::HasAttribute::Field(field_id),
-                    &regular.attrs,
+                    &field.attrs,
                     &[],
                 )?;
             }
-            StructField::Nested { name, .. } => {
-                let field_name = name.to_string();
-                let field_type =
-                    metadata::Type::named(encoder.namespace, &nested[&field_name].full_path);
-                let field_id = encoder.output.Field(
-                    &field_name,
-                    &field_type,
-                    metadata::FieldAttributes::Public,
-                );
+            FieldType::Struct(_) | FieldType::Union(_) => {
+                let mt = inline_type(encoder, breadcrumbs, inline_counter);
+                inline_counter += 1;
+                let field_id =
+                    encoder
+                        .output
+                        .Field(&field_name, &mt, metadata::FieldAttributes::Public);
                 if is_union {
                     encoder.output.FieldLayout(field_id, 0);
                 }
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Field(field_id),
+                    &field.attrs,
+                    &[],
+                )?;
+            }
+            FieldType::StructArray(_, len) | FieldType::UnionArray(_, len) => {
+                let element = inline_type(encoder, breadcrumbs, inline_counter);
+                inline_counter += 1;
+                let mt = metadata::Type::ArrayFixed(Box::new(element), *len);
+                let field_id =
+                    encoder
+                        .output
+                        .Field(&field_name, &mt, metadata::FieldAttributes::Public);
+                if is_union {
+                    encoder.output.FieldLayout(field_id, 0);
+                }
+                encode_attrs(
+                    encoder,
+                    metadata::writer::HasAttribute::Field(field_id),
+                    &field.attrs,
+                    &[],
+                )?;
             }
         }
     }
+
+    // Second pass: recursively encode the bodies of any inline nested types.
+    let mut inline_counter = 0;
+    for field in fields {
+        match &field.ty {
+            FieldType::Struct(inline_fields) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    false,
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::Union(inline_fields) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    true,
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::StructArray(inline_fields, _) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    false,
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::UnionArray(inline_fields, _) => {
+                let name = inline_name(breadcrumbs, inline_counter);
+                inline_counter += 1;
+                encode_body(
+                    encoder,
+                    &name,
+                    Some(parent),
+                    false,
+                    true,
+                    inline_fields,
+                    breadcrumbs,
+                )?;
+            }
+            FieldType::Type(_) => {}
+        }
+    }
+
     Ok(())
+}
+
+/// Compute the `metadata::Type` reference for an inline nested type at `counter`.
+fn inline_type(encoder: &Encoder, breadcrumbs: &[String], counter: usize) -> metadata::Type {
+    let parent = breadcrumbs.last().unwrap();
+    let path = format!("{}/{}_{}", breadcrumbs.join("/"), parent, counter);
+    metadata::Type::named(encoder.namespace, &path)
+}
+
+/// Compute the short name (last segment) for an inline nested type at `counter`.
+fn inline_name(breadcrumbs: &[String], counter: usize) -> String {
+    let parent = breadcrumbs.last().unwrap();
+    format!("{}_{}", parent, counter)
+}
+
+fn last_segment(path: &str) -> &str {
+    path.rsplit('/').next().unwrap_or(path)
 }

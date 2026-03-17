@@ -48,7 +48,10 @@ where
                 *result = index as u32;
                 Ok(true)
             }
-            None => Ok(false),
+            None => {
+                *result = 0;
+                Ok(false)
+            }
         }
     }
 
@@ -109,6 +112,11 @@ where
 
     fn GetMany(&self, values: &mut [T::Default]) -> Result<u32> {
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
+
+        if current >= self.owner.values.len() {
+            return Ok(0);
+        }
+
         let actual = std::cmp::min(self.owner.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&self.owner.values[current..current + actual]);
