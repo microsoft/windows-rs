@@ -668,6 +668,103 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
     }
 }
 
+/// Extracts the raw GUID tuple `(data1, data2, data3, data4)` from a `GuidAttribute`.
+fn extract_guid_from_attribute(attr: metadata::reader::Attribute) -> (u32, u16, u16, [u8; 8]) {
+    let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
+    assert_eq!(
+        values.len(),
+        11,
+        "GuidAttribute must have exactly 11 arguments"
+    );
+    let d1 = match values[0] {
+        metadata::Value::U32(v) => v,
+        ref v => panic!("GuidAttribute d1: expected U32, got {v:?}"),
+    };
+    let d2 = match values[1] {
+        metadata::Value::U16(v) => v,
+        ref v => panic!("GuidAttribute d2: expected U16, got {v:?}"),
+    };
+    let d3 = match values[2] {
+        metadata::Value::U16(v) => v,
+        ref v => panic!("GuidAttribute d3: expected U16, got {v:?}"),
+    };
+    let d4 = std::array::from_fn(|i| match values[3 + i] {
+        metadata::Value::U8(v) => v,
+        ref v => panic!("GuidAttribute d4[{i}]: expected U8, got {v:?}"),
+    });
+    (d1, d2, d3, d4)
+}
+
+/// Returns `true` when the `GuidAttribute` stored on an interface `TypeDef` matches what
+/// would be automatically derived from the interface shape (name + method signatures).
+/// When `true`, the attribute is redundant and may be omitted from the RDL output.
+/// When `false`, the GUID was set explicitly and must be preserved.
+fn interface_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+    let Some(attr) = item.find_attribute("GuidAttribute") else {
+        return true;
+    };
+    let stored = extract_guid_from_attribute(attr);
+
+    let generics: Vec<_> = item
+        .generic_params()
+        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
+        .collect();
+
+    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
+        .methods()
+        .map(|m| {
+            let sig = m.signature(&generics);
+            (m.name().to_string(), sig.types, sig.return_type)
+        })
+        .collect();
+
+    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
+        .iter()
+        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
+        .collect();
+
+    let s = crate::reader::guid::build_interface_string(
+        item.namespace(),
+        metadata::trim_tick(item.name()),
+        &methods,
+    );
+    let derived = crate::reader::guid::guid_from_interface_string(&s);
+    stored == derived
+}
+
+/// Returns `true` when the `GuidAttribute` stored on a delegate `TypeDef` matches what
+/// would be automatically derived from the `Invoke` method signature.
+/// When `true`, the attribute is redundant and may be omitted from the RDL output.
+/// When `false`, the GUID was set explicitly and must be preserved.
+fn delegate_guid_is_derived(item: &metadata::reader::TypeDef) -> bool {
+    let Some(attr) = item.find_attribute("GuidAttribute") else {
+        return true;
+    };
+    let stored = extract_guid_from_attribute(attr);
+
+    let generics: Vec<_> = item
+        .generic_params()
+        .map(|p| metadata::Type::Generic(p.name().to_string(), p.sequence()))
+        .collect();
+
+    let (types, return_type) = item
+        .methods()
+        .find(|m| m.name() == "Invoke")
+        .map(|invoke| {
+            let sig = invoke.signature(&generics);
+            (sig.types, sig.return_type)
+        })
+        .unwrap_or_else(|| (vec![], metadata::Type::Void));
+
+    let s = crate::reader::guid::build_interface_string(
+        item.namespace(),
+        metadata::trim_tick(item.name()),
+        &[("Invoke", types.as_slice(), &return_type)],
+    );
+    let derived = crate::reader::guid::guid_from_interface_string(&s);
+    stored == derived
+}
+
 fn write_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     let name = match name {

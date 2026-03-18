@@ -42,6 +42,7 @@ fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
 
 #[test]
 fn guid_derive() {
+    // Step 1: RDL → WINMD (reader derives/validates GUIDs)
     reader()
         .input("tests/guid-derive.rdl")
         .reference("../bindgen/default/Windows.winmd")
@@ -139,5 +140,39 @@ fn guid_derive() {
         "Sample",
         "ICompareWithMidl",
         "3f9f1bc8-e8be-5939-b0d4-652564052a23",
+    );
+
+    // Step 2: WINMD → RDL (writer roundtrip — explicit GUIDs must be preserved in the output)
+    writer()
+        .input("tests/guid-derive.winmd")
+        .output("tests/guid-derive-out.rdl")
+        .write()
+        .unwrap();
+
+    // Step 3: Roundtripped RDL → WINMD (verify that explicit GUIDs survived the roundtrip)
+    reader()
+        .input("tests/guid-derive-out.rdl")
+        .reference("../bindgen/default/Windows.winmd")
+        .output("tests/guid-derive-rt.winmd")
+        .write()
+        .unwrap();
+
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IExplicitDelegate",
+        "00000001-0002-0003-0405-060708090a0b",
+    );
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IExplicitInterface",
+        "00000011-0012-0013-1415-161718191a1b",
+    );
+    assert_guid(
+        "tests/guid-derive-rt.winmd",
+        "Test",
+        "IWin32Explicit",
+        "00000021-0022-0023-2425-262728292a2b",
     );
 }

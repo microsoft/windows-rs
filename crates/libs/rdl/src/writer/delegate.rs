@@ -31,13 +31,13 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let custom_attrs = write_custom_attributes_except(
-        item.attributes(),
-        namespace,
-        item.index(),
-        // GuidAttribute is derived from the delegate shape; skip it so round-trips stay clean
-        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
-    );
+    let guid_exclude: &[&str] = if delegate_guid_is_derived(item) {
+        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"]
+    } else {
+        &["UnmanagedFunctionPointerAttribute"]
+    };
+    let custom_attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
     let mut abi = None;
 

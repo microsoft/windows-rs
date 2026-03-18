@@ -1684,10 +1684,12 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
                     #[library("KERNEL32.dll")]
                     extern fn GetXStateFeaturesMask(Context: *mut CONTEXT, FeatureMask: *mut u64) -> super::super::super::Foundation::BOOL;
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865874, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugExtendedProperty: IDebugProperty {
                         fn GetExtendedPropertyInfo(&self, dwFieldSpec: u32, nRadix: u32, pExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo) -> super::super::super::Foundation::HRESULT;
                         fn EnumExtendedMembers(&self, dwFieldSpec: u32, nRadix: u32, ppeepi: *mut IEnumDebugExtendedPropertyInfo) -> super::super::super::Foundation::HRESULT;
                     }
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865872, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugProperty: super::super::Com::IUnknown {
                         fn GetPropertyInfo(&self, dwFieldSpec: u32, nRadix: u32, pPropertyInfo: *mut DebugPropertyInfo) -> super::super::super::Foundation::HRESULT;
                         fn GetExtendedInfo(&self, cInfos: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgguidExtendedInfo: *mut GUID, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgvar: *mut super::super::Variant::VARIANT) -> super::super::super::Foundation::HRESULT;
@@ -1695,13 +1697,19 @@ mod Windows {
                         fn EnumMembers(&self, dwFieldSpec: u32, nRadix: u32, #[Windows::Win32::Foundation::Metadata::Const] refiid: *mut GUID, ppepi: *mut IEnumDebugPropertyInfo) -> super::super::super::Foundation::HRESULT;
                         fn GetParent(&self, ppDebugProp: *mut IDebugProperty) -> super::super::super::Foundation::HRESULT;
                     }
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865877, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugPropertyEnumType_All: super::super::Com::IUnknown {
                         fn GetName(&self, __MIDL__IDebugPropertyEnumType_All0000: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
                     }
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865879, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugPropertyEnumType_Arguments: IDebugPropertyEnumType_All {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865878, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugPropertyEnumType_Locals: IDebugPropertyEnumType_All {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865880, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugPropertyEnumType_LocalsPlusArgs: IDebugPropertyEnumType_All {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865881, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IDebugPropertyEnumType_Registers: IDebugPropertyEnumType_All {}
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865875, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IEnumDebugExtendedPropertyInfo: super::super::Com::IUnknown {
                         fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] rgExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo, pceltFetched: *mut u32) -> super::super::super::Foundation::HRESULT;
                         fn Skip(&self, celt: u32) -> super::super::super::Foundation::HRESULT;
@@ -1709,6 +1717,7 @@ mod Windows {
                         fn Clone(&self, pedpe: *mut IEnumDebugExtendedPropertyInfo) -> super::super::super::Foundation::HRESULT;
                         fn GetCount(&self, pcelt: *mut u32) -> super::super::super::Foundation::HRESULT;
                     }
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865873, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IEnumDebugPropertyInfo: super::super::Com::IUnknown {
                         fn Next(&self, celt: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pi: *mut DebugPropertyInfo, pcEltsfetched: *mut u32) -> super::super::super::Foundation::HRESULT;
                         fn Skip(&self, celt: u32) -> super::super::super::Foundation::HRESULT;
@@ -2668,6 +2677,7 @@ mod Windows {
                     const INTERFACE_USES_DISPEX: u32 = 4;
                     const INTERFACE_USES_SECURITY_MANAGER: u32 = 8;
                     const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320;
+                    #[Windows::Win32::Foundation::Metadata::Guid(3411795073, 37825, 4559, 143, 32, 0, 128, 95, 44, 208, 100)]
                     interface IObjectSafety: super::super::Com::IUnknown {
                         fn GetInterfaceSafetyOptions(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, pdwSupportedOptions: *mut u32, pdwEnabledOptions: *mut u32) -> super::super::super::Foundation::HRESULT;
                         fn SetInterfaceSafetyOptions(&self, #[Windows::Win32::Foundation::Metadata::Const] riid: *mut GUID, dwOptionSetMask: u32, dwEnabledOptions: u32) -> super::super::super::Foundation::HRESULT;
@@ -2699,6 +2709,7 @@ mod Windows {
                     }
                     const IPMI_OS_SEL_RECORD_VERSION: u32 = 1;
                     const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1;
+                    #[Windows::Win32::Foundation::Metadata::Guid(1368865876, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
                     interface IPerPropertyBrowsing2: super::super::Com::IUnknown {
                         fn GetDisplayString(&self, dispid: i32, pBstr: *mut super::super::super::Foundation::BSTR) -> super::super::super::Foundation::HRESULT;
                         fn MapPropertyToPage(&self, dispid: i32, pClsidPropPage: *mut GUID) -> super::super::super::Foundation::HRESULT;
