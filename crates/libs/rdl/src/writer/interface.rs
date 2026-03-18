@@ -68,9 +68,14 @@ fn write_method(
             } else {
                 quote! {}
             };
+            let opt_attr = if param.flags().contains(metadata::ParamAttributes::Optional) {
+                quote! { #[opt] }
+            } else {
+                quote! {}
+            };
             let ty = write_type(namespace, &ty);
             let param_attrs = write_custom_attributes(param.attributes(), namespace, item.index());
-            quote! { #(#param_attrs)* #out_attr #name: #ty }
+            quote! { #(#param_attrs)* #out_attr #opt_attr #name: #ty }
         }));
 
     let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index());

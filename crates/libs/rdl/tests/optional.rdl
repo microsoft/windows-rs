@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    interface ITest {
+        fn InOpt(&self, #[opt] p: i32);
+        fn OutOpt(&self, #[out] #[opt] p: i32);
+        fn MutOpt(&self, #[opt] p: &mut i32);
+    }
+}
