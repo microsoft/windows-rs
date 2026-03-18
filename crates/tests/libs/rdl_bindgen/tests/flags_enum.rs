@@ -11,7 +11,7 @@ fn test() {
     windows_rdl::writer()
         .input("tests/flags_enum.winmd")
         .output("tests/flags_enum.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 

@@ -11,7 +11,7 @@ fn test() {
     windows_rdl::writer()
         .input("tests/const_fields.winmd")
         .output("tests/const_fields.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 

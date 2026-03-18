@@ -11,7 +11,7 @@ fn test() {
     windows_rdl::writer()
         .input("tests/enum_values.winmd")
         .output("tests/enum_values.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 

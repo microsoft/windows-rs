@@ -11,7 +11,7 @@ fn test() {
     windows_rdl::writer()
         .input("tests/struct_values.winmd")
         .output("tests/struct_values.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 

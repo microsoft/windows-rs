@@ -191,10 +191,10 @@ fn namespace_included(namespace: &str, filter: &[String]) -> bool {
 
     for rule in filter {
         if let Some(prefix) = rule.strip_prefix('!') {
-            if namespace_starts_with(namespace, prefix) || namespace == prefix {
+            if namespace_starts_with(namespace, prefix) {
                 return false;
             }
-        } else if namespace_starts_with(namespace, rule) || namespace == rule.as_str() {
+        } else if namespace_starts_with(namespace, rule) {
             included = true;
         }
     }

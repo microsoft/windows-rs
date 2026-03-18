@@ -9,7 +9,7 @@ fn test() {
     windows_rdl::writer()
         .input("tests/empty_struct_union.winmd")
         .output("tests/empty_struct_union.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 
