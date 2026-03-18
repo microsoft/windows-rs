@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/interface-requires.winmd")
         .output("tests/interface-requires.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

@@ -11,8 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/kind-override.winmd")
         .output("tests/kind-override-out.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

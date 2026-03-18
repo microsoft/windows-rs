@@ -12,7 +12,7 @@ pub fn parse() {
     writer()
         .input("tests/complex-attribute-refs.winmd")
         .output("tests/complex-attribute-refs.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

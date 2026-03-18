@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/special-interface.winmd")
         .output("tests/special-interface.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

@@ -12,7 +12,7 @@ pub fn parse() {
     writer()
         .input("tests/class.winmd")
         .output("tests/class.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

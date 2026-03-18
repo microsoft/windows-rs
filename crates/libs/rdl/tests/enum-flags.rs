@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/enum-flags.winmd")
         .output("tests/enum-flags.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

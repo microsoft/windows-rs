@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/split.winmd")
         .output("tests/split")
-        .namespace("Test")
+        .filter("Test")
         .split()
         .write()
         .unwrap();

@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/const.winmd")
         .output("tests/const.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

@@ -12,7 +12,7 @@ pub fn parse() {
     writer()
         .input("tests/enum.winmd")
         .output("tests/enum.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

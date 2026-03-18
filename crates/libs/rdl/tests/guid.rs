@@ -11,7 +11,7 @@ pub fn guid() {
     writer()
         .input("tests/guid.winmd")
         .output("tests/guid.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

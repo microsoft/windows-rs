@@ -11,8 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/kind-nested.winmd")
         .output("tests/kind-nested-out.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

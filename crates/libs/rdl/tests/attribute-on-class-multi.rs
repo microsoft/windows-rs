@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-on-class-multi.winmd")
         .output("tests/attribute-on-class-multi.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

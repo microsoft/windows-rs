@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/interface-inherits.winmd")
         .output("tests/interface-inherits.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

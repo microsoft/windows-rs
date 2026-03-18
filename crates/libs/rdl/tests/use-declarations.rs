@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/use-declarations.winmd")
         .output("tests/use-declarations-out.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }
@@ -28,7 +28,7 @@ pub fn parse_with_reference() {
     writer()
         .input("tests/use-declarations-ref.winmd")
         .output("tests/use-declarations-ref-out.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

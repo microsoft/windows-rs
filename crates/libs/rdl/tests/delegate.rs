@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/delegate.winmd")
         .output("tests/delegate.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

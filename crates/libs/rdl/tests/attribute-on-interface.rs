@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-on-interface.winmd")
         .output("tests/attribute-on-interface.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

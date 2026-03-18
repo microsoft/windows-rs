@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/pseudo-types.winmd")
         .output("tests/pseudo-types.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

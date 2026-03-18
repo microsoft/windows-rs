@@ -11,8 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/kind-explicit.winmd")
         .output("tests/kind-explicit-out.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

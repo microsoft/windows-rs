@@ -31,7 +31,7 @@ mod Test {
     writer()
         .input("tests/const-underlying.winmd")
         .output("tests/const-underlying-out.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

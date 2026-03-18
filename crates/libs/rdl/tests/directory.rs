@@ -14,8 +14,7 @@ pub fn parse() {
     writer()
         .input("tests/directory.winmd")
         .output("tests/directory-output.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

@@ -11,8 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/cross-namespace-enum-attribute.winmd")
         .output("tests/cross-namespace-enum-attribute.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

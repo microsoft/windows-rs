@@ -5,7 +5,7 @@ pub fn write() {
     writer()
         .input("../bindgen/default/Windows.Win32.winmd")
         .output("tests/context.rdl")
-        .namespace("Windows.Win32.System.Diagnostics.Debug")
+        .filter("Windows.Win32.System.Diagnostics.Debug")
         .write()
         .unwrap();
 }

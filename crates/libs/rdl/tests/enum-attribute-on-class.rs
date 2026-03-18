@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/enum-attribute-on-class.winmd")
         .output("tests/enum-attribute-on-class.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

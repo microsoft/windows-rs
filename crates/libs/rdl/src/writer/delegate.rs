@@ -37,7 +37,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         item.attributes(),
         namespace,
         item.index(),
-        &["UnmanagedFunctionPointerAttribute"],
+        &["UnmanagedFunctionPointerAttribute", "GuidAttribute"],
     );
 
     let mut abi = None;

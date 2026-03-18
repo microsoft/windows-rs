@@ -31,10 +31,8 @@ use windows_metadata as metadata;
 #[derive(Default)]
 pub struct Writer {
     input: Vec<String>,
-    reference: Vec<String>,
+    filter: Vec<String>,
     output: String,
-    namespace: String,
-    recursive: bool,
     split: bool,
 }
 
@@ -50,23 +48,20 @@ impl Writer {
         self
     }
 
-    pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.reference.push(reference.to_string());
-        self
-    }
-
     pub fn output(&mut self, output: &str) -> &mut Self {
         self.output = output.to_string();
         self
     }
 
-    pub fn namespace(&mut self, namespace: &str) -> &mut Self {
-        self.namespace = namespace.to_string();
-        self
-    }
-
-    pub fn recursive(&mut self) -> &mut Self {
-        self.recursive = true;
+    /// Filter namespaces to include in the output.  Each call appends one rule:
+    /// * `"Windows.Win32"` — include all namespaces whose prefix matches `Windows.Win32`
+    /// * `"!Windows.Win32"` — exclude all namespaces whose prefix matches `Windows.Win32`
+    ///
+    /// Exclusions take priority: if a namespace matches both an include rule and an
+    /// exclude rule, it is excluded.  If no filter rules are provided all namespaces
+    /// from the input are written.
+    pub fn filter(&mut self, filter: &str) -> &mut Self {
+        self.filter.push(filter.to_string());
         self
     }
 
@@ -76,35 +71,16 @@ impl Writer {
     }
 
     pub fn write(&self) -> Result<(), Error> {
-        let mut all_files = vec![];
+        let mut files = vec![];
 
         for file_name in &expand_files(&self.input, "winmd")? {
-            all_files.push(
+            files.push(
                 metadata::reader::File::read(file_name)
                     .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
             );
         }
 
-        let num_input_files = all_files.len();
-
-        for file_name in &expand_files(&self.reference, "winmd")? {
-            all_files.push(
-                metadata::reader::File::read(file_name)
-                    .ok_or_else(|| Error::new("invalid reference", file_name, 0, 0))?,
-            );
-        }
-
-        let index = metadata::reader::TypeIndex::new(all_files);
-
-        // Collect the set of namespaces that appear in the input files only.
-        // Reference files are included solely for type resolution; their types
-        // must not be written to the rdl output.
-        let input_namespaces: std::collections::HashSet<String> = index
-            .iter()
-            .filter(|(_, _, ty)| ty.to_row().file < num_input_files)
-            .map(|(ns, _, _)| ns.to_string())
-            .collect();
-
+        let index = metadata::reader::TypeIndex::new(files);
         let index = metadata::reader::ItemIndex::new(&index);
 
         if self.split {
@@ -122,22 +98,13 @@ impl Writer {
             }
 
             for namespace in index.keys() {
-                if !namespace.is_empty() && !namespace_starts_with(namespace, &self.namespace) {
-                    continue;
-                }
-
-                // Only write namespaces that belong to the input files.
-                if !input_namespaces.contains(*namespace) {
+                if namespace.is_empty() || !namespace_included(namespace, &self.filter) {
                     continue;
                 }
 
                 let mut layout = Layout::new();
 
                 for (_, item) in index.namespace_items(namespace) {
-                    // Skip items that come from reference files.
-                    if item_file_index(item) >= num_input_files {
-                        continue;
-                    }
                     for (name, tokens) in write_items(namespace, item) {
                         layout.insert(
                             namespace,
@@ -165,26 +132,11 @@ impl Writer {
             let mut layout = Layout::new();
 
             for namespace in index.keys() {
-                if !self.namespace.is_empty() {
-                    if self.recursive {
-                        if !namespace_starts_with(namespace, &self.namespace) {
-                            continue;
-                        }
-                    } else if *namespace != self.namespace {
-                        continue;
-                    }
-                }
-
-                // Only write namespaces that belong to the input files.
-                if !input_namespaces.contains(*namespace) {
+                if !namespace_included(namespace, &self.filter) {
                     continue;
                 }
 
                 for (_, item) in index.namespace_items(namespace) {
-                    // Skip items that come from reference files.
-                    if item_file_index(item) >= num_input_files {
-                        continue;
-                    }
                     for (name, tokens) in write_items(namespace, item) {
                         layout.insert(
                             namespace,
@@ -224,12 +176,30 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-fn item_file_index(item: &metadata::reader::Item) -> usize {
-    match item {
-        metadata::reader::Item::Type(ty) => ty.to_row().file,
-        metadata::reader::Item::Fn(ty) => ty.to_row().file,
-        metadata::reader::Item::Const(ty) => ty.to_row().file,
+/// Returns `true` if `namespace` should be written given the `filter` rules.
+///
+/// Each rule is either a plain namespace prefix (include) or a `!`-prefixed
+/// namespace prefix (exclude).  Exclusions take priority: the first exclude
+/// rule whose prefix matches causes the function to return `false` immediately.
+/// If no filter rules are provided, every non-empty namespace is included.
+fn namespace_included(namespace: &str, filter: &[String]) -> bool {
+    if filter.is_empty() {
+        return true;
     }
+
+    let mut included = false;
+
+    for rule in filter {
+        if let Some(prefix) = rule.strip_prefix('!') {
+            if namespace_starts_with(namespace, prefix) || namespace == prefix {
+                return false;
+            }
+        } else if namespace_starts_with(namespace, rule) || namespace == rule.as_str() {
+            included = true;
+        }
+    }
+
+    included
 }
 
 /// Returns the explicit `#[out]` or `#[input]` attribute token for a parameter.

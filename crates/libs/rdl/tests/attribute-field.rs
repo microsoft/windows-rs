@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-field.winmd")
         .output("tests/attribute-field.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

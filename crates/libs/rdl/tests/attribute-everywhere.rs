@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-everywhere.winmd")
         .output("tests/attribute-everywhere.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

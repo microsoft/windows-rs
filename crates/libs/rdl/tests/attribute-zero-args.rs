@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-zero-args.winmd")
         .output("tests/attribute-zero-args.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

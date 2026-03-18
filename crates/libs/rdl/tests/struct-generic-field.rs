@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/struct-generic-field.winmd")
         .output("tests/struct-generic-field.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

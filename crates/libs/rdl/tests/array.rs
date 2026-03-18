@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/array.winmd")
         .output("tests/array.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

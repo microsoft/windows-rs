@@ -1,14 +1,12 @@
 use windows_rdl::*;
 
-fn roundtrip(winmd: &str, rdl: &str) {
-    writer()
-        .input(winmd)
-        .reference("crates/libs/bindgen/default")
-        .output(rdl)
-        .namespace("Windows")
-        .split()
-        .write()
-        .unwrap();
+fn roundtrip(winmd: &str, rdl: &str, filter: &[&str]) {
+    let mut w = writer();
+    w.input("crates/libs/bindgen/default").output(rdl).split();
+    for f in filter {
+        w.filter(f);
+    }
+    w.write().unwrap();
 
     reader()
         .input(rdl)
@@ -22,15 +20,18 @@ fn main() {
     roundtrip(
         "crates/libs/bindgen/default/Windows.winmd",
         "target/rdl/Windows",
+        &["Windows", "!Windows.Win32", "!Windows.Wdk"],
     );
 
     roundtrip(
         "crates/libs/bindgen/default/Windows.Win32.winmd",
         "target/rdl/Windows.Win32",
+        &["Windows.Win32"],
     );
 
     roundtrip(
         "crates/libs/bindgen/default/Windows.Wdk.winmd",
         "target/rdl/Windows.Wdk",
+        &["Windows.Wdk"],
     );
 }

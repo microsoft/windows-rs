@@ -11,7 +11,7 @@ pub fn parse() {
     writer()
         .input("tests/attribute-on-struct.winmd")
         .output("tests/attribute-on-struct.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }
