@@ -6,27 +6,17 @@ syn::custom_keyword!(delegate);
 #[derive(Debug)]
 pub struct Delegate {
     pub attrs: Vec<syn::Attribute>,
-    pub token: delegate,
-    pub abi: Option<syn::LitStr>,
     pub sig: syn::Signature,
-    pub winrt: bool,
 }
 
 impl syn::parse::Parse for Delegate {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
-        let abi = input.parse()?;
+        input.parse::<delegate>()?;
         let sig = input.parse()?;
         input.parse::<syn::Token![;]>()?;
 
-        Ok(Self {
-            attrs,
-            token,
-            abi,
-            sig,
-            winrt: false,
-        })
+        Ok(Self { attrs, sig })
     }
 }
 
@@ -34,11 +24,9 @@ impl Delegate {
     pub fn encode(&self, encoder: &mut Encoder) -> Result<(), Error> {
         let extends = encoder.output.TypeRef("System", "MulticastDelegate");
 
-        let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
-
-        if self.winrt {
-            flags |= metadata::TypeAttributes::WindowsRuntime;
-        }
+        let flags = metadata::TypeAttributes::Public
+            | metadata::TypeAttributes::Sealed
+            | metadata::TypeAttributes::WindowsRuntime;
 
         encoder.generics = self
             .sig
@@ -46,13 +34,13 @@ impl Delegate {
             .params
             .iter()
             .map(|generic| {
-                let syn::GenericParam::Type(generic) = generic else {
-                    todo!("syntax parsing should not allow anything else");
-                };
-
-                generic.ident.to_string()
+                if let syn::GenericParam::Type(ty) = generic {
+                    Ok(ty.ident.to_string())
+                } else {
+                    Err(encoder.error(generic, "only type generic parameters are supported"))
+                }
             })
-            .collect();
+            .collect::<Result<Vec<_>, Error>>()?;
 
         let mut name = encoder.name.to_string();
 
@@ -123,47 +111,13 @@ impl Delegate {
 
         // For WinRT delegates without an explicit GuidAttribute, derive the GUID from the
         // delegate name and Invoke method signature using the midlrt algorithm.
-        if self.winrt && !already_has_guid {
+        if !already_has_guid {
             guid::derive_and_emit_guid(
                 encoder.output,
                 metadata::writer::HasAttribute::TypeDef(delegate),
                 encoder.namespace,
                 encoder.name,
                 &[("Invoke", types.as_slice(), &return_type)],
-            );
-        }
-
-        if let Some(abi) = &self.abi {
-            let abi = match abi.value().as_str() {
-                "system" => 1,
-                "C" => 2,
-                _ => return encoder.err(abi, "callback abi not supported"),
-            };
-
-            let guid_typeref = encoder.output.TypeRef(
-                "System.Runtime.InteropServices",
-                "UnmanagedFunctionPointerAttribute",
-            );
-
-            let signature = windows_metadata::Signature {
-                flags: windows_metadata::MethodCallAttributes::HASTHIS,
-                return_type: windows_metadata::Type::Void,
-                types: vec![windows_metadata::Type::named(
-                    "System.Runtime.InteropServices",
-                    "CallingConvention",
-                )],
-            };
-
-            let ctor = encoder.output.MemberRef(
-                ".ctor",
-                &signature,
-                windows_metadata::writer::MemberRefParent::TypeRef(guid_typeref),
-            );
-
-            encoder.output.Attribute(
-                metadata::writer::HasAttribute::TypeDef(delegate),
-                windows_metadata::writer::AttributeType::MemberRef(ctor),
-                &[(String::new(), windows_metadata::Value::I32(abi))],
             );
         }
 
@@ -192,7 +146,7 @@ impl Delegate {
 #[test]
 #[should_panic(expected = "error: unexpected `self` parameter\n --> .rdl:4:25")]
 fn unexpected_self() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -209,12 +163,29 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: param names must be unique\n --> .rdl:4:33")]
 fn param_name_unique() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
 mod Test {
     delegate fn Handler(a: i32, a: i32);
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:")]
+fn non_type_generic_not_supported() {
+    reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    delegate fn Handler<'a>(a: i32);
 }
         "#,
         )

@@ -1,4 +1,4 @@
 #[win32]
 mod Test {
-    delegate fn Special(a: *mut void, b: *const void, c: String, d: Object, e: Type, f: GUID, g: HRESULT);
+    extern fn Special(a: *mut void, b: *const void, c: String, d: Object, e: Type, f: GUID, g: HRESULT);
 }

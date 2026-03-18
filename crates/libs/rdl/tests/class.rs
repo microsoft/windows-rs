@@ -2,17 +2,17 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/class.rdl")
         .reference("../bindgen/default/Windows.winmd")
         .output("tests/class.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/class.winmd")
         .output("tests/class.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

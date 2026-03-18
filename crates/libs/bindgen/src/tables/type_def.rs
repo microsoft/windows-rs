@@ -3,8 +3,7 @@ use super::*;
 pub trait TypeDefExt {
     fn type_name(&self) -> TypeName;
     fn generics(&self) -> Vec<Type>;
-    fn nested(&self) -> Option<NestedClass>;
-    fn underlying_type(&self, reader: &Reader) -> Type;
+    fn underlying_type_ext(&self, reader: &Reader) -> Type;
     fn invalid_values(&self) -> Vec<i64>;
     fn free_function(&self, reader: &Reader) -> Option<CppFn>;
     fn is_agile(&self) -> bool;
@@ -20,11 +19,7 @@ impl TypeDefExt for TypeDef {
         self.generic_params().map(Type::Generic).collect()
     }
 
-    fn nested(&self) -> Option<NestedClass> {
-        self.equal_range(0, self.pos() + 1).next()
-    }
-
-    fn underlying_type(&self, reader: &Reader) -> Type {
+    fn underlying_type_ext(&self, reader: &Reader) -> Type {
         let field = self.fields().next().unwrap();
         if let Some(constant) = field.constant() {
             constant.constant_type(reader)

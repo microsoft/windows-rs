@@ -1,0 +1,12 @@
+#[win32]
+mod Test {
+    #[library("test.dll")]
+    extern "C" fn CallC(f: CallbackC);
+    #[library("test.dll")]
+    extern fn CallDefault(f: CallbackDefault);
+    #[library("test.dll")]
+    extern fn CallS(f: CallbackS);
+    extern "C" fn CallbackC();
+    extern fn CallbackDefault();
+    extern fn CallbackS();
+}

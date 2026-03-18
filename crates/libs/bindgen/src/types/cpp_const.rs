@@ -28,11 +28,7 @@ impl CppConst {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -166,7 +162,7 @@ fn is_ansi_encoding(row: Field) -> bool {
 fn is_signed_error(ty: &Type, reader: &Reader) -> bool {
     match ty {
         Type::HRESULT => true,
-        Type::CppStruct(ty) => !ty.def.underlying_type(reader).is_unsigned(),
+        Type::CppStruct(ty) => !ty.def.underlying_type_ext(reader).is_unsigned(),
         _ => false,
     }
 }

@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug)]
 pub struct Const {
     pub attrs: Vec<syn::Attribute>,
-    pub token: syn::Token![const],
     pub name: syn::Ident,
     pub ty: syn::Type,
     pub expr: Option<syn::Expr>,
@@ -12,7 +11,7 @@ pub struct Const {
 impl syn::parse::Parse for Const {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attrs = input.call(syn::Attribute::parse_outer)?;
-        let token = input.parse()?;
+        input.parse::<syn::Token![const]>()?;
         let name = input.parse()?;
         input.parse::<syn::Token![:]>()?;
         let ty = input.parse()?;
@@ -26,7 +25,6 @@ impl syn::parse::Parse for Const {
 
         Ok(Self {
             attrs,
-            token,
             name,
             ty,
             expr,
@@ -87,7 +85,10 @@ fn encode_const_guid(
     item: &Const,
     name: &str,
 ) -> Result<(), Error> {
-    let expr = item.expr.as_ref().expect("GUID const missing value");
+    let expr = item
+        .expr
+        .as_ref()
+        .ok_or_else(|| encoder.error(&item.name, "GUID constant requires a value"))?;
     let value: u128 = encode_lit_int(encoder, expr)?;
     let field = encoder.output.Field(
         name,
@@ -143,4 +144,21 @@ fn encode_const_guid(
     );
 
     Ok(())
+}
+
+#[test]
+#[should_panic(expected = "error: GUID constant requires a value\n --> .rdl:4:11")]
+fn guid_const_missing_value() {
+    reader()
+        .input_str(
+            r#"
+#[win32]
+mod Test {
+    const MY_GUID: GUID;
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
 }

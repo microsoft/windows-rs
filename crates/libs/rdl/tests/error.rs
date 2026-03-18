@@ -12,7 +12,7 @@ pub fn error_display() {
 #[test]
 #[should_panic(expected = "error: `repr` attribute not found\n --> .rdl:4:5")]
 pub fn enum_repr_not_found() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[winrt]
@@ -34,7 +34,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: value not valid\n --> .rdl:4:20")]
 pub fn const_value_not_valid() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -49,27 +49,11 @@ mod Test {
 }
 
 #[test]
-#[should_panic(expected = "error: `link` attribute not found\n --> .rdl:3:5")]
-pub fn fn_link_not_found() {
-    Reader::new()
-        .input_str(
-            r#"
-mod Test {
-    fn GetTickCount() -> u32;
-}
-        "#,
-        )
-        .output(".")
-        .write()
-        .unwrap();
-}
-
-#[test]
 #[should_panic(
     expected = "error: `winrt` and `win32` attributes are mutually exclusive\n --> .rdl:5:5"
 )]
 pub fn winrt_win32_exclusive() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 mod Test {
@@ -87,7 +71,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `winrt` or `win32` attribute required\n --> .rdl:3:5")]
 pub fn winrt_win32_required() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 mod Test {

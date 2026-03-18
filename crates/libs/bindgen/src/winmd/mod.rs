@@ -10,28 +10,13 @@ pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
 pub type Field = windows_metadata::reader::Field<'static>;
 pub type MethodDef = windows_metadata::reader::MethodDef<'static>;
 pub type MethodParam = windows_metadata::reader::MethodParam<'static>;
-pub type Attribute = windows_metadata::reader::Attribute<'static>;
 pub type GenericParam = windows_metadata::reader::GenericParam<'static>;
 pub type InterfaceImpl = windows_metadata::reader::InterfaceImpl<'static>;
-pub type ClassLayout = windows_metadata::reader::ClassLayout<'static>;
 pub type Constant = windows_metadata::reader::Constant<'static>;
-pub type ImplMap = windows_metadata::reader::ImplMap<'static>;
-pub type MemberRef = windows_metadata::reader::MemberRef<'static>;
-pub type ModuleRef = windows_metadata::reader::ModuleRef<'static>;
-pub type NestedClass = windows_metadata::reader::NestedClass<'static>;
-pub type TypeRef = windows_metadata::reader::TypeRef<'static>;
-pub type TypeSpec = windows_metadata::reader::TypeSpec<'static>;
 
 // Coded index type aliases
 pub type TypeDefOrRef = windows_metadata::reader::TypeDefOrRef<'static>;
-pub type TypeOrMethodDef = windows_metadata::reader::TypeOrMethodDef<'static>;
-pub type HasAttribute = windows_metadata::reader::HasAttribute<'static>;
-pub type AttributeType = windows_metadata::reader::AttributeType<'static>;
 pub type MemberRefParent = windows_metadata::reader::MemberRefParent<'static>;
-pub type HasConstant = windows_metadata::reader::HasConstant<'static>;
-pub type MemberForwarded = windows_metadata::reader::MemberForwarded<'static>;
-pub type RowIterator<R> = windows_metadata::reader::RowIterator<'static, R>;
-pub type Blob = windows_metadata::reader::Blob<'static>;
 pub type File = windows_metadata::reader::File;
 
 pub use windows_metadata::reader::AsRow;

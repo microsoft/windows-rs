@@ -2,16 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/signature.rdl")
         .output("tests/signature.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/signature.winmd")
         .output("tests/signature.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

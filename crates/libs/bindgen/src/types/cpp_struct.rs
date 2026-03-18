@@ -58,11 +58,7 @@ impl CppStruct {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -123,8 +119,14 @@ impl CppStruct {
             let fields = quote! { #(#fields)* };
 
             if fields.is_empty() {
-                quote! {
-                    (pub u8);
+                if is_union {
+                    quote! {
+                        { pub value: u8 }
+                    }
+                } else {
+                    quote! {
+                        (pub u8);
+                    }
                 }
             } else {
                 quote! {
@@ -248,7 +250,7 @@ impl CppStruct {
                 if config.sys {
                     if let Type::CppStruct(ty) = &ty {
                         if ty.is_handle(config.reader)
-                            && ty.def.underlying_type(config.reader).is_pointer()
+                            && ty.def.underlying_type_ext(config.reader).is_pointer()
                         {
                             return true;
                         }

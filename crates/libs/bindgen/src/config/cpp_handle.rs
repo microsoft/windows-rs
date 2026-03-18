@@ -3,7 +3,7 @@ use super::*;
 impl Config<'_> {
     pub fn write_cpp_handle(&self, def: TypeDef) -> TokenStream {
         let name = to_ident(def.name());
-        let ty = def.underlying_type(self.reader);
+        let ty = def.underlying_type_ext(self.reader);
         let ty_name = ty.write_name(self);
 
         if self.sys {

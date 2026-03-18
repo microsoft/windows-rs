@@ -343,7 +343,7 @@ impl File {
 
     pub fn InterfaceImpl(&mut self, class: id::TypeDef, interface: &Type) -> id::InterfaceImpl {
         let Type::Name(interface) = interface else {
-            panic!("invalid interfae type");
+            panic!("invalid interface type");
         };
 
         let interface = if interface.generics.is_empty() {

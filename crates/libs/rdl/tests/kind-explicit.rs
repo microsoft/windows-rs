@@ -2,17 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/kind-explicit.rdl")
         .output("tests/kind-explicit.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/kind-explicit.winmd")
         .output("tests/kind-explicit-out.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

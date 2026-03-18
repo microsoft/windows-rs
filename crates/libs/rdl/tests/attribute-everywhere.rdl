@@ -23,13 +23,13 @@ mod Test {
     #[Test("Constant")]
     const C: u32 = 0;
     #[Test("Delegate")]
-    delegate fn D();
+    extern fn D();
     #[repr(u32)]
     #[Test("Enum")]
     enum E {}
     #[Test("Fn")]
-    #[link(name = "test.dll", abi = "system")]
-    fn F();
+    #[library("test.dll")]
+    extern fn F();
     #[Test("Interface")]
     interface I {
         #[Test("Method")]

@@ -1,7 +1,9 @@
 #[win32]
 mod Test {
-    #[link(name = "ticker.dll", abi = "system")]
-    fn GetTickCount() -> u32;
-    #[link(name = "version.dll", abi = "C")]
-    fn GetVersion() -> u32;
+    #[library("version.dll")]
+    extern "fastcall" fn GetFastVersion() -> u32;
+    #[library("ticker.dll")]
+    extern fn GetTickCount() -> u32;
+    #[library("version.dll")]
+    extern "C" fn GetVersion() -> u32;
 }

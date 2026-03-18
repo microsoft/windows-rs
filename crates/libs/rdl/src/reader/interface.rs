@@ -61,18 +61,14 @@ impl Interface {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
-        encoder.generics = self
-            .generics
-            .params
-            .iter()
-            .map(|generic| {
-                let syn::GenericParam::Type(generic) = generic else {
-                    todo!("syntax parsing should not allow anything else");
-                };
-
-                generic.ident.to_string()
-            })
-            .collect();
+        let mut generics = Vec::with_capacity(self.generics.params.len());
+        for generic in self.generics.params.iter() {
+            let syn::GenericParam::Type(generic) = generic else {
+                return encoder.err(generic, "only type generic parameters are supported");
+            };
+            generics.push(generic.ident.to_string());
+        }
+        encoder.generics = generics;
 
         let mut name = encoder.name.to_string();
 
@@ -249,7 +245,7 @@ impl Interface {
     expected = "error: non-WinRT interface can only inherit from one interface\n --> .rdl:4:28"
 )]
 fn win32_multiple_required_interfaces() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -266,7 +262,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_typed_first_param() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -285,7 +281,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:19")]
 fn missing_self_wrong_receiver() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -304,7 +300,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `&self` parameter not found\n --> .rdl:5:12")]
 fn missing_self_no_params() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -323,7 +319,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `out` attribute does not accept arguments\n --> .rdl:5:26")]
 fn out_with_args() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -342,7 +338,7 @@ mod Test {
 #[test]
 #[should_panic(expected = "error: `special` attribute does not accept arguments\n --> .rdl:5:9")]
 fn special_with_args() {
-    Reader::new()
+    reader()
         .input_str(
             r#"
 #[win32]
@@ -351,6 +347,23 @@ mod Test {
         #[special(42)]
         fn Method(&self);
     }
+}
+        "#,
+        )
+        .output(".")
+        .write()
+        .unwrap();
+}
+
+#[test]
+#[should_panic(expected = "error: only type generic parameters are supported\n --> .rdl:4:20")]
+fn interface_lifetime_generic_errors() {
+    reader()
+        .input_str(
+            r#"
+#[winrt]
+mod Test {
+    interface IFoo<'a> {}
 }
         "#,
         )

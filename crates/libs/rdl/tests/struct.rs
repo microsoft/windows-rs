@@ -2,16 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/struct.rdl")
         .output("tests/struct.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/struct.winmd")
         .output("tests/struct.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

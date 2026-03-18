@@ -92,6 +92,7 @@ impl PInvokeAttributes {
     pub const SupportsLastError: Self = Self(0x40);
     pub const CallConvPlatformapi: Self = Self(0x100);
     pub const CallConvCdecl: Self = Self(0x200);
+    pub const CallConvFastcall: Self = Self(0x500);
 }
 
 flags!(TypeAttributes, u32);

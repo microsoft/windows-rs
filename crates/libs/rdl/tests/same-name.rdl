@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    const NAME: u32 = 42;
+    struct NAME {
+        a: usize,
+    }
+}

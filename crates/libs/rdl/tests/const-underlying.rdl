@@ -1,0 +1,7 @@
+use Test::*;
+
+#[win32]
+mod Test {
+    const ENABLED: Flag = 1i32;
+    const DISABLED: Flag = 0i32;
+}

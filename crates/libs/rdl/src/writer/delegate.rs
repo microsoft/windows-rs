@@ -31,13 +31,13 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         quote! { <#(#generics),*> }
     };
 
-    let custom_attrs = write_custom_attributes_except(
-        item.attributes(),
-        namespace,
-        item.index(),
-        // GuidAttribute is derived from the delegate shape; skip it so round-trips stay clean
-        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
-    );
+    let guid_exclude: &[&str] = if delegate_guid_is_derived(item) {
+        &["GuidAttribute", "UnmanagedFunctionPointerAttribute"]
+    } else {
+        &["UnmanagedFunctionPointerAttribute"]
+    };
+    let custom_attrs =
+        write_custom_attributes_except(item.attributes(), namespace, item.index(), guid_exclude);
 
     let mut abi = None;
 
@@ -47,7 +47,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
                 metadata::Value::I32(1) => abi = Some("system"),
                 metadata::Value::I32(2) => abi = Some("C"),
                 metadata::Value::I32(5) => abi = Some("fastcall"),
-                rest => todo!("{rest:?}"),
+                rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
             }
         }
     }

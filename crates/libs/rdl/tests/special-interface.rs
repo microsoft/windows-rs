@@ -2,16 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/special-interface.rdl")
         .output("tests/special-interface.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/special-interface.winmd")
         .output("tests/special-interface.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

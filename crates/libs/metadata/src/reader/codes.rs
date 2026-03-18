@@ -107,6 +107,7 @@ code! { TypeDefOrRef(2)
 
 code! { TypeOrMethodDef(1)
     (TypeDef, 0)
+    (MethodDef, 1)
 }
 
 impl<'a> TypeDefOrRef<'a> {

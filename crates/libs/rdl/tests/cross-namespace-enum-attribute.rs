@@ -2,17 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/cross-namespace-enum-attribute.rdl")
         .output("tests/cross-namespace-enum-attribute.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/cross-namespace-enum-attribute.winmd")
         .output("tests/cross-namespace-enum-attribute.rdl")
-        .namespace("Test")
-        .recursive()
+        .filter("Test")
         .write()
         .unwrap();
 }

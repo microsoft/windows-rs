@@ -34,11 +34,7 @@ impl CppDelegate {
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        Cfg::new(&self.dependencies(config.reader), config).write(config, false)
+        write_simple_cfg(self, config)
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
@@ -65,7 +61,7 @@ impl CppDelegate {
                     Value::I32(1) => abi = Some("system"),
                     Value::I32(2) => abi = Some("C"),
                     Value::I32(5) => abi = Some("system"), // TODO: fastcall unsupported on non-x86 targets
-                    rest => todo!("{rest:?}"),
+                    rest => unreachable!("unexpected CallingConvention value in UnmanagedFunctionPointerAttribute: {rest:?}"),
                 }
             }
         }

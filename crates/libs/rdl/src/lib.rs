@@ -1,5 +1,4 @@
 #![doc = include_str!("../readme.md")]
-#![allow(dead_code, clippy::large_enum_variant)]
 
 mod error;
 mod formatter;
@@ -12,6 +11,14 @@ use syn::spanned::Spanned;
 pub use error::Error;
 pub use reader::Reader;
 pub use writer::Writer;
+
+pub fn reader() -> Reader {
+    Reader::new()
+}
+
+pub fn writer() -> Writer {
+    Writer::new()
+}
 
 fn expand_files(inputs: &[String], extension: &str) -> Result<Vec<String>, Error> {
     fn expand_one(result: &mut Vec<String>, input: &str, extension: &str) -> Result<(), Error> {

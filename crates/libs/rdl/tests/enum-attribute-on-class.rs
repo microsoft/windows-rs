@@ -2,16 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/enum-attribute-on-class.rdl")
         .output("tests/enum-attribute-on-class.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/enum-attribute-on-class.winmd")
         .output("tests/enum-attribute-on-class.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }

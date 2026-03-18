@@ -2,16 +2,16 @@ use windows_rdl::*;
 
 #[test]
 pub fn parse() {
-    Reader::new()
+    reader()
         .input("tests/attribute-field.rdl")
         .output("tests/attribute-field.winmd")
         .write()
         .unwrap();
 
-    Writer::new()
+    writer()
         .input("tests/attribute-field.winmd")
         .output("tests/attribute-field.rdl")
-        .namespace("Test")
+        .filter("Test")
         .write()
         .unwrap();
 }
