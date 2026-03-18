@@ -1308,6 +1308,14 @@ mod Windows {
                     #[win32]
                     mod Extensions {
                         const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11;
+                        #[repr(i32)]
+                        enum AddressSpaceRelation {
+                            Disjoint = 0,
+                            Equal = 1,
+                            Overlapping = 2,
+                            Subset = 3,
+                            Superset = 4,
+                        }
                         struct ArrayDimension {
                             LowerBound: i64,
                             Length: u64,
@@ -2767,6 +2775,7 @@ mod Windows {
                         const DEBUG_FORMAT_USER_SMALL_IPT_TRACE: u32 = 262144;
                         const DEBUG_FORMAT_USER_SMALL_MODULE_HEADERS: u32 = 32768;
                         const DEBUG_FORMAT_USER_SMALL_NO_AUXILIARY_STATE: u32 = 8192;
+                        const DEBUG_FORMAT_USER_SMALL_NO_IGNORE_INACCESSIBLE_MEM: u32 = 67108864;
                         const DEBUG_FORMAT_USER_SMALL_NO_OPTIONAL_DATA: u32 = 512;
                         const DEBUG_FORMAT_USER_SMALL_PRIVATE_READ_WRITE_MEMORY: u32 = 256;
                         const DEBUG_FORMAT_USER_SMALL_PROCESS_THREAD_DATA: u32 = 128;
@@ -3196,6 +3205,7 @@ mod Windows {
                         const DEBUG_REQUEST_SET_ADDITIONAL_CREATE_OPTIONS: u32 = 5;
                         const DEBUG_REQUEST_SET_DUMP_HEADER: u32 = 22;
                         const DEBUG_REQUEST_SET_LOCAL_IMPLICIT_COMMAND_LINE: u32 = 9;
+                        const DEBUG_REQUEST_SET_PARENT_HWND: u32 = 40;
                         const DEBUG_REQUEST_SOURCE_PATH_HAS_SOURCE_SERVER: u32 = 0;
                         const DEBUG_REQUEST_TARGET_CAN_DETACH: u32 = 8;
                         const DEBUG_REQUEST_TARGET_EXCEPTION_CONTEXT: u32 = 1;
@@ -3666,6 +3676,27 @@ mod Windows {
                             ErrorClassWarning = 0,
                             ErrorClassError = 1,
                         }
+                        struct ExtendedArrayDimension {
+                            DimensionFlags: u64,
+                            LowerBound: i64,
+                            Length: u64,
+                            Stride: u64,
+                        }
+                        #[repr(i32)]
+                        enum ExtendedArrayDimensionFlags {
+                            ExtendedArrayLengthIsOffset32 = 1,
+                            ExtendedArrayLengthIsOffset64 = 2,
+                            ExtendedArrayLengthIsOffset = 3,
+                            ExtendedArrayLowerBoundIsOffset32 = 4,
+                            ExtendedArrayLowerBoundIsOffset64 = 8,
+                            ExtendedArrayLowerBoundIsOffset = 12,
+                            ExtendedArrayStrideIsOffset32 = 16,
+                            ExtendedArrayStrideIsOffset64 = 32,
+                            ExtendedArrayStrideIsOffset = 48,
+                            ExtendedArrayStrideIsComputedByNextRank = 64,
+                            ExtendedArrayStrideIsComputedByPreviousRank = 128,
+                            ExtendedArrayStrideIsComputed = 192,
+                        }
                         const FAILURE_ANALYSIS_ASSUME_HANG: u32 = 4;
                         const FAILURE_ANALYSIS_AUTOBUG_PROCESSING: u32 = 64;
                         const FAILURE_ANALYSIS_AUTOSET_SYMPATH: u32 = 16384;
@@ -3790,6 +3821,19 @@ mod Windows {
                         struct GET_TEB_ADDRESS {
                             Address: u64,
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1038900292, 63034, 19622, 144, 240, 253, 92, 38, 159, 218, 89)]
+                        interface IActionEnumerator: super::super::super::Com::IUnknown {
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNext(&self, keyName: *mut super::super::super::super::Foundation::BSTR, actionName: *mut super::super::super::super::Foundation::BSTR, actionDescription: *mut super::super::super::super::Foundation::BSTR, actionIsDefault: *mut bool, #[Windows::Win32::Foundation::Metadata::ComOutPtr] actionMethod: *mut IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] metadta: *mut IKeyStore) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2143329439, 25389, 18664, 169, 123, 47, 79, 46, 92, 17, 97)]
+                        interface IActionQueryConcept: super::super::super::Com::IUnknown {
+                            fn EnumerateActions(&self, contextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] actionEnumerator: *mut IActionEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(752455791, 61875, 17507, 130, 138, 10, 221, 175, 232, 186, 174)]
+                        interface IActionableConcept: super::super::super::Com::IUnknown {
+                            fn EnumerateActions(&self, contextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] actionEnumerator: *mut IActionEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(3342275944, 23672, 18944, 164, 171, 110, 248, 130, 49, 132, 203)]
                         interface ICodeAddressConcept: super::super::super::Com::IUnknown {
                             fn GetContainingSymbol(&self, pContextObject: IModelObject, ppSymbol: *mut IDebugHostSymbol) -> super::super::super::super::Foundation::HRESULT;
@@ -3797,6 +3841,10 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::Guid(2810381894, 40716, 18993, 186, 25, 80, 63, 51, 230, 200, 163)]
                         interface IComparableConcept: super::super::super::Com::IUnknown {
                             fn CompareObjects(&self, contextObject: IModelObject, otherObject: IModelObject, comparisonResult: *mut i32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(445909489, 61664, 19272, 154, 78, 87, 131, 84, 143, 181, 122)]
+                        interface IConstructableConcept: super::super::super::Com::IUnknown {
+                            fn CreateInstance(&self, argCount: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] ppArguments: *mut IModelObject, ppInstance: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(4240018717, 4372, 20415, 178, 76, 239, 252, 181, 222, 240, 211)]
                         interface IDataModelConcept: super::super::super::Com::IUnknown {
@@ -3831,6 +3879,15 @@ mod Windows {
                             fn AcquireSubNamespace(&self, #[Windows::Win32::Foundation::Metadata::Const] modelName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] subNamespaceModelName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] accessName: super::super::super::super::Foundation::PWSTR, metadata: IKeyStore, #[Windows::Win32::Foundation::Metadata::ComOutPtr] namespaceModelObject: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
                             fn CreateTypedIntrinsicObjectEx(&self, context: IDebugHostContext, intrinsicData: *mut super::super::super::Variant::VARIANT, r#type: IDebugHostType, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2252528376, 28405, 18259, 181, 63, 216, 58, 92, 238, 129, 0)]
+                        interface IDataModelManager3: IDataModelManager2 {
+                            fn AcquireFilteredSubNamespace(&self, #[Windows::Win32::Foundation::Metadata::Const] modelName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] subNamespaceModelName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] accessName: super::super::super::super::Foundation::PWSTR, metadata: IKeyStore, filter: IModelMethod, #[Windows::Win32::Foundation::Metadata::ComOutPtr] namespaceModelObject: *mut IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] token: *mut IFilteredNamespacePropertyToken) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumerateNamedModels(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppEnumerator: *mut INamedModelsEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2291707287, 14894, 16924, 149, 63, 3, 94, 21, 66, 107, 124)]
+                        interface IDataModelManager4: IDataModelManager3 {
+                            fn CreateSyntheticObjectFromKeyStore(&self, context: IDebugHostContext, parentStore: IKeyStore, #[Windows::Win32::Foundation::Metadata::ComOutPtr] object: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(2939497339, 33426, 19457, 179, 96, 45, 195, 105, 108, 101, 231)]
                         interface IDataModelNameBinder: super::super::super::Com::IUnknown {
                             fn BindValue(&self, contextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::Const] name: super::super::super::super::Foundation::PWSTR, value: *mut IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] metadata: *mut IKeyStore) -> super::super::super::super::Foundation::HRESULT;
@@ -3847,6 +3904,11 @@ mod Windows {
                             fn Unlink(&self) -> super::super::super::super::Foundation::HRESULT;
                             fn IsInvocable(&self, isInvocable: *mut bool) -> super::super::super::super::Foundation::HRESULT;
                             fn InvokeMain(&self, client: IDataModelScriptClient) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2106642305, 48866, 19345, 157, 73, 143, 236, 15, 125, 86, 209)]
+                        interface IDataModelScript2: IDataModelScript {
+                            fn GetScriptFullFilePathName(&self, scriptFullPathName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetScriptFullFilePathName(&self, #[Windows::Win32::Foundation::Metadata::Const] scriptFullPathName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(993405710, 35312, 18118, 166, 99, 223, 220, 149, 25, 74, 239)]
                         interface IDataModelScriptClient: super::super::super::Com::IUnknown {
@@ -4691,6 +4753,107 @@ mod Windows {
                             fn SetEventContextCallbacks(&self, Callbacks: IDebugEventContextCallbacks) -> super::super::super::super::Foundation::HRESULT;
                             fn SetClientContext(&self, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] Context: *mut void, ContextSize: u32) -> super::super::super::super::Foundation::HRESULT;
                             fn OpenDumpFileWide2(&self, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::super::Foundation::PWSTR, FileHandle: u64, AlternateArch: u32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(740609371, 19870, 19956, 138, 112, 61, 55, 68, 13, 17, 159)]
+                        interface IDebugClient9: super::super::super::Com::IUnknown {
+                            fn AttachKernel(&self, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] ConnectOptions: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetKernelConnectionOptions(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferSize: u32, OptionsSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetKernelConnectionOptions(&self, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartProcessServer(&self, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Reserved] Reserved: *mut void) -> super::super::super::super::Foundation::HRESULT;
+                            fn ConnectProcessServer(&self, #[Windows::Win32::Foundation::Metadata::Const] RemoteOptions: super::super::super::super::Foundation::PSTR, Server: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn DisconnectProcessServer(&self, Server: u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRunningProcessSystemIds(&self, Server: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] Ids: *mut u32, Count: u32, ActualCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRunningProcessSystemIdByExecutableName(&self, Server: u64, #[Windows::Win32::Foundation::Metadata::Const] ExeName: super::super::super::super::Foundation::PSTR, Flags: u32, Id: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRunningProcessDescription(&self, Server: u64, SystemId: u32, Flags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] ExeName: super::super::super::super::Foundation::PSTR, ExeNameSize: u32, ActualExeNameSize: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] #[out] Description: super::super::super::super::Foundation::PSTR, DescriptionSize: u32, ActualDescriptionSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AttachProcess(&self, Server: u64, ProcessId: u32, AttachFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            #[Windows::Win32::Foundation::Metadata::Ansi]
+                            fn CreateProcessA(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PSTR, CreateFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcessAndAttach(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PSTR, CreateFlags: u32, ProcessId: u32, AttachFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetProcessOptions(&self, Options: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddProcessOptions(&self, Options: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn RemoveProcessOptions(&self, Options: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetProcessOptions(&self, Options: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OpenDumpFile(&self, #[Windows::Win32::Foundation::Metadata::Const] DumpFile: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn WriteDumpFile(&self, #[Windows::Win32::Foundation::Metadata::Const] DumpFile: super::super::super::super::Foundation::PSTR, Qualifier: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ConnectSession(&self, Flags: u32, HistoryLimit: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartServer(&self, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn OutputServers(&self, OutputControl: u32, #[Windows::Win32::Foundation::Metadata::Const] Machine: super::super::super::super::Foundation::PSTR, Flags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn TerminateProcesses(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn DetachProcesses(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn EndSession(&self, Flags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetExitCode(&self, Code: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn DispatchCallbacks(&self, Timeout: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ExitDispatch(&self, Client: IDebugClient) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateClient(&self, Client: *mut IDebugClient) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetInputCallbacks(&self, Callbacks: *mut IDebugInputCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetInputCallbacks(&self, Callbacks: IDebugInputCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputCallbacks(&self, Callbacks: *mut IDebugOutputCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputCallbacks(&self, Callbacks: IDebugOutputCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputMask(&self, Mask: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputMask(&self, Mask: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOtherOutputMask(&self, Client: IDebugClient, Mask: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOtherOutputMask(&self, Client: IDebugClient, Mask: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputWidth(&self, Columns: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputWidth(&self, Columns: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputLinePrefix(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferSize: u32, PrefixSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputLinePrefix(&self, #[Windows::Win32::Foundation::Metadata::Const] Prefix: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetIdentity(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferSize: u32, IdentitySize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OutputIdentity(&self, OutputControl: u32, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] Format: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetEventCallbacks(&self, Callbacks: *mut IDebugEventCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetEventCallbacks(&self, Callbacks: IDebugEventCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn FlushCallbacks(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn WriteDumpFile2(&self, #[Windows::Win32::Foundation::Metadata::Const] DumpFile: super::super::super::super::Foundation::PSTR, Qualifier: u32, FormatFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] Comment: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDumpInformationFile(&self, #[Windows::Win32::Foundation::Metadata::Const] InfoFile: super::super::super::super::Foundation::PSTR, Type: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn EndProcessServer(&self, Server: u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn WaitForProcessServerEnd(&self, Timeout: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsKernelDebuggerEnabled(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn TerminateCurrentProcess(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn DetachCurrentProcess(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn AbandonCurrentProcess(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRunningProcessSystemIdByExecutableNameWide(&self, Server: u64, #[Windows::Win32::Foundation::Metadata::Const] ExeName: super::super::super::super::Foundation::PWSTR, Flags: u32, Id: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRunningProcessDescriptionWide(&self, Server: u64, SystemId: u32, Flags: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] #[out] ExeName: super::super::super::super::Foundation::PWSTR, ExeNameSize: u32, ActualExeNameSize: *mut u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 7)] #[out] Description: super::super::super::super::Foundation::PWSTR, DescriptionSize: u32, ActualDescriptionSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcessWide(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PWSTR, CreateFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcessAndAttachWide(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PWSTR, CreateFlags: u32, ProcessId: u32, AttachFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OpenDumpFileWide(&self, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::super::Foundation::PWSTR, FileHandle: u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn WriteDumpFileWide(&self, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::super::Foundation::PWSTR, FileHandle: u64, Qualifier: u32, FormatFlags: u32, #[Windows::Win32::Foundation::Metadata::Const] Comment: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn AddDumpInformationFileWide(&self, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::super::Foundation::PWSTR, FileHandle: u64, Type: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNumberDumpFiles(&self, Number: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDumpFile(&self, Index: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferSize: u32, NameSize: *mut u32, Handle: *mut u64, Type: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetDumpFileWide(&self, Index: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 2)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, NameSize: *mut u32, Handle: *mut u64, Type: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn AttachKernelWide(&self, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] ConnectOptions: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetKernelConnectionOptionsWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, OptionsSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetKernelConnectionOptionsWide(&self, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartProcessServerWide(&self, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Reserved] Reserved: *mut void) -> super::super::super::super::Foundation::HRESULT;
+                            fn ConnectProcessServerWide(&self, #[Windows::Win32::Foundation::Metadata::Const] RemoteOptions: super::super::super::super::Foundation::PWSTR, Server: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn StartServerWide(&self, #[Windows::Win32::Foundation::Metadata::Const] Options: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn OutputServersWide(&self, OutputControl: u32, #[Windows::Win32::Foundation::Metadata::Const] Machine: super::super::super::super::Foundation::PWSTR, Flags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputCallbacksWide(&self, Callbacks: *mut IDebugOutputCallbacksWide) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputCallbacksWide(&self, Callbacks: IDebugOutputCallbacksWide) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOutputLinePrefixWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, PrefixSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetOutputLinePrefixWide(&self, #[Windows::Win32::Foundation::Metadata::Const] Prefix: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetIdentityWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, IdentitySize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OutputIdentityWide(&self, OutputControl: u32, Flags: u32, #[Windows::Win32::Foundation::Metadata::Const] Format: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetEventCallbacksWide(&self, Callbacks: *mut IDebugEventCallbacksWide) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetEventCallbacksWide(&self, Callbacks: IDebugEventCallbacksWide) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcess2(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] OptionsBuffer: *mut void, OptionsBufferSize: u32, #[Windows::Win32::Foundation::Metadata::Const] InitialDirectory: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Environment: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcess2Wide(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] OptionsBuffer: *mut void, OptionsBufferSize: u32, #[Windows::Win32::Foundation::Metadata::Const] InitialDirectory: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Environment: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcessAndAttach2(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] OptionsBuffer: *mut void, OptionsBufferSize: u32, #[Windows::Win32::Foundation::Metadata::Const] InitialDirectory: super::super::super::super::Foundation::PSTR, #[Windows::Win32::Foundation::Metadata::Const] Environment: super::super::super::super::Foundation::PSTR, ProcessId: u32, AttachFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn CreateProcessAndAttach2Wide(&self, Server: u64, CommandLine: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 3)] OptionsBuffer: *mut void, OptionsBufferSize: u32, #[Windows::Win32::Foundation::Metadata::Const] InitialDirectory: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::Const] Environment: super::super::super::super::Foundation::PWSTR, ProcessId: u32, AttachFlags: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn PushOutputLinePrefix(&self, #[Windows::Win32::Foundation::Metadata::Const] NewPrefix: super::super::super::super::Foundation::PSTR, Handle: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn PushOutputLinePrefixWide(&self, #[Windows::Win32::Foundation::Metadata::Const] NewPrefix: super::super::super::super::Foundation::PWSTR, Handle: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn PopOutputLinePrefix(&self, Handle: u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNumberInputCallbacks(&self, Count: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNumberOutputCallbacks(&self, Count: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNumberEventCallbacks(&self, EventFlags: u32, Count: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetQuitLockString(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PSTR, BufferSize: u32, StringSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetQuitLockString(&self, #[Windows::Win32::Foundation::Metadata::Const] String: super::super::super::super::Foundation::PSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetQuitLockStringWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, StringSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetQuitLockStringWide(&self, #[Windows::Win32::Foundation::Metadata::Const] String: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetEventContextCallbacks(&self, Callbacks: IDebugEventContextCallbacks) -> super::super::super::super::Foundation::HRESULT;
+                            fn SetClientContext(&self, #[Windows::Win32::Foundation::Metadata::MemorySize(BytesParamIndex = 1)] Context: *mut void, ContextSize: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OpenDumpFileWide2(&self, #[Windows::Win32::Foundation::Metadata::Const] FileName: super::super::super::super::Foundation::PWSTR, FileHandle: u64, AlternateArch: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OpenDumpDirectoryWide(&self, #[Windows::Win32::Foundation::Metadata::Const] DirName: super::super::super::super::Foundation::PWSTR, AlternateArch: u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn OpenDumpDirectory(&self, #[Windows::Win32::Foundation::Metadata::Const] DumpDir: super::super::super::super::Foundation::PSTR, AlternativeArch: u32) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(1367533160, 4190, 16750, 173, 146, 36, 239, 128, 4, 36, 186)]
                         interface IDebugControl: super::super::super::Com::IUnknown {
@@ -5986,6 +6149,11 @@ mod Windows {
                         interface IDebugHostBaseClass: IDebugHostSymbol {
                             fn GetOffset(&self, offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1129603298, 64827, 17013, 179, 108, 136, 239, 80, 24, 133, 136)]
+                        interface IDebugHostBaseClass2: IDebugHostBaseClass {
+                            fn IsVirtual(&self, pIsVirtual: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetVirtualBaseOffsetLocation(&self, pTableOffset: *mut i64, pSlotOffset: *mut i64, pSlotSize: *mut u64, pSlotIsSigned: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(1652063964, 64118, 18064, 189, 113, 94, 140, 62, 41, 55, 236)]
                         interface IDebugHostConstant: IDebugHostSymbol {
                             fn GetValue(&self, value: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
@@ -5993,6 +6161,38 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::Guid(2794221784, 24256, 18149, 183, 117, 49, 52, 164, 142, 162, 227)]
                         interface IDebugHostContext: super::super::super::Com::IUnknown {
                             fn IsEqualTo(&self, pContext: IDebugHostContext, pIsEqual: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3911349410, 18420, 17720, 161, 150, 184, 61, 178, 95, 228, 3)]
+                        interface IDebugHostContext2: IDebugHostContext {
+                            fn GetAddressSpaceRelation(&self, pContext: IDebugHostContext2, pAddressSpaceRelation: *mut AddressSpaceRelation) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1661071080, 34275, 16472, 167, 192, 211, 126, 14, 166, 95, 117)]
+                        interface IDebugHostContextAlternator: super::super::super::Com::IUnknown {
+                            fn SwitchTo(&self, fullSwitch: u8) -> super::super::super::super::Foundation::HRESULT;
+                            fn SwitchBack(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(4005100355, 46158, 19215, 184, 113, 101, 240, 136, 111, 202, 242)]
+                        interface IDebugHostContextControl: super::super::super::Com::IUnknown {
+                            fn SwitchTo(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetContextAlternator(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] contextAlternator: *mut IDebugHostContextAlternator) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(900632128, 62004, 20209, 184, 234, 13, 251, 197, 138, 32, 67)]
+                        interface IDebugHostContextExtensibility: super::super::super::Com::IUnknown {
+                            fn HasExtensionData(&self, blobId: u32) -> bool;
+                            fn ReadExtensionData(&self, blobId: u32, bufferSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] buffer: *mut void) -> super::super::super::super::Foundation::HRESULT;
+                            fn CloneContextForModification(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] extensionHandle: *mut IDebugHostContextExtension) -> super::super::super::super::Foundation::HRESULT;
+                            fn CloneContextWithModification(&self, blobId: u32, dataSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] data: *mut void, #[Windows::Win32::Foundation::Metadata::ComOutPtr] clonedContext: *mut IDebugHostContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1583812957, 21577, 17747, 169, 233, 202, 68, 101, 120, 202, 178)]
+                        interface IDebugHostContextExtension: super::super::super::Com::IUnknown {
+                            fn AddExtensionData(&self, blobId: u32, dataSize: u32, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] data: *mut void) -> super::super::super::super::Foundation::HRESULT;
+                            fn FinalizeContext(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] immutableContext: *mut IDebugHostContext) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1023838095, 38827, 19547, 149, 94, 250, 100, 125, 59, 19, 124)]
+                        interface IDebugHostContextTargetComposition: super::super::super::Com::IUnknown {
+                            fn GetServiceManager(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppServiceManager: *mut *mut IDebugServiceManager) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetServiceProcess(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppProcess: *mut *mut ISvcProcess) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetServiceThread(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppThread: *mut *mut ISvcThread) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(2748729747, 33388, 17658, 137, 125, 146, 111, 47, 231, 173, 11)]
                         interface IDebugHostData: IDebugHostSymbol {
@@ -6013,10 +6213,24 @@ mod Windows {
                         interface IDebugHostEvaluator2: IDebugHostEvaluator {
                             fn AssignTo(&self, assignmentReference: IModelObject, assignmentValue: IModelObject, assignmentResult: *mut IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] assignmentMetadata: *mut IKeyStore) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3527515978, 32397, 19477, 164, 153, 115, 144, 43, 1, 90, 187)]
+                        interface IDebugHostEvaluator3: IDebugHostEvaluator2 {
+                            fn Compare(&self, pLeft: IModelObject, pRight: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppResult: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(1009460449, 4560, 20358, 138, 229, 77, 241, 102, 247, 50, 83)]
                         interface IDebugHostExtensibility: super::super::super::Com::IUnknown {
                             fn CreateFunctionAlias(&self, #[Windows::Win32::Foundation::Metadata::Const] aliasName: super::super::super::super::Foundation::PWSTR, functionObject: IModelObject) -> super::super::super::super::Foundation::HRESULT;
                             fn DestroyFunctionAlias(&self, #[Windows::Win32::Foundation::Metadata::Const] aliasName: super::super::super::super::Foundation::PWSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2446087655, 10786, 17556, 151, 16, 183, 41, 218, 180, 143, 113)]
+                        interface IDebugHostExtensibility2: IDebugHostExtensibility {
+                            fn CreateFunctionAliasWithMetadata(&self, #[Windows::Win32::Foundation::Metadata::Const] aliasName: super::super::super::super::Foundation::PWSTR, functionObject: IModelObject, metadata: IKeyStore) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1273115870, 54167, 17272, 187, 180, 144, 85, 164, 37, 215, 209)]
+                        interface IDebugHostExtensibility3: IDebugHostExtensibility2 {
+                            fn ExtendHostContext(&self, blobSize: u32, #[Windows::Win32::Foundation::Metadata::Const] identifier: *mut GUID, blobId: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn QueryHostContextExtension(&self, #[Windows::Win32::Foundation::Metadata::Const] identifier: *mut GUID, blobId: *mut u32, blobSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn ReleaseHostContextExtension(&self, blobId: u32) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(3765396629, 5820, 19657, 177, 29, 42, 107, 35, 250, 114, 243)]
                         interface IDebugHostField: IDebugHostSymbol {
@@ -6024,6 +6238,59 @@ mod Windows {
                             fn GetOffset(&self, offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
                             fn GetLocation(&self, location: *mut Location) -> super::super::super::super::Foundation::HRESULT;
                             fn GetValue(&self, value: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2571536907, 60050, 19412, 158, 254, 162, 102, 22, 5, 120, 202)]
+                        interface IDebugHostField2: IDebugHostField {
+                            fn GetContainingType(&self, containingParentType: *mut IDebugHostType3) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2807314748, 20414, 16760, 138, 213, 254, 96, 121, 172, 4, 141)]
+                        interface IDebugHostFunctionIntrospection: super::super::super::Com::IUnknown {
+                            fn EnumerateLocalsDetails(&self, localsEnum: *mut IDebugHostFunctionLocalDetailsEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumerateInlineFunctionsByRVA(&self, rva: u64, inlinesEnum: *mut IDebugHostSymbolEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn FindContainingCodeRangeByRVA(&self, rva: u64, rangeStart: *mut Location, rangeEnd: *mut Location) -> super::super::super::super::Foundation::HRESULT;
+                            fn FindSourceLocationByRVA(&self, rva: u64, sourceFile: *mut super::super::super::super::Foundation::BSTR, sourceLine: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2384245016, 43651, 16538, 170, 233, 199, 255, 120, 145, 26, 95)]
+                        interface IDebugHostFunctionIntrospection2: IDebugHostFunctionIntrospection {
+                            fn EnumerateLocalsDetailsEx(&self, enumerateInlinedLocals: u8, localsEnum: *mut IDebugHostFunctionLocalDetailsEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2723031147, 35098, 16636, 138, 58, 137, 182, 110, 221, 206, 87)]
+                        interface IDebugHostFunctionIntrospection3: IDebugHostFunctionIntrospection2 {
+                            fn IsNoReturnFunction(&self, pIsNoReturnFunction: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2301103784, 46009, 16524, 190, 22, 50, 171, 40, 245, 192, 172)]
+                        interface IDebugHostFunctionLocalDetails: super::super::super::Com::IUnknown {
+                            fn GetName(&self, name: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetType(&self, localType: *mut IDebugHostType) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumerateStorage(&self, storageEnum: *mut IDebugHostFunctionLocalStorageEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetLocalKind(&self, kind: *mut LocalKind) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetArgumentPosition(&self, argPosition: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(429545392, 6503, 17251, 178, 94, 144, 199, 232, 160, 127, 34)]
+                        interface IDebugHostFunctionLocalDetails2: IDebugHostFunctionLocalDetails {
+                            fn IsInlineScope(&self) -> bool;
+                            fn GetInlinedFunction(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] inlineFunction: *mut IDebugHostSymbol) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2786778166, 7893, 16638, 169, 118, 106, 33, 205, 129, 232, 17)]
+                        interface IDebugHostFunctionLocalDetailsEnumerator: super::super::super::Com::IUnknown {
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNext(&self, localDetails: *mut IDebugHostFunctionLocalDetails) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(791621691, 14782, 19309, 155, 251, 79, 170, 73, 219, 189, 69)]
+                        interface IDebugHostFunctionLocalStorage: super::super::super::Com::IUnknown {
+                            fn GetValidRange(&self, start: *mut u64, end: *mut u64, guaranteed: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetStorageKind(&self, kind: *mut StorageKind) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetRegister(&self, registerId: *mut u32) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetOffset(&self, offset: *mut i64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(557528869, 13986, 17824, 158, 164, 133, 77, 70, 216, 81, 149)]
+                        interface IDebugHostFunctionLocalStorage2: super::super::super::Com::IUnknown {
+                            fn GetExtendedRegisterAddressInfo(&self, registerId: *mut u32, offset: *mut i64, isIndirectAccess: *mut bool, indirectOffset: *mut i32) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(40672897, 35743, 19762, 150, 6, 163, 148, 236, 98, 176, 69)]
+                        interface IDebugHostFunctionLocalStorageEnumerator: super::super::super::Com::IUnknown {
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNext(&self, storage: *mut IDebugHostFunctionLocalStorage) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(555829705, 37251, 19006, 176, 14, 79, 209, 220, 149, 51, 155)]
                         interface IDebugHostMemory: super::super::super::Com::IUnknown {
@@ -6037,6 +6304,20 @@ mod Windows {
                         interface IDebugHostMemory2: IDebugHostMemory {
                             fn LinearizeLocation(&self, context: IDebugHostContext, location: Location, pLinearizedLocation: *mut Location) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2769677577, 11251, 17561, 187, 3, 85, 55, 144, 7, 159, 132)]
+                        interface IDebugHostMemory3: IDebugHostMemory2 {
+                            fn CanonicalizeLocation(&self, context: IDebugHostContext, location: Location, pCanonicalizedLocation: *mut Location) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(4268439128, 55883, 17635, 138, 88, 98, 1, 50, 34, 128, 230)]
+                        interface IDebugHostMemory4: IDebugHostMemory3 {
+                            fn GetPhysicalAddressLocation(&self, physAddr: u64, pPhysicalAddressLocation: *mut Location) -> super::super::super::super::Foundation::HRESULT;
+                            fn IsPhysicalAddressLocation(&self, pLocation: *mut Location) -> bool;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3741529088, 18706, 18153, 186, 98, 110, 242, 235, 77, 135, 212)]
+                        interface IDebugHostMemory5: IDebugHostMemory4 {
+                            fn ReadIntrinsics(&self, context: IDebugHostContext, location: Location, vt: u16, count: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 3)] vals: *mut super::super::super::Variant::VARIANT, intrinsicsRead: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn ReadOrdinalIntrinsics(&self, context: IDebugHostContext, location: Location, ordinalSize: u64, ordinalIsSigned: u8, count: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 4)] vals: *mut super::super::super::Variant::VARIANT, intrinsicsRead: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(3384426008, 53360, 17272, 187, 208, 52, 97, 59, 52, 110, 30)]
                         interface IDebugHostModule: IDebugHostSymbol {
                             fn GetImageName(&self, allowPath: u8, imageName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
@@ -6049,6 +6330,18 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::Guid(3038283752, 48336, 20111, 168, 199, 67, 67, 152, 183, 140, 55)]
                         interface IDebugHostModule2: IDebugHostModule {
                             fn FindContainingSymbolByRVA(&self, rva: u64, symbol: *mut IDebugHostSymbol, offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1750557719, 40875, 19561, 137, 119, 58, 77, 135, 207, 8, 253)]
+                        interface IDebugHostModule3: IDebugHostModule2 {
+                            fn GetRange(&self, moduleStart: *mut Location, moduleEnd: *mut Location) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1094799670, 14500, 18255, 142, 152, 87, 226, 220, 100, 229, 101)]
+                        interface IDebugHostModule4: IDebugHostModule3 {
+                            fn FindTypeByName2(&self, pEnclosingSymbol: IDebugHostSymbol, #[Windows::Win32::Foundation::Metadata::Const] typeName: super::super::super::super::Foundation::PWSTR, r#type: *mut IDebugHostType) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3979781693, 44331, 18046, 160, 202, 76, 169, 73, 53, 118, 37)]
+                        interface IDebugHostModule5: IDebugHostModule4 {
+                            fn GetPrimaryCompilerInformation(&self, pCompilerId: *mut KnownCompiler, pPrimaryCompilerString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(837106266, 494, 19387, 184, 153, 75, 70, 174, 125, 89, 92)]
                         interface IDebugHostModuleSignature: super::super::super::Com::IUnknown {
@@ -6067,6 +6360,11 @@ mod Windows {
                         interface IDebugHostStatus: super::super::super::Com::IUnknown {
                             fn PollUserInterrupt(&self, interruptRequested: *mut bool) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1242991935, 1232, 18884, 143, 154, 123, 91, 49, 8, 198, 198)]
+                        interface IDebugHostStatus2: IDebugHostStatus {
+                            fn SetUserInterrupt(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn ClearUserInterrupt(&self) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(260149507, 34782, 20118, 130, 119, 224, 92, 212, 65, 251, 34)]
                         interface IDebugHostSymbol: super::super::super::Com::IUnknown {
                             fn GetContext(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] context: *mut IDebugHostContext) -> super::super::super::super::Foundation::HRESULT;
@@ -6081,10 +6379,18 @@ mod Windows {
                         interface IDebugHostSymbol2: IDebugHostSymbol {
                             fn GetLanguage(&self, pKind: *mut LanguageKind) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(457163187, 53309, 17376, 142, 176, 154, 164, 186, 162, 30, 219)]
+                        interface IDebugHostSymbol3: IDebugHostSymbol2 {
+                            fn GetCompilerInformation(&self, pCompilerId: *mut KnownCompiler, pCompilerString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(685337734, 4259, 18806, 177, 78, 234, 239, 71, 144, 170, 31)]
                         interface IDebugHostSymbolEnumerator: super::super::super::Com::IUnknown {
                             fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
                             fn GetNext(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] symbol: *mut IDebugHostSymbol) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3567185128, 36114, 19681, 171, 115, 229, 182, 61, 244, 249, 211)]
+                        interface IDebugHostSymbolSubstitutionEnumerator: IDebugHostSymbolEnumerator {
+                            fn GetNextWithSubstitutionText(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] symbol: *mut IDebugHostSymbol, symbolText: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(2236602193, 49889, 20146, 181, 37, 102, 25, 203, 151, 165, 136)]
                         interface IDebugHostSymbols: super::super::super::Com::IUnknown {
@@ -6095,6 +6401,20 @@ mod Windows {
                             fn FindModuleByName(&self, context: IDebugHostContext, #[Windows::Win32::Foundation::Metadata::Const] moduleName: super::super::super::super::Foundation::PWSTR, #[Windows::Win32::Foundation::Metadata::ComOutPtr] module: *mut IDebugHostModule) -> super::super::super::super::Foundation::HRESULT;
                             fn FindModuleByLocation(&self, context: IDebugHostContext, moduleLocation: Location, #[Windows::Win32::Foundation::Metadata::ComOutPtr] module: *mut IDebugHostModule) -> super::super::super::super::Foundation::HRESULT;
                             fn GetMostDerivedObject(&self, pContext: IDebugHostContext, location: Location, objectType: IDebugHostType, derivedLocation: *mut Location, derivedType: *mut IDebugHostType) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1806638920, 26094, 20466, 179, 175, 16, 199, 242, 29, 56, 178)]
+                        interface IDebugHostSymbols2: IDebugHostSymbols {
+                            fn DemangleSymbolName(&self, pSymbol: IDebugHostSymbol, flags: u32, pDemangledSymbolName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1011575517, 32993, 19499, 175, 225, 154, 17, 50, 88, 109, 208)]
+                        interface IDebugHostSymbolsTargetComposition: super::super::super::Com::IUnknown {
+                            fn GetTypeForServiceType(&self, pServiceManager: *mut IDebugServiceManager, pModule: *mut ISvcModule, pType: *mut ISvcSymbolType, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppHostType: *mut IDebugHostType) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(4104140224, 19616, 19309, 191, 210, 179, 120, 160, 219, 254, 76)]
+                        interface IDebugHostTaggedUnionRangeEnumerator: super::super::super::Com::IUnknown {
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNext(&self, pLow: *mut super::super::super::Variant::VARIANT, pHigh: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetCount(&self, pCount: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(984466259, 11028, 19131, 152, 147, 94, 3, 69, 142, 7, 238)]
                         interface IDebugHostType: IDebugHostSymbol {
@@ -6125,6 +6445,26 @@ mod Windows {
                             fn GetTypedefFinalBaseType(&self, finalBaseType: *mut IDebugHostType2) -> super::super::super::super::Foundation::HRESULT;
                             fn GetFunctionVarArgsKind(&self, varArgsKind: *mut VarArgsKind) -> super::super::super::super::Foundation::HRESULT;
                             fn GetFunctionInstancePointerType(&self, instancePointerType: *mut IDebugHostType2) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2332297644, 49595, 17213, 136, 122, 237, 18, 195, 175, 14, 125)]
+                        interface IDebugHostType3: IDebugHostType2 {
+                            fn GetContainingType(&self, containingParentType: *mut IDebugHostType3) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2010369478, 48469, 17087, 164, 253, 217, 170, 96, 227, 193, 225)]
+                        interface IDebugHostType4: IDebugHostType3 {
+                            fn GetExtendedArrayHeaderSize(&self, headerSize: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetExtendedArrayDimensions(&self, dimensions: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 0)] pDimensions: *mut ExtendedArrayDimension) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetUDTKind(&self, udtKind: *mut UDTKind) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3680966350, 36584, 19590, 137, 219, 166, 88, 145, 92, 135, 244)]
+                        interface IDebugHostType5: IDebugHostType4 {
+                            fn IsBaseTypeOf(&self, pOtherType: IDebugHostType, pIsBase: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(146026989, 63108, 17536, 140, 68, 181, 67, 170, 50, 206, 176)]
+                        interface IDebugHostType6: IDebugHostType5 {
+                            fn GetTaggedUnionTag(&self, pTagType: *mut IDebugHostType, pTagOffset: *mut u32, pTagMask: *mut super::super::super::Variant::VARIANT) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetTaggedUnionTagRanges(&self, pTagRangeEnumerator: *mut IDebugHostTaggedUnionRangeEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn UpcastToTaggedUnionType(&self, pTaggedUnionType: IDebugHostType, pUpcastedCaseType: *mut IDebugHostType) -> super::super::super::super::Foundation::HRESULT;
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(984466259, 11028, 19131, 152, 147, 94, 3, 69, 142, 7, 238)]
                         interface IDebugHostTypeSignature: super::super::super::Com::IUnknown {
@@ -6220,6 +6560,10 @@ mod Windows {
                             fn GetInstructionOffset2(&self, Source: u32, Offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
                             fn GetStackOffset2(&self, Source: u32, Offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
                             fn GetFrameOffset2(&self, Source: u32, Offset: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct IDebugServiceManager {
+                            Value: isize,
                         }
                         #[Windows::Win32::Foundation::Metadata::Guid(4065493782, 3866, 17457, 174, 237, 17, 208, 150, 225, 226, 171)]
                         interface IDebugSymbolGroup: super::super::super::Com::IUnknown {
@@ -6929,6 +7273,12 @@ mod Windows {
                             fn GetCurrentProcessExecutableNameWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, ExeSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                             fn GetCurrentSystemServerNameWide(&self, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] #[out] Buffer: super::super::super::super::Foundation::PWSTR, BufferSize: u32, NameSize: *mut u32) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(4153938846, 6956, 16503, 141, 135, 159, 165, 208, 68, 243, 235)]
+                        interface IDeconstructableConcept: super::super::super::Com::IUnknown {
+                            fn GetConstructableModelName(&self, contextObject: IModelObject, constructableModelName: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetConstructorArgumentCount(&self, contextObject: IModelObject, argCount: *mut u64) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetConstructorArguments(&self, contextObject: IModelObject, argCount: u64, #[Windows::Win32::Foundation::Metadata::NativeArrayInfo(CountParamIndex = 1)] constructorArguments: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(2510813149, 24622, 18495, 157, 6, 161, 92, 14, 225, 49, 116)]
                         interface IDynamicConceptProviderConcept: super::super::super::Com::IUnknown {
                             fn GetConcept(&self, contextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::Const] conceptId: *mut GUID, #[Windows::Win32::Foundation::Metadata::ComOutPtr] conceptInterface: *mut super::super::super::Com::IUnknown, #[Windows::Win32::Foundation::Metadata::ComOutPtr] conceptMetadata: *mut IKeyStore, hasConcept: *mut bool) -> super::super::super::super::Foundation::HRESULT;
@@ -6946,6 +7296,12 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::Guid(3308084541, 24733, 19805, 138, 130, 70, 176, 172, 222, 196, 244)]
                         interface IEquatableConcept: super::super::super::Com::IUnknown {
                             fn AreObjectsEqual(&self, contextObject: IModelObject, otherObject: IModelObject, isEqual: *mut bool) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::Guid(1669539842, 11699, 19943, 183, 108, 25, 122, 193, 91, 94, 198)]
+                        interface IFilteredNamespacePropertyToken: super::super::super::Com::IUnknown {
+                            fn RemoveFilter(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetFilter(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppFilter: *mut IModelMethod) -> super::super::super::super::Foundation::HRESULT;
+                            fn TrySetFilter(&self, pFilter: IModelMethod) -> super::super::super::super::Foundation::HRESULT;
                         }
                         const IG_DISASSEMBLE_BUFFER: u32 = 44;
                         const IG_DUMP_SYMBOL_INFO: u32 = 22;
@@ -7084,6 +7440,12 @@ mod Windows {
                             fn Compare(&self, other: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppResult: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
                             fn IsEqualTo(&self, other: IModelObject, equal: *mut bool) -> super::super::super::super::Foundation::HRESULT;
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(3592296948, 43837, 17220, 159, 123, 9, 147, 243, 213, 135, 69)]
+                        interface IModelObject2: IModelObject {
+                            fn EnumerateOwnKeyValues(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppEnumerator: *mut IKeyEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumerateOwnKeys(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppEnumerator: *mut IKeyEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                            fn EnumerateOwnKeyReferences(&self, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppEnumerator: *mut IKeyEnumerator) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(1510761433, 1318, 17080, 150, 12, 149, 22, 163, 37, 76, 133)]
                         interface IModelPropertyAccessor: super::super::super::Com::IUnknown {
                             fn GetValue(&self, #[Windows::Win32::Foundation::Metadata::Const] key: super::super::super::super::Foundation::PWSTR, contextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] value: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
@@ -7100,6 +7462,11 @@ mod Windows {
                             FrameSignature: u16,
                         }
                         const INSUFFICIENT_SPACE_TO_COPY: u32 = 10;
+                        #[Windows::Win32::Foundation::Metadata::Guid(1203502091, 2848, 19980, 136, 43, 70, 93, 108, 202, 201, 124)]
+                        interface INamedModelsEnumerator: super::super::super::Com::IUnknown {
+                            fn Reset(&self) -> super::super::super::super::Foundation::HRESULT;
+                            fn GetNext(&self, pModelName: *mut super::super::super::super::Foundation::BSTR, #[Windows::Win32::Foundation::Metadata::ComOutPtr] ppModel: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         struct IOSPACE {
                             Address: u32,
                             Length: u32,
@@ -7139,6 +7506,10 @@ mod Windows {
                             BusNumber: u32,
                             AddressSpace: u32,
                         }
+                        #[Windows::Win32::Foundation::Metadata::Guid(2761239641, 28996, 19574, 135, 59, 96, 70, 192, 149, 95, 252)]
+                        interface IObjectWrapperConcept: super::super::super::Com::IUnknown {
+                            fn GetWrappedObject(&self, pContextObject: IModelObject, #[Windows::Win32::Foundation::Metadata::ComOutPtr] wrappedObject: *mut IModelObject, pUsagePreference: *mut WrappedObjectPreference) -> super::super::super::super::Foundation::HRESULT;
+                        }
                         #[Windows::Win32::Foundation::Metadata::Guid(2641108347, 42863, 17944, 128, 104, 95, 118, 189, 154, 78, 138)]
                         interface IPreferredRuntimeTypeConcept: super::super::super::Com::IUnknown {
                             fn CastToPreferredRuntimeType(&self, contextObject: IModelObject, object: *mut IModelObject) -> super::super::super::super::Foundation::HRESULT;
@@ -7151,6 +7522,26 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::Guid(3532557680, 27648, 16901, 148, 13, 80, 16, 22, 96, 30, 163)]
                         interface IStringDisplayableConcept: super::super::super::Com::IUnknown {
                             fn ToDisplayString(&self, contextObject: IModelObject, metadata: IKeyStore, displayString: *mut super::super::super::super::Foundation::BSTR) -> super::super::super::super::Foundation::HRESULT;
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct ISvcExecutionUnit {
+                            Value: isize,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct ISvcModule {
+                            Value: isize,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct ISvcProcess {
+                            Value: isize,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct ISvcSymbolType {
+                            Value: isize,
+                        }
+                        #[Windows::Win32::Foundation::Metadata::NativeTypedef]
+                        struct ISvcThread {
+                            Value: isize,
                         }
                         #[repr(i32)]
                         enum IntrinsicKind {
@@ -7473,11 +7864,25 @@ mod Windows {
                         const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1;
                         const KD_SECONDARY_VERSION_DEFAULT: u32 = 0;
                         #[repr(i32)]
+                        enum KnownCompiler {
+                            CompilerUnknown = 0,
+                            CompilerMSVC = 1,
+                            CompilerGCC = 2,
+                            CompilerClang = 3,
+                            CompilerRustC = 4,
+                        }
+                        #[repr(i32)]
                         enum LanguageKind {
                             LanguageUnknown = 0,
                             LanguageC = 1,
                             LanguageCPP = 2,
                             LanguageAssembly = 3,
+                            LanguageRust = 4,
+                        }
+                        #[repr(i32)]
+                        enum LocalKind {
+                            LocalArgument = 0,
+                            LocalVariable = 1,
                         }
                         #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/WMP/location-attribute")]
                         struct Location {
@@ -7641,6 +8046,24 @@ mod Windows {
                             MatchOffsets: *mut u64,
                             MatchOffsetsSize: u32,
                             MatchOffsetsCount: u32,
+                        }
+                        #[repr(i32)]
+                        enum POOL_HEADER_FIELD_NAME {
+                            DbgkdPreviousSize = 0,
+                            DbgkdPoolIndex = 1,
+                            DbgkdBlockSize = 2,
+                            DbgkdPoolType = 3,
+                            DbgkdUlong1 = 4,
+                        }
+                        union POOL_HEADER_SIZE_64 {
+                            Anonymous: POOL_HEADER_SIZE_64_0,
+                            Ulong1: u32,
+                        }
+                        struct POOL_HEADER_SIZE_64_0 {
+                            UnsafePrevSize: u8,
+                            Unused1: u8,
+                            UnsafeSize: u8,
+                            UnsafePoolType: u8,
                         }
                         struct PROCESSORINFO {
                             Processor: u16,
@@ -7882,6 +8305,13 @@ mod Windows {
                             Identical = 4,
                         }
                         #[repr(i32)]
+                        enum StorageKind {
+                            StorageUnknown = 0,
+                            StorageRegister = 1,
+                            StorageRegisterRelative = 2,
+                            StorageRegisterRelativeIndirect = 3,
+                        }
+                        #[repr(i32)]
                         enum SymbolKind {
                             Symbol = 0,
                             SymbolModule = 1,
@@ -7964,6 +8394,14 @@ mod Windows {
                             TypeEnum = 6,
                             TypeIntrinsic = 7,
                             TypeExtendedArray = 8,
+                        }
+                        #[repr(i32)]
+                        enum UDTKind {
+                            UDTStruct = 0,
+                            UDTClass = 1,
+                            UDTUnion = 2,
+                            UDTInterface = 3,
+                            UDTTaggedUnion = 4,
                         }
                         const UNAVAILABLE_ERROR: u32 = 12;
                         struct VIRTUAL_TO_PHYSICAL {
@@ -8082,6 +8520,11 @@ mod Windows {
                             lpGetSymbolRoutine: PWINDBG_GET_SYMBOL,
                             lpDisasmRoutine: PWINDBG_DISASM,
                             lpCheckControlCRoutine: PWINDBG_CHECK_CONTROL_C,
+                        }
+                        #[repr(i32)]
+                        enum WrappedObjectPreference {
+                            WrappedObjectNameResolution = 0,
+                            WrappedObjectGeneralProxy = 1,
                         }
                         struct XML_DRIVER_NODE_INFO {
                             FileName: [super::super::super::super::Foundation::CHAR; 64],
@@ -8738,9 +9181,11 @@ mod Windows {
                         CLUSTER_CSV_STATE_TRANSITION_INTERVAL_TIMEOUT_LIVEDUMP = 367,
                         CLUSTER_CSV_CLUSSVC_DISCONNECT_WATCHDOG = 368,
                         CRYPTO_LIBRARY_INTERNAL_ERROR = 369,
+                        SECURE_KERNEL_HIBERNATE_ERROR = 370,
                         COREMSGCALL_INTERNAL_ERROR = 371,
                         COREMSG_INTERNAL_ERROR = 372,
                         PREVIOUS_FATAL_ABNORMAL_RESET_ERROR = 373,
+                        STORAGE_STACK_FATAL_ERROR = 374,
                         ELAM_DRIVER_DETECTED_FATAL_ERROR = 376,
                         CLUSTER_CLUSPORT_STATUS_IO_TIMEOUT_LIVEDUMP = 377,
                         PROFILER_CONFIGURATION_ILLEGAL = 379,
@@ -8842,14 +9287,28 @@ mod Windows {
                         KASAN_ILLEGAL_ACCESS = 498,
                         IORING = 499,
                         MDL_CACHE = 500,
+                        APPLICATION_HANG_KERNEL_LIVEDUMP = 501,
                         MISALIGNED_POINTER_PARAMETER = 502,
                         MSSECCORE_ASSERTION_FAILURE = 503,
+                        INVALID_MINIMAL_PROCESS_STATE = 504,
+                        PREVIOUS_MODE_MISMATCH = 505,
+                        SMB_SRV_REQUEST_VALIDATION_FAILURE = 506,
+                        IOMMU_INTERRUPT_REMAPPING_FAULT = 507,
+                        WIN32K_CALLOUT_UNREGISTER_FAILED = 508,
+                        HAL_SPE_INTERNAL_ERROR = 509,
+                        SMB_CLIENT_REQUEST_VALIDATION_FAILURE = 510,
+                        CPU_SCHEDULER_INTERNAL_ERROR = 512,
+                        PROCESS_TERMINATE_LIKELY_DEADLOCK = 513,
+                        UNEXPECTED_CODEPATH = 514,
+                        INVALID_EXTENSION_STATE = 515,
+                        STORAGE_DRIVER_LIVEDUMP = 519,
                         XBOX_VMCTRL_CS_TIMEOUT = 854,
                         XBOX_CORRUPTED_IMAGE = 855,
                         XBOX_INVERTED_FUNCTION_TABLE_OVERFLOW = 856,
                         XBOX_CORRUPTED_IMAGE_BASE = 857,
                         XBOX_XDS_WATCHDOG_TIMEOUT = 858,
                         XBOX_SHUTDOWN_WATCHDOG_TIMEOUT = 859,
+                        XBOX_CANNOT_MANAGE_PARTITION_MEMORY = 861,
                         XBOX_360_SYSTEM_CRASH = 864,
                         XBOX_360_SYSTEM_CRASH_RESERVED = 1056,
                         XBOX_SECURITY_FAILUE = 1057,
@@ -9257,6 +9716,89 @@ mod Windows {
                         UNLOAD_DLL_DEBUG_EVENT = 7,
                     }
                     extern fn DIGEST_FUNCTION(refdata: *mut void, pData: *mut u8, dwLength: u32) -> super::super::super::Foundation::BOOL;
+                    union DIMM_ADDRESS {
+                        Ddr4: DIMM_ADDRESS_0,
+                        Ddr5: DIMM_ADDRESS_1,
+                    }
+                    struct DIMM_ADDRESS_0 {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SocketId", 0, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MemoryControllerId", 4, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChannelId", 6, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmSlot", 8, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmRank", 10, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Device", 12, 5)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChipSelect", 17, 3)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Bank", 20, 8)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dq", 28, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 32, 32)]
+                        _bitfield: u64,
+                        Row: u32,
+                        Column: u32,
+                        Info: u64,
+                    }
+                    struct DIMM_ADDRESS_1 {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SocketId", 0, 5)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MemoryControllerId", 5, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChannelId", 9, 3)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SubChannelId", 12, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmSlot", 14, 2)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmRank", 16, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Device", 20, 6)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChipId", 26, 4)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Bank", 30, 8)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dq", 38, 5)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 43, 21)]
+                        _bitfield: u64,
+                        Row: u32,
+                        Column: u32,
+                        Info: u64,
+                    }
+                    union DIMM_ADDR_VALID_BITS {
+                        VB_DDR4: DIMM_ADDR_VALID_BITS_DDR4,
+                        VB_DDR5: DIMM_ADDR_VALID_BITS_DDR5,
+                        AsUINT32: u32,
+                    }
+                    struct DIMM_ADDR_VALID_BITS_DDR4 {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SocketId", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MemoryControllerId", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChannelId", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmSlot", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmRank", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Device", 5, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChipSelect", 6, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Bank", 7, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dq", 8, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Row", 9, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Column", 10, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Info", 11, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 12, 20)]
+                        _bitfield: u32,
+                    }
+                    struct DIMM_ADDR_VALID_BITS_DDR5 {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SocketId", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MemoryControllerId", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChannelId", 2, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("SubChannelId", 3, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmSlot", 4, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("DimmRank", 5, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Device", 6, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("ChipId", 7, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Bank", 8, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Dq", 9, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Row", 10, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Column", 11, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Info", 12, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 13, 19)]
+                        _bitfield: u32,
+                    }
+                    struct DIMM_INFO {
+                        DimmAddress: DIMM_ADDRESS,
+                        ValidBits: DIMM_ADDR_VALID_BITS,
+                    }
+                    struct DISCRIMINATEDUNION_TAG_VALUE {
+                        value: [u8; 16],
+                        valueSizeBytes: u8,
+                    }
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64)]
                     struct DISPATCHER_CONTEXT {
                         ControlPc: u64,
@@ -9723,6 +10265,10 @@ mod Windows {
                         FACILITY_SYNCENGINE = 2050,
                         FACILITY_XBOX = 2339,
                         FACILITY_GAME = 2340,
+                        FACILITY_USERMODE_UNIONFS = 2341,
+                        FACILITY_USERMODE_PRM = 2342,
+                        FACILITY_USERMODE_WIN_ACCEL = 2343,
+                        FACILITY_PPF = 2344,
                         FACILITY_PIX = 2748,
                         FACILITY_NT_BIT = 268435456,
                     }
@@ -9809,7 +10355,6 @@ mod Windows {
                     extern fn FormatMessageW(dwFlags: FORMAT_MESSAGE_OPTIONS, lpSource: *mut void, dwMessageId: u32, dwLanguageId: u32, lpBuffer: super::super::super::Foundation::PWSTR, nSize: u32, Arguments: *mut *mut i8) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getenabledxstatefeatures")]
-                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
                     #[library("KERNEL32.dll")]
                     extern fn GetEnabledXStateFeatures() -> u64;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.0.6000")]
@@ -9854,7 +10399,6 @@ mod Windows {
                     extern fn GetTimestampForLoadedLibrary(Module: super::super::super::Foundation::HMODULE) -> u32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-getxstatefeaturesmask")]
-                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
                     #[library("KERNEL32.dll")]
                     extern fn GetXStateFeaturesMask(Context: *mut CONTEXT, FeatureMask: *mut u64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Guid(1368865874, 51980, 4560, 181, 201, 0, 160, 36, 74, 14, 122)]
@@ -10326,7 +10870,11 @@ mod Windows {
                         TI_GET_INDIRECTVIRTUALBASECLASS = 32,
                         TI_GET_VIRTUALBASETABLETYPE = 33,
                         TI_GET_OBJECTPOINTERTYPE = 34,
-                        IMAGEHLP_SYMBOL_TYPE_INFO_MAX = 35,
+                        TI_GET_DISCRIMINATEDUNION_TAG_TYPEID = 35,
+                        TI_GET_DISCRIMINATEDUNION_TAG_OFFSET = 36,
+                        TI_GET_DISCRIMINATEDUNION_TAG_RANGESCOUNT = 37,
+                        TI_GET_DISCRIMINATEDUNION_TAG_RANGES = 38,
+                        IMAGEHLP_SYMBOL_TYPE_INFO_MAX = 39,
                     }
                     const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096;
                     struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
@@ -10476,6 +11024,8 @@ mod Windows {
                         IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC = 8,
                         IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1 = 16,
                         IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2 = 32,
+                        IMAGE_DLLCHARACTERISTICS_EX_FORWARD_CFI_COMPAT = 64,
+                        IMAGE_DLLCHARACTERISTICS_EX_HOTPATCH_COMPATIBLE = 128,
                     }
                     #[repr(u16)]
                     #[flags]
@@ -10598,6 +11148,7 @@ mod Windows {
                         GuardXFGTableDispatchFunctionPointer: u32,
                         CastGuardOsDeterminedFailureMode: u32,
                         GuardMemcpyFunctionPointer: u32,
+                        UmaFunctionPointers: u32,
                     }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-image_load_config_directory64")]
                     struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
@@ -10650,6 +11201,7 @@ mod Windows {
                         GuardXFGTableDispatchFunctionPointer: u64,
                         CastGuardOsDeterminedFailureMode: u64,
                         GuardMemcpyFunctionPointer: u64,
+                        UmaFunctionPointers: u64,
                     }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winnt/ns-winnt-image_nt_headers32")]
                     struct IMAGE_NT_HEADERS32 {
@@ -11158,7 +11710,6 @@ mod Windows {
                     extern fn LPTOP_LEVEL_EXCEPTION_FILTER(ExceptionInfo: *mut EXCEPTION_POINTERS) -> i32;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-locatexstatefeature")]
-                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
                     #[library("KERNEL32.dll")]
                     extern fn LocateXStateFeature(Context: *mut CONTEXT, FeatureId: u32, Length: *mut u32) -> *mut void;
                     struct M128A {
@@ -11166,6 +11717,11 @@ mod Windows {
                         High: i64,
                     }
                     const MAX_SYM_NAME: u32 = 2000;
+                    struct MEMORY_DEFECT {
+                        Version: u32,
+                        DimmInfo: DIMM_INFO,
+                        ErrType: PAGE_OFFLINE_ERROR_TYPES,
+                    }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/minidumpapiset/ns-minidumpapiset-minidump_callback_information")]
                     #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X86)]
                     struct MINIDUMP_CALLBACK_INFORMATION {
@@ -11690,7 +12246,9 @@ mod Windows {
                     const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2;
                     const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1;
                     const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4;
+                    const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES: u32 = 16;
                     const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8;
+                    const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: u32 = 32;
                     struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
                         TimerResolution: u32,
                         PageSize: u32,
@@ -11757,6 +12315,14 @@ mod Windows {
                         FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
                         BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
                         PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
+                    }
+                    struct MINIDUMP_SYSTEM_MEMORY_INFO_2 {
+                        Revision: u16,
+                        Flags: u16,
+                        BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
+                        FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
+                        BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
+                        PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2,
                     }
                     struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
                         IdleProcessTime: u64,
@@ -11837,6 +12403,90 @@ mod Windows {
                         CcDirtyPageThreshold: u64,
                         ResidentAvailablePages: i64,
                         SharedCommittedPages: u64,
+                    }
+                    struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 {
+                        IdleProcessTime: u64,
+                        IoReadTransferCount: u64,
+                        IoWriteTransferCount: u64,
+                        IoOtherTransferCount: u64,
+                        IoReadOperationCount: u32,
+                        IoWriteOperationCount: u32,
+                        IoOtherOperationCount: u32,
+                        AvailablePages: u32,
+                        CommittedPages: u32,
+                        CommitLimit: u32,
+                        PeakCommitment: u32,
+                        PageFaultCount: u32,
+                        CopyOnWriteCount: u32,
+                        TransitionCount: u32,
+                        CacheTransitionCount: u32,
+                        DemandZeroCount: u32,
+                        PageReadCount: u32,
+                        PageReadIoCount: u32,
+                        CacheReadCount: u32,
+                        CacheIoCount: u32,
+                        DirtyPagesWriteCount: u32,
+                        DirtyWriteIoCount: u32,
+                        MappedPagesWriteCount: u32,
+                        MappedWriteIoCount: u32,
+                        PagedPoolPages: u32,
+                        NonPagedPoolPages: u32,
+                        PagedPoolAllocs: u32,
+                        PagedPoolFrees: u32,
+                        NonPagedPoolAllocs: u32,
+                        NonPagedPoolFrees: u32,
+                        FreeSystemPtes: u32,
+                        ResidentSystemCodePage: u32,
+                        TotalSystemDriverPages: u32,
+                        TotalSystemCodePages: u32,
+                        NonPagedPoolLookasideHits: u32,
+                        PagedPoolLookasideHits: u32,
+                        AvailablePagedPoolPages: u32,
+                        ResidentSystemCachePage: u32,
+                        ResidentPagedPoolPage: u32,
+                        ResidentSystemDriverPage: u32,
+                        CcFastReadNoWait: u32,
+                        CcFastReadWait: u32,
+                        CcFastReadResourceMiss: u32,
+                        CcFastReadNotPossible: u32,
+                        CcFastMdlReadNoWait: u32,
+                        CcFastMdlReadWait: u32,
+                        CcFastMdlReadResourceMiss: u32,
+                        CcFastMdlReadNotPossible: u32,
+                        CcMapDataNoWait: u32,
+                        CcMapDataWait: u32,
+                        CcMapDataNoWaitMiss: u32,
+                        CcMapDataWaitMiss: u32,
+                        CcPinMappedDataCount: u32,
+                        CcPinReadNoWait: u32,
+                        CcPinReadWait: u32,
+                        CcPinReadNoWaitMiss: u32,
+                        CcPinReadWaitMiss: u32,
+                        CcCopyReadNoWait: u32,
+                        CcCopyReadWait: u32,
+                        CcCopyReadNoWaitMiss: u32,
+                        CcCopyReadWaitMiss: u32,
+                        CcMdlReadNoWait: u32,
+                        CcMdlReadWait: u32,
+                        CcMdlReadNoWaitMiss: u32,
+                        CcMdlReadWaitMiss: u32,
+                        CcReadAheadIos: u32,
+                        CcLazyWriteIos: u32,
+                        CcLazyWritePages: u32,
+                        CcDataFlushes: u32,
+                        CcDataPages: u32,
+                        ContextSwitches: u32,
+                        FirstLevelTbFills: u32,
+                        SecondLevelTbFills: u32,
+                        SystemCalls: u32,
+                        CcTotalDirtyPages: u64,
+                        CcDirtyPageThreshold: u64,
+                        ResidentAvailablePages: i64,
+                        SharedCommittedPages: u64,
+                        MdlPagesAllocated: u64,
+                        PfnDatabaseCommittedPages: u64,
+                        SystemPageTableCommittedPages: u64,
+                        ContiguousPagesAllocated: u64,
                     }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/minidumpapiset/ns-minidumpapiset-minidump_thread")]
                     struct MINIDUMP_THREAD {
@@ -11996,6 +12646,8 @@ mod Windows {
                         MiniDumpScanInaccessiblePartialPages = 8388608,
                         MiniDumpFilterWriteCombinedMemory = 16777216,
                         MiniDumpValidTypeFlags = 33554431,
+                        MiniDumpNoIgnoreInaccessibleMemory = 33554432,
+                        MiniDumpValidTypeFlagsEx = 67108863,
                     }
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/minidumpapiset/ns-minidumpapiset-minidump_unloaded_module")]
                     struct MINIDUMP_UNLOADED_MODULE {
@@ -12195,6 +12847,23 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/debugapi/nf-debugapi-outputdebugstringw")]
                     #[library("KERNEL32.dll")]
                     extern fn OutputDebugStringW(lpOutputString: super::super::super::Foundation::PWSTR);
+                    #[repr(i32)]
+                    enum PAGE_OFFLINE_ERROR_TYPES {
+                        BitErrorDdr4 = 0,
+                        RowErrorDdr4 = 1,
+                        BitErrorDdr5 = 2,
+                        RowErrorDdr5 = 3,
+                    }
+                    union PAGE_OFFLINE_VALID_BITS {
+                        Anonymous: PAGE_OFFLINE_VALID_BITS_0,
+                        AsUINT8: u8,
+                    }
+                    struct PAGE_OFFLINE_VALID_BITS_0 {
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("PhysicalAddress", 0, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("MemDefect", 1, 1)]
+                        #[Windows::Win32::Foundation::Metadata::NativeBitfield("Reserved", 2, 6)]
+                        _bitfield: u8,
+                    }
                     extern fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> super::super::super::Foundation::HRESULT;
                     extern fn PCOGETCALLSTATE(param0: i32, param1: *mut u32) -> super::super::super::Foundation::HRESULT;
                     extern fn PDBGHELP_CREATE_USER_DUMP_CALLBACK(DataType: u32, Data: *mut *mut void, DataLength: *mut u32, UserData: *mut void) -> super::super::super::Foundation::BOOL;
@@ -12725,6 +13394,7 @@ mod Windows {
                     }
                     const SYMENUM_OPTIONS_DEFAULT: u32 = 1;
                     const SYMENUM_OPTIONS_INLINE: u32 = 2;
+                    const SYMFLAG_COMPLEX: u32 = 67108864;
                     const SYMFLAG_FIXUP_ARM64X: u32 = 16777216;
                     const SYMFLAG_FUNC_NO_RETURN: u32 = 1048576;
                     const SYMFLAG_GLOBAL: u32 = 33554432;
@@ -12904,7 +13574,6 @@ mod Windows {
                     extern fn SetUnhandledExceptionFilter(lpTopLevelExceptionFilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER;
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows6.1")]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/winbase/nf-winbase-setxstatefeaturesmask")]
-                    #[Windows::Win32::Foundation::Metadata::SupportedArchitecture(X64 | X86)]
                     #[library("KERNEL32.dll")]
                     extern fn SetXStateFeaturesMask(Context: *mut CONTEXT, FeatureMask: u64) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/ETW/stackwalk")]
@@ -13222,6 +13891,8 @@ mod Windows {
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetoptions")]
                     #[library("dbghelp.dll")]
                     extern fn SymGetOptions() -> u32;
+                    #[library("dbghelp.dll")]
+                    extern fn SymGetParentWindow(pHwnd: *mut super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
                     #[Windows::Win32::Foundation::Metadata::Ansi]
                     #[Windows::Win32::Foundation::Metadata::Documentation("https://learn.microsoft.com/windows/win32/api/dbghelp/nf-dbghelp-symgetscope")]
                     #[library("dbghelp.dll")]
@@ -13577,6 +14248,12 @@ mod Windows {
                         #[Windows::Win32::Foundation::Metadata::FlexibleArray]
                         ChildId: [u32; 1],
                     }
+                    struct TI_GET_DISCRIMINATEDUNION_TAG_RANGES_PARAMS {
+                        Count: u32,
+                        Start: u32,
+                        #[Windows::Win32::Foundation::Metadata::FlexibleArray]
+                        Range: [DISCRIMINATEDUNION_TAG_VALUE; 1],
+                    }
                     #[library("api-ms-win-core-errorhandling-l1-1-3.dll")]
                     extern fn TerminateProcessOnMemoryExhaustion(FailedAllocationSize: usize);
                     #[Windows::Win32::Foundation::Metadata::SupportedOSPlatform("windows5.1.2600")]
@@ -13790,6 +14467,7 @@ mod Windows {
                     }
                     const WHEA_DISABLE_DUMMY_WRITE: u32 = 6;
                     const WHEA_DISABLE_OFFLINE: u32 = 0;
+                    const WHEA_DISABLE_PRM_ADDRESS_TRANSLATION: u32 = 20;
                     struct WHEA_DRIVER_BUFFER_SET {
                         Version: u32,
                         Data: *mut u8,
@@ -13798,6 +14476,7 @@ mod Windows {
                         SectionFriendlyName: *mut u8,
                         Flags: *mut u8,
                     }
+                    const WHEA_ENABLE_BATCHED_ROW_OFFLINE: u32 = 21;
                     struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
                         Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
                         Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
@@ -13901,6 +14580,7 @@ mod Windows {
                         WheaErrSrcTypeMax = 19,
                     }
                     extern fn WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(Context: *mut void);
+                    const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1073741824;
                     struct WHEA_GENERIC_ERROR_DESCRIPTOR {
                         Type: u16,
                         Reserved: u8,
@@ -14308,7 +14988,8 @@ mod Windows {
                         EnabledUserVisibleSupervisorFeatures: u64,
                         ExtendedFeatureDisableFeatures: u64,
                         AllNonLargeFeatureSize: u32,
-                        Spare: u32,
+                        MaxSveVectorLength: u16,
+                        Spare1: u16,
                     }
                     union XSTATE_CONFIGURATION_0 {
                         ControlFlags: u32,
@@ -14330,7 +15011,8 @@ mod Windows {
                     struct XSTATE_CONTEXT {
                         Mask: u64,
                         Length: u32,
-                        Reserved1: u32,
+                        Flags: u8,
+                        Reserved0: [u8; 3],
                         Area: *mut XSAVE_AREA,
                         Reserved2: u32,
                         Buffer: *mut void,
@@ -14340,7 +15022,8 @@ mod Windows {
                     struct XSTATE_CONTEXT {
                         Mask: u64,
                         Length: u32,
-                        Reserved1: u32,
+                        Flags: u8,
+                        Reserved0: [u8; 3],
                         Area: *mut XSAVE_AREA,
                         Buffer: *mut void,
                     }
