@@ -877,7 +877,7 @@ pub const IOCTL_IP_RTCHANGE_NOTIFY_REQUEST: u32 = 101u32;
 pub const IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS: u32 = 106u32;
 pub const IP6_STATS: u32 = 36u32;
 pub const IPRTRMGR_PID: u32 = 10000u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IPV6_ADDRESS_EX {
     pub sin6_port: u16,
@@ -940,34 +940,40 @@ impl Default for IP_ADAPTER_ADDRESSES_LH {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
@@ -1003,17 +1009,20 @@ impl Default for IP_ADAPTER_ADDRESSES_XP {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
@@ -1036,17 +1045,20 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
@@ -1069,17 +1081,20 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
@@ -1111,17 +1126,20 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
@@ -1184,17 +1202,20 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
@@ -1229,17 +1250,20 @@ impl Default for IP_ADAPTER_PREFIX_XP {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_PREFIX_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
@@ -1269,17 +1293,20 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
@@ -1306,17 +1333,20 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
@@ -1337,17 +1367,20 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
@@ -1803,6 +1836,7 @@ impl Default for MIB_IF_ROW2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
@@ -1943,11 +1977,13 @@ impl Default for MIB_IPFORWARDROW {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for MIB_IPFORWARDROW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2336,27 +2372,32 @@ impl Default for MIB_IPNET_ROW2 {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy, Default)]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPNET_ROW2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2404,11 +2445,13 @@ impl Default for MIB_IPPATH_ROW {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl Default for MIB_IPPATH_ROW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3319,11 +3362,13 @@ impl Default for NET_ADDRESS_INFO_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub struct NET_ADDRESS_INFO_0_0 {
     pub Address: [u16; 256],
     pub Port: [u16; 6],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for NET_ADDRESS_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

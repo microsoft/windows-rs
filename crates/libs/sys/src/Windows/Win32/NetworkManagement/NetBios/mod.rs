@@ -101,6 +101,32 @@ impl Default for NAME_BUFFER {
 }
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct NCB {
+    pub ncb_command: u8,
+    pub ncb_retcode: u8,
+    pub ncb_lsn: u8,
+    pub ncb_num: u8,
+    pub ncb_buffer: *mut u8,
+    pub ncb_length: u16,
+    pub ncb_callname: [u8; 16],
+    pub ncb_name: [u8; 16],
+    pub ncb_rto: u8,
+    pub ncb_sto: u8,
+    pub ncb_post: isize,
+    pub ncb_lana_num: u8,
+    pub ncb_cmd_cplt: u8,
+    pub ncb_reserve: [u8; 10],
+    pub ncb_event: super::super::Foundation::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for NCB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct NCB {

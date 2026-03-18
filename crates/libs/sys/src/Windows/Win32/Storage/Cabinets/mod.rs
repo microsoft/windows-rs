@@ -77,7 +77,6 @@ impl Default for FDIDECRYPT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type FDIDECRYPTTYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
@@ -105,18 +104,6 @@ impl Default for FDIDECRYPT_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FDIDECRYPT_0_1 {
-    pub pFolderReserve: *mut core::ffi::c_void,
-    pub cbFolderReserve: u16,
-    pub iFolder: u16,
-}
-impl Default for FDIDECRYPT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
@@ -130,6 +117,19 @@ impl Default for FDIDECRYPT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct FDIDECRYPT_0_1 {
+    pub pFolderReserve: *mut core::ffi::c_void,
+    pub cbFolderReserve: u16,
+    pub iFolder: u16,
+}
+impl Default for FDIDECRYPT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type FDIDECRYPTTYPE = i32;
 pub type FDIERROR = i32;
 pub const FDIERROR_ALLOC_FAIL: FDIERROR = 5i32;
 pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = 6i32;
@@ -167,6 +167,19 @@ impl Default for FDINOTIFICATION {
     }
 }
 pub type FDINOTIFICATIONTYPE = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct FDISPILLFILE {
+    pub ach: [i8; 2],
+    pub cbFile: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FDISPILLFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]

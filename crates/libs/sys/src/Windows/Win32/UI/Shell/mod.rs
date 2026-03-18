@@ -71,7 +71,6 @@ windows_link::link!("shell32.dll" "system" fn ExtractIconExA(lpszfile : windows_
 windows_link::link!("shell32.dll" "system" fn ExtractIconExW(lpszfile : windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("shell32.dll" "system" fn ExtractIconW(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
-windows_link::link!("shell32.dll" "system" fn FileIconInit(frestorecache : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn FindExecutableA(lpfile : windows_sys::core::PCSTR, lpdirectory : windows_sys::core::PCSTR, lpresult : windows_sys::core::PSTR) -> super::super::Foundation:: HINSTANCE);
 windows_link::link!("shell32.dll" "system" fn FindExecutableW(lpfile : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, lpresult : windows_sys::core::PWSTR) -> super::super::Foundation:: HINSTANCE);
 windows_link::link!("shlwapi.dll" "system" fn GetAcceptLanguagesA(pszlanguages : windows_sys::core::PSTR, pcchlanguages : *mut u32) -> windows_sys::core::HRESULT);
@@ -257,14 +256,14 @@ windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonic
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCanonicalizeEx(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombine(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, pszmore : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombineEx(pszpathout : windows_sys::core::PWSTR, cchpathout : usize, pszpathin : windows_sys::core::PCWSTR, pszmore : windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : windows_sys::core::PCWSTR, cchpath : usize, ppszext : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : windows_sys::core::PCWSTR, cchpath : usize, ppszext : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchIsRoot(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut windows_sys::core::PWSTR, pcchremaining : *mut usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveExtension(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveFileSpec(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRenameExtension(pszpath : windows_sys::core::PWSTR, cchpath : usize, pszext : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchSkipRoot(pszpath : windows_sys::core::PCWSTR, ppszrootend : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchSkipRoot(pszpath : windows_sys::core::PCWSTR, ppszrootend : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripPrefix(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripToRoot(pszpath : windows_sys::core::PWSTR, cchpath : usize) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PWSTR) -> i32);
@@ -291,8 +290,8 @@ windows_link::link!("shlwapi.dll" "system" fn PathFindNextComponentA(pszpath : w
 windows_link::link!("shlwapi.dll" "system" fn PathFindNextComponentW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_sys::core::PSTR, ppszotherdirs : *const *const i8) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_sys::core::PWSTR, ppszotherdirs : *const *const u16) -> windows_sys::core::BOOL);
-windows_link::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : windows_sys::core::PCSTR, apszsuffix : *const windows_sys::core::PCSTR, iarraysize : i32) -> windows_sys::core::PSTR);
-windows_link::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : windows_sys::core::PCWSTR, apszsuffix : *const windows_sys::core::PCWSTR, iarraysize : i32) -> windows_sys::core::PWSTR);
+windows_link::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : windows_sys::core::PCSTR, apszsuffix : *const windows_sys::core::PCSTR, iarraysize : i32) -> windows_sys::core::PCSTR);
+windows_link::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : windows_sys::core::PCWSTR, apszsuffix : *const windows_sys::core::PCWSTR, iarraysize : i32) -> windows_sys::core::PCWSTR);
 windows_link::link!("shlwapi.dll" "system" fn PathGetArgsA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
 windows_link::link!("shlwapi.dll" "system" fn PathGetArgsW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("shlwapi.dll" "system" fn PathGetCharTypeA(ch : u8) -> u32);
@@ -326,7 +325,7 @@ windows_link::link!("shell32.dll" "system" fn PathIsSlowW(pszfile : windows_sys:
 windows_link::link!("shlwapi.dll" "system" fn PathIsSystemFolderA(pszpath : windows_sys::core::PCSTR, dwattrb : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathIsSystemFolderW(pszpath : windows_sys::core::PCWSTR, dwattrb : u32) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathIsUNCA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathIsUNCEx(pszpath : windows_sys::core::PCWSTR, ppszserver : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathIsUNCEx(pszpath : windows_sys::core::PCWSTR, ppszserver : *mut windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathIsUNCServerA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathIsUNCServerShareA(pszpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn PathIsUNCServerShareW(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
@@ -758,9 +757,9 @@ windows_link::link!("shell32.dll" "system" fn ShellExecuteExW(pexecinfo : *mut S
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : super::super::Foundation:: HWND, lpoperation : windows_sys::core::PCWSTR, lpfile : windows_sys::core::PCWSTR, lpparameters : windows_sys::core::PCWSTR, lpdirectory : windows_sys::core::PCWSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCSTR, lpctitle : windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
+windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCSTR, lpctitle : windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCWSTR, lpctitle : windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> i32);
+windows_link::link!("shlwapi.dll" "C" fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : windows_sys::core::PCWSTR, lpctitle : windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
 windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
@@ -875,8 +874,8 @@ windows_link::link!("shlwapi.dll" "system" fn UrlCreateFromPathW(pszpath : windo
 windows_link::link!("shlwapi.dll" "system" fn UrlEscapeA(pszurl : windows_sys::core::PCSTR, pszescaped : windows_sys::core::PSTR, pcchescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn UrlEscapeW(pszurl : windows_sys::core::PCWSTR, pszescaped : windows_sys::core::PWSTR, pcchescaped : *mut u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn UrlFixupW(pcszurl : windows_sys::core::PCWSTR, psztranslatedurl : windows_sys::core::PWSTR, cchmax : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("shlwapi.dll" "system" fn UrlGetLocationA(pszurl : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
-windows_link::link!("shlwapi.dll" "system" fn UrlGetLocationW(pszurl : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+windows_link::link!("shlwapi.dll" "system" fn UrlGetLocationA(pszurl : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+windows_link::link!("shlwapi.dll" "system" fn UrlGetLocationW(pszurl : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
 windows_link::link!("shlwapi.dll" "system" fn UrlGetPartA(pszin : windows_sys::core::PCSTR, pszout : windows_sys::core::PSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn UrlGetPartW(pszin : windows_sys::core::PCWSTR, pszout : windows_sys::core::PWSTR, pcchout : *mut u32, dwpart : u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn UrlHashA(pszurl : windows_sys::core::PCSTR, pbhash : *mut u8, cbhash : u32) -> windows_sys::core::HRESULT);
@@ -896,8 +895,8 @@ windows_link::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_
 windows_link::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::super::Foundation:: HWND, lpszhelp : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::super::Foundation:: HWND, lpszhelp : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn WriteCabinetState(pcs : *const CABINETSTATE) -> windows_sys::core::BOOL);
-windows_link::link!("shlwapi.dll" "C" fn wnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("shlwapi.dll" "C" fn wnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("shlwapi.dll" "C" fn wnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR, ...) -> i32);
+windows_link::link!("shlwapi.dll" "C" fn wnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, ...) -> i32);
 windows_link::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_sys::core::PSTR, cchdest : i32, pszfmt : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_link::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_sys::core::PWSTR, cchdest : i32, pszfmt : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 #[repr(C)]
@@ -1037,6 +1036,23 @@ pub const APPACTION_REPAIR: APPACTIONFLAGS = 8i32;
 pub const APPACTION_UNINSTALL: APPACTIONFLAGS = 2i32;
 pub const APPACTION_UNSCHEDULE: APPACTIONFLAGS = 512i32;
 pub const APPACTION_UPGRADE: APPACTIONFLAGS = 16i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct APPBARDATA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uCallbackMessage: u32,
+    pub uEdge: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(target_arch = "x86")]
+impl Default for APPBARDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1180,6 +1196,22 @@ pub const ASSOCF_OPEN_BYEXENAME: ASSOCF = 2u32;
 pub const ASSOCF_PER_MACHINE_ONLY: ASSOCF = 32768u32;
 pub const ASSOCF_REMAPRUNDLL: ASSOCF = 128u32;
 pub const ASSOCF_VERIFY: ASSOCF = 64u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct ASSOCIATIONELEMENT {
+    pub ac: ASSOCCLASS,
+    pub hkClass: super::super::System::Registry::HKEY,
+    pub pszClass: windows_sys::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for ASSOCIATIONELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
@@ -1247,7 +1279,7 @@ pub const AT_STARTMENUCLIENT: ASSOCIATIONTYPE = 2i32;
 pub const AT_URLPROTOCOL: ASSOCIATIONTYPE = 1i32;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 pub type AUTOCOMPLETEOPTIONS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
@@ -1565,7 +1597,7 @@ pub const BSSF_UNDELETEABLE: u32 = 4096u32;
 pub const BSSF_VISIBLE: u32 = 1u32;
 pub const BUFFLEN: u32 = 255u32;
 pub type BrowserNavConstants = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CABINETSTATE {
     pub cLength: u16,
@@ -1676,7 +1708,7 @@ pub const CGID_MENUDESKBAR: windows_sys::core::GUID = windows_sys::core::GUID::f
 pub const CGID_ShellDocView: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d1_0000_0000_c000_000000000046);
 pub const CGID_ShellServiceObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x000214d2_0000_0000_c000_000000000046);
 pub const CGID_ShortCut: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x93a68750_951a_11d1_946f_000000000000);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CIDA {
     pub cidl: u32,
@@ -2044,7 +2076,7 @@ pub const CPGSR_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RE
 pub const CPGSR_NO_CREDENTIAL_NOT_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 0i32;
 pub const CPGSR_RETURN_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 2i32;
 pub const CPGSR_RETURN_NO_CREDENTIAL_FINISHED: CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = 3i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CPLINFO {
     pub idIcon: i32,
@@ -2223,7 +2255,7 @@ pub const CTF_WAIT_ALLOWCOM: i32 = 64i32;
 pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
 pub type CommandStateChangeConstants = i32;
 pub const ConflictFolder: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x289978ac_a101_4341_a817_21eba7fd046d);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DATABLOCK_HEADER {
     pub cbSize: u32,
@@ -2300,7 +2332,7 @@ impl Default for DEFCONTEXTMENU {
 pub const DEFSHAREID_PUBLIC: DEF_SHARE_ID = 2i32;
 pub const DEFSHAREID_USERS: DEF_SHARE_ID = 1i32;
 pub type DEF_SHARE_ID = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DELEGATEITEMID {
     pub cbSize: u16,
@@ -2481,6 +2513,22 @@ pub const DOGIF_NO_HDROP: DATAOBJ_GET_ITEM_FLAGS = 2i32;
 pub const DOGIF_NO_URL: DATAOBJ_GET_ITEM_FLAGS = 4i32;
 pub const DOGIF_ONLY_IF_ONE: DATAOBJ_GET_ITEM_FLAGS = 8i32;
 pub const DOGIF_TRAVERSE_LINK: DATAOBJ_GET_ITEM_FLAGS = 1i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOA {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: windows_sys::core::BOOL,
+    pub lpFileList: windows_sys::core::PSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2493,6 +2541,22 @@ pub struct DRAGINFOA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DRAGINFOW {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: windows_sys::core::BOOL,
+    pub lpFileList: windows_sys::core::PWSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DRAGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2513,7 +2577,7 @@ impl Default for DRAGINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DROPDESCRIPTION {
     pub r#type: DROPIMAGETYPE,
@@ -2525,7 +2589,7 @@ impl Default for DROPDESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DROPFILES {
     pub pFiles: u32,
@@ -2633,7 +2697,7 @@ pub type EXPLORER_BROWSER_FILL_FLAGS = i32;
 pub type EXPLORER_BROWSER_OPTIONS = i32;
 pub const EXPPS_FILETYPES: _EXPPS = 1i32;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
@@ -2645,7 +2709,7 @@ impl Default for EXP_DARWIN_LINK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EXP_PROPERTYSTORAGE {
     pub cbSize: u32,
@@ -2658,7 +2722,7 @@ impl Default for EXP_PROPERTYSTORAGE {
     }
 }
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EXP_SPECIAL_FOLDER {
     pub cbSize: u32,
@@ -2668,7 +2732,7 @@ pub struct EXP_SPECIAL_FOLDER {
 }
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565u32;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EXP_SZ_LINK {
     pub cbSize: u32,
@@ -2793,7 +2857,7 @@ pub const FEM_VIEWRESULT: FOLDER_ENUM_MODE = 0i32;
 pub const FFFP_EXACTMATCH: FFFP_MODE = 0i32;
 pub type FFFP_MODE = i32;
 pub const FFFP_NEARESTPARENTMATCH: FFFP_MODE = 1i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
@@ -2813,7 +2877,7 @@ impl Default for FILEDESCRIPTORA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
@@ -2833,7 +2897,7 @@ impl Default for FILEDESCRIPTORW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
@@ -2844,7 +2908,7 @@ impl Default for FILEGROUPDESCRIPTORA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
@@ -2858,7 +2922,7 @@ impl Default for FILEGROUPDESCRIPTORW {
 pub type FILEOPENDIALOGOPTIONS = u32;
 pub type FILEOPERATION_FLAGS = u32;
 pub type FILETYPEATTRIBUTEFLAGS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTES_ARRAY {
     pub cItems: u32,
@@ -3799,7 +3863,7 @@ impl Default for NC_ADDRESS {
 pub const NDO_LANDSCAPE: NATIVE_DISPLAY_ORIENTATION = 0i32;
 pub const NDO_PORTRAIT: NATIVE_DISPLAY_ORIENTATION = 1i32;
 pub const NETCACHE_E_NEGATIVE_CACHE: windows_sys::core::HRESULT = 0x80270100_u32 as _;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub struct NEWCPLINFOA {
@@ -3818,7 +3882,7 @@ impl Default for NEWCPLINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub struct NEWCPLINFOW {
@@ -3874,6 +3938,49 @@ pub const NMCII_ITEMS: _NMCII_FLAGS = 1i32;
 pub const NMCII_NONE: _NMCII_FLAGS = 0i32;
 pub const NMCSAEI_EDIT: _NMCSAEI_FLAGS = 1i32;
 pub const NMCSAEI_SELECT: _NMCSAEI_FLAGS = 0i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [i8; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [i8; 256],
+    pub Anonymous: NOTIFYICONDATAA_0,
+    pub szInfoTitle: [i8; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for NOTIFYICONDATAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAA_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for NOTIFYICONDATAA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -3903,12 +4010,59 @@ impl Default for NOTIFYICONDATAA {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for NOTIFYICONDATAA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONDATAW {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 128],
+    pub dwState: NOTIFY_ICON_STATE,
+    pub dwStateMask: NOTIFY_ICON_STATE,
+    pub szInfo: [u16; 256],
+    pub Anonymous: NOTIFYICONDATAW_0,
+    pub szInfoTitle: [u16; 64],
+    pub dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS,
+    pub guidItem: windows_sys::core::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for NOTIFYICONDATAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub union NOTIFYICONDATAW_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for NOTIFYICONDATAW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3942,12 +4096,31 @@ impl Default for NOTIFYICONDATAW {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for NOTIFYICONDATAW_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct NOTIFYICONIDENTIFIER {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub guidItem: windows_sys::core::GUID,
+}
+#[cfg(target_arch = "x86")]
+impl Default for NOTIFYICONIDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4098,7 +4271,7 @@ pub const NSWF_TRAVERSE_STREAM_JUNCTIONS: NAMESPACEWALKFLAG = 16i32;
 pub const NSWF_USE_TRANSFER_MEDIUM: NAMESPACEWALKFLAG = 8192i32;
 pub const NTSCS2_NEVERINSERTNONENUMERATED: NSTCSTYLE2 = 32i32;
 pub const NTSCS2_NOSINGLETONAUTOEXPAND: NSTCSTYLE2 = 16i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Console")]
 #[derive(Clone, Copy)]
 pub struct NT_CONSOLE_PROPS {
@@ -4131,7 +4304,7 @@ impl Default for NT_CONSOLE_PROPS {
     }
 }
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
@@ -4196,6 +4369,22 @@ impl Default for OPENASINFO {
 pub const OPENPROPS_INHIBITPIF: u32 = 32768u32;
 pub const OPENPROPS_NONE: u32 = 0u32;
 pub type OPEN_AS_INFO_FLAGS = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOA {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: windows_sys::core::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for OPEN_PRINTER_PROPS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4208,6 +4397,22 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for OPEN_PRINTER_PROPS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct OPEN_PRINTER_PROPS_INFOW {
+    pub dwSize: u32,
+    pub pszSheetName: windows_sys::core::PWSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: windows_sys::core::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for OPEN_PRINTER_PROPS_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5069,7 +5274,7 @@ pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = 4u32;
 pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = 8u32;
 pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = 64u32;
 pub type SHARD = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFO {
     pub psi: *mut core::ffi::c_void,
@@ -5080,7 +5285,7 @@ impl Default for SHARDAPPIDINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOIDLIST {
@@ -5093,7 +5298,7 @@ impl Default for SHARDAPPIDINFOIDLIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOLINK {
     pub psl: *mut core::ffi::c_void,
@@ -5186,7 +5391,7 @@ impl Default for SHCOLUMNDATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy)]
 pub struct SHCOLUMNINFO {
@@ -5229,6 +5434,32 @@ pub const SHCONTF_NETPRINTERSRCH: _SHCONTF = 512i32;
 pub const SHCONTF_NONFOLDERS: _SHCONTF = 64i32;
 pub const SHCONTF_SHAREABLE: _SHCONTF = 1024i32;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
+#[derive(Clone, Copy)]
+pub struct SHCREATEPROCESSINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub pszFile: windows_sys::core::PCWSTR,
+    pub pszParameters: windows_sys::core::PCWSTR,
+    pub pszCurrentDirectory: windows_sys::core::PCWSTR,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub bInheritHandles: windows_sys::core::BOOL,
+    pub dwCreationFlags: u32,
+    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
+    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl Default for SHCREATEPROCESSINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Threading"))]
@@ -5256,7 +5487,7 @@ impl Default for SHCREATEPROCESSINFOW {
     }
 }
 pub const SHC_E_SHELL_COMPONENT_STARTUP_FAILURE: windows_sys::core::HRESULT = 0x80270234_u32 as _;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHChangeDWORDAsIDList {
     pub cb: u16,
@@ -5264,7 +5495,7 @@ pub struct SHChangeDWORDAsIDList {
     pub dwItem2: u32,
     pub cbZero: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[derive(Clone, Copy)]
 pub struct SHChangeNotifyEntry {
@@ -5277,7 +5508,7 @@ impl Default for SHChangeNotifyEntry {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHChangeProductKeyAsIDList {
     pub cb: u16,
@@ -5289,7 +5520,7 @@ impl Default for SHChangeProductKeyAsIDList {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHChangeUpdateImageIDList {
     pub cb: u16,
@@ -5350,6 +5581,49 @@ impl Default for SHDRAGIMAGE {
     }
 }
 pub type SHELLBROWSERSHOWCONTROL = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCSTR,
+    pub lpFile: windows_sys::core::PCSTR,
+    pub lpParameters: windows_sys::core::PCSTR,
+    pub lpDirectory: windows_sys::core::PCSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOA_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for SHELLEXECUTEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOA_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for SHELLEXECUTEINFOA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
@@ -5379,12 +5653,59 @@ impl Default for SHELLEXECUTEINFOA {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
 impl Default for SHELLEXECUTEINFOA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub struct SHELLEXECUTEINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: windows_sys::core::PCWSTR,
+    pub lpFile: windows_sys::core::PCWSTR,
+    pub lpParameters: windows_sys::core::PCWSTR,
+    pub lpDirectory: windows_sys::core::PCWSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut core::ffi::c_void,
+    pub lpClass: windows_sys::core::PCWSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOW_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for SHELLEXECUTEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+#[derive(Clone, Copy)]
+pub union SHELLEXECUTEINFOW_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Registry")]
+impl Default for SHELLEXECUTEINFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5418,22 +5739,26 @@ impl Default for SHELLEXECUTEINFOW {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
 #[derive(Clone, Copy)]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Registry")]
 impl Default for SHELLEXECUTEINFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLFLAGSTATE {
     pub _bitfield: i32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEA {
     pub _bitfield1: i32,
@@ -5447,7 +5772,7 @@ pub struct SHELLSTATEA {
 }
 pub const SHELLSTATEVERSION_IE4: u32 = 9u32;
 pub const SHELLSTATEVERSION_WIN2K: u32 = 10u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEW {
     pub _bitfield1: i32,
@@ -5480,6 +5805,24 @@ pub const SHELL_UI_COMPONENT_TASKBARS: SHELL_UI_COMPONENT = 0i32;
 pub const SHERB_NOCONFIRMATION: u32 = 1u32;
 pub const SHERB_NOPROGRESSUI: u32 = 2u32;
 pub const SHERB_NOSOUND: u32 = 4u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOA {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [i8; 260],
+    pub szTypeName: [i8; 80],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for SHFILEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -5494,6 +5837,24 @@ pub struct SHFILEINFOA {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for SHFILEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHFILEINFOW {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [u16; 260],
+    pub szTypeName: [u16; 80],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for SHFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5516,6 +5877,25 @@ impl Default for SHFILEINFOW {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: *mut i8,
+    pub pTo: *mut i8,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: windows_sys::core::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5531,6 +5911,25 @@ pub struct SHFILEOPSTRUCTA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHFILEOPSTRUCTW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: windows_sys::core::PCWSTR,
+    pub pTo: windows_sys::core::PCWSTR,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: windows_sys::core::BOOL,
+    pub hNameMappings: *mut core::ffi::c_void,
+    pub lpszProgressTitle: windows_sys::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SHFILEOPSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5658,6 +6057,21 @@ pub const SHIMGKEY_QUALITY: windows_sys::core::PCWSTR = windows_sys::core::w!("C
 pub const SHIMGKEY_RAWFORMAT: windows_sys::core::PCWSTR = windows_sys::core::w!("RawDataFormat");
 pub const SHIMSTCAPFLAG_LOCKABLE: u32 = 1u32;
 pub const SHIMSTCAPFLAG_PURGEABLE: u32 = 2u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGA {
+    pub pszOldPath: windows_sys::core::PSTR,
+    pub pszNewPath: windows_sys::core::PSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SHNAMEMAPPINGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -5669,6 +6083,21 @@ pub struct SHNAMEMAPPINGA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for SHNAMEMAPPINGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SHNAMEMAPPINGW {
+    pub pszOldPath: windows_sys::core::PWSTR,
+    pub pszNewPath: windows_sys::core::PWSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SHNAMEMAPPINGW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5704,6 +6133,14 @@ pub const SHPWHF_NONETPLACECREATE: u32 = 2u32;
 pub const SHPWHF_NORECOMPRESS: u32 = 1u32;
 pub const SHPWHF_USEMRU: u32 = 8u32;
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct SHQUERYRBINFO {
+    pub cbSize: u32,
+    pub i64Size: i64,
+    pub i64NumItems: i64,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -5727,6 +6164,24 @@ pub const SHREGSET_FORCE_HKLM: u32 = 8u32;
 pub const SHREGSET_HKCU: u32 = 1u32;
 pub const SHREGSET_HKLM: u32 = 4u32;
 pub type SHSTOCKICONID = i32;
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
+pub struct SHSTOCKICONINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iSysImageIndex: i32,
+    pub iIcon: i32,
+    pub szPath: [u16; 260],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for SHSTOCKICONINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

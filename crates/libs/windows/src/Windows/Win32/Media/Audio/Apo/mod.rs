@@ -940,12 +940,8 @@ impl windows_core::RuntimeName for IAudioProcessingObjectNotifications2 {}
 windows_core::imp::define_interface!(IAudioProcessingObjectRT, IAudioProcessingObjectRT_Vtbl, 0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRT, windows_core::IUnknown);
 impl IAudioProcessingObjectRT {
-    pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32) -> *mut APO_CONNECTION_PROPERTY {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).APOProcess)(windows_core::Interface::as_raw(self), u32numinputconnections, ppinputconnections, u32numoutputconnections, &mut result__);
-            result__
-        }
+    pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
+        unsafe { (windows_core::Interface::vtable(self).APOProcess)(windows_core::Interface::as_raw(self), u32numinputconnections, ppinputconnections, u32numoutputconnections, ppoutputconnections as _) }
     }
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).CalcInputFrames)(windows_core::Interface::as_raw(self), u32outputframecount) }
@@ -1166,8 +1162,8 @@ impl core::ops::Deref for IAudioSystemEffects3 {
 }
 windows_core::imp::interface_hierarchy!(IAudioSystemEffects3, windows_core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
 impl IAudioSystemEffects3 {
-    pub unsafe fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), effects as _, numeffects as _, event).ok() }
+    pub unsafe fn GetControllableSystemEffectsList(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Option<super::super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetControllableSystemEffectsList)(windows_core::Interface::as_raw(self), effects as _, numeffects as _, event.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetAudioSystemEffectState(&self, effectid: windows_core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAudioSystemEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state).ok() }

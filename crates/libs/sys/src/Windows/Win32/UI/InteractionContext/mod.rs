@@ -140,6 +140,20 @@ impl Default for INTERACTION_CONTEXT_OUTPUT {
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
+pub union INTERACTION_CONTEXT_OUTPUT_0 {
+    pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
+    pub tap: INTERACTION_ARGUMENTS_TAP,
+    pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[derive(Clone, Copy)]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
     pub interactionFlags: INTERACTION_FLAGS,
@@ -157,25 +171,15 @@ impl Default for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for INTERACTION_CONTEXT_OUTPUT2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union INTERACTION_CONTEXT_OUTPUT_0 {
-    pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
-    pub tap: INTERACTION_ARGUMENTS_TAP,
-    pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
-}
-impl Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

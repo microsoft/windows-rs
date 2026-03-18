@@ -433,9 +433,9 @@ where
     unsafe { GdipCreateBitmapFromResource(hinstance, lpbitmapname.param().abi(), bitmap as _) }
 }
 #[inline]
-pub unsafe fn GdipCreateBitmapFromScan0(width: i32, height: i32, stride: i32, format: i32, scan0: *const u8, bitmap: *mut *mut GpBitmap) -> Status {
+pub unsafe fn GdipCreateBitmapFromScan0(width: i32, height: i32, stride: i32, format: i32, scan0: Option<*const u8>, bitmap: *mut *mut GpBitmap) -> Status {
     windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
-    unsafe { GdipCreateBitmapFromScan0(width, height, stride, format, scan0, bitmap as _) }
+    unsafe { GdipCreateBitmapFromScan0(width, height, stride, format, scan0.unwrap_or(core::mem::zeroed()) as _, bitmap as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1078,9 +1078,9 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GdipEmfToWmfBits(hemf: super::Gdi::HENHMETAFILE, cbdata16: u32, pdata16: *mut u8, imapmode: i32, eflags: i32) -> u32 {
+pub unsafe fn GdipEmfToWmfBits(hemf: super::Gdi::HENHMETAFILE, pdata16: Option<&mut [u8]>, imapmode: i32, eflags: i32) -> u32 {
     windows_core::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
-    unsafe { GdipEmfToWmfBits(hemf, cbdata16, pdata16 as _, imapmode, eflags) }
+    unsafe { GdipEmfToWmfBits(hemf, pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdata16.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), imapmode, eflags) }
 }
 #[inline]
 pub unsafe fn GdipEndContainer(graphics: *mut GpGraphics, state: u32) -> Status {
@@ -1404,9 +1404,9 @@ pub unsafe fn GdipGetFamily(font: *mut GpFont, family: *mut *mut GpFontFamily) -
     unsafe { GdipGetFamily(font as _, family as _) }
 }
 #[inline]
-pub unsafe fn GdipGetFamilyName(family: *const GpFontFamily, name: windows_core::PWSTR, language: u16) -> Status {
+pub unsafe fn GdipGetFamilyName(family: *const GpFontFamily, name: &mut [u16; 32], language: u16) -> Status {
     windows_core::link!("gdiplus.dll" "system" fn GdipGetFamilyName(family : *const GpFontFamily, name : windows_core::PWSTR, language : u16) -> Status);
-    unsafe { GdipGetFamilyName(family, core::mem::transmute(name), language) }
+    unsafe { GdipGetFamilyName(family, core::mem::transmute(name.as_ptr()), language) }
 }
 #[inline]
 pub unsafe fn GdipGetFontCollectionFamilyCount(fontcollection: *mut GpFontCollection, numfound: *mut i32) -> Status {
@@ -1414,9 +1414,9 @@ pub unsafe fn GdipGetFontCollectionFamilyCount(fontcollection: *mut GpFontCollec
     unsafe { GdipGetFontCollectionFamilyCount(fontcollection as _, numfound as _) }
 }
 #[inline]
-pub unsafe fn GdipGetFontCollectionFamilyList(fontcollection: *const GpFontCollection, numsought: i32, gpfamilies: *mut *mut GpFontFamily, numfound: *mut i32) -> Status {
+pub unsafe fn GdipGetFontCollectionFamilyList(fontcollection: *const GpFontCollection, gpfamilies: &mut [*mut GpFontFamily], numfound: *mut i32) -> Status {
     windows_core::link!("gdiplus.dll" "system" fn GdipGetFontCollectionFamilyList(fontcollection : *const GpFontCollection, numsought : i32, gpfamilies : *mut *mut GpFontFamily, numfound : *mut i32) -> Status);
-    unsafe { GdipGetFontCollectionFamilyList(fontcollection, numsought, gpfamilies as _, numfound as _) }
+    unsafe { GdipGetFontCollectionFamilyList(fontcollection, gpfamilies.len().try_into().unwrap(), core::mem::transmute(gpfamilies.as_ptr()), numfound as _) }
 }
 #[inline]
 pub unsafe fn GdipGetFontHeight(font: *const GpFont, graphics: *const GpGraphics, height: *mut f32) -> Status {
@@ -1823,9 +1823,9 @@ pub unsafe fn GdipGetPathPointsI(param0: *mut GpPath, points: *mut Point, count:
     unsafe { GdipGetPathPointsI(param0 as _, points as _, count) }
 }
 #[inline]
-pub unsafe fn GdipGetPathTypes(path: *const GpPath, types: *mut u8, count: i32) -> Status {
+pub unsafe fn GdipGetPathTypes(path: *const GpPath, types: &mut [u8]) -> Status {
     windows_core::link!("gdiplus.dll" "system" fn GdipGetPathTypes(path : *const GpPath, types : *mut u8, count : i32) -> Status);
-    unsafe { GdipGetPathTypes(path, types as _, count) }
+    unsafe { GdipGetPathTypes(path, core::mem::transmute(types.as_ptr()), types.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GdipGetPathWorldBounds(path: *mut GpPath, bounds: *mut RectF, matrix: *const Matrix, pen: *const GpPen) -> Status {
@@ -1983,9 +1983,9 @@ pub unsafe fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraph
     unsafe { GdipGetRegionBoundsI(region as _, graphics as _, rect as _) }
 }
 #[inline]
-pub unsafe fn GdipGetRegionData(region: *mut GpRegion, buffer: *mut u8, buffersize: u32, sizefilled: *mut u32) -> Status {
+pub unsafe fn GdipGetRegionData(region: *mut GpRegion, buffer: &mut [u8], sizefilled: Option<*mut u32>) -> Status {
     windows_core::link!("gdiplus.dll" "system" fn GdipGetRegionData(region : *mut GpRegion, buffer : *mut u8, buffersize : u32, sizefilled : *mut u32) -> Status);
-    unsafe { GdipGetRegionData(region as _, buffer as _, buffersize, sizefilled as _) }
+    unsafe { GdipGetRegionData(region as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), sizefilled.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GdipGetRegionDataSize(region: *mut GpRegion, buffersize: *mut u32) -> Status {
@@ -3381,155 +3381,157 @@ pub const CodecIImageBytes: windows_core::GUID = windows_core::GUID::from_u128(0
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Color {
     pub Argb: u32,
-    pub AliceBlue: i32,
-    pub AntiqueWhite: i32,
-    pub Aqua: i32,
-    pub Aquamarine: i32,
-    pub Azure: i32,
-    pub Beige: i32,
-    pub Bisque: i32,
-    pub Black: i32,
-    pub BlanchedAlmond: i32,
-    pub Blue: i32,
-    pub BlueViolet: i32,
-    pub Brown: i32,
-    pub BurlyWood: i32,
-    pub CadetBlue: i32,
-    pub Chartreuse: i32,
-    pub Chocolate: i32,
-    pub Coral: i32,
-    pub CornflowerBlue: i32,
-    pub Cornsilk: i32,
-    pub Crimson: i32,
-    pub Cyan: i32,
-    pub DarkBlue: i32,
-    pub DarkCyan: i32,
-    pub DarkGoldenrod: i32,
-    pub DarkGray: i32,
-    pub DarkGreen: i32,
-    pub DarkKhaki: i32,
-    pub DarkMagenta: i32,
-    pub DarkOliveGreen: i32,
-    pub DarkOrange: i32,
-    pub DarkOrchid: i32,
-    pub DarkRed: i32,
-    pub DarkSalmon: i32,
-    pub DarkSeaGreen: i32,
-    pub DarkSlateBlue: i32,
-    pub DarkSlateGray: i32,
-    pub DarkTurquoise: i32,
-    pub DarkViolet: i32,
-    pub DeepPink: i32,
-    pub DeepSkyBlue: i32,
-    pub DimGray: i32,
-    pub DodgerBlue: i32,
-    pub Firebrick: i32,
-    pub FloralWhite: i32,
-    pub ForestGreen: i32,
-    pub Fuchsia: i32,
-    pub Gainsboro: i32,
-    pub GhostWhite: i32,
-    pub Gold: i32,
-    pub Goldenrod: i32,
-    pub Gray: i32,
-    pub Green: i32,
-    pub GreenYellow: i32,
-    pub Honeydew: i32,
-    pub HotPink: i32,
-    pub IndianRed: i32,
-    pub Indigo: i32,
-    pub Ivory: i32,
-    pub Khaki: i32,
-    pub Lavender: i32,
-    pub LavenderBlush: i32,
-    pub LawnGreen: i32,
-    pub LemonChiffon: i32,
-    pub LightBlue: i32,
-    pub LightCoral: i32,
-    pub LightCyan: i32,
-    pub LightGoldenrodYellow: i32,
-    pub LightGray: i32,
-    pub LightGreen: i32,
-    pub LightPink: i32,
-    pub LightSalmon: i32,
-    pub LightSeaGreen: i32,
-    pub LightSkyBlue: i32,
-    pub LightSlateGray: i32,
-    pub LightSteelBlue: i32,
-    pub LightYellow: i32,
-    pub Lime: i32,
-    pub LimeGreen: i32,
-    pub Linen: i32,
-    pub Magenta: i32,
-    pub Maroon: i32,
-    pub MediumAquamarine: i32,
-    pub MediumBlue: i32,
-    pub MediumOrchid: i32,
-    pub MediumPurple: i32,
-    pub MediumSeaGreen: i32,
-    pub MediumSlateBlue: i32,
-    pub MediumSpringGreen: i32,
-    pub MediumTurquoise: i32,
-    pub MediumVioletRed: i32,
-    pub MidnightBlue: i32,
-    pub MintCream: i32,
-    pub MistyRose: i32,
-    pub Moccasin: i32,
-    pub NavajoWhite: i32,
-    pub Navy: i32,
-    pub OldLace: i32,
-    pub Olive: i32,
-    pub OliveDrab: i32,
-    pub Orange: i32,
-    pub OrangeRed: i32,
-    pub Orchid: i32,
-    pub PaleGoldenrod: i32,
-    pub PaleGreen: i32,
-    pub PaleTurquoise: i32,
-    pub PaleVioletRed: i32,
-    pub PapayaWhip: i32,
-    pub PeachPuff: i32,
-    pub Peru: i32,
-    pub Pink: i32,
-    pub Plum: i32,
-    pub PowderBlue: i32,
-    pub Purple: i32,
-    pub Red: i32,
-    pub RosyBrown: i32,
-    pub RoyalBlue: i32,
-    pub SaddleBrown: i32,
-    pub Salmon: i32,
-    pub SandyBrown: i32,
-    pub SeaGreen: i32,
-    pub SeaShell: i32,
-    pub Sienna: i32,
-    pub Silver: i32,
-    pub SkyBlue: i32,
-    pub SlateBlue: i32,
-    pub SlateGray: i32,
-    pub Snow: i32,
-    pub SpringGreen: i32,
-    pub SteelBlue: i32,
-    pub Tan: i32,
-    pub Teal: i32,
-    pub Thistle: i32,
-    pub Tomato: i32,
-    pub Transparent: i32,
-    pub Turquoise: i32,
-    pub Violet: i32,
-    pub Wheat: i32,
-    pub White: i32,
-    pub WhiteSmoke: i32,
-    pub Yellow: i32,
-    pub YellowGreen: i32,
-    pub AlphaShift: i32,
-    pub RedShift: i32,
-    pub GreenShift: i32,
-    pub BlueShift: i32,
-    pub AlphaMask: i32,
-    pub RedMask: i32,
-    pub GreenMask: i32,
-    pub BlueMask: i32,
+}
+impl Color {
+    pub const AliceBlue: i32 = -984833i32;
+    pub const AntiqueWhite: i32 = -332841i32;
+    pub const Aqua: i32 = -16711681i32;
+    pub const Aquamarine: i32 = -8388652i32;
+    pub const Azure: i32 = -983041i32;
+    pub const Beige: i32 = -657956i32;
+    pub const Bisque: i32 = -6972i32;
+    pub const Black: i32 = -16777216i32;
+    pub const BlanchedAlmond: i32 = -5171i32;
+    pub const Blue: i32 = -16776961i32;
+    pub const BlueViolet: i32 = -7722014i32;
+    pub const Brown: i32 = -5952982i32;
+    pub const BurlyWood: i32 = -2180985i32;
+    pub const CadetBlue: i32 = -10510688i32;
+    pub const Chartreuse: i32 = -8388864i32;
+    pub const Chocolate: i32 = -2987746i32;
+    pub const Coral: i32 = -32944i32;
+    pub const CornflowerBlue: i32 = -10185235i32;
+    pub const Cornsilk: i32 = -1828i32;
+    pub const Crimson: i32 = -2354116i32;
+    pub const Cyan: i32 = -16711681i32;
+    pub const DarkBlue: i32 = -16777077i32;
+    pub const DarkCyan: i32 = -16741493i32;
+    pub const DarkGoldenrod: i32 = -4684277i32;
+    pub const DarkGray: i32 = -5658199i32;
+    pub const DarkGreen: i32 = -16751616i32;
+    pub const DarkKhaki: i32 = -4343957i32;
+    pub const DarkMagenta: i32 = -7667573i32;
+    pub const DarkOliveGreen: i32 = -11179217i32;
+    pub const DarkOrange: i32 = -29696i32;
+    pub const DarkOrchid: i32 = -6737204i32;
+    pub const DarkRed: i32 = -7667712i32;
+    pub const DarkSalmon: i32 = -1468806i32;
+    pub const DarkSeaGreen: i32 = -7357301i32;
+    pub const DarkSlateBlue: i32 = -12042869i32;
+    pub const DarkSlateGray: i32 = -13676721i32;
+    pub const DarkTurquoise: i32 = -16724271i32;
+    pub const DarkViolet: i32 = -7077677i32;
+    pub const DeepPink: i32 = -60269i32;
+    pub const DeepSkyBlue: i32 = -16728065i32;
+    pub const DimGray: i32 = -9868951i32;
+    pub const DodgerBlue: i32 = -14774017i32;
+    pub const Firebrick: i32 = -5103070i32;
+    pub const FloralWhite: i32 = -1296i32;
+    pub const ForestGreen: i32 = -14513374i32;
+    pub const Fuchsia: i32 = -65281i32;
+    pub const Gainsboro: i32 = -2302756i32;
+    pub const GhostWhite: i32 = -460545i32;
+    pub const Gold: i32 = -10496i32;
+    pub const Goldenrod: i32 = -2448096i32;
+    pub const Gray: i32 = -8355712i32;
+    pub const Green: i32 = -16744448i32;
+    pub const GreenYellow: i32 = -5374161i32;
+    pub const Honeydew: i32 = -983056i32;
+    pub const HotPink: i32 = -38476i32;
+    pub const IndianRed: i32 = -3318692i32;
+    pub const Indigo: i32 = -11861886i32;
+    pub const Ivory: i32 = -16i32;
+    pub const Khaki: i32 = -989556i32;
+    pub const Lavender: i32 = -1644806i32;
+    pub const LavenderBlush: i32 = -3851i32;
+    pub const LawnGreen: i32 = -8586240i32;
+    pub const LemonChiffon: i32 = -1331i32;
+    pub const LightBlue: i32 = -5383962i32;
+    pub const LightCoral: i32 = -1015680i32;
+    pub const LightCyan: i32 = -2031617i32;
+    pub const LightGoldenrodYellow: i32 = -329006i32;
+    pub const LightGray: i32 = -2894893i32;
+    pub const LightGreen: i32 = -7278960i32;
+    pub const LightPink: i32 = -18751i32;
+    pub const LightSalmon: i32 = -24454i32;
+    pub const LightSeaGreen: i32 = -14634326i32;
+    pub const LightSkyBlue: i32 = -7876870i32;
+    pub const LightSlateGray: i32 = -8943463i32;
+    pub const LightSteelBlue: i32 = -5192482i32;
+    pub const LightYellow: i32 = -32i32;
+    pub const Lime: i32 = -16711936i32;
+    pub const LimeGreen: i32 = -13447886i32;
+    pub const Linen: i32 = -331546i32;
+    pub const Magenta: i32 = -65281i32;
+    pub const Maroon: i32 = -8388608i32;
+    pub const MediumAquamarine: i32 = -10039894i32;
+    pub const MediumBlue: i32 = -16777011i32;
+    pub const MediumOrchid: i32 = -4565549i32;
+    pub const MediumPurple: i32 = -7114533i32;
+    pub const MediumSeaGreen: i32 = -12799119i32;
+    pub const MediumSlateBlue: i32 = -8689426i32;
+    pub const MediumSpringGreen: i32 = -16713062i32;
+    pub const MediumTurquoise: i32 = -12004916i32;
+    pub const MediumVioletRed: i32 = -3730043i32;
+    pub const MidnightBlue: i32 = -15132304i32;
+    pub const MintCream: i32 = -655366i32;
+    pub const MistyRose: i32 = -6943i32;
+    pub const Moccasin: i32 = -6987i32;
+    pub const NavajoWhite: i32 = -8531i32;
+    pub const Navy: i32 = -16777088i32;
+    pub const OldLace: i32 = -133658i32;
+    pub const Olive: i32 = -8355840i32;
+    pub const OliveDrab: i32 = -9728477i32;
+    pub const Orange: i32 = -23296i32;
+    pub const OrangeRed: i32 = -47872i32;
+    pub const Orchid: i32 = -2461482i32;
+    pub const PaleGoldenrod: i32 = -1120086i32;
+    pub const PaleGreen: i32 = -6751336i32;
+    pub const PaleTurquoise: i32 = -5247250i32;
+    pub const PaleVioletRed: i32 = -2396013i32;
+    pub const PapayaWhip: i32 = -4139i32;
+    pub const PeachPuff: i32 = -9543i32;
+    pub const Peru: i32 = -3308225i32;
+    pub const Pink: i32 = -16181i32;
+    pub const Plum: i32 = -2252579i32;
+    pub const PowderBlue: i32 = -5185306i32;
+    pub const Purple: i32 = -8388480i32;
+    pub const Red: i32 = -65536i32;
+    pub const RosyBrown: i32 = -4419697i32;
+    pub const RoyalBlue: i32 = -12490271i32;
+    pub const SaddleBrown: i32 = -7650029i32;
+    pub const Salmon: i32 = -360334i32;
+    pub const SandyBrown: i32 = -744352i32;
+    pub const SeaGreen: i32 = -13726889i32;
+    pub const SeaShell: i32 = -2578i32;
+    pub const Sienna: i32 = -6270419i32;
+    pub const Silver: i32 = -4144960i32;
+    pub const SkyBlue: i32 = -7876885i32;
+    pub const SlateBlue: i32 = -9807155i32;
+    pub const SlateGray: i32 = -9404272i32;
+    pub const Snow: i32 = -1286i32;
+    pub const SpringGreen: i32 = -16711809i32;
+    pub const SteelBlue: i32 = -12156236i32;
+    pub const Tan: i32 = -2968436i32;
+    pub const Teal: i32 = -16744320i32;
+    pub const Thistle: i32 = -2572328i32;
+    pub const Tomato: i32 = -40121i32;
+    pub const Transparent: i32 = 16777215i32;
+    pub const Turquoise: i32 = -12525360i32;
+    pub const Violet: i32 = -1146130i32;
+    pub const Wheat: i32 = -663885i32;
+    pub const White: i32 = -1i32;
+    pub const WhiteSmoke: i32 = -657931i32;
+    pub const Yellow: i32 = -256i32;
+    pub const YellowGreen: i32 = -6632142i32;
+    pub const AlphaShift: i32 = 24i32;
+    pub const RedShift: i32 = 16i32;
+    pub const GreenShift: i32 = 8i32;
+    pub const BlueShift: i32 = 0i32;
+    pub const AlphaMask: i32 = -16777216i32;
+    pub const RedMask: i32 = 16711680i32;
+    pub const GreenMask: i32 = 65280i32;
+    pub const BlueMask: i32 = 255i32;
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4332,11 +4334,8 @@ pub struct HueSaturationLightnessParams {
 windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
 impl IImageBytes {
-    pub unsafe fn CountBytes(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CountBytes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CountBytes)(windows_core::Interface::as_raw(self), pcb as _).ok() }
     }
     pub unsafe fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LockBytes)(windows_core::Interface::as_raw(self), cb, uloffset, ppvbytes).ok() }
@@ -4354,7 +4353,7 @@ pub struct IImageBytes_Vtbl {
     pub UnlockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IImageBytes_Impl: windows_core::IUnknownImpl {
-    fn CountBytes(&self) -> windows_core::Result<u32>;
+    fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()>;
     fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()>;
     fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()>;
 }
@@ -4363,13 +4362,7 @@ impl IImageBytes_Vtbl {
         unsafe extern "system" fn CountBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcb: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImageBytes_Impl::CountBytes(this) {
-                    Ok(ok__) => {
-                        pcb.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImageBytes_Impl::CountBytes(this, core::mem::transmute_copy(&pcb)).into()
             }
         }
         unsafe extern "system" fn LockBytes<Identity: IImageBytes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5172,8 +5165,8 @@ pub struct WarpMode(pub i32);
 pub const WarpModeBilinear: WarpMode = WarpMode(1i32);
 pub const WarpModePerspective: WarpMode = WarpMode(0i32);
 pub const Win32Error: Status = Status(7i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct WmfPlaceableFileHeader {
     pub Key: u32,
     pub Hmf: i16,

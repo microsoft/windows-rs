@@ -1,18 +1,18 @@
 #[inline]
-pub unsafe fn HtmlHelpA<P1>(hwndcaller: super::super::Foundation::HWND, pszfile: P1, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpA<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    unsafe { HtmlHelpA(hwndcaller, pszfile.param().abi(), ucommand, dwdata) }
+    unsafe { HtmlHelpA(hwndcaller.unwrap_or(core::mem::zeroed()) as _, pszfile.param().abi(), ucommand.0 as _, dwdata) }
 }
 #[inline]
-pub unsafe fn HtmlHelpW<P1>(hwndcaller: super::super::Foundation::HWND, pszfile: P1, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND
+pub unsafe fn HtmlHelpW<P1>(hwndcaller: Option<super::super::Foundation::HWND>, pszfile: P1, ucommand: HTML_HELP_COMMAND, dwdata: usize) -> super::super::Foundation::HWND
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : windows_core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-    unsafe { HtmlHelpW(hwndcaller, pszfile.param().abi(), ucommand, dwdata) }
+    unsafe { HtmlHelpW(hwndcaller.unwrap_or(core::mem::zeroed()) as _, pszfile.param().abi(), ucommand.0 as _, dwdata) }
 }
 pub const CLSID_IITCmdInt: windows_core::GUID = windows_core::GUID::from_u128(0x4662daa2_d393_11d0_9a56_00c04fb68bf7);
 pub const CLSID_IITDatabase: windows_core::GUID = windows_core::GUID::from_u128(0x66673452_8c23_11d0_a84e_00aa006c7d01);
@@ -477,11 +477,8 @@ impl IITDatabase {
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CreateObject(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), rclsid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn CreateObject(&self, rclsid: *const windows_core::GUID, pdwobjinstance: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), rclsid, pdwobjinstance as _).ok() }
     }
     pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), dwobjinstance, riid, ppvobj as _).ok() }
@@ -506,7 +503,7 @@ pub struct IITDatabase_Vtbl {
 pub trait IITDatabase_Impl: windows_core::IUnknownImpl {
     fn Open(&self, lpszhost: &windows_core::PCWSTR, lpszmoniker: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn CreateObject(&self, rclsid: *const windows_core::GUID) -> windows_core::Result<u32>;
+    fn CreateObject(&self, rclsid: *const windows_core::GUID, pdwobjinstance: *mut u32) -> windows_core::Result<()>;
     fn GetObject(&self, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetObjectPersistence(&self, lpwszobject: &windows_core::PCWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut core::ffi::c_void, fstream: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -527,13 +524,7 @@ impl IITDatabase_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: IITDatabase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rclsid: *const windows_core::GUID, pdwobjinstance: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITDatabase_Impl::CreateObject(this, core::mem::transmute_copy(&rclsid)) {
-                    Ok(ok__) => {
-                        pdwobjinstance.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITDatabase_Impl::CreateObject(this, core::mem::transmute_copy(&rclsid), core::mem::transmute_copy(&pdwobjinstance)).into()
             }
         }
         unsafe extern "system" fn GetObject<Identity: IITDatabase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwobjinstance: u32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -608,11 +599,8 @@ impl IITPropList {
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNext)(windows_core::Interface::as_raw(self), property as _).ok() }
     }
-    pub unsafe fn GetPropCount(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropCount(&self, cprop: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropCount)(windows_core::Interface::as_raw(self), cprop as _).ok() }
     }
     pub unsafe fn SaveHeader(&self, lpvdata: *mut core::ffi::c_void, dwhdrsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SaveHeader)(windows_core::Interface::as_raw(self), lpvdata as _, dwhdrsize).ok() }
@@ -620,11 +608,8 @@ impl IITPropList {
     pub unsafe fn SaveData(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self), lpvheader as _, dwhdrsize, lpvdata as _, dwbufsize).ok() }
     }
-    pub unsafe fn GetHeaderSize(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHeaderSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetHeaderSize)(windows_core::Interface::as_raw(self), dwhdrsize as _).ok() }
     }
     pub unsafe fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDataSize)(windows_core::Interface::as_raw(self), lpvheader as _, dwhdrsize, dwdatasize as _).ok() }
@@ -678,10 +663,10 @@ pub trait IITPropList_Impl: super::super::System::Com::IPersistStreamInit_Impl {
     fn SetPersist2(&self, propid: u32, fpersist: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFirst(&self, property: *mut CProperty) -> windows_core::Result<()>;
     fn GetNext(&self, property: *mut CProperty) -> windows_core::Result<()>;
-    fn GetPropCount(&self) -> windows_core::Result<i32>;
+    fn GetPropCount(&self, cprop: *mut i32) -> windows_core::Result<()>;
     fn SaveHeader(&self, lpvdata: *mut core::ffi::c_void, dwhdrsize: u32) -> windows_core::Result<()>;
     fn SaveData(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
-    fn GetHeaderSize(&self) -> windows_core::Result<u32>;
+    fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> windows_core::Result<()>;
     fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()>;
     fn SaveDataToStream(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn LoadFromMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
@@ -753,13 +738,7 @@ impl IITPropList_Vtbl {
         unsafe extern "system" fn GetPropCount<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cprop: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITPropList_Impl::GetPropCount(this) {
-                    Ok(ok__) => {
-                        cprop.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITPropList_Impl::GetPropCount(this, core::mem::transmute_copy(&cprop)).into()
             }
         }
         unsafe extern "system" fn SaveHeader<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void, dwhdrsize: u32) -> windows_core::HRESULT {
@@ -777,13 +756,7 @@ impl IITPropList_Vtbl {
         unsafe extern "system" fn GetHeaderSize<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwhdrsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITPropList_Impl::GetHeaderSize(this) {
-                    Ok(ok__) => {
-                        dwhdrsize.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITPropList_Impl::GetHeaderSize(this, core::mem::transmute_copy(&dwhdrsize)).into()
             }
         }
         unsafe extern "system" fn GetDataSize<Identity: IITPropList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::HRESULT {
@@ -889,56 +862,35 @@ impl IITResultSet {
     {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), prscopy.param().abi()).ok() }
     }
-    pub unsafe fn AppendRows<P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32) -> windows_core::Result<i32>
+    pub unsafe fn AppendRows<P0>(&self, pressrc: P0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IITResultSet>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), lrowsrcfirst, csrcrows, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).AppendRows)(windows_core::Interface::as_raw(self), pressrc.param().abi(), lrowsrcfirst, csrcrows, lrowfirstdest as _).ok() }
     }
     pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), lrowindex, lcolumnindex, prop as _).ok() }
     }
-    pub unsafe fn GetKeyProp(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetKeyProp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetKeyProp)(windows_core::Interface::as_raw(self), keypropid as _).ok() }
     }
-    pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32) -> windows_core::Result<PRIORITY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnPriority)(windows_core::Interface::as_raw(self), lcolumnindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnPriority)(windows_core::Interface::as_raw(self), lcolumnindex, columnpriority as _).ok() }
     }
-    pub unsafe fn GetRowCount(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRowCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRowCount)(windows_core::Interface::as_raw(self), lnumberofrows as _).ok() }
     }
-    pub unsafe fn GetColumnCount(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnCount)(windows_core::Interface::as_raw(self), lnumberofcolumns as _).ok() }
     }
     pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), lcolumnindex, propid as _, dwtype as _, lpvdefaultvalue as _, cbsize as _, columnpriority as _).ok() }
     }
-    pub unsafe fn GetColumn2(&self, lcolumnindex: i32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumn2)(windows_core::Interface::as_raw(self), lcolumnindex, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumn2)(windows_core::Interface::as_raw(self), lcolumnindex, propid as _).ok() }
     }
-    pub unsafe fn GetColumnFromPropID(&self, propid: u32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnFromPropID)(windows_core::Interface::as_raw(self), propid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnFromPropID)(windows_core::Interface::as_raw(self), propid, lcolumnindex as _).ok() }
     }
     pub unsafe fn Clear(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
@@ -958,17 +910,11 @@ impl IITResultSet {
     pub unsafe fn Pause(&self, fpause: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self), fpause.into()).ok() }
     }
-    pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32) -> windows_core::Result<ROWSTATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), lrowfirst, crows, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRowStatus)(windows_core::Interface::as_raw(self), lrowfirst, crows, lprowstatus as _).ok() }
     }
-    pub unsafe fn GetColumnStatus(&self) -> windows_core::Result<COLUMNSTATUS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumnStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnStatus)(windows_core::Interface::as_raw(self), lpcolstatus as _).ok() }
     }
 }
 #[repr(C)]
@@ -1020,23 +966,23 @@ pub trait IITResultSet_Impl: windows_core::IUnknownImpl {
     fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> windows_core::Result<()>;
     fn Set4(&self, lrowindex: i32, lpvhdr: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Copy(&self, prscopy: windows_core::Ref<IITResultSet>) -> windows_core::Result<()>;
-    fn AppendRows(&self, pressrc: windows_core::Ref<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32) -> windows_core::Result<i32>;
+    fn AppendRows(&self, pressrc: windows_core::Ref<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>;
     fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()>;
-    fn GetKeyProp(&self) -> windows_core::Result<u32>;
-    fn GetColumnPriority(&self, lcolumnindex: i32) -> windows_core::Result<PRIORITY>;
-    fn GetRowCount(&self) -> windows_core::Result<i32>;
-    fn GetColumnCount(&self) -> windows_core::Result<i32>;
+    fn GetKeyProp(&self, keypropid: *mut u32) -> windows_core::Result<()>;
+    fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::Result<()>;
+    fn GetRowCount(&self, lnumberofrows: *mut i32) -> windows_core::Result<()>;
+    fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> windows_core::Result<()>;
     fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> windows_core::Result<()>;
-    fn GetColumn2(&self, lcolumnindex: i32) -> windows_core::Result<u32>;
-    fn GetColumnFromPropID(&self, propid: u32) -> windows_core::Result<i32>;
+    fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> windows_core::Result<()>;
+    fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn ClearRows(&self) -> windows_core::Result<()>;
     fn Free(&self) -> windows_core::Result<()>;
     fn IsCompleted(&self) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
     fn Pause(&self, fpause: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetRowStatus(&self, lrowfirst: i32, crows: i32) -> windows_core::Result<ROWSTATUS>;
-    fn GetColumnStatus(&self) -> windows_core::Result<COLUMNSTATUS>;
+    fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::Result<()>;
+    fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> windows_core::Result<()>;
 }
 impl IITResultSet_Vtbl {
     pub const fn new<Identity: IITResultSet_Impl, const OFFSET: isize>() -> Self {
@@ -1121,13 +1067,7 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn AppendRows<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pressrc: *mut core::ffi::c_void, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::AppendRows(this, core::mem::transmute_copy(&pressrc), core::mem::transmute_copy(&lrowsrcfirst), core::mem::transmute_copy(&csrcrows)) {
-                    Ok(ok__) => {
-                        lrowfirstdest.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::AppendRows(this, core::mem::transmute_copy(&pressrc), core::mem::transmute_copy(&lrowsrcfirst), core::mem::transmute_copy(&csrcrows), core::mem::transmute_copy(&lrowfirstdest)).into()
             }
         }
         unsafe extern "system" fn Get<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::HRESULT {
@@ -1139,49 +1079,25 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn GetKeyProp<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keypropid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetKeyProp(this) {
-                    Ok(ok__) => {
-                        keypropid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetKeyProp(this, core::mem::transmute_copy(&keypropid)).into()
             }
         }
         unsafe extern "system" fn GetColumnPriority<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetColumnPriority(this, core::mem::transmute_copy(&lcolumnindex)) {
-                    Ok(ok__) => {
-                        columnpriority.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetColumnPriority(this, core::mem::transmute_copy(&lcolumnindex), core::mem::transmute_copy(&columnpriority)).into()
             }
         }
         unsafe extern "system" fn GetRowCount<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumberofrows: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetRowCount(this) {
-                    Ok(ok__) => {
-                        lnumberofrows.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetRowCount(this, core::mem::transmute_copy(&lnumberofrows)).into()
             }
         }
         unsafe extern "system" fn GetColumnCount<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnumberofcolumns: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetColumnCount(this) {
-                    Ok(ok__) => {
-                        lnumberofcolumns.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetColumnCount(this, core::mem::transmute_copy(&lnumberofcolumns)).into()
             }
         }
         unsafe extern "system" fn GetColumn<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut core::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> windows_core::HRESULT {
@@ -1193,25 +1109,13 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn GetColumn2<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcolumnindex: i32, propid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetColumn2(this, core::mem::transmute_copy(&lcolumnindex)) {
-                    Ok(ok__) => {
-                        propid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetColumn2(this, core::mem::transmute_copy(&lcolumnindex), core::mem::transmute_copy(&propid)).into()
             }
         }
         unsafe extern "system" fn GetColumnFromPropID<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: u32, lcolumnindex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetColumnFromPropID(this, core::mem::transmute_copy(&propid)) {
-                    Ok(ok__) => {
-                        lcolumnindex.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetColumnFromPropID(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&lcolumnindex)).into()
             }
         }
         unsafe extern "system" fn Clear<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1253,25 +1157,13 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn GetRowStatus<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetRowStatus(this, core::mem::transmute_copy(&lrowfirst), core::mem::transmute_copy(&crows)) {
-                    Ok(ok__) => {
-                        lprowstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetRowStatus(this, core::mem::transmute_copy(&lrowfirst), core::mem::transmute_copy(&crows), core::mem::transmute_copy(&lprowstatus)).into()
             }
         }
         unsafe extern "system" fn GetColumnStatus<Identity: IITResultSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpcolstatus: *mut COLUMNSTATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IITResultSet_Impl::GetColumnStatus(this) {
-                    Ok(ok__) => {
-                        lpcolstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IITResultSet_Impl::GetColumnStatus(this, core::mem::transmute_copy(&lpcolstatus)).into()
             }
         }
         Self {
@@ -1472,11 +1364,8 @@ impl IWordBreakerConfig {
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakWordType)(windows_core::Interface::as_raw(self), dwbreakwordtype).ok() }
     }
-    pub unsafe fn GetBreakWordType(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBreakWordType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakWordType)(windows_core::Interface::as_raw(self), pdwbreakwordtype as _).ok() }
     }
     pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetControlInfo)(windows_core::Interface::as_raw(self), grfbreakflags, dwreserved).ok() }
@@ -1534,7 +1423,7 @@ pub trait IWordBreakerConfig_Impl: windows_core::IUnknownImpl {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> windows_core::Result<()>;
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> windows_core::Result<()>;
     fn SetBreakWordType(&self, dwbreakwordtype: u32) -> windows_core::Result<()>;
-    fn GetBreakWordType(&self) -> windows_core::Result<u32>;
+    fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> windows_core::Result<()>;
     fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
     fn LoadExternalBreakerData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
@@ -1565,13 +1454,7 @@ impl IWordBreakerConfig_Vtbl {
         unsafe extern "system" fn GetBreakWordType<Identity: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwbreakwordtype: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWordBreakerConfig_Impl::GetBreakWordType(this) {
-                    Ok(ok__) => {
-                        pdwbreakwordtype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWordBreakerConfig_Impl::GetBreakWordType(this, core::mem::transmute_copy(&pdwbreakwordtype)).into()
             }
         }
         unsafe extern "system" fn SetControlInfo<Identity: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, grfbreakflags: u32, dwreserved: u32) -> windows_core::HRESULT {

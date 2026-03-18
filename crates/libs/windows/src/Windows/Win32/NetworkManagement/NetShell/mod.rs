@@ -16,9 +16,9 @@ where
     unsafe { MatchToken(pwszusertoken.param().abi(), pwszcmdtoken.param().abi()) }
 }
 #[inline]
-pub unsafe fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
+pub unsafe fn PreprocessCommand(hmodule: Option<super::super::Foundation::HANDLE>, ppwcarguments: &mut [windows_core::PWSTR], dwcurrentindex: u32, ptttags: Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: Option<*mut u32>) -> u32 {
     windows_core::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
-    unsafe { PreprocessCommand(hmodule, ppwcarguments as _, dwcurrentindex, dwargcount, ptttags as _, dwtagcount, dwminargs, dwmaxargs, pdwtagtype as _) }
+    unsafe { PreprocessCommand(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), core::mem::transmute(ptttags.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, pdwtagtype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32 {

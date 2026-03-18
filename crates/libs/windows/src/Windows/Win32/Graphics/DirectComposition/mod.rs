@@ -21,36 +21,42 @@ pub unsafe fn DCompositionBoostCompositorClock(enable: bool) -> windows_core::Re
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn DCompositionCreateDevice<P0>(dxgidevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DCompositionCreateDevice<P0, T>(dxgidevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::Dxgi::IDXGIDevice>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice(dxgidevice.param().abi(), iid, dcompositiondevice as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice(dxgidevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn DCompositionCreateDevice2<P0>(renderingdevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DCompositionCreateDevice2<P0, T>(renderingdevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice2(renderingdevice.param().abi(), iid, dcompositiondevice as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice2(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn DCompositionCreateDevice3<P0>(renderingdevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DCompositionCreateDevice3<P0, T>(renderingdevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : * mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice3(renderingdevice.param().abi(), iid, dcompositiondevice as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice3(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        DCompositionCreateSurfaceHandle(desiredaccess, securityattributes, &mut result__).map(|| result__)
+        DCompositionCreateSurfaceHandle(desiredaccess, securityattributes.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -62,19 +68,22 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
     }
 }
 #[inline]
-pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: *mut COMPOSITION_TARGET_ID, actualtargetidcount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("dcomp.dll" "system" fn DCompositionGetStatistics(frameid : u64, framestats : *mut COMPOSITION_FRAME_STATS, targetidcount : u32, targetids : *mut COMPOSITION_TARGET_ID, actualtargetidcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { DCompositionGetStatistics(frameid, framestats as _, targetidcount, targetids as _, actualtargetidcount as _).ok() }
+    unsafe { DCompositionGetStatistics(frameid, framestats as _, targetidcount, targetids.unwrap_or(core::mem::zeroed()) as _, actualtargetidcount.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> windows_core::Result<()> {
+pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID) -> windows_core::Result<COMPOSITION_TARGET_STATS> {
     windows_core::link!("dcomp.dll" "system" fn DCompositionGetTargetStatistics(frameid : u64, targetid : *const COMPOSITION_TARGET_ID, targetstats : *mut COMPOSITION_TARGET_STATS) -> windows_core::HRESULT);
-    unsafe { DCompositionGetTargetStatistics(frameid, targetid, targetstats as _).ok() }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        DCompositionGetTargetStatistics(frameid, targetid, &mut result__).map(|| result__)
+    }
 }
 #[inline]
-pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32 {
+pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::super::Foundation::HANDLE]>, timeoutinms: u32) -> u32 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::super::Foundation:: HANDLE, timeoutinms : u32) -> u32);
-    unsafe { DCompositionWaitForCompositorClock(count, handles, timeoutinms) }
+    unsafe { DCompositionWaitForCompositorClock(handles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms) }
 }
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
@@ -4662,12 +4671,12 @@ impl windows_core::RuntimeName for IDCompositionSkewTransform {}
 windows_core::imp::define_interface!(IDCompositionSurface, IDCompositionSurface_Vtbl, 0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 windows_core::imp::interface_hierarchy!(IDCompositionSurface, windows_core::IUnknown);
 impl IDCompositionSurface {
-    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::Foundation::RECT, updateoffset: *mut super::super::Foundation::POINT) -> windows_core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::super::Foundation::RECT>, updateoffset: *mut super::super::Foundation::POINT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -4678,8 +4687,8 @@ impl IDCompositionSurface {
     pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Scroll(&self, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect, cliprect, offsetx, offsety).ok() }
+    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::Foundation::RECT>, cliprect: Option<*const super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety).ok() }
     }
 }
 #[repr(C)]
@@ -5555,8 +5564,8 @@ impl IDCompositionVirtualSurface {
     pub unsafe fn Resize(&self, width: u32, height: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
-    pub unsafe fn Trim(&self, rectangles: &[super::super::Foundation::RECT]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangles.as_ptr()), rectangles.len().try_into().unwrap()).ok() }
+    pub unsafe fn Trim(&self, rectangles: Option<&[super::super::Foundation::RECT]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangles.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
 }
 #[repr(C)]

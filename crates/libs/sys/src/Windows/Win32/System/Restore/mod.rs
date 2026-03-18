@@ -28,7 +28,7 @@ pub const MIN_RPT: u32 = 0u32;
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
@@ -41,7 +41,7 @@ impl Default for RESTOREPOINTINFOA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,
@@ -55,7 +55,7 @@ impl Default for RESTOREPOINTINFOEX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
@@ -70,7 +70,7 @@ impl Default for RESTOREPOINTINFOW {
 }
 pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
 pub type RESTOREPOINTINFO_TYPE = u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct STATEMGRSTATUS {
     pub nStatus: super::super::Foundation::WIN32_ERROR,

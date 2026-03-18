@@ -96,17 +96,17 @@ windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall(pbuff : *cons
 windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall2(bindinghandle : *const core::ffi::c_void, pbuff : *const core::ffi::c_void, datarepresentation : u32, ctxguard : *const core::ffi::c_void, flags : u32) -> *mut NDR_SCONTEXT);
 windows_link::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : *const core::ffi::c_void, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : *mut RPC_MESSAGE));
 windows_link::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : *mut RPC_MESSAGE));
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : * mut core::ffi::c_void, pchannel : * mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
 windows_link::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : *mut RPC_MESSAGE));
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
@@ -119,9 +119,9 @@ windows_link::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstub
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, argaddr : *mut core::ffi::c_void));
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall2(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : isize, fcheck : i32));
 #[cfg(feature = "Win32_System_Com")]
@@ -215,7 +215,7 @@ windows_link::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : *mut 
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : * mut core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrDcomAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : * mut core::ffi::c_void, pchannel : * mut core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 #[cfg(feature = "Win32_System_Com")]
@@ -261,11 +261,11 @@ windows_link::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstub
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : *mut MIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : RPC_STATUS) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8));
+windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...));
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode2(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode2(handle : *mut core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...) -> CLIENT_CALL_RETURN);
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode3(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void) -> CLIENT_CALL_RETURN);
+windows_link::link!("rpcrt4.dll" "C" fn NdrMesProcEncodeDecode3(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 windows_link::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSize(param0 : *mut core::ffi::c_void) -> usize);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSizeAll(handle : *mut core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO) -> usize);
@@ -949,12 +949,14 @@ impl Default for MIDL_STUB_DESC {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut core::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut core::ffi::c_void,
     pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1909,11 +1911,13 @@ impl Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
 }
+#[cfg(feature = "Win32_System_IO")]
 impl Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2814,10 +2818,12 @@ impl Default for RPC_SECURITY_QOS_V2_A {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V2_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2841,10 +2847,12 @@ impl Default for RPC_SECURITY_QOS_V2_W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V2_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2869,10 +2877,12 @@ impl Default for RPC_SECURITY_QOS_V3_A {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V3_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2897,10 +2907,12 @@ impl Default for RPC_SECURITY_QOS_V3_W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V3_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2926,10 +2938,12 @@ impl Default for RPC_SECURITY_QOS_V4_A {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V4_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2955,10 +2969,12 @@ impl Default for RPC_SECURITY_QOS_V4_W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V4_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2985,10 +3001,12 @@ impl Default for RPC_SECURITY_QOS_V5_A {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V5_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3015,10 +3033,12 @@ impl Default for RPC_SECURITY_QOS_V5_W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for RPC_SECURITY_QOS_V5_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

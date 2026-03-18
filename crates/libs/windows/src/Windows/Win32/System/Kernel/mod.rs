@@ -82,6 +82,26 @@ pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSIT
 pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
 pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct FLOATING_SAVE_AREA {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub TagWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub RegisterArea: [u8; 80],
+    pub Spare0: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
@@ -151,11 +171,13 @@ impl Default for NT_TIB {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub union NT_TIB_0 {
     pub FiberData: *mut core::ffi::c_void,
     pub Version: u32,
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -275,6 +297,54 @@ impl Default for SLIST_ENTRY {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union SLIST_HEADER {
+    pub Alignment: u64,
+    pub Anonymous: SLIST_HEADER_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SLIST_HEADER_0 {
+    pub Next: SINGLE_LIST_ENTRY,
+    pub Depth: u16,
+    pub CpuId: u16,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union SLIST_HEADER {
+    pub Anonymous: SLIST_HEADER_0,
+    pub HeaderX64: SLIST_HEADER_1,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SLIST_HEADER_0 {
+    pub Alignment: u64,
+    pub Region: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SLIST_HEADER_1 {
+    pub _bitfield1: u64,
+    pub _bitfield2: u64,
+}
+#[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
@@ -288,12 +358,14 @@ impl Default for SLIST_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,

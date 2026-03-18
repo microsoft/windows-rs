@@ -456,8 +456,8 @@ windows_link::link!("user32.dll" "system" fn UpdateLayeredWindowIndirect(hwnd : 
 windows_link::link!("user32.dll" "system" fn WaitMessage() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn WindowFromPhysicalPoint(point : super::super::Foundation:: POINT) -> super::super::Foundation:: HWND);
 windows_link::link!("user32.dll" "system" fn WindowFromPoint(point : super::super::Foundation:: POINT) -> super::super::Foundation:: HWND);
-windows_link::link!("user32.dll" "C" fn wsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("user32.dll" "C" fn wsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("user32.dll" "C" fn wsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, ...) -> i32);
+windows_link::link!("user32.dll" "C" fn wsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, ...) -> i32);
 windows_link::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : *const i8) -> i32);
 windows_link::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : *const i8) -> i32);
 #[repr(C)]
@@ -1094,7 +1094,7 @@ pub const DLGC_WANTARROWS: u32 = 1u32;
 pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct DLGITEMTEMPLATE {
     pub style: u32,
@@ -1106,7 +1106,7 @@ pub struct DLGITEMTEMPLATE {
     pub id: u16,
 }
 pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct DLGTEMPLATE {
     pub style: u32,
@@ -1497,27 +1497,27 @@ impl Default for HARDWAREHOOKSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i64 as _;
+pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = 5i64 as _;
+pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = 5i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = 6i64 as _;
+pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = 6i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 3i64 as _;
+pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 3i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = 7i64 as _;
+pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = 7i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = 2i64 as _;
+pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = 2i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = 8i64 as _;
+pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = 8i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = 10i64 as _;
+pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = 10i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 11i64 as _;
+pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 11i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = 9i64 as _;
+pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = 9i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = 1i64 as _;
+pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = 1i32 as _;
 pub const HCBT_ACTIVATE: u32 = 5u32;
 pub const HCBT_CLICKSKIPPED: u32 = 6u32;
 pub const HCBT_CREATEWND: u32 = 3u32;
@@ -1613,13 +1613,13 @@ pub const HTTOPRIGHT: u32 = 14u32;
 pub const HTTRANSPARENT: i32 = -1i32;
 pub const HTVSCROLL: u32 = 7u32;
 pub const HTZOOM: u32 = 9u32;
-pub const HWND_BOTTOM: super::super::Foundation::HWND = 1i64 as _;
-pub const HWND_BROADCAST: super::super::Foundation::HWND = 65535i64 as _;
-pub const HWND_DESKTOP: super::super::Foundation::HWND = 0i64 as _;
-pub const HWND_MESSAGE: super::super::Foundation::HWND = -3i64 as _;
-pub const HWND_NOTOPMOST: super::super::Foundation::HWND = -2i64 as _;
-pub const HWND_TOP: super::super::Foundation::HWND = 0i64 as _;
-pub const HWND_TOPMOST: super::super::Foundation::HWND = -1i64 as _;
+pub const HWND_BOTTOM: super::super::Foundation::HWND = 1i32 as _;
+pub const HWND_BROADCAST: super::super::Foundation::HWND = 65535i32 as _;
+pub const HWND_DESKTOP: super::super::Foundation::HWND = 0i32 as _;
+pub const HWND_MESSAGE: super::super::Foundation::HWND = -3i32 as _;
+pub const HWND_NOTOPMOST: super::super::Foundation::HWND = -2i32 as _;
+pub const HWND_TOP: super::super::Foundation::HWND = 0i32 as _;
+pub const HWND_TOPMOST: super::super::Foundation::HWND = -1i32 as _;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -1706,25 +1706,25 @@ pub const IDASYNC: MESSAGEBOX_RESULT = 32001i32;
 pub const IDCANCEL: MESSAGEBOX_RESULT = 2i32;
 pub const IDCLOSE: MESSAGEBOX_RESULT = 8i32;
 pub const IDCONTINUE: MESSAGEBOX_RESULT = 11i32;
-pub const IDC_APPSTARTING: windows_sys::core::PCWSTR = 32650i64 as _;
-pub const IDC_ARROW: windows_sys::core::PCWSTR = 32512i64 as _;
-pub const IDC_CROSS: windows_sys::core::PCWSTR = 32515i64 as _;
-pub const IDC_HAND: windows_sys::core::PCWSTR = 32649i64 as _;
-pub const IDC_HELP: windows_sys::core::PCWSTR = 32651i64 as _;
-pub const IDC_IBEAM: windows_sys::core::PCWSTR = 32513i64 as _;
-pub const IDC_ICON: windows_sys::core::PCWSTR = 32641i64 as _;
-pub const IDC_NO: windows_sys::core::PCWSTR = 32648i64 as _;
-pub const IDC_PERSON: windows_sys::core::PCWSTR = 32672i64 as _;
-pub const IDC_PIN: windows_sys::core::PCWSTR = 32671i64 as _;
-pub const IDC_SIZE: windows_sys::core::PCWSTR = 32640i64 as _;
-pub const IDC_SIZEALL: windows_sys::core::PCWSTR = 32646i64 as _;
-pub const IDC_SIZENESW: windows_sys::core::PCWSTR = 32643i64 as _;
-pub const IDC_SIZENS: windows_sys::core::PCWSTR = 32645i64 as _;
-pub const IDC_SIZENWSE: windows_sys::core::PCWSTR = 32642i64 as _;
-pub const IDC_SIZEWE: windows_sys::core::PCWSTR = 32644i64 as _;
+pub const IDC_APPSTARTING: windows_sys::core::PCWSTR = 32650u16 as _;
+pub const IDC_ARROW: windows_sys::core::PCWSTR = 32512u16 as _;
+pub const IDC_CROSS: windows_sys::core::PCWSTR = 32515u16 as _;
+pub const IDC_HAND: windows_sys::core::PCWSTR = 32649u16 as _;
+pub const IDC_HELP: windows_sys::core::PCWSTR = 32651u16 as _;
+pub const IDC_IBEAM: windows_sys::core::PCWSTR = 32513u16 as _;
+pub const IDC_ICON: windows_sys::core::PCWSTR = 32641u16 as _;
+pub const IDC_NO: windows_sys::core::PCWSTR = 32648u16 as _;
+pub const IDC_PERSON: windows_sys::core::PCWSTR = 32672u16 as _;
+pub const IDC_PIN: windows_sys::core::PCWSTR = 32671u16 as _;
+pub const IDC_SIZE: windows_sys::core::PCWSTR = 32640u16 as _;
+pub const IDC_SIZEALL: windows_sys::core::PCWSTR = 32646u16 as _;
+pub const IDC_SIZENESW: windows_sys::core::PCWSTR = 32643u16 as _;
+pub const IDC_SIZENS: windows_sys::core::PCWSTR = 32645u16 as _;
+pub const IDC_SIZENWSE: windows_sys::core::PCWSTR = 32642u16 as _;
+pub const IDC_SIZEWE: windows_sys::core::PCWSTR = 32644u16 as _;
 pub const IDC_STATIC: i32 = -1i32;
-pub const IDC_UPARROW: windows_sys::core::PCWSTR = 32516i64 as _;
-pub const IDC_WAIT: windows_sys::core::PCWSTR = 32514i64 as _;
+pub const IDC_UPARROW: windows_sys::core::PCWSTR = 32516u16 as _;
+pub const IDC_WAIT: windows_sys::core::PCWSTR = 32514u16 as _;
 pub const IDHELP: MESSAGEBOX_RESULT = 9i32;
 pub const IDHOT_SNAPDESKTOP: i32 = -2i32;
 pub const IDHOT_SNAPWINDOW: i32 = -1i32;
@@ -1735,16 +1735,16 @@ pub const IDH_MISSING_CONTEXT: u32 = 28441u32;
 pub const IDH_NO_HELP: u32 = 28440u32;
 pub const IDH_OK: u32 = 28443u32;
 pub const IDIGNORE: MESSAGEBOX_RESULT = 5i32;
-pub const IDI_APPLICATION: windows_sys::core::PCWSTR = 32512i64 as _;
-pub const IDI_ASTERISK: windows_sys::core::PCWSTR = 32516i64 as _;
-pub const IDI_ERROR: windows_sys::core::PCWSTR = 32513i64 as _;
-pub const IDI_EXCLAMATION: windows_sys::core::PCWSTR = 32515i64 as _;
-pub const IDI_HAND: windows_sys::core::PCWSTR = 32513i64 as _;
-pub const IDI_INFORMATION: windows_sys::core::PCWSTR = 32516i64 as _;
-pub const IDI_QUESTION: windows_sys::core::PCWSTR = 32514i64 as _;
-pub const IDI_SHIELD: windows_sys::core::PCWSTR = 32518i64 as _;
-pub const IDI_WARNING: windows_sys::core::PCWSTR = 32515i64 as _;
-pub const IDI_WINLOGO: windows_sys::core::PCWSTR = 32517i64 as _;
+pub const IDI_APPLICATION: windows_sys::core::PCWSTR = 32512u32 as _;
+pub const IDI_ASTERISK: windows_sys::core::PCWSTR = 32516u32 as _;
+pub const IDI_ERROR: windows_sys::core::PCWSTR = 32513u32 as _;
+pub const IDI_EXCLAMATION: windows_sys::core::PCWSTR = 32515u32 as _;
+pub const IDI_HAND: windows_sys::core::PCWSTR = 32513u32 as _;
+pub const IDI_INFORMATION: windows_sys::core::PCWSTR = 32516u32 as _;
+pub const IDI_QUESTION: windows_sys::core::PCWSTR = 32514u32 as _;
+pub const IDI_SHIELD: windows_sys::core::PCWSTR = 32518u32 as _;
+pub const IDI_WARNING: windows_sys::core::PCWSTR = 32515u32 as _;
+pub const IDI_WINLOGO: windows_sys::core::PCWSTR = 32517u32 as _;
 pub const IDNO: MESSAGEBOX_RESULT = 7i32;
 pub const IDOK: MESSAGEBOX_RESULT = 1i32;
 pub const IDRETRY: MESSAGEBOX_RESULT = 4i32;
@@ -2157,22 +2157,22 @@ impl Default for MENUTEMPLATEEX_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_0 {
-    pub mitHeader: MENUITEMTEMPLATEHEADER,
-    pub miTemplate: [MENUITEMTEMPLATE; 1],
+pub struct MENUTEMPLATEEX_0_1 {
+    pub mexHeader: MENUEX_TEMPLATE_HEADER,
+    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
 }
-impl Default for MENUTEMPLATEEX_0_0 {
+impl Default for MENUTEMPLATEEX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_1 {
-    pub mexHeader: MENUEX_TEMPLATE_HEADER,
-    pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
+pub struct MENUTEMPLATEEX_0_0 {
+    pub mitHeader: MENUITEMTEMPLATEHEADER,
+    pub miTemplate: [MENUITEMTEMPLATE; 1],
 }
-impl Default for MENUTEMPLATEEX_0_1 {
+impl Default for MENUTEMPLATEEX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2769,25 +2769,25 @@ pub const RI_MOUSE_MIDDLE_BUTTON_UP: u32 = 32u32;
 pub const RI_MOUSE_RIGHT_BUTTON_DOWN: u32 = 4u32;
 pub const RI_MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const RI_MOUSE_WHEEL: u32 = 1024u32;
-pub const RT_ACCELERATOR: windows_sys::core::PCWSTR = 9i64 as _;
-pub const RT_ANICURSOR: windows_sys::core::PCWSTR = 21i64 as _;
-pub const RT_ANIICON: windows_sys::core::PCWSTR = 22i64 as _;
-pub const RT_BITMAP: windows_sys::core::PCWSTR = 2i64 as _;
-pub const RT_CURSOR: windows_sys::core::PCWSTR = 1i64 as _;
-pub const RT_DIALOG: windows_sys::core::PCWSTR = 5i64 as _;
-pub const RT_DLGINCLUDE: windows_sys::core::PCWSTR = 17i64 as _;
-pub const RT_FONT: windows_sys::core::PCWSTR = 8i64 as _;
-pub const RT_FONTDIR: windows_sys::core::PCWSTR = 7i64 as _;
-pub const RT_GROUP_CURSOR: windows_sys::core::PCWSTR = 12i64 as _;
-pub const RT_GROUP_ICON: windows_sys::core::PCWSTR = 14i64 as _;
-pub const RT_HTML: windows_sys::core::PCWSTR = 23i64 as _;
-pub const RT_ICON: windows_sys::core::PCWSTR = 3i64 as _;
-pub const RT_MANIFEST: windows_sys::core::PCWSTR = 24i64 as _;
-pub const RT_MENU: windows_sys::core::PCWSTR = 4i64 as _;
-pub const RT_MESSAGETABLE: windows_sys::core::PCWSTR = 11i64 as _;
-pub const RT_PLUGPLAY: windows_sys::core::PCWSTR = 19i64 as _;
-pub const RT_VERSION: windows_sys::core::PCWSTR = 16i64 as _;
-pub const RT_VXD: windows_sys::core::PCWSTR = 20i64 as _;
+pub const RT_ACCELERATOR: windows_sys::core::PCWSTR = 9u16 as _;
+pub const RT_ANICURSOR: windows_sys::core::PCWSTR = 21u16 as _;
+pub const RT_ANIICON: windows_sys::core::PCWSTR = 22u16 as _;
+pub const RT_BITMAP: windows_sys::core::PCWSTR = 2u16 as _;
+pub const RT_CURSOR: windows_sys::core::PCWSTR = 1u16 as _;
+pub const RT_DIALOG: windows_sys::core::PCWSTR = 5u16 as _;
+pub const RT_DLGINCLUDE: windows_sys::core::PCWSTR = 17u16 as _;
+pub const RT_FONT: windows_sys::core::PCWSTR = 8u16 as _;
+pub const RT_FONTDIR: windows_sys::core::PCWSTR = 7u16 as _;
+pub const RT_GROUP_CURSOR: windows_sys::core::PCWSTR = 12u16 as _;
+pub const RT_GROUP_ICON: windows_sys::core::PCWSTR = 14u16 as _;
+pub const RT_HTML: windows_sys::core::PCWSTR = 23u16 as _;
+pub const RT_ICON: windows_sys::core::PCWSTR = 3u16 as _;
+pub const RT_MANIFEST: windows_sys::core::PCWSTR = 24u16 as _;
+pub const RT_MENU: windows_sys::core::PCWSTR = 4u16 as _;
+pub const RT_MESSAGETABLE: windows_sys::core::PCWSTR = 11u16 as _;
+pub const RT_PLUGPLAY: windows_sys::core::PCWSTR = 19u16 as _;
+pub const RT_VERSION: windows_sys::core::PCWSTR = 16u16 as _;
+pub const RT_VXD: windows_sys::core::PCWSTR = 20u16 as _;
 pub const SBM_ENABLE_ARROWS: u32 = 228u32;
 pub const SBM_GETPOS: u32 = 225u32;
 pub const SBM_GETRANGE: u32 = 227u32;

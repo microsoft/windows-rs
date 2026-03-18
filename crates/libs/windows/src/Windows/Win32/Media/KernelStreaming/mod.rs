@@ -78,14 +78,14 @@ pub unsafe fn KsOpenDefaultDevice(category: *const windows_core::GUID, access: u
     }
 }
 #[inline]
-pub unsafe fn KsResolveRequiredAttributes(datarange: *const KSDATAFORMAT, attributes: *const KSMULTIPLE_ITEM) -> windows_core::Result<()> {
+pub unsafe fn KsResolveRequiredAttributes(datarange: *const KSDATAFORMAT, attributes: Option<*const KSMULTIPLE_ITEM>) -> windows_core::Result<()> {
     windows_core::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> windows_core::HRESULT);
-    unsafe { KsResolveRequiredAttributes(datarange, attributes).ok() }
+    unsafe { KsResolveRequiredAttributes(datarange, attributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn KsSynchronousDeviceControl(handle: super::super::Foundation::HANDLE, iocontrol: u32, inbuffer: *const core::ffi::c_void, inlength: u32, outbuffer: *mut core::ffi::c_void, outlength: u32, bytesreturned: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn KsSynchronousDeviceControl(handle: super::super::Foundation::HANDLE, iocontrol: u32, inbuffer: Option<*const core::ffi::c_void>, inlength: u32, outbuffer: Option<*mut core::ffi::c_void>, outlength: u32, bytesreturned: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_core::HRESULT);
-    unsafe { KsSynchronousDeviceControl(handle, iocontrol, inbuffer, inlength, outbuffer as _, outlength, bytesreturned as _).ok() }
+    unsafe { KsSynchronousDeviceControl(handle, iocontrol, inbuffer.unwrap_or(core::mem::zeroed()) as _, inlength, outbuffer.unwrap_or(core::mem::zeroed()) as _, outlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
@@ -1007,11 +1007,8 @@ impl IKsInterfaceHandler {
     {
         unsafe { (windows_core::Interface::vtable(self).KsProcessMediaSamples)(windows_core::Interface::as_raw(self), ksdatatypehandler.param().abi(), core::mem::transmute(samplelist), samplecount as _, iooperation, streamsegment as _).ok() }
     }
-    pub unsafe fn KsCompleteIo(&self) -> windows_core::Result<KSSTREAM_SEGMENT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).KsCompleteIo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).KsCompleteIo)(windows_core::Interface::as_raw(self), core::mem::transmute(streamsegment)).ok() }
     }
 }
 #[repr(C)]
@@ -1029,7 +1026,7 @@ pub struct IKsInterfaceHandler_Vtbl {
 pub trait IKsInterfaceHandler_Impl: windows_core::IUnknownImpl {
     fn KsSetPin(&self, kspin: windows_core::Ref<IKsPin>) -> windows_core::Result<()>;
     fn KsProcessMediaSamples(&self, ksdatatypehandler: windows_core::Ref<IKsDataTypeHandler>, samplelist: *const Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
-    fn KsCompleteIo(&self) -> windows_core::Result<KSSTREAM_SEGMENT>;
+    fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_DirectShow")]
 impl IKsInterfaceHandler_Vtbl {
@@ -1049,13 +1046,7 @@ impl IKsInterfaceHandler_Vtbl {
         unsafe extern "system" fn KsCompleteIo<Identity: IKsInterfaceHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IKsInterfaceHandler_Impl::KsCompleteIo(this) {
-                    Ok(ok__) => {
-                        streamsegment.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IKsInterfaceHandler_Impl::KsCompleteIo(this, core::mem::transmute_copy(&streamsegment)).into()
             }
         }
         Self {
@@ -1451,8 +1442,8 @@ impl IKsPin {
     pub unsafe fn KsCreateSinkPinHandle(&self, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).KsCreateSinkPinHandle)(windows_core::Interface::as_raw(self), interface, medium).ok() }
     }
-    pub unsafe fn KsGetCurrentCommunication(&self, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).KsGetCurrentCommunication)(windows_core::Interface::as_raw(self), communication as _, interface as _, medium as _).ok() }
+    pub unsafe fn KsGetCurrentCommunication(&self, communication: Option<*mut KSPIN_COMMUNICATION>, interface: Option<*mut KSIDENTIFIER>, medium: Option<*mut KSIDENTIFIER>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).KsGetCurrentCommunication)(windows_core::Interface::as_raw(self), communication.unwrap_or(core::mem::zeroed()) as _, interface.unwrap_or(core::mem::zeroed()) as _, medium.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn KsPropagateAcquire(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).KsPropagateAcquire)(windows_core::Interface::as_raw(self)).ok() }
@@ -2073,8 +2064,8 @@ impl IKsTopologyInfo {
             (windows_core::Interface::vtable(self).get_ConnectionInfo)(windows_core::Interface::as_raw(self), dwindex, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_NodeName(&self, dwnodeid: u32, pwchnodename: windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).get_NodeName)(windows_core::Interface::as_raw(self), dwnodeid, core::mem::transmute(pwchnodename), dwbufsize, pdwnamelen as _).ok() }
+    pub unsafe fn get_NodeName(&self, dwnodeid: u32, pwchnodename: Option<windows_core::PWSTR>, dwbufsize: u32, pdwnamelen: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).get_NodeName)(windows_core::Interface::as_raw(self), dwnodeid, pwchnodename.unwrap_or(core::mem::zeroed()) as _, dwbufsize, pdwnamelen as _).ok() }
     }
     pub unsafe fn NumNodes(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3252,15 +3243,15 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
-    pub X: u32,
-    pub Y: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
     pub Numerator: u32,
     pub Denominator: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
+    pub X: u32,
+    pub Y: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3761,6 +3752,17 @@ impl Default for KSEVENTDATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KSEVENTDATA_0_2 {
+    pub Unused: *mut core::ffi::c_void,
+    pub Alignment: [isize; 2],
+}
+impl Default for KSEVENTDATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSEVENTDATA_0_0 {
     pub Event: super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
@@ -3776,17 +3778,6 @@ pub struct KSEVENTDATA_0_1 {
     pub Semaphore: super::super::Foundation::HANDLE,
     pub Reserved: u32,
     pub Adjustment: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct KSEVENTDATA_0_2 {
-    pub Unused: *mut core::ffi::c_void,
-    pub Alignment: [isize; 2],
-}
-impl Default for KSEVENTDATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const KSEVENTF_DPC: u32 = 16u32;
 pub const KSEVENTF_EVENT_HANDLE: u32 = 1u32;
@@ -4261,6 +4252,20 @@ impl Default for KSNODEPROPERTY {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub ListenerId: *mut core::ffi::c_void,
+    pub Reserved: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
@@ -4294,6 +4299,21 @@ pub struct KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     pub Length: u32,
 }
 impl Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub AppContext: *mut core::ffi::c_void,
+    pub Length: u32,
+    pub Reserved: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4720,6 +4740,18 @@ impl Default for KSPROPERTY_BOUNDS_LONG {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KSPROPERTY_BOUNDS_LONG_0 {
+    pub SignedMinimum: i32,
+    pub SignedMaximum: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KSPROPERTY_BOUNDS_LONG_1 {
+    pub UnsignedMinimum: u32,
+    pub UnsignedMaximum: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_BOUNDS_LONGLONG {
     pub Anonymous1: KSPROPERTY_BOUNDS_LONGLONG_0,
@@ -4741,18 +4773,6 @@ pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: u64,
     pub UnsignedMaximum: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct KSPROPERTY_BOUNDS_LONG_0 {
-    pub SignedMinimum: i32,
-    pub SignedMaximum: i32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct KSPROPERTY_BOUNDS_LONG_1 {
-    pub UnsignedMinimum: u32,
-    pub UnsignedMaximum: u32,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5249,14 +5269,6 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub PayloadSize: u32,
@@ -5266,6 +5278,14 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
 }
 pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(2i32);
 pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(9i32);
@@ -5280,8 +5300,6 @@ impl Default for KSPROPERTY_EXTXPORT_S {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(5i32);
-pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(6i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSPROPERTY_EXTXPORT_S_0 {
@@ -5301,14 +5319,6 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_S_0_0 {
-    pub frame: u8,
-    pub second: u8,
-    pub minute: u8,
-    pub hour: u8,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub PayloadSize: u32,
@@ -5319,6 +5329,16 @@ impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KSPROPERTY_EXTXPORT_S_0_0 {
+    pub frame: u8,
+    pub second: u8,
+    pub minute: u8,
+    pub hour: u8,
+}
+pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(5i32);
+pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(6i32);
 pub const KSPROPERTY_EXTXPORT_TIMECODE_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(7i32);
 pub const KSPROPERTY_FMRX_ANTENNAENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(2i32);
 #[repr(transparent)]
@@ -5554,8 +5574,8 @@ impl Default for KSPROPERTY_SERIAL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct KSPROPERTY_SERIALHDR {
     pub PropertySet: windows_core::GUID,
     pub Count: u32,
@@ -6755,6 +6775,25 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
 }
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KSSTREAM_HEADER {
+    pub Size: u32,
+    pub TypeSpecificFlags: u32,
+    pub PresentationTime: KSTIME,
+    pub Duration: i64,
+    pub FrameExtent: u32,
+    pub DataUsed: u32,
+    pub Data: *mut core::ffi::c_void,
+    pub OptionsFlags: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for KSSTREAM_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KSSTREAM_HEADER {
@@ -7946,6 +7985,18 @@ impl Default for KS_VIDEOINFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union KS_VIDEOINFO_0 {
+    pub bmiColors: [KS_RGBQUAD; 256],
+    pub dwBitMasks: [u32; 3],
+    pub TrueColorInfo: KS_TRUECOLORINFO,
+}
+impl Default for KS_VIDEOINFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -7983,18 +8034,6 @@ pub union KS_VIDEOINFOHEADER2_0 {
     pub dwReserved1: u32,
 }
 impl Default for KS_VIDEOINFOHEADER2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union KS_VIDEOINFO_0 {
-    pub bmiColors: [KS_RGBQUAD; 256],
-    pub dwBitMasks: [u32; 3],
-    pub TrueColorInfo: KS_TRUECOLORINFO,
-}
-impl Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8143,8 +8182,8 @@ impl Default for NABTSFEC_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct NABTS_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub PictureNumber: i64,
@@ -8261,8 +8300,8 @@ pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(1
 pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(2i32);
 pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(3i32);
 pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(0i32);
-pub const RT_RCDATA: windows_core::PCWSTR = windows_core::PCWSTR(10i64 as _);
-pub const RT_STRING: windows_core::PCWSTR = windows_core::PCWSTR(6i64 as _);
+pub const RT_RCDATA: windows_core::PCWSTR = windows_core::PCWSTR(10u16 as _);
+pub const RT_STRING: windows_core::PCWSTR = windows_core::PCWSTR(6u16 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_BUFFER_INFO {

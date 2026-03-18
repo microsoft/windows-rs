@@ -12,8 +12,8 @@ windows_link::link!("wldap32.dll" "C" fn ber_free(pberelement : *mut BerElement,
 windows_link::link!("wldap32.dll" "C" fn ber_init(pberval : *mut LDAP_BERVAL) -> *mut BerElement);
 windows_link::link!("wldap32.dll" "C" fn ber_next_element(pberelement : *mut BerElement, plen : *mut u32, opaque : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ber_peek_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ber_printf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("wldap32.dll" "C" fn ber_scanf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ber_printf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR, ...) -> i32);
+windows_link::link!("wldap32.dll" "C" fn ber_scanf(pberelement : *mut BerElement, fmt : windows_sys::core::PCSTR, ...) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ber_skip_tag(pberelement : *mut BerElement, plen : *mut u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn cldap_open(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
 windows_link::link!("wldap32.dll" "C" fn cldap_openA(hostname : windows_sys::core::PCSTR, portnumber : u32) -> *mut LDAP);
@@ -287,6 +287,19 @@ impl Default for LDAP {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct LDAP_0 {
+    pub sb_sd: usize,
+    pub Reserved1: [u8; 41],
+    pub sb_naddr: usize,
+    pub Reserved2: [u8; 24],
+}
+impl Default for LDAP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: windows_sys::core::PSTR,
@@ -468,19 +481,6 @@ pub struct LDAPVLVInfo {
     pub ldvlv_extradata: *mut core::ffi::c_void,
 }
 impl Default for LDAPVLVInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDAP_0 {
-    pub sb_sd: usize,
-    pub Reserved1: [u8; 41],
-    pub sb_naddr: usize,
-    pub Reserved2: [u8; 24],
-}
-impl Default for LDAP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

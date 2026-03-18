@@ -66,9 +66,9 @@ pub unsafe fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, c
     unsafe { MagSetImageScalingCallback(hwnd, callback) }
 }
 #[inline]
-pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::BOOL {
+pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
     windows_core::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_core::BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> windows_core::BOOL);
-    unsafe { MagSetInputTransform(fenabled.into(), prectsource, prectdest) }
+    unsafe { MagSetInputTransform(fenabled.into(), prectsource, prectdest).ok() }
 }
 #[inline]
 pub unsafe fn MagSetWindowFilterList(hwnd: super::super::Foundation::HWND, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> windows_core::BOOL {

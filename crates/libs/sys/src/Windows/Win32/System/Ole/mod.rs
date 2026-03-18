@@ -193,8 +193,8 @@ windows_link::link!("oledlg.dll" "system" fn OleUIObjectPropertiesW(param0 : *co
 windows_link::link!("oledlg.dll" "system" fn OleUIPasteSpecialA(param0 : *const OLEUIPASTESPECIALA) -> u32);
 #[cfg(feature = "Win32_System_Com")]
 windows_link::link!("oledlg.dll" "system" fn OleUIPasteSpecialW(param0 : *const OLEUIPASTESPECIALW) -> u32);
-windows_link::link!("oledlg.dll" "C" fn OleUIPromptUserA(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
-windows_link::link!("oledlg.dll" "C" fn OleUIPromptUserW(ntemplate : i32, hwndparent : super::super::Foundation:: HWND) -> i32);
+windows_link::link!("oledlg.dll" "C" fn OleUIPromptUserA(ntemplate : i32, hwndparent : super::super::Foundation:: HWND, ...) -> i32);
+windows_link::link!("oledlg.dll" "C" fn OleUIPromptUserW(ntemplate : i32, hwndparent : super::super::Foundation:: HWND, ...) -> i32);
 windows_link::link!("oledlg.dll" "system" fn OleUIUpdateLinksA(lpoleuilinkcntr : * mut core::ffi::c_void, hwndparent : super::super::Foundation:: HWND, lpsztitle : windows_sys::core::PCSTR, clinks : i32) -> windows_sys::core::BOOL);
 windows_link::link!("oledlg.dll" "system" fn OleUIUpdateLinksW(lpoleuilinkcntr : * mut core::ffi::c_void, hwndparent : super::super::Foundation:: HWND, lpsztitle : windows_sys::core::PCWSTR, clinks : i32) -> windows_sys::core::BOOL);
 windows_link::link!("ole32.dll" "system" fn OleUninitialize());
@@ -2430,52 +2430,52 @@ impl Default for PICTDESC_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_1 {
-    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
-    pub xExt: i32,
-    pub yExt: i32,
+pub struct PICTDESC_0_3 {
+    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for PICTDESC_0_1 {
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PICTDESC_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_3 {
-    pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
+pub struct PICTDESC_0_1 {
+    pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
+    pub xExt: i32,
+    pub yExt: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl Default for PICTDESC_0_3 {
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl Default for PICTDESC_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

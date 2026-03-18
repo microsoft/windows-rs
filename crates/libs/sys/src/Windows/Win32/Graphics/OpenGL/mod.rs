@@ -362,7 +362,7 @@ windows_link::link!("glu32.dll" "system" fn gluEndPolygon(tess : *mut GLUtessela
 windows_link::link!("glu32.dll" "system" fn gluEndSurface(nobj : *mut GLUnurbs));
 windows_link::link!("glu32.dll" "system" fn gluEndTrim(nobj : *mut GLUnurbs));
 windows_link::link!("glu32.dll" "system" fn gluErrorString(errcode : u32) -> *mut u8);
-windows_link::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> windows_sys::core::PWSTR);
+windows_link::link!("glu32.dll" "system" fn gluErrorUnicodeStringEXT(errcode : u32) -> windows_sys::core::PCWSTR);
 windows_link::link!("glu32.dll" "system" fn gluGetNurbsProperty(nobj : *mut GLUnurbs, property : u32, value : *mut f32));
 windows_link::link!("glu32.dll" "system" fn gluGetString(name : u32) -> *mut u8);
 windows_link::link!("glu32.dll" "system" fn gluGetTessProperty(tess : *mut GLUtesselator, which : u32, value : *mut f64));

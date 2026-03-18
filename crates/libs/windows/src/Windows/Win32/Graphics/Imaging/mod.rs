@@ -39,17 +39,17 @@ where
     }
 }
 #[inline]
-pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, cchname: u32, wzname: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_core::GUID, cchname : u32, wzname : windows_core::PWSTR, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapGuidToShortName(guid, cchname, core::mem::transmute(wzname), pcchactual as _).ok() }
+    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _).ok() }
 }
 #[inline]
-pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, cchname: u32, wzname: windows_core::PWSTR, pcchactual: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_core::GUID, pwzschema : windows_core::PCWSTR, cchname : u32, wzname : windows_core::PWSTR, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), cchname, core::mem::transmute(wzname), pcchactual as _).ok() }
+    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _).ok() }
 }
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> windows_core::Result<windows_core::GUID>
@@ -64,14 +64,14 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WICMatchMetadataContent<P2>(guidcontainerformat: *const windows_core::GUID, pguidvendor: *const windows_core::GUID, pistream: P2) -> windows_core::Result<windows_core::GUID>
+pub unsafe fn WICMatchMetadataContent<P2>(guidcontainerformat: *const windows_core::GUID, pguidvendor: Option<*const windows_core::GUID>, pistream: P2) -> windows_core::Result<windows_core::GUID>
 where
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_core::GUID, pguidvendor : *const windows_core::GUID, pistream : * mut core::ffi::c_void, pguidmetadataformat : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WICMatchMetadataContent(guidcontainerformat, pguidvendor, pistream.param().abi(), &mut result__).map(|| result__)
+        WICMatchMetadataContent(guidcontainerformat, pguidvendor.unwrap_or(core::mem::zeroed()) as _, pistream.param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -698,8 +698,8 @@ impl windows_core::RuntimeName for IWICBitmapCodecInfo {}
 windows_core::imp::define_interface!(IWICBitmapCodecProgressNotification, IWICBitmapCodecProgressNotification_Vtbl, 0x64c1024e_c3cf_4462_8078_88c2b11c46d9);
 windows_core::imp::interface_hierarchy!(IWICBitmapCodecProgressNotification, windows_core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
-    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: *const core::ffi::c_void, dwprogressflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification, pvdata, dwprogressflags).ok() }
+    pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: Option<*const core::ffi::c_void>, dwprogressflags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification, pvdata.unwrap_or(core::mem::zeroed()) as _, dwprogressflags).ok() }
     }
 }
 #[repr(C)]
@@ -981,8 +981,8 @@ impl core::ops::Deref for IWICBitmapDecoderInfo {
 }
 windows_core::imp::interface_hierarchy!(IWICBitmapDecoderInfo, windows_core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl IWICBitmapDecoderInfo {
-    pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, ppatterns as _, pcpatterns as _, pcbpatternsactual as _).ok() }
+    pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: Option<*mut WICBitmapPattern>, pcpatterns: Option<*mut u32>, pcbpatternsactual: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, ppatterns.unwrap_or(core::mem::zeroed()) as _, pcpatterns.unwrap_or(core::mem::zeroed()) as _, pcbpatternsactual as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> windows_core::Result<windows_core::BOOL>
@@ -1440,11 +1440,8 @@ impl IWICBitmapFrameEncode {
     pub unsafe fn SetResolution(&self, dpix: f64, dpiy: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResolution)(windows_core::Interface::as_raw(self), dpix, dpiy).ok() }
     }
-    pub unsafe fn SetPixelFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetPixelFormat(&self, ppixelformat: *mut windows_core::GUID) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), ppixelformat as _).ok() }
     }
     pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[Option<IWICColorContext>]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorContexts)(windows_core::Interface::as_raw(self), ppicolorcontext.len().try_into().unwrap(), core::mem::transmute(ppicolorcontext.as_ptr())).ok() }
@@ -1504,7 +1501,7 @@ pub trait IWICBitmapFrameEncode_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, piencoderoptions: windows_core::Ref<super::super::System::Com::StructuredStorage::IPropertyBag2>) -> windows_core::Result<()>;
     fn SetSize(&self, uiwidth: u32, uiheight: u32) -> windows_core::Result<()>;
     fn SetResolution(&self, dpix: f64, dpiy: f64) -> windows_core::Result<()>;
-    fn SetPixelFormat(&self) -> windows_core::Result<windows_core::GUID>;
+    fn SetPixelFormat(&self, ppixelformat: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn SetColorContexts(&self, ccount: u32, ppicolorcontext: *const Option<IWICColorContext>) -> windows_core::Result<()>;
     fn SetPalette(&self, pipalette: windows_core::Ref<IWICPalette>) -> windows_core::Result<()>;
     fn SetThumbnail(&self, pithumbnail: windows_core::Ref<IWICBitmapSource>) -> windows_core::Result<()>;
@@ -1537,13 +1534,7 @@ impl IWICBitmapFrameEncode_Vtbl {
         unsafe extern "system" fn SetPixelFormat<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppixelformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICBitmapFrameEncode_Impl::SetPixelFormat(this) {
-                    Ok(ok__) => {
-                        ppixelformat.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICBitmapFrameEncode_Impl::SetPixelFormat(this, core::mem::transmute_copy(&ppixelformat)).into()
             }
         }
         unsafe extern "system" fn SetColorContexts<Identity: IWICBitmapFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ccount: u32, ppicolorcontext: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1846,11 +1837,8 @@ impl IWICBitmapSourceTransform {
     pub unsafe fn GetClosestSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetClosestSize)(windows_core::Interface::as_raw(self), puiwidth as _, puiheight as _).ok() }
     }
-    pub unsafe fn GetClosestPixelFormat(&self) -> windows_core::Result<windows_core::GUID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClosestPixelFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetClosestPixelFormat(&self, pguiddstformat: *mut windows_core::GUID) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetClosestPixelFormat)(windows_core::Interface::as_raw(self), pguiddstformat as _).ok() }
     }
     pub unsafe fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -1871,7 +1859,7 @@ pub struct IWICBitmapSourceTransform_Vtbl {
 pub trait IWICBitmapSourceTransform_Impl: windows_core::IUnknownImpl {
     fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const windows_core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> windows_core::Result<()>;
     fn GetClosestSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> windows_core::Result<()>;
-    fn GetClosestPixelFormat(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetClosestPixelFormat(&self, pguiddstformat: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IWICBitmapSourceTransform_Vtbl {
@@ -1891,13 +1879,7 @@ impl IWICBitmapSourceTransform_Vtbl {
         unsafe extern "system" fn GetClosestPixelFormat<Identity: IWICBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguiddstformat: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICBitmapSourceTransform_Impl::GetClosestPixelFormat(this) {
-                    Ok(ok__) => {
-                        pguiddstformat.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICBitmapSourceTransform_Impl::GetClosestPixelFormat(this, core::mem::transmute_copy(&pguiddstformat)).into()
             }
         }
         unsafe extern "system" fn DoesSupportTransform<Identity: IWICBitmapSourceTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dsttransform: WICBitmapTransformOptions, pfissupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -2767,8 +2749,8 @@ impl IWICDevelopRaw {
     pub unsafe fn SetToneCurve(&self, cbtonecurvesize: u32, ptonecurve: *const WICRawToneCurve) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvesize, ptonecurve).ok() }
     }
-    pub unsafe fn GetToneCurve(&self, cbtonecurvebuffersize: u32, ptonecurve: *mut WICRawToneCurve, pcbactualtonecurvebuffersize: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvebuffersize, ptonecurve as _, pcbactualtonecurvebuffersize as _).ok() }
+    pub unsafe fn GetToneCurve(&self, cbtonecurvebuffersize: u32, ptonecurve: Option<*mut WICRawToneCurve>, pcbactualtonecurvebuffersize: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvebuffersize, ptonecurve.unwrap_or(core::mem::zeroed()) as _, pcbactualtonecurvebuffersize.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetRotation(&self, rotation: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), rotation).ok() }
@@ -3476,13 +3458,13 @@ impl windows_core::RuntimeName for IWICFormatConverterInfo {}
 windows_core::imp::define_interface!(IWICImagingFactory, IWICImagingFactory_Vtbl, 0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 windows_core::imp::interface_hierarchy!(IWICImagingFactory, windows_core::IUnknown);
 impl IWICImagingFactory {
-    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: *const windows_core::GUID, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>
+    pub unsafe fn CreateDecoderFromFilename<P0>(&self, wzfilename: P0, pguidvendor: Option<*const windows_core::GUID>, dwdesiredaccess: super::super::Foundation::GENERIC_ACCESS_RIGHTS, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDecoderFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), pguidvendor, dwdesiredaccess, metadataoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDecoderFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), pguidvendor.unwrap_or(core::mem::zeroed()) as _, dwdesiredaccess, metadataoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -4698,14 +4680,11 @@ impl IWICMetadataQueryReader {
         unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), wznamespace.len().try_into().unwrap(), core::mem::transmute(wznamespace.as_ptr()), pcchactuallength as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
+    pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::super::System::Com::IEnumString> {
@@ -4734,7 +4713,7 @@ pub struct IWICMetadataQueryReader_Vtbl {
 pub trait IWICMetadataQueryReader_Impl: windows_core::IUnknownImpl {
     fn GetContainerFormat(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetLocation(&self, cchmaxlength: u32, wznamespace: windows_core::PWSTR, pcchactuallength: *mut u32) -> windows_core::Result<()>;
-    fn GetMetadataByName(&self, wzname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetMetadataByName(&self, wzname: &windows_core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<super::super::System::Com::IEnumString>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -4761,13 +4740,7 @@ impl IWICMetadataQueryReader_Vtbl {
         unsafe extern "system" fn GetMetadataByName<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wzname: windows_core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataQueryReader_Impl::GetMetadataByName(this, core::mem::transmute(&wzname)) {
-                    Ok(ok__) => {
-                        pvarvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataQueryReader_Impl::GetMetadataByName(this, core::mem::transmute(&wzname), core::mem::transmute_copy(&pvarvalue)).into()
             }
         }
         unsafe extern "system" fn GetEnumerator<Identity: IWICMetadataQueryReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienumstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4887,11 +4860,8 @@ impl IWICMetadataReader {
         unsafe { (windows_core::Interface::vtable(self).GetValueByIndex)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarschema), core::mem::transmute(pvarid), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)).ok() }
     }
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<IWICEnumMetadataItem> {
         unsafe {
@@ -4923,7 +4893,7 @@ pub trait IWICMetadataReader_Impl: windows_core::IUnknownImpl {
     fn GetMetadataHandlerInfo(&self) -> windows_core::Result<IWICMetadataHandlerInfo>;
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn GetEnumerator(&self) -> windows_core::Result<IWICEnumMetadataItem>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -4974,13 +4944,7 @@ impl IWICMetadataReader_Vtbl {
         unsafe extern "system" fn GetValue<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWICMetadataReader_Impl::GetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid)) {
-                    Ok(ok__) => {
-                        pvarvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWICMetadataReader_Impl::GetValue(this, core::mem::transmute_copy(&pvarschema), core::mem::transmute_copy(&pvarid), core::mem::transmute_copy(&pvarvalue)).into()
             }
         }
         unsafe extern "system" fn GetEnumerator<Identity: IWICMetadataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppienummetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5020,8 +4984,8 @@ impl core::ops::Deref for IWICMetadataReaderInfo {
 }
 windows_core::imp::interface_hierarchy!(IWICMetadataReaderInfo, windows_core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl IWICMetadataReaderInfo {
-    pub unsafe fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, ppattern as _, pccount as _, pcbactual as _).ok() }
+    pub unsafe fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, ppattern: Option<*mut WICMetadataPattern>, pccount: Option<*mut u32>, pcbactual: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, ppattern.unwrap_or(core::mem::zeroed()) as _, pccount.unwrap_or(core::mem::zeroed()) as _, pcbactual.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MatchesPattern<P1>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P1) -> windows_core::Result<windows_core::BOOL>
@@ -5203,8 +5167,8 @@ impl core::ops::Deref for IWICMetadataWriterInfo {
 }
 windows_core::imp::interface_hierarchy!(IWICMetadataWriterInfo, windows_core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl IWICMetadataWriterInfo {
-    pub unsafe fn GetHeader(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, pheader as _, pcbactual as _).ok() }
+    pub unsafe fn GetHeader(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, pheader: Option<*mut WICMetadataHeader>, pcbactual: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, pheader.unwrap_or(core::mem::zeroed()) as _, pcbactual.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICMetadataWriter> {
         unsafe {

@@ -112,7 +112,10 @@ impl Writer {
             if let Ok(entries) = std::fs::read_dir(&self.output) {
                 for entry in entries.flatten() {
                     let path = entry.path();
-                    if path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("rdl")) {
+                    if path
+                        .extension()
+                        .is_some_and(|ext| ext.eq_ignore_ascii_case("rdl"))
+                    {
                         let _ = std::fs::remove_file(path);
                     }
                 }

@@ -60,18 +60,18 @@ impl windows_core::RuntimeName for IAccessibleWinSAT {}
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
-    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
+    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
+    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWinSATInitiateEvents>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd).ok() }
+        unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn CancelAssessment(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)).ok() }

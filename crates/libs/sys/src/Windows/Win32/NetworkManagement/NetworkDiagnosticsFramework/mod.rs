@@ -14,7 +14,7 @@ windows_link::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : window
 windows_link::link!("ndfapi.dll" "system" fn NdfCreateWinSockIncident(sock : super::super::Networking::WinSock:: SOCKET, host : windows_sys::core::PCWSTR, port : u16, appid : windows_sys::core::PCWSTR, userid : *const super::super::Security:: SID, handle : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> windows_sys::core::HRESULT);
-windows_link::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> windows_sys::core::HRESULT);
 pub type ATTRIBUTE_TYPE = i32;
 pub const AT_BOOLEAN: ATTRIBUTE_TYPE = 1i32;

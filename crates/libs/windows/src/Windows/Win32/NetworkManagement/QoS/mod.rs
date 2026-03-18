@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> windows_core::BOOL {
+pub unsafe fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: Option<*const super::super::Networking::WinSock::SOCKADDR>, traffictype: QOS_TRAFFIC_TYPE, flags: Option<u32>, flowid: *mut u32) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_core::BOOL);
-    unsafe { QOSAddSocketToFlow(qoshandle, socket, destaddr, traffictype, flags, flowid as _) }
+    unsafe { QOSAddSocketToFlow(qoshandle, socket, destaddr.unwrap_or(core::mem::zeroed()) as _, traffictype, flags.unwrap_or(core::mem::zeroed()) as _, flowid as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -27,39 +27,39 @@ pub unsafe fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, siz
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+pub unsafe fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { QOSNotifyFlow(qoshandle, flowid, operation, size as _, buffer as _, flags, overlapped as _) }
+    unsafe { QOSNotifyFlow(qoshandle, flowid, operation, size.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+pub unsafe fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { QOSQueryFlow(qoshandle, flowid, operation, size as _, buffer as _, flags, overlapped as _) }
+    unsafe { QOSQueryFlow(qoshandle, flowid, operation, size as _, buffer as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, flowid: u32, flags: u32) -> windows_core::BOOL {
+pub unsafe fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: Option<super::super::Networking::WinSock::SOCKET>, flowid: u32, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, flowid : u32, flags : u32) -> windows_core::BOOL);
-    unsafe { QOSRemoveSocketFromFlow(qoshandle, socket, flowid, flags) }
+    unsafe { QOSRemoveSocketFromFlow(qoshandle, socket.unwrap_or(core::mem::zeroed()) as _, flowid, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+pub unsafe fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::BOOL);
-    unsafe { QOSSetFlow(qoshandle, flowid, operation, size, buffer, flags, overlapped as _) }
+    unsafe { QOSSetFlow(qoshandle, flowid, operation, size, buffer, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> windows_core::BOOL {
+pub unsafe fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_core::BOOL);
-    unsafe { QOSStartTrackingClient(qoshandle, destaddr, flags) }
+    unsafe { QOSStartTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> windows_core::BOOL {
+pub unsafe fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation:: HANDLE, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, flags : u32) -> windows_core::BOOL);
-    unsafe { QOSStopTrackingClient(qoshandle, destaddr, flags) }
+    unsafe { QOSStopTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -105,14 +105,14 @@ pub unsafe fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HAND
     unsafe { TcEnumerateInterfaces(clienthandle, pbuffersize as _, interfacebuffer as _) }
 }
 #[inline]
-pub unsafe fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: windows_core::PSTR) -> u32 {
+pub unsafe fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, pflowname: &mut [u8]) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_core::PSTR) -> u32);
-    unsafe { TcGetFlowNameA(flowhandle, strsize, core::mem::transmute(pflowname)) }
+    unsafe { TcGetFlowNameA(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_ptr())) }
 }
 #[inline]
-pub unsafe fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: windows_core::PWSTR) -> u32 {
+pub unsafe fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, pflowname: &mut [u16]) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation:: HANDLE, strsize : u32, pflowname : windows_core::PWSTR) -> u32);
-    unsafe { TcGetFlowNameW(flowhandle, strsize, core::mem::transmute(pflowname)) }
+    unsafe { TcGetFlowNameW(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_ptr())) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -311,8 +311,6 @@ impl Default for ERROR_SPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const ERROR_SPECF_InPlace: u32 = 1u32;
-pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
@@ -325,6 +323,8 @@ impl Default for ERROR_SPEC_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const ERROR_SPECF_InPlace: u32 = 1u32;
+pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
 pub const ERROR_TC_OBJECT_LENGTH_INVALID: u32 = 7515u32;
 pub const ERROR_TC_SUPPORTED_OBJECTS_EXIST: u32 = 7512u32;
@@ -410,11 +410,13 @@ impl Default for FLOW_DESC {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy)]
 pub union FLOW_DESC_0 {
     pub stspec: *mut SENDER_TSPEC,
     pub isflow: *mut IS_FLOWSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for FLOW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -569,8 +571,8 @@ pub struct GuarRspec {
     pub Guar_S: u32,
 }
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct HSP_UPGRADE_IMAGEDATA {
     pub hashAlgID: u16,
     pub digestSize: u16,
@@ -691,16 +693,16 @@ impl Default for IP_PATTERN_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IP_PATTERN_0_0 {
-    pub s_srcport: u16,
-    pub s_dstport: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
     pub filler: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IP_PATTERN_0_0 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
 }
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
@@ -1575,8 +1577,8 @@ pub const SIPAEVENT_IMAGESIZE: u32 = 458754u32;
 pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762u32;
 pub const SIPAEVENT_INFORMATION: u32 = 131073u32;
 pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub SignAlgID: u32,
     pub SignatureLength: u32,
@@ -1598,8 +1600,8 @@ pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681u32;
 pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699u32;
 pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714u32;
 pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub CreationTime: i64,
     pub DigestLength: u32,
@@ -1613,8 +1615,8 @@ impl Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
 }
 pub const SIPAEVENT_SAFEMODE: u32 = 327685u32;
 pub const SIPAEVENT_SBCP_INFO: u32 = 327721u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub PayloadVersion: u32,
     pub VarDataOffset: u32,
@@ -1630,8 +1632,8 @@ impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     }
 }
 pub const SIPAEVENT_SI_POLICY: u32 = 327695u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
     pub PolicyVersion: u64,
     pub PolicyNameLength: u16,
@@ -1661,7 +1663,7 @@ pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370u32;
 pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361u32;
 pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715u32;
 pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
@@ -1682,8 +1684,8 @@ impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
     pub KeyBitLength: u32,
     pub PublicExpLengthBytes: u32,
@@ -1797,8 +1799,8 @@ impl Default for Session_IPv4 {
     }
 }
 pub const TCBASE: u32 = 7500u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct TCG_PCClientPCREventStruct {
     pub pcrIndex: u32,
     pub eventType: u32,
@@ -1811,8 +1813,8 @@ impl Default for TCG_PCClientPCREventStruct {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct TCG_PCClientTaggedEventStruct {
     pub EventID: u32,
     pub EventDataSize: u32,
@@ -1914,8 +1916,8 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WBCL_Iterator {
     pub firstElementPtr: *mut core::ffi::c_void,
     pub logSize: u32,
@@ -1933,8 +1935,8 @@ impl Default for WBCL_Iterator {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WBCL_LogHdr {
     pub signature: u32,
     pub version: u32,

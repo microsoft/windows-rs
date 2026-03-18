@@ -38,9 +38,10 @@ where
     unsafe { DeleteGPOLink(lpgpo.param().abi(), lpcontainer.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> super::super::Foundation::HANDLE {
+pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : windows_core::BOOL) -> super::super::Foundation:: HANDLE);
-    unsafe { EnterCriticalPolicySection(bmachine.into()) }
+    let result__ = unsafe { EnterCriticalPolicySection(bmachine.into()) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn ExportRSoPData<P0, P1>(lpnamespace: P0, lpfilename: P1) -> windows_core::Result<()>
@@ -52,14 +53,14 @@ where
     unsafe { ExportRSoPData(lpnamespace.param().abi(), lpfilename.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> windows_core::BOOL {
+pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn FreeGPOListA(pgpolist : *const GROUP_POLICY_OBJECTA) -> windows_core::BOOL);
-    unsafe { FreeGPOListA(pgpolist) }
+    unsafe { FreeGPOListA(pgpolist).ok() }
 }
 #[inline]
-pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> windows_core::BOOL {
+pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn FreeGPOListW(pgpolist : *const GROUP_POLICY_OBJECTW) -> windows_core::BOOL);
-    unsafe { FreeGPOListW(pgpolist) }
+    unsafe { FreeGPOListW(pgpolist).ok() }
 }
 #[inline]
 pub unsafe fn GenerateGPNotification<P1>(bmachine: bool, lpwszmgmtproduct: P1, dwmgmtproductoptions: u32) -> u32
@@ -71,41 +72,41 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetAppliedGPOListA<P1>(dwflags: u32, pmachinename: P1, psiduser: super::super::Security::PSID, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32
+pub unsafe fn GetAppliedGPOListA<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::super::Security::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_core::PCSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
-    unsafe { GetAppliedGPOListA(dwflags, pmachinename.param().abi(), psiduser, pguidextension, ppgpolist as _) }
+    unsafe { GetAppliedGPOListA(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn GetAppliedGPOListW<P1>(dwflags: u32, pmachinename: P1, psiduser: super::super::Security::PSID, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32
+pub unsafe fn GetAppliedGPOListW<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::super::Security::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_core::PCWSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
-    unsafe { GetAppliedGPOListW(dwflags, pmachinename.param().abi(), psiduser, pguidextension, ppgpolist as _) }
+    unsafe { GetAppliedGPOListW(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
 #[inline]
-pub unsafe fn GetGPOListA<P1, P2, P3>(htoken: super::super::Foundation::HANDLE, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::BOOL
+pub unsafe fn GetGPOListA<P1, P2, P3>(htoken: Option<super::super::Foundation::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::BOOL);
-    unsafe { GetGPOListA(htoken, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _) }
+    unsafe { GetGPOListA(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _).ok() }
 }
 #[inline]
-pub unsafe fn GetGPOListW<P1, P2, P3>(htoken: super::super::Foundation::HANDLE, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::BOOL
+pub unsafe fn GetGPOListW<P1, P2, P3>(htoken: Option<super::super::Foundation::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::BOOL);
-    unsafe { GetGPOListW(htoken, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _) }
+    unsafe { GetGPOListW(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _).ok() }
 }
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<P0>(productcode: P0, displayname: *mut windows_core::PWSTR, supporturl: *mut windows_core::PWSTR)
@@ -122,9 +123,9 @@ pub unsafe fn GetLocalManagedApplications(buserapps: bool, pdwapps: *mut u32, pr
 }
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
-pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
+pub unsafe fn GetManagedApplicationCategories(dwreserved: Option<u32>, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST) -> u32);
-    unsafe { GetManagedApplicationCategories(dwreserved, pappcategory as _) }
+    unsafe { GetManagedApplicationCategories(dwreserved.unwrap_or(core::mem::zeroed()) as _, pappcategory as _) }
 }
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const windows_core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
@@ -146,9 +147,9 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     unsafe { InstallApplication(pinstallinfo) }
 }
 #[inline]
-pub unsafe fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> windows_core::BOOL {
+pub unsafe fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { LeaveCriticalPolicySection(hsection) }
+    unsafe { LeaveCriticalPolicySection(hsection).ok() }
 }
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const windows_core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
@@ -161,25 +162,25 @@ pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const windows_core::GU
     unsafe { ProcessGroupPolicyCompletedEx(extensionid, pasynchandle, dwstatus, rsopstatus) }
 }
 #[inline]
-pub unsafe fn RefreshPolicy(bmachine: bool) -> windows_core::BOOL {
+pub unsafe fn RefreshPolicy(bmachine: bool) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { RefreshPolicy(bmachine.into()) }
+    unsafe { RefreshPolicy(bmachine.into()).ok() }
 }
 #[inline]
-pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: u32) -> windows_core::BOOL {
+pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: u32) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : windows_core::BOOL, dwoptions : u32) -> windows_core::BOOL);
-    unsafe { RefreshPolicyEx(bmachine.into(), dwoptions) }
+    unsafe { RefreshPolicyEx(bmachine.into(), dwoptions).ok() }
 }
 #[inline]
-pub unsafe fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: bool) -> windows_core::BOOL {
+pub unsafe fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: bool) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { RegisterGPNotification(hevent, bmachine.into()) }
+    unsafe { RegisterGPNotification(hevent, bmachine.into()).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: super::super::Security::PSID, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::super::Security::PSID>, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Security:: PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid, prsoptoken, dwdesiredaccessmask, pobjecttypelist, objecttypelistlength, pgenericmapping, pprivilegeset, pdwprivilegesetlength, pdwgrantedaccessmask as _, pbaccessstatus as _).ok() }
+    unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()>
@@ -201,13 +202,13 @@ where
 }
 #[cfg(feature = "Win32_System_Wmi")]
 #[inline]
-pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: u32, pservices: P1, psettinginstance: P2, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> windows_core::Result<()>
+pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: u32, pservices: P1, psettinginstance: P2, pstatus: &[POLICYSETTINGSTATUSINFO]) -> windows_core::Result<()>
 where
     P1: windows_core::Param<super::Wmi::IWbemServices>,
     P2: windows_core::Param<super::Wmi::IWbemClassObject>,
 {
     windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut core::ffi::c_void, psettinginstance : * mut core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
-    unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), ninfo, pstatus).ok() }
+    unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), pstatus.len().try_into().unwrap(), core::mem::transmute(pstatus.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn UninstallApplication<P0>(productcode: P0, dwstatus: u32) -> u32
@@ -218,9 +219,9 @@ where
     unsafe { UninstallApplication(productcode.param().abi(), dwstatus) }
 }
 #[inline]
-pub unsafe fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> windows_core::BOOL {
+pub unsafe fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { UnregisterGPNotification(hevent) }
+    unsafe { UnregisterGPNotification(hevent).ok() }
 }
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
 pub const ADMXCOMMENTS_EXTENSION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
@@ -497,11 +498,8 @@ impl IGPEInformation {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::Registry::HKEY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRegistryKey)(windows_core::Interface::as_raw(self), dwsection, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRegistryKey)(windows_core::Interface::as_raw(self), dwsection, hkey as _).ok() }
     }
     pub unsafe fn GetDSPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDSPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok() }
@@ -509,23 +507,14 @@ impl IGPEInformation {
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOptions(&self, dwoptions: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), dwoptions as _).ok() }
     }
-    pub unsafe fn GetType(&self) -> windows_core::Result<GROUP_POLICY_OBJECT_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), gpotype as _).ok() }
     }
-    pub unsafe fn GetHint(&self) -> windows_core::Result<GROUP_POLICY_HINT_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHint)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetHint)(windows_core::Interface::as_raw(self), gphint as _).ok() }
     }
     pub unsafe fn PolicyChanged(&self, bmachine: bool, badd: bool, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PolicyChanged)(windows_core::Interface::as_raw(self), bmachine.into(), badd.into(), pguidextension as _, pguidsnapin as _).ok() }
@@ -552,12 +541,12 @@ pub struct IGPEInformation_Vtbl {
 pub trait IGPEInformation_Impl: windows_core::IUnknownImpl {
     fn GetName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetDisplayName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
-    fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::Registry::HKEY>;
+    fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> windows_core::Result<()>;
     fn GetDSPath(&self, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::Result<()>;
     fn GetFileSysPath(&self, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::Result<()>;
-    fn GetOptions(&self) -> windows_core::Result<u32>;
-    fn GetType(&self) -> windows_core::Result<GROUP_POLICY_OBJECT_TYPE>;
-    fn GetHint(&self) -> windows_core::Result<GROUP_POLICY_HINT_TYPE>;
+    fn GetOptions(&self, dwoptions: *mut u32) -> windows_core::Result<()>;
+    fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::Result<()>;
+    fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> windows_core::Result<()>;
     fn PolicyChanged(&self, bmachine: windows_core::BOOL, badd: windows_core::BOOL, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -578,13 +567,7 @@ impl IGPEInformation_Vtbl {
         unsafe extern "system" fn GetRegistryKey<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, hkey: *mut super::Registry::HKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGPEInformation_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection)) {
-                    Ok(ok__) => {
-                        hkey.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGPEInformation_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
             }
         }
         unsafe extern "system" fn GetDSPath<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::HRESULT {
@@ -602,37 +585,19 @@ impl IGPEInformation_Vtbl {
         unsafe extern "system" fn GetOptions<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGPEInformation_Impl::GetOptions(this) {
-                    Ok(ok__) => {
-                        dwoptions.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGPEInformation_Impl::GetOptions(this, core::mem::transmute_copy(&dwoptions)).into()
             }
         }
         unsafe extern "system" fn GetType<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGPEInformation_Impl::GetType(this) {
-                    Ok(ok__) => {
-                        gpotype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGPEInformation_Impl::GetType(this, core::mem::transmute_copy(&gpotype)).into()
             }
         }
         unsafe extern "system" fn GetHint<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gphint: *mut GROUP_POLICY_HINT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGPEInformation_Impl::GetHint(this) {
-                    Ok(ok__) => {
-                        gphint.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGPEInformation_Impl::GetHint(this, core::mem::transmute_copy(&gphint)).into()
             }
         }
         unsafe extern "system" fn PolicyChanged<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmachine: windows_core::BOOL, badd: windows_core::BOOL, pguidextension: *mut windows_core::GUID, pguidsnapin: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -8946,26 +8911,17 @@ impl IGroupPolicyObject {
         unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn GetRegistryKey(&self, dwsection: GPO_SECTION) -> windows_core::Result<super::Registry::HKEY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRegistryKey)(windows_core::Interface::as_raw(self), dwsection, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetRegistryKey(&self, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRegistryKey)(windows_core::Interface::as_raw(self), dwsection, hkey as _).ok() }
     }
-    pub unsafe fn GetOptions(&self) -> windows_core::Result<GPO_OPTIONS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOptions(&self, dwoptions: *mut GPO_OPTIONS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetOptions)(windows_core::Interface::as_raw(self), dwoptions as _).ok() }
     }
     pub unsafe fn SetOptions(&self, dwoptions: GPO_OPTIONS, dwmask: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOptions)(windows_core::Interface::as_raw(self), dwoptions, dwmask).ok() }
     }
-    pub unsafe fn GetType(&self) -> windows_core::Result<GROUP_POLICY_OBJECT_TYPE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), gpotype as _).ok() }
     }
     pub unsafe fn GetMachineName(&self, pszname: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok() }
@@ -9018,10 +8974,10 @@ pub trait IGroupPolicyObject_Impl: windows_core::IUnknownImpl {
     fn GetPath(&self, pszpath: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetDSPath(&self, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::Result<()>;
     fn GetFileSysPath(&self, dwsection: u32, pszpath: windows_core::PWSTR, cchmaxpath: i32) -> windows_core::Result<()>;
-    fn GetRegistryKey(&self, dwsection: GPO_SECTION) -> windows_core::Result<super::Registry::HKEY>;
-    fn GetOptions(&self) -> windows_core::Result<GPO_OPTIONS>;
+    fn GetRegistryKey(&self, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> windows_core::Result<()>;
+    fn GetOptions(&self, dwoptions: *mut GPO_OPTIONS) -> windows_core::Result<()>;
     fn SetOptions(&self, dwoptions: GPO_OPTIONS, dwmask: u32) -> windows_core::Result<()>;
-    fn GetType(&self) -> windows_core::Result<GROUP_POLICY_OBJECT_TYPE>;
+    fn GetType(&self, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::Result<()>;
     fn GetMachineName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> windows_core::Result<()>;
 }
@@ -9103,25 +9059,13 @@ impl IGroupPolicyObject_Vtbl {
         unsafe extern "system" fn GetRegistryKey<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: GPO_SECTION, hkey: *mut super::Registry::HKEY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGroupPolicyObject_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection)) {
-                    Ok(ok__) => {
-                        hkey.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGroupPolicyObject_Impl::GetRegistryKey(this, core::mem::transmute_copy(&dwsection), core::mem::transmute_copy(&hkey)).into()
             }
         }
         unsafe extern "system" fn GetOptions<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: *mut GPO_OPTIONS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGroupPolicyObject_Impl::GetOptions(this) {
-                    Ok(ok__) => {
-                        dwoptions.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGroupPolicyObject_Impl::GetOptions(this, core::mem::transmute_copy(&dwoptions)).into()
             }
         }
         unsafe extern "system" fn SetOptions<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoptions: GPO_OPTIONS, dwmask: u32) -> windows_core::HRESULT {
@@ -9133,13 +9077,7 @@ impl IGroupPolicyObject_Vtbl {
         unsafe extern "system" fn GetType<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gpotype: *mut GROUP_POLICY_OBJECT_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGroupPolicyObject_Impl::GetType(this) {
-                    Ok(ok__) => {
-                        gpotype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGroupPolicyObject_Impl::GetType(this, core::mem::transmute_copy(&gpotype)).into()
             }
         }
         unsafe extern "system" fn GetMachineName<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
@@ -9206,9 +9144,6 @@ impl Default for INSTALLSPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct INSTALLSPECTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct INSTALLSPEC_0 {
@@ -9221,17 +9156,17 @@ pub struct INSTALLSPEC_1 {
     pub Clsid: windows_core::GUID,
     pub ClsCtx: u32,
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct INSTALLSPECTYPE(pub i32);
 windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
 impl IRSOPInformation {
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: &mut [u16]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNamespace)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self), pdwflags as _).ok() }
     }
     pub unsafe fn GetEventLogEntryText<P0, P1, P2>(&self, pszeventsource: P0, pszeventlogname: P1, pszeventtime: P2, dweventid: u32) -> windows_core::Result<windows_core::PWSTR>
     where
@@ -9255,7 +9190,7 @@ pub struct IRSOPInformation_Vtbl {
 }
 pub trait IRSOPInformation_Impl: windows_core::IUnknownImpl {
     fn GetNamespace(&self, dwsection: u32, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
-    fn GetFlags(&self) -> windows_core::Result<u32>;
+    fn GetFlags(&self, pdwflags: *mut u32) -> windows_core::Result<()>;
     fn GetEventLogEntryText(&self, pszeventsource: &windows_core::PCWSTR, pszeventlogname: &windows_core::PCWSTR, pszeventtime: &windows_core::PCWSTR, dweventid: u32) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IRSOPInformation_Vtbl {
@@ -9269,13 +9204,7 @@ impl IRSOPInformation_Vtbl {
         unsafe extern "system" fn GetFlags<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRSOPInformation_Impl::GetFlags(this) {
-                    Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRSOPInformation_Impl::GetFlags(this, core::mem::transmute_copy(&pdwflags)).into()
             }
         }
         unsafe extern "system" fn GetEventLogEntryText<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszeventsource: windows_core::PCWSTR, pszeventlogname: windows_core::PCWSTR, pszeventtime: windows_core::PCWSTR, dweventid: u32, ppsztext: *mut windows_core::PWSTR) -> windows_core::HRESULT {

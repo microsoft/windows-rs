@@ -1,11 +1,25 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
-pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const Option<windows_core::IUnknown>, numqueues: u32, nodemask: u32, ppdevice: *mut Option<super::Direct3D11::ID3D11Device>, ppimmediatecontext: *mut Option<super::Direct3D11::ID3D11DeviceContext>, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> windows_core::Result<()>
+pub unsafe fn D3D11On12CreateDevice<P0>(pdevice: P0, flags: u32, pfeaturelevels: Option<&[super::Direct3D::D3D_FEATURE_LEVEL]>, ppcommandqueues: Option<&[Option<windows_core::IUnknown>]>, nodemask: u32, ppdevice: Option<*mut Option<super::Direct3D11::ID3D11Device>>, ppimmediatecontext: Option<*mut Option<super::Direct3D11::ID3D11DeviceContext>>, pchosenfeaturelevel: Option<*mut super::Direct3D::D3D_FEATURE_LEVEL>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : * mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const * mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut * mut core::ffi::c_void, ppimmediatecontext : *mut * mut core::ffi::c_void, pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL) -> windows_core::HRESULT);
-    unsafe { D3D11On12CreateDevice(pdevice.param().abi(), flags, pfeaturelevels, featurelevels, core::mem::transmute(ppcommandqueues), numqueues, nodemask, core::mem::transmute(ppdevice), core::mem::transmute(ppimmediatecontext), pchosenfeaturelevel as _).ok() }
+    unsafe {
+        D3D11On12CreateDevice(
+            pdevice.param().abi(),
+            flags,
+            core::mem::transmute(pfeaturelevels.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pfeaturelevels.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(ppcommandqueues.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            ppcommandqueues.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            nodemask,
+            ppdevice.unwrap_or(core::mem::zeroed()) as _,
+            ppimmediatecontext.unwrap_or(core::mem::zeroed()) as _,
+            pchosenfeaturelevel.unwrap_or(core::mem::zeroed()) as _,
+        )
+        .ok()
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -19,13 +33,12 @@ windows_core::imp::define_interface!(ID3D11On12Device, ID3D11On12Device_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ID3D11On12Device, windows_core::IUnknown);
 impl ID3D11On12Device {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES) -> windows_core::Result<T>
+    pub unsafe fn CreateWrappedResource<P0, T>(&self, presource12: P0, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateWrappedResource)(windows_core::Interface::as_raw(self), presource12.param().abi(), pflags11, instate, outstate, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {

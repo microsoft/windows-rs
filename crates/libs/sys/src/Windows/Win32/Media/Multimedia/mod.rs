@@ -20,12 +20,12 @@ windows_link::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompre
 windows_link::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut * mut core::ffi::c_void, nstreams : i32, papstreams : *const * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "C" fn AVISaveA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "C" fn AVISaveA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
-windows_link::link!("avifil32.dll" "C" fn AVISaveW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
+windows_link::link!("avifil32.dll" "C" fn AVISaveW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamAddRef(pavi : * mut core::ffi::c_void) -> u32);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : * mut core::ffi::c_void, lstart : i32, lend : i32, lrate : i32) -> windows_sys::core::HRESULT);
 windows_link::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
@@ -206,20 +206,20 @@ pub const ACM_MPEG_PRIVATEBIT: u32 = 1u32;
 pub const ACM_MPEG_PROTECTIONBIT: u32 = 8u32;
 pub const ACM_MPEG_SINGLECHANNEL: u32 = 8u32;
 pub const ACM_MPEG_STEREO: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct ADPCMCOEFSET {
     pub iCoef1: i16,
     pub iCoef2: i16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
 pub struct ADPCMWAVEFORMAT {
@@ -234,19 +234,19 @@ impl Default for ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
@@ -541,14 +541,14 @@ impl Default for COMPVARS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CONTRESVQLPCWAVEFORMAT {
@@ -557,21 +557,21 @@ pub struct CONTRESVQLPCWAVEFORMAT {
 }
 pub const CONTROLCALLBACK_CAPTURING: u32 = 2u32;
 pub const CONTROLCALLBACK_PREROLL: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
@@ -579,7 +579,7 @@ pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wRevision: u16,
 }
 pub const CRYSTAL_NET_SFM_CODEC: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct CSIMAADPCMWAVEFORMAT {
@@ -609,33 +609,33 @@ pub const DDF_SAME_DRAW: u32 = 8u32;
 pub const DDF_SAME_HDC: u32 = 4u32;
 pub const DDF_SAME_SIZE: u32 = 8u32;
 pub const DDF_UPDATE: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DIGISTDWAVEFORMAT {
@@ -643,7 +643,7 @@ pub struct DIGISTDWAVEFORMAT {
 }
 pub const DLG_ACMFILTERCHOOSE_ID: u32 = 71u32;
 pub const DLG_ACMFORMATCHOOSE_ID: u32 = 70u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DOLBYAC2WAVEFORMAT {
@@ -664,7 +664,7 @@ pub struct DRAWDIBTIME {
 pub type DRIVERMSGPROC = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
 pub type DRIVERPROC = Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const DRIVERS_SECTION: windows_sys::core::PCWSTR = windows_sys::core::w!("DRIVERS32");
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DRMWAVEFORMAT {
@@ -676,7 +676,7 @@ pub struct DRMWAVEFORMAT {
 pub const DRVCNF_CANCEL: u32 = 0u32;
 pub const DRVCNF_OK: u32 = 1u32;
 pub const DRVCNF_RESTART: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DRVCONFIGINFO {
     pub dwDCISize: u32,
@@ -688,7 +688,7 @@ impl Default for DRVCONFIGINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DRVCONFIGINFOEX {
     pub dwDCISize: u32,
@@ -710,7 +710,7 @@ pub const DRVM_INIT_EX: u32 = 104u32;
 pub const DRVM_IOCTL: u32 = 256u32;
 pub const DRVM_IOCTL_CMD_SYSTEM: i32 = -2147483648i32;
 pub const DRVM_IOCTL_CMD_USER: i32 = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DRVM_IOCTL_DATA {
     pub dwSize: u32,
@@ -753,7 +753,7 @@ pub const DRV_REMOVE: u32 = 10u32;
 pub const DRV_RESERVED: u32 = 2048u32;
 pub const DRV_RESTART: u32 = 2u32;
 pub const DRV_USER: u32 = 16384u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct DVIADPCMWAVEFORMAT {
@@ -804,13 +804,13 @@ pub const DV_VM_CLOSE: u32 = 977u32;
 pub const DV_VM_DATA: u32 = 978u32;
 pub const DV_VM_ERROR: u32 = 979u32;
 pub const DV_VM_OPEN: u32 = 976u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Default)]
 pub struct EXBMINFOHEADER {
@@ -833,21 +833,21 @@ pub const FIND_PREV: i32 = 4i32;
 pub const FIND_RET: i32 = 61440i32;
 pub const FIND_SIZE: i32 = 12288i32;
 pub const FIND_TYPE: i32 = 240i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBlockSize: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct G723_ADPCMWAVEFORMAT {
@@ -855,7 +855,7 @@ pub struct G723_ADPCMWAVEFORMAT {
     pub cbExtraSize: u16,
     pub nAuxBlockSize: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct GSM610WAVEFORMAT {
@@ -1271,7 +1271,7 @@ pub const IDS_CAP_WAVE_OPEN_ERROR: u32 = 419u32;
 pub const IDS_CAP_WAVE_PREPARE_ERROR: u32 = 421u32;
 pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAADPCMWAVEFORMAT {
@@ -1343,7 +1343,7 @@ pub const JIFMK_SOF9: u32 = 65481u32;
 pub const JIFMK_SOI: u32 = 65496u32;
 pub const JIFMK_SOS: u32 = 65498u32;
 pub const JIFMK_TEM: u32 = 65281u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPS2A {
     pub wMid: u16,
@@ -1379,7 +1379,7 @@ impl Default for JOYCAPS2A {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPS2W {
     pub wMid: u16,
@@ -1415,7 +1415,7 @@ impl Default for JOYCAPS2W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPSA {
     pub wMid: u16,
@@ -1448,7 +1448,7 @@ impl Default for JOYCAPSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct JOYCAPSW {
     pub wMid: u16,
@@ -1492,7 +1492,7 @@ pub const JOYERR_NOCANDO: u32 = 166u32;
 pub const JOYERR_NOERROR: u32 = 0u32;
 pub const JOYERR_PARMS: u32 = 165u32;
 pub const JOYERR_UNPLUGGED: u32 = 167u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct JOYINFO {
     pub wXpos: u32,
@@ -1500,7 +1500,7 @@ pub struct JOYINFO {
     pub wZpos: u32,
     pub wButtons: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct JOYINFOEX {
     pub dwSize: u32,
@@ -1584,7 +1584,7 @@ pub const JOY_RETURNX: i32 = 1i32;
 pub const JOY_RETURNY: i32 = 2i32;
 pub const JOY_RETURNZ: i32 = 4i32;
 pub const JOY_USEDEADZONE: i32 = 2048i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct JPEGINFOHEADER {
     pub JPEGSize: u32,
@@ -1807,7 +1807,7 @@ pub const MCI_ANIM_GETDEVCAPS_SLOW_RATE: i32 = 16387i32;
 pub const MCI_ANIM_INFO_TEXT: i32 = 65536i32;
 pub const MCI_ANIM_OPEN_NOSTATIC: i32 = 262144i32;
 pub const MCI_ANIM_OPEN_PARENT: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -1823,7 +1823,7 @@ impl Default for MCI_ANIM_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -1841,7 +1841,7 @@ impl Default for MCI_ANIM_OPEN_PARMSW {
 }
 pub const MCI_ANIM_OPEN_WS: i32 = 65536i32;
 pub const MCI_ANIM_PLAY_FAST: i32 = 262144i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_PLAY_PARMS {
     pub dwCallback: usize,
@@ -1858,7 +1858,7 @@ pub const MCI_ANIM_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_ANIM_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_ANIM_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_ANIM_RECT: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
@@ -1870,7 +1870,7 @@ pub const MCI_ANIM_STATUS_HWND: i32 = 16387i32;
 pub const MCI_ANIM_STATUS_SPEED: i32 = 16385i32;
 pub const MCI_ANIM_STATUS_STRETCH: i32 = 16389i32;
 pub const MCI_ANIM_STEP_FRAMES: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_ANIM_STEP_PARMS {
     pub dwCallback: usize,
@@ -1878,7 +1878,7 @@ pub struct MCI_ANIM_STEP_PARMS {
 }
 pub const MCI_ANIM_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_ANIM_UPDATE_HDC: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_UPDATE_PARMS {
@@ -1898,7 +1898,7 @@ pub const MCI_ANIM_WINDOW_DEFAULT: i32 = 0i32;
 pub const MCI_ANIM_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_ANIM_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 pub const MCI_ANIM_WINDOW_HWND: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -1911,7 +1911,7 @@ impl Default for MCI_ANIM_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -1936,7 +1936,7 @@ pub const MCI_BREAK: u32 = 2065u32;
 pub const MCI_BREAK_HWND: i32 = 512i32;
 pub const MCI_BREAK_KEY: i32 = 256i32;
 pub const MCI_BREAK_OFF: i32 = 1024i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
@@ -1979,7 +1979,7 @@ pub const MCI_DEVTYPE_VIDEODISC: u32 = 514u32;
 pub const MCI_DEVTYPE_WAVEFORM_AUDIO: u32 = 522u32;
 pub const MCI_DGV_CAPTURE_AS: i32 = 65536i32;
 pub const MCI_DGV_CAPTURE_AT: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSA {
     pub dwCallback: usize,
@@ -1991,7 +1991,7 @@ impl Default for MCI_DGV_CAPTURE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSW {
     pub dwCallback: usize,
@@ -2005,7 +2005,7 @@ impl Default for MCI_DGV_CAPTURE_PARMSW {
 }
 pub const MCI_DGV_COPY_AT: i32 = 65536i32;
 pub const MCI_DGV_COPY_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_COPY_PARMS {
     pub dwCallback: usize,
@@ -2019,7 +2019,7 @@ pub const MCI_DGV_COPY_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_CUE_INPUT: i32 = 65536i32;
 pub const MCI_DGV_CUE_NOSHOW: i32 = 262144i32;
 pub const MCI_DGV_CUE_OUTPUT: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_CUE_PARMS {
     pub dwCallback: usize,
@@ -2027,7 +2027,7 @@ pub struct MCI_DGV_CUE_PARMS {
 }
 pub const MCI_DGV_CUT_AT: i32 = 65536i32;
 pub const MCI_DGV_CUT_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_CUT_PARMS {
     pub dwCallback: usize,
@@ -2040,7 +2040,7 @@ pub struct MCI_DGV_CUT_PARMS {
 pub const MCI_DGV_CUT_VIDEO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_DELETE_AT: i32 = 65536i32;
 pub const MCI_DGV_DELETE_AUDIO_STREAM: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_DELETE_PARMS {
     pub dwCallback: usize,
@@ -2084,7 +2084,7 @@ pub const MCI_DGV_GETDEVCAPS_PALETTES: i32 = 16390i32;
 pub const MCI_DGV_INFO_AUDIO_ALG: i32 = 16388i32;
 pub const MCI_DGV_INFO_AUDIO_QUALITY: i32 = 16385i32;
 pub const MCI_DGV_INFO_ITEM: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSA {
     pub dwCallback: usize,
@@ -2097,7 +2097,7 @@ impl Default for MCI_DGV_INFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSW {
     pub dwCallback: usize,
@@ -2124,7 +2124,7 @@ pub const MCI_DGV_LIST_AUDIO_STREAM: i32 = 16386i32;
 pub const MCI_DGV_LIST_COUNT: i32 = 131072i32;
 pub const MCI_DGV_LIST_ITEM: i32 = 65536i32;
 pub const MCI_DGV_LIST_NUMBER: i32 = 262144i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSA {
     pub dwCallback: usize,
@@ -2139,7 +2139,7 @@ impl Default for MCI_DGV_LIST_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSW {
     pub dwCallback: usize,
@@ -2166,7 +2166,7 @@ pub const MCI_DGV_METHOD_PRE: i32 = 40960i32;
 pub const MCI_DGV_MONITOR_FILE: i32 = 16385i32;
 pub const MCI_DGV_MONITOR_INPUT: i32 = 16384i32;
 pub const MCI_DGV_MONITOR_METHOD: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_MONITOR_PARMS {
     pub dwCallback: usize,
@@ -2178,7 +2178,7 @@ pub const MCI_DGV_OPEN_16BIT: i32 = 524288i32;
 pub const MCI_DGV_OPEN_32BIT: i32 = 1048576i32;
 pub const MCI_DGV_OPEN_NOSTATIC: i32 = 262144i32;
 pub const MCI_DGV_OPEN_PARENT: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -2194,7 +2194,7 @@ impl Default for MCI_DGV_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -2215,7 +2215,7 @@ pub const MCI_DGV_PASTE_AT: i32 = 65536i32;
 pub const MCI_DGV_PASTE_AUDIO_STREAM: i32 = 131072i32;
 pub const MCI_DGV_PASTE_INSERT: i32 = 524288i32;
 pub const MCI_DGV_PASTE_OVERWRITE: i32 = 1048576i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_PASTE_PARMS {
     pub dwCallback: usize,
@@ -2233,7 +2233,7 @@ pub const MCI_DGV_PUT_FRAME: i32 = 524288i32;
 pub const MCI_DGV_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_DGV_PUT_VIDEO: i32 = 1048576i32;
 pub const MCI_DGV_PUT_WINDOW: i32 = 2097152i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSA {
     pub dwCallback: usize,
@@ -2247,7 +2247,7 @@ impl Default for MCI_DGV_QUALITY_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSW {
     pub dwCallback: usize,
@@ -2265,7 +2265,7 @@ pub const MCI_DGV_REALIZE_BKGD: i32 = 131072i32;
 pub const MCI_DGV_REALIZE_NORM: i32 = 65536i32;
 pub const MCI_DGV_RECORD_AUDIO_STREAM: i32 = 262144i32;
 pub const MCI_DGV_RECORD_HOLD: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_RECORD_PARMS {
     pub dwCallback: usize,
@@ -2277,14 +2277,14 @@ pub struct MCI_DGV_RECORD_PARMS {
 }
 pub const MCI_DGV_RECORD_VIDEO_STREAM: i32 = 524288i32;
 pub const MCI_DGV_RECT: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
 pub const MCI_DGV_RESERVE_IN: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSA {
     pub dwCallback: usize,
@@ -2296,7 +2296,7 @@ impl Default for MCI_DGV_RESERVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSW {
     pub dwCallback: usize,
@@ -2311,7 +2311,7 @@ impl Default for MCI_DGV_RESERVE_PARMSW {
 pub const MCI_DGV_RESERVE_SIZE: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_AT: i32 = 131072i32;
 pub const MCI_DGV_RESTORE_FROM: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSA {
     pub dwCallback: usize,
@@ -2323,7 +2323,7 @@ impl Default for MCI_DGV_RESTORE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSW {
     pub dwCallback: usize,
@@ -2337,7 +2337,7 @@ impl Default for MCI_DGV_RESTORE_PARMSW {
 }
 pub const MCI_DGV_SAVE_ABORT: i32 = 131072i32;
 pub const MCI_DGV_SAVE_KEEPRESERVE: i32 = 262144i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -2349,7 +2349,7 @@ impl Default for MCI_DGV_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -2372,7 +2372,7 @@ pub const MCI_DGV_SETAUDIO_ITEM: i32 = 8388608i32;
 pub const MCI_DGV_SETAUDIO_LEFT: i32 = 2097152i32;
 pub const MCI_DGV_SETAUDIO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETAUDIO_OVER: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub dwCallback: usize,
@@ -2387,7 +2387,7 @@ impl Default for MCI_DGV_SETAUDIO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub dwCallback: usize,
@@ -2434,7 +2434,7 @@ pub const MCI_DGV_SETVIDEO_KEY_INDEX: i32 = 16394i32;
 pub const MCI_DGV_SETVIDEO_OUTPUT: i32 = 67108864i32;
 pub const MCI_DGV_SETVIDEO_OVER: i32 = 2097152i32;
 pub const MCI_DGV_SETVIDEO_PALHANDLE: i32 = 16391i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub dwCallback: usize,
@@ -2450,7 +2450,7 @@ impl Default for MCI_DGV_SETVIDEO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub dwCallback: usize,
@@ -2488,7 +2488,7 @@ pub const MCI_DGV_SETVIDEO_STREAM: i32 = 16390i32;
 pub const MCI_DGV_SETVIDEO_TINT: i32 = 16387i32;
 pub const MCI_DGV_SETVIDEO_VALUE: i32 = 16777216i32;
 pub const MCI_DGV_SET_FILEFORMAT: i32 = 524288i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_SET_PARMS {
     pub dwCallback: usize,
@@ -2503,7 +2503,7 @@ pub const MCI_DGV_SET_STILL: i32 = 262144i32;
 pub const MCI_DGV_SIGNAL_AT: i32 = 65536i32;
 pub const MCI_DGV_SIGNAL_CANCEL: i32 = 524288i32;
 pub const MCI_DGV_SIGNAL_EVERY: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_SIGNAL_PARMS {
     pub dwCallback: usize,
@@ -2543,7 +2543,7 @@ pub const MCI_DGV_STATUS_MONITOR: i32 = 16395i32;
 pub const MCI_DGV_STATUS_MONITOR_METHOD: i32 = 16396i32;
 pub const MCI_DGV_STATUS_NOMINAL: i32 = 131072i32;
 pub const MCI_DGV_STATUS_OUTPUT: i32 = 8388608i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSA {
     pub dwCallback: usize,
@@ -2558,7 +2558,7 @@ impl Default for MCI_DGV_STATUS_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSW {
     pub dwCallback: usize,
@@ -2597,7 +2597,7 @@ pub const MCI_DGV_STATUS_WINDOW_MAXIMIZED: i32 = 16419i32;
 pub const MCI_DGV_STATUS_WINDOW_MINIMIZED: i32 = 16418i32;
 pub const MCI_DGV_STATUS_WINDOW_VISIBLE: i32 = 16417i32;
 pub const MCI_DGV_STEP_FRAMES: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_DGV_STEP_PARMS {
     pub dwCallback: usize,
@@ -2607,7 +2607,7 @@ pub const MCI_DGV_STEP_REVERSE: i32 = 65536i32;
 pub const MCI_DGV_STOP_HOLD: i32 = 65536i32;
 pub const MCI_DGV_UPDATE_HDC: i32 = 131072i32;
 pub const MCI_DGV_UPDATE_PAINT: i32 = 262144i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_UPDATE_PARMS {
@@ -2629,7 +2629,7 @@ pub const MCI_DGV_WHERE_VIDEO: i32 = 1048576i32;
 pub const MCI_DGV_WHERE_WINDOW: i32 = 2097152i32;
 pub const MCI_DGV_WINDOW_DEFAULT: i32 = 0i32;
 pub const MCI_DGV_WINDOW_HWND: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -2642,7 +2642,7 @@ impl Default for MCI_DGV_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -2688,7 +2688,7 @@ pub const MCI_FORMAT_TMSF: u32 = 10u32;
 pub const MCI_FORMAT_TMSF_S: u32 = 543u32;
 pub const MCI_FREEZE: u32 = 2116u32;
 pub const MCI_FROM: i32 = 4i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_GENERIC_PARMS {
     pub dwCallback: usize,
@@ -2703,7 +2703,7 @@ pub const MCI_GETDEVCAPS_DEVICE_TYPE: i32 = 4i32;
 pub const MCI_GETDEVCAPS_HAS_AUDIO: i32 = 2i32;
 pub const MCI_GETDEVCAPS_HAS_VIDEO: i32 = 3i32;
 pub const MCI_GETDEVCAPS_ITEM: i32 = 256i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_GETDEVCAPS_PARMS {
     pub dwCallback: usize,
@@ -2720,7 +2720,7 @@ pub const MCI_INFO_FILE: i32 = 512i32;
 pub const MCI_INFO_MEDIA_IDENTITY: i32 = 2048i32;
 pub const MCI_INFO_MEDIA_UPC: i32 = 1024i32;
 pub const MCI_INFO_NAME: i32 = 4096i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSA {
     pub dwCallback: usize,
@@ -2732,7 +2732,7 @@ impl Default for MCI_INFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSW {
     pub dwCallback: usize,
@@ -2753,7 +2753,7 @@ pub const MCI_LAST: u32 = 4095u32;
 pub const MCI_LIST: u32 = 2168u32;
 pub const MCI_LOAD: u32 = 2128u32;
 pub const MCI_LOAD_FILE: i32 = 256i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSA {
     pub dwCallback: usize,
@@ -2764,7 +2764,7 @@ impl Default for MCI_LOAD_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSW {
     pub dwCallback: usize,
@@ -2799,7 +2799,7 @@ pub const MCI_ON_S: i32 = 32768i32;
 pub const MCI_OPEN: u32 = 2051u32;
 pub const MCI_OPEN_ALIAS: i32 = 1024i32;
 pub const MCI_OPEN_DRIVER: u32 = 2049u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OPEN_DRIVER_PARMS {
     pub wDeviceID: u32,
@@ -2814,7 +2814,7 @@ impl Default for MCI_OPEN_DRIVER_PARMS {
 }
 pub const MCI_OPEN_ELEMENT: i32 = 512i32;
 pub const MCI_OPEN_ELEMENT_ID: i32 = 2048i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -2828,7 +2828,7 @@ impl Default for MCI_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -2849,7 +2849,7 @@ pub const MCI_OVLY_GETDEVCAPS_CAN_FREEZE: i32 = 16386i32;
 pub const MCI_OVLY_GETDEVCAPS_CAN_STRETCH: i32 = 16385i32;
 pub const MCI_OVLY_GETDEVCAPS_MAX_WINDOWS: i32 = 16387i32;
 pub const MCI_OVLY_INFO_TEXT: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
@@ -2861,7 +2861,7 @@ impl Default for MCI_OVLY_LOAD_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
@@ -2874,7 +2874,7 @@ impl Default for MCI_OVLY_LOAD_PARMSW {
     }
 }
 pub const MCI_OVLY_OPEN_PARENT: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -2890,7 +2890,7 @@ impl Default for MCI_OVLY_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -2912,13 +2912,13 @@ pub const MCI_OVLY_PUT_FRAME: i32 = 524288i32;
 pub const MCI_OVLY_PUT_SOURCE: i32 = 131072i32;
 pub const MCI_OVLY_PUT_VIDEO: i32 = 1048576i32;
 pub const MCI_OVLY_RECT: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -2930,7 +2930,7 @@ impl Default for MCI_OVLY_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -2952,7 +2952,7 @@ pub const MCI_OVLY_WINDOW_DEFAULT: i32 = 0i32;
 pub const MCI_OVLY_WINDOW_DISABLE_STRETCH: i32 = 2097152i32;
 pub const MCI_OVLY_WINDOW_ENABLE_STRETCH: i32 = 1048576i32;
 pub const MCI_OVLY_WINDOW_HWND: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -2965,7 +2965,7 @@ impl Default for MCI_OVLY_WINDOW_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -2983,7 +2983,7 @@ pub const MCI_OVLY_WINDOW_TEXT: i32 = 524288i32;
 pub const MCI_PASTE: u32 = 2131u32;
 pub const MCI_PAUSE: u32 = 2057u32;
 pub const MCI_PLAY: u32 = 2054u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_PLAY_PARMS {
     pub dwCallback: usize,
@@ -3004,7 +3004,7 @@ pub const MCI_REALIZE: u32 = 2112u32;
 pub const MCI_RECORD: u32 = 2063u32;
 pub const MCI_RECORD_INSERT: i32 = 256i32;
 pub const MCI_RECORD_OVERWRITE: i32 = 512i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_RECORD_PARMS {
     pub dwCallback: usize,
@@ -3020,7 +3020,7 @@ pub const MCI_RESUME: u32 = 2133u32;
 pub const MCI_RETURN: u32 = 4u32;
 pub const MCI_SAVE: u32 = 2067u32;
 pub const MCI_SAVE_FILE: i32 = 256i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -3031,7 +3031,7 @@ impl Default for MCI_SAVE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -3044,7 +3044,7 @@ impl Default for MCI_SAVE_PARMSW {
 }
 pub const MCI_SECTION: windows_sys::core::PCWSTR = windows_sys::core::w!("MCI32");
 pub const MCI_SEEK: u32 = 2055u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SEEK_PARMS {
     pub dwCallback: usize,
@@ -3064,7 +3064,7 @@ pub const MCI_SEQ_NONE: u32 = 65533u32;
 pub const MCI_SEQ_NONE_S: u32 = 1226u32;
 pub const MCI_SEQ_SET_MASTER: i32 = 524288i32;
 pub const MCI_SEQ_SET_OFFSET: i32 = 16777216i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SEQ_SET_PARMS {
     pub dwCallback: usize,
@@ -3100,7 +3100,7 @@ pub const MCI_SET_DOOR_CLOSED: i32 = 512i32;
 pub const MCI_SET_DOOR_OPEN: i32 = 256i32;
 pub const MCI_SET_OFF: i32 = 16384i32;
 pub const MCI_SET_ON: i32 = 8192i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_SET_PARMS {
     pub dwCallback: usize,
@@ -3118,7 +3118,7 @@ pub const MCI_STATUS_LENGTH: i32 = 1i32;
 pub const MCI_STATUS_MEDIA_PRESENT: i32 = 5i32;
 pub const MCI_STATUS_MODE: i32 = 4i32;
 pub const MCI_STATUS_NUMBER_OF_TRACKS: i32 = 3i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_PARMS {
     pub dwCallback: usize,
@@ -3137,7 +3137,7 @@ pub const MCI_SYSINFO: u32 = 2064u32;
 pub const MCI_SYSINFO_INSTALLNAME: i32 = 2048i32;
 pub const MCI_SYSINFO_NAME: i32 = 1024i32;
 pub const MCI_SYSINFO_OPEN: i32 = 512i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSA {
     pub dwCallback: usize,
@@ -3151,7 +3151,7 @@ impl Default for MCI_SYSINFO_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSW {
     pub dwCallback: usize,
@@ -3174,7 +3174,7 @@ pub const MCI_UNDO: u32 = 2169u32;
 pub const MCI_UNFREEZE: u32 = 2117u32;
 pub const MCI_UPDATE: u32 = 2132u32;
 pub const MCI_USER_MESSAGES: u32 = 3072u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSA {
     pub dwCallback: usize,
@@ -3185,7 +3185,7 @@ impl Default for MCI_VD_ESCAPE_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSW {
     pub dwCallback: usize,
@@ -3210,7 +3210,7 @@ pub const MCI_VD_MEDIA_CLV: u32 = 1026u32;
 pub const MCI_VD_MEDIA_OTHER: u32 = 1028u32;
 pub const MCI_VD_MODE_PARK: u32 = 1025u32;
 pub const MCI_VD_PLAY_FAST: i32 = 131072i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_PLAY_PARMS {
     pub dwCallback: usize,
@@ -3231,7 +3231,7 @@ pub const MCI_VD_STATUS_MEDIA_TYPE: i32 = 16388i32;
 pub const MCI_VD_STATUS_SIDE: i32 = 16389i32;
 pub const MCI_VD_STATUS_SPEED: i32 = 16386i32;
 pub const MCI_VD_STEP_FRAMES: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_VD_STEP_PARMS {
     pub dwCallback: usize,
@@ -3239,7 +3239,7 @@ pub struct MCI_VD_STEP_PARMS {
 }
 pub const MCI_VD_STEP_REVERSE: i32 = 131072i32;
 pub const MCI_WAIT: i32 = 2i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_DELETE_PARMS {
     pub dwCallback: usize,
@@ -3251,7 +3251,7 @@ pub const MCI_WAVE_GETDEVCAPS_OUTPUTS: i32 = 16386i32;
 pub const MCI_WAVE_INPUT: i32 = 4194304i32;
 pub const MCI_WAVE_MAPPER: u32 = 1153u32;
 pub const MCI_WAVE_OPEN_BUFFER: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -3266,7 +3266,7 @@ impl Default for MCI_WAVE_OPEN_PARMSA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -3290,7 +3290,7 @@ pub const MCI_WAVE_SET_BITSPERSAMPLE: i32 = 2097152i32;
 pub const MCI_WAVE_SET_BLOCKALIGN: i32 = 1048576i32;
 pub const MCI_WAVE_SET_CHANNELS: i32 = 131072i32;
 pub const MCI_WAVE_SET_FORMATTAG: i32 = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_WAVE_SET_PARMS {
     pub dwCallback: usize,
@@ -3321,7 +3321,7 @@ pub const MCI_WHERE: u32 = 2115u32;
 pub const MCI_WINDOW: u32 = 2113u32;
 pub const MCMADM_E_REGKEY_NOT_FOUND: windows_sys::core::HRESULT = 0xC00D006A_u32 as _;
 pub const MCMADM_I_NO_EVENTS: windows_sys::core::HRESULT = 0x400D0069_u32 as _;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
@@ -3329,7 +3329,7 @@ pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wRevision: u16,
 }
 pub const MIDIMAPPER_S: u32 = 1227u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MIDIOPENSTRMID {
     pub dwStreamID: u32,
@@ -3354,7 +3354,7 @@ pub const MIDM_USER: u32 = 16384u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_MTS: u32 = 536936454u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_ONOFF: u32 = 536936455u32;
 pub const MIXERCONTROL_CONTROLTYPE_SRS_SYNTHSELECT: u32 = 536936456u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
 pub struct MIXEROPENDESC {
@@ -3370,7 +3370,7 @@ impl Default for MIXEROPENDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MMCKINFO {
     pub ckid: u32,
@@ -3396,7 +3396,7 @@ pub const MMIOERR_PATHNOTFOUND: u32 = 267u32;
 pub const MMIOERR_SHARINGVIOLATION: u32 = 269u32;
 pub const MMIOERR_TOOMANYOPENFILES: u32 = 271u32;
 pub const MMIOERR_UNBUFFERED: u32 = 266u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MMIOINFO {
     pub dwFlags: u32,
@@ -4998,7 +4998,7 @@ pub const MPEGLAYER3_ID_CONSTANTFRAMESIZE: u32 = 2u32;
 pub const MPEGLAYER3_ID_MPEG: u32 = 1u32;
 pub const MPEGLAYER3_ID_UNKNOWN: u32 = 0u32;
 pub const MPEGLAYER3_WFX_EXTRA_BYTES: u32 = 12u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct MSAUDIO1WAVEFORMAT {
@@ -5020,7 +5020,7 @@ pub const MXDM_INIT_EX: u32 = 104u32;
 pub const MXDM_OPEN: u32 = 3u32;
 pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 pub const MXDM_USER: u32 = 16384u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
@@ -6232,31 +6232,31 @@ pub const NS_S_WMR_PINTYPEPARTIALMATCH: windows_sys::core::HRESULT = 0xD1060_u32
 pub const NS_W_FILE_BANDWIDTH_LIMIT: windows_sys::core::HRESULT = 0x800D0004_u32 as _;
 pub const NS_W_SERVER_BANDWIDTH_LIMIT: windows_sys::core::HRESULT = 0x800D0003_u32 as _;
 pub const NS_W_UNKNOWN_EVENT: windows_sys::core::HRESULT = 0x800D0060_u32 as _;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct OLISBCWAVEFORMAT {
@@ -6287,14 +6287,14 @@ pub const SEARCH_NEAREST: i32 = 4i32;
 pub const SEEK_CUR: u32 = 1u32;
 pub const SEEK_END: u32 = 2u32;
 pub const SEEK_SET: u32 = 0u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct SONARCWAVEFORMAT {
@@ -6311,7 +6311,7 @@ pub const TDD_GETDEVCAPS: u32 = 2060u32;
 pub const TDD_GETSYSTEMTIME: u32 = 2056u32;
 pub const TDD_KILLTIMEREVENT: u32 = 2048u32;
 pub const TDD_SETTIMEREVENT: u32 = 2052u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TIMEREVENT {
     pub wDelay: u16,
@@ -6321,7 +6321,7 @@ pub struct TIMEREVENT {
     pub wFlags: u16,
     pub wReserved1: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
 pub struct TRUESPEECHWAVEFORMAT {
@@ -6429,7 +6429,7 @@ pub const VP_TV_STANDARD_SECAM_K1: u32 = 8192u32;
 pub const VP_TV_STANDARD_SECAM_L: u32 = 16384u32;
 pub const VP_TV_STANDARD_SECAM_L1: u32 = 524288u32;
 pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy)]
 pub struct WAVEOPENDESC {
@@ -6733,7 +6733,7 @@ pub const WIDM_RESET: u32 = 59u32;
 pub const WIDM_START: u32 = 57u32;
 pub const WIDM_STOP: u32 = 58u32;
 pub const WIDM_UNPREPARE: u32 = 55u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO2WAVEFORMAT {
@@ -6744,7 +6744,7 @@ pub struct WMAUDIO2WAVEFORMAT {
 }
 pub const WMAUDIO2_BITS_PER_SAMPLE: u32 = 16u32;
 pub const WMAUDIO2_MAX_CHANNELS: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct WMAUDIO3WAVEFORMAT {
@@ -6862,7 +6862,7 @@ pub const WODM_SETPLAYBACKRATE: u32 = 19u32;
 pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 pub const WODM_WRITE: u32 = 9u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 #[derive(Clone, Copy, Default)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {

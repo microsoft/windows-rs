@@ -1,7 +1,11 @@
 #[inline]
-pub unsafe fn CLRCreateInstance(clsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CLRCreateInstance<T>(clsid: *const windows_core::GUID) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("mscoree.dll" "system" fn CLRCreateInstance(clsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CLRCreateInstance(clsid, riid, ppinterface as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CLRCreateInstance(clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CallFunctionShim<P0, P1, P4>(szdllname: P0, szfunctionname: P1, lpvargument1: *mut core::ffi::c_void, lpvargument2: *mut core::ffi::c_void, szversion: P4, pvreserved: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -73,15 +77,12 @@ pub unsafe fn CorExitProcess(exitcode: i32) {
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn CorLaunchApplication<P1>(dwclickoncehost: HOST_TYPE, pwzappfullname: P1, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR) -> windows_core::Result<super::Threading::PROCESS_INFORMATION>
+pub unsafe fn CorLaunchApplication<P1>(dwclickoncehost: HOST_TYPE, pwzappfullname: P1, dwmanifestpaths: u32, ppwzmanifestpaths: *const windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const windows_core::PCWSTR, lpprocessinformation: *mut super::Threading::PROCESS_INFORMATION) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : windows_core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const windows_core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const windows_core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CorLaunchApplication(dwclickoncehost, pwzappfullname.param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, &mut result__).map(|| result__)
-    }
+    unsafe { CorLaunchApplication(dwclickoncehost, pwzappfullname.param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation as _).ok() }
 }
 #[inline]
 pub unsafe fn CorMarkThreadInThreadPool() {
@@ -108,27 +109,27 @@ pub unsafe fn GetCLRIdentityManager(riid: *const windows_core::GUID) -> windows_
     }
 }
 #[inline]
-pub unsafe fn GetCORRequiredVersion(pbuffer: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORRequiredVersion(pbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn GetCORRequiredVersion(pbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetCORRequiredVersion(core::mem::transmute(pbuffer), cchbuffer, dwlength as _).ok() }
+    unsafe { GetCORRequiredVersion(core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetCORSystemDirectory(pbuffer: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORSystemDirectory(pbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn GetCORSystemDirectory(pbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetCORSystemDirectory(core::mem::transmute(pbuffer), cchbuffer, dwlength as _).ok() }
+    unsafe { GetCORSystemDirectory(core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetCORVersion(pbbuffer: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetCORVersion(pbbuffer: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn GetCORVersion(pbbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetCORVersion(core::mem::transmute(pbbuffer), cchbuffer, dwlength as _).ok() }
+    unsafe { GetCORVersion(core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetFileVersion<P0>(szfilename: P0, szbuffer: Option<&mut [u16]>, dwlength: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscoree.dll" "system" fn GetFileVersion(szfilename : windows_core::PCWSTR, szbuffer : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetFileVersion(szfilename.param().abi(), core::mem::transmute(szbuffer), cchbuffer, dwlength as _).ok() }
+    unsafe { GetFileVersion(szfilename.param().abi(), core::mem::transmute(szbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwlength as _).ok() }
 }
 #[inline]
 pub unsafe fn GetRealProcAddress<P0>(pwszprocname: P0, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -139,32 +140,47 @@ where
     unsafe { GetRealProcAddress(pwszprocname.param().abi(), ppv as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeInfo<P0, P1, P2>(pexe: P0, pwszversion: P1, pconfigurationfile: P2, startupflags: u32, runtimeinfoflags: u32, pdirectory: windows_core::PWSTR, dwdirectory: u32, dwdirectorylength: *mut u32, pversion: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetRequestedRuntimeInfo<P0, P1, P2>(pexe: P0, pwszversion: P1, pconfigurationfile: P2, startupflags: u32, runtimeinfoflags: u32, pdirectory: Option<&mut [u16]>, dwdirectorylength: Option<*mut u32>, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscoree.dll" "system" fn GetRequestedRuntimeInfo(pexe : windows_core::PCWSTR, pwszversion : windows_core::PCWSTR, pconfigurationfile : windows_core::PCWSTR, startupflags : u32, runtimeinfoflags : u32, pdirectory : windows_core::PWSTR, dwdirectory : u32, dwdirectorylength : *mut u32, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetRequestedRuntimeInfo(pexe.param().abi(), pwszversion.param().abi(), pconfigurationfile.param().abi(), startupflags, runtimeinfoflags, core::mem::transmute(pdirectory), dwdirectory, dwdirectorylength as _, core::mem::transmute(pversion), cchbuffer, dwlength as _).ok() }
+    unsafe {
+        GetRequestedRuntimeInfo(
+            pexe.param().abi(),
+            pwszversion.param().abi(),
+            pconfigurationfile.param().abi(),
+            startupflags,
+            runtimeinfoflags,
+            core::mem::transmute(pdirectory.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pdirectory.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            dwdirectorylength.unwrap_or(core::mem::zeroed()) as _,
+            core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            dwlength.unwrap_or(core::mem::zeroed()) as _,
+        )
+        .ok()
+    }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GetRequestedRuntimeVersion<P0>(pexe: P0, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersion(pexe : windows_core::PCWSTR, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetRequestedRuntimeVersion(pexe.param().abi(), core::mem::transmute(pversion), cchbuffer, dwlength as _).ok() }
+    unsafe { GetRequestedRuntimeVersion(pexe.param().abi(), core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GUID, pversion: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GUID, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const windows_core::GUID, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> windows_core::HRESULT);
-    unsafe { GetRequestedRuntimeVersionForCLSID(rclsid, core::mem::transmute(pversion), cchbuffer, dwlength as _, dwresolutionflags).ok() }
+    unsafe { GetRequestedRuntimeVersionForCLSID(rclsid, core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwlength.unwrap_or(core::mem::zeroed()) as _, dwresolutionflags).ok() }
 }
 #[inline]
-pub unsafe fn GetVersionFromProcess(hprocess: super::super::Foundation::HANDLE, pversion: windows_core::PWSTR, cchbuffer: u32, dwlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetVersionFromProcess(hprocess: super::super::Foundation::HANDLE, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { GetVersionFromProcess(hprocess, core::mem::transmute(pversion), cchbuffer, dwlength as _).ok() }
+    unsafe { GetVersionFromProcess(hprocess, core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
 pub unsafe fn LoadLibraryShim<P0, P1>(szdllname: P0, szversion: P1, pvreserved: *mut core::ffi::c_void, phmoddll: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
@@ -176,14 +192,14 @@ where
     unsafe { LoadLibraryShim(szdllname.param().abi(), szversion.param().abi(), pvreserved as _, phmoddll as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: windows_core::PWSTR, imax: i32, bquiet: i32) -> windows_core::Result<()> {
+pub unsafe fn LoadStringRC(iresouceid: u32, szbuffer: &mut [u16], bquiet: i32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn LoadStringRC(iresouceid : u32, szbuffer : windows_core::PWSTR, imax : i32, bquiet : i32) -> windows_core::HRESULT);
-    unsafe { LoadStringRC(iresouceid, core::mem::transmute(szbuffer), imax, bquiet).ok() }
+    unsafe { LoadStringRC(iresouceid, core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet).ok() }
 }
 #[inline]
-pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: windows_core::PWSTR, imax: i32, bquiet: i32, pcwchused: *mut i32) -> windows_core::Result<()> {
+pub unsafe fn LoadStringRCEx(lcid: u32, iresouceid: u32, szbuffer: &mut [u16], bquiet: i32, pcwchused: *mut i32) -> windows_core::Result<()> {
     windows_core::link!("mscoree.dll" "system" fn LoadStringRCEx(lcid : u32, iresouceid : u32, szbuffer : windows_core::PWSTR, imax : i32, bquiet : i32, pcwchused : *mut i32) -> windows_core::HRESULT);
-    unsafe { LoadStringRCEx(lcid, iresouceid, core::mem::transmute(szbuffer), imax, bquiet, pcwchused as _).ok() }
+    unsafe { LoadStringRCEx(lcid, iresouceid, core::mem::transmute(szbuffer.as_ptr()), szbuffer.len().try_into().unwrap(), bquiet, pcwchused as _).ok() }
 }
 #[inline]
 pub unsafe fn LockClrVersion(hostcallback: FLockClrVersionCallback, pbeginhostsetup: *mut FLockClrVersionCallback, pendhostsetup: *mut FLockClrVersionCallback) -> windows_core::Result<()> {
@@ -509,20 +525,14 @@ impl windows_core::RuntimeName for IAppDomainBinding {}
 windows_core::imp::define_interface!(ICLRAppDomainResourceMonitor, ICLRAppDomainResourceMonitor_Vtbl, 0xc62de18c_2e23_4aea_8423_b40c1fc59eae);
 windows_core::imp::interface_hierarchy!(ICLRAppDomainResourceMonitor, windows_core::IUnknown);
 impl ICLRAppDomainResourceMonitor {
-    pub unsafe fn GetCurrentAllocated(&self, dwappdomainid: u32) -> windows_core::Result<u64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentAllocated)(windows_core::Interface::as_raw(self), dwappdomainid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentAllocated)(windows_core::Interface::as_raw(self), dwappdomainid, pbytesallocated as _).ok() }
     }
     pub unsafe fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentSurvived)(windows_core::Interface::as_raw(self), dwappdomainid, pappdomainbytessurvived as _, ptotalbytessurvived as _).ok() }
     }
-    pub unsafe fn GetCurrentCpuTime(&self, dwappdomainid: u32) -> windows_core::Result<u64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentCpuTime)(windows_core::Interface::as_raw(self), dwappdomainid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentCpuTime)(windows_core::Interface::as_raw(self), dwappdomainid, pmilliseconds as _).ok() }
     }
 }
 #[repr(C)]
@@ -534,22 +544,16 @@ pub struct ICLRAppDomainResourceMonitor_Vtbl {
     pub GetCurrentCpuTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
 }
 pub trait ICLRAppDomainResourceMonitor_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentAllocated(&self, dwappdomainid: u32) -> windows_core::Result<u64>;
+    fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> windows_core::Result<()>;
     fn GetCurrentSurvived(&self, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> windows_core::Result<()>;
-    fn GetCurrentCpuTime(&self, dwappdomainid: u32) -> windows_core::Result<u64>;
+    fn GetCurrentCpuTime(&self, dwappdomainid: u32, pmilliseconds: *mut u64) -> windows_core::Result<()>;
 }
 impl ICLRAppDomainResourceMonitor_Vtbl {
     pub const fn new<Identity: ICLRAppDomainResourceMonitor_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCurrentAllocated<Identity: ICLRAppDomainResourceMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwappdomainid: u32, pbytesallocated: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICLRAppDomainResourceMonitor_Impl::GetCurrentAllocated(this, core::mem::transmute_copy(&dwappdomainid)) {
-                    Ok(ok__) => {
-                        pbytesallocated.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICLRAppDomainResourceMonitor_Impl::GetCurrentAllocated(this, core::mem::transmute_copy(&dwappdomainid), core::mem::transmute_copy(&pbytesallocated)).into()
             }
         }
         unsafe extern "system" fn GetCurrentSurvived<Identity: ICLRAppDomainResourceMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwappdomainid: u32, pappdomainbytessurvived: *mut u64, ptotalbytessurvived: *mut u64) -> windows_core::HRESULT {
@@ -561,13 +565,7 @@ impl ICLRAppDomainResourceMonitor_Vtbl {
         unsafe extern "system" fn GetCurrentCpuTime<Identity: ICLRAppDomainResourceMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwappdomainid: u32, pmilliseconds: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICLRAppDomainResourceMonitor_Impl::GetCurrentCpuTime(this, core::mem::transmute_copy(&dwappdomainid)) {
-                    Ok(ok__) => {
-                        pmilliseconds.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICLRAppDomainResourceMonitor_Impl::GetCurrentCpuTime(this, core::mem::transmute_copy(&dwappdomainid), core::mem::transmute_copy(&pmilliseconds)).into()
             }
         }
         Self {
@@ -1612,14 +1610,14 @@ windows_core::imp::define_interface!(ICLRMetaHostPolicy, ICLRMetaHostPolicy_Vtbl
 windows_core::imp::interface_hierarchy!(ICLRMetaHostPolicy, windows_core::IUnknown);
 impl ICLRMetaHostPolicy {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetRequestedRuntime<P1, P2, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P1, pcfgstream: P2, pwzversion: windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> windows_core::Result<T>
+    pub unsafe fn GetRequestedRuntime<P1, P2, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P1, pcfgstream: P2, pwzversion: Option<windows_core::PWSTR>, pcchversion: *mut u32, pwzimageversion: Option<windows_core::PWSTR>, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> windows_core::Result<T>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::Com::IStream>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRequestedRuntime)(windows_core::Interface::as_raw(self), dwpolicyflags, pwzbinary.param().abi(), pcfgstream.param().abi(), core::mem::transmute(pwzversion), pcchversion as _, core::mem::transmute(pwzimageversion), pcchimageversion as _, pdwconfigflags as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRequestedRuntime)(windows_core::Interface::as_raw(self), dwpolicyflags, pwzbinary.param().abi(), pcfgstream.param().abi(), pwzversion.unwrap_or(core::mem::zeroed()) as _, pcchversion as _, pwzimageversion.unwrap_or(core::mem::zeroed()) as _, pcchimageversion as _, pdwconfigflags as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2075,8 +2073,8 @@ impl windows_core::RuntimeName for ICLRRuntimeHost {}
 windows_core::imp::define_interface!(ICLRRuntimeInfo, ICLRRuntimeInfo_Vtbl, 0xbd39d1d2_ba2f_486a_89b0_b4b0cb466891);
 windows_core::imp::interface_hierarchy!(ICLRRuntimeInfo, windows_core::IUnknown);
 impl ICLRRuntimeInfo {
-    pub unsafe fn GetVersionString(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetVersionString)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzbuffer), pcchbuffer as _).ok() }
+    pub unsafe fn GetVersionString(&self, pwzbuffer: Option<windows_core::PWSTR>, pcchbuffer: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetVersionString)(windows_core::Interface::as_raw(self), pwzbuffer.unwrap_or(core::mem::zeroed()) as _, pcchbuffer as _).ok() }
     }
     pub unsafe fn GetRuntimeDirectory(&self, pwzbuffer: windows_core::PWSTR, pcchbuffer: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRuntimeDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzbuffer), pcchbuffer as _).ok() }
@@ -2127,8 +2125,8 @@ impl ICLRRuntimeInfo {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultStartupFlags)(windows_core::Interface::as_raw(self), dwstartupflags, pwzhostconfigfile.param().abi()).ok() }
     }
-    pub unsafe fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: windows_core::PWSTR, pcchhostconfigfile: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultStartupFlags)(windows_core::Interface::as_raw(self), pdwstartupflags as _, core::mem::transmute(pwzhostconfigfile), pcchhostconfigfile as _).ok() }
+    pub unsafe fn GetDefaultStartupFlags(&self, pdwstartupflags: *mut u32, pwzhostconfigfile: Option<windows_core::PWSTR>, pcchhostconfigfile: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultStartupFlags)(windows_core::Interface::as_raw(self), pdwstartupflags as _, pwzhostconfigfile.unwrap_or(core::mem::zeroed()) as _, pcchhostconfigfile as _).ok() }
     }
     pub unsafe fn BindAsLegacyV2Runtime(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BindAsLegacyV2Runtime)(windows_core::Interface::as_raw(self)).ok() }
@@ -4111,11 +4109,8 @@ impl IGCHost {
     pub unsafe fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStats)(windows_core::Interface::as_raw(self), pstats as _).ok() }
     }
-    pub unsafe fn GetThreadStats(&self, pfibercookie: *const u32) -> windows_core::Result<COR_GC_THREAD_STATS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetThreadStats)(windows_core::Interface::as_raw(self), pfibercookie, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetThreadStats)(windows_core::Interface::as_raw(self), pfibercookie, pstats as _).ok() }
     }
     pub unsafe fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVirtualMemLimit)(windows_core::Interface::as_raw(self), sztmaxvirtualmemmb).ok() }
@@ -4135,7 +4130,7 @@ pub trait IGCHost_Impl: windows_core::IUnknownImpl {
     fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> windows_core::Result<()>;
     fn Collect(&self, generation: i32) -> windows_core::Result<()>;
     fn GetStats(&self, pstats: *mut COR_GC_STATS) -> windows_core::Result<()>;
-    fn GetThreadStats(&self, pfibercookie: *const u32) -> windows_core::Result<COR_GC_THREAD_STATS>;
+    fn GetThreadStats(&self, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> windows_core::Result<()>;
     fn SetVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<()>;
 }
 impl IGCHost_Vtbl {
@@ -4161,13 +4156,7 @@ impl IGCHost_Vtbl {
         unsafe extern "system" fn GetThreadStats<Identity: IGCHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfibercookie: *const u32, pstats: *mut COR_GC_THREAD_STATS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGCHost_Impl::GetThreadStats(this, core::mem::transmute_copy(&pfibercookie)) {
-                    Ok(ok__) => {
-                        pstats.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGCHost_Impl::GetThreadStats(this, core::mem::transmute_copy(&pfibercookie), core::mem::transmute_copy(&pstats)).into()
             }
         }
         unsafe extern "system" fn SetVirtualMemLimit<Identity: IGCHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sztmaxvirtualmemmb: usize) -> windows_core::HRESULT {
@@ -4230,11 +4219,8 @@ impl windows_core::RuntimeName for IGCHost2 {}
 windows_core::imp::define_interface!(IGCHostControl, IGCHostControl_Vtbl, 0x5513d564_8374_4cb9_aed9_0083f4160a1d);
 windows_core::imp::interface_hierarchy!(IGCHostControl, windows_core::IUnknown);
 impl IGCHostControl {
-    pub unsafe fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestVirtualMemLimit)(windows_core::Interface::as_raw(self), sztmaxvirtualmemmb, &mut result__).map(|| result__)
-        }
+    pub unsafe fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RequestVirtualMemLimit)(windows_core::Interface::as_raw(self), sztmaxvirtualmemmb, psztnewmaxvirtualmemmb as _).ok() }
     }
 }
 #[repr(C)]
@@ -4244,20 +4230,14 @@ pub struct IGCHostControl_Vtbl {
     pub RequestVirtualMemLimit: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IGCHostControl_Impl: windows_core::IUnknownImpl {
-    fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize) -> windows_core::Result<usize>;
+    fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> windows_core::Result<()>;
 }
 impl IGCHostControl_Vtbl {
     pub const fn new<Identity: IGCHostControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RequestVirtualMemLimit<Identity: IGCHostControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGCHostControl_Impl::RequestVirtualMemLimit(this, core::mem::transmute_copy(&sztmaxvirtualmemmb)) {
-                    Ok(ok__) => {
-                        psztnewmaxvirtualmemmb.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGCHostControl_Impl::RequestVirtualMemLimit(this, core::mem::transmute_copy(&sztmaxvirtualmemmb), core::mem::transmute_copy(&psztnewmaxvirtualmemmb)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RequestVirtualMemLimit: RequestVirtualMemLimit::<Identity, OFFSET> }
@@ -6760,13 +6740,13 @@ pub const STARTUP_SERVER_GC: STARTUP_FLAGS = STARTUP_FLAGS(4096i32);
 pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = STARTUP_FLAGS(16384i32);
 pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = STARTUP_FLAGS(524288i32);
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for StackOverflowInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

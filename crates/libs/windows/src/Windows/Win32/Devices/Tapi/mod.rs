@@ -267,28 +267,28 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
     unsafe { lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
-pub unsafe fn lineGatherDigits<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
+pub unsafe fn lineGatherDigits<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u8]>, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    unsafe { lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
+    unsafe { lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
-pub unsafe fn lineGatherDigitsA<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
+pub unsafe fn lineGatherDigitsA<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u8]>, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    unsafe { lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
+    unsafe { lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
-pub unsafe fn lineGatherDigitsW<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: windows_core::PWSTR, dwnumdigits: u32, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
+pub unsafe fn lineGatherDigitsW<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Option<&mut [u16]>, lpszterminationdigits: P4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsW(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PWSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCWSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
-    unsafe { lineGatherDigitsW(hcall, dwdigitmodes, core::mem::transmute(lpsdigits), dwnumdigits, lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
+    unsafe { lineGatherDigitsW(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
 pub unsafe fn lineGenerateDigits<P2>(hcall: u32, dwdigitmode: u32, lpszdigits: P2, dwduration: u32) -> i32
@@ -1520,19 +1520,19 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     unsafe { phoneShutdown(hphoneapp) }
 }
 #[inline]
-pub unsafe fn tapiGetLocationInfo(lpszcountrycode: windows_core::PSTR, lpszcitycode: windows_core::PSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
     windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
-    unsafe { tapiGetLocationInfo(core::mem::transmute(lpszcountrycode), core::mem::transmute(lpszcitycode)) }
+    unsafe { tapiGetLocationInfo(core::mem::transmute(lpszcountrycode.as_ptr()), core::mem::transmute(lpszcitycode.as_ptr())) }
 }
 #[inline]
-pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: windows_core::PSTR, lpszcitycode: windows_core::PSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
     windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
-    unsafe { tapiGetLocationInfoA(core::mem::transmute(lpszcountrycode), core::mem::transmute(lpszcitycode)) }
+    unsafe { tapiGetLocationInfoA(core::mem::transmute(lpszcountrycode.as_ptr()), core::mem::transmute(lpszcitycode.as_ptr())) }
 }
 #[inline]
-pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: windows_core::PWSTR, lpszcitycodew: windows_core::PWSTR) -> i32 {
+pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycodew: &mut [u16; 8]) -> i32 {
     windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_core::PWSTR, lpszcitycodew : windows_core::PWSTR) -> i32);
-    unsafe { tapiGetLocationInfoW(core::mem::transmute(lpszcountrycodew), core::mem::transmute(lpszcitycodew)) }
+    unsafe { tapiGetLocationInfoW(core::mem::transmute(lpszcountrycodew.as_ptr()), core::mem::transmute(lpszcitycodew.as_ptr())) }
 }
 #[inline]
 pub unsafe fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32 {
@@ -1936,8 +1936,8 @@ pub struct DIRECTORY_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCONNECT_CODE(pub i32);
 pub const DISPIDMASK: u32 = 65535u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct DTR {
     pub wYear: u16,
     pub wMonth: u16,
@@ -2200,8 +2200,8 @@ windows_core::imp::define_interface!(IEnumAddress, IEnumAddress_Vtbl, 0x1666fca1
 windows_core::imp::interface_hierarchy!(IEnumAddress, windows_core::IUnknown);
 impl IEnumAddress {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITAddress>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITAddress>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2543,8 +2543,8 @@ impl windows_core::RuntimeName for IEnumAgentSession {}
 windows_core::imp::define_interface!(IEnumBstr, IEnumBstr_Vtbl, 0x35372049_0bc6_11d2_a033_00c04fb6809f);
 windows_core::imp::interface_hierarchy!(IEnumBstr, windows_core::IUnknown);
 impl IEnumBstr {
-    pub unsafe fn Next(&self, ppstrings: &mut [windows_core::BSTR], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppstrings: &mut [windows_core::BSTR], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2623,8 +2623,8 @@ windows_core::imp::define_interface!(IEnumCall, IEnumCall_Vtbl, 0xae269cf6_935e_
 windows_core::imp::interface_hierarchy!(IEnumCall, windows_core::IUnknown);
 impl IEnumCall {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallInfo>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2709,8 +2709,8 @@ windows_core::imp::define_interface!(IEnumCallHub, IEnumCallHub_Vtbl, 0xa3c15450
 windows_core::imp::interface_hierarchy!(IEnumCallHub, windows_core::IUnknown);
 impl IEnumCallHub {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITCallHub>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITCallHub>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2795,8 +2795,8 @@ windows_core::imp::define_interface!(IEnumCallingCard, IEnumCallingCard_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumCallingCard, windows_core::IUnknown);
 impl IEnumCallingCard {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallingCard>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallingCard>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2880,8 +2880,8 @@ impl windows_core::RuntimeName for IEnumCallingCard {}
 windows_core::imp::define_interface!(IEnumDialableAddrs, IEnumDialableAddrs_Vtbl, 0x34621d70_6cff_11d1_aff7_00c04fc31fee);
 windows_core::imp::interface_hierarchy!(IEnumDialableAddrs, windows_core::IUnknown);
 impl IEnumDialableAddrs {
-    pub unsafe fn Next(&self, ppelements: &mut [windows_core::BSTR], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pcfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [windows_core::BSTR], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pcfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -2960,8 +2960,8 @@ windows_core::imp::define_interface!(IEnumDirectory, IEnumDirectory_Vtbl, 0x3462
 windows_core::imp::interface_hierarchy!(IEnumDirectory, windows_core::IUnknown);
 impl IEnumDirectory {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITDirectory>], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pcfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITDirectory>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pcfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3046,8 +3046,8 @@ windows_core::imp::define_interface!(IEnumDirectoryObject, IEnumDirectoryObject_
 windows_core::imp::interface_hierarchy!(IEnumDirectoryObject, windows_core::IUnknown);
 impl IEnumDirectoryObject {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, pval: &mut [Option<ITDirectoryObject>], pcfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), pcfetched as _).ok() }
+    pub unsafe fn Next(&self, pval: &mut [Option<ITDirectoryObject>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), pcfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3132,8 +3132,8 @@ windows_core::imp::define_interface!(IEnumLocation, IEnumLocation_Vtbl, 0x0c4d8f
 windows_core::imp::interface_hierarchy!(IEnumLocation, windows_core::IUnknown);
 impl IEnumLocation {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITLocationInfo>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITLocationInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3218,8 +3218,8 @@ windows_core::imp::define_interface!(IEnumMcastScope, IEnumMcastScope_Vtbl, 0xdf
 windows_core::imp::interface_hierarchy!(IEnumMcastScope, windows_core::IUnknown);
 impl IEnumMcastScope {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppscopes: *mut Option<IMcastScope>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppscopes), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppscopes: *mut Option<IMcastScope>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppscopes), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3304,8 +3304,8 @@ windows_core::imp::define_interface!(IEnumPhone, IEnumPhone_Vtbl, 0xf15b7669_478
 windows_core::imp::interface_hierarchy!(IEnumPhone, windows_core::IUnknown);
 impl IEnumPhone {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPhone>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPhone>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3390,8 +3390,8 @@ windows_core::imp::define_interface!(IEnumPluggableSuperclassInfo, IEnumPluggabl
 windows_core::imp::interface_hierarchy!(IEnumPluggableSuperclassInfo, windows_core::IUnknown);
 impl IEnumPluggableSuperclassInfo {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalSuperclassInfo>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalSuperclassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3476,8 +3476,8 @@ windows_core::imp::define_interface!(IEnumPluggableTerminalClassInfo, IEnumPlugg
 windows_core::imp::interface_hierarchy!(IEnumPluggableTerminalClassInfo, windows_core::IUnknown);
 impl IEnumPluggableTerminalClassInfo {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalClassInfo>], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalClassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3648,8 +3648,8 @@ windows_core::imp::define_interface!(IEnumStream, IEnumStream_Vtbl, 0xee3bd606_3
 windows_core::imp::interface_hierarchy!(IEnumStream, windows_core::IUnknown);
 impl IEnumStream {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITStream>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3734,8 +3734,8 @@ windows_core::imp::define_interface!(IEnumSubStream, IEnumSubStream_Vtbl, 0xee3b
 windows_core::imp::interface_hierarchy!(IEnumSubStream, windows_core::IUnknown);
 impl IEnumSubStream {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITSubStream>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITSubStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3820,8 +3820,8 @@ windows_core::imp::define_interface!(IEnumTerminal, IEnumTerminal_Vtbl, 0xae269c
 windows_core::imp::interface_hierarchy!(IEnumTerminal, windows_core::IUnknown);
 impl IEnumTerminal {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITTerminal>, pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITTerminal>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -3905,8 +3905,8 @@ impl windows_core::RuntimeName for IEnumTerminal {}
 windows_core::imp::define_interface!(IEnumTerminalClass, IEnumTerminalClass_Vtbl, 0xae269cf5_935e_11d0_835c_00aa003ccabd);
 windows_core::imp::interface_hierarchy!(IEnumTerminalClass, windows_core::IUnknown);
 impl IEnumTerminalClass {
-    pub unsafe fn Next(&self, pelements: &mut [windows_core::GUID], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, pelements: &mut [windows_core::GUID], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
@@ -18155,7 +18155,7 @@ impl ITToneTerminalEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITToneTerminalEvent {}
-windows_core::imp::define_interface!(ITnef, ITnef_Vtbl, 0xe39c6180_c90e_5982_883e_aec1832c0254);
+windows_core::imp::define_interface!(ITnef, ITnef_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(ITnef, windows_core::IUnknown);
 impl ITnef {
     #[cfg(feature = "Win32_System_AddressBook")]
@@ -18180,11 +18180,8 @@ impl ITnef {
         }
     }
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-    pub unsafe fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32) -> windows_core::Result<super::super::System::AddressBook::SPropValue> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetProps)(windows_core::Interface::as_raw(self), ulflags, ulelemid, cvalues, &mut result__).map(|| result__)
-        }
+    pub unsafe fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetProps)(windows_core::Interface::as_raw(self), ulflags, ulelemid, cvalues, lpprops as _).ok() }
     }
     #[cfg(feature = "Win32_System_AddressBook")]
     pub unsafe fn EncodeRecips<P1>(&self, ulflags: u32, lprecipienttable: P1) -> windows_core::Result<()>
@@ -18234,7 +18231,7 @@ pub trait ITnef_Impl: windows_core::IUnknownImpl {
     fn ExtractProps(&self, ulflags: u32, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
     fn Finish(&self, ulflags: u32, lpkey: *mut u16, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
     fn OpenTaggedBody(&self, lpmessage: windows_core::Ref<super::super::System::AddressBook::IMessage>, ulflags: u32) -> windows_core::Result<super::super::System::Com::IStream>;
-    fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32) -> windows_core::Result<super::super::System::AddressBook::SPropValue>;
+    fn SetProps(&self, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> windows_core::Result<()>;
     fn EncodeRecips(&self, ulflags: u32, lprecipienttable: windows_core::Ref<super::super::System::AddressBook::IMAPITable>) -> windows_core::Result<()>;
     fn FinishComponent(&self, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> windows_core::Result<()>;
 }
@@ -18274,13 +18271,7 @@ impl ITnef_Vtbl {
         unsafe extern "system" fn SetProps<Identity: ITnef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITnef_Impl::SetProps(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ulelemid), core::mem::transmute_copy(&cvalues)) {
-                    Ok(ok__) => {
-                        lpprops.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITnef_Impl::SetProps(this, core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&ulelemid), core::mem::transmute_copy(&cvalues), core::mem::transmute_copy(&lpprops)).into()
             }
         }
         unsafe extern "system" fn EncodeRecips<Identity: ITnef_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulflags: u32, lprecipienttable: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -18346,8 +18337,8 @@ pub const LINEADDRCAPFLAGS_SETCALLINGID: u32 = 536870912u32;
 pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18423,8 +18414,8 @@ pub const LINEADDRESSSTATE_INUSEZERO: u32 = 4u32;
 pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18462,15 +18453,15 @@ pub const LINEADDRFEATURE_SETTERMINAL: u32 = 16u32;
 pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18479,8 +18470,8 @@ pub struct LINEAGENTACTIVITYLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18498,8 +18489,8 @@ pub struct LINEAGENTCAPS {
     pub dwAgentExtensionIDListOffset: u32,
     pub ProxyGUID: windows_core::GUID,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -18515,23 +18506,23 @@ pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
 pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
     pub dwGroupID3: u32,
     pub dwGroupID4: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18540,7 +18531,7 @@ pub struct LINEAGENTGROUPLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTINFO {
@@ -18564,8 +18555,8 @@ impl Default for LINEAGENTINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18574,15 +18565,15 @@ pub struct LINEAGENTLIST {
     pub dwListSize: u32,
     pub dwListOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
     pub GroupID: windows_core::GUID,
     pub dwWorkingAddressID: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEAGENTSESSIONINFO {
@@ -18610,8 +18601,8 @@ impl Default for LINEAGENTSESSIONINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18646,8 +18637,8 @@ pub const LINEAGENTSTATE_READY: u32 = 4u32;
 pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18679,8 +18670,8 @@ pub const LINEAGENTSTATUS_VALIDSTATES: u32 = 128u32;
 pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -18757,8 +18748,8 @@ pub const LINECALLFEATURE_UNHOLD: u32 = 134217728u32;
 pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18870,8 +18861,8 @@ pub const LINECALLINFOSTATE_TERMINAL: u32 = 33554432u32;
 pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18895,8 +18886,8 @@ pub const LINECALLPARAMFLAGS_ONESTEPTRANSFER: u32 = 128u32;
 pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -18987,8 +18978,8 @@ pub const LINECALLSTATE_PROCEEDING: u32 = 512u32;
 pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19002,8 +18993,8 @@ pub struct LINECALLSTATUS {
     pub dwCallFeatures2: u32,
     pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
@@ -19013,8 +19004,8 @@ pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
 pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -19035,8 +19026,8 @@ pub const LINECONNECTEDMODE_ACTIVEHELD: u32 = 4u32;
 pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -19050,8 +19041,8 @@ pub struct LINECOUNTRYENTRY {
     pub dwInternationalRuleSize: u32,
     pub dwInternationalRuleOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19074,8 +19065,8 @@ pub const LINEDEVCAPFLAGS_MEDIACONTROL: u32 = 8u32;
 pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19158,8 +19149,8 @@ pub const LINEDEVSTATE_ROAMMODE: u32 = 16384u32;
 pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19188,8 +19179,8 @@ pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
@@ -19327,8 +19318,8 @@ pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
 pub type LINEEVENT = Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -19344,8 +19335,8 @@ pub const LINEFEATURE_MAKECALL: u32 = 8u32;
 pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -19354,8 +19345,8 @@ pub struct LINEFORWARD {
     pub dwDestAddressSize: u32,
     pub dwDestAddressOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
     pub dwNumEntries: u32,
@@ -19391,8 +19382,8 @@ pub const LINEGATHERTERM_INTERTIMEOUT: u32 = 8u32;
 pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -19405,7 +19396,7 @@ pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
 pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -19420,7 +19411,7 @@ impl Default for LINEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -19431,8 +19422,8 @@ impl Default for LINEINITIALIZEEXPARAMS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -19454,28 +19445,28 @@ pub struct LINELOCATIONENTRY {
 }
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
     pub dwMediaControl: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -19510,8 +19501,8 @@ pub const LINEMEDIAMODE_UNKNOWN: u32 = 2u32;
 pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -19520,8 +19511,8 @@ pub struct LINEMESSAGE {
     pub dwParam2: usize,
     pub dwParam3: usize,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -19535,15 +19526,15 @@ pub const LINEOPENOPTION_PROXY: u32 = 1073741824u32;
 pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
     pub dwProviderFilenameOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19552,7 +19543,7 @@ pub struct LINEPROVIDERLIST {
     pub dwProviderListSize: u32,
     pub dwProviderListOffset: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST {
@@ -19570,16 +19561,6 @@ impl Default for LINEPROXYREQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUESTLIST {
-    pub dwTotalSize: u32,
-    pub dwNeededSize: u32,
-    pub dwUsedSize: u32,
-    pub dwNumEntries: u32,
-    pub dwListSize: u32,
-    pub dwListOffset: u32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -19612,26 +19593,64 @@ impl Default for LINEPROXYREQUEST_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_0 {
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_5 {
+    pub dwAddressID: u32,
+    pub dwAgentExtensionIDIndex: u32,
+    pub dwSize: u32,
+    pub Params: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_12 {
+    pub hAgentSession: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+    pub hAgent: u32,
+    pub GroupID: windows_core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_8 {
+    pub hAgent: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_7 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_1 {
-    pub dwAddressID: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_10 {
-    pub hAgent: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_11 {
@@ -19644,23 +19663,7 @@ impl Default for LINEPROXYREQUEST_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_12 {
-    pub hAgentSession: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-    pub hAgent: u32,
-    pub GroupID: windows_core::GUID,
-    pub dwWorkingAddressID: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_13 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_14 {
@@ -19673,94 +19676,101 @@ impl Default for LINEPROXYREQUEST_0_14 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_15 {
-    pub hAgentSession: u32,
-    pub dwAgentSessionState: u32,
-    pub dwNextAgentSessionState: u32,
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_13 {
+    pub hAgent: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_16 {
-    pub GroupID: windows_core::GUID,
-    pub QueueList: LINEQUEUELIST,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_17 {
-    pub dwQueueID: u32,
-    pub dwMeasurementPeriod: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_18 {
-    pub dwQueueID: u32,
-    pub QueueInfo: LINEQUEUEINFO,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_19 {
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_2 {
-    pub dwAddressID: u32,
-    pub dwActivityID: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_3 {
-    pub dwAddressID: u32,
-    pub AgentCaps: LINEAGENTCAPS,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct LINEPROXYREQUEST_0_5 {
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_18 {
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_16 {
+    pub GroupID: windows_core::GUID,
+    pub QueueList: LINEQUEUELIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_2 {
     pub dwAddressID: u32,
-    pub dwAgentExtensionIDIndex: u32,
-    pub dwSize: u32,
-    pub Params: [u8; 1],
+    pub dwActivityID: u32,
 }
-impl Default for LINEPROXYREQUEST_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub dwAddressID: u32,
-    pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_7 {
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct LINEPROXYREQUEST_0_8 {
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_10 {
     pub hAgent: u32,
-    pub dwAgentIDSize: u32,
-    pub dwAgentIDOffset: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
+    pub dwMeasurementPeriod: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_15 {
+    pub hAgentSession: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
 pub struct LINEPROXYREQUEST_0_9 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUEST_0_17 {
+    pub dwQueueID: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct LINEPROXYREQUESTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
 }
 pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
 pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
@@ -19789,15 +19799,15 @@ pub const LINEQOSREQUESTTYPE_SERVICELEVEL: u32 = 1u32;
 pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
     pub dwNameOffset: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19813,8 +19823,8 @@ pub struct LINEQUEUEINFO {
     pub dwAverageWaitTime: u32,
     pub dwFinalDisposition: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19842,8 +19852,8 @@ impl Default for LINEREQMAKECALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMAKECALLW {
     pub szDestAddress: [u16; 80],
     pub szAppName: [u16; 40],
@@ -19855,8 +19865,8 @@ impl Default for LINEREQMAKECALLW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -19874,8 +19884,8 @@ impl Default for LINEREQMEDIACALL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct LINEREQMEDIACALLW {
     pub hWnd: super::super::Foundation::HWND,
     pub wRequestID: super::super::Foundation::WPARAM,
@@ -19906,8 +19916,8 @@ pub const LINESPECIALINFO_NOCIRCUIT: u32 = 1u32;
 pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
@@ -19936,8 +19946,8 @@ pub const LINETONEMODE_CUSTOM: u32 = 1u32;
 pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19955,8 +19965,8 @@ pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
 pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20098,30 +20108,19 @@ pub struct MSP_EVENT_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_5 {
+    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
     pub pStream: core::mem::ManuallyDrop<Option<ITStream>>,
     pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrError: windows_core::HRESULT,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct MSP_EVENT_INFO_0_2 {
-    pub dwBufferSize: u32,
-    pub pBuffer: [u8; 1],
-}
-impl Default for MSP_EVENT_INFO_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_3 {
-    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
-    pub lEventCode: i32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -20136,22 +20135,35 @@ pub struct MSP_EVENT_INFO_0_4 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_5 {
-    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrErrorCode: windows_core::HRESULT,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct MSP_EVENT_INFO_0_6 {
-    pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrErrorCode: windows_core::HRESULT,
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
+    pub lEventCode: i32,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MSP_EVENT_INFO_0_2 {
+    pub dwBufferSize: u32,
+    pub pBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct MSP_EVENT_INFO_0_6 {
+    pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
 }
 pub const McastAddressAllocation: windows_core::GUID = windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
@@ -20316,8 +20328,8 @@ pub const PHONEBUTTONFUNCTION_TRANSFER: u32 = 2u32;
 pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20341,8 +20353,8 @@ pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
 pub type PHONECALLBACK = Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20437,8 +20449,8 @@ pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
 pub type PHONEEVENT = Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -20485,7 +20497,7 @@ pub const PHONEHOOKSWITCHMODE_UNKNOWN: u32 = 16u32;
 pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -20500,7 +20512,7 @@ impl Default for PHONEINITIALIZEEXPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -20519,8 +20531,8 @@ pub const PHONELAMPMODE_OFF: u32 = 2u32;
 pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -20555,8 +20567,8 @@ pub const PHONESTATE_SPEAKERGAIN: u32 = 16384u32;
 pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -20681,8 +20693,8 @@ pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct RENDDATA {
     pub atyp: u16,
     pub ulPosition: u32,
@@ -21098,8 +21110,8 @@ pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,

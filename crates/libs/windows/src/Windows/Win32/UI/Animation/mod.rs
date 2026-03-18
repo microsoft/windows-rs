@@ -353,11 +353,8 @@ impl IUIAnimationManager {
     pub unsafe fn AbandonAllStoryboards(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AbandonAllStoryboards)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Update(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), timenow, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Update(&self, timenow: f64, updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), timenow, updateresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<IUIAnimationVariable>
     where
@@ -459,7 +456,7 @@ pub trait IUIAnimationManager_Impl: windows_core::IUnknownImpl {
     fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard>;
     fn FinishAllStoryboards(&self, completiondeadline: f64) -> windows_core::Result<()>;
     fn AbandonAllStoryboards(&self) -> windows_core::Result<()>;
-    fn Update(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn Update(&self, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::Result<()>;
     fn GetVariableFromTag(&self, object: windows_core::Ref<windows_core::IUnknown>, id: u32) -> windows_core::Result<IUIAnimationVariable>;
     fn GetStoryboardFromTag(&self, object: windows_core::Ref<windows_core::IUnknown>, id: u32) -> windows_core::Result<IUIAnimationStoryboard>;
     fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_MANAGER_STATUS>;
@@ -521,13 +518,7 @@ impl IUIAnimationManager_Vtbl {
         unsafe extern "system" fn Update<Identity: IUIAnimationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAnimationManager_Impl::Update(this, core::mem::transmute_copy(&timenow)) {
-                    Ok(ok__) => {
-                        updateresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAnimationManager_Impl::Update(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&updateresult)).into()
             }
         }
         unsafe extern "system" fn GetVariableFromTag<Identity: IUIAnimationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, id: u32, variable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -688,11 +679,8 @@ impl IUIAnimationManager2 {
     pub unsafe fn AbandonAllStoryboards(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AbandonAllStoryboards)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Update(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), timenow, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Update(&self, timenow: f64, updateresult: Option<*mut UI_ANIMATION_UPDATE_RESULT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), timenow, updateresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetVariableFromTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<IUIAnimationVariable2>
     where
@@ -803,7 +791,7 @@ pub trait IUIAnimationManager2_Impl: windows_core::IUnknownImpl {
     fn CreateStoryboard(&self) -> windows_core::Result<IUIAnimationStoryboard2>;
     fn FinishAllStoryboards(&self, completiondeadline: f64) -> windows_core::Result<()>;
     fn AbandonAllStoryboards(&self) -> windows_core::Result<()>;
-    fn Update(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_UPDATE_RESULT>;
+    fn Update(&self, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::Result<()>;
     fn GetVariableFromTag(&self, object: windows_core::Ref<windows_core::IUnknown>, id: u32) -> windows_core::Result<IUIAnimationVariable2>;
     fn GetStoryboardFromTag(&self, object: windows_core::Ref<windows_core::IUnknown>, id: u32) -> windows_core::Result<IUIAnimationStoryboard2>;
     fn EstimateNextEventTime(&self) -> windows_core::Result<f64>;
@@ -878,13 +866,7 @@ impl IUIAnimationManager2_Vtbl {
         unsafe extern "system" fn Update<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAnimationManager2_Impl::Update(this, core::mem::transmute_copy(&timenow)) {
-                    Ok(ok__) => {
-                        updateresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAnimationManager2_Impl::Update(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&updateresult)).into()
             }
         }
         unsafe extern "system" fn GetVariableFromTag<Identity: IUIAnimationManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: *mut core::ffi::c_void, id: u32, variable: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1254,11 +1236,8 @@ impl IUIAnimationStoryboard {
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLongestAcceptableDelay)(windows_core::Interface::as_raw(self), delay).ok() }
     }
-    pub unsafe fn Schedule(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), timenow, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), timenow, schedulingresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Conclude(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Conclude)(windows_core::Interface::as_raw(self)).ok() }
@@ -1275,8 +1254,8 @@ impl IUIAnimationStoryboard {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetTag(&self, object: *mut Option<windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object), id as _).ok() }
+    pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), object.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         unsafe {
@@ -1328,7 +1307,7 @@ pub trait IUIAnimationStoryboard_Impl: windows_core::IUnknownImpl {
     fn RepeatBetweenKeyframes(&self, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> windows_core::Result<()>;
     fn HoldVariable(&self, variable: windows_core::Ref<IUIAnimationVariable>) -> windows_core::Result<()>;
     fn SetLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()>;
-    fn Schedule(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Schedule(&self, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> windows_core::Result<()>;
     fn Conclude(&self) -> windows_core::Result<()>;
     fn Finish(&self, completiondeadline: f64) -> windows_core::Result<()>;
     fn Abandon(&self) -> windows_core::Result<()>;
@@ -1403,13 +1382,7 @@ impl IUIAnimationStoryboard_Vtbl {
         unsafe extern "system" fn Schedule<Identity: IUIAnimationStoryboard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAnimationStoryboard_Impl::Schedule(this, core::mem::transmute_copy(&timenow)) {
-                    Ok(ok__) => {
-                        schedulingresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAnimationStoryboard_Impl::Schedule(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&schedulingresult)).into()
             }
         }
         unsafe extern "system" fn Conclude<Identity: IUIAnimationStoryboard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1555,11 +1528,8 @@ impl IUIAnimationStoryboard2 {
     pub unsafe fn SetSkipDuration(&self, secondsduration: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSkipDuration)(windows_core::Interface::as_raw(self), secondsduration).ok() }
     }
-    pub unsafe fn Schedule(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_SCHEDULING_RESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), timenow, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Schedule(&self, timenow: f64, schedulingresult: Option<*mut UI_ANIMATION_SCHEDULING_RESULT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Schedule)(windows_core::Interface::as_raw(self), timenow, schedulingresult.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Conclude(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Conclude)(windows_core::Interface::as_raw(self)).ok() }
@@ -1576,8 +1546,8 @@ impl IUIAnimationStoryboard2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetTag(&self, object: *mut Option<windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object), id as _).ok() }
+    pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), object.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<UI_ANIMATION_STORYBOARD_STATUS> {
         unsafe {
@@ -1631,7 +1601,7 @@ pub trait IUIAnimationStoryboard2_Impl: windows_core::IUnknownImpl {
     fn HoldVariable(&self, variable: windows_core::Ref<IUIAnimationVariable2>) -> windows_core::Result<()>;
     fn SetLongestAcceptableDelay(&self, delay: f64) -> windows_core::Result<()>;
     fn SetSkipDuration(&self, secondsduration: f64) -> windows_core::Result<()>;
-    fn Schedule(&self, timenow: f64) -> windows_core::Result<UI_ANIMATION_SCHEDULING_RESULT>;
+    fn Schedule(&self, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> windows_core::Result<()>;
     fn Conclude(&self) -> windows_core::Result<()>;
     fn Finish(&self, completiondeadline: f64) -> windows_core::Result<()>;
     fn Abandon(&self) -> windows_core::Result<()>;
@@ -1712,13 +1682,7 @@ impl IUIAnimationStoryboard2_Vtbl {
         unsafe extern "system" fn Schedule<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUIAnimationStoryboard2_Impl::Schedule(this, core::mem::transmute_copy(&timenow)) {
-                    Ok(ok__) => {
-                        schedulingresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUIAnimationStoryboard2_Impl::Schedule(this, core::mem::transmute_copy(&timenow), core::mem::transmute_copy(&schedulingresult)).into()
             }
         }
         unsafe extern "system" fn Conclude<Identity: IUIAnimationStoryboard2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3236,8 +3200,8 @@ impl IUIAnimationVariable {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetTag(&self, object: *mut Option<windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object), id as _).ok() }
+    pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), object.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetVariableChangeHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
     where
@@ -3539,8 +3503,8 @@ impl IUIAnimationVariable2 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id).ok() }
     }
-    pub unsafe fn GetTag(&self, object: *mut Option<windows_core::IUnknown>, id: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), core::mem::transmute(object), id as _).ok() }
+    pub unsafe fn GetTag(&self, object: Option<*mut Option<windows_core::IUnknown>>, id: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), object.unwrap_or(core::mem::zeroed()) as _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetVariableChangeHandler<P0>(&self, handler: P0, fregisterfornextanimationevent: bool) -> windows_core::Result<()>
     where

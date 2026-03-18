@@ -139,14 +139,14 @@ windows_core::imp::define_interface!(IVideoFrameNativeFactory, IVideoFrameNative
 windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoFrameNativeFactory {
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn CreateFromMFSample<P0, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: P6) -> windows_core::Result<T>
+    pub unsafe fn CreateFromMFSample<P0, P6, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: Option<*const super::super::super::Media::MediaFoundation::MFVideoArea>, device: P6) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::super::super::Media::MediaFoundation::IMFSample>,
         P6: windows_core::Param<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.into(), mindisplayaperture, device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromMFSample)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.into(), mindisplayaperture.unwrap_or(core::mem::zeroed()) as _, device.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

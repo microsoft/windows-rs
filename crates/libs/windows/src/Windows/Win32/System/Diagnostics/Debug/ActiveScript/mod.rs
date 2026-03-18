@@ -995,11 +995,8 @@ impl IActiveScriptEncode {
     {
         unsafe { (windows_core::Interface::vtable(self).DecodeScript)(windows_core::Interface::as_raw(self), pchin.param().abi(), cchin, core::mem::transmute(pchout), cchout, pcchret as _).ok() }
     }
-    pub unsafe fn GetEncodeProgId(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetEncodeProgId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetEncodeProgId(&self, pbstrout: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetEncodeProgId)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrout)).ok() }
     }
 }
 #[repr(C)]
@@ -1013,7 +1010,7 @@ pub struct IActiveScriptEncode_Vtbl {
 pub trait IActiveScriptEncode_Impl: windows_core::IUnknownImpl {
     fn EncodeSection(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
     fn DecodeScript(&self, pchin: &windows_core::PCWSTR, cchin: u32, pchout: windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> windows_core::Result<()>;
-    fn GetEncodeProgId(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetEncodeProgId(&self, pbstrout: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IActiveScriptEncode_Vtbl {
     pub const fn new<Identity: IActiveScriptEncode_Impl, const OFFSET: isize>() -> Self {
@@ -1032,13 +1029,7 @@ impl IActiveScriptEncode_Vtbl {
         unsafe extern "system" fn GetEncodeProgId<Identity: IActiveScriptEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IActiveScriptEncode_Impl::GetEncodeProgId(this) {
-                    Ok(ok__) => {
-                        pbstrout.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IActiveScriptEncode_Impl::GetEncodeProgId(this, core::mem::transmute_copy(&pbstrout)).into()
             }
         }
         Self {
@@ -2140,11 +2131,8 @@ impl core::ops::Deref for IActiveScriptProfilerControl4 {
 }
 windows_core::imp::interface_hierarchy!(IActiveScriptProfilerControl4, windows_core::IUnknown, IActiveScriptProfilerControl, IActiveScriptProfilerControl2, IActiveScriptProfilerControl3);
 impl IActiveScriptProfilerControl4 {
-    pub unsafe fn SummarizeHeap(&self) -> windows_core::Result<PROFILER_HEAP_SUMMARY> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SummarizeHeap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn SummarizeHeap(&self, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SummarizeHeap)(windows_core::Interface::as_raw(self), heapsummary as _).ok() }
     }
 }
 #[repr(C)]
@@ -2154,20 +2142,14 @@ pub struct IActiveScriptProfilerControl4_Vtbl {
     pub SummarizeHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PROFILER_HEAP_SUMMARY) -> windows_core::HRESULT,
 }
 pub trait IActiveScriptProfilerControl4_Impl: IActiveScriptProfilerControl3_Impl {
-    fn SummarizeHeap(&self) -> windows_core::Result<PROFILER_HEAP_SUMMARY>;
+    fn SummarizeHeap(&self, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> windows_core::Result<()>;
 }
 impl IActiveScriptProfilerControl4_Vtbl {
     pub const fn new<Identity: IActiveScriptProfilerControl4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SummarizeHeap<Identity: IActiveScriptProfilerControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IActiveScriptProfilerControl4_Impl::SummarizeHeap(this) {
-                    Ok(ok__) => {
-                        heapsummary.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IActiveScriptProfilerControl4_Impl::SummarizeHeap(this, core::mem::transmute_copy(&heapsummary)).into()
             }
         }
         Self { base__: IActiveScriptProfilerControl3_Vtbl::new::<Identity, OFFSET>(), SummarizeHeap: SummarizeHeap::<Identity, OFFSET> }
@@ -6074,8 +6056,8 @@ impl IDebugDocumentText {
     pub unsafe fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLineOfPosition)(windows_core::Interface::as_raw(self), ccharacterposition, pclinenumber as _, pccharacteroffsetinline as _).ok() }
     }
-    pub unsafe fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), pstatextattr as _, pcnumchars as _, cmaxchars).ok() }
+    pub unsafe fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: Option<*mut u16>, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), pstatextattr.unwrap_or(core::mem::zeroed()) as _, pcnumchars as _, cmaxchars).ok() }
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where

@@ -68,6 +68,18 @@ impl Default for RAWINPUT {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union RAWINPUT_0 {
+    pub mouse: RAWMOUSE,
+    pub keyboard: RAWKEYBOARD,
+    pub hid: RAWHID,
+}
+impl Default for RAWINPUT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct RAWINPUTDEVICE {
     pub usUsagePage: u16,
     pub usUsage: u16,
@@ -100,18 +112,6 @@ pub struct RAWINPUTHEADER {
     pub wParam: super::super::Foundation::WPARAM,
 }
 impl Default for RAWINPUTHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union RAWINPUT_0 {
-    pub mouse: RAWMOUSE,
-    pub keyboard: RAWKEYBOARD,
-    pub hid: RAWHID,
-}
-impl Default for RAWINPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

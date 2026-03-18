@@ -32,7 +32,7 @@ windows_link::link!("computecore.dll" "system" fn HcsGetOperationType(operation 
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessFromOperation(operation : HCS_OPERATION) -> HCS_PROCESS);
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessInfo(process : HCS_PROCESS, operation : HCS_OPERATION) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGetProcessProperties(process : HCS_PROCESS, operation : HCS_OPERATION, propertyquery : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_sys::core::PCWSTR, processorfeaturesstring : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_sys::core::PCWSTR, processorfeaturesstring : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGetServiceProperties(propertyquery : windows_sys::core::PCWSTR, result : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGrantVmAccess(vmid : windows_sys::core::PCWSTR, filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("computecore.dll" "system" fn HcsGrantVmGroupAccess(filepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);

@@ -2768,14 +2768,11 @@ impl IContactProperties {
     {
         unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), dwflags, core::mem::transmute(pszvalue.as_ptr()), pszvalue.len().try_into().unwrap(), pdwcchpropertyvaluerequired as _).ok() }
     }
-    pub unsafe fn GetDate<P0>(&self, pszpropertyname: P0, dwflags: u32) -> windows_core::Result<super::super::Foundation::FILETIME>
+    pub unsafe fn GetDate<P0>(&self, pszpropertyname: P0, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDate)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), dwflags, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetDate)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), dwflags, pftdatetime as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBinary<P0>(&self, pszpropertyname: P0, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut Option<super::Com::IStream>) -> windows_core::Result<()>
@@ -2876,7 +2873,7 @@ pub struct IContactProperties_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IContactProperties_Impl: windows_core::IUnknownImpl {
     fn GetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> windows_core::Result<()>;
-    fn GetDate(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<super::super::Foundation::FILETIME>;
+    fn GetDate(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn GetBinary(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszcontenttype: windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: windows_core::OutRef<super::Com::IStream>) -> windows_core::Result<()>;
     fn GetLabels(&self, pszarrayelementname: &windows_core::PCWSTR, dwflags: u32, pszlabels: windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> windows_core::Result<()>;
     fn SetString(&self, pszpropertyname: &windows_core::PCWSTR, dwflags: u32, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -2901,13 +2898,7 @@ impl IContactProperties_Vtbl {
         unsafe extern "system" fn GetDate<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactProperties_Impl::GetDate(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags)) {
-                    Ok(ok__) => {
-                        pftdatetime.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IContactProperties_Impl::GetDate(this, core::mem::transmute(&pszpropertyname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pftdatetime)).into()
             }
         }
         unsafe extern "system" fn GetBinary<Identity: IContactProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpropertyname: windows_core::PCWSTR, dwflags: u32, pszcontenttype: windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3011,23 +3002,14 @@ impl IContactPropertyCollection {
     pub unsafe fn GetPropertyName(&self, pszpropertyname: &mut [u16], pdwcchpropertynamerequired: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpropertyname.as_ptr()), pszpropertyname.len().try_into().unwrap(), pdwcchpropertynamerequired as _).ok() }
     }
-    pub unsafe fn GetPropertyType(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropertyType(&self, pdwtype: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyType)(windows_core::Interface::as_raw(self), pdwtype as _).ok() }
     }
-    pub unsafe fn GetPropertyVersion(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropertyVersion(&self, pdwversion: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyVersion)(windows_core::Interface::as_raw(self), pdwversion as _).ok() }
     }
-    pub unsafe fn GetPropertyModificationDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyModificationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyModificationDate)(windows_core::Interface::as_raw(self), pftmodificationdate as _).ok() }
     }
     pub unsafe fn GetPropertyArrayElementID(&self, pszarrayelementid: &mut [u16], pdwccharrayelementidrequired: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyArrayElementID)(windows_core::Interface::as_raw(self), core::mem::transmute(pszarrayelementid.as_ptr()), pszarrayelementid.len().try_into().unwrap(), pdwccharrayelementidrequired as _).ok() }
@@ -3049,9 +3031,9 @@ pub trait IContactPropertyCollection_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Next(&self) -> windows_core::Result<()>;
     fn GetPropertyName(&self, pszpropertyname: windows_core::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> windows_core::Result<()>;
-    fn GetPropertyType(&self) -> windows_core::Result<u32>;
-    fn GetPropertyVersion(&self) -> windows_core::Result<u32>;
-    fn GetPropertyModificationDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
+    fn GetPropertyType(&self, pdwtype: *mut u32) -> windows_core::Result<()>;
+    fn GetPropertyVersion(&self, pdwversion: *mut u32) -> windows_core::Result<()>;
+    fn GetPropertyModificationDate(&self, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
     fn GetPropertyArrayElementID(&self, pszarrayelementid: windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> windows_core::Result<()>;
 }
 impl IContactPropertyCollection_Vtbl {
@@ -3077,37 +3059,19 @@ impl IContactPropertyCollection_Vtbl {
         unsafe extern "system" fn GetPropertyType<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtype: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactPropertyCollection_Impl::GetPropertyType(this) {
-                    Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IContactPropertyCollection_Impl::GetPropertyType(this, core::mem::transmute_copy(&pdwtype)).into()
             }
         }
         unsafe extern "system" fn GetPropertyVersion<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactPropertyCollection_Impl::GetPropertyVersion(this) {
-                    Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IContactPropertyCollection_Impl::GetPropertyVersion(this, core::mem::transmute_copy(&pdwversion)).into()
             }
         }
         unsafe extern "system" fn GetPropertyModificationDate<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IContactPropertyCollection_Impl::GetPropertyModificationDate(this) {
-                    Ok(ok__) => {
-                        pftmodificationdate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IContactPropertyCollection_Impl::GetPropertyModificationDate(this, core::mem::transmute_copy(&pftmodificationdate)).into()
             }
         }
         unsafe extern "system" fn GetPropertyArrayElementID<Identity: IContactPropertyCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszarrayelementid: windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> windows_core::HRESULT {

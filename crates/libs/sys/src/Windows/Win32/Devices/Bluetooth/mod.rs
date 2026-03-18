@@ -501,13 +501,13 @@ pub const BTH_HOST_FEATURE_LOW_ENERGY: u64 = 4u64;
 pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_INFO_REQ {
     pub btAddr: u64,
     pub infoType: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_INFO_RSP {
     pub result: u16,
@@ -519,7 +519,7 @@ impl Default for BTH_INFO_RSP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union BTH_INFO_RSP_0 {
     pub connectionlessMTU: u16,
@@ -762,17 +762,6 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsAuxiliariesWritable: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: bool,
-    pub IsSubscribeToIndication: bool,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: bool,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub Format: u8,
@@ -785,6 +774,17 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    pub IsSubscribeToNotification: bool,
+    pub IsSubscribeToIndication: bool,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+    pub IsBroadcast: bool,
 }
 pub type BTH_LE_GATT_EVENT_TYPE = i32;
 #[repr(C)]
@@ -878,7 +878,7 @@ pub const BTH_MFG_WAVEPLUS_TECHNOLOGY_CO: u32 = 35u32;
 pub const BTH_MFG_WIDCOMM: u32 = 17u32;
 pub const BTH_MFG_ZEEVO: u32 = 18u32;
 pub const BTH_MINORVERSION: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_PING_REQ {
     pub btAddr: u64,
@@ -901,13 +901,13 @@ impl Default for BTH_PING_RSP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_QUERY_DEVICE {
     pub LAP: u32,
     pub length: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_QUERY_SERVICE {
     pub r#type: u32,
@@ -928,7 +928,7 @@ pub struct BTH_RADIO_IN_RANGE {
     pub previousDeviceFlags: u32,
 }
 pub const BTH_SDP_VERSION: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct BTH_SET_SERVICE {
     pub pSdpVersion: *mut u32,
@@ -1219,7 +1219,7 @@ pub const RFCOMM_CMD_RLS: u32 = 2u32;
 pub const RFCOMM_CMD_RPN: u32 = 3u32;
 pub const RFCOMM_CMD_RPN_REQUEST: u32 = 4u32;
 pub const RFCOMM_CMD_RPN_RESPONSE: u32 = 5u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFCOMM_COMMAND {
     pub CmdType: u32,
@@ -1423,22 +1423,11 @@ impl Default for SDP_ELEMENT_DATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_0 {
+pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Default for SDP_ELEMENT_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_1 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-impl Default for SDP_ELEMENT_DATA_0_1 {
+impl Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1456,11 +1445,22 @@ impl Default for SDP_ELEMENT_DATA_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_3 {
+pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
-impl Default for SDP_ELEMENT_DATA_0_3 {
+impl Default for SDP_ELEMENT_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_1 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+impl Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1537,7 +1537,7 @@ pub const SERVICE_SECURITY_ENCRYPT_REQUIRED: u32 = 16u32;
 pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKADDR_BTH {
     pub addressFamily: u16,

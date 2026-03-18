@@ -83,10 +83,10 @@ windows_link::link!("user32.dll" "system" fn DrawFocusRect(hdc : HDC, lprc : *co
 windows_link::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : windows_sys::core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
+windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
 windows_link::link!("user32.dll" "system" fn DrawTextExA(hdc : HDC, lpchtext : windows_sys::core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
 windows_link::link!("user32.dll" "system" fn DrawTextExW(hdc : HDC, lpchtext : windows_sys::core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
-windows_link::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : windows_sys::core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
+windows_link::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
 windows_link::link!("gdi32.dll" "system" fn Ellipse(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EndPaint(hwnd : super::super::Foundation:: HWND, lppaint : *const PAINTSTRUCT) -> windows_sys::core::BOOL);
 windows_link::link!("gdi32.dll" "system" fn EndPath(hdc : HDC) -> windows_sys::core::BOOL);
@@ -545,7 +545,7 @@ impl Default for BITMAPCOREINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
@@ -3096,7 +3096,7 @@ pub const MAXSTRETCHBLTMODE: u32 = 4u32;
 pub const MERGECOPY: ROP_CODE = 12583114u32;
 pub const MERGEPAINT: ROP_CODE = 12255782u32;
 pub const METAFILE_DRIVER: u32 = 2049u32;
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy, Default)]
 pub struct METAHEADER {
     pub mtType: u16,

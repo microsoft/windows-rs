@@ -5,7 +5,7 @@ pub unsafe fn SwDeviceClose(hswdevice: HSWDEVICE) {
 }
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const core::ffi::c_void) -> windows_core::Result<HSWDEVICE>
+pub unsafe fn SwDeviceCreate<P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: *const SW_DEVICE_CREATE_INFO, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<HSWDEVICE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -13,7 +13,7 @@ where
     windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, cpropertycount, pproperties, pcallback, pcontext, &mut result__).map(|| result__)
+        SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, pcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -26,23 +26,23 @@ pub unsafe fn SwDeviceGetLifetime(hswdevice: HSWDEVICE) -> windows_core::Result<
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> windows_core::Result<()>
+pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    unsafe { SwDeviceInterfacePropertySet(hswdevice, pszdeviceinterfaceid.param().abi(), cpropertycount, pproperties).ok() }
+    unsafe { SwDeviceInterfacePropertySet(hswdevice, pszdeviceinterfaceid.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDeviceInterfaceRegister<P2>(hswdevice: HSWDEVICE, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, fenabled: bool) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn SwDeviceInterfaceRegister<P2>(hswdevice: HSWDEVICE, pinterfaceclassguid: *const windows_core::GUID, pszreferencestring: P2, pproperties: Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: bool) -> windows_core::Result<windows_core::PWSTR>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : windows_core::BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SwDeviceInterfaceRegister(hswdevice, pinterfaceclassguid, pszreferencestring.param().abi(), cpropertycount, pproperties, fenabled.into(), &mut result__).map(|| result__)
+        SwDeviceInterfaceRegister(hswdevice, pinterfaceclassguid, pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -55,9 +55,9 @@ where
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
-pub unsafe fn SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> windows_core::Result<()> {
+pub unsafe fn SwDevicePropertySet(hswdevice: HSWDEVICE, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()> {
     windows_core::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
-    unsafe { SwDevicePropertySet(hswdevice, cpropertycount, pproperties).ok() }
+    unsafe { SwDevicePropertySet(hswdevice, pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> windows_core::Result<()> {
@@ -1951,11 +1951,8 @@ impl IUPnPServiceAsync {
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndQueryStateVariable)(windows_core::Interface::as_raw(self), ullrequestid, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).EndQueryStateVariable)(windows_core::Interface::as_raw(self), ullrequestid, core::mem::transmute(pvalue)).ok() }
     }
     pub unsafe fn BeginSubscribeToEvents<P0, P1>(&self, punkcallback: P0, pasyncresult: P1) -> windows_core::Result<u64>
     where
@@ -2017,7 +2014,7 @@ pub trait IUPnPServiceAsync_Impl: windows_core::IUnknownImpl {
     fn BeginInvokeAction(&self, bstractionname: &windows_core::BSTR, vinactionargs: &super::super::super::System::Variant::VARIANT, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn BeginQueryStateVariable(&self, bstrvariablename: &windows_core::BSTR, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
-    fn EndQueryStateVariable(&self, ullrequestid: u64) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn BeginSubscribeToEvents(&self, punkcallback: windows_core::Ref<windows_core::IUnknown>, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
     fn EndSubscribeToEvents(&self, ullrequestid: u64) -> windows_core::Result<()>;
     fn BeginSCPDDownload(&self, pasyncresult: windows_core::Ref<IUPnPAsyncResult>) -> windows_core::Result<u64>;
@@ -2060,13 +2057,7 @@ impl IUPnPServiceAsync_Vtbl {
         unsafe extern "system" fn EndQueryStateVariable<Identity: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IUPnPServiceAsync_Impl::EndQueryStateVariable(this, core::mem::transmute_copy(&ullrequestid)) {
-                    Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IUPnPServiceAsync_Impl::EndQueryStateVariable(this, core::mem::transmute_copy(&ullrequestid), core::mem::transmute_copy(&pvalue)).into()
             }
         }
         unsafe extern "system" fn BeginSubscribeToEvents<Identity: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkcallback: *mut core::ffi::c_void, pasyncresult: *mut core::ffi::c_void, pullrequestid: *mut u64) -> windows_core::HRESULT {

@@ -47,13 +47,13 @@ impl ISoftwareBitmapNativeFactory {
         unsafe { (windows_core::Interface::vtable(self).CreateFromWICBitmap)(windows_core::Interface::as_raw(self), data.param().abi(), forcereadonly.into(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn CreateFromMF2DBuffer2<P0, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea) -> windows_core::Result<T>
+    pub unsafe fn CreateFromMF2DBuffer2<P0, T>(&self, data: P0, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: bool, mindisplayaperture: Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> windows_core::Result<T>
     where
         P0: windows_core::Param<super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.into(), mindisplayaperture, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateFromMF2DBuffer2)(windows_core::Interface::as_raw(self), data.param().abi(), subtype, width, height, forcereadonly.into(), mindisplayaperture.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

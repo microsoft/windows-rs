@@ -483,12 +483,12 @@ impl windows_core::RuntimeName for IMLOperatorKernelFactory {}
 windows_core::imp::define_interface!(IMLOperatorRegistry, IMLOperatorRegistry_Vtbl, 0x2af9dd2d_b516_4672_9ab5_530c208493ad);
 windows_core::imp::interface_hierarchy!(IMLOperatorRegistry, windows_core::IUnknown);
 impl IMLOperatorRegistry {
-    pub unsafe fn RegisterOperatorSetSchema<P4, P5>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: &[*const MLOperatorSchemaDescription], typeinferrer: P4, shapeinferrer: P5) -> windows_core::Result<()>
+    pub unsafe fn RegisterOperatorSetSchema<P4, P5>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: Option<&[*const MLOperatorSchemaDescription]>, typeinferrer: P4, shapeinferrer: P5) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IMLOperatorTypeInferrer>,
         P5: windows_core::Param<IMLOperatorShapeInferrer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_ptr()), schema.len().try_into().unwrap(), typeinferrer.param().abi(), shapeinferrer.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).RegisterOperatorSetSchema)(windows_core::Interface::as_raw(self), operatorsetid, baselineversion, core::mem::transmute(schema.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), schema.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), typeinferrer.param().abi(), shapeinferrer.param().abi()).ok() }
     }
     pub unsafe fn RegisterOperatorKernel<P1, P2>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: P1, shapeinferrer: P2) -> windows_core::Result<()>
     where

@@ -18,12 +18,9 @@ pub unsafe fn ADsBuildVarArrayInt(lpdwobjecttypes: *mut u32, dwobjecttypes: u32,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn ADsBuildVarArrayStr(lpppathnames: *const windows_core::PCWSTR, dwpathnames: u32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[windows_core::PCWSTR], pvar: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
     windows_core::link!("activeds.dll" "system" fn ADsBuildVarArrayStr(lpppathnames : *const windows_core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ADsBuildVarArrayStr(lpppathnames, dwpathnames, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { ADsBuildVarArrayStr(core::mem::transmute(lpppathnames.as_ptr()), lpppathnames.len().try_into().unwrap(), core::mem::transmute(pvar)).ok() }
 }
 #[inline]
 pub unsafe fn ADsDecodeBinaryData<P0>(szsrcdata: P0, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> windows_core::Result<()>
@@ -57,9 +54,9 @@ where
     unsafe { ADsFreeEnumerator(penumvariant.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: windows_core::PWSTR, dwerrorbuflen: u32, lpnamebuf: windows_core::PWSTR, dwnamebuflen: u32) -> windows_core::Result<()> {
+pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> windows_core::Result<()> {
     windows_core::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : windows_core::PWSTR, dwerrorbuflen : u32, lpnamebuf : windows_core::PWSTR, dwnamebuflen : u32) -> windows_core::HRESULT);
-    unsafe { ADsGetLastError(lperror as _, core::mem::transmute(lperrorbuf), dwerrorbuflen, core::mem::transmute(lpnamebuf), dwnamebuflen).ok() }
+    unsafe { ADsGetLastError(lperror as _, core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len().try_into().unwrap()).ok() }
 }
 #[inline]
 pub unsafe fn ADsGetObject<P0>(lpszpathname: P0, riid: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -89,16 +86,13 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn ADsPropCreateNotifyObj<P0, P1>(pappthddataobj: P0, pwzadsobjname: P1) -> windows_core::Result<super::super::Foundation::HWND>
+pub unsafe fn ADsPropCreateNotifyObj<P0, P1>(pappthddataobj: P0, pwzadsobjname: P1, phnotifyobj: *mut super::super::Foundation::HWND) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::System::Com::IDataObject>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dsprop.dll" "system" fn ADsPropCreateNotifyObj(pappthddataobj : * mut core::ffi::c_void, pwzadsobjname : windows_core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ADsPropCreateNotifyObj(pappthddataobj.param().abi(), pwzadsobjname.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { ADsPropCreateNotifyObj(pappthddataobj.param().abi(), pwzadsobjname.param().abi(), phnotifyobj as _).ok() }
 }
 #[inline]
 pub unsafe fn ADsPropGetInitInfo(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> windows_core::BOOL {
@@ -170,7 +164,7 @@ where
     unsafe { BinarySDToSecurityDescriptor(psecuritydescriptor, core::mem::transmute(pvarsec), pszservername.param().abi(), username.param().abi(), password.param().abi(), dwflags).ok() }
 }
 #[inline]
-pub unsafe fn DsAddSidHistoryA<P2, P3, P4, P6, P7>(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: *const core::ffi::c_void, dstdomain: P6, dstprincipal: P7) -> u32
+pub unsafe fn DsAddSidHistoryA<P2, P3, P4, P6, P7>(hds: super::super::Foundation::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<*const core::ffi::c_void>, dstdomain: P6, dstprincipal: P7) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
@@ -179,10 +173,10 @@ where
     P7: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : windows_core::PCSTR, srcprincipal : windows_core::PCSTR, srcdomaincontroller : windows_core::PCSTR, srcdomaincreds : *const core::ffi::c_void, dstdomain : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> u32);
-    unsafe { DsAddSidHistoryA(hds, flags, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds, dstdomain.param().abi(), dstprincipal.param().abi()) }
+    unsafe { DsAddSidHistoryA(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsAddSidHistoryW<P2, P3, P4, P6, P7>(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: *const core::ffi::c_void, dstdomain: P6, dstprincipal: P7) -> u32
+pub unsafe fn DsAddSidHistoryW<P2, P3, P4, P6, P7>(hds: super::super::Foundation::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<*const core::ffi::c_void>, dstdomain: P6, dstprincipal: P7) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -191,43 +185,43 @@ where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : windows_core::PCWSTR, srcprincipal : windows_core::PCWSTR, srcdomaincontroller : windows_core::PCWSTR, srcdomaincreds : *const core::ffi::c_void, dstdomain : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> u32);
-    unsafe { DsAddSidHistoryW(hds, flags, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds, dstdomain.param().abi(), dstprincipal.param().abi()) }
+    unsafe { DsAddSidHistoryW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_core::PSTR) -> u32
+pub unsafe fn DsAddressToSiteNamesA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR) -> u32);
-    unsafe { DsAddressToSiteNamesA(computername.param().abi(), entrycount, socketaddresses, sitenames as _) }
+    unsafe { DsAddressToSiteNamesA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_core::PSTR, subnetnames: *mut *mut windows_core::PSTR) -> u32
+pub unsafe fn DsAddressToSiteNamesExA<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PSTR, subnetnames: *mut *mut windows_core::PSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR, subnetnames : *mut *mut windows_core::PSTR) -> u32);
-    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), entrycount, socketaddresses, sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_core::PWSTR, subnetnames: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn DsAddressToSiteNamesExW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR, subnetnames: *mut *mut windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR, subnetnames : *mut *mut windows_core::PWSTR) -> u32);
-    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), entrycount, socketaddresses, sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn DsAddressToSiteNamesW<P0>(computername: P0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR) -> u32);
-    unsafe { DsAddressToSiteNamesW(computername.param().abi(), entrycount, socketaddresses, sitenames as _) }
+    unsafe { DsAddressToSiteNamesW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
 }
 #[inline]
 pub unsafe fn DsBindA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -239,7 +233,7 @@ where
     unsafe { DsBindA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindByInstanceA<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: *const windows_core::GUID, dnsdomainname: P3, authidentity: *const core::ffi::c_void, serviceprincipalname: P5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindByInstanceA<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -247,10 +241,10 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_core::PCSTR, annotation : windows_core::PCSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindByInstanceA(servername.param().abi(), annotation.param().abi(), instanceguid, dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), bindflags, phds as _) }
+    unsafe { DsBindByInstanceA(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindByInstanceW<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: *const windows_core::GUID, dnsdomainname: P3, authidentity: *const core::ffi::c_void, serviceprincipalname: P5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindByInstanceW<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -258,7 +252,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_core::PCWSTR, annotation : windows_core::PCWSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindByInstanceW(servername.param().abi(), annotation.param().abi(), instanceguid, dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), bindflags, phds as _) }
+    unsafe { DsBindByInstanceW(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
 pub unsafe fn DsBindToISTGA<P0>(sitename: P0, phds: *mut super::super::Foundation::HANDLE) -> u32
@@ -286,62 +280,62 @@ where
     unsafe { DsBindW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : *const core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithCredA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, phds as _) }
+    unsafe { DsBindWithCredA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : *const core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithCredW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, phds as _) }
+    unsafe { DsBindWithCredW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithSpnA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, serviceprincipalname: P3, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P3, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithSpnA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), phds as _) }
+    unsafe { DsBindWithSpnA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithSpnExA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, serviceprincipalname: P3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnExA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithSpnExA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), bindflags, phds as _) }
+    unsafe { DsBindWithSpnExA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithSpnExW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, serviceprincipalname: P3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnExW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithSpnExW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), bindflags, phds as _) }
+    unsafe { DsBindWithSpnExW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[inline]
-pub unsafe fn DsBindWithSpnW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: *const core::ffi::c_void, serviceprincipalname: P3, phds: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<*const core::ffi::c_void>, serviceprincipalname: P3, phds: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsBindWithSpnW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity, serviceprincipalname.param().abi(), phds as _) }
+    unsafe { DsBindWithSpnW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
 #[inline]
 pub unsafe fn DsBindingSetTimeout(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32) -> u32 {
@@ -379,30 +373,24 @@ where
     unsafe { DsClientMakeSpnForTargetServerW(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, core::mem::transmute(pszspn)) }
 }
 #[inline]
-pub unsafe fn DsCrackNamesA(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const windows_core::PCSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsCrackNamesA(hds: Option<super::super::Foundation::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCSTR], ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_core::PCSTR, ppresult : *mut *mut DS_NAME_RESULTA) -> u32);
-    unsafe { DsCrackNamesA(hds, flags, formatoffered, formatdesired, cnames, rpnames, ppresult as _) }
+    unsafe { DsCrackNamesA(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), core::mem::transmute(rpnames.as_ptr()), ppresult as _) }
 }
 #[inline]
-pub unsafe fn DsCrackNamesW(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const windows_core::PCWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsCrackNamesW(hds: Option<super::super::Foundation::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCWSTR], ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_core::PCWSTR, ppresult : *mut *mut DS_NAME_RESULTW) -> u32);
-    unsafe { DsCrackNamesW(hds, flags, formatoffered, formatdesired, cnames, rpnames, ppresult as _) }
+    unsafe { DsCrackNamesW(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), core::mem::transmute(rpnames.as_ptr()), ppresult as _) }
 }
 #[inline]
-pub unsafe fn DsCrackSpn2A<P0>(pszspn: P0, cspn: u32, pcserviceclass: *mut u32, serviceclass: windows_core::PSTR, pcservicename: *mut u32, servicename: windows_core::PSTR, pcinstancename: *mut u32, instancename: windows_core::PSTR, pinstanceport: *mut u16) -> u32
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn DsCrackSpn2A(pszspn: &[u8], pcserviceclass: Option<*mut u32>, serviceclass: Option<windows_core::PSTR>, pcservicename: Option<*mut u32>, servicename: Option<windows_core::PSTR>, pcinstancename: Option<*mut u32>, instancename: Option<windows_core::PSTR>, pinstanceport: Option<*mut u16>) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsCrackSpn2A(pszspn : windows_core::PCSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : windows_core::PSTR, pcservicename : *mut u32, servicename : windows_core::PSTR, pcinstancename : *mut u32, instancename : windows_core::PSTR, pinstanceport : *mut u16) -> u32);
-    unsafe { DsCrackSpn2A(pszspn.param().abi(), cspn, pcserviceclass as _, core::mem::transmute(serviceclass), pcservicename as _, core::mem::transmute(servicename), pcinstancename as _, core::mem::transmute(instancename), pinstanceport as _) }
+    unsafe { DsCrackSpn2A(core::mem::transmute(pszspn.as_ptr()), pszspn.len().try_into().unwrap(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackSpn2W<P0>(pszspn: P0, cspn: u32, pcserviceclass: *mut u32, serviceclass: windows_core::PWSTR, pcservicename: *mut u32, servicename: windows_core::PWSTR, pcinstancename: *mut u32, instancename: windows_core::PWSTR, pinstanceport: *mut u16) -> u32
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DsCrackSpn2W(pszspn: &[u16], pcserviceclass: Option<*mut u32>, serviceclass: Option<windows_core::PWSTR>, pcservicename: Option<*mut u32>, servicename: Option<windows_core::PWSTR>, pcinstancename: Option<*mut u32>, instancename: Option<windows_core::PWSTR>, pinstanceport: Option<*mut u16>) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsCrackSpn2W(pszspn : windows_core::PCWSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : windows_core::PWSTR, pcservicename : *mut u32, servicename : windows_core::PWSTR, pcinstancename : *mut u32, instancename : windows_core::PWSTR, pinstanceport : *mut u16) -> u32);
-    unsafe { DsCrackSpn2W(pszspn.param().abi(), cspn, pcserviceclass as _, core::mem::transmute(serviceclass), pcservicename as _, core::mem::transmute(servicename), pcinstancename as _, core::mem::transmute(instancename), pinstanceport as _) }
+    unsafe { DsCrackSpn2W(core::mem::transmute(pszspn.as_ptr()), pszspn.len().try_into().unwrap(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DsCrackSpn3W<P0>(pszspn: P0, cspn: u32, pchostname: *mut u32, hostname: windows_core::PWSTR, pcinstancename: *mut u32, instancename: windows_core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: windows_core::PWSTR, pcrealmname: *mut u32, realmname: windows_core::PWSTR) -> u32
@@ -421,56 +409,50 @@ where
     unsafe { DsCrackSpn4W(pszspn.param().abi(), cspn, pchostname as _, core::mem::transmute(hostname), pcinstancename as _, core::mem::transmute(instancename), pcportname as _, core::mem::transmute(portname), pcdomainname as _, core::mem::transmute(domainname), pcrealmname as _, core::mem::transmute(realmname)) }
 }
 #[inline]
-pub unsafe fn DsCrackSpnA<P0>(pszspn: P0, pcserviceclass: *mut u32, serviceclass: windows_core::PSTR, pcservicename: *mut u32, servicename: windows_core::PSTR, pcinstancename: *mut u32, instancename: windows_core::PSTR, pinstanceport: *mut u16) -> u32
+pub unsafe fn DsCrackSpnA<P0>(pszspn: P0, pcserviceclass: Option<*mut u32>, serviceclass: Option<windows_core::PSTR>, pcservicename: Option<*mut u32>, servicename: Option<windows_core::PSTR>, pcinstancename: Option<*mut u32>, instancename: Option<windows_core::PSTR>, pinstanceport: Option<*mut u16>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dsparse.dll" "system" fn DsCrackSpnA(pszspn : windows_core::PCSTR, pcserviceclass : *mut u32, serviceclass : windows_core::PSTR, pcservicename : *mut u32, servicename : windows_core::PSTR, pcinstancename : *mut u32, instancename : windows_core::PSTR, pinstanceport : *mut u16) -> u32);
-    unsafe { DsCrackSpnA(pszspn.param().abi(), pcserviceclass as _, core::mem::transmute(serviceclass), pcservicename as _, core::mem::transmute(servicename), pcinstancename as _, core::mem::transmute(instancename), pinstanceport as _) }
+    unsafe { DsCrackSpnA(pszspn.param().abi(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackSpnW<P0>(pszspn: P0, pcserviceclass: *mut u32, serviceclass: windows_core::PWSTR, pcservicename: *mut u32, servicename: windows_core::PWSTR, pcinstancename: *mut u32, instancename: windows_core::PWSTR, pinstanceport: *mut u16) -> u32
+pub unsafe fn DsCrackSpnW<P0>(pszspn: P0, pcserviceclass: Option<*mut u32>, serviceclass: Option<windows_core::PWSTR>, pcservicename: Option<*mut u32>, servicename: Option<windows_core::PWSTR>, pcinstancename: Option<*mut u32>, instancename: Option<windows_core::PWSTR>, pinstanceport: Option<*mut u16>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dsparse.dll" "system" fn DsCrackSpnW(pszspn : windows_core::PCWSTR, pcserviceclass : *mut u32, serviceclass : windows_core::PWSTR, pcservicename : *mut u32, servicename : windows_core::PWSTR, pcinstancename : *mut u32, instancename : windows_core::PWSTR, pinstanceport : *mut u16) -> u32);
-    unsafe { DsCrackSpnW(pszspn.param().abi(), pcserviceclass as _, core::mem::transmute(serviceclass), pcservicename as _, core::mem::transmute(servicename), pcinstancename as _, core::mem::transmute(instancename), pinstanceport as _) }
+    unsafe { DsCrackSpnW(pszspn.param().abi(), pcserviceclass.unwrap_or(core::mem::zeroed()) as _, serviceclass.unwrap_or(core::mem::zeroed()) as _, pcservicename.unwrap_or(core::mem::zeroed()) as _, servicename.unwrap_or(core::mem::zeroed()) as _, pcinstancename.unwrap_or(core::mem::zeroed()) as _, instancename.unwrap_or(core::mem::zeroed()) as _, pinstanceport.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnA<P0>(pszrdn: P0, cchrdn: u32, pguid: *mut windows_core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn DsCrackUnquotedMangledRdnA(pszrdn: &[u8], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
     windows_core::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_core::PCSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsCrackUnquotedMangledRdnA(pszrdn.param().abi(), cchrdn, pguid as _, pedsmanglefor as _) }
+    unsafe { DsCrackUnquotedMangledRdnA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsCrackUnquotedMangledRdnW<P0>(pszrdn: P0, cchrdn: u32, pguid: *mut windows_core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: Option<*mut windows_core::GUID>, pedsmanglefor: Option<*mut DS_MANGLE_FOR>) -> windows_core::BOOL {
     windows_core::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_core::PCWSTR, cchrdn : u32, pguid : *mut windows_core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsCrackUnquotedMangledRdnW(pszrdn.param().abi(), cchrdn, pguid as _, pedsmanglefor as _) }
+    unsafe { DsCrackUnquotedMangledRdnW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), pguid.unwrap_or(core::mem::zeroed()) as _, pedsmanglefor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsDeregisterDnsHostRecordsA<P0, P1, P4>(servername: P0, dnsdomainname: P1, domainguid: *const windows_core::GUID, dsaguid: *const windows_core::GUID, dnshostname: P4) -> u32
+pub unsafe fn DsDeregisterDnsHostRecordsA<P0, P1, P4>(servername: P0, dnsdomainname: P1, domainguid: Option<*const windows_core::GUID>, dsaguid: Option<*const windows_core::GUID>, dnshostname: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, domainguid : *const windows_core::GUID, dsaguid : *const windows_core::GUID, dnshostname : windows_core::PCSTR) -> u32);
-    unsafe { DsDeregisterDnsHostRecordsA(servername.param().abi(), dnsdomainname.param().abi(), domainguid, dsaguid, dnshostname.param().abi()) }
+    unsafe { DsDeregisterDnsHostRecordsA(servername.param().abi(), dnsdomainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dsaguid.unwrap_or(core::mem::zeroed()) as _, dnshostname.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsDeregisterDnsHostRecordsW<P0, P1, P4>(servername: P0, dnsdomainname: P1, domainguid: *const windows_core::GUID, dsaguid: *const windows_core::GUID, dnshostname: P4) -> u32
+pub unsafe fn DsDeregisterDnsHostRecordsW<P0, P1, P4>(servername: P0, dnsdomainname: P1, domainguid: Option<*const windows_core::GUID>, dsaguid: Option<*const windows_core::GUID>, dnshostname: P4) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, domainguid : *const windows_core::GUID, dsaguid : *const windows_core::GUID, dnshostname : windows_core::PCWSTR) -> u32);
-    unsafe { DsDeregisterDnsHostRecordsW(servername.param().abi(), dnsdomainname.param().abi(), domainguid, dsaguid, dnshostname.param().abi()) }
+    unsafe { DsDeregisterDnsHostRecordsW(servername.param().abi(), dnsdomainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dsaguid.unwrap_or(core::mem::zeroed()) as _, dnshostname.param().abi()) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -491,14 +473,14 @@ where
     unsafe { DsEnumerateDomainTrustsW(servername.param().abi(), flags, domains as _, domaincount as _) }
 }
 #[inline]
-pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, cinfo: u32, pinfo: *const core::ffi::c_void) {
+pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, pinfo: &[u8]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
-    unsafe { DsFreeDomainControllerInfoA(infolevel, cinfo, pinfo) }
+    unsafe { DsFreeDomainControllerInfoA(infolevel, pinfo.len().try_into().unwrap(), core::mem::transmute(pinfo.as_ptr())) }
 }
 #[inline]
-pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, cinfo: u32, pinfo: *const core::ffi::c_void) {
+pub unsafe fn DsFreeDomainControllerInfoW(infolevel: u32, pinfo: &[u8]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
-    unsafe { DsFreeDomainControllerInfoW(infolevel, cinfo, pinfo) }
+    unsafe { DsFreeDomainControllerInfoW(infolevel, pinfo.len().try_into().unwrap(), core::mem::transmute(pinfo.as_ptr())) }
 }
 #[inline]
 pub unsafe fn DsFreeNameResultA(presult: *const DS_NAME_RESULTA) {
@@ -526,22 +508,14 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
     unsafe { DsFreeSchemaGuidMapW(pguidmap) }
 }
 #[inline]
-pub unsafe fn DsFreeSpnArrayA(cspn: u32) -> windows_core::PSTR {
+pub unsafe fn DsFreeSpnArrayA(rpszspn: &mut [windows_core::PSTR]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_core::PSTR));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DsFreeSpnArrayA(cspn, &mut result__);
-        result__
-    }
+    unsafe { DsFreeSpnArrayA(rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
 }
 #[inline]
-pub unsafe fn DsFreeSpnArrayW(cspn: u32) -> windows_core::PWSTR {
+pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [windows_core::PWSTR]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_core::PWSTR));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DsFreeSpnArrayW(cspn, &mut result__);
-        result__
-    }
+    unsafe { DsFreeSpnArrayW(rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
 }
 #[inline]
 pub unsafe fn DsGetDcCloseW(getdccontexthandle: super::super::Foundation::HANDLE) {
@@ -549,56 +523,56 @@ pub unsafe fn DsGetDcCloseW(getdccontexthandle: super::super::Foundation::HANDLE
     unsafe { DsGetDcCloseW(getdccontexthandle) }
 }
 #[inline]
-pub unsafe fn DsGetDcNameA<P0, P1, P3>(computername: P0, domainname: P1, domainguid: *const windows_core::GUID, sitename: P3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32
+pub unsafe fn DsGetDcNameA<P0, P1, P3>(computername: P0, domainname: P1, domainguid: Option<*const windows_core::GUID>, sitename: P3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNameA(computername : windows_core::PCSTR, domainname : windows_core::PCSTR, domainguid : *const windows_core::GUID, sitename : windows_core::PCSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32);
-    unsafe { DsGetDcNameA(computername.param().abi(), domainname.param().abi(), domainguid, sitename.param().abi(), flags, domaincontrollerinfo as _) }
+    unsafe { DsGetDcNameA(computername.param().abi(), domainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, sitename.param().abi(), flags, domaincontrollerinfo as _) }
 }
 #[inline]
-pub unsafe fn DsGetDcNameW<P0, P1, P3>(computername: P0, domainname: P1, domainguid: *const windows_core::GUID, sitename: P3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32
+pub unsafe fn DsGetDcNameW<P0, P1, P3>(computername: P0, domainname: P1, domainguid: Option<*const windows_core::GUID>, sitename: P3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : windows_core::PCWSTR, domainname : windows_core::PCWSTR, domainguid : *const windows_core::GUID, sitename : windows_core::PCWSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32);
-    unsafe { DsGetDcNameW(computername.param().abi(), domainname.param().abi(), domainguid, sitename.param().abi(), flags, domaincontrollerinfo as _) }
+    unsafe { DsGetDcNameW(computername.param().abi(), domainname.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, sitename.param().abi(), flags, domaincontrollerinfo as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsGetDcNextA(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut windows_core::PSTR) -> u32 {
+pub unsafe fn DsGetDcNextA(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: Option<*mut u32>, sockaddresses: Option<*mut *mut super::WinSock::SOCKET_ADDRESS>, dnshostname: Option<*mut windows_core::PSTR>) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut windows_core::PSTR) -> u32);
-    unsafe { DsGetDcNextA(getdccontexthandle, sockaddresscount as _, sockaddresses as _, dnshostname as _) }
+    unsafe { DsGetDcNextA(getdccontexthandle, sockaddresscount.unwrap_or(core::mem::zeroed()) as _, sockaddresses.unwrap_or(core::mem::zeroed()) as _, dnshostname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn DsGetDcNextW(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut windows_core::PWSTR) -> u32 {
+pub unsafe fn DsGetDcNextW(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: Option<*mut u32>, sockaddresses: Option<*mut *mut super::WinSock::SOCKET_ADDRESS>, dnshostname: Option<*mut windows_core::PWSTR>) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut windows_core::PWSTR) -> u32);
-    unsafe { DsGetDcNextW(getdccontexthandle, sockaddresscount as _, sockaddresses as _, dnshostname as _) }
+    unsafe { DsGetDcNextW(getdccontexthandle, sockaddresscount.unwrap_or(core::mem::zeroed()) as _, sockaddresses.unwrap_or(core::mem::zeroed()) as _, dnshostname.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsGetDcOpenA<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: *const windows_core::GUID, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsGetDcOpenA<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: Option<*const windows_core::GUID>, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcOpenA(dnsname : windows_core::PCSTR, optionflags : u32, sitename : windows_core::PCSTR, domainguid : *const windows_core::GUID, dnsforestname : windows_core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsGetDcOpenA(dnsname.param().abi(), optionflags, sitename.param().abi(), domainguid, dnsforestname.param().abi(), dcflags, retgetdccontext as _) }
+    unsafe { DsGetDcOpenA(dnsname.param().abi(), optionflags, sitename.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dnsforestname.param().abi(), dcflags, retgetdccontext as _) }
 }
 #[inline]
-pub unsafe fn DsGetDcOpenW<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: *const windows_core::GUID, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn DsGetDcOpenW<P0, P2, P4>(dnsname: P0, optionflags: u32, sitename: P2, domainguid: Option<*const windows_core::GUID>, dnsforestname: P4, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsGetDcOpenW(dnsname : windows_core::PCWSTR, optionflags : u32, sitename : windows_core::PCWSTR, domainguid : *const windows_core::GUID, dnsforestname : windows_core::PCWSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { DsGetDcOpenW(dnsname.param().abi(), optionflags, sitename.param().abi(), domainguid, dnsforestname.param().abi(), dcflags, retgetdccontext as _) }
+    unsafe { DsGetDcOpenW(dnsname.param().abi(), optionflags, sitename.param().abi(), domainguid.unwrap_or(core::mem::zeroed()) as _, dnsforestname.param().abi(), dcflags, retgetdccontext as _) }
 }
 #[inline]
 pub unsafe fn DsGetDcSiteCoverageA<P0>(servername: P0, entrycount: *mut u32, sitenames: *mut *mut windows_core::PSTR) -> u32
@@ -643,12 +617,12 @@ where
     unsafe { DsGetForestTrustInformationW(servername.param().abi(), trusteddomainname.param().abi(), flags, foresttrustinfo as _) }
 }
 #[inline]
-pub unsafe fn DsGetFriendlyClassName<P0>(pszobjectclass: P0, pszbuffer: windows_core::PWSTR, cchbuffer: u32) -> windows_core::Result<()>
+pub unsafe fn DsGetFriendlyClassName<P0>(pszobjectclass: P0, pszbuffer: &mut [u16]) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dsuiext.dll" "system" fn DsGetFriendlyClassName(pszobjectclass : windows_core::PCWSTR, pszbuffer : windows_core::PWSTR, cchbuffer : u32) -> windows_core::HRESULT);
-    unsafe { DsGetFriendlyClassName(pszobjectclass.param().abi(), core::mem::transmute(pszbuffer), cchbuffer).ok() }
+    unsafe { DsGetFriendlyClassName(pszobjectclass.param().abi(), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap()).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -681,40 +655,40 @@ where
     unsafe { DsGetSiteNameW(computername.param().abi(), sitename as _) }
 }
 #[inline]
-pub unsafe fn DsGetSpnA<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: u16, cinstancenames: u16, pinstancenames: *const windows_core::PCSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut windows_core::PSTR) -> u32
+pub unsafe fn DsGetSpnA<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: u16, cinstancenames: u16, pinstancenames: Option<*const windows_core::PCSTR>, pinstanceports: Option<*const u16>, pcspn: *mut u32, prpszspn: *mut *mut windows_core::PSTR) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_core::PCSTR, servicename : windows_core::PCSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_core::PCSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_core::PSTR) -> u32);
-    unsafe { DsGetSpnA(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames, pinstanceports, pcspn as _, prpszspn as _) }
+    unsafe { DsGetSpnA(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames.unwrap_or(core::mem::zeroed()) as _, pinstanceports.unwrap_or(core::mem::zeroed()) as _, pcspn as _, prpszspn as _) }
 }
 #[inline]
-pub unsafe fn DsGetSpnW<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: u16, cinstancenames: u16, pinstancenames: *const windows_core::PCWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut windows_core::PWSTR) -> u32
+pub unsafe fn DsGetSpnW<P1, P2>(servicetype: DS_SPN_NAME_TYPE, serviceclass: P1, servicename: P2, instanceport: u16, cinstancenames: u16, pinstancenames: Option<*const windows_core::PCWSTR>, pinstanceports: Option<*const u16>, pcspn: *mut u32, prpszspn: *mut *mut windows_core::PWSTR) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_core::PCWSTR, servicename : windows_core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_core::PWSTR) -> u32);
-    unsafe { DsGetSpnW(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames, pinstanceports, pcspn as _, prpszspn as _) }
+    unsafe { DsGetSpnW(servicetype, serviceclass.param().abi(), servicename.param().abi(), instanceport, cinstancenames, pinstancenames.unwrap_or(core::mem::zeroed()) as _, pinstanceports.unwrap_or(core::mem::zeroed()) as _, pcspn as _, prpszspn as _) }
 }
 #[inline]
-pub unsafe fn DsInheritSecurityIdentityA<P2, P3>(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: P2, dstprincipal: P3) -> u32
+pub unsafe fn DsInheritSecurityIdentityA<P2, P3>(hds: super::super::Foundation::HANDLE, flags: Option<u32>, srcprincipal: P2, dstprincipal: P3) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> u32);
-    unsafe { DsInheritSecurityIdentityA(hds, flags, srcprincipal.param().abi(), dstprincipal.param().abi()) }
+    unsafe { DsInheritSecurityIdentityA(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcprincipal.param().abi(), dstprincipal.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsInheritSecurityIdentityW<P2, P3>(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: P2, dstprincipal: P3) -> u32
+pub unsafe fn DsInheritSecurityIdentityW<P2, P3>(hds: super::super::Foundation::HANDLE, flags: Option<u32>, srcprincipal: P2, dstprincipal: P3) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> u32);
-    unsafe { DsInheritSecurityIdentityW(hds, flags, srcprincipal.param().abi(), dstprincipal.param().abi()) }
+    unsafe { DsInheritSecurityIdentityW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcprincipal.param().abi(), dstprincipal.param().abi()) }
 }
 #[inline]
 pub unsafe fn DsIsMangledDnA<P0>(pszdn: P0, edsmanglefor: DS_MANGLE_FOR) -> windows_core::BOOL
@@ -733,20 +707,14 @@ where
     unsafe { DsIsMangledDnW(pszdn.param().abi(), edsmanglefor) }
 }
 #[inline]
-pub unsafe fn DsIsMangledRdnValueA<P0>(pszrdn: P0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
     windows_core::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsIsMangledRdnValueA(pszrdn.param().abi(), crdn, edsmanglefordesired) }
+    unsafe { DsIsMangledRdnValueA(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
 }
 #[inline]
-pub unsafe fn DsIsMangledRdnValueW<P0>(pszrdn: P0, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> windows_core::BOOL {
     windows_core::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_core::BOOL);
-    unsafe { DsIsMangledRdnValueW(pszrdn.param().abi(), crdn, edsmanglefordesired) }
+    unsafe { DsIsMangledRdnValueW(core::mem::transmute(pszrdn.as_ptr()), pszrdn.len().try_into().unwrap(), edsmanglefordesired) }
 }
 #[inline]
 pub unsafe fn DsListDomainsInSiteA<P1>(hds: super::super::Foundation::HANDLE, site: P1, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32
@@ -855,7 +823,7 @@ where
     unsafe { DsMakePasswordCredentialsW(user.param().abi(), domain.param().abi(), password.param().abi(), pauthidentity as _) }
 }
 #[inline]
-pub unsafe fn DsMakeSpnA<P0, P1, P2, P4>(serviceclass: P0, servicename: P1, instancename: P2, instanceport: u16, referrer: P4, pcspnlength: *mut u32, pszspn: windows_core::PSTR) -> u32
+pub unsafe fn DsMakeSpnA<P0, P1, P2, P4>(serviceclass: P0, servicename: P1, instancename: P2, instanceport: u16, referrer: P4, pcspnlength: *mut u32, pszspn: Option<windows_core::PSTR>) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
@@ -863,10 +831,10 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dsparse.dll" "system" fn DsMakeSpnA(serviceclass : windows_core::PCSTR, servicename : windows_core::PCSTR, instancename : windows_core::PCSTR, instanceport : u16, referrer : windows_core::PCSTR, pcspnlength : *mut u32, pszspn : windows_core::PSTR) -> u32);
-    unsafe { DsMakeSpnA(serviceclass.param().abi(), servicename.param().abi(), instancename.param().abi(), instanceport, referrer.param().abi(), pcspnlength as _, core::mem::transmute(pszspn)) }
+    unsafe { DsMakeSpnA(serviceclass.param().abi(), servicename.param().abi(), instancename.param().abi(), instanceport, referrer.param().abi(), pcspnlength as _, pszspn.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsMakeSpnW<P0, P1, P2, P4>(serviceclass: P0, servicename: P1, instancename: P2, instanceport: u16, referrer: P4, pcspnlength: *mut u32, pszspn: windows_core::PWSTR) -> u32
+pub unsafe fn DsMakeSpnW<P0, P1, P2, P4>(serviceclass: P0, servicename: P1, instancename: P2, instanceport: u16, referrer: P4, pcspnlength: *mut u32, pszspn: Option<windows_core::PWSTR>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -874,42 +842,42 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dsparse.dll" "system" fn DsMakeSpnW(serviceclass : windows_core::PCWSTR, servicename : windows_core::PCWSTR, instancename : windows_core::PCWSTR, instanceport : u16, referrer : windows_core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_core::PWSTR) -> u32);
-    unsafe { DsMakeSpnW(serviceclass.param().abi(), servicename.param().abi(), instancename.param().abi(), instanceport, referrer.param().abi(), pcspnlength as _, core::mem::transmute(pszspn)) }
+    unsafe { DsMakeSpnW(serviceclass.param().abi(), servicename.param().abi(), instancename.param().abi(), instanceport, referrer.param().abi(), pcspnlength as _, pszspn.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsMapSchemaGuidsA(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const windows_core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
+pub unsafe fn DsMapSchemaGuidsA(hds: super::super::Foundation::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
-    unsafe { DsMapSchemaGuidsA(hds, cguids, rguids, ppguidmap as _) }
+    unsafe { DsMapSchemaGuidsA(hds, rguids.len().try_into().unwrap(), core::mem::transmute(rguids.as_ptr()), ppguidmap as _) }
 }
 #[inline]
-pub unsafe fn DsMapSchemaGuidsW(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const windows_core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
+pub unsafe fn DsMapSchemaGuidsW(hds: super::super::Foundation::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
-    unsafe { DsMapSchemaGuidsW(hds, cguids, rguids, ppguidmap as _) }
+    unsafe { DsMapSchemaGuidsW(hds, rguids.len().try_into().unwrap(), core::mem::transmute(rguids.as_ptr()), ppguidmap as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
-pub unsafe fn DsMergeForestTrustInformationW<P0>(domainname: P0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32
+pub unsafe fn DsMergeForestTrustInformationW<P0>(domainname: P0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: Option<*const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION>, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsMergeForestTrustInformationW(domainname : windows_core::PCWSTR, newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
-    unsafe { DsMergeForestTrustInformationW(domainname.param().abi(), newforesttrustinfo, oldforesttrustinfo, mergedforesttrustinfo as _) }
+    unsafe { DsMergeForestTrustInformationW(domainname.param().abi(), newforesttrustinfo, oldforesttrustinfo.unwrap_or(core::mem::zeroed()) as _, mergedforesttrustinfo as _) }
 }
 #[inline]
-pub unsafe fn DsQuerySitesByCostA<P1>(hds: super::super::Foundation::HANDLE, pszfromsite: P1, rgsztosites: *const windows_core::PCSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
+pub unsafe fn DsQuerySitesByCostA<P1>(hds: super::super::Foundation::HANDLE, pszfromsite: P1, rgsztosites: &[windows_core::PCSTR], dwflags: Option<u32>, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::super::Foundation:: HANDLE, pszfromsite : windows_core::PCSTR, rgsztosites : *const windows_core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
-    unsafe { DsQuerySitesByCostA(hds, pszfromsite.param().abi(), rgsztosites, ctosites, dwflags, prgsiteinfo as _) }
+    unsafe { DsQuerySitesByCostA(hds, pszfromsite.param().abi(), core::mem::transmute(rgsztosites.as_ptr()), rgsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
 }
 #[inline]
-pub unsafe fn DsQuerySitesByCostW<P1>(hds: super::super::Foundation::HANDLE, pwszfromsite: P1, rgwsztosites: *const windows_core::PCWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
+pub unsafe fn DsQuerySitesByCostW<P1>(hds: super::super::Foundation::HANDLE, pwszfromsite: P1, rgwsztosites: &[windows_core::PCWSTR], dwflags: Option<u32>, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::super::Foundation:: HANDLE, pwszfromsite : windows_core::PCWSTR, rgwsztosites : *const windows_core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
-    unsafe { DsQuerySitesByCostW(hds, pwszfromsite.param().abi(), rgwsztosites, ctosites, dwflags, prgsiteinfo as _) }
+    unsafe { DsQuerySitesByCostW(hds, pwszfromsite.param().abi(), core::mem::transmute(rgwsztosites.as_ptr()), rgwsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
 }
 #[inline]
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
@@ -917,20 +885,14 @@ pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
     unsafe { DsQuerySitesFree(rgsiteinfo) }
 }
 #[inline]
-pub unsafe fn DsQuoteRdnValueA<P1>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: P1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_core::PSTR) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn DsQuoteRdnValueA(psunquotedrdnvalue: &[u8], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_core::PSTR) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : windows_core::PCSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : windows_core::PSTR) -> u32);
-    unsafe { DsQuoteRdnValueA(cunquotedrdnvaluelength, psunquotedrdnvalue.param().abi(), pcquotedrdnvaluelength as _, core::mem::transmute(psquotedrdnvalue)) }
+    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, core::mem::transmute(psquotedrdnvalue)) }
 }
 #[inline]
-pub unsafe fn DsQuoteRdnValueW<P1>(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: P1, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_core::PWSTR) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_core::PWSTR) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : windows_core::PCWSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : windows_core::PWSTR) -> u32);
-    unsafe { DsQuoteRdnValueW(cunquotedrdnvaluelength, psunquotedrdnvalue.param().abi(), pcquotedrdnvaluelength as _, core::mem::transmute(psquotedrdnvalue)) }
+    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, core::mem::transmute(psquotedrdnvalue)) }
 }
 #[inline]
 pub unsafe fn DsRemoveDsDomainA<P1>(hds: super::super::Foundation::HANDLE, domaindn: P1) -> u32
@@ -949,25 +911,25 @@ where
     unsafe { DsRemoveDsDomainW(hds, domaindn.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: *mut windows_core::BOOL, fcommit: bool) -> u32
+pub unsafe fn DsRemoveDsServerA<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCSTR, domaindn : windows_core::PCSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> u32);
-    unsafe { DsRemoveDsServerA(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain as _, fcommit.into()) }
+    unsafe { DsRemoveDsServerA(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
 #[inline]
-pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: *mut windows_core::BOOL, fcommit: bool) -> u32
+pub unsafe fn DsRemoveDsServerW<P1, P2>(hds: super::super::Foundation::HANDLE, serverdn: P1, domaindn: P2, flastdcindomain: Option<*mut windows_core::BOOL>, fcommit: bool) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : windows_core::PCWSTR, domaindn : windows_core::PCWSTR, flastdcindomain : *mut windows_core::BOOL, fcommit : windows_core::BOOL) -> u32);
-    unsafe { DsRemoveDsServerW(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain as _, fcommit.into()) }
+    unsafe { DsRemoveDsServerW(hds, serverdn.param().abi(), domaindn.param().abi(), flastdcindomain.unwrap_or(core::mem::zeroed()) as _, fcommit.into()) }
 }
 #[inline]
-pub unsafe fn DsReplicaAddA<P1, P2, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: *const SCHEDULE, options: u32) -> u32
+pub unsafe fn DsReplicaAddA<P1, P2, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<*const SCHEDULE>, options: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -975,10 +937,10 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::super::Foundation:: HANDLE, namecontext : windows_core::PCSTR, sourcedsadn : windows_core::PCSTR, transportdn : windows_core::PCSTR, sourcedsaaddress : windows_core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
-    unsafe { DsReplicaAddA(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule, options) }
+    unsafe { DsReplicaAddA(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, options) }
 }
 #[inline]
-pub unsafe fn DsReplicaAddW<P1, P2, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: *const SCHEDULE, options: u32) -> u32
+pub unsafe fn DsReplicaAddW<P1, P2, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, sourcedsadn: P2, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<*const SCHEDULE>, options: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -986,7 +948,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::super::Foundation:: HANDLE, namecontext : windows_core::PCWSTR, sourcedsadn : windows_core::PCWSTR, transportdn : windows_core::PCWSTR, sourcedsaaddress : windows_core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
-    unsafe { DsReplicaAddW(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule, options) }
+    unsafe { DsReplicaAddW(hds, namecontext.param().abi(), sourcedsadn.param().abi(), transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, options) }
 }
 #[inline]
 pub unsafe fn DsReplicaConsistencyCheck(hds: super::super::Foundation::HANDLE, taskid: DS_KCC_TASKID, dwflags: u32) -> u32 {
@@ -1017,42 +979,42 @@ pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const core:
     unsafe { DsReplicaFreeInfo(infotype, pinfo) }
 }
 #[inline]
-pub unsafe fn DsReplicaGetInfo2W<P2, P4, P5>(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: *const windows_core::GUID, pszattributename: P4, pszvalue: P5, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn DsReplicaGetInfo2W<P2, P4, P5>(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: Option<*const windows_core::GUID>, pszattributename: P4, pszvalue: P5, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut core::ffi::c_void) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_core::PCWSTR, puuidforsourcedsaobjguid : *const windows_core::GUID, pszattributename : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { DsReplicaGetInfo2W(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid, pszattributename.param().abi(), pszvalue.param().abi(), dwflags, dwenumerationcontext, ppinfo as _) }
+    unsafe { DsReplicaGetInfo2W(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid.unwrap_or(core::mem::zeroed()) as _, pszattributename.param().abi(), pszvalue.param().abi(), dwflags, dwenumerationcontext, ppinfo as _) }
 }
 #[inline]
-pub unsafe fn DsReplicaGetInfoW<P2>(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: *const windows_core::GUID, ppinfo: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn DsReplicaGetInfoW<P2>(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: P2, puuidforsourcedsaobjguid: Option<*const windows_core::GUID>, ppinfo: *mut *mut core::ffi::c_void) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_core::PCWSTR, puuidforsourcedsaobjguid : *const windows_core::GUID, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { DsReplicaGetInfoW(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid, ppinfo as _) }
+    unsafe { DsReplicaGetInfoW(hds, infotype, pszobject.param().abi(), puuidforsourcedsaobjguid.unwrap_or(core::mem::zeroed()) as _, ppinfo as _) }
 }
 #[inline]
-pub unsafe fn DsReplicaModifyA<P1, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuidsourcedsa: *const windows_core::GUID, transportdn: P3, sourcedsaaddress: P4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32
+pub unsafe fn DsReplicaModifyA<P1, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuidsourcedsa: Option<*const windows_core::GUID>, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<*const SCHEDULE>, replicaflags: Option<u32>, modifyfields: u32, options: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::super::Foundation:: HANDLE, namecontext : windows_core::PCSTR, puuidsourcedsa : *const windows_core::GUID, transportdn : windows_core::PCSTR, sourcedsaaddress : windows_core::PCSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-    unsafe { DsReplicaModifyA(hds, namecontext.param().abi(), puuidsourcedsa, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule, replicaflags, modifyfields, options) }
+    unsafe { DsReplicaModifyA(hds, namecontext.param().abi(), puuidsourcedsa.unwrap_or(core::mem::zeroed()) as _, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, replicaflags.unwrap_or(core::mem::zeroed()) as _, modifyfields, options) }
 }
 #[inline]
-pub unsafe fn DsReplicaModifyW<P1, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuidsourcedsa: *const windows_core::GUID, transportdn: P3, sourcedsaaddress: P4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32
+pub unsafe fn DsReplicaModifyW<P1, P3, P4>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuidsourcedsa: Option<*const windows_core::GUID>, transportdn: P3, sourcedsaaddress: P4, pschedule: Option<*const SCHEDULE>, replicaflags: u32, modifyfields: u32, options: u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::super::Foundation:: HANDLE, namecontext : windows_core::PCWSTR, puuidsourcedsa : *const windows_core::GUID, transportdn : windows_core::PCWSTR, sourcedsaaddress : windows_core::PCWSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-    unsafe { DsReplicaModifyW(hds, namecontext.param().abi(), puuidsourcedsa, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule, replicaflags, modifyfields, options) }
+    unsafe { DsReplicaModifyW(hds, namecontext.param().abi(), puuidsourcedsa.unwrap_or(core::mem::zeroed()) as _, transportdn.param().abi(), sourcedsaaddress.param().abi(), pschedule.unwrap_or(core::mem::zeroed()) as _, replicaflags, modifyfields, options) }
 }
 #[inline]
 pub unsafe fn DsReplicaSyncA<P1>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuiddsasrc: *const windows_core::GUID, options: u32) -> u32
@@ -1063,20 +1025,20 @@ where
     unsafe { DsReplicaSyncA(hds, namecontext.param().abi(), puuiddsasrc, options) }
 }
 #[inline]
-pub unsafe fn DsReplicaSyncAllA<P1>(hds: super::super::Foundation::HANDLE, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: *const core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32
+pub unsafe fn DsReplicaSyncAllA<P1>(hds: super::super::Foundation::HANDLE, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: Option<*const core::ffi::c_void>, perrors: Option<*mut *mut *mut DS_REPSYNCALL_ERRINFOA>) -> u32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::super::Foundation:: HANDLE, psznamecontext : windows_core::PCSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32);
-    unsafe { DsReplicaSyncAllA(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata, perrors as _) }
+    unsafe { DsReplicaSyncAllA(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata.unwrap_or(core::mem::zeroed()) as _, perrors.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DsReplicaSyncAllW<P1>(hds: super::super::Foundation::HANDLE, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: *const core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32
+pub unsafe fn DsReplicaSyncAllW<P1>(hds: super::super::Foundation::HANDLE, psznamecontext: P1, ulflags: u32, pfncallback: isize, pcallbackdata: Option<*const core::ffi::c_void>, perrors: Option<*mut *mut *mut DS_REPSYNCALL_ERRINFOW>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::super::Foundation:: HANDLE, psznamecontext : windows_core::PCWSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32);
-    unsafe { DsReplicaSyncAllW(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata, perrors as _) }
+    unsafe { DsReplicaSyncAllW(hds, psznamecontext.param().abi(), ulflags, pfncallback, pcallbackdata.unwrap_or(core::mem::zeroed()) as _, perrors.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DsReplicaSyncW<P1>(hds: super::super::Foundation::HANDLE, namecontext: P1, puuiddsasrc: *const windows_core::GUID, options: u32) -> u32
@@ -1162,20 +1124,14 @@ pub unsafe fn DsUnBindW(phds: *const super::super::Foundation::HANDLE) -> u32 {
     unsafe { DsUnBindW(phds) }
 }
 #[inline]
-pub unsafe fn DsUnquoteRdnValueA<P1>(cquotedrdnvaluelength: u32, psquotedrdnvalue: P1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_core::PSTR) -> u32
-where
-    P1: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn DsUnquoteRdnValueA(psquotedrdnvalue: &[u8], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_core::PSTR) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : u32, psquotedrdnvalue : windows_core::PCSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : windows_core::PSTR) -> u32);
-    unsafe { DsUnquoteRdnValueA(cquotedrdnvaluelength, psquotedrdnvalue.param().abi(), pcunquotedrdnvaluelength as _, core::mem::transmute(psunquotedrdnvalue)) }
+    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, core::mem::transmute(psunquotedrdnvalue)) }
 }
 #[inline]
-pub unsafe fn DsUnquoteRdnValueW<P1>(cquotedrdnvaluelength: u32, psquotedrdnvalue: P1, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_core::PWSTR) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_core::PWSTR) -> u32 {
     windows_core::link!("dsparse.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : u32, psquotedrdnvalue : windows_core::PCWSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : windows_core::PWSTR) -> u32);
-    unsafe { DsUnquoteRdnValueW(cquotedrdnvaluelength, psquotedrdnvalue.param().abi(), pcunquotedrdnvaluelength as _, core::mem::transmute(psunquotedrdnvalue)) }
+    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, core::mem::transmute(psunquotedrdnvalue)) }
 }
 #[inline]
 pub unsafe fn DsValidateSubnetNameA<P0>(subnetname: P0) -> u32
@@ -1194,20 +1150,20 @@ where
     unsafe { DsValidateSubnetNameW(subnetname.param().abi()) }
 }
 #[inline]
-pub unsafe fn DsWriteAccountSpnA<P2>(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, cspn: u32, rpszspn: *const windows_core::PCSTR) -> u32
+pub unsafe fn DsWriteAccountSpnA<P2>(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, rpszspn: &[windows_core::PCSTR]) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_core::PCSTR, cspn : u32, rpszspn : *const windows_core::PCSTR) -> u32);
-    unsafe { DsWriteAccountSpnA(hds, operation, pszaccount.param().abi(), cspn, rpszspn) }
+    unsafe { DsWriteAccountSpnA(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
 }
 #[inline]
-pub unsafe fn DsWriteAccountSpnW<P2>(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, cspn: u32, rpszspn: *const windows_core::PCWSTR) -> u32
+pub unsafe fn DsWriteAccountSpnW<P2>(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: P2, rpszspn: &[windows_core::PCWSTR]) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_core::PCWSTR, cspn : u32, rpszspn : *const windows_core::PCWSTR) -> u32);
-    unsafe { DsWriteAccountSpnW(hds, operation, pszaccount.param().abi(), cspn, rpszspn) }
+    unsafe { DsWriteAccountSpnW(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
 }
 #[inline]
 pub unsafe fn FreeADsMem(pmem: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -16410,17 +16366,14 @@ windows_core::imp::define_interface!(IDsAdminNewObjExt, IDsAdminNewObjExt_Vtbl, 
 windows_core::imp::interface_hierarchy!(IDsAdminNewObjExt, windows_core::IUnknown);
 impl IDsAdminNewObjExt {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn Initialize<P0, P1, P2, P3>(&self, padscontainerobj: P0, padscopysource: P1, lpszclassname: P2, pdsadminnewobj: P3) -> windows_core::Result<DSA_NEWOBJ_DISPINFO>
+    pub unsafe fn Initialize<P0, P1, P2, P3>(&self, padscontainerobj: P0, padscopysource: P1, lpszclassname: P2, pdsadminnewobj: P3, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IADsContainer>,
         P1: windows_core::Param<IADs>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<IDsAdminNewObj>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), padscontainerobj.param().abi(), padscopysource.param().abi(), lpszclassname.param().abi(), pdsadminnewobj.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), padscontainerobj.param().abi(), padscopysource.param().abi(), lpszclassname.param().abi(), pdsadminnewobj.param().abi(), pdispinfo as _).ok() }
     }
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn AddPages(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()> {
@@ -16439,11 +16392,8 @@ impl IDsAdminNewObjExt {
     pub unsafe fn OnError(&self, hwnd: super::super::Foundation::HWND, hr: windows_core::HRESULT, ucontext: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hwnd, hr, ucontext).ok() }
     }
-    pub unsafe fn GetSummaryInfo(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSummaryInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetSummaryInfo(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSummaryInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)).ok() }
     }
 }
 #[repr(C)]
@@ -16468,12 +16418,12 @@ pub struct IDsAdminNewObjExt_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, padscontainerobj: windows_core::Ref<IADsContainer>, padscopysource: windows_core::Ref<IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: windows_core::Ref<IDsAdminNewObj>) -> windows_core::Result<DSA_NEWOBJ_DISPINFO>;
+    fn Initialize(&self, padscontainerobj: windows_core::Ref<IADsContainer>, padscopysource: windows_core::Ref<IADs>, lpszclassname: &windows_core::PCWSTR, pdsadminnewobj: windows_core::Ref<IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::Result<()>;
     fn AddPages(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn SetObject(&self, padsobj: windows_core::Ref<IADs>) -> windows_core::Result<()>;
     fn WriteData(&self, hwnd: super::super::Foundation::HWND, ucontext: u32) -> windows_core::Result<()>;
     fn OnError(&self, hwnd: super::super::Foundation::HWND, hr: windows_core::HRESULT, ucontext: u32) -> windows_core::Result<()>;
-    fn GetSummaryInfo(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetSummaryInfo(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IDsAdminNewObjExt_Vtbl {
@@ -16481,13 +16431,7 @@ impl IDsAdminNewObjExt_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padscontainerobj: *mut core::ffi::c_void, padscopysource: *mut core::ffi::c_void, lpszclassname: windows_core::PCWSTR, pdsadminnewobj: *mut core::ffi::c_void, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDsAdminNewObjExt_Impl::Initialize(this, core::mem::transmute_copy(&padscontainerobj), core::mem::transmute_copy(&padscopysource), core::mem::transmute(&lpszclassname), core::mem::transmute_copy(&pdsadminnewobj)) {
-                    Ok(ok__) => {
-                        pdispinfo.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDsAdminNewObjExt_Impl::Initialize(this, core::mem::transmute_copy(&padscontainerobj), core::mem::transmute_copy(&padscopysource), core::mem::transmute(&lpszclassname), core::mem::transmute_copy(&pdsadminnewobj), core::mem::transmute_copy(&pdispinfo)).into()
             }
         }
         unsafe extern "system" fn AddPages<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
@@ -16517,13 +16461,7 @@ impl IDsAdminNewObjExt_Vtbl {
         unsafe extern "system" fn GetSummaryInfo<Identity: IDsAdminNewObjExt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDsAdminNewObjExt_Impl::GetSummaryInfo(this) {
-                    Ok(ok__) => {
-                        pbstrtext.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDsAdminNewObjExt_Impl::GetSummaryInfo(this, core::mem::transmute_copy(&pbstrtext)).into()
             }
         }
         Self {
@@ -16591,14 +16529,11 @@ windows_core::imp::define_interface!(IDsAdminNotifyHandler, IDsAdminNotifyHandle
 windows_core::imp::interface_hierarchy!(IDsAdminNotifyHandler, windows_core::IUnknown);
 impl IDsAdminNotifyHandler {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<P0>(&self, pextrainfo: P0) -> windows_core::Result<u32>
+    pub unsafe fn Initialize<P0>(&self, pextrainfo: P0, pueventflags: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pextrainfo.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pextrainfo.param().abi(), pueventflags as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Begin<P1, P2>(&self, uevent: u32, parg1: P1, parg2: P2, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>
@@ -16632,7 +16567,7 @@ pub struct IDsAdminNotifyHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminNotifyHandler_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pextrainfo: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<u32>;
+    fn Initialize(&self, pextrainfo: windows_core::Ref<super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> windows_core::Result<()>;
     fn Begin(&self, uevent: u32, parg1: windows_core::Ref<super::super::System::Com::IDataObject>, parg2: windows_core::Ref<super::super::System::Com::IDataObject>, puflags: *mut u32, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn Notify(&self, nitem: u32, uflags: u32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
@@ -16643,13 +16578,7 @@ impl IDsAdminNotifyHandler_Vtbl {
         unsafe extern "system" fn Initialize<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextrainfo: *mut core::ffi::c_void, pueventflags: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDsAdminNotifyHandler_Impl::Initialize(this, core::mem::transmute_copy(&pextrainfo)) {
-                    Ok(ok__) => {
-                        pueventflags.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDsAdminNotifyHandler_Impl::Initialize(this, core::mem::transmute_copy(&pextrainfo), core::mem::transmute_copy(&pueventflags)).into()
             }
         }
         unsafe extern "system" fn Begin<Identity: IDsAdminNotifyHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uevent: u32, parg1: *mut core::ffi::c_void, parg2: *mut core::ffi::c_void, puflags: *mut u32, pbstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16693,11 +16622,8 @@ impl IDsBrowseDomainTree {
     pub unsafe fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDomains)(windows_core::Interface::as_raw(self), ppdomaintree as _, dwflags).ok() }
     }
-    pub unsafe fn FreeDomains(&self) -> windows_core::Result<*mut DOMAIN_TREE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FreeDomains)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn FreeDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).FreeDomains)(windows_core::Interface::as_raw(self), ppdomaintree as _).ok() }
     }
     pub unsafe fn FlushCachedDomains(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FlushCachedDomains)(windows_core::Interface::as_raw(self)).ok() }
@@ -16724,7 +16650,7 @@ pub struct IDsBrowseDomainTree_Vtbl {
 pub trait IDsBrowseDomainTree_Impl: windows_core::IUnknownImpl {
     fn BrowseTo(&self, hwndparent: super::super::Foundation::HWND, ppsztargetpath: *mut windows_core::PWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> windows_core::Result<()>;
-    fn FreeDomains(&self) -> windows_core::Result<*mut DOMAIN_TREE>;
+    fn FreeDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE) -> windows_core::Result<()>;
     fn FlushCachedDomains(&self) -> windows_core::Result<()>;
     fn SetComputer(&self, pszcomputername: &windows_core::PCWSTR, pszusername: &windows_core::PCWSTR, pszpassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
@@ -16745,13 +16671,7 @@ impl IDsBrowseDomainTree_Vtbl {
         unsafe extern "system" fn FreeDomains<Identity: IDsBrowseDomainTree_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdomaintree: *mut *mut DOMAIN_TREE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDsBrowseDomainTree_Impl::FreeDomains(this) {
-                    Ok(ok__) => {
-                        ppdomaintree.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDsBrowseDomainTree_Impl::FreeDomains(this, core::mem::transmute_copy(&ppdomaintree)).into()
             }
         }
         unsafe extern "system" fn FlushCachedDomains<Identity: IDsBrowseDomainTree_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -16833,14 +16753,11 @@ impl IDsDisplaySpecifier {
     {
         unsafe { (windows_core::Interface::vtable(self).IsClassContainer)(windows_core::Interface::as_raw(self), pszobjectclass.param().abi(), pszadspath.param().abi(), dwflags) }
     }
-    pub unsafe fn GetClassCreationInfo<P0>(&self, pszobjectclass: P0) -> windows_core::Result<*mut DSCLASSCREATIONINFO>
+    pub unsafe fn GetClassCreationInfo<P0>(&self, pszobjectclass: P0, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClassCreationInfo)(windows_core::Interface::as_raw(self), pszobjectclass.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetClassCreationInfo)(windows_core::Interface::as_raw(self), pszobjectclass.param().abi(), ppdscci as _).ok() }
     }
     pub unsafe fn EnumClassAttributes<P0>(&self, pszobjectclass: P0, pcbenum: LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>
     where
@@ -16884,7 +16801,7 @@ pub trait IDsDisplaySpecifier_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyClassName(&self, pszobjectclass: &windows_core::PCWSTR, pszbuffer: windows_core::PWSTR, cchbuffer: i32) -> windows_core::Result<()>;
     fn GetFriendlyAttributeName(&self, pszobjectclass: &windows_core::PCWSTR, pszattributename: &windows_core::PCWSTR, pszbuffer: windows_core::PWSTR, cchbuffer: u32) -> windows_core::Result<()>;
     fn IsClassContainer(&self, pszobjectclass: &windows_core::PCWSTR, pszadspath: &windows_core::PCWSTR, dwflags: u32) -> windows_core::BOOL;
-    fn GetClassCreationInfo(&self, pszobjectclass: &windows_core::PCWSTR) -> windows_core::Result<*mut DSCLASSCREATIONINFO>;
+    fn GetClassCreationInfo(&self, pszobjectclass: &windows_core::PCWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> windows_core::Result<()>;
     fn EnumClassAttributes(&self, pszobjectclass: &windows_core::PCWSTR, pcbenum: LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> windows_core::Result<()>;
     fn GetAttributeADsType(&self, pszattributename: &windows_core::PCWSTR) -> ADSTYPE;
 }
@@ -16942,13 +16859,7 @@ impl IDsDisplaySpecifier_Vtbl {
         unsafe extern "system" fn GetClassCreationInfo<Identity: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectclass: windows_core::PCWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDsDisplaySpecifier_Impl::GetClassCreationInfo(this, core::mem::transmute(&pszobjectclass)) {
-                    Ok(ok__) => {
-                        ppdscci.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDsDisplaySpecifier_Impl::GetClassCreationInfo(this, core::mem::transmute(&pszobjectclass), core::mem::transmute_copy(&ppdscci)).into()
             }
         }
         unsafe extern "system" fn EnumClassAttributes<Identity: IDsDisplaySpecifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszobjectclass: windows_core::PCWSTR, pcbenum: LPDSENUMATTRIBUTES, lparam: super::super::Foundation::LPARAM) -> windows_core::HRESULT {
@@ -17125,15 +17036,12 @@ impl IPersistQuery {
     {
         unsafe { (windows_core::Interface::vtable(self).WriteInt)(windows_core::Interface::as_raw(self), psection.param().abi(), pvaluename.param().abi(), value).ok() }
     }
-    pub unsafe fn ReadInt<P0, P1>(&self, psection: P0, pvaluename: P1) -> windows_core::Result<i32>
+    pub unsafe fn ReadInt<P0, P1>(&self, psection: P0, pvaluename: P1, pvalue: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadInt)(windows_core::Interface::as_raw(self), psection.param().abi(), pvaluename.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ReadInt)(windows_core::Interface::as_raw(self), psection.param().abi(), pvaluename.param().abi(), pvalue as _).ok() }
     }
     pub unsafe fn WriteStruct<P0, P1>(&self, psection: P0, pvaluename: P1, pstruct: *mut core::ffi::c_void, cbstruct: u32) -> windows_core::Result<()>
     where
@@ -17171,7 +17079,7 @@ pub trait IPersistQuery_Impl: super::super::System::Com::IPersist_Impl {
     fn WriteString(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, pvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ReadString(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, pbuffer: windows_core::PWSTR, cchbuffer: i32) -> windows_core::Result<()>;
     fn WriteInt(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, value: i32) -> windows_core::Result<()>;
-    fn ReadInt(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR) -> windows_core::Result<i32>;
+    fn ReadInt(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, pvalue: *mut i32) -> windows_core::Result<()>;
     fn WriteStruct(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, pstruct: *mut core::ffi::c_void, cbstruct: u32) -> windows_core::Result<()>;
     fn ReadStruct(&self, psection: &windows_core::PCWSTR, pvaluename: &windows_core::PCWSTR, pstruct: *mut core::ffi::c_void, cbstruct: u32) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
@@ -17200,13 +17108,7 @@ impl IPersistQuery_Vtbl {
         unsafe extern "system" fn ReadInt<Identity: IPersistQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psection: windows_core::PCWSTR, pvaluename: windows_core::PCWSTR, pvalue: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPersistQuery_Impl::ReadInt(this, core::mem::transmute(&psection), core::mem::transmute(&pvaluename)) {
-                    Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPersistQuery_Impl::ReadInt(this, core::mem::transmute(&psection), core::mem::transmute(&pvaluename), core::mem::transmute_copy(&pvalue)).into()
             }
         }
         unsafe extern "system" fn WriteStruct<Identity: IPersistQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psection: windows_core::PCWSTR, pvaluename: windows_core::PCWSTR, pstruct: *mut core::ffi::c_void, cbstruct: u32) -> windows_core::HRESULT {

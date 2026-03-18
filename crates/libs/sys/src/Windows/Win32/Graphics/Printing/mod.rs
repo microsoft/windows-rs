@@ -451,6 +451,20 @@ impl Default for BranchOfficeJobData {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union BranchOfficeJobData_0 {
+    pub LogJobPrinted: BranchOfficeJobDataPrinted,
+    pub LogJobRendered: BranchOfficeJobDataRendered,
+    pub LogJobError: BranchOfficeJobDataError,
+    pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
+    pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
+}
+impl Default for BranchOfficeJobData_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct BranchOfficeJobDataContainer {
     pub cJobDataEntries: u32,
     pub JobData: [BranchOfficeJobData; 1],
@@ -520,20 +534,6 @@ pub struct BranchOfficeJobDataRendered {
     pub YResolution: i16,
     pub Copies: i16,
     pub TTOption: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union BranchOfficeJobData_0 {
-    pub LogJobPrinted: BranchOfficeJobDataPrinted,
-    pub LogJobRendered: BranchOfficeJobDataRendered,
-    pub LogJobError: BranchOfficeJobDataError,
-    pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
-    pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
-}
-impl Default for BranchOfficeJobData_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -711,11 +711,13 @@ impl Default for CPSUICBPARAM {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1014,11 +1016,13 @@ impl Default for DLGPAGE {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1722,11 +1726,13 @@ impl Default for EXTPUSH_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2710,14 +2716,14 @@ pub const MXDCOP_SET_S0PAGE: u32 = 28u32;
 pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
 pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
 pub const MXDC_ESCAPE: u32 = 4122u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MXDC_ESCAPE_HEADER_T {
     pub cbInput: u32,
     pub cbOutput: u32,
     pub opCode: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_GET_FILENAME_DATA_T {
     pub cbOutput: u32,
@@ -2737,7 +2743,7 @@ pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROT
 pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = 90i32;
 pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = 0i32;
 pub type MXDC_LANDSCAPE_ROTATION_ENUMS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_PRINTTICKET_DATA_T {
     pub dwDataSize: u32,
@@ -2748,7 +2754,7 @@ impl Default for MXDC_PRINTTICKET_DATA_T {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MXDC_PRINTTICKET_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
@@ -2764,7 +2770,7 @@ pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = 8i32;
 pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = 3i32;
 pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = 0i32;
 pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = 4i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_S0PAGE_DATA_T {
     pub dwSize: u32,
@@ -2775,20 +2781,20 @@ impl Default for MXDC_S0PAGE_DATA_T {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageData: MXDC_S0PAGE_DATA_T,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     pub mxdcEscape: MXDC_ESCAPE_HEADER_T,
     pub xpsS0PageResourcePassthrough: MXDC_XPS_S0PAGE_RESOURCE_T,
 }
 pub type MXDC_S0_PAGE_ENUMS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MXDC_XPS_S0PAGE_RESOURCE_T {
     pub dwSize: u32,
@@ -3053,11 +3059,13 @@ impl Default for OPTITEM {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for OPTITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4552,6 +4560,12 @@ impl Default for SPLCLIENT_INFO_1 {
 #[derive(Clone, Copy, Default)]
 pub struct SPLCLIENT_INFO_2_W2K {
     pub hSplPrinter: usize,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct SPLCLIENT_INFO_2_WINXP {
+    pub hSplPrinter: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

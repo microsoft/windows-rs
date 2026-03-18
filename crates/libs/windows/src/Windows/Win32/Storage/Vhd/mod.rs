@@ -13,9 +13,9 @@ pub unsafe fn ApplySnapshotVhdSet(virtualdiskhandle: super::super::Foundation::H
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::WIN32_ERROR {
+pub unsafe fn AttachVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, securitydescriptor: Option<super::super::Security::PSECURITY_DESCRIPTOR>, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: Option<*const ATTACH_VIRTUAL_DISK_PARAMETERS>, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn AttachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core:: WIN32_ERROR);
-    unsafe { AttachVirtualDisk(virtualdiskhandle, securitydescriptor, flags, providerspecificflags, parameters, overlapped) }
+    unsafe { AttachVirtualDisk(virtualdiskhandle, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, flags, providerspecificflags, parameters.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
@@ -24,9 +24,9 @@ pub unsafe fn BreakMirrorVirtualDisk(virtualdiskhandle: super::super::Foundation
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CompactVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::WIN32_ERROR {
+pub unsafe fn CompactVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: Option<*const COMPACT_VIRTUAL_DISK_PARAMETERS>, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn CompactVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : COMPACT_VIRTUAL_DISK_FLAG, parameters : *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core:: WIN32_ERROR);
-    unsafe { CompactVirtualDisk(virtualdiskhandle, flags, parameters, overlapped) }
+    unsafe { CompactVirtualDisk(virtualdiskhandle, flags, parameters.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR {
@@ -35,12 +35,12 @@ pub unsafe fn CompleteForkVirtualDisk(virtualdiskhandle: super::super::Foundatio
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CreateVirtualDisk<P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED, handle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR
+pub unsafe fn CreateVirtualDisk<P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, securitydescriptor: Option<super::super::Security::PSECURITY_DESCRIPTOR>, flags: CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped: Option<*const super::super::System::IO::OVERLAPPED>, handle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("virtdisk.dll" "system" fn CreateVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : windows_core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : CREATE_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED, handle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { CreateVirtualDisk(virtualstoragetype, path.param().abi(), virtualdiskaccessmask, securitydescriptor, flags, providerspecificflags, parameters, overlapped, handle as _) }
+    unsafe { CreateVirtualDisk(virtualstoragetype, path.param().abi(), virtualdiskaccessmask, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, flags, providerspecificflags, parameters, overlapped.unwrap_or(core::mem::zeroed()) as _, handle as _) }
 }
 #[inline]
 pub unsafe fn DeleteSnapshotVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> windows_core::WIN32_ERROR {
@@ -64,9 +64,9 @@ pub unsafe fn EnumerateVirtualDiskMetadata(virtualdiskhandle: super::super::Foun
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ExpandVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::WIN32_ERROR {
+pub unsafe fn ExpandVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn ExpandVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : EXPAND_VIRTUAL_DISK_FLAG, parameters : *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core:: WIN32_ERROR);
-    unsafe { ExpandVirtualDisk(virtualdiskhandle, flags, parameters, overlapped) }
+    unsafe { ExpandVirtualDisk(virtualdiskhandle, flags, parameters, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -80,14 +80,14 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mu
     unsafe { GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes as _, core::mem::transmute(pathsbuffer)) }
 }
 #[inline]
-pub unsafe fn GetStorageDependencyInformation(objecthandle: super::super::Foundation::HANDLE, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn GetStorageDependencyInformation(objecthandle: super::super::Foundation::HANDLE, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn GetStorageDependencyInformation(objecthandle : super::super::Foundation:: HANDLE, flags : GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize : u32, storagedependencyinfo : *mut STORAGE_DEPENDENCY_INFO, sizeused : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { GetStorageDependencyInformation(objecthandle, flags, storagedependencyinfosize, storagedependencyinfo as _, sizeused as _) }
+    unsafe { GetStorageDependencyInformation(objecthandle, flags, storagedependencyinfosize, storagedependencyinfo as _, sizeused.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn GetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn GetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn GetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfosize : *mut u32, virtualdiskinfo : *mut GET_VIRTUAL_DISK_INFO, sizeused : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { GetVirtualDiskInformation(virtualdiskhandle, virtualdiskinfosize as _, virtualdiskinfo as _, sizeused as _) }
+    unsafe { GetVirtualDiskInformation(virtualdiskhandle, virtualdiskinfosize as _, virtualdiskinfo as _, sizeused.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn GetVirtualDiskMetadata(virtualdiskhandle: super::super::Foundation::HANDLE, item: *const windows_core::GUID, metadatasize: *mut u32, metadata: *mut core::ffi::c_void) -> windows_core::WIN32_ERROR {
@@ -107,9 +107,9 @@ pub unsafe fn GetVirtualDiskPhysicalPath(virtualdiskhandle: super::super::Founda
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn MergeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::WIN32_ERROR {
+pub unsafe fn MergeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn MergeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MERGE_VIRTUAL_DISK_FLAG, parameters : *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core:: WIN32_ERROR);
-    unsafe { MergeVirtualDisk(virtualdiskhandle, flags, parameters, overlapped) }
+    unsafe { MergeVirtualDisk(virtualdiskhandle, flags, parameters, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -123,12 +123,12 @@ pub unsafe fn ModifyVhdSet(virtualdiskhandle: super::super::Foundation::HANDLE, 
     unsafe { ModifyVhdSet(virtualdiskhandle, parameters, flags) }
 }
 #[inline]
-pub unsafe fn OpenVirtualDisk<P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR
+pub unsafe fn OpenVirtualDisk<P1>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: P1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: Option<*const OPEN_VIRTUAL_DISK_PARAMETERS>, handle: *mut super::super::Foundation::HANDLE) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("virtdisk.dll" "system" fn OpenVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : windows_core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, flags : OPEN_VIRTUAL_DISK_FLAG, parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS, handle : *mut super::super::Foundation:: HANDLE) -> windows_core:: WIN32_ERROR);
-    unsafe { OpenVirtualDisk(virtualstoragetype, path.param().abi(), virtualdiskaccessmask, flags, parameters, handle as _) }
+    unsafe { OpenVirtualDisk(virtualstoragetype, path.param().abi(), virtualdiskaccessmask, flags, parameters.unwrap_or(core::mem::zeroed()) as _, handle as _) }
 }
 #[inline]
 pub unsafe fn QueryChangesVirtualDisk<P1>(virtualdiskhandle: super::super::Foundation::HANDLE, changetrackingid: P1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> windows_core::WIN32_ERROR
@@ -145,9 +145,9 @@ pub unsafe fn RawSCSIVirtualDisk(virtualdiskhandle: super::super::Foundation::HA
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn ResizeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::WIN32_ERROR {
+pub unsafe fn ResizeVirtualDisk(virtualdiskhandle: super::super::Foundation::HANDLE, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::WIN32_ERROR {
     windows_core::link!("virtdisk.dll" "system" fn ResizeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : RESIZE_VIRTUAL_DISK_FLAG, parameters : *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_core:: WIN32_ERROR);
-    unsafe { ResizeVirtualDisk(virtualdiskhandle, flags, parameters, overlapped) }
+    unsafe { ResizeVirtualDisk(virtualdiskhandle, flags, parameters, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetVirtualDiskInformation(virtualdiskhandle: super::super::Foundation::HANDLE, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> windows_core::WIN32_ERROR {
@@ -904,12 +904,16 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_0 {
-    pub VirtualSize: u64,
-    pub PhysicalSize: u64,
-    pub BlockSize: u32,
-    pub SectorSize: u32,
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+    pub Enabled: windows_core::BOOL,
+    pub NewerChanges: windows_core::BOOL,
+    pub MostRecentId: [u16; 1],
+}
+impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -930,16 +934,12 @@ pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub IsRemote: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_3 {
-    pub Enabled: windows_core::BOOL,
-    pub NewerChanges: windows_core::BOOL,
-    pub MostRecentId: [u16; 1],
-}
-impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+    pub VirtualSize: u64,
+    pub PhysicalSize: u64,
+    pub BlockSize: u32,
+    pub SectorSize: u32,
 }
 pub const GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(15i32);
 pub const GET_VIRTUAL_DISK_INFO_FRAGMENTATION: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(12i32);
@@ -1535,14 +1535,14 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SET_VIRTUAL_DISK_INFO_0_0 {
-    pub ChildDepth: u32,
+pub struct SET_VIRTUAL_DISK_INFO_0_1 {
+    pub LinkageId: windows_core::GUID,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SET_VIRTUAL_DISK_INFO_0_1 {
-    pub LinkageId: windows_core::GUID,
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+    pub ChildDepth: u32,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(6i32);

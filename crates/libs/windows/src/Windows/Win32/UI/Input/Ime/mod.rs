@@ -108,9 +108,9 @@ pub unsafe fn ImmGenerateMessage(param0: HIMC) -> windows_core::BOOL {
     unsafe { ImmGenerateMessage(param0) }
 }
 #[inline]
-pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
+pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    unsafe { ImmGetCandidateListA(param0, deindex, lpcandlist as _, dwbuflen) }
+    unsafe { ImmGetCandidateListA(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: *mut u32) -> u32 {
@@ -123,9 +123,9 @@ pub unsafe fn ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: *mut u32) -
     unsafe { ImmGetCandidateListCountW(param0, lpdwlistcount as _) }
 }
 #[inline]
-pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
+pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist as _, dwbuflen) }
+    unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> windows_core::BOOL {
@@ -145,14 +145,14 @@ pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::super::supe
     unsafe { ImmGetCompositionFontW(param0, lplf as _) }
 }
 #[inline]
-pub unsafe fn ImmGetCompositionStringA(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut core::ffi::c_void, dwbuflen: u32) -> i32 {
+pub unsafe fn ImmGetCompositionStringA(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    unsafe { ImmGetCompositionStringA(param0, param1, lpbuf as _, dwbuflen) }
+    unsafe { ImmGetCompositionStringA(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
-pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut core::ffi::c_void, dwbuflen: u32) -> i32 {
+pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    unsafe { ImmGetCompositionStringW(param0, param1, lpbuf as _, dwbuflen) }
+    unsafe { ImmGetCompositionStringW(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> windows_core::BOOL {
@@ -183,9 +183,9 @@ where
     unsafe { ImmGetConversionListW(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
 #[inline]
-pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: *mut IME_CONVERSION_MODE, lpfdwsentence: *mut IME_SENTENCE_MODE) -> windows_core::BOOL {
+pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut IME_CONVERSION_MODE>, lpfdwsentence: Option<*mut IME_SENTENCE_MODE>) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> windows_core::BOOL);
-    unsafe { ImmGetConversionStatus(param0, lpfdwconversion as _, lpfdwsentence as _) }
+    unsafe { ImmGetConversionStatus(param0, lpfdwconversion.unwrap_or(core::mem::zeroed()) as _, lpfdwsentence.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
@@ -194,25 +194,25 @@ pub unsafe fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND)
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetDescriptionA(param0: super::KeyboardAndMouse::HKL, lpszdescription: windows_core::PSTR, ubuflen: u32) -> u32 {
+pub unsafe fn ImmGetDescriptionA(param0: super::KeyboardAndMouse::HKL, lpszdescription: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription), ubuflen) }
+    unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetDescriptionW(param0: super::KeyboardAndMouse::HKL, lpszdescription: windows_core::PWSTR, ubuflen: u32) -> u32 {
+pub unsafe fn ImmGetDescriptionW(param0: super::KeyboardAndMouse::HKL, lpszdescription: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription), ubuflen) }
+    unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: windows_core::PSTR, dwbuflen: u32) -> u32 {
+pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
-    unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf), dwbuflen) }
+    unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: windows_core::PWSTR, dwbuflen: u32) -> u32 {
+pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: Option<windows_core::PWSTR>, dwbuflen: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
-    unsafe { ImmGetGuideLineW(param0, dwindex, core::mem::transmute(lpbuf), dwbuflen) }
+    unsafe { ImmGetGuideLineW(param0, dwindex, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
@@ -237,27 +237,27 @@ pub unsafe fn ImmGetIMCLockCount(param0: HIMC) -> u32 {
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameA(param0: super::KeyboardAndMouse::HKL, lpszfilename: windows_core::PSTR, ubuflen: u32) -> u32 {
+pub unsafe fn ImmGetIMEFileNameA(param0: super::KeyboardAndMouse::HKL, lpszfilename: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename), ubuflen) }
+    unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetIMEFileNameW(param0: super::KeyboardAndMouse::HKL, lpszfilename: windows_core::PWSTR, ubuflen: u32) -> u32 {
+pub unsafe fn ImmGetIMEFileNameW(param0: super::KeyboardAndMouse::HKL, lpszfilename: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename), ubuflen) }
+    unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32 {
+pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOA>, lpimemenu: Option<*mut IMEMENUITEMINFOA>, dwsize: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
-    unsafe { ImmGetImeMenuItemsA(param0, param1, param2, lpimeparentmenu as _, lpimemenu as _, dwsize) }
+    unsafe { ImmGetImeMenuItemsA(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32 {
+pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOW>, lpimemenu: Option<*mut IMEMENUITEMINFOW>, dwsize: u32) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
-    unsafe { ImmGetImeMenuItemsW(param0, param1, param2, lpimeparentmenu as _, lpimemenu as _, dwsize) }
+    unsafe { ImmGetImeMenuItemsW(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[inline]
 pub unsafe fn ImmGetOpenStatus(param0: HIMC) -> windows_core::BOOL {
@@ -272,15 +272,15 @@ pub unsafe fn ImmGetProperty(param0: super::KeyboardAndMouse::HKL, param1: u32) 
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleA(param0: super::KeyboardAndMouse::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
+pub unsafe fn ImmGetRegisterWordStyleA(param0: super::KeyboardAndMouse::HKL, lpstylebuf: &mut [STYLEBUFA]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
-    unsafe { ImmGetRegisterWordStyleA(param0, nitem, lpstylebuf as _) }
+    unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
-pub unsafe fn ImmGetRegisterWordStyleW(param0: super::KeyboardAndMouse::HKL, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
+pub unsafe fn ImmGetRegisterWordStyleW(param0: super::KeyboardAndMouse::HKL, lpstylebuf: &mut [STYLEBUFW]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
-    unsafe { ImmGetRegisterWordStyleW(param0, nitem, lpstylebuf as _) }
+    unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
 #[inline]
 pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
@@ -402,14 +402,14 @@ pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::super::su
     unsafe { ImmSetCompositionFontW(param0, lplf) }
 }
 #[inline]
-pub unsafe fn ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const core::ffi::c_void, dwcomplen: u32, lpread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::BOOL {
+pub unsafe fn ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
-    unsafe { ImmSetCompositionStringA(param0, dwindex, lpcomp, dwcomplen, lpread, dwreadlen) }
+    unsafe { ImmSetCompositionStringA(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
-pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const core::ffi::c_void, dwcomplen: u32, lpread: *const core::ffi::c_void, dwreadlen: u32) -> windows_core::BOOL {
+pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
     windows_core::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
-    unsafe { ImmSetCompositionStringW(param0, dwindex, lpcomp, dwcomplen, lpread, dwreadlen) }
+    unsafe { ImmSetCompositionStringW(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
 pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> windows_core::BOOL {
@@ -4082,7 +4082,7 @@ impl IEnumRegisterWordW_Vtbl {
 impl windows_core::RuntimeName for IEnumRegisterWordW {}
 pub const IFEC_S_ALREADY_DEFAULT: windows_core::HRESULT = windows_core::HRESULT(0x47400_u32 as _);
 #[cfg(feature = "Win32_System_Com")]
-windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0xbfb91b95_0108_53b4_9458_bc8819fbc463);
+windows_core::imp::define_interface!(IFEClassFactory, IFEClassFactory_Vtbl, 0);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IFEClassFactory {
     type Target = super::super::super::System::Com::IClassFactory;
@@ -4120,17 +4120,11 @@ impl IFECommon {
     pub unsafe fn SetDefaultIME(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultIME)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn InvokeWordRegDialog(&self) -> windows_core::Result<IMEDLG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeWordRegDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).InvokeWordRegDialog)(windows_core::Interface::as_raw(self), pimedlg as _).ok() }
     }
-    pub unsafe fn InvokeDictToolDialog(&self) -> windows_core::Result<IMEDLG> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeDictToolDialog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).InvokeDictToolDialog)(windows_core::Interface::as_raw(self), pimedlg as _).ok() }
     }
 }
 #[repr(C)]
@@ -4145,8 +4139,8 @@ pub struct IFECommon_Vtbl {
 pub trait IFECommon_Impl: windows_core::IUnknownImpl {
     fn IsDefaultIME(&self, szname: &windows_core::PCSTR, cszname: i32) -> windows_core::Result<()>;
     fn SetDefaultIME(&self) -> windows_core::Result<()>;
-    fn InvokeWordRegDialog(&self) -> windows_core::Result<IMEDLG>;
-    fn InvokeDictToolDialog(&self) -> windows_core::Result<IMEDLG>;
+    fn InvokeWordRegDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
+    fn InvokeDictToolDialog(&self, pimedlg: *mut IMEDLG) -> windows_core::Result<()>;
 }
 impl IFECommon_Vtbl {
     pub const fn new<Identity: IFECommon_Impl, const OFFSET: isize>() -> Self {
@@ -4165,25 +4159,13 @@ impl IFECommon_Vtbl {
         unsafe extern "system" fn InvokeWordRegDialog<Identity: IFECommon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimedlg: *mut IMEDLG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFECommon_Impl::InvokeWordRegDialog(this) {
-                    Ok(ok__) => {
-                        pimedlg.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFECommon_Impl::InvokeWordRegDialog(this, core::mem::transmute_copy(&pimedlg)).into()
             }
         }
         unsafe extern "system" fn InvokeDictToolDialog<Identity: IFECommon_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimedlg: *mut IMEDLG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFECommon_Impl::InvokeDictToolDialog(this) {
-                    Ok(ok__) => {
-                        pimedlg.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFECommon_Impl::InvokeDictToolDialog(this, core::mem::transmute_copy(&pimedlg)).into()
             }
         }
         Self {
@@ -4318,14 +4300,14 @@ pub const IFED_WX_III: IMEFMT = IMEFMT(18i32);
 windows_core::imp::define_interface!(IFEDictionary, IFEDictionary_Vtbl, 0x019f7153_e6db_11d0_83c3_00c04fddb82e);
 windows_core::imp::interface_hierarchy!(IFEDictionary, windows_core::IUnknown);
 impl IFEDictionary {
-    pub unsafe fn Open(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_ptr()), pshf as _).ok() }
+    pub unsafe fn Open(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pshf as _).ok() }
     }
     pub unsafe fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetHeader(&self, pchdictpath: &mut [u8; 260], pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_ptr()), pshf as _, pjfmt as _, pultype as _).ok() }
+    pub unsafe fn GetHeader(&self, pchdictpath: Option<&mut [u8; 260]>, pshf: *mut IMESHF, pjfmt: *mut IMEFMT, pultype: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), core::mem::transmute(pchdictpath.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pshf as _, pjfmt as _, pultype as _).ok() }
     }
     pub unsafe fn DisplayProperty(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisplayProperty)(windows_core::Interface::as_raw(self), hwnd).ok() }
@@ -4573,23 +4555,14 @@ impl IFELanguage {
     {
         unsafe { (windows_core::Interface::vtable(self).GetJMorphResult)(windows_core::Interface::as_raw(self), dwrequest, dwcmode, cwchinput, pwchinput.param().abi(), pfcinfo as _, ppresult as _).ok() }
     }
-    pub unsafe fn GetConversionModeCaps(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConversionModeCaps)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetConversionModeCaps)(windows_core::Interface::as_raw(self), pdwcaps as _).ok() }
     }
-    pub unsafe fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPhonetic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), start, length, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPhonetic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), start, length, core::mem::transmute(phonetic)).ok() }
     }
-    pub unsafe fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetConversion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), start, length, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetConversion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), start, length, core::mem::transmute(result)).ok() }
     }
 }
 #[repr(C)]
@@ -4607,9 +4580,9 @@ pub trait IFELanguage_Impl: windows_core::IUnknownImpl {
     fn Open(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetJMorphResult(&self, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: &windows_core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> windows_core::Result<()>;
-    fn GetConversionModeCaps(&self) -> windows_core::Result<u32>;
-    fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn GetConversionModeCaps(&self, pdwcaps: *mut u32) -> windows_core::Result<()>;
+    fn GetPhonetic(&self, string: &windows_core::BSTR, start: i32, length: i32, phonetic: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetConversion(&self, string: &windows_core::BSTR, start: i32, length: i32, result: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IFELanguage_Vtbl {
     pub const fn new<Identity: IFELanguage_Impl, const OFFSET: isize>() -> Self {
@@ -4634,37 +4607,19 @@ impl IFELanguage_Vtbl {
         unsafe extern "system" fn GetConversionModeCaps<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcaps: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFELanguage_Impl::GetConversionModeCaps(this) {
-                    Ok(ok__) => {
-                        pdwcaps.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFELanguage_Impl::GetConversionModeCaps(this, core::mem::transmute_copy(&pdwcaps)).into()
             }
         }
         unsafe extern "system" fn GetPhonetic<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: *mut core::ffi::c_void, start: i32, length: i32, phonetic: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFELanguage_Impl::GetPhonetic(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length)) {
-                    Ok(ok__) => {
-                        phonetic.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFELanguage_Impl::GetPhonetic(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length), core::mem::transmute_copy(&phonetic)).into()
             }
         }
         unsafe extern "system" fn GetConversion<Identity: IFELanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, string: *mut core::ffi::c_void, start: i32, length: i32, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFELanguage_Impl::GetConversion(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length)) {
-                    Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IFELanguage_Impl::GetConversion(this, core::mem::transmute(&string), core::mem::transmute_copy(&start), core::mem::transmute_copy(&length), core::mem::transmute_copy(&result)).into()
             }
         }
         Self {
@@ -4875,11 +4830,8 @@ impl windows_core::RuntimeName for IImePlugInDictDictionaryList {}
 windows_core::imp::define_interface!(IImeSpecifyApplets, IImeSpecifyApplets_Vtbl, 0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
 windows_core::imp::interface_hierarchy!(IImeSpecifyApplets, windows_core::IUnknown);
 impl IImeSpecifyApplets {
-    pub unsafe fn GetAppletIIDList(&self, refiid: *const windows_core::GUID) -> windows_core::Result<APPLETIDLIST> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAppletIIDList)(windows_core::Interface::as_raw(self), refiid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetAppletIIDList)(windows_core::Interface::as_raw(self), refiid, lpiidlist as _).ok() }
     }
 }
 #[repr(C)]
@@ -4889,20 +4841,14 @@ pub struct IImeSpecifyApplets_Vtbl {
     pub GetAppletIIDList: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut APPLETIDLIST) -> windows_core::HRESULT,
 }
 pub trait IImeSpecifyApplets_Impl: windows_core::IUnknownImpl {
-    fn GetAppletIIDList(&self, refiid: *const windows_core::GUID) -> windows_core::Result<APPLETIDLIST>;
+    fn GetAppletIIDList(&self, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::Result<()>;
 }
 impl IImeSpecifyApplets_Vtbl {
     pub const fn new<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAppletIIDList<Identity: IImeSpecifyApplets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IImeSpecifyApplets_Impl::GetAppletIIDList(this, core::mem::transmute_copy(&refiid)) {
-                    Ok(ok__) => {
-                        lpiidlist.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IImeSpecifyApplets_Impl::GetAppletIIDList(this, core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&lpiidlist)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAppletIIDList: GetAppletIIDList::<Identity, OFFSET> }
@@ -4992,15 +4938,15 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
     pub hwnd: super::super::super::Foundation::HWND,
     pub lpwstrWord: windows_core::PWSTR,
     pub nTabId: i32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
@@ -5070,8 +5016,8 @@ pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
 pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -5083,8 +5029,8 @@ impl Default for IMEKMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
@@ -5096,20 +5042,20 @@ impl Default for IMEKMSFUNCDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
     pub hWnd: super::super::super::Foundation::HWND,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
     pub hIMC: HIMC,
     pub dwControl: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
@@ -5123,7 +5069,7 @@ impl Default for IMEKMSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
@@ -5134,7 +5080,7 @@ impl Default for IMEKMSKEY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
@@ -5145,8 +5091,8 @@ impl Default for IMEKMSKEY_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -5161,8 +5107,8 @@ impl Default for IMEKMSKMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
     pub hIMC: HIMC,
@@ -5298,8 +5244,8 @@ pub struct IMEREG(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMEREL(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
     pub verDic: u16,
@@ -5349,7 +5295,7 @@ pub struct IMESTRINGINFO {
 pub struct IMEUCT(pub i32);
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_core::PWSTR,
@@ -5365,7 +5311,7 @@ impl Default for IMEWRD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
@@ -5376,8 +5322,8 @@ impl Default for IMEWRD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
@@ -5874,7 +5820,7 @@ pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
 pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
@@ -5896,7 +5842,7 @@ impl Default for MORRSLT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_core::PWSTR,
@@ -5907,7 +5853,7 @@ impl Default for MORRSLT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
@@ -5918,7 +5864,7 @@ impl Default for MORRSLT_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
@@ -5946,8 +5892,8 @@ pub struct NOTIFY_IME_ACTION(pub u32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_IME_INDEX(pub u32);
 pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_core::HRESULT) -> windows_core::BOOL>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
@@ -6082,7 +6028,7 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
@@ -6099,7 +6045,7 @@ impl Default for WDD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
@@ -6110,7 +6056,7 @@ impl Default for WDD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,

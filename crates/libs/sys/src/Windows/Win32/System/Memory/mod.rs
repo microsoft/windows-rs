@@ -178,6 +178,24 @@ pub const LPTR: LOCAL_ALLOC_FLAGS = 64u32;
 pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0i32;
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct MEMORY_BASIC_INFORMATION {
+    pub BaseAddress: *mut core::ffi::c_void,
+    pub AllocationBase: *mut core::ffi::c_void,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub RegionSize: usize,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+}
+#[cfg(target_arch = "x86")]
+impl Default for MEMORY_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct MEMORY_BASIC_INFORMATION {

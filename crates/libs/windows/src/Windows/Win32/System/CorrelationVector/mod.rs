@@ -9,9 +9,9 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     unsafe { RtlIncrementCorrelationVector(correlationvector as _) }
 }
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const windows_core::GUID) -> u32 {
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : *mut CORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
-    unsafe { RtlInitializeCorrelationVector(correlationvector as _, version, guid) }
+    unsafe { RtlInitializeCorrelationVector(correlationvector as _, version, guid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {

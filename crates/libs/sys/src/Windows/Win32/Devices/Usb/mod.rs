@@ -146,7 +146,7 @@ pub const HCD_GET_DRIVERKEY_NAME: u32 = 265u32;
 pub const HCD_GET_ROOT_HUB_NAME: u32 = 258u32;
 pub const HCD_GET_STATS_1: u32 = 255u32;
 pub const HCD_GET_STATS_2: u32 = 266u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct HCD_ISO_STAT_COUNTERS {
     pub LateUrbs: u16,
@@ -175,7 +175,7 @@ impl Default for HCD_ISO_STAT_COUNTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct HCD_STAT_COUNTERS {
     pub BytesTransferred: u32,
@@ -190,7 +190,7 @@ pub struct HCD_STAT_COUNTERS {
     pub StallPidCount: u16,
     pub PortDisableCount: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct HCD_STAT_INFORMATION_1 {
     pub Reserved1: u32,
@@ -199,7 +199,7 @@ pub struct HCD_STAT_INFORMATION_1 {
     pub TimeRead: i64,
     pub Counters: HCD_STAT_COUNTERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct HCD_STAT_INFORMATION_2 {
     pub Reserved1: u32,
@@ -212,7 +212,7 @@ pub struct HCD_STAT_INFORMATION_2 {
 }
 pub const HCD_TRACE_READ_REQUEST: u32 = 275u32;
 pub const HCD_USER_REQUEST: u32 = 270u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct HUB_DEVICE_CONFIG_INFO {
     pub Version: u32,
@@ -401,7 +401,7 @@ impl Default for OS_STRING_0 {
 }
 pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
 pub const OverCurrent: USB_NOTIFICATION_TYPE = 3i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PACKET_PARAMETERS {
     pub DeviceAddress: u8,
@@ -439,20 +439,20 @@ pub const PORT_LINK_STATE_U2: u32 = 2u32;
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
 pub const RAW_IO: WINUSB_PIPE_POLICY = 7u32;
 pub type RAW_PIPE_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RAW_RESET_PORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RAW_ROOTPORT_FEATURE {
     pub PortNumber: u16,
     pub PortFeature: u16,
     pub PortStatus: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RAW_ROOTPORT_PARAMETERS {
     pub PortNumber: u16,
@@ -597,7 +597,7 @@ impl Default for USBD_DEVICE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
@@ -867,32 +867,32 @@ pub struct USBSCAN_TIMEOUT {
     pub TimeoutWrite: u32,
     pub TimeoutEvent: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BandwidthInformation: USB_BANDWIDTH_INFO,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BusStatistics0: USB_BUS_STATISTICS_0,
 }
 pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_CLOSE_RAW_DEVICE_PARAMETERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_CONTROLLER_INFO_0 {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Info0: USB_CONTROLLER_INFO_0,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -902,7 +902,7 @@ pub const USBUSER_GET_BANDWIDTH_INFORMATION: u32 = 5u32;
 pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
 pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
 pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_GET_DRIVER_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -911,7 +911,7 @@ pub struct USBUSER_GET_DRIVER_VERSION {
 pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
 pub const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7u32;
 pub const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -920,7 +920,7 @@ pub struct USBUSER_GET_USB2HW_VERSION {
 pub const USBUSER_GET_USB2_HW_VERSION: u32 = 9u32;
 pub const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8u32;
 pub const USBUSER_INVALID_REQUEST: u32 = 4294967280u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -934,31 +934,31 @@ pub const USBUSER_OP_RAW_RESET_PORT: u32 = 536870913u32;
 pub const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457u32;
 pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
 pub const USBUSER_PASS_THRU: u32 = 3u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_PASS_THRU_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PassThru: USB_PASS_THRU_PARAMETERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_POWER_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PowerInformation: USB_POWER_INFO,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_RAW_RESET_ROOT_PORT {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_RESET_PORT_PARAMETERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_REFRESH_HCT_REG {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Flags: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_REQUEST_HEADER {
     pub UsbUserRequest: u32,
@@ -966,25 +966,25 @@ pub struct USBUSER_REQUEST_HEADER {
     pub RequestBufferLength: u32,
     pub ActualBufferLength: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_ROOTPORT_FEATURE_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_FEATURE,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_ROOTPORT_PARAMETERS {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_PARAMETERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_SEND_ONE_PACKET {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PacketParameters: PACKET_PARAMETERS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -995,7 +995,7 @@ pub const USBUSER_USB_REFRESH_HCT_REG: u32 = 10u32;
 pub const USBUSER_VERSION: u32 = 4u32;
 pub const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252u32;
 pub const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_20_PORT_CHANGE {
     pub AsUshort16: u16,
@@ -1006,12 +1006,12 @@ impl Default for USB_20_PORT_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_20_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_20_PORT_STATUS {
     pub AsUshort16: u16,
@@ -1022,7 +1022,7 @@ impl Default for USB_20_PORT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
@@ -1033,7 +1033,7 @@ pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16u32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0u32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32u32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_30_HUB_DESCRIPTOR {
     pub bLength: u8,
@@ -1047,7 +1047,7 @@ pub struct USB_30_HUB_DESCRIPTOR {
     pub DeviceRemovable: u16,
 }
 pub const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_30_PORT_CHANGE {
     pub AsUshort16: u16,
@@ -1058,12 +1058,12 @@ impl Default for USB_30_PORT_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_30_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_30_PORT_STATUS {
     pub AsUshort16: u16,
@@ -1074,12 +1074,12 @@ impl Default for USB_30_PORT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_30_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ACQUIRE_INFO {
     pub NotificationType: USB_NOTIFICATION_TYPE,
@@ -1092,7 +1092,7 @@ impl Default for USB_ACQUIRE_INFO {
     }
 }
 pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_BANDWIDTH_INFO {
     pub DeviceCount: u32,
@@ -1107,7 +1107,7 @@ pub struct USB_BANDWIDTH_INFO {
     pub AllocedInterrupt_16ms: u32,
     pub AllocedInterrupt_32ms: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_BOS_DESCRIPTOR {
     pub bLength: u8,
@@ -1116,7 +1116,7 @@ pub struct USB_BOS_DESCRIPTOR {
     pub bNumDeviceCaps: u8,
 }
 pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_BUS_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
@@ -1124,7 +1124,7 @@ pub struct USB_BUS_NOTIFICATION {
     pub ConsumedBandwidth: u32,
     pub ControllerNameLength: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_BUS_STATISTICS_0 {
     pub DeviceCount: u32,
@@ -1149,7 +1149,7 @@ pub const USB_CHARGING_POLICY_DEFAULT: u32 = 0u32;
 pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1u32;
 pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2u32;
 pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
     pub xxx: u32,
@@ -1182,7 +1182,7 @@ pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub NumberOfInterfaces: u8,
     pub FunctionIsIdle: bool,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bLength: u8,
@@ -1195,7 +1195,7 @@ pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub MaxPower: u8,
 }
 pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub bLength: u8,
@@ -1223,7 +1223,7 @@ pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
 pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
 pub const USB_CONFIG_RESERVED: u32 = 31u32;
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONNECTION_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
@@ -1234,7 +1234,7 @@ pub struct USB_CONNECTION_NOTIFICATION {
     pub HubNameLength: u32,
 }
 pub type USB_CONNECTION_STATUS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONTROLLER_DEVICE_INFO {
     pub PciVendorId: u32,
@@ -1244,7 +1244,7 @@ pub struct USB_CONTROLLER_DEVICE_INFO {
     pub HcFeatureFlags: u32,
 }
 pub type USB_CONTROLLER_FLAVOR = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CONTROLLER_INFO_0 {
     pub PciVendorId: u32,
@@ -1255,7 +1255,7 @@ pub struct USB_CONTROLLER_INFO_0 {
     pub HcFeatureFlags: u32,
 }
 pub const USB_CYCLE_PORT: u32 = 7u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_CYCLE_PORT_PARAMS {
     pub ConnectionIndex: u32,
@@ -1265,7 +1265,7 @@ pub const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10u32;
 pub const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0u32;
 pub const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0u32;
 pub const USB_DEFAULT_MAX_PACKET: u32 = 64u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
@@ -1279,24 +1279,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
-    pub W: u16,
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
@@ -1313,7 +1296,24 @@ pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
 }
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
+    pub W: u16,
+}
+impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DESCRIPTOR_REQUEST {
     pub ConnectionIndex: u32,
@@ -1325,7 +1325,7 @@ impl Default for USB_DESCRIPTOR_REQUEST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DESCRIPTOR_REQUEST_0 {
     pub bmRequest: u8,
@@ -1336,7 +1336,7 @@ pub struct USB_DESCRIPTOR_REQUEST_0 {
 }
 pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7u32;
 pub const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub bLength: u8,
@@ -1355,7 +1355,14 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+    pub wSVID: u16,
+    pub bAlternateMode: u8,
+    pub iAlternateModeSetting: u8,
+}
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     pub AsUshort: u16,
@@ -1366,17 +1373,10 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    pub wSVID: u16,
-    pub bAlternateMode: u8,
-    pub iAlternateModeSetting: u8,
 }
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
 #[repr(C)]
@@ -1416,7 +1416,7 @@ impl Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     pub AsUlong: u32,
@@ -1427,7 +1427,7 @@ impl Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
@@ -1435,7 +1435,7 @@ pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
 pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10u32;
 pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047u32;
 pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     pub bLength: u8,
@@ -1455,7 +1455,7 @@ impl Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     pub AsUshort: u16,
@@ -1466,14 +1466,14 @@ impl Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
 pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9u32;
 pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bLength: u8,
@@ -1489,7 +1489,7 @@ impl Default for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     }
 }
 pub const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     pub bLength: u8,
@@ -1508,7 +1508,7 @@ impl Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     pub AsUlong: u32,
@@ -1519,13 +1519,13 @@ impl Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
 pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     pub AsUlong32: u32,
@@ -1536,7 +1536,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
@@ -1552,7 +1552,7 @@ pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     pub bLength: u8,
@@ -1569,7 +1569,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     pub AsUlong: u32,
@@ -1580,12 +1580,12 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     pub AsUshort: u16,
@@ -1596,7 +1596,7 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
@@ -1611,7 +1611,7 @@ pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bLength: u8,
@@ -1638,7 +1638,7 @@ impl Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     pub AsUlong: u32,
@@ -1649,13 +1649,13 @@ impl Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
 pub const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_CHARACTERISTICS {
     pub Version: u32,
@@ -1694,7 +1694,7 @@ pub const USB_DEVICE_CLASS_STORAGE: u32 = 8u32;
 pub const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255u32;
 pub const USB_DEVICE_CLASS_VIDEO: u32 = 14u32;
 pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_DESCRIPTOR {
     pub bLength: u8,
@@ -1714,7 +1714,7 @@ pub struct USB_DEVICE_DESCRIPTOR {
 }
 pub const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1u32;
 pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_INFO {
     pub DeviceState: USB_DEVICE_STATE,
@@ -1737,7 +1737,7 @@ impl Default for USB_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_NODE_INFO {
     pub Sig: u32,
@@ -1766,7 +1766,7 @@ impl Default for USB_DEVICE_NODE_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_DEVICE_PERFORMANCE_INFO {
     pub BulkBytes: u32,
@@ -1798,7 +1798,7 @@ impl Default for USB_DEVICE_PERFORMANCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bLength: u8,
@@ -1813,12 +1813,12 @@ pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
 }
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
 pub type USB_DEVICE_SPEED = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_STATE {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_STATUS {
     pub AsUshort16: u16,
@@ -1829,7 +1829,7 @@ impl Default for USB_DEVICE_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
@@ -1838,7 +1838,7 @@ pub type USB_DEVICE_TYPE = i32;
 pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub DriverTrackingCode: u32,
@@ -1850,7 +1850,7 @@ pub struct USB_DRIVER_VERSION_PARAMETERS {
 }
 pub const USB_ENABLE_PORT: u32 = 5u32;
 pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_ENDPOINT_DESCRIPTOR {
     pub bLength: u8,
@@ -1862,7 +1862,7 @@ pub struct USB_ENDPOINT_DESCRIPTOR {
 }
 pub const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5u32;
 pub const USB_ENDPOINT_DIRECTION_MASK: u32 = 128u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_ENDPOINT_STATUS {
     pub AsUshort16: u16,
@@ -1873,7 +1873,7 @@ impl Default for USB_ENDPOINT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
@@ -1917,7 +1917,7 @@ pub const USB_FEATURE_REMOTE_WAKEUP: u32 = 1u32;
 pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
 pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
 pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -1988,7 +1988,7 @@ pub const USB_GET_ROOTHUB_PDO: u32 = 3u32;
 pub const USB_GET_TOPOLOGY_ADDRESS: u32 = 271u32;
 pub const USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 281u32;
 pub const USB_GET_TT_DEVICE_HANDLE: u32 = 270u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HCD_DRIVERKEY_NAME {
     pub ActualLength: u32,
@@ -2003,7 +2003,7 @@ pub const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1u32;
 pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
 pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
 pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HIGH_SPEED_MAXPACKET {
     pub us: u16,
@@ -2013,7 +2013,7 @@ impl Default for USB_HIGH_SPEED_MAXPACKET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HIGH_SPEED_MAXPACKET_0 {
     pub _bitfield: u16,
@@ -2034,7 +2034,7 @@ impl Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CAPABILITIES {
     pub _bitfield: u32,
@@ -2049,7 +2049,7 @@ impl Default for USB_HUB_CAPABILITIES_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_CAP_FLAGS {
     pub ul: u32,
@@ -2060,12 +2060,12 @@ impl Default for USB_HUB_CAP_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CAP_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_CHANGE {
     pub AsUshort16: u16,
@@ -2076,13 +2076,13 @@ impl Default for USB_HUB_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
 }
 pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DESCRIPTOR {
     pub bDescriptorLength: u8,
@@ -2098,7 +2098,7 @@ impl Default for USB_HUB_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_INFO {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
@@ -2115,7 +2115,7 @@ impl Default for USB_HUB_DEVICE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_DEVICE_UXD_SETTINGS {
     pub Version: u32,
@@ -2137,7 +2137,7 @@ pub struct USB_HUB_INFORMATION {
     pub HubDescriptor: USB_HUB_DESCRIPTOR,
     pub HubIsBusPowered: bool,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_INFORMATION_EX {
     pub HubType: USB_HUB_TYPE,
@@ -2160,7 +2160,7 @@ impl Default for USB_HUB_INFORMATION_EX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_NAME {
     pub ActualLength: u32,
@@ -2172,7 +2172,7 @@ impl Default for USB_HUB_NAME {
     }
 }
 pub type USB_HUB_NODE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_PORT_INFORMATION {
     pub DeviceState: USB_DEVICE_STATE,
@@ -2181,7 +2181,7 @@ pub struct USB_HUB_PORT_INFORMATION {
     pub ConnectionIndex: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_STATUS {
     pub AsUshort16: u16,
@@ -2192,12 +2192,12 @@ impl Default for USB_HUB_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_STATUS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
@@ -2235,7 +2235,7 @@ impl Default for USB_IDLE_CALLBACK_INFO {
 }
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
 pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ID_STRING {
     pub LanguageId: u16,
@@ -2275,7 +2275,7 @@ pub struct USB_INTERFACE_DESCRIPTOR {
     pub iInterface: u8,
 }
 pub const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub bLength: u8,
@@ -2292,7 +2292,7 @@ pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub TransitionTimeFromD3: u16,
 }
 pub const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_INTERFACE_STATUS {
     pub AsUshort16: u16,
@@ -2303,24 +2303,24 @@ impl Default for USB_INTERFACE_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_INTERFACE_STATUS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_MI_PARENT_INFORMATION {
     pub NumberOfInterfaces: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_NODE_CONNECTION_ATTRIBUTES {
     pub ConnectionIndex: u32,
     pub ConnectionStatus: USB_CONNECTION_STATUS,
     pub PortAttributes: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_DRIVERKEY_NAME {
     pub ConnectionIndex: u32,
@@ -2332,7 +2332,7 @@ impl Default for USB_NODE_CONNECTION_DRIVERKEY_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION {
     pub ConnectionIndex: u32,
@@ -2350,7 +2350,7 @@ impl Default for USB_NODE_CONNECTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX {
     pub ConnectionIndex: u32,
@@ -2368,7 +2368,7 @@ impl Default for USB_NODE_CONNECTION_INFORMATION_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2 {
     pub ConnectionIndex: u32,
@@ -2381,7 +2381,7 @@ impl Default for USB_NODE_CONNECTION_INFORMATION_EX_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
     pub ul: u32,
@@ -2392,12 +2392,12 @@ impl Default for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_NAME {
     pub ConnectionIndex: u32,
@@ -2409,7 +2409,7 @@ impl Default for USB_NODE_CONNECTION_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_INFORMATION {
     pub NodeType: USB_HUB_NODE,
@@ -2431,14 +2431,14 @@ impl Default for USB_NODE_INFORMATION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_NOTIFICATION {
     pub NotificationType: USB_NOTIFICATION_TYPE,
 }
 pub type USB_NOTIFICATION_TYPE = i32;
 pub const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_OPEN_RAW_DEVICE_PARAMETERS {
     pub PortStatus: u16,
@@ -2456,7 +2456,7 @@ pub const USB_PACKETFLAG_LOW_SPEED: u32 = 1u32;
 pub const USB_PACKETFLAG_SETUP: u32 = 128u32;
 pub const USB_PACKETFLAG_TOGGLE0: u32 = 256u32;
 pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_PASS_THRU_PARAMETERS {
     pub FunctionGUID: windows_sys::core::GUID,
@@ -2468,7 +2468,7 @@ impl Default for USB_PASS_THRU_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PIPE_INFO {
     pub EndpointDescriptor: USB_ENDPOINT_DESCRIPTOR,
@@ -2480,7 +2480,7 @@ pub const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432u32;
 pub const USB_PORTATTR_OEM_CONNECTOR: u32 = 8u32;
 pub const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216u32;
 pub const USB_PORTATTR_SHARED_USB2: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_CHANGE {
     pub AsUshort16: u16,
@@ -2492,7 +2492,7 @@ impl Default for USB_PORT_CHANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_PORT_CONNECTOR_PROPERTIES {
     pub ConnectionIndex: u32,
@@ -2507,7 +2507,7 @@ impl Default for USB_PORT_CONNECTOR_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_EXT_STATUS {
     pub AsUlong32: u32,
@@ -2518,12 +2518,12 @@ impl Default for USB_PORT_EXT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PORT_EXT_STATUS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_EXT_STATUS_AND_CHANGE {
     pub AsUlong64: u64,
@@ -2545,7 +2545,7 @@ impl Default for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_PROPERTIES {
     pub ul: u32,
@@ -2556,12 +2556,12 @@ impl Default for USB_PORT_PROPERTIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PORT_PROPERTIES_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_STATUS {
     pub AsUshort16: u16,
@@ -2573,7 +2573,7 @@ impl Default for USB_PORT_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PORT_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
@@ -2603,7 +2603,7 @@ pub const USB_PORT_STATUS_OVER_CURRENT: u32 = 8u32;
 pub const USB_PORT_STATUS_POWER: u32 = 256u32;
 pub const USB_PORT_STATUS_RESET: u32 = 16u32;
 pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_POWER_INFO {
     pub SystemState: WDMUSB_POWER_STATE,
@@ -2617,7 +2617,7 @@ pub struct USB_POWER_INFO {
     pub CanWakeup: bool,
     pub IsPowered: bool,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PROTOCOLS {
     pub ul: u32,
@@ -2628,7 +2628,7 @@ impl Default for USB_PROTOCOLS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_PROTOCOLS_0 {
     pub _bitfield: u32,
@@ -2667,7 +2667,7 @@ pub const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6u32;
 pub const USB_RESERVED_USER_BASE: u32 = 1024u32;
 pub const USB_RESET_HUB: u32 = 275u32;
 pub const USB_RESET_PORT: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_ROOT_HUB_NAME {
     pub ActualLength: u32,
@@ -2678,7 +2678,7 @@ impl Default for USB_ROOT_HUB_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_SEND_RAW_COMMAND_PARAMETERS {
     pub Usb_bmRequest: u8,
@@ -2699,7 +2699,7 @@ impl Default for USB_SEND_RAW_COMMAND_PARAMETERS {
     }
 }
 pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -2714,7 +2714,7 @@ pub const USB_STATUS_EXT_PORT_STATUS: u32 = 2u32;
 pub const USB_STATUS_PD_STATUS: u32 = 1u32;
 pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
 pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -2724,7 +2724,7 @@ impl Default for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_STRING_DESCRIPTOR {
     pub bLength: u8,
@@ -2740,7 +2740,7 @@ pub const USB_STRING_DESCRIPTOR_TYPE: u32 = 3u32;
 pub const USB_SUBMIT_URB: u32 = 0u32;
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215u32;
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
@@ -2749,7 +2749,7 @@ pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub dwBytesPerInterval: u32,
 }
 pub const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
@@ -2814,7 +2814,7 @@ impl Default for USB_TOPOLOGY_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_TRANSPORT_CHARACTERISTICS {
     pub Version: u32,
@@ -2823,7 +2823,7 @@ pub struct USB_TRANSPORT_CHARACTERISTICS {
     pub MaxPotentialBandwidth: u64,
 }
 pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
@@ -2834,7 +2834,7 @@ impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
     pub ChangeNotificationInputFlags: u32,
@@ -2846,7 +2846,7 @@ impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
@@ -2858,7 +2858,7 @@ impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
 }
 pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1u32;
 pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_UNICODE_NAME {
     pub Length: u32,
@@ -2871,7 +2871,7 @@ impl Default for USB_UNICODE_NAME {
 }
 pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
 pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
@@ -2969,7 +2969,7 @@ pub struct WINUSB_PIPE_INFORMATION_EX {
 }
 pub type WINUSB_PIPE_POLICY = u32;
 pub type WINUSB_POWER_POLICY = u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WINUSB_SETUP_PACKET {
     pub RequestType: u8,

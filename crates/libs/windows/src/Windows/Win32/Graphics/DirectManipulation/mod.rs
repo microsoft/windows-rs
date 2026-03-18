@@ -609,12 +609,11 @@ impl IDirectManipulationContent {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetTag<T>(&self, id: *mut u32) -> windows_core::Result<T>
+    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, id as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where
@@ -949,8 +948,8 @@ impl IDirectManipulationManager {
     pub unsafe fn Deactivate(&self, window: super::super::Foundation::HWND) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self), window).ok() }
     }
-    pub unsafe fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: super::super::Foundation::HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), window, hittestwindow, r#type).ok() }
+    pub unsafe fn RegisterHitTestTarget(&self, window: super::super::Foundation::HWND, hittestwindow: Option<super::super::Foundation::HWND>, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RegisterHitTestTarget)(windows_core::Interface::as_raw(self), window, hittestwindow.unwrap_or(core::mem::zeroed()) as _, r#type).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> windows_core::Result<windows_core::BOOL> {
@@ -1170,8 +1169,8 @@ impl IDirectManipulationPrimaryContent {
     pub unsafe fn SetSnapInterval(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, interval: f32, offset: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapInterval)(windows_core::Interface::as_raw(self), motion, interval, offset).ok() }
     }
-    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: &[f32]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap()).ok() }
+    pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, core::mem::transmute(points.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), points.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSnapType)(windows_core::Interface::as_raw(self), motion, r#type).ok() }
@@ -1422,12 +1421,11 @@ impl IDirectManipulationViewport {
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTag<T>(&self, id: *mut u32) -> windows_core::Result<T>
+    pub unsafe fn GetTag<T>(&self, id: Option<*mut u32>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, &mut result__, id as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, id.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where
@@ -1490,13 +1488,13 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetChaining)(windows_core::Interface::as_raw(self), enabledtypes).ok() }
     }
-    pub unsafe fn AddEventHandler<P1>(&self, window: super::super::Foundation::HWND, eventhandler: P1) -> windows_core::Result<u32>
+    pub unsafe fn AddEventHandler<P1>(&self, window: Option<super::super::Foundation::HWND>, eventhandler: P1) -> windows_core::Result<u32>
     where
         P1: windows_core::Param<IDirectManipulationViewportEventHandler>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), window, eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddEventHandler)(windows_core::Interface::as_raw(self), window.unwrap_or(core::mem::zeroed()) as _, eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn RemoveEventHandler(&self, cookie: u32) -> windows_core::Result<()> {

@@ -14,8 +14,8 @@ windows_link::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserW(h
 windows_link::link!("kernel32.dll" "system" fn ExpandEnvironmentStringsW(lpsrc : windows_sys::core::PCWSTR, lpdst : windows_sys::core::PWSTR, nsize : u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn FreeEnvironmentStringsA(penv : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn FreeEnvironmentStringsW(penv : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetCommandLineA() -> windows_sys::core::PSTR);
-windows_link::link!("kernel32.dll" "system" fn GetCommandLineW() -> windows_sys::core::PWSTR);
+windows_link::link!("kernel32.dll" "system" fn GetCommandLineA() -> windows_sys::core::PCSTR);
+windows_link::link!("kernel32.dll" "system" fn GetCommandLineW() -> windows_sys::core::PCWSTR);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentDirectoryA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetCurrentDirectoryW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetEnvironmentStrings() -> windows_sys::core::PSTR);
@@ -38,7 +38,7 @@ windows_link::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *cons
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
@@ -97,6 +97,8 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub CurrentSystemKeyID: u32,
 }
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> i32>;
@@ -104,12 +106,18 @@ pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = Option<unsafe extern "syste
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = Option<unsafe extern "system" fn(returnvalue: usize)>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = Option<unsafe extern "system" fn(exceptionrecord: *const core::ffi::c_void) -> i32>;
+#[cfg(target_arch = "x86")]
+pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = Option<unsafe extern "system" fn(report: *const core::ffi::c_void, reportsize: u32) -> i32>;
@@ -177,7 +185,7 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
@@ -190,7 +198,7 @@ impl Default for VBS_ENCLAVE_REPORT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
@@ -206,7 +214,7 @@ impl Default for VBS_ENCLAVE_REPORT_MODULE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
@@ -218,7 +226,7 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
 }
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,

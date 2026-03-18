@@ -686,6 +686,25 @@ pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = 0i32;
 pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = 9i32;
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
+    pub TargetDllName: windows_sys::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct DELAYLOAD_INFO {
@@ -1155,11 +1174,13 @@ impl Default for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for LDR_DATA_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -5,36 +5,36 @@ pub unsafe fn CfCloseHandle(filehandle: super::super::Foundation::HANDLE) {
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
-pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const core::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY>
+pub unsafe fn CfConnectSyncRoot<P0>(syncrootpath: P0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: Option<*const core::ffi::c_void>, connectflags: CF_CONNECT_FLAGS) -> windows_core::Result<CF_CONNECTION_KEY>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfConnectSyncRoot(syncrootpath : windows_core::PCWSTR, callbacktable : *const CF_CALLBACK_REGISTRATION, callbackcontext : *const core::ffi::c_void, connectflags : CF_CONNECT_FLAGS, connectionkey : *mut CF_CONNECTION_KEY) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext, connectflags, &mut result__).map(|| result__)
+        CfConnectSyncRoot(syncrootpath.param().abi(), callbacktable, callbackcontext.unwrap_or(core::mem::zeroed()) as _, connectflags, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const core::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfConvertToPlaceholder(filehandle : super::super::Foundation:: HANDLE, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, convertflags : CF_CONVERT_FLAGS, convertusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfConvertToPlaceholder(filehandle, fileidentity, fileidentitylength, convertflags, convertusn as _, overlapped as _).ok() }
+    unsafe { CfConvertToPlaceholder(filehandle, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, convertflags, convertusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
-pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CfCreatePlaceholders<P0>(basedirectorypath: P0, placeholderarray: &mut [CF_PLACEHOLDER_CREATE_INFO], createflags: CF_CREATE_FLAGS, entriesprocessed: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), placeholderarray as _, placeholdercount, createflags, entriesprocessed as _).ok() }
+    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfDehydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfDehydratePlaceholder(filehandle, startingoffset, length, dehydrateflags, overlapped as _).ok() }
+    unsafe { CfDehydratePlaceholder(filehandle, startingoffset, length, dehydrateflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> windows_core::Result<()> {
@@ -54,19 +54,19 @@ pub unsafe fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDL
     unsafe { CfGetCorrelationVector(filehandle, correlationvector as _).ok() }
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetPlaceholderInfo(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength as _).ok() }
+    unsafe { CfGetPlaceholderInfo(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfo(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, length : i64, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetPlaceholderRangeInfo(filehandle, infoclass, startingoffset, length, infobuffer as _, infobufferlength, returnedlength as _).ok() }
+    unsafe { CfGetPlaceholderRangeInfo(filehandle, infoclass, startingoffset, length, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: i64, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: i64, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : i64, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten as _).ok() }
+    unsafe { CfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
@@ -94,17 +94,17 @@ pub unsafe fn CfGetPlatformInfo() -> windows_core::Result<CF_PLATFORM_INFO> {
     }
 }
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByHandle(filehandle : super::super::Foundation:: HANDLE, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetSyncRootInfoByHandle(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength as _).ok() }
+    unsafe { CfGetSyncRootInfoByHandle(filehandle, infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByPath<P0>(filepath: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CfGetSyncRootInfoByPath<P0>(filepath: P0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut core::ffi::c_void, infobufferlength: u32, returnedlength: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfGetSyncRootInfoByPath(filepath : windows_core::PCWSTR, infoclass : CF_SYNC_ROOT_INFO_CLASS, infobuffer : *mut core::ffi::c_void, infobufferlength : u32, returnedlength : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetSyncRootInfoByPath(filepath.param().abi(), infoclass, infobuffer as _, infobufferlength, returnedlength as _).ok() }
+    unsafe { CfGetSyncRootInfoByPath(filepath.param().abi(), infoclass, infobuffer as _, infobufferlength, returnedlength.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE) -> windows_core::Result<i64> {
@@ -121,9 +121,9 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super:
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfHydratePlaceholder(filehandle : super::super::Foundation:: HANDLE, startingoffset : i64, length : i64, hydrateflags : CF_HYDRATE_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfHydratePlaceholder(filehandle, startingoffset, length, hydrateflags, overlapped as _).ok() }
+    unsafe { CfHydratePlaceholder(filehandle, startingoffset, length, hydrateflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfOpenFileWithOplock<P0>(filepath: P0, flags: CF_OPEN_FILE_FLAGS) -> windows_core::Result<super::super::Foundation::HANDLE>
@@ -178,18 +178,18 @@ pub unsafe fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transf
     unsafe { CfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid).ok() }
 }
 #[inline]
-pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: *const CF_SYNC_STATUS) -> windows_core::Result<()>
+pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfReportSyncStatus(syncrootpath : windows_core::PCWSTR, syncstatus : *const CF_SYNC_STATUS) -> windows_core::HRESULT);
-    unsafe { CfReportSyncStatus(syncrootpath.param().abi(), syncstatus).ok() }
+    unsafe { CfReportSyncStatus(syncrootpath.param().abi(), syncstatus.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfRevertPlaceholder(filehandle : super::super::Foundation:: HANDLE, revertflags : CF_REVERT_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfRevertPlaceholder(filehandle, revertflags, overlapped as _).ok() }
+    unsafe { CfRevertPlaceholder(filehandle, revertflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_CorrelationVector")]
 #[inline]
@@ -198,18 +198,15 @@ pub unsafe fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDL
     unsafe { CfSetCorrelationVector(filehandle, correlationvector).ok() }
 }
 #[inline]
-pub unsafe fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS) -> windows_core::Result<i64> {
+pub unsafe fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Option<*mut i64>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfSetInSyncState(filehandle : super::super::Foundation:: HANDLE, insyncstate : CF_IN_SYNC_STATE, insyncflags : CF_SET_IN_SYNC_FLAGS, insyncusn : *mut i64) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CfSetInSyncState(filehandle, insyncstate, insyncflags, &mut result__).map(|| result__)
-    }
+    unsafe { CfSetInSyncState(filehandle, insyncstate, insyncflags, insyncusn.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
-pub unsafe fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfSetPinState(filehandle : super::super::Foundation:: HANDLE, pinstate : CF_PIN_STATE, pinflags : CF_SET_PIN_FLAGS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfSetPinState(filehandle, pinstate, pinflags, overlapped as _).ok() }
+    unsafe { CfSetPinState(filehandle, pinstate, pinflags, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfUnregisterSyncRoot<P0>(syncrootpath: P0) -> windows_core::Result<()>
@@ -221,9 +218,9 @@ where
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const core::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
+pub unsafe fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut i64>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::super::Foundation:: HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut i64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata, fileidentity, fileidentitylength, dehydraterangearray, dehydraterangecount, updateflags, updateusn as _, overlapped as _).ok() }
+    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, core::mem::transmute(dehydraterangearray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dehydraterangearray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::Result<()> {
@@ -676,6 +673,33 @@ pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_5 {
+    pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_7 {
+    pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
+    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_6 {
+    pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
+    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_9 {
+    pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_8 {
+    pub Flags: CF_CALLBACK_DELETE_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -684,25 +708,6 @@ pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub OptionalLength: i64,
     pub LastDehydrationTime: i64,
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_10 {
-    pub Flags: CF_CALLBACK_RENAME_FLAGS,
-    pub TargetPath: windows_core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_11 {
-    pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
-    pub SourcePath: windows_core::PCWSTR,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_2 {
-    pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
-    pub RequiredFileOffset: i64,
-    pub RequiredLength: i64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -717,30 +722,22 @@ pub struct CF_CALLBACK_PARAMETERS_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_5 {
-    pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
+pub struct CF_CALLBACK_PARAMETERS_0_11 {
+    pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
+    pub SourcePath: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_6 {
-    pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
-    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+pub struct CF_CALLBACK_PARAMETERS_0_10 {
+    pub Flags: CF_CALLBACK_RENAME_FLAGS,
+    pub TargetPath: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_7 {
-    pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
-    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_8 {
-    pub Flags: CF_CALLBACK_DELETE_FLAGS,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_9 {
-    pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
+pub struct CF_CALLBACK_PARAMETERS_0_2 {
+    pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
+    pub RequiredFileOffset: i64,
+    pub RequiredLength: i64,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_CorrelationVector")]
@@ -1499,40 +1496,42 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_0 {
-    pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
-    pub CompletionStatus: windows_core::NTSTATUS,
-    pub Buffer: *const core::ffi::c_void,
-    pub Offset: i64,
-    pub Length: i64,
-}
-impl Default for CF_OPERATION_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_1 {
-    pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Offset: i64,
-    pub Length: i64,
-    pub ReturnedLength: i64,
-}
-impl Default for CF_OPERATION_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: windows_core::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_5 {
+    pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
+    pub CompletionStatus: windows_core::NTSTATUS,
+    pub FileIdentity: *const core::ffi::c_void,
+    pub FileIdentityLength: u32,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_7 {
+    pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
+    pub CompletionStatus: windows_core::NTSTATUS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_6 {
+    pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
+    pub CompletionStatus: windows_core::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1545,6 +1544,38 @@ pub struct CF_OPERATION_PARAMETERS_0_3 {
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for CF_OPERATION_PARAMETERS_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_1 {
+    pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
+    pub Buffer: *mut core::ffi::c_void,
+    pub Offset: i64,
+    pub Length: i64,
+    pub ReturnedLength: i64,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_0 {
+    pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
+    pub CompletionStatus: windows_core::NTSTATUS,
+    pub Buffer: *const core::ffi::c_void,
+    pub Offset: i64,
+    pub Length: i64,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1565,31 +1596,6 @@ impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_5 {
-    pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
-    pub CompletionStatus: windows_core::NTSTATUS,
-    pub FileIdentity: *const core::ffi::c_void,
-    pub FileIdentityLength: u32,
-}
-impl Default for CF_OPERATION_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_6 {
-    pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
-    pub CompletionStatus: windows_core::NTSTATUS,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_7 {
-    pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
-    pub CompletionStatus: windows_core::NTSTATUS,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

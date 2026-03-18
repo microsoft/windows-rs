@@ -36,9 +36,9 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut core::ffi::c_void, 
     unsafe { ForceArchitecture(vmsavedstatedumphandle as _, vpid, architecture).ok() }
 }
 #[inline]
-pub unsafe fn ForceNestedHostMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: bool, oldmode: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn ForceNestedHostMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, hostmode: bool, oldmode: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ForceNestedHostMode(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, hostmode : windows_core::BOOL, oldmode : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ForceNestedHostMode(vmsavedstatedumphandle as _, vpid, hostmode.into(), oldmode as _).ok() }
+    unsafe { ForceNestedHostMode(vmsavedstatedumphandle as _, vpid, hostmode.into(), oldmode.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ForcePagingMode(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, pagingmode: PAGING_MODE) -> windows_core::Result<()> {
@@ -132,14 +132,14 @@ pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle:
     unsafe { GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle as _, physicaladdress, rawsavedmemoryoffset as _).ok() }
 }
 #[inline]
-pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: *mut u64) -> windows_core::Result<()> {
+pub unsafe fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, virtualaddress: u64, physicaladdress: *mut u64, unmappedregionsize: Option<*mut u64>) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, virtualaddress : u64, physicaladdress : *mut u64, unmappedregionsize : *mut u64) -> windows_core::HRESULT);
-    unsafe { GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle as _, vpid, virtualaddress, physicaladdress as _, unmappedregionsize as _).ok() }
+    unsafe { GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle as _, vpid, virtualaddress, physicaladdress as _, unmappedregionsize.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const windows_core::GUID, deviceinstanceid: *const windows_core::GUID, deviceinterface: *const core::ffi::c_void, devicecontext: *const core::ffi::c_void, devicehandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const core::ffi::c_void, devicetype: HDV_DEVICE_TYPE, deviceclassid: *const windows_core::GUID, deviceinstanceid: *const windows_core::GUID, deviceinterface: *const core::ffi::c_void, devicecontext: Option<*const core::ffi::c_void>, devicehandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("vmdevicehost.dll" "system" fn HdvCreateDeviceInstance(devicehosthandle : *const core::ffi::c_void, devicetype : HDV_DEVICE_TYPE, deviceclassid : *const windows_core::GUID, deviceinstanceid : *const windows_core::GUID, deviceinterface : *const core::ffi::c_void, devicecontext : *const core::ffi::c_void, devicehandle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { HdvCreateDeviceInstance(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, devicecontext, devicehandle as _).ok() }
+    unsafe { HdvCreateDeviceInstance(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, devicecontext.unwrap_or(core::mem::zeroed()) as _, devicehandle as _).ok() }
 }
 #[inline]
 pub unsafe fn HdvCreateGuestMemoryAperture(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: bool, mappedaddress: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -179,12 +179,9 @@ pub unsafe fn HdvInitializeDeviceHostEx(computesystem: super::HostComputeSystem:
     unsafe { HdvInitializeDeviceHostEx(computesystem, flags, devicehosthandle as _).ok() }
 }
 #[inline]
-pub unsafe fn HdvReadGuestMemory(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32) -> windows_core::Result<u8> {
+pub unsafe fn HdvReadGuestMemory(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, buffer: &mut [u8]) -> windows_core::Result<()> {
     windows_core::link!("vmdevicehost.dll" "system" fn HdvReadGuestMemory(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *mut u8) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        HdvReadGuestMemory(requestor, guestphysicaladdress, bytecount, &mut result__).map(|| result__)
-    }
+    unsafe { HdvReadGuestMemory(requestor, guestphysicaladdress, buffer.len().try_into().unwrap(), core::mem::transmute(buffer.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn HdvRegisterDoorbell(requestor: *const core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -202,9 +199,9 @@ pub unsafe fn HdvUnregisterDoorbell(requestor: *const core::ffi::c_void, barinde
     unsafe { HdvUnregisterDoorbell(requestor, barindex, baroffset, triggervalue, flags).ok() }
 }
 #[inline]
-pub unsafe fn HdvWriteGuestMemory(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, buffer: *const u8) -> windows_core::Result<()> {
+pub unsafe fn HdvWriteGuestMemory(requestor: *const core::ffi::c_void, guestphysicaladdress: u64, buffer: &[u8]) -> windows_core::Result<()> {
     windows_core::link!("vmdevicehost.dll" "system" fn HdvWriteGuestMemory(requestor : *const core::ffi::c_void, guestphysicaladdress : u64, bytecount : u32, buffer : *const u8) -> windows_core::HRESULT);
-    unsafe { HdvWriteGuestMemory(requestor, guestphysicaladdress, bytecount, buffer).ok() }
+    unsafe { HdvWriteGuestMemory(requestor, guestphysicaladdress, buffer.len().try_into().unwrap(), core::mem::transmute(buffer.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, inkernelspace: *mut windows_core::BOOL) -> windows_core::Result<()> {
@@ -274,14 +271,14 @@ where
     unsafe { LocateSavedStateFiles(vmname.param().abi(), snapshotname.param().abi(), binpath as _, vsvpath as _, vmrspath as _).ok() }
 }
 #[inline]
-pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, physicaladdress: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn ReadGuestPhysicalAddress(vmsavedstatedumphandle: *mut core::ffi::c_void, physicaladdress: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestPhysicalAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, physicaladdress : u64, buffer : *mut core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> windows_core::HRESULT);
-    unsafe { ReadGuestPhysicalAddress(vmsavedstatedumphandle as _, physicaladdress, buffer as _, buffersize, bytesread as _).ok() }
+    unsafe { ReadGuestPhysicalAddress(vmsavedstatedumphandle as _, physicaladdress, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut core::ffi::c_void, rawsavedmemoryoffset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ReadGuestRawSavedMemory(vmsavedstatedumphandle : *mut core::ffi::c_void, rawsavedmemoryoffset : u64, buffer : *mut core::ffi::c_void, buffersize : u32, bytesread : *mut u32) -> windows_core::HRESULT);
-    unsafe { ReadGuestRawSavedMemory(vmsavedstatedumphandle as _, rawsavedmemoryoffset, buffer as _, buffersize, bytesread as _).ok() }
+    unsafe { ReadGuestRawSavedMemory(vmsavedstatedumphandle as _, rawsavedmemoryoffset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ReadSavedStateGlobalVariable<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: P2, buffer: *mut core::ffi::c_void, buffersize: u32) -> windows_core::Result<()>
@@ -302,12 +299,12 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut core:
     unsafe { ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle as _).ok() }
 }
 #[inline]
-pub unsafe fn ResolveSavedStateGlobalVariableAddress<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: P2, virtualaddress: *mut u64, size: *mut u32) -> windows_core::Result<()>
+pub unsafe fn ResolveSavedStateGlobalVariableAddress<P2>(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, globalname: P2, virtualaddress: *mut u64, size: Option<*mut u32>) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("vmsavedstatedumpprovider.dll" "system" fn ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle : *mut core::ffi::c_void, vpid : u32, globalname : windows_core::PCSTR, virtualaddress : *mut u64, size : *mut u32) -> windows_core::HRESULT);
-    unsafe { ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle as _, vpid, globalname.param().abi(), virtualaddress as _, size as _).ok() }
+    unsafe { ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle as _, vpid, globalname.param().abi(), virtualaddress as _, size.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut core::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut core::ffi::c_void, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: *const u64, standaloneaddresscount: u32) -> windows_core::Result<()> {
@@ -333,16 +330,16 @@ pub unsafe fn WHvAcceptPartitionMigration(migrationhandle: super::super::Foundat
     }
 }
 #[inline]
-pub unsafe fn WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: *const WHV_MEMORY_RANGE_ENTRY, gparangescount: u32, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const core::ffi::c_void, advicebuffersizeinbytes: u32) -> windows_core::Result<()> {
+pub unsafe fn WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const core::ffi::c_void, advicebuffersizeinbytes: u32) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAdviseGpaRange(partition : WHV_PARTITION_HANDLE, gparanges : *const WHV_MEMORY_RANGE_ENTRY, gparangescount : u32, advice : WHV_ADVISE_GPA_RANGE_CODE, advicebuffer : *const core::ffi::c_void, advicebuffersizeinbytes : u32) -> windows_core::HRESULT);
-    unsafe { WHvAdviseGpaRange(partition, gparanges, gparangescount, advice, advicebuffer, advicebuffersizeinbytes).ok() }
+    unsafe { WHvAdviseGpaRange(partition, core::mem::transmute(gparanges.as_ptr()), gparanges.len().try_into().unwrap(), advice, advicebuffer, advicebuffersizeinbytes).ok() }
 }
 #[inline]
-pub unsafe fn WHvAllocateVpciResource(providerid: *const windows_core::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const core::ffi::c_void, resourcedescriptorsizeinbytes: u32) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WHvAllocateVpciResource(providerid: Option<*const windows_core::GUID>, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Option<&[u8]>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const windows_core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WHvAllocateVpciResource(providerid, flags, resourcedescriptor, resourcedescriptorsizeinbytes, &mut result__).map(|| result__)
+        WHvAllocateVpciResource(providerid.unwrap_or(core::mem::zeroed()) as _, flags, core::mem::transmute(resourcedescriptor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -384,14 +381,14 @@ pub unsafe fn WHvCreateVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex
     unsafe { WHvCreateVirtualProcessor(partition, vpindex, flags).ok() }
 }
 #[inline]
-pub unsafe fn WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: u32, properties: *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount: u32) -> windows_core::Result<()> {
+pub unsafe fn WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: u32, properties: &[WHV_VIRTUAL_PROCESSOR_PROPERTY]) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvCreateVirtualProcessor2(partition : WHV_PARTITION_HANDLE, vpindex : u32, properties : *const WHV_VIRTUAL_PROCESSOR_PROPERTY, propertycount : u32) -> windows_core::HRESULT);
-    unsafe { WHvCreateVirtualProcessor2(partition, vpindex, properties, propertycount).ok() }
+    unsafe { WHvCreateVirtualProcessor2(partition, vpindex, core::mem::transmute(properties.as_ptr()), properties.len().try_into().unwrap()).ok() }
 }
 #[inline]
-pub unsafe fn WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, vpciresource: super::super::Foundation::HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, vpciresource: super::super::Foundation::HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: Option<super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvCreateVpciDevice(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, vpciresource : super::super::Foundation:: HANDLE, flags : WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    unsafe { WHvCreateVpciDevice(partition, logicaldeviceid, vpciresource, flags, notificationeventhandle).ok() }
+    unsafe { WHvCreateVpciDevice(partition, logicaldeviceid, vpciresource, flags, notificationeventhandle.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvDeleteNotificationPort(partition: WHV_PARTITION_HANDLE, porthandle: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -445,29 +442,29 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const core::ffi::c_void, co
     }
 }
 #[inline]
-pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetCapability(capabilitycode : WHV_CAPABILITY_CODE, capabilitybuffer : *mut core::ffi::c_void, capabilitybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetCapability(capabilitycode, capabilitybuffer as _, capabilitybuffersizeinbytes, writtensizeinbytes as _).ok() }
+    unsafe { WHvGetCapability(capabilitycode, capabilitybuffer as _, capabilitybuffersizeinbytes, writtensizeinbytes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetInterruptTargetVpSet(partition: WHV_PARTITION_HANDLE, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: *mut u32, vpcount: u32, targetvpcount: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetInterruptTargetVpSet(partition: WHV_PARTITION_HANDLE, destination: u64, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: &mut [u32], targetvpcount: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetInterruptTargetVpSet(partition : WHV_PARTITION_HANDLE, destination : u64, destinationmode : WHV_INTERRUPT_DESTINATION_MODE, targetvps : *mut u32, vpcount : u32, targetvpcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetInterruptTargetVpSet(partition, destination, destinationmode, targetvps as _, vpcount, targetvpcount as _).ok() }
+    unsafe { WHvGetInterruptTargetVpSet(partition, destination, destinationmode, core::mem::transmute(targetvps.as_ptr()), targetvps.len().try_into().unwrap(), targetvpcount as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetPartitionCounters(partition: WHV_PARTITION_HANDLE, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetPartitionCounters(partition: WHV_PARTITION_HANDLE, counterset: WHV_PARTITION_COUNTER_SET, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetPartitionCounters(partition : WHV_PARTITION_HANDLE, counterset : WHV_PARTITION_COUNTER_SET, buffer : *mut core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetPartitionCounters(partition, counterset, buffer as _, buffersizeinbytes, byteswritten as _).ok() }
+    unsafe { WHvGetPartitionCounters(partition, counterset, buffer as _, buffersizeinbytes, byteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: *mut core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetPartitionProperty(partition : WHV_PARTITION_HANDLE, propertycode : WHV_PARTITION_PROPERTY_CODE, propertybuffer : *mut core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetPartitionProperty(partition, propertycode, propertybuffer as _, propertybuffersizeinbytes, writtensizeinbytes as _).ok() }
+    unsafe { WHvGetPartitionProperty(partition, propertycode, propertybuffer as _, propertybuffersizeinbytes, writtensizeinbytes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorCounters(partition: WHV_PARTITION_HANDLE, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVirtualProcessorCounters(partition: WHV_PARTITION_HANDLE, vpindex: u32, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCounters(partition : WHV_PARTITION_HANDLE, vpindex : u32, counterset : WHV_PROCESSOR_COUNTER_SET, buffer : *mut core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVirtualProcessorCounters(partition, vpindex, counterset, buffer as _, buffersizeinbytes, byteswritten as _).ok() }
+    unsafe { WHvGetVirtualProcessorCounters(partition, vpindex, counterset, buffer as _, buffersizeinbytes, byteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE, vpindex: u32, eax: u32, ecx: u32) -> windows_core::Result<WHV_CPUID_OUTPUT> {
@@ -478,27 +475,24 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE,
     }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut core::ffi::c_void, statesize: u32, writtensize: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVirtualProcessorInterruptControllerState(partition, vpindex, state as _, statesize, writtensize as _).ok() }
+    unsafe { WHvGetVirtualProcessorInterruptControllerState(partition, vpindex, state as _, statesize, writtensize.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut core::ffi::c_void, statesize: u32, writtensize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: u32, state: *mut core::ffi::c_void, statesize: u32, writtensize: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorInterruptControllerState2(partition : WHV_PARTITION_HANDLE, vpindex : u32, state : *mut core::ffi::c_void, statesize : u32, writtensize : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVirtualProcessorInterruptControllerState2(partition, vpindex, state as _, statesize, writtensize as _).ok() }
+    unsafe { WHvGetVirtualProcessorInterruptControllerState2(partition, vpindex, state as _, statesize, writtensize.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32) -> windows_core::Result<WHV_REGISTER_VALUE> {
+pub unsafe fn WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: u32, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *mut WHV_REGISTER_VALUE) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorRegisters(partition : WHV_PARTITION_HANDLE, vpindex : u32, registernames : *const WHV_REGISTER_NAME, registercount : u32, registervalues : *mut WHV_REGISTER_VALUE) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvGetVirtualProcessorRegisters(partition, vpindex, registernames, registercount, &mut result__).map(|| result__)
-    }
+    unsafe { WHvGetVirtualProcessorRegisters(partition, vpindex, registernames, registercount, registervalues as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: u32, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorState(partition : WHV_PARTITION_HANDLE, vpindex : u32, statetype : WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer : *mut core::ffi::c_void, buffersizeinbytes : u32, byteswritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVirtualProcessorState(partition, vpindex, statetype, buffer as _, buffersizeinbytes, byteswritten as _).ok() }
+    unsafe { WHvGetVirtualProcessorState(partition, vpindex, statetype, buffer as _, buffersizeinbytes, byteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpindex: u32, buffer: *mut core::ffi::c_void, buffersizeinbytes: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
@@ -506,9 +500,9 @@ pub unsafe fn WHvGetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, 
     unsafe { WHvGetVirtualProcessorXsaveState(partition, vpindex, buffer as _, buffersizeinbytes, byteswritten as _).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, index: u32, multimessagenumber: u32, target: *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes: u32, byteswritten: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceInterruptTarget(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, index : u32, multimessagenumber : u32, target : *mut WHV_VPCI_INTERRUPT_TARGET, targetsizeinbytes : u32, byteswritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVpciDeviceInterruptTarget(partition, logicaldeviceid, index, multimessagenumber, target as _, targetsizeinbytes, byteswritten as _).ok() }
+    unsafe { WHvGetVpciDeviceInterruptTarget(partition, logicaldeviceid, index, multimessagenumber, target as _, targetsizeinbytes, byteswritten.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, notification: *mut WHV_VPCI_DEVICE_NOTIFICATION, notificationsizeinbytes: u32) -> windows_core::Result<()> {
@@ -516,9 +510,9 @@ pub unsafe fn WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logi
     unsafe { WHvGetVpciDeviceNotification(partition, logicaldeviceid, notification as _, notificationsizeinbytes).ok() }
 }
 #[inline]
-pub unsafe fn WHvGetVpciDeviceProperty(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn WHvGetVpciDeviceProperty(partition: WHV_PARTITION_HANDLE, logicaldeviceid: u64, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: *mut core::ffi::c_void, propertybuffersizeinbytes: u32, writtensizeinbytes: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvGetVpciDeviceProperty(partition : WHV_PARTITION_HANDLE, logicaldeviceid : u64, propertycode : WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer : *mut core::ffi::c_void, propertybuffersizeinbytes : u32, writtensizeinbytes : *mut u32) -> windows_core::HRESULT);
-    unsafe { WHvGetVpciDeviceProperty(partition, logicaldeviceid, propertycode, propertybuffer as _, propertybuffersizeinbytes, writtensizeinbytes as _).ok() }
+    unsafe { WHvGetVpciDeviceProperty(partition, logicaldeviceid, propertycode, propertybuffer as _, propertybuffersizeinbytes, writtensizeinbytes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvMapGpaRange(partition: WHV_PARTITION_HANDLE, sourceaddress: *const core::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> windows_core::Result<()> {
@@ -546,9 +540,9 @@ pub unsafe fn WHvPostVirtualProcessorSynicMessage(partition: WHV_PARTITION_HANDL
     unsafe { WHvPostVirtualProcessorSynicMessage(partition, vpindex, sintindex, message, messagesizeinbytes).ok() }
 }
 #[inline]
-pub unsafe fn WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: u64, rangesizeinbytes: u64, bitmap: *mut u64, bitmapsizeinbytes: u32) -> windows_core::Result<()> {
+pub unsafe fn WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: u64, rangesizeinbytes: u64, bitmap: Option<*mut u64>, bitmapsizeinbytes: u32) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvQueryGpaRangeDirtyBitmap(partition : WHV_PARTITION_HANDLE, guestaddress : u64, rangesizeinbytes : u64, bitmap : *mut u64, bitmapsizeinbytes : u32) -> windows_core::HRESULT);
-    unsafe { WHvQueryGpaRangeDirtyBitmap(partition, guestaddress, rangesizeinbytes, bitmap as _, bitmapsizeinbytes).ok() }
+    unsafe { WHvQueryGpaRangeDirtyBitmap(partition, guestaddress, rangesizeinbytes, bitmap.unwrap_or(core::mem::zeroed()) as _, bitmapsizeinbytes).ok() }
 }
 #[inline]
 pub unsafe fn WHvReadGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: u32, guestaddress: u64, controls: WHV_ACCESS_GPA_CONTROLS, data: *mut core::ffi::c_void, datasizeinbytes: u32) -> windows_core::Result<()> {
@@ -642,12 +636,9 @@ pub unsafe fn WHvSetupPartition(partition: WHV_PARTITION_HANDLE) -> windows_core
     unsafe { WHvSetupPartition(partition).ok() }
 }
 #[inline]
-pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
     windows_core::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : WHV_PARTITION_HANDLE, synicevent : WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WHvSignalVirtualProcessorSynicEvent(partition, core::mem::transmute(synicevent), &mut result__).map(|| result__)
-    }
+    unsafe { WHvSignalVirtualProcessorSynicEvent(partition, core::mem::transmute(synicevent), newlysignaled.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE> {
@@ -1097,6 +1088,38 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    pub FpControl: u16,
+    pub FpStatus: u16,
+    pub FpTag: u8,
+    pub Reserved: u8,
+    pub LastFpOp: u16,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    pub LastFpRip: u64,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
+    pub LastFpEip: u32,
+    pub LastFpCs: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub Base: u64,
     pub Limit: u32,
@@ -1129,38 +1152,6 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Limit: u16,
     pub Base: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    pub FpControl: u16,
-    pub FpStatus: u16,
-    pub FpTag: u8,
-    pub Reserved: u8,
-    pub LastFpOp: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
-    pub LastFpRip: u64,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
-    pub LastFpEip: u32,
-    pub LastFpCs: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1752,6 +1743,11 @@ impl Default for WHV_PROCESSOR_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WHV_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
@@ -1765,11 +1761,6 @@ impl Default for WHV_PROCESSOR_FEATURES1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
-    pub _bitfield: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]

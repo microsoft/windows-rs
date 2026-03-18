@@ -112,9 +112,9 @@ windows_link::link!("ntoskrnl.exe" "system" fn CmRegisterCallbackEx(function : P
 windows_link::link!("ntoskrnl.exe" "system" fn CmSetCallbackObjectContext(object : *mut core::ffi::c_void, cookie : *const i64, newcontext : *const core::ffi::c_void, oldcontext : *mut *mut core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_link::link!("ntoskrnl.exe" "system" fn CmUnRegisterCallback(cookie : i64) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_link::link!("ntoskrnl.exe" "system" fn DbgBreakPointWithStatus(status : u32));
-windows_link::link!("ntdll.dll" "C" fn DbgPrint(format : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("ntdll.dll" "C" fn DbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : windows_sys::core::PCSTR) -> u32);
+windows_link::link!("ntdll.dll" "C" fn DbgPrint(format : windows_sys::core::PCSTR, ...) -> u32);
+windows_link::link!("ntdll.dll" "C" fn DbgPrintEx(componentid : u32, level : u32, format : windows_sys::core::PCSTR, ...) -> u32);
+windows_link::link!("ntdll.dll" "C" fn DbgPrintReturnControlC(format : windows_sys::core::PCSTR, ...) -> u32);
 windows_link::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_sys::core::PCSTR, response : windows_sys::core::PSTR, length : u32) -> u32);
 windows_link::link!("ntdll.dll" "system" fn DbgQueryDebugFilterState(componentid : u32, level : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn DbgSetDebugFilterState(componentid : u32, level : u32, state : bool) -> super::super::super::Win32::Foundation:: NTSTATUS);
@@ -1466,7 +1466,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlGetEnabledExtendedFeatures(featur
 windows_link::link!("ntdll.dll" "system" fn RtlGetNextEntryHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, context : *const RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> *mut RTL_DYNAMIC_HASH_TABLE_ENTRY);
 #[cfg(feature = "Win32_System_Kernel")]
 windows_link::link!("ntdll.dll" "system" fn RtlGetNtProductType(ntproducttype : *mut super::super::super::Win32::System::Kernel:: NT_PRODUCT_TYPE) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlGetNtSystemRoot() -> windows_sys::core::PWSTR);
+windows_link::link!("ntdll.dll" "system" fn RtlGetNtSystemRoot() -> windows_sys::core::PCWSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlGetPersistedStateLocation(sourceid : windows_sys::core::PCWSTR, customvalue : windows_sys::core::PCWSTR, defaultpath : windows_sys::core::PCWSTR, statelocationtype : STATE_LOCATION_TYPE, targetpath : windows_sys::core::PWSTR, bufferlengthin : u32, bufferlengthout : *mut u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlGetSuiteMask() -> u32);
 #[cfg(feature = "Win32_System_SystemInformation")]
@@ -2146,17 +2146,20 @@ impl Default for ARM64_NT_CONTEXT {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy, Default)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
@@ -2436,7 +2439,7 @@ pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
     pub SectorsPerTrack: u32,
     pub NumberOfHeads: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CM_EISA_FUNCTION_INFORMATION {
     pub CompressedId: u32,
@@ -2458,7 +2461,7 @@ impl Default for CM_EISA_FUNCTION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_EISA_SLOT_INFORMATION {
     pub ReturnCode: u8,
@@ -2509,7 +2512,7 @@ impl Default for CM_FULL_RESOURCE_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_INT13_DRIVE_PARAMETER {
     pub DriveSelect: u16,
@@ -2527,7 +2530,7 @@ pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Subtype: u8,
     pub KeyboardFlags: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_MCA_POS_DATA {
     pub AdapterId: u16,
@@ -2605,33 +2608,10 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
-    pub Start: i64,
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
+    pub Start: u32,
     pub Length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
-    pub Start: i64,
-    pub Length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
-    pub Start: i64,
-    pub Length40: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
-    pub Start: i64,
-    pub Length48: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
-    pub Start: i64,
-    pub Length64: u32,
+    pub Reserved: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -2644,11 +2624,75 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub IdHighPart: u32,
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    pub Data: [u32; 3],
+}
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
+    pub DataSize: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+    pub Channel: u32,
+    pub RequestLine: u32,
+    pub TransferWidth: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub Reserved3: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
+    pub Channel: u32,
+    pub Port: u32,
+    pub Reserved1: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+    pub Start: i64,
+    pub Length: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
+    pub Start: i64,
+    pub Length40: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
+    pub Start: i64,
+    pub Length48: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
+    pub Start: i64,
+    pub Length64: u32,
+}
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    pub Start: i64,
+    pub Length: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2686,52 +2730,11 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Vector: u32,
     pub Affinity: usize,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: i64,
     pub Length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
-    pub Channel: u32,
-    pub Port: u32,
-    pub Reserved1: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
-    pub Channel: u32,
-    pub RequestLine: u32,
-    pub TransferWidth: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u8,
-    pub Reserved3: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    pub Data: [u32; 3],
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    pub Start: u32,
-    pub Length: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    pub DataSize: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2762,7 +2765,7 @@ impl Default for CM_PCCARD_DEVICE_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_DEVICE_NODE {
     pub Size: u16,
@@ -2776,7 +2779,7 @@ impl Default for CM_PNP_BIOS_DEVICE_NODE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CM_PNP_BIOS_INSTALLATION_CHECK {
     pub Signature: [u8; 4],
@@ -3330,12 +3333,12 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
+pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
@@ -3515,14 +3518,14 @@ impl Default for DISK_SIGNATURE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_SIGNATURE_0_0 {
-    pub Signature: u32,
-    pub CheckSum: u32,
+pub struct DISK_SIGNATURE_0_1 {
+    pub DiskId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_SIGNATURE_0_1 {
-    pub DiskId: windows_sys::core::GUID,
+pub struct DISK_SIGNATURE_0_0 {
+    pub Signature: u32,
+    pub CheckSum: u32,
 }
 pub const DISPATCH_LEVEL: u32 = 2u32;
 pub const DMAV3_TRANFER_WIDTH_128: u32 = 4u32;
@@ -3977,7 +3980,7 @@ pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = 1i32;
 pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = 2i32;
 pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = 1i32;
 pub const DtiAdapter: CONFIGURATION_TYPE = 11i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct EFI_ACPI_RAS_SIGNAL_TABLE {
     pub Header: WHEA_ACPI_HEADER,
@@ -4021,7 +4024,7 @@ pub struct EISA_IRQ_CONFIGURATION {
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EISA_MEMORY_CONFIGURATION {
     pub ConfigurationByte: EISA_MEMORY_TYPE,
@@ -4037,7 +4040,7 @@ pub struct EISA_MEMORY_TYPE {
 }
 pub const EISA_MEMORY_TYPE_RAM: u32 = 1u32;
 pub const EISA_MORE_ENTRIES: u32 = 128u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EISA_PORT_CONFIGURATION {
     pub Configuration: EISA_PORT_DESCRIPTOR,
@@ -5117,11 +5120,13 @@ impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     pub Acpi: IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI,
     pub DeviceId: *mut core::ffi::c_void,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5301,6 +5306,13 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy, Default)]
+pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
+    pub Base: i64,
+    pub Size: usize,
+}
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: *mut super::super::Foundation::MDL,
@@ -5312,17 +5324,13 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    pub Base: i64,
-    pub Size: usize,
-}
-#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: *mut u32,
     pub NumberOfPages: usize,
 }
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5458,14 +5466,14 @@ impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
 pub union IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     pub Generic: *mut *mut core::ffi::c_void,
     pub InterruptMessageTable: *mut *mut IO_INTERRUPT_MESSAGE_INFO,
     pub InterruptObject: *mut super::super::Foundation::PKINTERRUPT,
 }
-#[cfg(feature = "Wdk_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5652,17 +5660,20 @@ impl Default for IO_FOEXT_SILO_PARAMETERS {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub union IO_FOEXT_SILO_PARAMETERS_0 {
     pub Anonymous: IO_FOEXT_SILO_PARAMETERS_0_0,
     pub Flags: u32,
 }
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for IO_FOEXT_SILO_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Default)]
 pub struct IO_FOEXT_SILO_PARAMETERS_0_0 {
     pub _bitfield: u32,
@@ -5825,7 +5836,56 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
+    pub Length: u32,
+    pub MinBusNumber: u32,
+    pub MaxBusNumber: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
+    pub Priority: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
+    pub Class: u8,
+    pub Type: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub IdLowPart: u32,
+    pub IdHighPart: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
+    pub Data: [u32; 3],
+}
+impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
+    pub RequestLine: u32,
+    pub Reserved: u32,
+    pub Channel: u32,
+    pub TransferWidth: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
+    pub MinimumChannel: u32,
+    pub MaximumChannel: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
@@ -5833,9 +5893,18 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
-    pub Length: u32,
-    pub Alignment: u32,
+pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
+    pub MinimumVector: u32,
+    pub MaximumVector: u32,
+    pub AffinityPolicy: IRQ_DEVICE_POLICY,
+    pub PriorityPolicy: IRQ_PRIORITY,
+    pub TargetedProcessors: usize,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
+    pub Length40: u32,
+    pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -5857,75 +5926,17 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
-    pub Class: u8,
-    pub Type: u8,
-    pub Reserved1: u8,
-    pub Reserved2: u8,
-    pub IdLowPart: u32,
-    pub IdHighPart: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
-    pub MinimumVector: u32,
-    pub MaximumVector: u32,
-    pub AffinityPolicy: IRQ_DEVICE_POLICY,
-    pub PriorityPolicy: IRQ_PRIORITY,
-    pub TargetedProcessors: usize,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
-    pub MinimumChannel: u32,
-    pub MaximumChannel: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
-    pub RequestLine: u32,
-    pub Reserved: u32,
-    pub Channel: u32,
-    pub TransferWidth: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
-    pub Data: [u32; 3],
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
-    pub MinBusNumber: u32,
-    pub MaxBusNumber: u32,
-    pub Reserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
-    pub Priority: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
-    pub Length40: u32,
-    pub Alignment40: u32,
+    pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -6875,82 +6886,97 @@ impl Default for KUSER_SHARED_DATA {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_0 {
     pub MitigationPolicies: u8,
     pub Anonymous: KUSER_SHARED_DATA_0_0,
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Default)]
 pub struct KUSER_SHARED_DATA_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_1 {
     pub VirtualizationFlags: u8,
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_2 {
     pub SharedDataFlags: u32,
     pub Anonymous: KUSER_SHARED_DATA_2_0,
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Default)]
 pub struct KUSER_SHARED_DATA_2_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_3 {
     pub TickCount: KSYSTEM_TIME,
     pub TickCountQuad: u64,
     pub Anonymous: KUSER_SHARED_DATA_3_0,
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA_3_0 {
     pub ReservedTickCountOverlay: [u32; 3],
     pub TickCountPad: [u32; 1],
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_4 {
     pub QpcData: u16,
     pub Anonymous: KUSER_SHARED_DATA_4_0,
 }
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for KUSER_SHARED_DATA_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Default)]
 pub struct KUSER_SHARED_DATA_4_0 {
     pub QpcBypassEnabled: u8,
@@ -7180,7 +7206,7 @@ pub struct MCA_EXCEPTION_0_1 {
 pub type MCA_EXCEPTION_TYPE = i32;
 pub const MCA_EXTREG_V2MAX: u32 = 24u32;
 pub const MCE_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe8f56ffe_919c_4cc5_ba88_65abe14913bb);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MCG_CAP {
     pub Anonymous: MCG_CAP_0,
@@ -7191,12 +7217,12 @@ impl Default for MCG_CAP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCG_CAP_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MCG_STATUS {
     pub Anonymous: MCG_STATUS_0,
@@ -7207,7 +7233,7 @@ impl Default for MCG_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCG_STATUS_0 {
     pub _bitfield: u32,
@@ -7248,7 +7274,7 @@ pub struct MCI_STATS_0 {
     pub MsCod: u16,
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MCI_STATUS {
     pub CommonBits: MCI_STATUS_BITS_COMMON,
@@ -7261,17 +7287,17 @@ impl Default for MCI_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_AMD_BITS {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_BITS_COMMON {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MCI_STATUS_INTEL_BITS {
     pub _bitfield: u64,
@@ -7386,7 +7412,7 @@ pub const MPSABus: INTERFACE_TYPE = 11i32;
 pub const MPSAConfiguration: BUS_DATA_TYPE = 9i32;
 pub const MRLClosed: PCI_EXPRESS_MRL_STATE = 0i32;
 pub const MRLOpen: PCI_EXPRESS_MRL_STATE = 1i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MU_TELEMETRY_SECTION {
     pub ComponentID: windows_sys::core::GUID,
@@ -7692,17 +7718,20 @@ impl Default for OB_POST_OPERATION_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub union OB_POST_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_POST_OPERATION_INFORMATION_0_0,
 }
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_POST_OPERATION_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Default)]
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
@@ -7757,17 +7786,20 @@ impl Default for OB_PRE_OPERATION_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub union OB_PRE_OPERATION_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: OB_PRE_OPERATION_INFORMATION_0_0,
 }
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for OB_PRE_OPERATION_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Default)]
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
@@ -7924,22 +7956,6 @@ impl Default for PCIX_BRIDGE_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCIX_BRIDGE_CAPABILITY_0 {
-    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
-    pub AsUSHORT: u16,
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
-    pub _bitfield: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_1 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_1_0,
     pub AsULONG: u32,
@@ -7969,6 +7985,22 @@ impl Default for PCIX_BRIDGE_CAPABILITY_2 {
 #[derive(Clone, Copy, Default)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
     pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PCIX_BRIDGE_CAPABILITY_0 {
+    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
+    pub AsUSHORT: u16,
+}
+impl Default for PCIX_BRIDGE_CAPABILITY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
+    pub _bitfield: u16,
 }
 pub const PCIX_MODE1_100MHZ: u32 = 2u32;
 pub const PCIX_MODE1_133MHZ: u32 = 3u32;
@@ -8070,12 +8102,12 @@ pub struct PCI_AGP_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct PCI_AGP_CAPABILITY_0 {
+pub struct PCI_AGP_CAPABILITY_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct PCI_AGP_CAPABILITY_1 {
+pub struct PCI_AGP_CAPABILITY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -10346,17 +10378,17 @@ pub struct PCI_PMC {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct PCI_PMC_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PCI_PMCSR_BSE {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PCI_PMC_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
@@ -10375,11 +10407,11 @@ impl Default for PCI_PM_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_0 {
-    pub Capabilities: PCI_PMC,
-    pub AsUSHORT: u16,
+pub union PCI_PM_CAPABILITY_2 {
+    pub BridgeSupport: PCI_PMCSR_BSE,
+    pub AsUCHAR: u8,
 }
-impl Default for PCI_PM_CAPABILITY_0 {
+impl Default for PCI_PM_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10397,11 +10429,11 @@ impl Default for PCI_PM_CAPABILITY_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_2 {
-    pub BridgeSupport: PCI_PMCSR_BSE,
-    pub AsUCHAR: u8,
+pub union PCI_PM_CAPABILITY_0 {
+    pub Capabilities: PCI_PMC,
+    pub AsUSHORT: u16,
 }
-impl Default for PCI_PM_CAPABILITY_2 {
+impl Default for PCI_PM_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11798,21 +11830,21 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
+    pub DriveMap: u32,
+    pub DriveType: [u8; 32],
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
-    pub DriveMap: u32,
-    pub DriveType: [u8; 32],
+pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
+    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11841,21 +11873,21 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
+pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+    pub DriveMap: u32,
+    pub DriveType: [u8; 32],
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
-    pub DriveMap: u32,
-    pub DriveType: [u8; 32],
+pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+    pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11887,17 +11919,20 @@ impl Default for PROCESS_EXTENDED_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 #[derive(Clone, Copy)]
 pub union PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0_0,
 }
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl Default for PROCESS_EXTENDED_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION_0_0 {
     pub _bitfield: u32,
@@ -12047,17 +12082,20 @@ impl Default for PS_CREATE_NOTIFY_INFO {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[derive(Clone, Copy)]
 pub union PS_CREATE_NOTIFY_INFO_0 {
     pub Flags: u32,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0_0,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 impl Default for PS_CREATE_NOTIFY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power", feature = "Win32_System_WindowsProgramming"))]
 #[derive(Clone, Copy, Default)]
 pub struct PS_CREATE_NOTIFY_INFO_0_0 {
     pub _bitfield: u32,
@@ -13057,7 +13095,7 @@ pub struct SHARE_ACCESS {
 }
 pub const SHORT_LEAST_SIGNIFICANT_BIT: u32 = 0u32;
 pub const SHORT_MOST_SIGNIFICANT_BIT: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SIGNAL_REG_VALUE {
     pub RegName: [u8; 32],
@@ -13091,11 +13129,13 @@ impl Default for SILO_MONITOR_REGISTRATION {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub union SILO_MONITOR_REGISTRATION_0 {
     pub DriverObjectName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
     pub ComponentName: *mut super::super::super::Win32::Foundation::UNICODE_STRING,
 }
+#[cfg(feature = "Wdk_Foundation")]
 impl Default for SILO_MONITOR_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13575,20 +13615,20 @@ impl Default for WAIT_CONTEXT_BLOCK {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
 pub union WAIT_CONTEXT_BLOCK_0 {
     pub WaitQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: WAIT_CONTEXT_BLOCK_0_0,
 }
-#[cfg(feature = "Win32_System_Kernel")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for WAIT_CONTEXT_BLOCK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Kernel")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Default)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::super::super::Win32::System::Kernel::LIST_ENTRY,
@@ -13616,7 +13656,7 @@ impl Default for WHEAP_ACPI_TIMEOUT_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
@@ -13631,7 +13671,7 @@ impl Default for WHEAP_ADD_REMOVE_ERROR_SOURCE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ATTEMPT_RECOVERY_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13645,7 +13685,7 @@ impl Default for WHEAP_ATTEMPT_RECOVERY_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
@@ -13660,7 +13700,7 @@ impl Default for WHEAP_BAD_HEST_NOTIFY_DATA_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_CLEARED_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13682,7 +13722,7 @@ impl Default for WHEAP_CMCI_IMPLEMENTED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_INITERR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13696,7 +13736,7 @@ impl Default for WHEAP_CMCI_INITERR_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_CMCI_RESTART_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13710,7 +13750,7 @@ impl Default for WHEAP_CMCI_RESTART_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_CREATE_GENERIC_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13723,7 +13763,7 @@ impl Default for WHEAP_CREATE_GENERIC_RECORD_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_DEFERRED_EVENT {
@@ -13747,7 +13787,7 @@ impl Default for WHEAP_DEVICE_DRV_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_DPC_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13764,7 +13804,7 @@ impl Default for WHEAP_DPC_ERROR_EVENT {
     }
 }
 pub type WHEAP_DPC_ERROR_EVENT_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_DROPPED_CORRECTED_ERROR_EVENT {
@@ -13790,7 +13830,7 @@ impl Default for WHEAP_EDPC_ENABLED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_CLEARED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13802,7 +13842,7 @@ impl Default for WHEAP_ERROR_CLEARED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ERROR_RECORD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13813,7 +13853,7 @@ impl Default for WHEAP_ERROR_RECORD_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ERR_SRC_ARRAY_INVALID_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13840,7 +13880,7 @@ impl Default for WHEAP_ERR_SRC_INVALID_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_FOUND_ERROR_IN_BANK_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13854,7 +13894,7 @@ impl Default for WHEAP_FOUND_ERROR_IN_BANK_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_GENERIC_ERR_MEM_MAP_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13879,7 +13919,7 @@ impl Default for WHEAP_OSC_IMPLEMENTED {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_CONFIG_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13898,7 +13938,7 @@ impl Default for WHEAP_PCIE_CONFIG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_OVERRIDE_INFO {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13918,7 +13958,7 @@ impl Default for WHEAP_PCIE_OVERRIDE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PCIE_READ_OVERRIDES_ERR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13930,7 +13970,7 @@ impl Default for WHEAP_PCIE_READ_OVERRIDES_ERR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_OFFLINED {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13943,7 +13983,7 @@ impl Default for WHEAP_PFA_MEMORY_OFFLINED {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_POLICY {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -13960,7 +14000,7 @@ impl Default for WHEAP_PFA_MEMORY_POLICY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PFA_MEMORY_REMOVE_MONITOR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14016,7 +14056,7 @@ impl Default for WHEAP_PLUGIN_PFA_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_EINJ_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14038,7 +14078,7 @@ impl Default for WHEAP_PROCESS_EINJ_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PROCESS_HEST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14060,7 +14100,7 @@ impl Default for WHEAP_PROCESS_HEST_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_INJECT_ERROR {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14078,7 +14118,7 @@ impl Default for WHEAP_PSHED_INJECT_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_PSHED_PLUGIN_REGISTER {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14092,7 +14132,7 @@ impl Default for WHEAP_PSHED_PLUGIN_REGISTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_ROW_FAILURE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14104,7 +14144,7 @@ impl Default for WHEAP_ROW_FAILURE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_SPURIOUS_AER_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14120,7 +14160,7 @@ impl Default for WHEAP_SPURIOUS_AER_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_STARTED_REPORT_HW_ERROR {
@@ -14133,7 +14173,7 @@ impl Default for WHEAP_STARTED_REPORT_HW_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEAP_STUCK_ERROR_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14146,7 +14186,7 @@ impl Default for WHEAP_STUCK_ERROR_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ACPI_HEADER {
     pub Signature: u32,
@@ -14164,7 +14204,7 @@ impl Default for WHEA_ACPI_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_AMD_EXTENDED_REGISTERS {
     pub IPID: u64,
@@ -14185,7 +14225,7 @@ impl Default for WHEA_AMD_EXTENDED_REGISTERS {
     }
 }
 pub const WHEA_AMD_EXT_REG_NUM: u32 = 10u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R0: u32,
@@ -14205,7 +14245,7 @@ pub struct WHEA_ARMV8_AARCH32_GPRS {
     pub R14: u32,
     pub R15: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub ELR_EL3: u64,
@@ -14219,7 +14259,7 @@ pub struct WHEA_ARMV8_AARCH64_EL3_CSR {
     pub TPIDR_EL3: u64,
     pub TTBR0_EL3: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X0: u64,
@@ -14255,7 +14295,7 @@ pub struct WHEA_ARMV8_AARCH64_GPRS {
     pub X30: u64,
     pub SP: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub DFAR: u32,
@@ -14283,7 +14323,7 @@ pub struct WHEA_ARM_AARCH32_EL1_CSR {
     pub TTBR1: u32,
     pub DACR: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub ELR_hyp: u32,
@@ -14303,13 +14343,13 @@ pub struct WHEA_ARM_AARCH32_EL2_CSR {
     pub VTTBR: u32,
     pub DACR32_EL2: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH32_SECURE_CSR {
     pub SCTLR: u32,
     pub SPSR_mon: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub ELR_EL1: u64,
@@ -14330,7 +14370,7 @@ pub struct WHEA_ARM_AARCH64_EL1_CSR {
     pub TTBR0_EL1: u64,
     pub TTBR1_EL1: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub ELR_EL2: u64,
@@ -14349,7 +14389,7 @@ pub struct WHEA_ARM_AARCH64_EL2_CSR {
     pub VTCR_EL2: u64,
     pub VTTBR_EL2: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_BUS_ERROR {
     pub ValidationBit: WHEA_ARM_BUS_ERROR_VALID_BITS,
@@ -14365,7 +14405,7 @@ impl Default for WHEA_ARM_BUS_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_BUS_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_BUS_ERROR_VALID_BITS_0,
@@ -14376,12 +14416,12 @@ impl Default for WHEA_ARM_BUS_ERROR_VALID_BITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_BUS_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_CACHE_ERROR {
     pub ValidationBit: WHEA_ARM_CACHE_ERROR_VALID_BITS,
@@ -14394,7 +14434,7 @@ impl Default for WHEA_ARM_CACHE_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_CACHE_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_CACHE_ERROR_VALID_BITS_0,
@@ -14405,18 +14445,18 @@ impl Default for WHEA_ARM_CACHE_ERROR_VALID_BITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_CACHE_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_MISC_CSR {
     pub MRSEncoding: u16,
     pub Value: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR {
     pub CacheError: WHEA_ARM_CACHE_ERROR,
@@ -14429,7 +14469,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
     pub Version: u16,
@@ -14442,7 +14482,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0,
@@ -14453,12 +14493,12 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
     pub Version: u8,
@@ -14476,7 +14516,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0,
@@ -14487,12 +14527,12 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS_0 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS,
@@ -14512,7 +14552,7 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
     pub Anonymous: WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0,
@@ -14523,12 +14563,12 @@ impl Default for WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ARM_TLB_ERROR {
     pub ValidationBit: WHEA_ARM_TLB_ERROR_VALID_BITS,
@@ -14541,7 +14581,7 @@ impl Default for WHEA_ARM_TLB_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ARM_TLB_ERROR_VALID_BITS {
     pub Anonymous: WHEA_ARM_TLB_ERROR_VALID_BITS_0,
@@ -14552,7 +14592,7 @@ impl Default for WHEA_ARM_TLB_ERROR_VALID_BITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ARM_TLB_ERROR_VALID_BITS_0 {
     pub _bitfield: u16,
@@ -14569,7 +14609,7 @@ impl Default for WHEA_AZCC_ROOT_BUS_ERR_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_AZCC_ROOT_BUS_LIST_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14581,7 +14621,7 @@ impl Default for WHEA_AZCC_ROOT_BUS_LIST_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_AZCC_SET_POISON_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14619,7 +14659,7 @@ pub struct WHEA_ERROR_INJECTION_CAPABILITIES_0 {
 }
 pub const WHEA_ERROR_LOG_ENTRY_VERSION: u32 = 1u32;
 pub type WHEA_ERROR_PACKET_DATA_FORMAT = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_FLAGS {
     pub Anonymous: WHEA_ERROR_PACKET_FLAGS_0,
@@ -14630,13 +14670,13 @@ impl Default for WHEA_ERROR_PACKET_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_PACKET_FLAGS_0 {
     pub _bitfield: u32,
 }
 pub const WHEA_ERROR_PACKET_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe71254e9_c1b9_4940_ab76_909703a4320f);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V1 {
@@ -14665,6 +14705,7 @@ impl Default for WHEA_ERROR_PACKET_V1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_PACKET_V1_0 {
     pub ProcessorError: WHEA_PROCESSOR_GENERIC_ERROR_SECTION,
@@ -14675,13 +14716,14 @@ pub union WHEA_ERROR_PACKET_V1_0 {
     pub PciXDeviceError: WHEA_PCIXDEVICE_ERROR_SECTION,
     pub PmemError: WHEA_PMEM_ERROR_SECTION,
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl Default for WHEA_ERROR_PACKET_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const WHEA_ERROR_PACKET_V1_VERSION: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_PACKET_V2 {
@@ -14726,7 +14768,7 @@ pub const WHEA_ERROR_RECORD_FLAGS_DEVICE_DRIVER: u32 = 8u32;
 pub const WHEA_ERROR_RECORD_FLAGS_PREVIOUSERROR: u32 = 2u32;
 pub const WHEA_ERROR_RECORD_FLAGS_RECOVERED: u32 = 1u32;
 pub const WHEA_ERROR_RECORD_FLAGS_SIMULATED: u32 = 4u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER {
     pub Signature: u32,
@@ -14762,7 +14804,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_HEADER_0_0 {
     pub OsBuildNumber: u32,
@@ -14773,7 +14815,7 @@ impl Default for WHEA_ERROR_RECORD_HEADER_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_FLAGS_0,
@@ -14784,12 +14826,12 @@ impl Default for WHEA_ERROR_RECORD_HEADER_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_HEADER_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_HEADER_VALIDBITS {
     pub Anonymous: WHEA_ERROR_RECORD_HEADER_VALIDBITS_0,
@@ -14800,13 +14842,13 @@ impl Default for WHEA_ERROR_RECORD_HEADER_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_HEADER_VALIDBITS_0 {
     pub _bitfield: u32,
 }
 pub const WHEA_ERROR_RECORD_REVISION: u32 = 528u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionOffset: u32,
@@ -14825,7 +14867,7 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
     pub Anonymous: WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0,
@@ -14836,7 +14878,7 @@ impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u32,
@@ -14862,7 +14904,7 @@ pub const WHEA_ERROR_RECORD_SIGNATURE_END: u32 = 4294967295u32;
 pub const WHEA_ERROR_RECORD_VALID_PARTITIONID: u32 = 4u32;
 pub const WHEA_ERROR_RECORD_VALID_PLATFORMID: u32 = 1u32;
 pub const WHEA_ERROR_RECORD_VALID_TIMESTAMP: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub RecoveryKernel: bool,
@@ -14909,7 +14951,7 @@ pub struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
 }
 pub type WHEA_ERROR_SOURCE_RECOVER = Option<unsafe extern "system" fn() -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn()>;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_ERROR_STATUS {
     pub ErrorStatus: u64,
@@ -14920,7 +14962,7 @@ impl Default for WHEA_ERROR_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_ERROR_STATUS_0 {
     pub _bitfield: u64,
@@ -14928,7 +14970,7 @@ pub struct WHEA_ERROR_STATUS_0 {
 pub const WHEA_ERROR_TEXT_LEN: u32 = 32u32;
 pub type WHEA_ERROR_TYPE = i32;
 pub const WHEA_ERR_SRC_OVERRIDE_FLAG: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ETW_OVERFLOW_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -14949,7 +14991,7 @@ impl Default for WHEA_EVENT_LOG_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_EVENT_LOG_ENTRY_FLAGS {
     pub Anonymous: WHEA_EVENT_LOG_ENTRY_FLAGS_0,
@@ -14960,12 +15002,12 @@ impl Default for WHEA_EVENT_LOG_ENTRY_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_EVENT_LOG_ENTRY_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_EVENT_LOG_ENTRY_HEADER {
     pub Signature: u32,
@@ -14994,7 +15036,7 @@ impl Default for WHEA_FAILED_ADD_DEFECT_LIST_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_FIRMWARE_ERROR_RECORD_REFERENCE {
     pub Type: u8,
@@ -15010,7 +15052,7 @@ pub const WHEA_FIRMWARE_RECORD_TYPE_IPFSAL: u32 = 0u32;
 pub const WHEA_GENERIC_ENTRY_TEXT_LEN: u32 = 20u32;
 pub const WHEA_GENERIC_ENTRY_V2_VERSION: u32 = 768u32;
 pub const WHEA_GENERIC_ENTRY_VERSION: u32 = 768u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR {
     pub BlockStatus: WHEA_GENERIC_ERROR_BLOCKSTATUS,
@@ -15025,7 +15067,7 @@ impl Default for WHEA_GENERIC_ERROR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_GENERIC_ERROR_BLOCKSTATUS {
     pub Anonymous: WHEA_GENERIC_ERROR_BLOCKSTATUS_0,
@@ -15036,12 +15078,12 @@ impl Default for WHEA_GENERIC_ERROR_BLOCKSTATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_GENERIC_ERROR_BLOCKSTATUS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
     pub SectionType: windows_sys::core::GUID,
@@ -15059,7 +15101,7 @@ impl Default for WHEA_GENERIC_ERROR_DATA_ENTRY_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DATA_ENTRY_V2 {
     pub SectionType: windows_sys::core::GUID,
@@ -15112,7 +15154,7 @@ pub const WHEA_MEMERRTYPE_SINGLESYMCHIPKILL: u32 = 4u32;
 pub const WHEA_MEMERRTYPE_TARGETABORT: u32 = 7u32;
 pub const WHEA_MEMERRTYPE_UNKNOWN: u32 = 0u32;
 pub const WHEA_MEMERRTYPE_WATCHDOGTIMEOUT: u32 = 9u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
     pub ValidBits: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS,
@@ -15126,7 +15168,7 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_HEADER {
     pub Version: u16,
@@ -15143,7 +15185,7 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0,
@@ -15154,12 +15196,12 @@ impl Default for WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_ERROR_SECTION {
     pub ValidBits: WHEA_MEMORY_ERROR_SECTION_VALIDBITS,
@@ -15188,7 +15230,7 @@ impl Default for WHEA_MEMORY_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0,
@@ -15199,12 +15241,12 @@ impl Default for WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_MEMORY_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15216,7 +15258,7 @@ impl Default for WHEA_MEMORY_THROTTLE_SUMMARY_FAILED_EVENT {
     }
 }
 pub const WHEA_MSCHECK_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48ab7f57_dc34_4f6c_a7d3_b0b5b0a74314);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_MSR_DUMP_SECTION {
     pub MsrDumpBuffer: u8,
@@ -15239,7 +15281,7 @@ impl Default for WHEA_NMI_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_NMI_ERROR_SECTION_FLAGS {
     pub Anonymous: WHEA_NMI_ERROR_SECTION_FLAGS_0,
@@ -15250,12 +15292,12 @@ impl Default for WHEA_NMI_ERROR_SECTION_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_NMI_ERROR_SECTION_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_OFFLINE_DONE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15283,7 +15325,7 @@ impl Default for WHEA_PACKET_LOG_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0,
@@ -15294,13 +15336,13 @@ impl Default for WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_BRIDGE_CONTROL_STATUS_0 {
     pub BridgeSecondaryStatus: u16,
     pub BridgeControl: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_COMMAND_STATUS {
     pub Anonymous: WHEA_PCIEXPRESS_COMMAND_STATUS_0,
@@ -15311,13 +15353,13 @@ impl Default for WHEA_PCIEXPRESS_COMMAND_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_COMMAND_STATUS_0 {
     pub Command: u16,
     pub Status: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub VendorID: u16,
@@ -15327,7 +15369,7 @@ pub struct WHEA_PCIEXPRESS_DEVICE_ID {
     pub _bitfield3: u32,
 }
 pub type WHEA_PCIEXPRESS_DEVICE_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS,
@@ -15346,7 +15388,7 @@ impl Default for WHEA_PCIEXPRESS_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0,
@@ -15357,12 +15399,12 @@ impl Default for WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIEXPRESS_VERSION {
     pub Anonymous: WHEA_PCIEXPRESS_VERSION_0,
@@ -15373,14 +15415,14 @@ impl Default for WHEA_PCIEXPRESS_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIEXPRESS_VERSION_0 {
     pub MinorVersion: u8,
     pub MajorVersion: u8,
     pub Reserved: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_ADDRESS {
     pub Segment: u32,
@@ -15388,7 +15430,7 @@ pub struct WHEA_PCIE_ADDRESS {
     pub Device: u32,
     pub Function: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
     pub ValidBits: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS,
@@ -15401,7 +15443,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
     pub Anonymous: WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0,
@@ -15412,7 +15454,7 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS_0 {
     pub _bitfield: u64,
@@ -15429,13 +15471,13 @@ impl Default for WHEA_PCIE_CORRECTABLE_ERROR_SECTION {
     }
 }
 pub const WHEA_PCIE_CORRECTABLE_ERROR_SECTION_COUNT_SIZE: u32 = 32u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIE_CORRECTABLE_ERROR_SECTION_HEADER {
     pub Version: u16,
     pub Count: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_COMMAND {
     pub Anonymous: WHEA_PCIXBUS_COMMAND_0,
@@ -15446,12 +15488,12 @@ impl Default for WHEA_PCIXBUS_COMMAND {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXBUS_COMMAND_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS,
@@ -15471,7 +15513,7 @@ impl Default for WHEA_PCIXBUS_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0,
@@ -15482,12 +15524,12 @@ impl Default for WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIXBUS_ID {
     pub Anonymous: WHEA_PCIXBUS_ID_0,
@@ -15504,7 +15546,7 @@ pub struct WHEA_PCIXBUS_ID_0 {
     pub BusNumber: u8,
     pub BusSegment: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION {
     pub ValidBits: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS,
@@ -15519,7 +15561,7 @@ impl Default for WHEA_PCIXDEVICE_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0,
@@ -15530,12 +15572,12 @@ impl Default for WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_ID {
     pub VendorId: u16,
@@ -15544,7 +15586,7 @@ pub struct WHEA_PCIXDEVICE_ID {
     pub _bitfield2: u32,
     pub Reserved2: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PCIXDEVICE_REGISTER_PAIR {
     pub Register: u64,
@@ -15559,7 +15601,7 @@ pub struct WHEA_PCI_RECOVERY_SECTION {
 }
 pub type WHEA_PCI_RECOVERY_SIGNAL = i32;
 pub type WHEA_PCI_RECOVERY_STATUS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PERSISTENCE_INFO {
     pub Anonymous: WHEA_PERSISTENCE_INFO_0,
@@ -15570,7 +15612,7 @@ impl Default for WHEA_PERSISTENCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PERSISTENCE_INFO_0 {
     pub _bitfield: u64,
@@ -15579,7 +15621,7 @@ pub type WHEA_PFA_REMOVE_TRIGGER = i32;
 pub const WHEA_PLUGIN_REGISTRATION_PACKET_V1: u32 = 65536u32;
 pub const WHEA_PLUGIN_REGISTRATION_PACKET_V2: u32 = 131072u32;
 pub const WHEA_PLUGIN_REGISTRATION_PACKET_VERSION: u32 = 131072u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PMEM_ERROR_SECTION {
     pub ValidBits: WHEA_PMEM_ERROR_SECTION_VALIDBITS,
@@ -15596,7 +15638,7 @@ impl Default for WHEA_PMEM_ERROR_SECTION {
 }
 pub const WHEA_PMEM_ERROR_SECTION_LOCATION_INFO_SIZE: u32 = 64u32;
 pub const WHEA_PMEM_ERROR_SECTION_MAX_PAGES: u32 = 50u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PMEM_ERROR_SECTION_VALIDBITS_0,
@@ -15607,19 +15649,19 @@ impl Default for WHEA_PMEM_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PMEM_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PMEM_PAGE_RANGE {
     pub StartingPfn: u64,
     pub PageCount: u64,
     pub MarkedBadBitmap: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_FAMILY_INFO {
     pub Anonymous: WHEA_PROCESSOR_FAMILY_INFO_0,
@@ -15630,13 +15672,13 @@ impl Default for WHEA_PROCESSOR_FAMILY_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PROCESSOR_FAMILY_INFO_0 {
     pub _bitfield: u32,
     pub NativeModelId: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
     pub ValidBits: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS,
@@ -15660,7 +15702,7 @@ impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0,
@@ -15671,12 +15713,12 @@ impl Default for WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_CPU_BUSES_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15724,7 +15766,7 @@ impl Default for WHEA_PSHED_PLUGIN_CALLBACKS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15744,7 +15786,7 @@ impl Default for WHEA_PSHED_PLUGIN_DIMM_MISMATCH {
     }
 }
 pub type WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15765,7 +15807,7 @@ impl Default for WHEA_PSHED_PLUGIN_HEARTBEAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15776,7 +15818,7 @@ impl Default for WHEA_PSHED_PLUGIN_INIT_FAILED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_LOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15789,7 +15831,7 @@ impl Default for WHEA_PSHED_PLUGIN_LOAD_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_PLATFORM_SUPPORT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15836,7 +15878,7 @@ impl Default for WHEA_PSHED_PLUGIN_REGISTRATION_PACKET_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15849,7 +15891,7 @@ impl Default for WHEA_PSHED_PLUGIN_UNLOAD_EVENT {
 }
 pub type WHEA_RAW_DATA_FORMAT = i32;
 pub const WHEA_RECORD_CREATOR_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcf07c4bd_b789_4e18_b3c4_1f732cb57131);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_RECOVERY_ACTION {
     pub Anonymous: WHEA_RECOVERY_ACTION_0,
@@ -15860,7 +15902,7 @@ impl Default for WHEA_RECOVERY_ACTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_RECOVERY_ACTION_0 {
     pub _bitfield1: u32,
@@ -15934,7 +15976,7 @@ impl Default for WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
 pub struct WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_REVISION {
     pub Anonymous: WHEA_REVISION_0,
@@ -15951,7 +15993,7 @@ pub struct WHEA_REVISION_0 {
     pub MinorRevision: u8,
     pub MajorRevision: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_SEA_SECTION {
     pub Esr: u32,
@@ -15968,13 +16010,13 @@ pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESET: u32 = 4u32;
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_RESOURCENA: u32 = 16u32;
 pub const WHEA_SECTION_DESCRIPTOR_FLAGS_THRESHOLDEXCEEDED: u32 = 8u32;
 pub const WHEA_SECTION_DESCRIPTOR_REVISION: u32 = 768u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_SEI_SECTION {
     pub Esr: u32,
     pub Far: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_PROGRESS {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -15999,7 +16041,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16025,7 +16067,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 {
     }
 }
 pub const WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_VERSION: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16049,7 +16091,7 @@ impl Default for WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT {
     }
 }
 pub type WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn() -> bool>;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SRAR_DETAIL_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16063,7 +16105,7 @@ impl Default for WHEA_SRAR_DETAIL_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_SRAS_TABLE_ENTRIES_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16106,7 +16148,7 @@ impl Default for WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16119,7 +16161,7 @@ impl Default for WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_ADD_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16133,7 +16175,7 @@ impl Default for WHEA_THROTTLE_PCIE_ADD_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_PCIE_REMOVE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16145,7 +16187,7 @@ impl Default for WHEA_THROTTLE_PCIE_REMOVE_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16156,7 +16198,7 @@ impl Default for WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -16168,7 +16210,7 @@ impl Default for WHEA_THROTTLE_REG_DATA_IGNORED_EVENT {
     }
 }
 pub type WHEA_THROTTLE_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_TIMESTAMP {
     pub Anonymous: WHEA_TIMESTAMP_0,
@@ -16179,7 +16221,7 @@ impl Default for WHEA_TIMESTAMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_TIMESTAMP_0 {
     pub _bitfield: u64,
@@ -16225,7 +16267,7 @@ pub struct WHEA_X64_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_X86_REGISTER_STATE {
     pub Eax: u32,
@@ -16254,7 +16296,7 @@ pub struct WHEA_X86_REGISTER_STATE {
     pub Ldtr: u16,
     pub Tr: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_BUS_CHECK {
     pub Anonymous: WHEA_XPF_BUS_CHECK_0,
@@ -16265,12 +16307,12 @@ impl Default for WHEA_XPF_BUS_CHECK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_BUS_CHECK_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_CACHE_CHECK {
     pub Anonymous: WHEA_XPF_CACHE_CHECK_0,
@@ -16281,12 +16323,12 @@ impl Default for WHEA_XPF_CACHE_CHECK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_CACHE_CHECK_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_CONTEXT_INFO {
     pub RegisterContextType: u16,
@@ -16295,7 +16337,7 @@ pub struct WHEA_XPF_CONTEXT_INFO {
     pub MmRegisterAddress: u64,
 }
 pub const WHEA_XPF_MCA_EXTREG_MAX_COUNT: u32 = 24u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCA_SECTION {
     pub VersionNumber: u32,
@@ -16319,7 +16361,7 @@ impl Default for WHEA_XPF_MCA_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_MCA_SECTION_0 {
     pub ExtendedRegisters: [u64; 24],
@@ -16333,7 +16375,7 @@ impl Default for WHEA_XPF_MCA_SECTION_0 {
 pub const WHEA_XPF_MCA_SECTION_VERSION: u32 = 3u32;
 pub const WHEA_XPF_MCA_SECTION_VERSION_2: u32 = 2u32;
 pub const WHEA_XPF_MCA_SECTION_VERSION_3: u32 = 3u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_MS_CHECK {
     pub Anonymous: WHEA_XPF_MS_CHECK_0,
@@ -16344,12 +16386,12 @@ impl Default for WHEA_XPF_MS_CHECK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_MS_CHECK_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION {
     pub ValidBits: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS,
@@ -16362,7 +16404,7 @@ impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0,
@@ -16373,12 +16415,12 @@ impl Default for WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_PROCINFO {
     pub CheckInfoId: windows_sys::core::GUID,
@@ -16394,7 +16436,7 @@ impl Default for WHEA_XPF_PROCINFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_0 {
     pub CacheCheck: WHEA_XPF_CACHE_CHECK,
@@ -16408,7 +16450,7 @@ impl Default for WHEA_XPF_PROCINFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_PROCINFO_VALIDBITS {
     pub Anonymous: WHEA_XPF_PROCINFO_VALIDBITS_0,
@@ -16419,12 +16461,12 @@ impl Default for WHEA_XPF_PROCINFO_VALIDBITS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_PROCINFO_VALIDBITS_0 {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WHEA_XPF_TLB_CHECK {
     pub Anonymous: WHEA_XPF_TLB_CHECK_0,
@@ -16435,7 +16477,7 @@ impl Default for WHEA_XPF_TLB_CHECK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_TLB_CHECK_0 {
     pub _bitfield: u64,
@@ -16720,7 +16762,7 @@ pub const XPF_MS_CHECK_ERRORTYPE_MCROMPARITY: u32 = 2u32;
 pub const XPF_MS_CHECK_ERRORTYPE_NOERROR: u32 = 0u32;
 pub const XPF_MS_CHECK_ERRORTYPE_UNCLASSIFIED: u32 = 1u32;
 pub const XPF_PROCESSOR_ERROR_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdc3ea0b0_a144_4797_b95b_53fa242b6e1d);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XPF_RECOVERY_INFO {
     pub FailureReason: XPF_RECOVERY_INFO_0,
@@ -16733,14 +16775,14 @@ pub struct XPF_RECOVERY_INFO {
     pub Reserved3: u16,
     pub Reserved4: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct XPF_RECOVERY_INFO_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct XPF_RECOVERY_INFO_1 {
+    pub _bitfield: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct XPF_RECOVERY_INFO_0 {
     pub _bitfield: u32,
 }
 pub const XPF_TLB_CHECK_OPERATION_DATAREAD: u32 = 3u32;

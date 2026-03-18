@@ -166,38 +166,6 @@ pub struct D2D_COLOR_F {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union D2D_MATRIX_3X2_F_0 {
-    pub Anonymous1: D2D_MATRIX_3X2_F_0_0,
-    pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
-    pub m: [f32; 6],
-}
-impl Default for D2D_MATRIX_3X2_F_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_MATRIX_3X2_F_0_0 {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub dx: f32,
-    pub dy: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_MATRIX_3X2_F_0_1 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct D2D_MATRIX_4X3_F {
     pub Anonymous: D2D_MATRIX_4X3_F_0,
 }
@@ -232,37 +200,6 @@ pub struct D2D_MATRIX_4X3_F_0_0 {
     pub _41: f32,
     pub _42: f32,
     pub _43: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D2D_MATRIX_4X4_F_0 {
-    pub Anonymous: D2D_MATRIX_4X4_F_0_0,
-    pub m: [f32; 16],
-}
-impl Default for D2D_MATRIX_4X4_F_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct D2D_MATRIX_4X4_F_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

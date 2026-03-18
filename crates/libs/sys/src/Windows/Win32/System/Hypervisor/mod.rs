@@ -442,6 +442,38 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    pub FpControl: u16,
+    pub FpStatus: u16,
+    pub FpTag: u8,
+    pub Reserved: u8,
+    pub LastFpOp: u16,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    pub LastFpRip: u64,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
+    pub LastFpEip: u32,
+    pub LastFpCs: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub Base: u64,
     pub Limit: u32,
@@ -474,38 +506,6 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Limit: u16,
     pub Base: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    pub FpControl: u16,
-    pub FpStatus: u16,
-    pub FpTag: u8,
-    pub Reserved: u8,
-    pub LastFpOp: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
-    pub LastFpRip: u64,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
-    pub LastFpEip: u32,
-    pub LastFpCs: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -944,6 +944,11 @@ impl Default for WHV_PROCESSOR_FEATURES {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct WHV_PROCESSOR_FEATURES_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHV_PROCESSOR_FEATURES1 {
     pub Anonymous: WHV_PROCESSOR_FEATURES1_0,
@@ -957,11 +962,6 @@ impl Default for WHV_PROCESSOR_FEATURES1 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
-    pub _bitfield: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]

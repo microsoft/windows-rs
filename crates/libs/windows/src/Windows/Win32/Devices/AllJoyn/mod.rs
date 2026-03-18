@@ -4,47 +4,48 @@ pub unsafe fn AllJoynAcceptBusConnection(serverbushandle: super::super::Foundati
     unsafe { AllJoynAcceptBusConnection(serverbushandle, abortevent) }
 }
 #[inline]
-pub unsafe fn AllJoynCloseBusHandle(bushandle: super::super::Foundation::HANDLE) -> windows_core::BOOL {
+pub unsafe fn AllJoynCloseBusHandle(bushandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
     windows_core::link!("msajapi.dll" "system" fn AllJoynCloseBusHandle(bushandle : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
-    unsafe { AllJoynCloseBusHandle(bushandle) }
+    unsafe { AllJoynCloseBusHandle(bushandle).ok() }
 }
 #[inline]
-pub unsafe fn AllJoynConnectToBus<P0>(connectionspec: P0) -> super::super::Foundation::HANDLE
+pub unsafe fn AllJoynConnectToBus<P0>(connectionspec: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msajapi.dll" "system" fn AllJoynConnectToBus(connectionspec : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    unsafe { AllJoynConnectToBus(connectionspec.param().abi()) }
+    let result__ = unsafe { AllJoynConnectToBus(connectionspec.param().abi()) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE {
+pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE {
     windows_core::link!("msajapi.dll" "system" fn AllJoynCreateBus(outbuffersize : u32, inbuffersize : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    unsafe { AllJoynCreateBus(outbuffersize, inbuffersize, lpsecurityattributes) }
+    unsafe { AllJoynCreateBus(outbuffersize, inbuffersize, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: super::super::Foundation::HANDLE, eventtypes: *mut u32) -> windows_core::BOOL {
+pub unsafe fn AllJoynEnumEvents(connectedbushandle: super::super::Foundation::HANDLE, eventtoreset: Option<super::super::Foundation::HANDLE>, eventtypes: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("msajapi.dll" "system" fn AllJoynEnumEvents(connectedbushandle : super::super::Foundation:: HANDLE, eventtoreset : super::super::Foundation:: HANDLE, eventtypes : *mut u32) -> windows_core::BOOL);
-    unsafe { AllJoynEnumEvents(connectedbushandle, eventtoreset, eventtypes as _) }
+    unsafe { AllJoynEnumEvents(connectedbushandle, eventtoreset.unwrap_or(core::mem::zeroed()) as _, eventtypes as _).ok() }
 }
 #[inline]
-pub unsafe fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> windows_core::BOOL {
+pub unsafe fn AllJoynEventSelect(connectedbushandle: super::super::Foundation::HANDLE, eventhandle: super::super::Foundation::HANDLE, eventtypes: u32) -> windows_core::Result<()> {
     windows_core::link!("msajapi.dll" "system" fn AllJoynEventSelect(connectedbushandle : super::super::Foundation:: HANDLE, eventhandle : super::super::Foundation:: HANDLE, eventtypes : u32) -> windows_core::BOOL);
-    unsafe { AllJoynEventSelect(connectedbushandle, eventhandle, eventtypes) }
+    unsafe { AllJoynEventSelect(connectedbushandle, eventhandle, eventtypes).ok() }
 }
 #[inline]
-pub unsafe fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bytestoread: u32, bytestransferred: *mut u32, reserved: *mut core::ffi::c_void) -> windows_core::BOOL {
+pub unsafe fn AllJoynReceiveFromBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: Option<*mut core::ffi::c_void>, bytestoread: u32, bytestransferred: Option<*mut u32>, reserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("msajapi.dll" "system" fn AllJoynReceiveFromBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bytestoread : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { AllJoynReceiveFromBus(connectedbushandle, buffer as _, bytestoread, bytestransferred as _, reserved as _) }
+    unsafe { AllJoynReceiveFromBus(connectedbushandle, buffer.unwrap_or(core::mem::zeroed()) as _, bytestoread, bytestransferred.unwrap_or(core::mem::zeroed()) as _, reserved as _).ok() }
 }
 #[inline]
-pub unsafe fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: *const core::ffi::c_void, bytestowrite: u32, bytestransferred: *mut u32, reserved: *mut core::ffi::c_void) -> windows_core::BOOL {
+pub unsafe fn AllJoynSendToBus(connectedbushandle: super::super::Foundation::HANDLE, buffer: Option<*const core::ffi::c_void>, bytestowrite: u32, bytestransferred: Option<*mut u32>, reserved: *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { AllJoynSendToBus(connectedbushandle, buffer, bytestowrite, bytestransferred as _, reserved as _) }
+    unsafe { AllJoynSendToBus(connectedbushandle, buffer.unwrap_or(core::mem::zeroed()) as _, bytestowrite, bytestransferred.unwrap_or(core::mem::zeroed()) as _, reserved as _).ok() }
 }
 #[inline]
-pub unsafe fn QCC_StatusText(status: QStatus) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn QCC_StatusText(status : QStatus) -> windows_core::PSTR);
+pub unsafe fn QCC_StatusText(status: QStatus) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn QCC_StatusText(status : QStatus) -> windows_core::PCSTR);
     unsafe { QCC_StatusText(status) }
 }
 #[inline]
@@ -166,11 +167,11 @@ pub unsafe fn alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: *cons
     unsafe { alljoyn_aboutdata_getfields(data, fields, num_fields) }
 }
 #[inline]
-pub unsafe fn alljoyn_aboutdata_getfieldsignature<P1>(data: alljoyn_aboutdata, fieldname: P1) -> windows_core::PSTR
+pub unsafe fn alljoyn_aboutdata_getfieldsignature<P1>(data: alljoyn_aboutdata, fieldname: P1) -> windows_core::PCSTR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getfieldsignature(data : alljoyn_aboutdata, fieldname : windows_core::PCSTR) -> windows_core::PSTR);
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_aboutdata_getfieldsignature(data : alljoyn_aboutdata, fieldname : windows_core::PCSTR) -> windows_core::PCSTR);
     unsafe { alljoyn_aboutdata_getfieldsignature(data, fieldname.param().abi()) }
 }
 #[inline]
@@ -386,13 +387,9 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: alljoyn_abouticon) {
     unsafe { alljoyn_abouticon_destroy(icon) }
 }
 #[inline]
-pub unsafe fn alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: *const *const u8) -> usize {
+pub unsafe fn alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: *const *const u8, size: *mut usize) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_abouticon_getcontent(icon : alljoyn_abouticon, data : *const *const u8, size : *mut usize));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_abouticon_getcontent(icon, data, &mut result__);
-        result__
-    }
+    unsafe { alljoyn_abouticon_getcontent(icon, data, size as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_abouticon_geturl(icon: alljoyn_abouticon, r#type: *const *const i8, url: *const *const i8) {
@@ -913,8 +910,8 @@ pub unsafe fn alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment) -
     unsafe { alljoyn_busattachment_getconcurrency(bus) }
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getconnectspec(bus : alljoyn_busattachment) -> windows_core::PSTR);
+pub unsafe fn alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getconnectspec(bus : alljoyn_busattachment) -> windows_core::PCSTR);
     unsafe { alljoyn_busattachment_getconnectspec(bus) }
 }
 #[inline]
@@ -923,8 +920,8 @@ pub unsafe fn alljoyn_busattachment_getdbusproxyobj(bus: alljoyn_busattachment) 
     unsafe { alljoyn_busattachment_getdbusproxyobj(bus) }
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getglobalguidstring(bus : alljoyn_busattachment) -> windows_core::PSTR);
+pub unsafe fn alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getglobalguidstring(bus : alljoyn_busattachment) -> windows_core::PCSTR);
     unsafe { alljoyn_busattachment_getglobalguidstring(bus) }
 }
 #[inline]
@@ -968,8 +965,8 @@ pub unsafe fn alljoyn_busattachment_gettimestamp() -> u32 {
     unsafe { alljoyn_busattachment_gettimestamp() }
 }
 #[inline]
-pub unsafe fn alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getuniquename(bus : alljoyn_busattachment) -> windows_core::PSTR);
+pub unsafe fn alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busattachment_getuniquename(bus : alljoyn_busattachment) -> windows_core::PCSTR);
     unsafe { alljoyn_busattachment_getuniquename(bus) }
 }
 #[inline]
@@ -1327,8 +1324,8 @@ where
     unsafe { alljoyn_busobject_getname(bus, buffer.param().abi(), buffersz) }
 }
 #[inline]
-pub unsafe fn alljoyn_busobject_getpath(bus: alljoyn_busobject) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_getpath(bus : alljoyn_busobject) -> windows_core::PSTR);
+pub unsafe fn alljoyn_busobject_getpath(bus: alljoyn_busobject) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_busobject_getpath(bus : alljoyn_busobject) -> windows_core::PCSTR);
     unsafe { alljoyn_busobject_getpath(bus) }
 }
 #[inline]
@@ -1384,8 +1381,8 @@ pub unsafe fn alljoyn_credentials_destroy(cred: alljoyn_credentials) {
     unsafe { alljoyn_credentials_destroy(cred) }
 }
 #[inline]
-pub unsafe fn alljoyn_credentials_getcertchain(cred: alljoyn_credentials) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getcertchain(cred : alljoyn_credentials) -> windows_core::PSTR);
+pub unsafe fn alljoyn_credentials_getcertchain(cred: alljoyn_credentials) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getcertchain(cred : alljoyn_credentials) -> windows_core::PCSTR);
     unsafe { alljoyn_credentials_getcertchain(cred) }
 }
 #[inline]
@@ -1394,23 +1391,23 @@ pub unsafe fn alljoyn_credentials_getexpiration(cred: alljoyn_credentials) -> u3
     unsafe { alljoyn_credentials_getexpiration(cred) }
 }
 #[inline]
-pub unsafe fn alljoyn_credentials_getlogonentry(cred: alljoyn_credentials) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getlogonentry(cred : alljoyn_credentials) -> windows_core::PSTR);
+pub unsafe fn alljoyn_credentials_getlogonentry(cred: alljoyn_credentials) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getlogonentry(cred : alljoyn_credentials) -> windows_core::PCSTR);
     unsafe { alljoyn_credentials_getlogonentry(cred) }
 }
 #[inline]
-pub unsafe fn alljoyn_credentials_getpassword(cred: alljoyn_credentials) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getpassword(cred : alljoyn_credentials) -> windows_core::PSTR);
+pub unsafe fn alljoyn_credentials_getpassword(cred: alljoyn_credentials) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getpassword(cred : alljoyn_credentials) -> windows_core::PCSTR);
     unsafe { alljoyn_credentials_getpassword(cred) }
 }
 #[inline]
-pub unsafe fn alljoyn_credentials_getprivateKey(cred: alljoyn_credentials) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getprivateKey(cred : alljoyn_credentials) -> windows_core::PSTR);
+pub unsafe fn alljoyn_credentials_getprivateKey(cred: alljoyn_credentials) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getprivateKey(cred : alljoyn_credentials) -> windows_core::PCSTR);
     unsafe { alljoyn_credentials_getprivateKey(cred) }
 }
 #[inline]
-pub unsafe fn alljoyn_credentials_getusername(cred: alljoyn_credentials) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getusername(cred : alljoyn_credentials) -> windows_core::PSTR);
+pub unsafe fn alljoyn_credentials_getusername(cred: alljoyn_credentials) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_credentials_getusername(cred : alljoyn_credentials) -> windows_core::PCSTR);
     unsafe { alljoyn_credentials_getusername(cred) }
 }
 #[inline]
@@ -1464,8 +1461,8 @@ where
     unsafe { alljoyn_credentials_setusername(cred, username.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_getbuildinfo() -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_getbuildinfo() -> windows_core::PSTR);
+pub unsafe fn alljoyn_getbuildinfo() -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_getbuildinfo() -> windows_core::PCSTR);
     unsafe { alljoyn_getbuildinfo() }
 }
 #[inline]
@@ -1474,8 +1471,8 @@ pub unsafe fn alljoyn_getnumericversion() -> u32 {
     unsafe { alljoyn_getnumericversion() }
 }
 #[inline]
-pub unsafe fn alljoyn_getversion() -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_getversion() -> windows_core::PSTR);
+pub unsafe fn alljoyn_getversion() -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_getversion() -> windows_core::PCSTR);
     unsafe { alljoyn_getversion() }
 }
 #[inline]
@@ -1690,8 +1687,8 @@ where
     unsafe { alljoyn_interfacedescription_getmethod(iface, name.param().abi(), member as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_interfacedescription_getname(iface : alljoyn_interfacedescription) -> windows_core::PSTR);
+pub unsafe fn alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_interfacedescription_getname(iface : alljoyn_interfacedescription) -> windows_core::PCSTR);
     unsafe { alljoyn_interfacedescription_getname(iface) }
 }
 #[inline]
@@ -2020,8 +2017,8 @@ pub unsafe fn alljoyn_message_getargs(msg: alljoyn_message, numargs: *mut usize,
     unsafe { alljoyn_message_getargs(msg, numargs as _, args as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getauthmechanism(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getauthmechanism(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getauthmechanism(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getauthmechanism(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getauthmechanism(msg) }
 }
 #[inline]
@@ -2035,16 +2032,16 @@ pub unsafe fn alljoyn_message_getcompressiontoken(msg: alljoyn_message) -> u32 {
     unsafe { alljoyn_message_getcompressiontoken(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getdestination(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getdestination(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getdestination(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getdestination(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getdestination(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_geterrorname<P1>(msg: alljoyn_message, errormessage: P1, errormessage_size: *mut usize) -> windows_core::PSTR
+pub unsafe fn alljoyn_message_geterrorname<P1>(msg: alljoyn_message, errormessage: P1, errormessage_size: *mut usize) -> windows_core::PCSTR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_geterrorname(msg : alljoyn_message, errormessage : windows_core::PCSTR, errormessage_size : *mut usize) -> windows_core::PSTR);
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_geterrorname(msg : alljoyn_message, errormessage : windows_core::PCSTR, errormessage_size : *mut usize) -> windows_core::PCSTR);
     unsafe { alljoyn_message_geterrorname(msg, errormessage.param().abi(), errormessage_size as _) }
 }
 #[inline]
@@ -2053,23 +2050,23 @@ pub unsafe fn alljoyn_message_getflags(msg: alljoyn_message) -> u8 {
     unsafe { alljoyn_message_getflags(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getinterface(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getinterface(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getinterface(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getinterface(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getinterface(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getmembername(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getmembername(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getmembername(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getmembername(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getmembername(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getobjectpath(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getobjectpath(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getobjectpath(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getobjectpath(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getobjectpath(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getreceiveendpointname(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getreceiveendpointname(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getreceiveendpointname(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getreceiveendpointname(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getreceiveendpointname(msg) }
 }
 #[inline]
@@ -2078,8 +2075,8 @@ pub unsafe fn alljoyn_message_getreplyserial(msg: alljoyn_message) -> u32 {
     unsafe { alljoyn_message_getreplyserial(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getsender(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getsender(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getsender(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getsender(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getsender(msg) }
 }
 #[inline]
@@ -2088,8 +2085,8 @@ pub unsafe fn alljoyn_message_getsessionid(msg: alljoyn_message) -> u32 {
     unsafe { alljoyn_message_getsessionid(msg) }
 }
 #[inline]
-pub unsafe fn alljoyn_message_getsignature(msg: alljoyn_message) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getsignature(msg : alljoyn_message) -> windows_core::PSTR);
+pub unsafe fn alljoyn_message_getsignature(msg: alljoyn_message) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_message_getsignature(msg : alljoyn_message) -> windows_core::PCSTR);
     unsafe { alljoyn_message_getsignature(msg) }
 }
 #[inline]
@@ -2250,17 +2247,13 @@ where
     unsafe { alljoyn_msgarg_get(arg, signature.param().abi()) }
 }
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize) -> alljoyn_msgarg {
+pub unsafe fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_get_array_element(arg : alljoyn_msgarg, index : usize, element : *mut alljoyn_msgarg));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_msgarg_get_array_element(arg, index, &mut result__);
-        result__
-    }
+    unsafe { alljoyn_msgarg_get_array_element(arg, index, element as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: usize) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_get_array_elementsignature(arg : alljoyn_msgarg, index : usize) -> windows_core::PSTR);
+pub unsafe fn alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: usize) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_msgarg_get_array_elementsignature(arg : alljoyn_msgarg, index : usize) -> windows_core::PCSTR);
     unsafe { alljoyn_msgarg_get_array_elementsignature(arg, index) }
 }
 #[inline]
@@ -2677,13 +2670,9 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_
     unsafe { alljoyn_permissionconfigurationlistener_destroy(listener) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy() -> i8 {
+pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_certificatechain_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid) {
@@ -2691,13 +2680,9 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid
     unsafe { alljoyn_permissionconfigurator_certificateid_cleanup(certificateid as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup() -> alljoyn_certificateidarray {
+pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray : *mut alljoyn_certificateidarray));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_certificateidarray_cleanup(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
@@ -2780,40 +2765,24 @@ pub unsafe fn alljoyn_permissionconfigurator_installmembership(configurator: all
     unsafe { alljoyn_permissionconfigurator_installmembership(configurator, membershipcertificatechain as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup() -> alljoyn_manifestarray {
+pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray : *mut alljoyn_manifestarray));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_manifestarray_cleanup(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy() -> i8 {
+pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_manifesttemplate_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_policy_destroy() -> i8 {
+pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_policy_destroy(policyxml : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_policy_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_policy_destroy(policyxml as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy() -> i8 {
+pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_permissionconfigurator_publickey_destroy(publickey : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_permissionconfigurator_publickey_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_permissionconfigurator_publickey_destroy(publickey as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: *const u8, seriallen: usize, issuerpublickey: *mut i8, issueraki: *const u8, issuerakilen: usize) -> QStatus {
@@ -2969,8 +2938,8 @@ pub unsafe fn alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobj
     unsafe { alljoyn_proxybusobject_getinterfaces(proxyobj, ifaces, numifaces) }
 }
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getpath(proxyobj : alljoyn_proxybusobject) -> windows_core::PSTR);
+pub unsafe fn alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getpath(proxyobj : alljoyn_proxybusobject) -> windows_core::PCSTR);
     unsafe { alljoyn_proxybusobject_getpath(proxyobj) }
 }
 #[inline]
@@ -2992,8 +2961,8 @@ where
     unsafe { alljoyn_proxybusobject_getpropertyasync(proxyobj, iface.param().abi(), property.param().abi(), callback, timeout, context as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getservicename(proxyobj : alljoyn_proxybusobject) -> windows_core::PSTR);
+pub unsafe fn alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getservicename(proxyobj : alljoyn_proxybusobject) -> windows_core::PCSTR);
     unsafe { alljoyn_proxybusobject_getservicename(proxyobj) }
 }
 #[inline]
@@ -3002,8 +2971,8 @@ pub unsafe fn alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobje
     unsafe { alljoyn_proxybusobject_getsessionid(proxyobj) }
 }
 #[inline]
-pub unsafe fn alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject) -> windows_core::PSTR {
-    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getuniquename(proxyobj : alljoyn_proxybusobject) -> windows_core::PSTR);
+pub unsafe fn alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject) -> windows_core::PCSTR {
+    windows_core::link!("msajapi.dll" "system" fn alljoyn_proxybusobject_getuniquename(proxyobj : alljoyn_proxybusobject) -> windows_core::PCSTR);
     unsafe { alljoyn_proxybusobject_getuniquename(proxyobj) }
 }
 #[inline]
@@ -3193,22 +3162,14 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityap
     unsafe { alljoyn_securityapplicationproxy_destroy(proxy) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy() -> u8 {
+pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_digest_destroy(digest : *mut u8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_securityapplicationproxy_digest_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_securityapplicationproxy_digest_destroy(digest as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy() -> i8 {
+pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_securityapplicationproxy_eccpublickey_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_endmanagement(proxy: alljoyn_securityapplicationproxy) -> QStatus {
@@ -3261,31 +3222,19 @@ pub unsafe fn alljoyn_securityapplicationproxy_installmembership(proxy: alljoyn_
     unsafe { alljoyn_securityapplicationproxy_installmembership(proxy, membershipcertificatechain as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy() -> i8 {
+pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_securityapplicationproxy_manifest_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy() -> i8 {
+pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_securityapplicationproxy_manifesttemplate_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml as _) }
 }
 #[inline]
-pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy() -> i8 {
+pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8) {
     windows_core::link!("msajapi.dll" "system" fn alljoyn_securityapplicationproxy_policy_destroy(policyxml : *mut i8));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        alljoyn_securityapplicationproxy_policy_destroy(&mut result__);
-        result__
-    }
+    unsafe { alljoyn_securityapplicationproxy_policy_destroy(policyxml as _) }
 }
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_reset(proxy: alljoyn_securityapplicationproxy) -> QStatus {
@@ -4118,7 +4067,7 @@ impl Default for alljoyn_interfacedescription_property {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
-pub type alljoyn_interfacedescription_translation_callback_ptr = Option<unsafe extern "system" fn(sourcelanguage: windows_core::PCSTR, targetlanguage: windows_core::PCSTR, sourcetext: windows_core::PCSTR) -> windows_core::PSTR>;
+pub type alljoyn_interfacedescription_translation_callback_ptr = Option<unsafe extern "system" fn(sourcelanguage: windows_core::PCSTR, targetlanguage: windows_core::PCSTR, sourcetext: windows_core::PCSTR) -> windows_core::PCSTR>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct alljoyn_keystore(pub isize);

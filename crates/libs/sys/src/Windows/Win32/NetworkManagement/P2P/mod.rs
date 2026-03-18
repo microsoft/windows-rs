@@ -334,6 +334,7 @@ impl Default for DRT_EVENT_DATA_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
@@ -341,6 +342,7 @@ pub struct DRT_EVENT_DATA_0_0 {
     pub remoteKey: DRT_DATA,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
 #[derive(Clone, Copy, Default)]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
@@ -1428,13 +1430,13 @@ impl Default for PNRPINFO_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 #[derive(Clone, Copy)]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl Default for PNRPINFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

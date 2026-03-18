@@ -39,24 +39,24 @@ pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, contro
     unsafe { EnableTrace(enable, enableflag, enablelevel, controlguid, tracehandle) }
 }
 #[inline]
-pub unsafe fn EnableTraceEx(providerid: *const windows_core::GUID, sourceid: *const windows_core::GUID, tracehandle: CONTROLTRACE_HANDLE, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> windows_core::WIN32_ERROR {
+pub unsafe fn EnableTraceEx(providerid: *const windows_core::GUID, sourceid: Option<*const windows_core::GUID>, tracehandle: CONTROLTRACE_HANDLE, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: Option<*const EVENT_FILTER_DESCRIPTOR>) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn EnableTraceEx(providerid : *const windows_core::GUID, sourceid : *const windows_core::GUID, tracehandle : CONTROLTRACE_HANDLE, isenabled : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, enableproperty : u32, enablefilterdesc : *const EVENT_FILTER_DESCRIPTOR) -> windows_core:: WIN32_ERROR);
-    unsafe { EnableTraceEx(providerid, sourceid, tracehandle, isenabled, level, matchanykeyword, matchallkeyword, enableproperty, enablefilterdesc) }
+    unsafe { EnableTraceEx(providerid, sourceid.unwrap_or(core::mem::zeroed()) as _, tracehandle, isenabled, level, matchanykeyword, matchallkeyword, enableproperty, enablefilterdesc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> windows_core::WIN32_ERROR {
+pub unsafe fn EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: Option<*const ENABLE_TRACE_PARAMETERS>) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn EnableTraceEx2(tracehandle : CONTROLTRACE_HANDLE, providerid : *const windows_core::GUID, controlcode : u32, level : u8, matchanykeyword : u64, matchallkeyword : u64, timeout : u32, enableparameters : *const ENABLE_TRACE_PARAMETERS) -> windows_core:: WIN32_ERROR);
-    unsafe { EnableTraceEx2(tracehandle, providerid, controlcode, level, matchanykeyword, matchallkeyword, timeout, enableparameters) }
+    unsafe { EnableTraceEx2(tracehandle, providerid, controlcode, level, matchanykeyword, matchallkeyword, timeout, enableparameters.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: &mut [*mut TRACE_GUID_PROPERTIES], guidcount: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { EnumerateTraceGuids(guidpropertiesarray as _, propertyarraycount, guidcount as _) }
+    unsafe { EnumerateTraceGuids(core::mem::transmute(guidpropertiesarray.as_ptr()), guidpropertiesarray.len().try_into().unwrap(), guidcount as _) }
 }
 #[inline]
-pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Option<*const core::ffi::c_void>, inbuffersize: u32, outbuffer: Option<*mut core::ffi::c_void>, outbuffersize: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { EnumerateTraceGuidsEx(tracequeryinfoclass, inbuffer, inbuffersize, outbuffer as _, outbuffersize, returnlength as _) }
+    unsafe { EnumerateTraceGuidsEx(tracequeryinfoclass, inbuffer.unwrap_or(core::mem::zeroed()) as _, inbuffersize, outbuffer.unwrap_or(core::mem::zeroed()) as _, outbuffersize, returnlength as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -66,9 +66,9 @@ pub unsafe fn EventAccessControl(guid: *const windows_core::GUID, operation: u32
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn EventAccessQuery(guid: *const windows_core::GUID, buffer: super::super::super::Security::PSECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
+pub unsafe fn EventAccessQuery(guid: *const windows_core::GUID, buffer: Option<super::super::super::Security::PSECURITY_DESCRIPTOR>, buffersize: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const windows_core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
-    unsafe { EventAccessQuery(guid, buffer as _, buffersize as _) }
+    unsafe { EventAccessQuery(guid, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
 pub unsafe fn EventAccessRemove(guid: *const windows_core::GUID) -> u32 {
@@ -91,9 +91,9 @@ pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64
     unsafe { EventProviderEnabled(reghandle, level, keyword) }
 }
 #[inline]
-pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const core::ffi::c_void, reghandle: *mut REGHANDLE) -> u32 {
+pub unsafe fn EventRegister(providerid: *const windows_core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: Option<*const core::ffi::c_void>, reghandle: *mut REGHANDLE) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventRegister(providerid : *const windows_core::GUID, enablecallback : PENABLECALLBACK, callbackcontext : *const core::ffi::c_void, reghandle : *mut REGHANDLE) -> u32);
-    unsafe { EventRegister(providerid, enablecallback, callbackcontext, reghandle as _) }
+    unsafe { EventRegister(providerid, enablecallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, reghandle as _) }
 }
 #[inline]
 pub unsafe fn EventSetInformation(reghandle: REGHANDLE, informationclass: EVENT_INFO_CLASS, eventinformation: *const core::ffi::c_void, informationlength: u32) -> u32 {
@@ -106,14 +106,14 @@ pub unsafe fn EventUnregister(reghandle: REGHANDLE) -> u32 {
     unsafe { EventUnregister(reghandle) }
 }
 #[inline]
-pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
+pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWrite(reghandle, eventdescriptor, userdatacount, userdata) }
+    unsafe { EventWrite(reghandle, eventdescriptor, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
-pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const windows_core::GUID, relatedactivityid: *const windows_core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
+pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid, relatedactivityid, userdatacount, userdata) }
+    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn EventWriteString<P3>(reghandle: REGHANDLE, level: u8, keyword: u64, string: P3) -> u32
@@ -124,9 +124,9 @@ where
     unsafe { EventWriteString(reghandle, level, keyword, string.param().abi()) }
 }
 #[inline]
-pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const windows_core::GUID, relatedactivityid: *const windows_core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
+pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid, relatedactivityid, userdatacount, userdata) }
+    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn FlushTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -167,36 +167,36 @@ pub unsafe fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HAN
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
-pub unsafe fn OpenTraceFromBufferStream(options: *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback: PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext: *const core::ffi::c_void) -> u64 {
+pub unsafe fn OpenTraceFromBufferStream(options: *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback: PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext: Option<*const core::ffi::c_void>) -> u64 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const core::ffi::c_void) -> u64);
-    unsafe { OpenTraceFromBufferStream(options, buffercompletioncallback, buffercompletioncontext) }
+    unsafe { OpenTraceFromBufferStream(options, buffercompletioncallback, buffercompletioncontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
-pub unsafe fn OpenTraceFromFile<P0>(logfilename: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: *mut TRACE_LOGFILE_HEADER) -> u64
+pub unsafe fn OpenTraceFromFile<P0>(logfilename: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    unsafe { OpenTraceFromFile(logfilename.param().abi(), options, logfileheader as _) }
+    unsafe { OpenTraceFromFile(logfilename.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
-pub unsafe fn OpenTraceFromRealTimeLogger<P0>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: *mut TRACE_LOGFILE_HEADER) -> u64
+pub unsafe fn OpenTraceFromRealTimeLogger<P0>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    unsafe { OpenTraceFromRealTimeLogger(loggername.param().abi(), options, logfileheader as _) }
+    unsafe { OpenTraceFromRealTimeLogger(loggername.param().abi(), options, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
-pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, allocationsize: usize, memorypartitionhandle: super::super::super::Foundation::HANDLE, logfileheader: *mut TRACE_LOGFILE_HEADER) -> u64
+pub unsafe fn OpenTraceFromRealTimeLoggerWithAllocationOptions<P0>(loggername: P0, options: *const ETW_OPEN_TRACE_OPTIONS, allocationsize: usize, memorypartitionhandle: Option<super::super::super::Foundation::HANDLE>, logfileheader: Option<*mut TRACE_LOGFILE_HEADER>) -> u64
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : windows_core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
-    unsafe { OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle, logfileheader as _) }
+    unsafe { OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.param().abi(), options, allocationsize, memorypartitionhandle.unwrap_or(core::mem::zeroed()) as _, logfileheader.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Time")]
 #[inline]
@@ -205,9 +205,9 @@ pub unsafe fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HAN
     unsafe { OpenTraceW(logfile as _) }
 }
 #[inline]
-pub unsafe fn ProcessTrace(handlearray: *const PROCESSTRACE_HANDLE, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> windows_core::WIN32_ERROR {
+pub unsafe fn ProcessTrace(handlearray: &[PROCESSTRACE_HANDLE], starttime: Option<*const super::super::super::Foundation::FILETIME>, endtime: Option<*const super::super::super::Foundation::FILETIME>) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::super::super::Foundation:: FILETIME, endtime : *const super::super::super::Foundation:: FILETIME) -> windows_core:: WIN32_ERROR);
-    unsafe { ProcessTrace(handlearray, handlecount, starttime, endtime) }
+    unsafe { ProcessTrace(core::mem::transmute(handlearray.as_ptr()), handlearray.len().try_into().unwrap(), starttime.unwrap_or(core::mem::zeroed()) as _, endtime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ProcessTraceAddBufferToBufferStream(tracehandle: u64, buffer: *const ETW_BUFFER_HEADER, buffersize: u32) -> u32 {
@@ -225,14 +225,14 @@ pub unsafe fn ProcessTraceBufferIncrementReference(tracehandle: u64, buffer: *co
     unsafe { ProcessTraceBufferIncrementReference(tracehandle, buffer) }
 }
 #[inline]
-pub unsafe fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn QueryAllTracesA(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { QueryAllTracesA(propertyarray as _, propertyarraycount, loggercount as _) }
+    unsafe { QueryAllTracesA(core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap(), loggercount as _) }
 }
 #[inline]
-pub unsafe fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn QueryAllTracesW(propertyarray: &mut [*mut EVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesW(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { QueryAllTracesW(propertyarray as _, propertyarraycount, loggercount as _) }
+    unsafe { QueryAllTracesW(core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap(), loggercount as _) }
 }
 #[inline]
 pub unsafe fn QueryTraceA<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -243,9 +243,9 @@ where
     unsafe { QueryTraceA(tracehandle, instancename.param().abi(), properties as _) }
 }
 #[inline]
-pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Option<*const core::ffi::c_void>, inbuffersize: u32, outbuffer: Option<*mut core::ffi::c_void>, outbuffersize: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn QueryTraceProcessingHandle(processinghandle : PROCESSTRACE_HANDLE, informationclass : ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer : *const core::ffi::c_void, inbuffersize : u32, outbuffer : *mut core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { QueryTraceProcessingHandle(processinghandle, informationclass, inbuffer, inbuffersize, outbuffer as _, outbuffersize, returnlength as _) }
+    unsafe { QueryTraceProcessingHandle(processinghandle, informationclass, inbuffer.unwrap_or(core::mem::zeroed()) as _, inbuffersize, outbuffer.unwrap_or(core::mem::zeroed()) as _, outbuffersize, returnlength as _) }
 }
 #[inline]
 pub unsafe fn QueryTraceW<P1>(tracehandle: CONTROLTRACE_HANDLE, instancename: P1, properties: *mut EVENT_TRACE_PROPERTIES) -> windows_core::WIN32_ERROR
@@ -256,22 +256,22 @@ where
     unsafe { QueryTraceW(tracehandle, instancename.param().abi(), properties as _) }
 }
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: *const core::ffi::c_void, controlguid: *const windows_core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
+pub unsafe fn RegisterTraceGuidsA<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
 where
     P5: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut u64) -> u32);
-    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: *const core::ffi::c_void, controlguid: *const windows_core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
+pub unsafe fn RegisterTraceGuidsW<P5, P6>(requestaddress: WMIDPREQUEST, requestcontext: Option<*const core::ffi::c_void>, controlguid: *const windows_core::GUID, traceguidreg: Option<&[TRACE_GUID_REGISTRATION]>, mofimagepath: P5, mofresourcename: P6, registrationhandle: *mut u64) -> u32
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut u64) -> u32);
-    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[inline]
 pub unsafe fn RemoveTraceCallback(pguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
@@ -316,9 +316,9 @@ where
     unsafe { StopTraceW(tracehandle, instancename.param().abi(), properties as _) }
 }
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: *const bool, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
+pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const bool>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const bool, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
-    unsafe { TdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs, eventmatchallflags, eventfilterdescriptor as _) }
+    unsafe { TdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs, eventmatchallflags.unwrap_or(core::mem::zeroed()) as _, eventfilterdescriptor as _) }
 }
 #[inline]
 pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
@@ -331,9 +331,9 @@ pub unsafe fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32 {
     unsafe { TdhCloseDecodingHandle(handle) }
 }
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: bool, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
+pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: bool, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : bool, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicatecount, payloadpredicates, payloadfilter as _) }
+    unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter as _) }
 }
 #[inline]
 pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
@@ -341,34 +341,34 @@ pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut core::ffi::c_void)
     unsafe { TdhDeletePayloadFilter(payloadfilter as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const windows_core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const windows_core::GUID, buffer: Option<*mut PROVIDER_EVENT_INFO>, buffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateManifestProviderEvents(providerguid : *const windows_core::GUID, buffer : *mut PROVIDER_EVENT_INFO, buffersize : *mut u32) -> u32);
-    unsafe { TdhEnumerateManifestProviderEvents(providerguid, buffer as _, buffersize as _) }
+    unsafe { TdhEnumerateManifestProviderEvents(providerguid, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<*mut PROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFieldInformation(pguid : *const windows_core::GUID, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> u32);
-    unsafe { TdhEnumerateProviderFieldInformation(pguid, eventfieldtype, pbuffer as _, pbuffersize as _) }
+    unsafe { TdhEnumerateProviderFieldInformation(pguid, eventfieldtype, pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(guid: *const windows_core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviderFilters(guid: *const windows_core::GUID, tdhcontext: Option<&[TDH_CONTEXT]>, filtercount: *mut u32, buffer: Option<*mut *mut PROVIDER_FILTER_INFO>, buffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviderFilters(guid : *const windows_core::GUID, tdhcontextcount : u32, tdhcontext : *const TDH_CONTEXT, filtercount : *mut u32, buffer : *mut *mut PROVIDER_FILTER_INFO, buffersize : *mut u32) -> u32);
-    unsafe { TdhEnumerateProviderFilters(guid, tdhcontextcount, tdhcontext, filtercount as _, buffer as _, buffersize as _) }
+    unsafe { TdhEnumerateProviderFilters(guid, tdhcontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filtercount as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProviders(pbuffer: Option<*mut PROVIDER_ENUMERATION_INFO>, pbuffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProviders(pbuffer : *mut PROVIDER_ENUMERATION_INFO, pbuffersize : *mut u32) -> u32);
-    unsafe { TdhEnumerateProviders(pbuffer as _, pbuffersize as _) }
+    unsafe { TdhEnumerateProviders(pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32 {
+pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: Option<*mut PROVIDER_ENUMERATION_INFO>, buffersize: u32, bufferrequired: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhEnumerateProvidersForDecodingSource(filter : DECODING_SOURCE, buffer : *mut PROVIDER_ENUMERATION_INFO, buffersize : u32, bufferrequired : *mut u32) -> u32);
-    unsafe { TdhEnumerateProvidersForDecodingSource(filter, buffer as _, buffersize, bufferrequired as _) }
+    unsafe { TdhEnumerateProvidersForDecodingSource(filter, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, bufferrequired as _) }
 }
 #[inline]
-pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: windows_core::PWSTR, userdataconsumed: *mut u16) -> u32 {
+pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: Option<*const EVENT_MAP_INFO>, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdata: &[u8], buffersize: *mut u32, buffer: Option<windows_core::PWSTR>, userdataconsumed: *mut u16) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhFormatProperty(eventinfo : *const TRACE_EVENT_INFO, mapinfo : *const EVENT_MAP_INFO, pointersize : u32, propertyintype : u16, propertyouttype : u16, propertylength : u16, userdatalength : u16, userdata : *const u8, buffersize : *mut u32, buffer : windows_core::PWSTR, userdataconsumed : *mut u16) -> u32);
-    unsafe { TdhFormatProperty(eventinfo, mapinfo, pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata, buffersize as _, core::mem::transmute(buffer), userdataconsumed as _) }
+    unsafe { TdhFormatProperty(eventinfo, mapinfo.unwrap_or(core::mem::zeroed()) as _, pointersize, propertyintype, propertyouttype, propertylength, userdata.len().try_into().unwrap(), core::mem::transmute(userdata.as_ptr()), buffersize as _, buffer.unwrap_or(core::mem::zeroed()) as _, userdataconsumed as _) }
 }
 #[inline]
 pub unsafe fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32 {
@@ -376,32 +376,32 @@ pub unsafe fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_C
     unsafe { TdhGetDecodingParameter(handle, tdhcontext as _) }
 }
 #[inline]
-pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontext: Option<&[TDH_CONTEXT]>, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhGetEventInformation(event : *const EVENT_RECORD, tdhcontextcount : u32, tdhcontext : *const TDH_CONTEXT, buffer : *mut TRACE_EVENT_INFO, buffersize : *mut u32) -> u32);
-    unsafe { TdhGetEventInformation(event, tdhcontextcount, tdhcontext, buffer as _, buffersize as _) }
+    unsafe { TdhGetEventInformation(event, tdhcontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tdhcontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhGetEventMapInformation<P1>(pevent: *const EVENT_RECORD, pmapname: P1, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32
+pub unsafe fn TdhGetEventMapInformation<P1>(pevent: *const EVENT_RECORD, pmapname: P1, pbuffer: Option<*mut EVENT_MAP_INFO>, pbuffersize: *mut u32) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("tdh.dll" "system" fn TdhGetEventMapInformation(pevent : *const EVENT_RECORD, pmapname : windows_core::PCWSTR, pbuffer : *mut EVENT_MAP_INFO, pbuffersize : *mut u32) -> u32);
-    unsafe { TdhGetEventMapInformation(pevent, pmapname.param().abi(), pbuffer as _, pbuffersize as _) }
+    unsafe { TdhGetEventMapInformation(pevent, pmapname.param().abi(), pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
+pub unsafe fn TdhGetManifestEventInformation(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: Option<*mut TRACE_EVENT_INFO>, buffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhGetManifestEventInformation(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, buffer : *mut TRACE_EVENT_INFO, buffersize : *mut u32) -> u32);
-    unsafe { TdhGetManifestEventInformation(providerguid, eventdescriptor, buffer as _, buffersize as _) }
+    unsafe { TdhGetManifestEventInformation(providerguid, eventdescriptor, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32 {
+pub unsafe fn TdhGetProperty(pevent: *const EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], pbuffer: &mut [u8]) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhGetProperty(pevent : *const EVENT_RECORD, tdhcontextcount : u32, ptdhcontext : *const TDH_CONTEXT, propertydatacount : u32, ppropertydata : *const PROPERTY_DATA_DESCRIPTOR, buffersize : u32, pbuffer : *mut u8) -> u32);
-    unsafe { TdhGetProperty(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, buffersize, pbuffer as _) }
+    unsafe { TdhGetProperty(pevent, ptdhcontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr())) }
 }
 #[inline]
-pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32 {
+pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, ptdhcontext: Option<&[TDH_CONTEXT]>, ppropertydata: &[PROPERTY_DATA_DESCRIPTOR], ppropertysize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhGetPropertySize(pevent : *const EVENT_RECORD, tdhcontextcount : u32, ptdhcontext : *const TDH_CONTEXT, propertydatacount : u32, ppropertydata : *const PROPERTY_DATA_DESCRIPTOR, ppropertysize : *mut u32) -> u32);
-    unsafe { TdhGetPropertySize(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, ppropertysize as _) }
+    unsafe { TdhGetPropertySize(pevent, ptdhcontext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ptdhcontext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppropertydata.len().try_into().unwrap(), core::mem::transmute(ppropertydata.as_ptr()), ppropertysize as _) }
 }
 #[inline]
 pub unsafe fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32 {
@@ -443,9 +443,9 @@ pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
     unsafe { TdhOpenDecodingHandle(handle as _) }
 }
 #[inline]
-pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
+pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const windows_core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Option<*mut PROVIDER_FIELD_INFOARRAY>, pbuffersize: *mut u32) -> u32 {
     windows_core::link!("tdh.dll" "system" fn TdhQueryProviderFieldInformation(pguid : *const windows_core::GUID, eventfieldvalue : u64, eventfieldtype : EVENT_FIELD_TYPE, pbuffer : *mut PROVIDER_FIELD_INFOARRAY, pbuffersize : *mut u32) -> u32);
-    unsafe { TdhQueryProviderFieldInformation(pguid, eventfieldvalue, eventfieldtype, pbuffer as _, pbuffersize as _) }
+    unsafe { TdhQueryProviderFieldInformation(pguid, eventfieldvalue, eventfieldtype, pbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
 pub unsafe fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32 {
@@ -471,9 +471,9 @@ pub unsafe fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER
     unsafe { TraceEvent(tracehandle, eventtrace) }
 }
 #[inline]
-pub unsafe fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32 {
+pub unsafe fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: Option<*const EVENT_INSTANCE_INFO>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : u64, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
-    unsafe { TraceEventInstance(tracehandle, eventtrace, instinfo, parentinstinfo) }
+    unsafe { TraceEventInstance(tracehandle, eventtrace, instinfo, parentinstinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const windows_core::GUID, messagenumber: u16) -> windows_core::WIN32_ERROR {
@@ -486,9 +486,9 @@ pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAG
     unsafe { TraceMessageVa(loggerhandle, messageflags, messageguid, messagenumber, messagearglist) }
 }
 #[inline]
-pub unsafe fn TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut core::ffi::c_void, informationlength: u32, returnlength: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("advapi32.dll" "system" fn TraceQueryInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *mut core::ffi::c_void, informationlength : u32, returnlength : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { TraceQueryInformation(sessionhandle, informationclass, traceinformation as _, informationlength, returnlength as _) }
+    unsafe { TraceQueryInformation(sessionhandle, informationclass, traceinformation as _, informationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TraceSetInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const core::ffi::c_void, informationlength: u32) -> windows_core::WIN32_ERROR {
@@ -1239,6 +1239,13 @@ impl Default for EVENT_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct EVENT_PROPERTY_INFO_0_2 {
+    pub InType: u16,
+    pub OutType: u16,
+    pub CustomSchemaOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
@@ -1250,13 +1257,6 @@ pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
     pub padding: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub CustomSchemaOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1540,22 +1540,26 @@ impl Default for EVENT_TRACE_LOGFILEA {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1587,22 +1591,26 @@ impl Default for EVENT_TRACE_LOGFILEW {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2887,6 +2895,50 @@ impl Default for TRACE_LOGFILE_HEADER {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
+pub union TRACE_LOGFILE_HEADER_0 {
+    pub Version: u32,
+    pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
+}
+#[cfg(feature = "Win32_System_Time")]
+impl Default for TRACE_LOGFILE_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct TRACE_LOGFILE_HEADER_0_0 {
+    pub MajorVersion: u8,
+    pub MinorVersion: u8,
+    pub SubVersion: u8,
+    pub SubMinorVersion: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union TRACE_LOGFILE_HEADER_1 {
+    pub LogInstanceGuid: windows_core::GUID,
+    pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
+}
+#[cfg(feature = "Win32_System_Time")]
+impl Default for TRACE_LOGFILE_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct TRACE_LOGFILE_HEADER_1_0 {
+    pub StartBuffers: u32,
+    pub PointerSize: u32,
+    pub EventsLost: u32,
+    pub CpuSpeedInMHz: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER32_0,
@@ -2914,17 +2966,20 @@ impl Default for TRACE_LOGFILE_HEADER32 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
@@ -2933,17 +2988,20 @@ pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
@@ -2981,17 +3039,20 @@ impl Default for TRACE_LOGFILE_HEADER64 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
@@ -3000,57 +3061,22 @@ pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: windows_core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
-    pub StartBuffers: u32,
-    pub PointerSize: u32,
-    pub EventsLost: u32,
-    pub CpuSpeedInMHz: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TRACE_LOGFILE_HEADER_0 {
-    pub Version: u32,
-    pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
-}
-impl Default for TRACE_LOGFILE_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct TRACE_LOGFILE_HEADER_0_0 {
-    pub MajorVersion: u8,
-    pub MinorVersion: u8,
-    pub SubVersion: u8,
-    pub SubMinorVersion: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TRACE_LOGFILE_HEADER_1 {
-    pub LogInstanceGuid: windows_core::GUID,
-    pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
-}
-impl Default for TRACE_LOGFILE_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
     pub EventsLost: u32,

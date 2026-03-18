@@ -672,17 +672,20 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
@@ -1411,6 +1414,15 @@ impl Default for FD_LIGATURE {
 }
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct FD_XFORM {
+    pub eXX: u32,
+    pub eXY: u32,
+    pub eYX: u32,
+    pub eYY: u32,
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
 pub struct FD_XFORM {
@@ -1429,6 +1441,17 @@ pub struct FLOATOBJ {
     pub ul2: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct FLOATOBJ_XFORM {
+    pub eM11: FLOATOBJ,
+    pub eM12: FLOATOBJ,
+    pub eM21: FLOATOBJ,
+    pub eM22: FLOATOBJ,
+    pub eDx: FLOATOBJ,
+    pub eDy: FLOATOBJ,
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
 pub struct FLOATOBJ_XFORM {
@@ -1438,6 +1461,19 @@ pub struct FLOATOBJ_XFORM {
     pub eM22: f32,
     pub eDx: f32,
     pub eDy: f32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union FLOAT_LONG {
+    pub e: u32,
+    pub l: i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for FLOAT_LONG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1956,6 +1992,78 @@ impl Default for IFIEXTRA {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy)]
+pub struct IFIMETRICS {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::super::Graphics::Gdi::PANOSE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl Default for IFIMETRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
@@ -2234,6 +2342,25 @@ impl Default for LIGATURE {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct LINEATTRS {
+    pub fl: u32,
+    pub iJoin: u32,
+    pub iEndCap: u32,
+    pub elWidth: FLOAT_LONG,
+    pub eMiterLimit: u32,
+    pub cstyle: u32,
+    pub pstyle: *mut FLOAT_LONG,
+    pub elStyleState: FLOAT_LONG,
+}
+#[cfg(target_arch = "x86")]
+impl Default for LINEATTRS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct LINEATTRS {
@@ -2310,7 +2437,7 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
 pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct MC_TIMING_REPORT {
     pub dwHorizontalFrequencyInHZ: u32,
@@ -2797,7 +2924,7 @@ pub type PFN_EngIntersectRgn = Option<unsafe extern "system" fn(hrgnresult: supe
 pub type PFN_EngSubtractRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 pub type PFN_EngUnionRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
 pub type PFN_EngXorRgn = Option<unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32>;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PHYSICAL_MONITOR {
     pub hPhysicalMonitor: super::super::Foundation::HANDLE,
@@ -2810,6 +2937,13 @@ impl Default for PHYSICAL_MONITOR {
 }
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct POINTE {
+    pub x: u32,
+    pub y: u32,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -3120,14 +3254,6 @@ impl Default for VIDEO_CLUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct VIDEO_CLUTDATA {
-    pub Red: u8,
-    pub Green: u8,
-    pub Blue: u8,
-    pub Unused: u8,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIDEO_CLUT_0 {
     pub RgbArray: VIDEO_CLUTDATA,
@@ -3137,6 +3263,14 @@ impl Default for VIDEO_CLUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct VIDEO_CLUTDATA {
+    pub Red: u8,
+    pub Green: u8,
+    pub Blue: u8,
+    pub Unused: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3629,6 +3763,17 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 pub const WVIDEO_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("DISPLAY%d");
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct XFORML {
+    pub eM11: u32,
+    pub eM12: u32,
+    pub eM21: u32,
+    pub eM22: u32,
+    pub eDx: u32,
+    pub eDy: u32,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]

@@ -283,7 +283,7 @@ pub type PROPENUMTYPE = i32;
 pub type PROPERTYUI_FLAGS = i32;
 pub type PROPERTYUI_FORMAT_FLAGS = i32;
 pub type PROPERTYUI_NAME_FLAGS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PROPPRG {
     pub flPrg: u16,

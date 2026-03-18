@@ -4,9 +4,9 @@ pub unsafe fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE,
     unsafe { PxeAsyncRecvDone(hclientrequest, action) }
 }
 #[inline]
-pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: *const core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpAppendOption(preplypacket: *mut core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, boption: u8, boptionlen: u8, pvalue: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpAppendOption(preplypacket : *mut core::ffi::c_void, umaxreplypacketlen : u32, pureplypacketlen : *mut u32, boption : u8, boptionlen : u8, pvalue : *const core::ffi::c_void) -> u32);
-    unsafe { PxeDhcpAppendOption(preplypacket as _, umaxreplypacketlen, pureplypacketlen as _, boption, boptionlen, pvalue) }
+    unsafe { PxeDhcpAppendOption(preplypacket as _, umaxreplypacketlen, pureplypacketlen as _, boption, boptionlen, pvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32, ubufferlen: u16, pbuffer: *const core::ffi::c_void) -> u32 {
@@ -14,14 +14,14 @@ pub unsafe fn PxeDhcpAppendOptionRaw(preplypacket: *mut core::ffi::c_void, umaxr
     unsafe { PxeDhcpAppendOptionRaw(preplypacket as _, umaxreplypacketlen, pureplypacketlen as _, ubufferlen, pbuffer) }
 }
 #[inline]
-pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: *mut u8, ppoptionvalue: *mut *mut core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpGetOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, uinstance: u32, boption: u8, pboptionlen: Option<*mut u8>, ppoptionvalue: Option<*mut *mut core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpGetOptionValue(ppacket : *const core::ffi::c_void, upacketlen : u32, uinstance : u32, boption : u8, pboptionlen : *mut u8, ppoptionvalue : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { PxeDhcpGetOptionValue(ppacket, upacketlen, uinstance, boption, pboptionlen as _, ppoptionvalue as _) }
+    unsafe { PxeDhcpGetOptionValue(ppacket, upacketlen, uinstance, boption, pboptionlen.unwrap_or(core::mem::zeroed()) as _, ppoptionvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: *mut u8, ppoptionvalue: *mut *mut core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpGetVendorOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, boption: u8, uinstance: u32, pboptionlen: Option<*mut u8>, ppoptionvalue: Option<*mut *mut core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpGetVendorOptionValue(ppacket : *const core::ffi::c_void, upacketlen : u32, boption : u8, uinstance : u32, pboptionlen : *mut u8, ppoptionvalue : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { PxeDhcpGetVendorOptionValue(ppacket, upacketlen, boption, uinstance, pboptionlen as _, ppoptionvalue as _) }
+    unsafe { PxeDhcpGetVendorOptionValue(ppacket, upacketlen, boption, uinstance, pboptionlen.unwrap_or(core::mem::zeroed()) as _, ppoptionvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeDhcpInitialize(precvpacket: *const core::ffi::c_void, urecvpacketlen: u32, preplypacket: *mut core::ffi::c_void, umaxreplypacketlen: u32, pureplypacketlen: *mut u32) -> u32 {
@@ -29,9 +29,9 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const core::ffi::c_void, urecvpack
     unsafe { PxeDhcpInitialize(precvpacket, urecvpacketlen, preplypacket as _, umaxreplypacketlen, pureplypacketlen as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpIsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: *mut windows_core::BOOL) -> u32 {
+pub unsafe fn PxeDhcpIsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut windows_core::BOOL>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpIsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : windows_core::BOOL, pbpxeoptionpresent : *mut windows_core::BOOL) -> u32);
-    unsafe { PxeDhcpIsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent as _) }
+    unsafe { PxeDhcpIsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeDhcpv6AppendOption(preply: *mut core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32, woptiontype: u16, cboption: u16, poption: *const core::ffi::c_void) -> u32 {
@@ -44,19 +44,19 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(preply: *mut core::ffi::c_void, cbreply: 
     unsafe { PxeDhcpv6AppendOptionRaw(preply as _, cbreply, pcbreplyused as _, cbbuffer, pbuffer) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pinnerpacket: *const u8, cbinnerpacket: u32, preplybuffer: *mut core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
+pub unsafe fn PxeDhcpv6CreateRelayRepl(prelaymessages: &[PXE_DHCPV6_NESTED_RELAY_MESSAGE], pinnerpacket: &[u8], preplybuffer: *mut core::ffi::c_void, cbreplybuffer: u32, pcbreplybuffer: *mut u32) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpv6CreateRelayRepl(prelaymessages : *const PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pinnerpacket : *const u8, cbinnerpacket : u32, preplybuffer : *mut core::ffi::c_void, cbreplybuffer : u32, pcbreplybuffer : *mut u32) -> u32);
-    unsafe { PxeDhcpv6CreateRelayRepl(prelaymessages, nrelaymessages, pinnerpacket, cbinnerpacket, preplybuffer as _, cbreplybuffer, pcbreplybuffer as _) }
+    unsafe { PxeDhcpv6CreateRelayRepl(core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len().try_into().unwrap(), core::mem::transmute(pinnerpacket.as_ptr()), pinnerpacket.len().try_into().unwrap(), preplybuffer as _, cbreplybuffer, pcbreplybuffer as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpv6GetOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, uinstance: u32, woption: u16, pwoptionlen: Option<*mut u16>, ppoptionvalue: Option<*mut *mut core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpv6GetOptionValue(ppacket : *const core::ffi::c_void, upacketlen : u32, uinstance : u32, woption : u16, pwoptionlen : *mut u16, ppoptionvalue : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { PxeDhcpv6GetOptionValue(ppacket, upacketlen, uinstance, woption, pwoptionlen as _, ppoptionvalue as _) }
+    unsafe { PxeDhcpv6GetOptionValue(ppacket, upacketlen, uinstance, woption, pwoptionlen.unwrap_or(core::mem::zeroed()) as _, ppoptionvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: *mut u16, ppoptionvalue: *mut *mut core::ffi::c_void) -> u32 {
+pub unsafe fn PxeDhcpv6GetVendorOptionValue(ppacket: *const core::ffi::c_void, upacketlen: u32, dwenterprisenumber: u32, woption: u16, uinstance: u32, pwoptionlen: Option<*mut u16>, ppoptionvalue: Option<*mut *mut core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpv6GetVendorOptionValue(ppacket : *const core::ffi::c_void, upacketlen : u32, dwenterprisenumber : u32, woption : u16, uinstance : u32, pwoptionlen : *mut u16, ppoptionvalue : *mut *mut core::ffi::c_void) -> u32);
-    unsafe { PxeDhcpv6GetVendorOptionValue(ppacket, upacketlen, dwenterprisenumber, woption, uinstance, pwoptionlen as _, ppoptionvalue as _) }
+    unsafe { PxeDhcpv6GetVendorOptionValue(ppacket, upacketlen, dwenterprisenumber, woption, uinstance, pwoptionlen.unwrap_or(core::mem::zeroed()) as _, ppoptionvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeDhcpv6Initialize(prequest: *const core::ffi::c_void, cbrequest: u32, preply: *mut core::ffi::c_void, cbreply: u32, pcbreplyused: *mut u32) -> u32 {
@@ -64,14 +64,14 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const core::ffi::c_void, cbrequest:
     unsafe { PxeDhcpv6Initialize(prequest, cbrequest, preply as _, cbreply, pcbreplyused as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: *mut windows_core::BOOL) -> u32 {
+pub unsafe fn PxeDhcpv6IsValid(ppacket: *const core::ffi::c_void, upacketlen: u32, brequestpacket: bool, pbpxeoptionpresent: Option<*mut windows_core::BOOL>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpv6IsValid(ppacket : *const core::ffi::c_void, upacketlen : u32, brequestpacket : windows_core::BOOL, pbpxeoptionpresent : *mut windows_core::BOOL) -> u32);
-    unsafe { PxeDhcpv6IsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent as _) }
+    unsafe { PxeDhcpv6IsValid(ppacket, upacketlen, brequestpacket.into(), pbpxeoptionpresent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages: u32, pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
+pub unsafe fn PxeDhcpv6ParseRelayForw(prelayforwpacket: *const core::ffi::c_void, urelayforwpacketlen: u32, prelaymessages: &mut [PXE_DHCPV6_NESTED_RELAY_MESSAGE], pnrelaymessages: *mut u32, ppinnerpacket: *mut *mut u8, pcbinnerpacket: *mut u32) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeDhcpv6ParseRelayForw(prelayforwpacket : *const core::ffi::c_void, urelayforwpacketlen : u32, prelaymessages : *mut PXE_DHCPV6_NESTED_RELAY_MESSAGE, nrelaymessages : u32, pnrelaymessages : *mut u32, ppinnerpacket : *mut *mut u8, pcbinnerpacket : *mut u32) -> u32);
-    unsafe { PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen, prelaymessages as _, nrelaymessages, pnrelaymessages as _, ppinnerpacket as _, pcbinnerpacket as _) }
+    unsafe { PxeDhcpv6ParseRelayForw(prelayforwpacket, urelayforwpacketlen, core::mem::transmute(prelaymessages.as_ptr()), prelaymessages.len().try_into().unwrap(), pnrelaymessages as _, ppinnerpacket as _, pcbinnerpacket as _) }
 }
 #[inline]
 pub unsafe fn PxeGetServerInfo(uinfotype: u32, pbuffer: *mut core::ffi::c_void, ubufferlen: u32) -> u32 {
@@ -123,13 +123,13 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PxeProviderRegister<P0, P1>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: bool, phproviderkey: *mut super::Registry::HKEY) -> u32
+pub unsafe fn PxeProviderRegister<P0, P1>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: bool, phproviderkey: Option<*mut super::Registry::HKEY>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : windows_core::PCWSTR, pszmodulepath : windows_core::PCWSTR, index : u32, biscritical : windows_core::BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
-    unsafe { PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), index, biscritical.into(), phproviderkey as _) }
+    unsafe { PxeProviderRegister(pszprovidername.param().abi(), pszmodulepath.param().abi(), index, biscritical.into(), phproviderkey.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const core::ffi::c_void, uparamlen: u32) -> u32 {
@@ -145,9 +145,9 @@ where
     unsafe { PxeProviderUnRegister(pszprovidername.param().abi()) }
 }
 #[inline]
-pub unsafe fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const core::ffi::c_void, pcontext: *const core::ffi::c_void) -> u32 {
+pub unsafe fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const core::ffi::c_void, pcontext: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wdspxe.dll" "system" fn PxeRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbacktype : u32, pcallbackfunction : *const core::ffi::c_void, pcontext : *const core::ffi::c_void) -> u32);
-    unsafe { PxeRegisterCallback(hprovider, callbacktype, pcallbackfunction, pcontext) }
+    unsafe { PxeRegisterCallback(hprovider, callbacktype, pcallbackfunction, pcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
@@ -191,24 +191,24 @@ pub unsafe fn WdsBpInitialize(bpackettype: u8, phhandle: *mut super::super::Foun
     unsafe { WdsBpInitialize(bpackettype, phhandle as _) }
 }
 #[inline]
-pub unsafe fn WdsBpParseInitialize(ppacket: *const core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsBpParseInitialize(ppacket: *const core::ffi::c_void, upacketlen: u32, pbpackettype: Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_core::link!("wdsbp.dll" "system" fn WdsBpParseInitialize(ppacket : *const core::ffi::c_void, upacketlen : u32, pbpackettype : *mut u8, phhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { WdsBpParseInitialize(ppacket, upacketlen, pbpackettype as _, phhandle as _) }
+    unsafe { WdsBpParseInitialize(ppacket, upacketlen, pbpackettype.unwrap_or(core::mem::zeroed()) as _, phhandle as _) }
 }
 #[inline]
-pub unsafe fn WdsBpParseInitializev6(ppacket: *const core::ffi::c_void, upacketlen: u32, pbpackettype: *mut u8, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn WdsBpParseInitializev6(ppacket: *const core::ffi::c_void, upacketlen: u32, pbpackettype: Option<*mut u8>, phhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_core::link!("wdsbp.dll" "system" fn WdsBpParseInitializev6(ppacket : *const core::ffi::c_void, upacketlen : u32, pbpackettype : *mut u8, phhandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    unsafe { WdsBpParseInitializev6(ppacket, upacketlen, pbpackettype as _, phhandle as _) }
+    unsafe { WdsBpParseInitializev6(ppacket, upacketlen, pbpackettype.unwrap_or(core::mem::zeroed()) as _, phhandle as _) }
 }
 #[inline]
-pub unsafe fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut core::ffi::c_void, pubytes: *mut u32) -> u32 {
+pub unsafe fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut core::ffi::c_void, pubytes: Option<*mut u32>) -> u32 {
     windows_core::link!("wdsbp.dll" "system" fn WdsBpQueryOption(hhandle : super::super::Foundation:: HANDLE, uoption : u32, uvaluelen : u32, pvalue : *mut core::ffi::c_void, pubytes : *mut u32) -> u32);
-    unsafe { WdsBpQueryOption(hhandle, uoption, uvaluelen, pvalue as _, pubytes as _) }
+    unsafe { WdsBpQueryOption(hhandle, uoption, uvaluelen, pvalue as _, pubytes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> windows_core::Result<()> {
+pub unsafe fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<()> {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliAuthorizeSession(hsession : super::super::Foundation:: HANDLE, pcred : *const WDS_CLI_CRED) -> windows_core::HRESULT);
-    unsafe { WdsCliAuthorizeSession(hsession as _, pcred).ok() }
+    unsafe { WdsCliAuthorizeSession(hsession as _, pcred.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -221,14 +221,14 @@ pub unsafe fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> windows_c
     unsafe { WdsCliClose(handle).ok() }
 }
 #[inline]
-pub unsafe fn WdsCliCreateSession<P0>(pwszserver: P0, pcred: *const WDS_CLI_CRED) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliCreateSession<P0>(pwszserver: P0, pcred: Option<*const WDS_CLI_CRED>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliCreateSession(pwszserver : windows_core::PCWSTR, pcred : *const WDS_CLI_CRED, phsession : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliCreateSession(pwszserver.param().abi(), pcred, &mut result__).map(|| result__)
+        WdsCliCreateSession(pwszserver.param().abi(), pcred.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -245,9 +245,9 @@ pub unsafe fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> w
     unsafe { WdsCliFindNextImage(handle).ok() }
 }
 #[inline]
-pub unsafe fn WdsCliFreeStringArray(ppwszarray: *mut windows_core::PWSTR, ulcount: u32) -> windows_core::Result<()> {
+pub unsafe fn WdsCliFreeStringArray(ppwszarray: Option<&mut [windows_core::PWSTR]>) -> windows_core::Result<()> {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliFreeStringArray(ppwszarray : *mut windows_core::PWSTR, ulcount : u32) -> windows_core::HRESULT);
-    unsafe { WdsCliFreeStringArray(ppwszarray as _, ulcount).ok() }
+    unsafe { WdsCliFreeStringArray(core::mem::transmute(ppwszarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppwszarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
 pub unsafe fn WdsCliGetDriverQueryXml<P0>(pwszwindirpath: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -449,7 +449,7 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     unsafe { WdsCliSetTransferBufferSize(ulsizeinbytes) }
 }
 #[inline]
-pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferFile<P0, P1, P2, P3>(pwszserver: P0, pwsznamespace: P1, pwszremotefilepath: P2, pwszlocalfilepath: P3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -459,18 +459,18 @@ where
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliTransferFile(pwszserver : windows_core::PCWSTR, pwsznamespace : windows_core::PCWSTR, pwszremotefilepath : windows_core::PCWSTR, pwszlocalfilepath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata, &mut result__).map(|| result__)
+        WdsCliTransferFile(pwszserver.param().abi(), pwsznamespace.param().abi(), pwszremotefilepath.param().abi(), pwszlocalfilepath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
-pub unsafe fn WdsCliTransferImage<P1>(himage: super::super::Foundation::HANDLE, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const core::ffi::c_void) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WdsCliTransferImage<P1>(himage: super::super::Foundation::HANDLE, pwszlocalpath: P1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wdsclientapi.dll" "system" fn WdsCliTransferImage(himage : super::super::Foundation:: HANDLE, pwszlocalpath : windows_core::PCWSTR, dwflags : u32, dwreserved : u32, pfnwdsclicallback : PFN_WdsCliCallback, pvuserdata : *const core::ffi::c_void, phtransfer : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata, &mut result__).map(|| result__)
+        WdsCliTransferImage(himage, pwszlocalpath.param().abi(), dwflags, dwreserved, pfnwdsclicallback, pvuserdata.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -3828,8 +3828,8 @@ pub const PXE_CALLBACK_RECV_REQUEST: u32 = 0u32;
 pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE {
     pub MessageType: u8,
     pub TransactionIDByte1: u8,
@@ -3842,8 +3842,8 @@ impl Default for PXE_DHCPV6_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_MESSAGE_HEADER {
     pub MessageType: u8,
     pub Message: [u8; 1],
@@ -3866,8 +3866,8 @@ impl Default for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_OPTION {
     pub OptionCode: u16,
     pub DataLength: u16,
@@ -3879,8 +3879,8 @@ impl Default for PXE_DHCPV6_OPTION {
     }
 }
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCPV6_RELAY_MESSAGE {
     pub MessageType: u8,
     pub HopCount: u8,
@@ -3898,7 +3898,7 @@ pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PXE_DHCP_MESSAGE {
     pub Operation: u8,
@@ -3923,7 +3923,7 @@ impl Default for PXE_DHCP_MESSAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union PXE_DHCP_MESSAGE_0 {
     pub bMagicCookie: [u8; 4],
@@ -3934,8 +3934,8 @@ impl Default for PXE_DHCP_MESSAGE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct PXE_DHCP_OPTION {
     pub OptionType: u8,
     pub OptionLength: u8,

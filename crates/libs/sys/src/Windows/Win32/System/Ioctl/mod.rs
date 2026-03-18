@@ -514,7 +514,7 @@ pub const DEVICEDUMP_CAP_PRIVATE_SECTION: u32 = 1u32;
 pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: u32 = 2u32;
 pub type DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = i32;
 pub const DEVICEDUMP_MAX_IDSTRING: u32 = 32u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
     pub dwFlags: u32,
@@ -526,7 +526,7 @@ impl Default for DEVICEDUMP_PRIVATE_SUBSECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
     pub dwFlags: u32,
@@ -549,7 +549,7 @@ impl Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_SECTION_HEADER {
     pub guidDeviceDataId: windows_sys::core::GUID,
@@ -567,7 +567,7 @@ impl Default for DEVICEDUMP_SECTION_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
@@ -578,7 +578,7 @@ pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub RestrictedData: DEVICEDUMP_SUBSECTION_POINTER,
     pub PrivateData: DEVICEDUMP_SUBSECTION_POINTER,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
@@ -592,7 +592,7 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     pub Cdb: [u8; 16],
@@ -620,22 +620,22 @@ impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
-    pub dwReserved: u32,
-}
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwAtaPortSpecific: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
+    pub dwReserved: u32,
+}
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
     pub SrbTag: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STRUCTURE_VERSION {
     pub dwSignature: u32,
@@ -643,7 +643,7 @@ pub struct DEVICEDUMP_STRUCTURE_VERSION {
     pub dwSize: u32,
 }
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
     pub dwSize: u32,
@@ -1084,6 +1084,7 @@ impl Default for DEVICE_MEDIA_INFO_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
@@ -1095,6 +1096,7 @@ pub struct DEVICE_MEDIA_INFO_0_0 {
     pub MediaCharacteristics: u32,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
@@ -1122,16 +1124,19 @@ impl Default for DEVICE_MEDIA_INFO_0_2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
@@ -1254,16 +1259,16 @@ impl Default for DISK_CACHE_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct DISK_CACHE_INFORMATION_0_1 {
+    pub Minimum: u16,
+    pub Maximum: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct DISK_CACHE_INFORMATION_0_1 {
-    pub Minimum: u16,
-    pub Maximum: u16,
 }
 pub type DISK_CACHE_RETENTION_PRIORITY = i32;
 #[repr(C)]
@@ -1415,14 +1420,14 @@ impl Default for DISK_PARTITION_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_PARTITION_INFO_0_0 {
-    pub Signature: u32,
-    pub CheckSum: u32,
+pub struct DISK_PARTITION_INFO_0_1 {
+    pub DiskId: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct DISK_PARTITION_INFO_0_1 {
-    pub DiskId: windows_sys::core::GUID,
+pub struct DISK_PARTITION_INFO_0_0 {
+    pub Signature: u32,
+    pub CheckSum: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1463,7 +1468,7 @@ impl Default for DISK_RECORD {
 }
 pub const DLT: STORAGE_MEDIA_TYPE = 39i32;
 pub const DMI: STORAGE_MEDIA_TYPE = 48i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DRIVERSTATUS {
     pub bDriverError: u8,
@@ -2804,7 +2809,7 @@ pub const FormFactorMemoryCard: STORAGE_DEVICE_FORM_FACTOR = 6i32;
 pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = 9i32;
 pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = 0i32;
 pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = 7i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct GETVERSIONINPARAMS {
     pub bVersion: u8,
@@ -2926,7 +2931,7 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = 11529215046068469
 pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: u64 = 144115188075855872u64;
 pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = 2305843009213693952u64;
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808u64;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
     pub LogAddress: u16,
@@ -3222,6 +3227,17 @@ impl Default for MARK_HANDLE_INFO {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union MARK_HANDLE_INFO_0 {
+    pub UsnSourceInfo: u32,
+    pub CopyNumber: u32,
+}
+impl Default for MARK_HANDLE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct MARK_HANDLE_INFO32 {
@@ -3236,23 +3252,14 @@ impl Default for MARK_HANDLE_INFO32 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO32_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MARK_HANDLE_INFO32_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MARK_HANDLE_INFO_0 {
-    pub UsnSourceInfo: u32,
-    pub CopyNumber: u32,
-}
-impl Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3428,37 +3435,6 @@ pub struct NTFS_STATISTICS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_0 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_1 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_2 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_3 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_4 {
     pub Calls: u32,
     pub Clusters: u32,
@@ -3470,6 +3446,37 @@ pub struct NTFS_STATISTICS_4 {
     pub CacheClusters: u32,
     pub CacheMiss: u32,
     pub CacheMissClusters: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_2 {
+    pub Write: u16,
+    pub Create: u16,
+    pub SetInfo: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_1 {
+    pub Write: u16,
+    pub Create: u16,
+    pub SetInfo: u16,
+    pub Flush: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_3 {
+    pub Write: u16,
+    pub Create: u16,
+    pub SetInfo: u16,
+    pub Flush: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_0 {
+    pub Write: u16,
+    pub Create: u16,
+    pub SetInfo: u16,
+    pub Flush: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3534,7 +3541,21 @@ pub struct NTFS_STATISTICS_EX {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_0 {
+pub struct NTFS_STATISTICS_EX_4 {
+    pub Calls: u32,
+    pub RunsReturned: u32,
+    pub Hints: u32,
+    pub HintsHonored: u32,
+    pub Cache: u32,
+    pub CacheMiss: u32,
+    pub Clusters: u64,
+    pub HintsClusters: u64,
+    pub CacheClusters: u64,
+    pub CacheMissClusters: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NTFS_STATISTICS_EX_2 {
     pub Write: u32,
     pub Create: u32,
     pub SetInfo: u32,
@@ -3550,14 +3571,6 @@ pub struct NTFS_STATISTICS_EX_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_2 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct NTFS_STATISTICS_EX_3 {
     pub Write: u32,
     pub Create: u32,
@@ -3566,17 +3579,11 @@ pub struct NTFS_STATISTICS_EX_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NTFS_STATISTICS_EX_4 {
-    pub Calls: u32,
-    pub RunsReturned: u32,
-    pub Hints: u32,
-    pub HintsHonored: u32,
-    pub Cache: u32,
-    pub CacheMiss: u32,
-    pub Clusters: u64,
-    pub HintsClusters: u64,
-    pub CacheClusters: u64,
-    pub CacheMissClusters: u64,
+pub struct NTFS_STATISTICS_EX_0 {
+    pub Write: u32,
+    pub Create: u32,
+    pub SetInfo: u32,
+    pub Flush: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4037,7 +4044,7 @@ impl Default for REASSIGN_BLOCKS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct REASSIGN_BLOCKS_EX {
     pub Reserved: u16,
@@ -4846,7 +4853,7 @@ pub const SEARCH_ALTERNATE: u32 = 2u32;
 pub const SEARCH_ALT_NO_SEQ: u32 = 6u32;
 pub const SEARCH_PRIMARY: u32 = 1u32;
 pub const SEARCH_PRI_NO_SEQ: u32 = 5u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SENDCMDINPARAMS {
     pub cBufferSize: u32,
@@ -4861,7 +4868,7 @@ impl Default for SENDCMDINPARAMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SENDCMDOUTPARAMS {
     pub cBufferSize: u32,
@@ -5144,19 +5151,6 @@ impl Default for STORAGE_COUNTER {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STORAGE_COUNTERS {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfCounters: u32,
-    pub Counters: [STORAGE_COUNTER; 1],
-}
-impl Default for STORAGE_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub union STORAGE_COUNTER_0 {
     pub ManufactureDate: STORAGE_COUNTER_0_0,
     pub AsUlonglong: u64,
@@ -5171,6 +5165,19 @@ impl Default for STORAGE_COUNTER_0 {
 pub struct STORAGE_COUNTER_0_0 {
     pub Week: u32,
     pub Year: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct STORAGE_COUNTERS {
+    pub Version: u32,
+    pub Size: u32,
+    pub NumberOfCounters: u32,
+    pub Counters: [STORAGE_COUNTER; 1],
+}
+impl Default for STORAGE_COUNTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type STORAGE_COUNTER_TYPE = i32;
 pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
@@ -5816,14 +5823,6 @@ impl Default for STORAGE_OPERATIONAL_REASON_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STORAGE_OPERATIONAL_REASON_0_0 {
-    pub SenseKey: u8,
-    pub ASC: u8,
-    pub ASCQ: u8,
-    pub Reserved: u8,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OPERATIONAL_REASON_0_1 {
     pub CriticalHealth: u8,
@@ -5834,6 +5833,14 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct STORAGE_OPERATIONAL_REASON_0_0 {
+    pub SenseKey: u8,
+    pub ASC: u8,
+    pub ASCQ: u8,
+    pub Reserved: u8,
 }
 pub type STORAGE_OPERATIONAL_STATUS_REASON = i32;
 #[repr(C)]
@@ -6338,6 +6345,12 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
+    pub OptimalOpenZoneCount: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
@@ -6348,12 +6361,6 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
-    pub OptimalOpenZoneCount: u32,
-    pub Reserved: u32,
 }
 pub type STORAGE_ZONED_DEVICE_TYPES = i32;
 pub type STORAGE_ZONES_ATTRIBUTES = i32;
@@ -6458,12 +6465,6 @@ impl Default for STREAM_INFORMATION_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_0 {
-    pub Class: FILE_STORAGE_TIER_CLASS,
-    pub Flags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Length: u16,
     pub Flags: u16,
@@ -6472,11 +6473,9 @@ pub struct STREAM_INFORMATION_ENTRY_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct STREAM_INFORMATION_ENTRY_0_2 {
-    pub Length: u16,
-    pub Flags: u16,
-    pub ReparseDataSize: u32,
-    pub ReparseDataOffset: u32,
+pub struct STREAM_INFORMATION_ENTRY_0_0 {
+    pub Class: FILE_STORAGE_TIER_CLASS,
+    pub Flags: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -6485,6 +6484,14 @@ pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub Flags: u16,
     pub EaSize: u32,
     pub EaInformationOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct STREAM_INFORMATION_ENTRY_0_2 {
+    pub Length: u16,
+    pub Flags: u16,
+    pub ReparseDataSize: u32,
+    pub ReparseDataOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

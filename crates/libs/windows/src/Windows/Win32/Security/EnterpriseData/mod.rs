@@ -8,12 +8,9 @@ where
     unsafe { ProtectFileToEnterpriseIdentity(fileorfolderpath.param().abi(), identity.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SrpCloseThreadNetworkContext() -> windows_core::Result<HTHREAD_NETWORK_CONTEXT> {
+pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::Result<()> {
     windows_core::link!("srpapi.dll" "system" fn SrpCloseThreadNetworkContext(threadnetworkcontext : *mut HTHREAD_NETWORK_CONTEXT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        SrpCloseThreadNetworkContext(&mut result__).map(|| result__)
-    }
+    unsafe { SrpCloseThreadNetworkContext(threadnetworkcontext as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpCreateThreadNetworkContext<P0>(enterpriseid: P0) -> windows_core::Result<HTHREAD_NETWORK_CONTEXT>
@@ -49,9 +46,9 @@ where
     unsafe { SrpEnablePermissiveModeFileEncryption(enterpriseid.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: *mut u32, enterpriseids: *mut windows_core::PWSTR, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
-    unsafe { SrpGetEnterpriseIds(tokenhandle, numberofbytes as _, enterpriseids as _, enterpriseidcount as _).ok() }
+pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
+    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
+    unsafe { SrpGetEnterpriseIds(tokenhandle, numberofbytes.unwrap_or(core::mem::zeroed()) as _, enterpriseids.unwrap_or(core::mem::zeroed()) as _, enterpriseidcount as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE) -> windows_core::Result<ENTERPRISE_DATA_POLICIES> {
@@ -85,12 +82,12 @@ where
     unsafe { SrpSetTokenEnterpriseId(tokenhandle, enterpriseid.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: *const FILE_UNPROTECT_OPTIONS) -> windows_core::Result<()>
+pub unsafe fn UnprotectFile<P0>(fileorfolderpath: P0, options: Option<*const FILE_UNPROTECT_OPTIONS>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
-    unsafe { UnprotectFile(fileorfolderpath.param().abi(), options).ok() }
+    unsafe { UnprotectFile(fileorfolderpath.param().abi(), options.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

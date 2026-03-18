@@ -37,17 +37,23 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> windows_
     }
 }
 #[inline]
-pub unsafe fn CreateControlInput(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CreateControlInput<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("windows.ui.dll" "C" fn CreateControlInput(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateControlInput(riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateControlInput(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CreateControlInputEx<P0>(pcorewindow: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateControlInputEx<P0, T>(pcorewindow: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("windows.ui.dll" "C" fn CreateControlInputEx(pcorewindow : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateControlInputEx(pcorewindow.param().abi(), riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateControlInputEx(pcorewindow.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "System")]
 #[inline]
@@ -59,29 +65,35 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
     }
 }
 #[inline]
-pub unsafe fn CreateRandomAccessStreamOnFile<P0>(filepath: P0, accessmode: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateRandomAccessStreamOnFile<P0, T>(filepath: P0, accessmode: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOnFile(filepath : windows_core::PCWSTR, accessmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateRandomAccessStreamOnFile(filepath.param().abi(), accessmode, riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateRandomAccessStreamOnFile(filepath.param().abi(), accessmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn CreateRandomAccessStreamOverStream<P0>(stream: P0, options: BSOS_OPTIONS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateRandomAccessStreamOverStream<P0, T>(stream: P0, options: BSOS_OPTIONS) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::Com::IStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateRandomAccessStreamOverStream(stream : * mut core::ffi::c_void, options : BSOS_OPTIONS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateRandomAccessStreamOverStream(stream.param().abi(), options, riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateRandomAccessStreamOverStream(stream.param().abi(), options, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CreateStreamOverRandomAccessStream<P0>(randomaccessstream: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateStreamOverRandomAccessStream<P0, T>(randomaccessstream: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("api-ms-win-shcore-stream-winrt-l1-1-0.dll" "system" fn CreateStreamOverRandomAccessStream(randomaccessstream : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateStreamOverRandomAccessStream(randomaccessstream.param().abi(), riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateStreamOverRandomAccessStream(randomaccessstream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> windows_core::Result<IRestrictedErrorInfo> {
@@ -160,9 +172,13 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: windows_core::HRESULT) {
     unsafe { RoFailFastWithErrorContext(hrerror) }
 }
 #[inline]
-pub unsafe fn RoGetActivationFactory(activatableclassid: &windows_core::HSTRING, iid: *const windows_core::GUID, factory: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : * mut core::ffi::c_void, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { RoGetActivationFactory(core::mem::transmute_copy(activatableclassid), iid, factory as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { RoGetActivationFactory(core::mem::transmute_copy(activatableclassid), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn RoGetAgileReference<P2>(options: AgileReferenceOptions, riid: *const windows_core::GUID, punk: P2) -> windows_core::Result<IAgileReference>
@@ -219,16 +235,16 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::Result<()> {
     unsafe { RoInitialize(inittype).ok() }
 }
 #[inline]
-pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const core::ffi::c_void, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> windows_core::Result<()> {
+pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, framecount : *mut u32, targetbacktraceaddress : *mut usize) -> windows_core::HRESULT);
-    unsafe { RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, context, framecount as _, targetbacktraceaddress as _).ok() }
+    unsafe { RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, framecount as _, targetbacktraceaddress as _).ok() }
 }
 #[inline]
-pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const core::ffi::c_void) -> windows_core::Result<usize> {
+pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>) -> windows_core::Result<usize> {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectThreadErrorInfo(targettebaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, targeterrorinfoaddress : *mut usize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, context, &mut result__).map(|| result__)
+        RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, context.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -237,12 +253,9 @@ pub unsafe fn RoOriginateError(error: windows_core::HRESULT, message: &windows_c
     unsafe { RoOriginateError(error, core::mem::transmute_copy(message)) }
 }
 #[inline]
-pub unsafe fn RoOriginateErrorW<P2>(error: windows_core::HRESULT, cchmax: u32, message: P2) -> windows_core::BOOL
-where
-    P2: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RoOriginateErrorW(error: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { RoOriginateErrorW(error, cchmax, message.param().abi()) }
+    unsafe { RoOriginateErrorW(error, cchmax, core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn RoOriginateLanguageException<P2>(error: windows_core::HRESULT, message: &windows_core::HSTRING, languageexception: P2) -> windows_core::BOOL
@@ -312,12 +325,9 @@ pub unsafe fn RoTransformError(olderror: windows_core::HRESULT, newerror: window
     unsafe { RoTransformError(olderror, newerror, core::mem::transmute_copy(message)) }
 }
 #[inline]
-pub unsafe fn RoTransformErrorW<P3>(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, cchmax: u32, message: P3) -> windows_core::BOOL
-where
-    P3: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn RoTransformErrorW(olderror: windows_core::HRESULT, newerror: windows_core::HRESULT, cchmax: u32, message: Option<&[u16; 512]>) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformErrorW(olderror : windows_core::HRESULT, newerror : windows_core::HRESULT, cchmax : u32, message : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { RoTransformErrorW(olderror, newerror, cchmax, message.param().abi()) }
+    unsafe { RoTransformErrorW(olderror, newerror, cchmax, core::mem::transmute(message.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
 pub unsafe fn RoUninitialize() {
@@ -354,14 +364,11 @@ pub unsafe fn WindowsConcatString(string1: &windows_core::HSTRING, string2: &win
     }
 }
 #[inline]
-pub unsafe fn WindowsCreateString<P0>(sourcestring: P0, length: u32) -> windows_core::Result<windows_core::HSTRING>
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn WindowsCreateString(sourcestring: Option<&[u16]>) -> windows_core::Result<windows_core::HSTRING> {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateString(sourcestring : windows_core::PCWSTR, length : u32, string : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WindowsCreateString(sourcestring.param().abi(), length, &mut result__).map(|| core::mem::transmute(result__))
+        WindowsCreateString(core::mem::transmute(sourcestring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[inline]
@@ -378,9 +385,9 @@ pub unsafe fn WindowsDeleteString(string: &windows_core::HSTRING) -> windows_cor
     unsafe { WindowsDeleteString(core::mem::transmute_copy(string)).ok() }
 }
 #[inline]
-pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: HSTRING_BUFFER) -> windows_core::Result<()> {
+pub unsafe fn WindowsDeleteStringBuffer(bufferhandle: Option<HSTRING_BUFFER>) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteStringBuffer(bufferhandle : HSTRING_BUFFER) -> windows_core::HRESULT);
-    unsafe { WindowsDeleteStringBuffer(bufferhandle).ok() }
+    unsafe { WindowsDeleteStringBuffer(bufferhandle.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
@@ -396,19 +403,19 @@ pub unsafe fn WindowsGetStringLen(string: &windows_core::HSTRING) -> u32 {
     unsafe { WindowsGetStringLen(core::mem::transmute_copy(string)) }
 }
 #[inline]
-pub unsafe fn WindowsGetStringRawBuffer(string: &windows_core::HSTRING, length: *mut u32) -> windows_core::PWSTR {
-    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringRawBuffer(string : * mut core::ffi::c_void, length : *mut u32) -> windows_core::PWSTR);
-    unsafe { WindowsGetStringRawBuffer(core::mem::transmute_copy(string), length as _) }
+pub unsafe fn WindowsGetStringRawBuffer(string: &windows_core::HSTRING, length: Option<*mut u32>) -> windows_core::PCWSTR {
+    windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringRawBuffer(string : * mut core::ffi::c_void, length : *mut u32) -> windows_core::PCWSTR);
+    unsafe { WindowsGetStringRawBuffer(core::mem::transmute_copy(string), length.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const core::ffi::c_void, length: *mut u32, targetstringaddress: *mut usize) -> windows_core::Result<()> {
+pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut usize) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsInspectString(targethstring : usize, machine : u16, callback : PINSPECT_HSTRING_CALLBACK, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut usize) -> windows_core::HRESULT);
-    unsafe { WindowsInspectString(targethstring, machine, callback, context, length as _, targetstringaddress as _).ok() }
+    unsafe { WindowsInspectString(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _).ok() }
 }
 #[inline]
-pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const core::ffi::c_void, length: *mut u32, targetstringaddress: *mut u64) -> windows_core::Result<()> {
+pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut u64) -> windows_core::Result<()> {
     windows_core::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> windows_core::HRESULT);
-    unsafe { WindowsInspectString2(targethstring, machine, callback, context, length as _, targetstringaddress as _).ok() }
+    unsafe { WindowsInspectString2(targethstring, machine, callback, context.unwrap_or(core::mem::zeroed()) as _, length as _, targetstringaddress as _).ok() }
 }
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> windows_core::BOOL {

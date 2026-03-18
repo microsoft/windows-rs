@@ -261,7 +261,6 @@ impl Default for INSTALLSPEC {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type INSTALLSPECTYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INSTALLSPEC_0 {
@@ -279,6 +278,7 @@ pub struct INSTALLSPEC_1 {
     pub Clsid: windows_sys::core::GUID,
     pub ClsCtx: u32,
 }
+pub type INSTALLSPECTYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LOCALMANAGEDAPPLICATION {

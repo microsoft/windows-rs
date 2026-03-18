@@ -1,13 +1,10 @@
 #[inline]
-pub unsafe fn ApplyLocalManagementSyncML<P0>(syncmlrequest: P0) -> windows_core::Result<windows_core::PWSTR>
+pub unsafe fn ApplyLocalManagementSyncML<P0>(syncmlrequest: P0, syncmlresult: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mdmlocalmanagement.dll" "system" fn ApplyLocalManagementSyncML(syncmlrequest : windows_core::PCWSTR, syncmlresult : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ApplyLocalManagementSyncML(syncmlrequest.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { ApplyLocalManagementSyncML(syncmlrequest.param().abi(), syncmlresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn DiscoverManagementService<P0>(pszupn: P0) -> windows_core::Result<*mut MANAGEMENT_SERVICE_INFO>
@@ -33,12 +30,12 @@ where
     }
 }
 #[inline]
-pub unsafe fn GetDeviceManagementConfigInfo<P0>(providerid: P0, configstringbufferlength: *mut u32, configstring: windows_core::PWSTR) -> windows_core::Result<()>
+pub unsafe fn GetDeviceManagementConfigInfo<P0>(providerid: P0, configstringbufferlength: *mut u32, configstring: Option<windows_core::PWSTR>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mdmregistration.dll" "system" fn GetDeviceManagementConfigInfo(providerid : windows_core::PCWSTR, configstringbufferlength : *mut u32, configstring : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { GetDeviceManagementConfigInfo(providerid.param().abi(), configstringbufferlength as _, core::mem::transmute(configstring)).ok() }
+    unsafe { GetDeviceManagementConfigInfo(providerid.param().abi(), configstringbufferlength as _, configstring.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INFORMATION_CLASS, ppdeviceregistrationinfo: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -46,14 +43,14 @@ pub unsafe fn GetDeviceRegistrationInfo(deviceinformationclass: REGISTRATION_INF
     unsafe { GetDeviceRegistrationInfo(deviceinformationclass, ppdeviceregistrationinfo as _).ok() }
 }
 #[inline]
-pub unsafe fn GetManagementAppHyperlink(cchhyperlink: u32, pszhyperlink: windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn GetManagementAppHyperlink(pszhyperlink: &mut [u16]) -> windows_core::Result<()> {
     windows_core::link!("mdmregistration.dll" "system" fn GetManagementAppHyperlink(cchhyperlink : u32, pszhyperlink : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { GetManagementAppHyperlink(cchhyperlink, core::mem::transmute(pszhyperlink)).ok() }
+    unsafe { GetManagementAppHyperlink(pszhyperlink.len().try_into().unwrap(), core::mem::transmute(pszhyperlink.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut windows_core::BOOL, cchupn: u32, pszupn: windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement: *mut windows_core::BOOL, pszupn: Option<&mut [u16]>) -> windows_core::Result<()> {
     windows_core::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut windows_core::BOOL, cchupn : u32, pszupn : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement as _, cchupn, core::mem::transmute(pszupn)).ok() }
+    unsafe { IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement as _, pszupn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszupn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> windows_core::Result<windows_core::BOOL> {
@@ -72,12 +69,9 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<windows_core::B
     }
 }
 #[inline]
-pub unsafe fn RegisterDeviceWithLocalManagement() -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
     windows_core::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        RegisterDeviceWithLocalManagement(&mut result__).map(|| result__)
-    }
+    unsafe { RegisterDeviceWithLocalManagement(alreadyregistered.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RegisterDeviceWithManagement<P0, P1, P2>(pszupn: P0, ppszmdmserviceuri: P1, ppzsaccesstoken: P2) -> windows_core::Result<()>

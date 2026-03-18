@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::BOOL {
+pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> windows_core::BOOL);
-    unsafe { CloseHandle(hobject) }
+    unsafe { CloseHandle(hobject).ok() }
 }
 #[inline]
 pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> windows_core::BOOL {
@@ -9,19 +9,19 @@ pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthand
     unsafe { CompareObjectHandles(hfirstobjecthandle, hsecondobjecthandle) }
 }
 #[inline]
-pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::BOOL {
+pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> windows_core::BOOL);
-    unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle as _, dwdesiredaccess, binherithandle.into(), dwoptions) }
+    unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle as _, dwdesiredaccess, binherithandle.into(), dwoptions).ok() }
 }
 #[inline]
-pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::BOOL {
+pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
-    unsafe { FreeLibrary(hlibmodule) }
+    unsafe { FreeLibrary(hlibmodule).ok() }
 }
 #[inline]
-pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::BOOL {
+pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> windows_core::BOOL);
-    unsafe { GetHandleInformation(hobject, lpdwflags as _) }
+    unsafe { GetHandleInformation(hobject, lpdwflags as _).ok() }
 }
 #[inline]
 pub unsafe fn GetLastError() -> windows_core::WIN32_ERROR {
@@ -29,14 +29,15 @@ pub unsafe fn GetLastError() -> windows_core::WIN32_ERROR {
     unsafe { GetLastError() }
 }
 #[inline]
-pub unsafe fn GlobalFree(hmem: HGLOBAL) -> HGLOBAL {
+pub unsafe fn GlobalFree(hmem: Option<HGLOBAL>) -> windows_core::Result<HGLOBAL> {
     windows_core::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
-    unsafe { GlobalFree(hmem) }
+    let result__ = unsafe { GlobalFree(hmem.unwrap_or(core::mem::zeroed()) as _) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LocalFree(hmem: HLOCAL) -> HLOCAL {
+pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {
     windows_core::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
-    unsafe { LocalFree(hmem) }
+    unsafe { LocalFree(hmem.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosError(status: windows_core::NTSTATUS) -> u32 {
@@ -44,9 +45,9 @@ pub unsafe fn RtlNtStatusToDosError(status: windows_core::NTSTATUS) -> u32 {
     unsafe { RtlNtStatusToDosError(status) }
 }
 #[inline]
-pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::BOOL {
+pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> windows_core::BOOL);
-    unsafe { SetHandleInformation(hobject, dwmask, dwflags) }
+    unsafe { SetHandleInformation(hobject, dwmask, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: windows_core::WIN32_ERROR) {
@@ -72,20 +73,14 @@ where
     unsafe { SysAllocString(psz.param().abi()) }
 }
 #[inline]
-pub unsafe fn SysAllocStringByteLen<P0>(psz: P0, len: u32) -> windows_core::BSTR
-where
-    P0: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn SysAllocStringByteLen(psz: Option<&[u8]>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_core::PCSTR, len : u32) -> windows_core::BSTR);
-    unsafe { SysAllocStringByteLen(psz.param().abi(), len) }
+    unsafe { SysAllocStringByteLen(core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn SysAllocStringLen<P0>(strin: P0, ui: u32) -> windows_core::BSTR
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
+pub unsafe fn SysAllocStringLen(strin: Option<&[u16]>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_core::PCWSTR, ui : u32) -> windows_core::BSTR);
-    unsafe { SysAllocStringLen(strin.param().abi(), ui) }
+    unsafe { SysAllocStringLen(core::mem::transmute(strin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
@@ -5705,7 +5700,7 @@ pub const INPUT_E_OUT_OF_ORDER: windows_core::HRESULT = windows_core::HRESULT(0x
 pub const INPUT_E_PACKET: windows_core::HRESULT = windows_core::HRESULT(0x80400003_u32 as _);
 pub const INPUT_E_REENTRANCY: windows_core::HRESULT = windows_core::HRESULT(0x80400001_u32 as _);
 pub const INPUT_E_TRANSFORM: windows_core::HRESULT = windows_core::HRESULT(0x80400007_u32 as _);
-pub const INVALID_HANDLE_VALUE: HANDLE = HANDLE(-1i64 as _);
+pub const INVALID_HANDLE_VALUE: HANDLE = HANDLE(-1i32 as _);
 pub const IORING_E_COMPLETION_QUEUE_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0x80460005_u32 as _);
 pub const IORING_E_COMPLETION_QUEUE_TOO_FULL: windows_core::HRESULT = windows_core::HRESULT(0x80460008_u32 as _);
 pub const IORING_E_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0x80460007_u32 as _);

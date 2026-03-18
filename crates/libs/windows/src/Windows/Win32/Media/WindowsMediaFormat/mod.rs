@@ -91,15 +91,12 @@ pub unsafe fn WMCreateWriterPushSink() -> windows_core::Result<IWMWriterPushSink
     }
 }
 #[inline]
-pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0) -> windows_core::Result<windows_core::BOOL>
+pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut windows_core::BOOL) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_core::PCWSTR, pfisprotected : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WMIsContentProtected(pwszfilename.param().abi(), &mut result__).map(|| result__)
-    }
+    unsafe { WMIsContentProtected(pwszfilename.param().abi(), pfisprotected as _).ok() }
 }
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
 pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);
@@ -4390,15 +4387,12 @@ impl IWMProfileManager {
             (windows_core::Interface::vtable(self).LoadProfileByData)(windows_core::Interface::as_raw(self), pwszprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SaveProfile<P0, P1>(&self, piwmprofile: P0, pwszprofile: P1) -> windows_core::Result<u32>
+    pub unsafe fn SaveProfile<P0, P1>(&self, piwmprofile: P0, pwszprofile: P1, pdwlength: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IWMProfile>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveProfile)(windows_core::Interface::as_raw(self), piwmprofile.param().abi(), pwszprofile.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).SaveProfile)(windows_core::Interface::as_raw(self), piwmprofile.param().abi(), pwszprofile.param().abi(), pdwlength as _).ok() }
     }
     pub unsafe fn GetSystemProfileCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -4428,7 +4422,7 @@ pub trait IWMProfileManager_Impl: windows_core::IUnknownImpl {
     fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> windows_core::Result<IWMProfile>;
     fn LoadProfileByID(&self, guidprofile: *const windows_core::GUID) -> windows_core::Result<IWMProfile>;
     fn LoadProfileByData(&self, pwszprofile: &windows_core::PCWSTR) -> windows_core::Result<IWMProfile>;
-    fn SaveProfile(&self, piwmprofile: windows_core::Ref<IWMProfile>, pwszprofile: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn SaveProfile(&self, piwmprofile: windows_core::Ref<IWMProfile>, pwszprofile: &windows_core::PCWSTR, pdwlength: *mut u32) -> windows_core::Result<()>;
     fn GetSystemProfileCount(&self) -> windows_core::Result<u32>;
     fn LoadSystemProfile(&self, dwprofileindex: u32) -> windows_core::Result<IWMProfile>;
 }
@@ -4473,13 +4467,7 @@ impl IWMProfileManager_Vtbl {
         unsafe extern "system" fn SaveProfile<Identity: IWMProfileManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piwmprofile: *mut core::ffi::c_void, pwszprofile: windows_core::PCWSTR, pdwlength: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMProfileManager_Impl::SaveProfile(this, core::mem::transmute_copy(&piwmprofile), core::mem::transmute(&pwszprofile)) {
-                    Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMProfileManager_Impl::SaveProfile(this, core::mem::transmute_copy(&piwmprofile), core::mem::transmute(&pwszprofile), core::mem::transmute_copy(&pdwlength)).into()
             }
         }
         unsafe extern "system" fn GetSystemProfileCount<Identity: IWMProfileManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcprofiles: *mut u32) -> windows_core::HRESULT {
@@ -4530,11 +4518,8 @@ impl core::ops::Deref for IWMProfileManager2 {
 }
 windows_core::imp::interface_hierarchy!(IWMProfileManager2, windows_core::IUnknown, IWMProfileManager);
 impl IWMProfileManager2 {
-    pub unsafe fn GetSystemProfileVersion(&self) -> windows_core::Result<WMT_VERSION> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSystemProfileVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSystemProfileVersion)(windows_core::Interface::as_raw(self), pdwversion as _).ok() }
     }
     pub unsafe fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSystemProfileVersion)(windows_core::Interface::as_raw(self), dwversion).ok() }
@@ -4548,7 +4533,7 @@ pub struct IWMProfileManager2_Vtbl {
     pub SetSystemProfileVersion: unsafe extern "system" fn(*mut core::ffi::c_void, WMT_VERSION) -> windows_core::HRESULT,
 }
 pub trait IWMProfileManager2_Impl: IWMProfileManager_Impl {
-    fn GetSystemProfileVersion(&self) -> windows_core::Result<WMT_VERSION>;
+    fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> windows_core::Result<()>;
     fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> windows_core::Result<()>;
 }
 impl IWMProfileManager2_Vtbl {
@@ -4556,13 +4541,7 @@ impl IWMProfileManager2_Vtbl {
         unsafe extern "system" fn GetSystemProfileVersion<Identity: IWMProfileManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMProfileManager2_Impl::GetSystemProfileVersion(this) {
-                    Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMProfileManager2_Impl::GetSystemProfileVersion(this, core::mem::transmute_copy(&pdwversion)).into()
             }
         }
         unsafe extern "system" fn SetSystemProfileVersion<Identity: IWMProfileManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwversion: WMT_VERSION) -> windows_core::HRESULT {
@@ -4585,11 +4564,8 @@ impl windows_core::RuntimeName for IWMProfileManager2 {}
 windows_core::imp::define_interface!(IWMProfileManagerLanguage, IWMProfileManagerLanguage_Vtbl, 0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
 windows_core::imp::interface_hierarchy!(IWMProfileManagerLanguage, windows_core::IUnknown);
 impl IWMProfileManagerLanguage {
-    pub unsafe fn GetUserLanguageID(&self) -> windows_core::Result<u16> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUserLanguageID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetUserLanguageID(&self, wlangid: *mut u16) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetUserLanguageID)(windows_core::Interface::as_raw(self), wlangid as _).ok() }
     }
     pub unsafe fn SetUserLanguageID(&self, wlangid: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUserLanguageID)(windows_core::Interface::as_raw(self), wlangid).ok() }
@@ -4603,7 +4579,7 @@ pub struct IWMProfileManagerLanguage_Vtbl {
     pub SetUserLanguageID: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
 }
 pub trait IWMProfileManagerLanguage_Impl: windows_core::IUnknownImpl {
-    fn GetUserLanguageID(&self) -> windows_core::Result<u16>;
+    fn GetUserLanguageID(&self, wlangid: *mut u16) -> windows_core::Result<()>;
     fn SetUserLanguageID(&self, wlangid: u16) -> windows_core::Result<()>;
 }
 impl IWMProfileManagerLanguage_Vtbl {
@@ -4611,13 +4587,7 @@ impl IWMProfileManagerLanguage_Vtbl {
         unsafe extern "system" fn GetUserLanguageID<Identity: IWMProfileManagerLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wlangid: *mut u16) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMProfileManagerLanguage_Impl::GetUserLanguageID(this) {
-                    Ok(ok__) => {
-                        wlangid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMProfileManagerLanguage_Impl::GetUserLanguageID(this, core::mem::transmute_copy(&wlangid)).into()
             }
         }
         unsafe extern "system" fn SetUserLanguageID<Identity: IWMProfileManagerLanguage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wlangid: u16) -> windows_core::HRESULT {
@@ -10203,11 +10173,8 @@ impl IWMWriterNetworkSink {
     pub unsafe fn GetHostURL(&self, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetHostURL)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszurl), pcchurl as _).ok() }
     }
-    pub unsafe fn Open(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn Open(&self, pdwportnum: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pdwportnum as _).ok() }
     }
     pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
@@ -10235,7 +10202,7 @@ pub trait IWMWriterNetworkSink_Impl: IWMWriterSink_Impl {
     fn SetNetworkProtocol(&self, protocol: WMT_NET_PROTOCOL) -> windows_core::Result<()>;
     fn GetNetworkProtocol(&self) -> windows_core::Result<WMT_NET_PROTOCOL>;
     fn GetHostURL(&self, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::Result<()>;
-    fn Open(&self) -> windows_core::Result<u32>;
+    fn Open(&self, pdwportnum: *mut u32) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
@@ -10286,13 +10253,7 @@ impl IWMWriterNetworkSink_Vtbl {
         unsafe extern "system" fn Open<Identity: IWMWriterNetworkSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwportnum: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWMWriterNetworkSink_Impl::Open(this) {
-                    Ok(ok__) => {
-                        pdwportnum.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWMWriterNetworkSink_Impl::Open(this, core::mem::transmute_copy(&pdwportnum)).into()
             }
         }
         unsafe extern "system" fn Disconnect<Identity: IWMWriterNetworkSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11129,8 +11090,8 @@ pub struct WMT_STREAM_SELECTION(pub i32);
 pub const WMT_STRIDING: WMT_STATUS = WMT_STATUS(14i32);
 pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(0i32);
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(1i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
@@ -11369,8 +11330,8 @@ pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(10i32);
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(5i32);
 pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(0i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -11395,8 +11356,8 @@ impl Default for WM_MEDIA_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_core::PWSTR,
     pub bPictureType: u8,
@@ -11460,20 +11421,20 @@ pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = WM_SF_TYPE(2i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_SF_TYPE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
     pub fMandatory: windows_core::BOOL,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub cbFormat: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -11502,14 +11463,14 @@ pub const WM_SampleExtension_ContentType_Size: u32 = 1u32;
 pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WM_USER_TEXT {
     pub pwszDescription: windows_core::PWSTR,
     pub pwszText: windows_core::PWSTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: windows_core::PWSTR,
     pub pwszURL: windows_core::PWSTR,

@@ -2832,15 +2832,12 @@ windows_core::imp::define_interface!(IExtendContextMenu, IExtendContextMenu_Vtbl
 windows_core::imp::interface_hierarchy!(IExtendContextMenu, windows_core::IUnknown);
 impl IExtendContextMenu {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1) -> windows_core::Result<i32>
+    pub unsafe fn AddMenuItems<P0, P1>(&self, pidataobject: P0, picallback: P1, pinsertionallowed: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Com::IDataObject>,
         P1: windows_core::Param<IContextMenuCallback>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItems)(windows_core::Interface::as_raw(self), pidataobject.param().abi(), picallback.param().abi(), pinsertionallowed as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Command<P1>(&self, lcommandid: i32, pidataobject: P1) -> windows_core::Result<()>
@@ -2865,7 +2862,7 @@ pub struct IExtendContextMenu_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendContextMenu_Impl: windows_core::IUnknownImpl {
-    fn AddMenuItems(&self, pidataobject: windows_core::Ref<super::Com::IDataObject>, picallback: windows_core::Ref<IContextMenuCallback>) -> windows_core::Result<i32>;
+    fn AddMenuItems(&self, pidataobject: windows_core::Ref<super::Com::IDataObject>, picallback: windows_core::Ref<IContextMenuCallback>, pinsertionallowed: *mut i32) -> windows_core::Result<()>;
     fn Command(&self, lcommandid: i32, pidataobject: windows_core::Ref<super::Com::IDataObject>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2874,13 +2871,7 @@ impl IExtendContextMenu_Vtbl {
         unsafe extern "system" fn AddMenuItems<Identity: IExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidataobject: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void, pinsertionallowed: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IExtendContextMenu_Impl::AddMenuItems(this, core::mem::transmute_copy(&pidataobject), core::mem::transmute_copy(&picallback)) {
-                    Ok(ok__) => {
-                        pinsertionallowed.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IExtendContextMenu_Impl::AddMenuItems(this, core::mem::transmute_copy(&pidataobject), core::mem::transmute_copy(&picallback), core::mem::transmute_copy(&pinsertionallowed)).into()
             }
         }
         unsafe extern "system" fn Command<Identity: IExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcommandid: i32, pidataobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4222,11 +4213,8 @@ impl windows_core::RuntimeName for IResultData2 {}
 windows_core::imp::define_interface!(IResultDataCompare, IResultDataCompare_Vtbl, 0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
 windows_core::imp::interface_hierarchy!(IResultDataCompare, windows_core::IUnknown);
 impl IResultDataCompare {
-    pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), luserparam, cookiea, cookieb, pnresult as _).ok() }
     }
 }
 #[repr(C)]
@@ -4236,20 +4224,14 @@ pub struct IResultDataCompare_Vtbl {
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LPARAM, isize, isize, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IResultDataCompare_Impl: windows_core::IUnknownImpl {
-    fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize) -> windows_core::Result<i32>;
+    fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::Result<()>;
 }
 impl IResultDataCompare_Vtbl {
     pub const fn new<Identity: IResultDataCompare_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Compare<Identity: IResultDataCompare_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IResultDataCompare_Impl::Compare(this, core::mem::transmute_copy(&luserparam), core::mem::transmute_copy(&cookiea), core::mem::transmute_copy(&cookieb)) {
-                    Ok(ok__) => {
-                        pnresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IResultDataCompare_Impl::Compare(this, core::mem::transmute_copy(&luserparam), core::mem::transmute_copy(&cookiea), core::mem::transmute_copy(&cookieb), core::mem::transmute_copy(&pnresult)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Compare: Compare::<Identity, OFFSET> }

@@ -613,18 +613,13 @@ impl Default for CLFS_MGMT_POLICY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_0 {
-    pub Containers: u32,
+pub struct CLFS_MGMT_POLICY_0_6 {
+    pub Enabled: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_1 {
-    pub Containers: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_2 {
-    pub SizeInBytes: u32,
+pub struct CLFS_MGMT_POLICY_0_5 {
+    pub Percentage: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -640,13 +635,24 @@ pub struct CLFS_MGMT_POLICY_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_5 {
-    pub Percentage: u32,
+pub struct CLFS_MGMT_POLICY_0_0 {
+    pub Containers: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_6 {
-    pub Enabled: u32,
+pub struct CLFS_MGMT_POLICY_0_1 {
+    pub Containers: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CLFS_MGMT_POLICY_0_9 {
+    pub ExtensionLengthInBytes: u16,
+    pub ExtensionString: [u16; 1],
+}
+impl Default for CLFS_MGMT_POLICY_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -661,19 +667,13 @@ impl Default for CLFS_MGMT_POLICY_0_7 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct CLFS_MGMT_POLICY_0_8 {
-    pub NextContainerSuffix: u64,
+pub struct CLFS_MGMT_POLICY_0_2 {
+    pub SizeInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_9 {
-    pub ExtensionLengthInBytes: u16,
-    pub ExtensionString: [u16; 1],
-}
-impl Default for CLFS_MGMT_POLICY_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Default)]
+pub struct CLFS_MGMT_POLICY_0_8 {
+    pub NextContainerSuffix: u64,
 }
 pub type CLFS_MGMT_POLICY_TYPE = i32;
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
@@ -904,23 +904,6 @@ impl Default for COPYFILE2_MESSAGE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_0 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
-impl Default for COPYFILE2_MESSAGE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -940,18 +923,38 @@ impl Default for COPYFILE2_MESSAGE_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_2 {
+pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
     pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-impl Default for COPYFILE2_MESSAGE_0_2 {
+impl Default for COPYFILE2_MESSAGE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct COPYFILE2_MESSAGE_0_5 {
+    pub CopyPhase: COPYFILE2_COPY_PHASE,
+    pub dwStreamNumber: u32,
+    pub hrFailure: windows_sys::core::HRESULT,
+    pub dwReserved: u32,
+    pub uliChunkNumber: u64,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct COPYFILE2_MESSAGE_0_4 {
+    pub dwReserved: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -971,22 +974,19 @@ impl Default for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct COPYFILE2_MESSAGE_0_4 {
-    pub dwReserved: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct COPYFILE2_MESSAGE_0_5 {
-    pub CopyPhase: COPYFILE2_COPY_PHASE,
+#[derive(Clone, Copy)]
+pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
-    pub hrFailure: windows_sys::core::HRESULT,
     pub dwReserved: u32,
-    pub uliChunkNumber: u64,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
     pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
     pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
+}
+impl Default for COPYFILE2_MESSAGE_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type COPYFILE2_MESSAGE_ACTION = i32;
 pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
@@ -3924,18 +3924,18 @@ pub type TXFS_MINIVERSION = u32;
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = 0u32;
 pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = 65534u32;
 pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = 65535u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
@@ -3946,7 +3946,7 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub FileNameLength: u32,
     pub FileNameByteOffsetInStructure: u32,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
@@ -3957,7 +3957,7 @@ pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
@@ -3974,7 +3974,7 @@ pub type TXF_LOG_RECORD_TYPE = u16;
 pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = 4u16;
 pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = 2u16;
 pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = 1u16;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,

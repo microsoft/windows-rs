@@ -236,7 +236,6 @@ impl Default for TF_DA_COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type TF_DA_COLORTYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
@@ -248,6 +247,7 @@ impl Default for TF_DA_COLOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type TF_DA_COLORTYPE = i32;
 pub type TF_DA_LINESTYLE = i32;
 pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
 pub const TF_DICTATION_ENABLED: u32 = 2u32;

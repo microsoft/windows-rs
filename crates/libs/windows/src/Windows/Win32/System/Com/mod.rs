@@ -13,12 +13,14 @@ pub mod UI;
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 pub mod Urlmon;
 #[inline]
-pub unsafe fn BindMoniker<P0>(pmk: P0, grfopt: u32, iidresult: *const windows_core::GUID, ppvresult: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BindMoniker<P0, T>(pmk: P0, grfopt: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<IMoniker>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn BindMoniker(pmk : * mut core::ffi::c_void, grfopt : u32, iidresult : *const windows_core::GUID, ppvresult : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { BindMoniker(pmk.param().abi(), grfopt, iidresult, ppvresult as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { BindMoniker(pmk.param().abi(), grfopt, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CLSIDFromProgID<P0>(lpszprogid: P0) -> windows_core::Result<windows_core::GUID>
@@ -59,12 +61,12 @@ pub unsafe fn CoAddRefServerProcess() -> u32 {
     unsafe { CoAddRefServerProcess() }
 }
 #[inline]
-pub unsafe fn CoAllowSetForegroundWindow<P0>(punk: P0, lpvreserved: *const core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CoAllowSetForegroundWindow<P0>(punk: P0, lpvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoAllowSetForegroundWindow(punk : * mut core::ffi::c_void, lpvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoAllowSetForegroundWindow(punk.param().abi(), lpvreserved).ok() }
+    unsafe { CoAllowSetForegroundWindow(punk.param().abi(), lpvreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoAllowUnmarshalerCLSID(clsid: *const windows_core::GUID) -> windows_core::Result<()> {
@@ -112,34 +114,30 @@ pub unsafe fn CoCreateGuid() -> windows_core::Result<windows_core::GUID> {
     }
 }
 #[inline]
-pub unsafe fn CoCreateInstance<P1>(rclsid: *const windows_core::GUID, punkouter: P1, dwclscontext: CLSCTX, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CoCreateInstance<P1, T>(rclsid: *const windows_core::GUID, punkouter: P1, dwclscontext: CLSCTX) -> windows_core::Result<T>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoCreateInstance(rclsid, punkouter.param().abi(), dwclscontext, riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoCreateInstance(rclsid, punkouter.param().abi(), dwclscontext, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CoCreateInstanceEx<P1>(clsid: *const windows_core::GUID, punkouter: P1, dwclsctx: CLSCTX, pserverinfo: *const COSERVERINFO, dwcount: u32) -> windows_core::Result<MULTI_QI>
+pub unsafe fn CoCreateInstanceEx<P1>(clsid: *const windows_core::GUID, punkouter: P1, dwclsctx: CLSCTX, pserverinfo: Option<*const COSERVERINFO>, presults: &mut [MULTI_QI]) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : CLSCTX, pserverinfo : *const COSERVERINFO, dwcount : u32, presults : *mut MULTI_QI) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo, dwcount, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn CoCreateInstanceFromApp<P1>(clsid: *const windows_core::GUID, punkouter: P1, dwclsctx: CLSCTX, reserved: *const core::ffi::c_void, dwcount: u32) -> windows_core::Result<MULTI_QI>
+pub unsafe fn CoCreateInstanceFromApp<P1>(clsid: *const windows_core::GUID, punkouter: P1, dwclsctx: CLSCTX, reserved: Option<*const core::ffi::c_void>, presults: &mut [MULTI_QI]) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceFromApp(clsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : CLSCTX, reserved : *const core::ffi::c_void, dwcount : u32, presults : *mut MULTI_QI) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved, dwcount, &mut result__).map(|| core::mem::transmute(result__))
-    }
+    unsafe { CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> windows_core::Result<()> {
@@ -147,9 +145,9 @@ pub unsafe fn CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE) -> windows_core::
     unsafe { CoDecrementMTAUsage(cookie).ok() }
 }
 #[inline]
-pub unsafe fn CoDisableCallCancellation(preserved: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoDisableCallCancellation(preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn CoDisableCallCancellation(preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoDisableCallCancellation(preserved).ok() }
+    unsafe { CoDisableCallCancellation(preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> windows_core::Result<()> {
@@ -157,12 +155,12 @@ pub unsafe fn CoDisconnectContext(dwtimeout: u32) -> windows_core::Result<()> {
     unsafe { CoDisconnectContext(dwtimeout).ok() }
 }
 #[inline]
-pub unsafe fn CoDisconnectObject<P0>(punk: P0, dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn CoDisconnectObject<P0>(punk: P0, dwreserved: Option<u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoDisconnectObject(punk : * mut core::ffi::c_void, dwreserved : u32) -> windows_core::HRESULT);
-    unsafe { CoDisconnectObject(punk.param().abi(), dwreserved).ok() }
+    unsafe { CoDisconnectObject(punk.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> windows_core::BOOL {
@@ -170,9 +168,9 @@ pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: 
     unsafe { CoDosDateTimeToFileTime(ndosdate, ndostime, lpfiletime as _) }
 }
 #[inline]
-pub unsafe fn CoEnableCallCancellation(preserved: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoEnableCallCancellation(preserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn CoEnableCallCancellation(preserved : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoEnableCallCancellation(preserved).ok() }
+    unsafe { CoEnableCallCancellation(preserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoFileTimeNow() -> windows_core::Result<super::super::Foundation::FILETIME> {
@@ -203,9 +201,9 @@ pub unsafe fn CoFreeUnusedLibraries() {
     unsafe { CoFreeUnusedLibraries() }
 }
 #[inline]
-pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: u32) {
+pub unsafe fn CoFreeUnusedLibrariesEx(dwunloaddelay: u32, dwreserved: Option<u32>) {
     windows_core::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32));
-    unsafe { CoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved) }
+    unsafe { CoFreeUnusedLibrariesEx(dwunloaddelay, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APTTYPEQUALIFIER) -> windows_core::Result<()> {
@@ -213,9 +211,13 @@ pub unsafe fn CoGetApartmentType(papttype: *mut APTTYPE, paptqualifier: *mut APT
     unsafe { CoGetApartmentType(papttype as _, paptqualifier as _).ok() }
 }
 #[inline]
-pub unsafe fn CoGetCallContext(riid: *const windows_core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoGetCallContext<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetCallContext(riid, ppinterface as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetCallContext(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
@@ -226,14 +228,22 @@ pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
     }
 }
 #[inline]
-pub unsafe fn CoGetCancelObject(dwthreadid: u32, iid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoGetCancelObject<T>(dwthreadid: u32) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetCancelObject(dwthreadid, iid, ppunk as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetCancelObject(dwthreadid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CoGetClassObject(rclsid: *const windows_core::GUID, dwclscontext: u32, pvreserved: *const core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoGetClassObject<T>(rclsid: *const windows_core::GUID, dwclscontext: CLSCTX, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetClassObject(rclsid, dwclscontext, pvreserved, riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetClassObject(rclsid, dwclscontext.0 as _, pvreserved.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetContextToken() -> windows_core::Result<usize> {
@@ -265,17 +275,23 @@ pub unsafe fn CoGetMalloc(dwmemcontext: u32) -> windows_core::Result<IMalloc> {
     }
 }
 #[inline]
-pub unsafe fn CoGetObject<P0>(pszname: P0, pbindoptions: *const BIND_OPTS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CoGetObject<P0, T>(pszname: P0, pbindoptions: Option<*const BIND_OPTS>) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_core::PCWSTR, pbindoptions : *const BIND_OPTS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetObject(pszname.param().abi(), pbindoptions, riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetObject(pszname.param().abi(), pbindoptions.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CoGetObjectContext(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoGetObjectContext<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetObjectContext(riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetObjectContext(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID> {
@@ -287,12 +303,9 @@ pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Res
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD) -> windows_core::Result<super::super::Security::PSECURITY_DESCRIPTOR> {
+pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CoGetSystemSecurityPermissions(comsdtype, &mut result__).map(|| result__)
-    }
+    unsafe { CoGetSystemSecurityPermissions(comsdtype, ppsd as _).ok() }
 }
 #[inline]
 pub unsafe fn CoGetTreatAsClass(clsidold: *const windows_core::GUID, pclsidnew: *mut windows_core::GUID) -> windows_core::HRESULT {
@@ -313,20 +326,20 @@ pub unsafe fn CoIncrementMTAUsage() -> windows_core::Result<CO_MTA_USAGE_COOKIE>
     }
 }
 #[inline]
-pub unsafe fn CoInitialize(pvreserved: *const core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoInitialize(pvreserved: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoInitialize(pvreserved) }
+    unsafe { CoInitialize(pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CoInitializeEx(pvreserved: *const core::ffi::c_void, dwcoinit: u32) -> windows_core::HRESULT {
+pub unsafe fn CoInitializeEx(pvreserved: Option<*const core::ffi::c_void>, dwcoinit: COINIT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
-    unsafe { CoInitializeEx(pvreserved, dwcoinit) }
+    unsafe { CoInitializeEx(pvreserved.unwrap_or(core::mem::zeroed()) as _, dwcoinit.0 as _) }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn CoInitializeSecurity(psecdesc: super::super::Security::PSECURITY_DESCRIPTOR, cauthsvc: i32, asauthsvc: *const SOLE_AUTHENTICATION_SERVICE, preserved1: *const core::ffi::c_void, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: *const core::ffi::c_void, dwcapabilities: u32, preserved3: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CoInitializeSecurity(psecdesc: Option<super::super::Security::PSECURITY_DESCRIPTOR>, cauthsvc: i32, asauthsvc: Option<*const SOLE_AUTHENTICATION_SERVICE>, preserved1: Option<*const core::ffi::c_void>, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: Option<*const core::ffi::c_void>, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoInitializeSecurity(psecdesc, cauthsvc, asauthsvc, preserved1, dwauthnlevel, dwimplevel, pauthlist, dwcapabilities, preserved3).ok() }
+    unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, cauthsvc, asauthsvc.unwrap_or(core::mem::zeroed()) as _, preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities.0 as _, preserved3.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoInstall<P0, P4>(pbc: P0, dwflags: u32, pclassspec: *const uCLSSPEC, pquery: *const QUERYCONTEXT, pszcodebase: P4) -> windows_core::Result<()>
@@ -380,17 +393,17 @@ pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut
     unsafe { CoQueryAuthenticationServices(pcauthsvc as _, asauthsvc as _).ok() }
 }
 #[inline]
-pub unsafe fn CoQueryClientBlanket(pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut core::ffi::c_void, pcapabilities: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CoQueryClientBlanket(pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: Option<*mut windows_core::PWSTR>, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: Option<*mut *mut core::ffi::c_void>, pcapabilities: Option<*mut u32>) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut *mut core::ffi::c_void, pcapabilities : *mut u32) -> windows_core::HRESULT);
-    unsafe { CoQueryClientBlanket(pauthnsvc as _, pauthzsvc as _, pserverprincname as _, pauthnlevel as _, pimplevel as _, pprivs as _, pcapabilities as _).ok() }
+    unsafe { CoQueryClientBlanket(pauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname.unwrap_or(core::mem::zeroed()) as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pprivs.unwrap_or(core::mem::zeroed()) as _, pcapabilities.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: *mut u32, pimplevel: *mut u32, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: Option<*mut windows_core::PWSTR>, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: Option<*mut *mut core::ffi::c_void>, pcapabilites: Option<*mut u32>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : * mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut core::ffi::c_void, pcapabilites : *mut u32) -> windows_core::HRESULT);
-    unsafe { CoQueryProxyBlanket(pproxy.param().abi(), pwauthnsvc as _, pauthzsvc as _, pserverprincname as _, pauthnlevel as _, pimplevel as _, pauthinfo as _, pcapabilites as _).ok() }
+    unsafe { CoQueryProxyBlanket(pproxy.param().abi(), pwauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname.unwrap_or(core::mem::zeroed()) as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pauthinfo.unwrap_or(core::mem::zeroed()) as _, pcapabilites.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CoRegisterActivationFilter<P0>(pactivationfilter: P0) -> windows_core::Result<()>
@@ -409,14 +422,14 @@ where
     unsafe { CoRegisterChannelHook(extensionuuid, pchannelhook.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn CoRegisterClassObject<P1>(rclsid: *const windows_core::GUID, punk: P1, dwclscontext: CLSCTX, flags: u32) -> windows_core::Result<u32>
+pub unsafe fn CoRegisterClassObject<P1>(rclsid: *const windows_core::GUID, punk: P1, dwclscontext: CLSCTX, flags: REGCLS) -> windows_core::Result<u32>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoRegisterClassObject(rclsid, punk.param().abi(), dwclscontext, flags, &mut result__).map(|| result__)
+        CoRegisterClassObject(rclsid, punk.param().abi(), dwclscontext, flags.0 as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -506,13 +519,13 @@ where
     unsafe { CoSetCancelObject(punk.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn CoSetProxyBlanket<P0, P3>(pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: P3, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const core::ffi::c_void, dwcapabilities: u32) -> windows_core::Result<()>
+pub unsafe fn CoSetProxyBlanket<P0, P3>(pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: P3, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: Option<*const core::ffi::c_void>, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : * mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : u32) -> windows_core::HRESULT);
-    unsafe { CoSetProxyBlanket(pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.param().abi(), dwauthnlevel, dwimplevel, pauthinfo, dwcapabilities).ok() }
+    unsafe { CoSetProxyBlanket(pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.param().abi(), dwauthnlevel, dwimplevel, pauthinfo.unwrap_or(core::mem::zeroed()) as _, dwcapabilities.0 as _).ok() }
 }
 #[inline]
 pub unsafe fn CoSuspendClassObjects() -> windows_core::Result<()> {
@@ -536,14 +549,14 @@ pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut core::ffi::c_void {
     unsafe { CoTaskMemAlloc(cb) }
 }
 #[inline]
-pub unsafe fn CoTaskMemFree(pv: *const core::ffi::c_void) {
+pub unsafe fn CoTaskMemFree(pv: Option<*const core::ffi::c_void>) {
     windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
-    unsafe { CoTaskMemFree(pv) }
+    unsafe { CoTaskMemFree(pv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CoTaskMemRealloc(pv: *const core::ffi::c_void, cb: usize) -> *mut core::ffi::c_void {
+pub unsafe fn CoTaskMemRealloc(pv: Option<*const core::ffi::c_void>, cb: usize) -> *mut core::ffi::c_void {
     windows_core::link!("ole32.dll" "system" fn CoTaskMemRealloc(pv : *const core::ffi::c_void, cb : usize) -> *mut core::ffi::c_void);
-    unsafe { CoTaskMemRealloc(pv, cb) }
+    unsafe { CoTaskMemRealloc(pv.unwrap_or(core::mem::zeroed()) as _, cb) }
 }
 #[inline]
 pub unsafe fn CoTestCancel() -> windows_core::Result<()> {
@@ -561,19 +574,19 @@ pub unsafe fn CoUninitialize() {
     unsafe { CoUninitialize() }
 }
 #[inline]
-pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE) -> windows_core::Result<u32> {
+pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> windows_core::Result<u32> {
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleHandles(dwflags, dwtimeout, chandles, phandles, &mut result__).map(|| result__)
+        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
-pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, chandles: u32, phandles: *const super::super::Foundation::HANDLE) -> windows_core::Result<u32> {
+pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> windows_core::Result<u32> {
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleObjects(dwflags, dwtimeout, chandles, phandles, &mut result__).map(|| result__)
+        CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -609,12 +622,14 @@ pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<IDataAdviseHolder
     }
 }
 #[inline]
-pub unsafe fn CreateDataCache<P0>(punkouter: P0, rclsid: *const windows_core::GUID, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreateDataCache<P0, T>(punkouter: P0, rclsid: *const windows_core::GUID) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CreateDataCache(punkouter : * mut core::ffi::c_void, rclsid : *const windows_core::GUID, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, iid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CreateFileMoniker<P0>(lpszpathname: P0) -> windows_core::Result<IMoniker>
@@ -697,29 +712,29 @@ where
     }
 }
 #[inline]
-pub unsafe fn CreateUri<P0>(pwzuri: P0, dwflags: URI_CREATE_FLAGS, dwreserved: usize) -> windows_core::Result<IUri>
+pub unsafe fn CreateUri<P0>(pwzuri: P0, dwflags: URI_CREATE_FLAGS, dwreserved: Option<usize>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateUri(pwzuri : windows_core::PCWSTR, dwflags : URI_CREATE_FLAGS, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateUri(pwzuri.param().abi(), dwflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateUri(pwzuri.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
-pub unsafe fn CreateUriFromMultiByteString<P0>(pszansiinputuri: P0, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: usize) -> windows_core::Result<IUri>
+pub unsafe fn CreateUriFromMultiByteString<P0>(pszansiinputuri: P0, dwencodingflags: u32, dwcodepage: u32, dwcreateflags: u32, dwreserved: Option<usize>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : windows_core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateUriFromMultiByteString(pszansiinputuri.param().abi(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateUriFromMultiByteString(pszansiinputuri.param().abi(), dwencodingflags, dwcodepage, dwcreateflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
-pub unsafe fn CreateUriWithFragment<P0, P1>(pwzuri: P0, pwzfragment: P1, dwflags: u32, dwreserved: usize) -> windows_core::Result<IUri>
+pub unsafe fn CreateUriWithFragment<P0, P1>(pwzuri: P0, pwzfragment: P1, dwflags: u32, dwreserved: Option<usize>) -> windows_core::Result<IUri>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -727,13 +742,13 @@ where
     windows_core::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : windows_core::PCWSTR, pwzfragment : windows_core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateUriWithFragment(pwzuri.param().abi(), pwzfragment.param().abi(), dwflags, dwreserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateUriWithFragment(pwzuri.param().abi(), pwzfragment.param().abi(), dwflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
-pub unsafe fn DcomChannelSetHResult(pvreserved: *const core::ffi::c_void, pulreserved: *const u32, appshr: windows_core::HRESULT) -> windows_core::Result<()> {
+pub unsafe fn DcomChannelSetHResult(pvreserved: Option<*const core::ffi::c_void>, pulreserved: Option<*const u32>, appshr: windows_core::HRESULT) -> windows_core::Result<()> {
     windows_core::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : *const core::ffi::c_void, pulreserved : *const u32, appshr : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { DcomChannelSetHResult(pvreserved, pulreserved, appshr).ok() }
+    unsafe { DcomChannelSetHResult(pvreserved.unwrap_or(core::mem::zeroed()) as _, pulreserved.unwrap_or(core::mem::zeroed()) as _, appshr).ok() }
 }
 #[inline]
 pub unsafe fn GetClassFile<P0>(szfilename: P0) -> windows_core::Result<windows_core::GUID>
@@ -828,9 +843,9 @@ pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core
     }
 }
 #[inline]
-pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: windows_core::PWSTR, cchmax: i32) -> i32 {
+pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: &mut [u16]) -> i32 {
     windows_core::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_core::GUID, lpsz : windows_core::PWSTR, cchmax : i32) -> i32);
-    unsafe { StringFromGUID2(rguid, core::mem::transmute(lpsz), cchmax) }
+    unsafe { StringFromGUID2(rguid, core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {
@@ -1147,11 +1162,8 @@ impl AsyncIMultiQI {
     pub unsafe fn Begin_QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), core::mem::transmute(pmqis.as_ptr())).ok() }
     }
-    pub unsafe fn Finish_QueryMultipleInterfaces(&self) -> windows_core::Result<MULTI_QI> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), core::mem::transmute(pmqis)).ok() }
     }
 }
 #[repr(C)]
@@ -1163,7 +1175,7 @@ pub struct AsyncIMultiQI_Vtbl {
 }
 pub trait AsyncIMultiQI_Impl: windows_core::IUnknownImpl {
     fn Begin_QueryMultipleInterfaces(&self, cmqis: u32, pmqis: *mut MULTI_QI) -> windows_core::Result<()>;
-    fn Finish_QueryMultipleInterfaces(&self) -> windows_core::Result<MULTI_QI>;
+    fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> windows_core::Result<()>;
 }
 impl AsyncIMultiQI_Vtbl {
     pub const fn new<Identity: AsyncIMultiQI_Impl, const OFFSET: isize>() -> Self {
@@ -1176,13 +1188,7 @@ impl AsyncIMultiQI_Vtbl {
         unsafe extern "system" fn Finish_QueryMultipleInterfaces<Identity: AsyncIMultiQI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match AsyncIMultiQI_Impl::Finish_QueryMultipleInterfaces(this) {
-                    Ok(ok__) => {
-                        pmqis.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                AsyncIMultiQI_Impl::Finish_QueryMultipleInterfaces(this, core::mem::transmute_copy(&pmqis)).into()
             }
         }
         Self {
@@ -1798,7 +1804,7 @@ pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
 pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
 pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
 pub const COLE_DEFAULT_AUTHINFO: i32 = -1i32;
-pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1i64 as _);
+pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1i32 as _);
 pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
@@ -2828,8 +2834,8 @@ impl IAsyncRpcChannelBuffer {
     pub unsafe fn Receive(&self, pmsg: *mut RPCOLEMESSAGE, pulstatus: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Receive)(windows_core::Interface::as_raw(self), pmsg as _, pulstatus as _).ok() }
     }
-    pub unsafe fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDestCtxEx)(windows_core::Interface::as_raw(self), pmsg, pdwdestcontext as _, ppvdestcontext as _).ok() }
+    pub unsafe fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDestCtxEx)(windows_core::Interface::as_raw(self), pmsg, pdwdestcontext as _, ppvdestcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -2966,11 +2972,8 @@ impl IBindCtx {
     pub unsafe fn SetBindOptions(&self, pbindopts: *const BIND_OPTS) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBindOptions)(windows_core::Interface::as_raw(self), pbindopts).ok() }
     }
-    pub unsafe fn GetBindOptions(&self) -> windows_core::Result<BIND_OPTS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBindOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetBindOptions(&self, pbindopts: *mut BIND_OPTS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBindOptions)(windows_core::Interface::as_raw(self), pbindopts as _).ok() }
     }
     pub unsafe fn GetRunningObjectTable(&self) -> windows_core::Result<IRunningObjectTable> {
         unsafe {
@@ -3027,7 +3030,7 @@ pub trait IBindCtx_Impl: windows_core::IUnknownImpl {
     fn RevokeObjectBound(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ReleaseBoundObjects(&self) -> windows_core::Result<()>;
     fn SetBindOptions(&self, pbindopts: *const BIND_OPTS) -> windows_core::Result<()>;
-    fn GetBindOptions(&self) -> windows_core::Result<BIND_OPTS>;
+    fn GetBindOptions(&self, pbindopts: *mut BIND_OPTS) -> windows_core::Result<()>;
     fn GetRunningObjectTable(&self) -> windows_core::Result<IRunningObjectTable>;
     fn RegisterObjectParam(&self, pszkey: &windows_core::PCWSTR, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetObjectParam(&self, pszkey: &windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>;
@@ -3063,13 +3066,7 @@ impl IBindCtx_Vtbl {
         unsafe extern "system" fn GetBindOptions<Identity: IBindCtx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbindopts: *mut BIND_OPTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBindCtx_Impl::GetBindOptions(this) {
-                    Ok(ok__) => {
-                        pbindopts.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBindCtx_Impl::GetBindOptions(this, core::mem::transmute_copy(&pbindopts)).into()
             }
         }
         unsafe extern "system" fn GetRunningObjectTable<Identity: IBindCtx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4059,18 +4056,18 @@ impl windows_core::RuntimeName for IClassFactory {}
 windows_core::imp::define_interface!(IClientSecurity, IClientSecurity_Vtbl, 0x0000013d_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IClientSecurity, windows_core::IUnknown);
 impl IClientSecurity {
-    pub unsafe fn QueryBlanket<P0>(&self, pproxy: P0, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn QueryBlanket<P0>(&self, pproxy: P0, pauthnsvc: *mut u32, pauthzsvc: Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: Option<*mut RPC_C_AUTHN_LEVEL>, pimplevel: Option<*mut RPC_C_IMP_LEVEL>, pauthinfo: *mut *mut core::ffi::c_void, pcapabilites: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), pauthnsvc as _, pauthzsvc as _, pserverprincname as _, pauthnlevel as _, pimplevel as _, pauthinfo as _, pcapabilites as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), pauthnsvc as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pauthinfo as _, pcapabilites.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetBlanket<P0, P3>(&self, pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: P3, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> windows_core::Result<()>
+    pub unsafe fn SetBlanket<P0, P3>(&self, pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: P3, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: Option<*const core::ffi::c_void>, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.param().abi(), dwauthnlevel, dwimplevel, pauthinfo, dwcapabilities.0 as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetBlanket)(windows_core::Interface::as_raw(self), pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.param().abi(), dwauthnlevel, dwimplevel, pauthinfo.unwrap_or(core::mem::zeroed()) as _, dwcapabilities.0 as _).ok() }
     }
     pub unsafe fn CopyProxy<P0>(&self, pproxy: P0) -> windows_core::Result<windows_core::IUnknown>
     where
@@ -4684,11 +4681,8 @@ impl IDataObject {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetDataHere(&self, pformatetc: *const FORMATETC) -> windows_core::Result<STGMEDIUM> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDataHere)(windows_core::Interface::as_raw(self), pformatetc, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDataHere)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium)).ok() }
     }
     pub unsafe fn QueryGetData(&self, pformatetc: *const FORMATETC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryGetData)(windows_core::Interface::as_raw(self), pformatetc) }
@@ -4751,7 +4745,7 @@ pub struct IDataObject_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IDataObject_Impl: windows_core::IUnknownImpl {
     fn GetData(&self, pformatetcin: *const FORMATETC) -> windows_core::Result<STGMEDIUM>;
-    fn GetDataHere(&self, pformatetc: *const FORMATETC) -> windows_core::Result<STGMEDIUM>;
+    fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> windows_core::Result<()>;
     fn QueryGetData(&self, pformatetc: *const FORMATETC) -> windows_core::HRESULT;
     fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> windows_core::HRESULT;
     fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: windows_core::BOOL) -> windows_core::Result<()>;
@@ -4778,13 +4772,7 @@ impl IDataObject_Vtbl {
         unsafe extern "system" fn GetDataHere<Identity: IDataObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataObject_Impl::GetDataHere(this, core::mem::transmute_copy(&pformatetc)) {
-                    Ok(ok__) => {
-                        pmedium.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDataObject_Impl::GetDataHere(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pmedium)).into()
             }
         }
         unsafe extern "system" fn QueryGetData<Identity: IDataObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const FORMATETC) -> windows_core::HRESULT {
@@ -4885,8 +4873,8 @@ impl IDispatch {
         unsafe { (windows_core::Interface::vtable(self).GetIDsOfNames)(windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, rgdispid as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, core::mem::transmute(pvarresult), core::mem::transmute(pexcepinfo), puargerr as _).ok() }
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: Option<*mut super::Variant::VARIANT>, pexcepinfo: Option<*mut EXCEPINFO>, puargerr: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, pvarresult.unwrap_or(core::mem::zeroed()) as _, pexcepinfo.unwrap_or(core::mem::zeroed()) as _, puargerr.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -5301,8 +5289,8 @@ impl windows_core::RuntimeName for IEnumContextProps {}
 windows_core::imp::define_interface!(IEnumFORMATETC, IEnumFORMATETC_Vtbl, 0x00000103_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumFORMATETC, windows_core::IUnknown);
 impl IEnumFORMATETC {
-    pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
+    pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -5380,8 +5368,8 @@ impl windows_core::RuntimeName for IEnumFORMATETC {}
 windows_core::imp::define_interface!(IEnumGUID, IEnumGUID_Vtbl, 0x0002e000_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumGUID, windows_core::IUnknown);
 impl IEnumGUID {
-    pub unsafe fn Next(&self, rgelt: &mut [windows_core::GUID], pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
+    pub unsafe fn Next(&self, rgelt: &mut [windows_core::GUID], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5459,8 +5447,8 @@ impl windows_core::RuntimeName for IEnumGUID {}
 windows_core::imp::define_interface!(IEnumMoniker, IEnumMoniker_Vtbl, 0x00000102_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumMoniker, windows_core::IUnknown);
 impl IEnumMoniker {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IMoniker>], pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IMoniker>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5538,8 +5526,8 @@ impl windows_core::RuntimeName for IEnumMoniker {}
 windows_core::imp::define_interface!(IEnumSTATDATA, IEnumSTATDATA_Vtbl, 0x00000105_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumSTATDATA, windows_core::IUnknown);
 impl IEnumSTATDATA {
-    pub unsafe fn Next(&self, rgelt: &mut [STATDATA], pceltfetched: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
+    pub unsafe fn Next(&self, rgelt: &mut [STATDATA], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -5617,8 +5605,8 @@ impl windows_core::RuntimeName for IEnumSTATDATA {}
 windows_core::imp::define_interface!(IEnumString, IEnumString_Vtbl, 0x00000101_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumString, windows_core::IUnknown);
 impl IEnumString {
-    pub unsafe fn Next(&self, rgelt: &mut [windows_core::PWSTR], pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
+    pub unsafe fn Next(&self, rgelt: &mut [windows_core::PWSTR], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5696,8 +5684,8 @@ impl windows_core::RuntimeName for IEnumString {}
 windows_core::imp::define_interface!(IEnumUnknown, IEnumUnknown_Vtbl, 0x00000100_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumUnknown, windows_core::IUnknown);
 impl IEnumUnknown {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<windows_core::IUnknown>], pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _) }
+    pub unsafe fn Next(&self, rgelt: &mut [Option<windows_core::IUnknown>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
@@ -6371,17 +6359,17 @@ impl IMalloc {
     pub unsafe fn Alloc(&self, cb: usize) -> *mut core::ffi::c_void {
         unsafe { (windows_core::Interface::vtable(self).Alloc)(windows_core::Interface::as_raw(self), cb) }
     }
-    pub unsafe fn Realloc(&self, pv: *const core::ffi::c_void, cb: usize) -> *mut core::ffi::c_void {
-        unsafe { (windows_core::Interface::vtable(self).Realloc)(windows_core::Interface::as_raw(self), pv, cb) }
+    pub unsafe fn Realloc(&self, pv: Option<*const core::ffi::c_void>, cb: usize) -> *mut core::ffi::c_void {
+        unsafe { (windows_core::Interface::vtable(self).Realloc)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _, cb) }
     }
-    pub unsafe fn Free(&self, pv: *const core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv) }
+    pub unsafe fn Free(&self, pv: Option<*const core::ffi::c_void>) {
+        unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetSize(&self, pv: *const core::ffi::c_void) -> usize {
-        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pv) }
+    pub unsafe fn GetSize(&self, pv: Option<*const core::ffi::c_void>) -> usize {
+        unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn DidAlloc(&self, pv: *const core::ffi::c_void) -> i32 {
-        unsafe { (windows_core::Interface::vtable(self).DidAlloc)(windows_core::Interface::as_raw(self), pv) }
+    pub unsafe fn DidAlloc(&self, pv: Option<*const core::ffi::c_void>) -> i32 {
+        unsafe { (windows_core::Interface::vtable(self).DidAlloc)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn HeapMinimize(&self) {
         unsafe { (windows_core::Interface::vtable(self).HeapMinimize)(windows_core::Interface::as_raw(self)) }
@@ -7880,8 +7868,8 @@ impl IRpcChannelBuffer {
     pub unsafe fn GetBuffer(&self, pmessage: *mut RPCOLEMESSAGE, riid: *const windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), pmessage as _, riid).ok() }
     }
-    pub unsafe fn SendReceive(&self, pmessage: *mut RPCOLEMESSAGE, pstatus: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SendReceive)(windows_core::Interface::as_raw(self), pmessage as _, pstatus as _).ok() }
+    pub unsafe fn SendReceive(&self, pmessage: *mut RPCOLEMESSAGE, pstatus: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SendReceive)(windows_core::Interface::as_raw(self), pmessage as _, pstatus.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn FreeBuffer(&self, pmessage: *mut RPCOLEMESSAGE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), pmessage as _).ok() }
@@ -8023,8 +8011,8 @@ impl IRpcChannelBuffer3 {
     pub unsafe fn GetCallContext(&self, pmsg: *const RPCOLEMESSAGE, riid: *const windows_core::GUID, pinterface: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCallContext)(windows_core::Interface::as_raw(self), pmsg, riid, pinterface as _).ok() }
     }
-    pub unsafe fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDestCtxEx)(windows_core::Interface::as_raw(self), pmsg, pdwdestcontext as _, ppvdestcontext as _).ok() }
+    pub unsafe fn GetDestCtxEx(&self, pmsg: *const RPCOLEMESSAGE, pdwdestcontext: *mut u32, ppvdestcontext: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDestCtxEx)(windows_core::Interface::as_raw(self), pmsg, pdwdestcontext as _, ppvdestcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetState(&self, pmsg: *const RPCOLEMESSAGE) -> windows_core::Result<u32> {
         unsafe {
@@ -8687,11 +8675,11 @@ impl windows_core::RuntimeName for IRunningObjectTable {}
 windows_core::imp::define_interface!(ISequentialStream, ISequentialStream_Vtbl, 0x0c733a30_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ISequentialStream, windows_core::IUnknown);
 impl ISequentialStream {
-    pub unsafe fn Read(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pv as _, cb, pcbread as _) }
+    pub unsafe fn Read(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pv as _, cb, pcbread.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn Write(&self, pv: *const core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pv, cb, pcbwritten as _) }
+    pub unsafe fn Write(&self, pv: *const core::ffi::c_void, cb: u32, pcbwritten: Option<*mut u32>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pv, cb, pcbwritten.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -8729,8 +8717,8 @@ impl windows_core::RuntimeName for ISequentialStream {}
 windows_core::imp::define_interface!(IServerSecurity, IServerSecurity_Vtbl, 0x0000013e_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IServerSecurity, windows_core::IUnknown);
 impl IServerSecurity {
-    pub unsafe fn QueryBlanket(&self, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut u32, pimplevel: *mut u32, pprivs: *mut *mut core::ffi::c_void, pcapabilities: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pauthnsvc as _, pauthzsvc as _, pserverprincname as _, pauthnlevel as _, pimplevel as _, pprivs as _, pcapabilities as _).ok() }
+    pub unsafe fn QueryBlanket(&self, pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut *mut u16, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut *mut core::ffi::c_void, pcapabilities: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).QueryBlanket)(windows_core::Interface::as_raw(self), pauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pprivs as _, pcapabilities.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn ImpersonateClient(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ImpersonateClient)(windows_core::Interface::as_raw(self)).ok() }
@@ -8880,20 +8868,17 @@ impl core::ops::Deref for IStream {
 }
 windows_core::imp::interface_hierarchy!(IStream, windows_core::IUnknown, ISequentialStream);
 impl IStream {
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> windows_core::Result<u64> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: Option<*mut u64>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), dlibmove, dworigin, plibnewposition.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), libnewsize).ok() }
     }
-    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> windows_core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: Option<*mut u64>, pcbwritten: Option<*mut u64>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), pstm.param().abi(), cb, pcbread as _, pcbwritten as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), pstm.param().abi(), cb, pcbread.unwrap_or(core::mem::zeroed()) as _, pcbwritten.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Commit(&self, grfcommitflags: STGC) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok() }
@@ -8932,7 +8917,7 @@ pub struct IStream_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IStream_Impl: ISequentialStream_Impl {
-    fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> windows_core::Result<u64>;
+    fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> windows_core::Result<()>;
     fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()>;
     fn CopyTo(&self, pstm: windows_core::Ref<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> windows_core::Result<()>;
     fn Commit(&self, grfcommitflags: &STGC) -> windows_core::Result<()>;
@@ -8947,13 +8932,7 @@ impl IStream_Vtbl {
         unsafe extern "system" fn Seek<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStream_Impl::Seek(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&dworigin)) {
-                    Ok(ok__) => {
-                        plibnewposition.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IStream_Impl::Seek(this, core::mem::transmute_copy(&dlibmove), core::mem::transmute_copy(&dworigin), core::mem::transmute_copy(&plibnewposition)).into()
             }
         }
         unsafe extern "system" fn SetSize<Identity: IStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, libnewsize: u64) -> windows_core::HRESULT {
@@ -9584,11 +9563,11 @@ impl ITypeInfo {
     pub unsafe fn Invoke(&self, pvinstance: *const core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), pvinstance, memid, wflags, pdispparams as _, core::mem::transmute(pvarresult), core::mem::transmute(pexcepinfo), puargerr as _).ok() }
     }
-    pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentation)(windows_core::Interface::as_raw(self), memid, core::mem::transmute(pbstrname), core::mem::transmute(pbstrdocstring), pdwhelpcontext as _, core::mem::transmute(pbstrhelpfile)).ok() }
+    pub unsafe fn GetDocumentation(&self, memid: i32, pbstrname: Option<*mut windows_core::BSTR>, pbstrdocstring: Option<*mut windows_core::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentation)(windows_core::Interface::as_raw(self), memid, pbstrname.unwrap_or(core::mem::zeroed()) as _, pbstrdocstring.unwrap_or(core::mem::zeroed()) as _, pdwhelpcontext as _, pbstrhelpfile.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut windows_core::BSTR, pbstrname: *mut windows_core::BSTR, pwordinal: *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDllEntry)(windows_core::Interface::as_raw(self), memid, invkind, core::mem::transmute(pbstrdllname), core::mem::transmute(pbstrname), pwordinal as _).ok() }
+    pub unsafe fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: Option<*mut windows_core::BSTR>, pbstrname: Option<*mut windows_core::BSTR>, pwordinal: *mut u16) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDllEntry)(windows_core::Interface::as_raw(self), memid, invkind, pbstrdllname.unwrap_or(core::mem::zeroed()) as _, pbstrname.unwrap_or(core::mem::zeroed()) as _, pwordinal as _).ok() }
     }
     pub unsafe fn GetRefTypeInfo(&self, hreftype: u32) -> windows_core::Result<ITypeInfo> {
         unsafe {
@@ -9958,8 +9937,8 @@ impl ITypeInfo2 {
             (windows_core::Interface::vtable(self).GetImplTypeCustData)(windows_core::Interface::as_raw(self), index, guid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), memid, lcid, core::mem::transmute(pbstrhelpstring), pdwhelpstringcontext as _, core::mem::transmute(pbstrhelpstringdll)).ok() }
+    pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: Option<*mut windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), memid, lcid, pbstrhelpstring.unwrap_or(core::mem::zeroed()) as _, pdwhelpstringcontext as _, pbstrhelpstringdll.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {
@@ -10303,8 +10282,8 @@ impl ITypeLib {
             (windows_core::Interface::vtable(self).GetTypeComp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: *mut windows_core::BSTR, pbstrdocstring: *mut windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentation)(windows_core::Interface::as_raw(self), index, core::mem::transmute(pbstrname), core::mem::transmute(pbstrdocstring), pdwhelpcontext as _, core::mem::transmute(pbstrhelpfile)).ok() }
+    pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: Option<*mut windows_core::BSTR>, pbstrdocstring: Option<*mut windows_core::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentation)(windows_core::Interface::as_raw(self), index, pbstrname.unwrap_or(core::mem::zeroed()) as _, pbstrdocstring.unwrap_or(core::mem::zeroed()) as _, pdwhelpcontext as _, pbstrhelpfile.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn IsName(&self, sznamebuf: windows_core::PWSTR, lhashval: u32, pfname: *mut windows_core::BOOL) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).IsName)(windows_core::Interface::as_raw(self), core::mem::transmute(sznamebuf), lhashval, pfname as _).ok() }
@@ -10473,8 +10452,8 @@ impl ITypeLib2 {
     pub unsafe fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLibStatistics)(windows_core::Interface::as_raw(self), pcuniquenames as _, pcchuniquenames as _).ok() }
     }
-    pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: *mut windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), index, lcid, core::mem::transmute(pbstrhelpstring), pdwhelpstringcontext as _, core::mem::transmute(pbstrhelpstringdll)).ok() }
+    pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: Option<*mut windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDocumentation2)(windows_core::Interface::as_raw(self), index, lcid, pbstrhelpstring.unwrap_or(core::mem::zeroed()) as _, pdwhelpstringcontext as _, pbstrhelpstringdll.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> windows_core::Result<CUSTDATA> {

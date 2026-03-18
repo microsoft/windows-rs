@@ -289,13 +289,13 @@ pub const STARTUP_SERVER_GC: STARTUP_FLAGS = 4096i32;
 pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = 16384i32;
 pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = 524288i32;
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,
     pub pExceptionInfo: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for StackOverflowInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

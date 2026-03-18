@@ -8,23 +8,23 @@ pub unsafe fn AbortDoc(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_core::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32
+pub unsafe fn DeviceCapabilitiesA<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: Option<windows_core::PSTR>, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEA>) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_core::PCSTR, pport : windows_core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA) -> i32);
-    unsafe { DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), fwcapability, core::mem::transmute(poutput), pdevmode) }
+    unsafe { DeviceCapabilitiesA(pdevice.param().abi(), pport.param().abi(), fwcapability, poutput.unwrap_or(core::mem::zeroed()) as _, pdevmode.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_core::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32
+pub unsafe fn DeviceCapabilitiesW<P0, P1>(pdevice: P0, pport: P1, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: Option<windows_core::PWSTR>, pdevmode: Option<*const super::super::Graphics::Gdi::DEVMODEW>) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_core::PCWSTR, pport : windows_core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_core::PWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW) -> i32);
-    unsafe { DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), fwcapability, core::mem::transmute(poutput), pdevmode) }
+    unsafe { DeviceCapabilitiesW(pdevice.param().abi(), pport.param().abi(), fwcapability, poutput.unwrap_or(core::mem::zeroed()) as _, pdevmode.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -40,21 +40,15 @@ pub unsafe fn EndPage(hdc: super::super::Graphics::Gdi::HDC) -> i32 {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn Escape<P3>(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: P3, pvout: *mut core::ffi::c_void) -> i32
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn Escape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, pvin: Option<&[u8]>, pvout: Option<*mut core::ffi::c_void>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjin : i32, pvin : windows_core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
-    unsafe { Escape(hdc, iescape, cjin, pvin.param().abi(), pvout as _) }
+    unsafe { Escape(hdc, iescape, pvin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pvin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ExtEscape<P3>(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: P3, cjoutput: i32, lpoutdata: windows_core::PSTR) -> i32
-where
-    P3: windows_core::Param<windows_core::PCSTR>,
-{
+pub unsafe fn ExtEscape(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, lpindata: Option<&[u8]>, lpoutdata: Option<&mut [u8]>) -> i32 {
     windows_core::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi:: HDC, iescape : i32, cjinput : i32, lpindata : windows_core::PCSTR, cjoutput : i32, lpoutdata : windows_core::PSTR) -> i32);
-    unsafe { ExtEscape(hdc, iescape, cjinput, lpindata.param().abi(), cjoutput, core::mem::transmute(lpoutdata)) }
+    unsafe { ExtEscape(hdc, iescape, lpindata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpindata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpoutdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpoutdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -12614,6 +12608,17 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XPS_COLOR_0_2 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+impl Default for XPS_COLOR_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
@@ -12628,17 +12633,6 @@ pub struct XPS_COLOR_0_1 {
     pub red: f32,
     pub green: f32,
     pub blue: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_2 {
-    pub channelCount: u8,
-    pub channels: [f32; 9],
-}
-impl Default for XPS_COLOR_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

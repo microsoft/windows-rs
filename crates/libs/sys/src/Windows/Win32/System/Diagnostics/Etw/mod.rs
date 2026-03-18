@@ -86,7 +86,7 @@ windows_link::link!("tdh.dll" "system" fn TdhUnloadManifest(manifest : windows_s
 windows_link::link!("tdh.dll" "system" fn TdhUnloadManifestFromMemory(pdata : *const core::ffi::c_void, cbdata : u32) -> u32);
 windows_link::link!("advapi32.dll" "system" fn TraceEvent(tracehandle : u64, eventtrace : *const EVENT_TRACE_HEADER) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn TraceEventInstance(tracehandle : u64, eventtrace : *const EVENT_INSTANCE_HEADER, instinfo : *const EVENT_INSTANCE_INFO, parentinstinfo : *const EVENT_INSTANCE_INFO) -> u32);
-windows_link::link!("advapi32.dll" "C" fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const windows_sys::core::GUID, messagenumber : u16) -> super::super::super::Foundation:: WIN32_ERROR);
+windows_link::link!("advapi32.dll" "C" fn TraceMessage(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const windows_sys::core::GUID, messagenumber : u16, ...) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn TraceMessageVa(loggerhandle : u64, messageflags : TRACE_MESSAGE_FLAGS, messageguid : *const windows_sys::core::GUID, messagenumber : u16, messagearglist : *const i8) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn TraceQueryInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *mut core::ffi::c_void, informationlength : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 windows_link::link!("advapi32.dll" "system" fn TraceSetInformation(sessionhandle : CONTROLTRACE_HANDLE, informationclass : TRACE_QUERY_INFO_CLASS, traceinformation : *const core::ffi::c_void, informationlength : u32) -> super::super::super::Foundation:: WIN32_ERROR);
@@ -799,6 +799,13 @@ impl Default for EVENT_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
+pub struct EVENT_PROPERTY_INFO_0_2 {
+    pub InType: u16,
+    pub OutType: u16,
+    pub CustomSchemaOffset: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
@@ -810,13 +817,6 @@ pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
     pub padding: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub CustomSchemaOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1063,22 +1063,26 @@ impl Default for EVENT_TRACE_LOGFILEA {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1110,22 +1114,26 @@ impl Default for EVENT_TRACE_LOGFILEW {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
     pub ProcessTraceMode: u32,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
     pub EventRecordCallback: PEVENT_RECORD_CALLBACK,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for EVENT_TRACE_LOGFILEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1949,6 +1957,50 @@ impl Default for TRACE_LOGFILE_HEADER {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
+pub union TRACE_LOGFILE_HEADER_0 {
+    pub Version: u32,
+    pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
+}
+#[cfg(feature = "Win32_System_Time")]
+impl Default for TRACE_LOGFILE_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy, Default)]
+pub struct TRACE_LOGFILE_HEADER_0_0 {
+    pub MajorVersion: u8,
+    pub MinorVersion: u8,
+    pub SubVersion: u8,
+    pub SubMinorVersion: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
+pub union TRACE_LOGFILE_HEADER_1 {
+    pub LogInstanceGuid: windows_sys::core::GUID,
+    pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
+}
+#[cfg(feature = "Win32_System_Time")]
+impl Default for TRACE_LOGFILE_HEADER_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy, Default)]
+pub struct TRACE_LOGFILE_HEADER_1_0 {
+    pub StartBuffers: u32,
+    pub PointerSize: u32,
+    pub EventsLost: u32,
+    pub CpuSpeedInMHz: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
+#[derive(Clone, Copy)]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
     pub Anonymous1: TRACE_LOGFILE_HEADER32_0,
@@ -1976,17 +2028,20 @@ impl Default for TRACE_LOGFILE_HEADER32 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER32_0_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
@@ -1995,17 +2050,20 @@ pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER32_1_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER32_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
@@ -2043,17 +2101,20 @@ impl Default for TRACE_LOGFILE_HEADER64 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
     pub VersionDetail: TRACE_LOGFILE_HEADER64_0_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
@@ -2062,57 +2123,22 @@ pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub SubMinorVersion: u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy)]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: windows_sys::core::GUID,
     pub Anonymous: TRACE_LOGFILE_HEADER64_1_0,
 }
+#[cfg(feature = "Win32_System_Time")]
 impl Default for TRACE_LOGFILE_HEADER64_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Time")]
 #[derive(Clone, Copy, Default)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
-    pub StartBuffers: u32,
-    pub PointerSize: u32,
-    pub EventsLost: u32,
-    pub CpuSpeedInMHz: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TRACE_LOGFILE_HEADER_0 {
-    pub Version: u32,
-    pub VersionDetail: TRACE_LOGFILE_HEADER_0_0,
-}
-impl Default for TRACE_LOGFILE_HEADER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct TRACE_LOGFILE_HEADER_0_0 {
-    pub MajorVersion: u8,
-    pub MinorVersion: u8,
-    pub SubVersion: u8,
-    pub SubMinorVersion: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union TRACE_LOGFILE_HEADER_1 {
-    pub LogInstanceGuid: windows_sys::core::GUID,
-    pub Anonymous: TRACE_LOGFILE_HEADER_1_0,
-}
-impl Default for TRACE_LOGFILE_HEADER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
     pub EventsLost: u32,

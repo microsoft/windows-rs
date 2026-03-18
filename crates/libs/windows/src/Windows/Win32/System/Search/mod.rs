@@ -35,17 +35,35 @@ pub unsafe fn SQLAllocStmt(connectionhandle: *mut core::ffi::c_void, statementha
     windows_core::link!("odbc32.dll" "system" fn SQLAllocStmt(connectionhandle : *mut core::ffi::c_void, statementhandle : *mut *mut core::ffi::c_void) -> i16);
     unsafe { SQLAllocStmt(connectionhandle as _, statementhandle as _) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i32, strlen_or_ind: Option<*mut i32>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i32, strlen_or_ind : *mut i32) -> i16);
+    unsafe { SQLBindCol(statementhandle as _, columnnumber, targettype, targetvalue.unwrap_or(core::mem::zeroed()) as _, bufferlength, strlen_or_ind.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
+pub unsafe fn SQLBindCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_ind: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLBindCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_ind : *mut i64) -> i16);
-    unsafe { SQLBindCol(statementhandle as _, columnnumber, targettype, targetvalue as _, bufferlength, strlen_or_ind as _) }
+    unsafe { SQLBindCol(statementhandle as _, columnnumber, targettype, targetvalue.unwrap_or(core::mem::zeroed()) as _, bufferlength, strlen_or_ind.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLBindParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
+    unsafe { SQLBindParam(statementhandle as _, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue as _, strlen_or_ind as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLBindParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *mut core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
     unsafe { SQLBindParam(statementhandle as _, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue as _, strlen_or_ind as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLBindParameter(hstmt: *mut core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLBindParameter(hstmt : *mut core::ffi::c_void, ipar : u16, fparamtype : i16, fctype : i16, fsqltype : i16, cbcoldef : u32, ibscale : i16, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
+    unsafe { SQLBindParameter(hstmt as _, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue as _, cbvaluemax, pcbvalue as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -54,19 +72,19 @@ pub unsafe fn SQLBindParameter(hstmt: *mut core::ffi::c_void, ipar: u16, fparamt
     unsafe { SQLBindParameter(hstmt as _, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue as _, cbvaluemax, pcbvalue as _) }
 }
 #[inline]
-pub unsafe fn SQLBrowseConnect(hdbc: *mut core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
+pub unsafe fn SQLBrowseConnect(hdbc: *mut core::ffi::c_void, szconnstrin: &[u8], szconnstrout: Option<&mut [u8]>, pcchconnstrout: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnect(hdbc : *mut core::ffi::c_void, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
-    unsafe { SQLBrowseConnect(hdbc as _, szconnstrin, cchconnstrin, szconnstrout as _, cchconnstroutmax, pcchconnstrout as _) }
+    unsafe { SQLBrowseConnect(hdbc as _, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLBrowseConnectA(hdbc: *mut core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16 {
+pub unsafe fn SQLBrowseConnectA(hdbc: *mut core::ffi::c_void, szconnstrin: &[u8], szconnstrout: Option<&mut [u8]>, pcbconnstrout: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnectA(hdbc : *mut core::ffi::c_void, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16) -> i16);
-    unsafe { SQLBrowseConnectA(hdbc as _, szconnstrin, cbconnstrin, szconnstrout as _, cbconnstroutmax, pcbconnstrout as _) }
+    unsafe { SQLBrowseConnectA(hdbc as _, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLBrowseConnectW(hdbc: *mut core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
+pub unsafe fn SQLBrowseConnectW(hdbc: *mut core::ffi::c_void, szconnstrin: &[u16], szconnstrout: Option<&mut [u16]>, pcchconnstrout: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLBrowseConnectW(hdbc : *mut core::ffi::c_void, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16) -> i16);
-    unsafe { SQLBrowseConnectW(hdbc as _, szconnstrin, cchconnstrin, szconnstrout as _, cchconnstroutmax, pcchconnstrout as _) }
+    unsafe { SQLBrowseConnectW(hdbc as _, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut core::ffi::c_void, operation: i16) -> i16 {
@@ -93,23 +111,47 @@ pub unsafe fn SQLCloseEnumServers(henumhandle: super::super::Foundation::HANDLE)
     windows_core::link!("odbcbcp.dll" "system" fn SQLCloseEnumServers(henumhandle : super::super::Foundation:: HANDLE) -> i16);
     unsafe { SQLCloseEnumServers(henumhandle) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>, numericattribute: Option<*mut core::ffi::c_void>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut core::ffi::c_void) -> i16);
+    unsafe { SQLColAttribute(statementhandle as _, columnnumber, fieldidentifier, characterattribute.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _, numericattribute.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
+pub unsafe fn SQLColAttribute(statementhandle: *mut core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>, numericattribute: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
-    unsafe { SQLColAttribute(statementhandle as _, columnnumber, fieldidentifier, characterattribute as _, bufferlength, stringlength as _, numericattribute as _) }
+    unsafe { SQLColAttribute(statementhandle as _, columnnumber, fieldidentifier, characterattribute.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _, numericattribute.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield: i16, pcharattr: Option<*mut core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut core::ffi::c_void>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut core::ffi::c_void) -> i16);
+    unsafe { SQLColAttributeA(hstmt as _, icol, ifield, pcharattr.unwrap_or(core::mem::zeroed()) as _, cbcharattrmax, pcbcharattr.unwrap_or(core::mem::zeroed()) as _, pnumattr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
+pub unsafe fn SQLColAttributeA(hstmt: *mut core::ffi::c_void, icol: i16, ifield: i16, pcharattr: Option<*mut core::ffi::c_void>, cbcharattrmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColAttributeA(hstmt : *mut core::ffi::c_void, icol : i16, ifield : i16, pcharattr : *mut core::ffi::c_void, cbcharattrmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
-    unsafe { SQLColAttributeA(hstmt as _, icol, ifield, pcharattr as _, cbcharattrmax, pcbcharattr as _, pnumattr as _) }
+    unsafe { SQLColAttributeA(hstmt as _, icol, ifield, pcharattr.unwrap_or(core::mem::zeroed()) as _, cbcharattrmax, pcbcharattr.unwrap_or(core::mem::zeroed()) as _, pnumattr.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield: u16, pcharattr: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut core::ffi::c_void>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut core::ffi::c_void) -> i16);
+    unsafe { SQLColAttributeW(hstmt as _, icol, ifield, pcharattr.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbcharattr.unwrap_or(core::mem::zeroed()) as _, pnumattr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
+pub unsafe fn SQLColAttributeW(hstmt: *mut core::ffi::c_void, icol: u16, ifield: u16, pcharattr: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbcharattr: Option<*mut i16>, pnumattr: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColAttributeW(hstmt : *mut core::ffi::c_void, icol : u16, ifield : u16, pcharattr : *mut core::ffi::c_void, cbdescmax : i16, pcbcharattr : *mut i16, pnumattr : *mut i64) -> i16);
-    unsafe { SQLColAttributeW(hstmt as _, icol, ifield, pcharattr as _, cbdescmax, pcbcharattr as _, pnumattr as _) }
+    unsafe { SQLColAttributeW(hstmt as _, icol, ifield, pcharattr.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbcharattr.unwrap_or(core::mem::zeroed()) as _, pnumattr.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttributes(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+    unsafe { SQLColAttributes(hstmt as _, icol, fdesctype, rgbdesc as _, cbdescmax, pcbdesc as _, pfdesc as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -117,47 +159,131 @@ pub unsafe fn SQLColAttributes(hstmt: *mut core::ffi::c_void, icol: u16, fdescty
     windows_core::link!("odbc32.dll" "system" fn SQLColAttributes(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
     unsafe { SQLColAttributes(hstmt as _, icol, fdesctype, rgbdesc as _, cbdescmax, pcbdesc as _, pfdesc as _) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i32>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+    unsafe { SQLColAttributesA(hstmt as _, icol, fdesctype, rgbdesc.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbdesc.unwrap_or(core::mem::zeroed()) as _, pfdesc.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
+pub unsafe fn SQLColAttributesA(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColAttributesA(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
-    unsafe { SQLColAttributesA(hstmt as _, icol, fdesctype, rgbdesc as _, cbdescmax, pcbdesc as _, pfdesc as _) }
+    unsafe { SQLColAttributesA(hstmt as _, icol, fdesctype, rgbdesc.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbdesc.unwrap_or(core::mem::zeroed()) as _, pfdesc.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i32>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i32) -> i16);
+    unsafe { SQLColAttributesW(hstmt as _, icol, fdesctype, rgbdesc.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbdesc.unwrap_or(core::mem::zeroed()) as _, pfdesc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
+pub unsafe fn SQLColAttributesW(hstmt: *mut core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: Option<*mut core::ffi::c_void>, cbdescmax: i16, pcbdesc: Option<*mut i16>, pfdesc: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColAttributesW(hstmt : *mut core::ffi::c_void, icol : u16, fdesctype : u16, rgbdesc : *mut core::ffi::c_void, cbdescmax : i16, pcbdesc : *mut i16, pfdesc : *mut i64) -> i16);
-    unsafe { SQLColAttributesW(hstmt as _, icol, fdesctype, rgbdesc as _, cbdescmax, pcbdesc as _, pfdesc as _) }
+    unsafe { SQLColAttributesW(hstmt as _, icol, fdesctype, rgbdesc.unwrap_or(core::mem::zeroed()) as _, cbdescmax, pcbdesc.unwrap_or(core::mem::zeroed()) as _, pfdesc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLColumnPrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
+pub unsafe fn SQLColumnPrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnPrivileges(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
-    unsafe { SQLColumnPrivileges(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) }
+    unsafe {
+        SQLColumnPrivileges(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
+pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnPrivilegesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-    unsafe { SQLColumnPrivilegesA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname) }
+    unsafe {
+        SQLColumnPrivilegesA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
+pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>, szcolumnname: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnPrivilegesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-    unsafe { SQLColumnPrivilegesW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) }
+    unsafe {
+        SQLColumnPrivilegesW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLColumns(statementhandle: *mut core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16 {
+pub unsafe fn SQLColumns(statementhandle: *mut core::ffi::c_void, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, columnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumns(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, columnname : *const u8, namelength4 : i16) -> i16);
-    unsafe { SQLColumns(statementhandle as _, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, columnname, namelength4) }
+    unsafe {
+        SQLColumns(
+            statementhandle as _,
+            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
+pub unsafe fn SQLColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-    unsafe { SQLColumnsA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname) }
+    unsafe {
+        SQLColumnsA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
+pub unsafe fn SQLColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>, szcolumnname: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLColumnsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-    unsafe { SQLColumnsW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) }
+    unsafe {
+        SQLColumnsW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
@@ -165,19 +291,19 @@ pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut core::ffi::c_void, 
     unsafe { SQLCompleteAsync(handletype, handle as _, asyncretcodeptr as _) }
 }
 #[inline]
-pub unsafe fn SQLConnect(connectionhandle: *mut core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16 {
+pub unsafe fn SQLConnect(connectionhandle: *mut core::ffi::c_void, servername: &[u8], username: &[u8], authentication: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLConnect(connectionhandle : *mut core::ffi::c_void, servername : *const u8, namelength1 : i16, username : *const u8, namelength2 : i16, authentication : *const u8, namelength3 : i16) -> i16);
-    unsafe { SQLConnect(connectionhandle as _, servername, namelength1, username, namelength2, authentication, namelength3) }
+    unsafe { SQLConnect(connectionhandle as _, core::mem::transmute(servername.as_ptr()), servername.len().try_into().unwrap(), core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(authentication.as_ptr()), authentication.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLConnectA(hdbc: *mut core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16 {
+pub unsafe fn SQLConnectA(hdbc: *mut core::ffi::c_void, szdsn: &[u8], szuid: &[u8], szauthstr: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLConnectA(hdbc : *mut core::ffi::c_void, szdsn : *const u8, cbdsn : i16, szuid : *const u8, cbuid : i16, szauthstr : *const u8, cbauthstr : i16) -> i16);
-    unsafe { SQLConnectA(hdbc as _, szdsn, cbdsn, szuid, cbuid, szauthstr, cbauthstr) }
+    unsafe { SQLConnectA(hdbc as _, core::mem::transmute(szdsn.as_ptr()), szdsn.len().try_into().unwrap(), core::mem::transmute(szuid.as_ptr()), szuid.len().try_into().unwrap(), core::mem::transmute(szauthstr.as_ptr()), szauthstr.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLConnectW(hdbc: *mut core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16 {
+pub unsafe fn SQLConnectW(hdbc: *mut core::ffi::c_void, szdsn: &[u16], szuid: &[u16], szauthstr: &[u16]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLConnectW(hdbc : *mut core::ffi::c_void, szdsn : *const u16, cchdsn : i16, szuid : *const u16, cchuid : i16, szauthstr : *const u16, cchauthstr : i16) -> i16);
-    unsafe { SQLConnectW(hdbc as _, szdsn, cchdsn, szuid, cchuid, szauthstr, cchauthstr) }
+    unsafe { SQLConnectW(hdbc as _, core::mem::transmute(szdsn.as_ptr()), szdsn.len().try_into().unwrap(), core::mem::transmute(szuid.as_ptr()), szuid.len().try_into().unwrap(), core::mem::transmute(szauthstr.as_ptr()), szauthstr.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut core::ffi::c_void, targetdeschandle: *mut core::ffi::c_void) -> i16 {
@@ -185,43 +311,67 @@ pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut core::ffi::c_void, targetdescha
     unsafe { SQLCopyDesc(sourcedeschandle as _, targetdeschandle as _) }
 }
 #[inline]
-pub unsafe fn SQLDataSources(environmenthandle: *mut core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16 {
+pub unsafe fn SQLDataSources(environmenthandle: *mut core::ffi::c_void, direction: u16, servername: Option<&mut [u8]>, namelength1ptr: Option<*mut i16>, description: Option<&mut [u8]>, namelength2ptr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSources(environmenthandle : *mut core::ffi::c_void, direction : u16, servername : *mut u8, bufferlength1 : i16, namelength1ptr : *mut i16, description : *mut u8, bufferlength2 : i16, namelength2ptr : *mut i16) -> i16);
-    unsafe { SQLDataSources(environmenthandle as _, direction, servername as _, bufferlength1, namelength1ptr as _, description as _, bufferlength2, namelength2ptr as _) }
+    unsafe { SQLDataSources(environmenthandle as _, direction, core::mem::transmute(servername.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), servername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namelength1ptr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namelength2ptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLDataSourcesA(henv: *mut core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16 {
+pub unsafe fn SQLDataSourcesA(henv: *mut core::ffi::c_void, fdirection: u16, szdsn: Option<&mut [u8]>, pcbdsn: *mut i16, szdescription: Option<&mut [u8]>, pcbdescription: *mut i16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSourcesA(henv : *mut core::ffi::c_void, fdirection : u16, szdsn : *mut u8, cbdsnmax : i16, pcbdsn : *mut i16, szdescription : *mut u8, cbdescriptionmax : i16, pcbdescription : *mut i16) -> i16);
-    unsafe { SQLDataSourcesA(henv as _, fdirection, szdsn as _, cbdsnmax, pcbdsn as _, szdescription as _, cbdescriptionmax, pcbdescription as _) }
+    unsafe { SQLDataSourcesA(henv as _, fdirection, core::mem::transmute(szdsn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szdsn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbdsn as _, core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbdescription as _) }
 }
 #[inline]
-pub unsafe fn SQLDataSourcesW(henv: *mut core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16 {
+pub unsafe fn SQLDataSourcesW(henv: *mut core::ffi::c_void, fdirection: u16, szdsn: Option<&mut [u16]>, pcchdsn: Option<*mut i16>, wszdescription: Option<&mut [u16]>, pcchdescription: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDataSourcesW(henv : *mut core::ffi::c_void, fdirection : u16, szdsn : *mut u16, cchdsnmax : i16, pcchdsn : *mut i16, wszdescription : *mut u16, cchdescriptionmax : i16, pcchdescription : *mut i16) -> i16);
-    unsafe { SQLDataSourcesW(henv as _, fdirection, szdsn as _, cchdsnmax, pcchdsn as _, wszdescription as _, cchdescriptionmax, pcchdescription as _) }
+    unsafe { SQLDataSourcesW(henv as _, fdirection, core::mem::transmute(szdsn.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szdsn.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchdsn.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(wszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), wszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchdescription.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: Option<&mut [u8]>, namelength: Option<*mut i16>, datatype: Option<*mut i16>, columnsize: Option<*mut u32>, decimaldigits: Option<*mut i16>, nullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u32, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
+    unsafe { SQLDescribeCol(statementhandle as _, columnnumber, core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
+pub unsafe fn SQLDescribeCol(statementhandle: *mut core::ffi::c_void, columnnumber: u16, columnname: Option<&mut [u8]>, namelength: Option<*mut i16>, datatype: Option<*mut i16>, columnsize: Option<*mut u64>, decimaldigits: Option<*mut i16>, nullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeCol(statementhandle : *mut core::ffi::c_void, columnnumber : u16, columnname : *mut u8, bufferlength : i16, namelength : *mut i16, datatype : *mut i16, columnsize : *mut u64, decimaldigits : *mut i16, nullable : *mut i16) -> i16);
-    unsafe { SQLDescribeCol(statementhandle as _, columnnumber, columnname as _, bufferlength, namelength as _, datatype as _, columnsize as _, decimaldigits as _, nullable as _) }
+    unsafe { SQLDescribeCol(statementhandle as _, columnnumber, core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namelength.unwrap_or(core::mem::zeroed()) as _, datatype.unwrap_or(core::mem::zeroed()) as _, columnsize.unwrap_or(core::mem::zeroed()) as _, decimaldigits.unwrap_or(core::mem::zeroed()) as _, nullable.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u8]>, pcbcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u32>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    unsafe { SQLDescribeColA(hstmt as _, icol, core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+pub unsafe fn SQLDescribeColA(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u8]>, pcbcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColA(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u8, cbcolnamemax : i16, pcbcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    unsafe { SQLDescribeColA(hstmt as _, icol, szcolname as _, cbcolnamemax, pcbcolname as _, pfsqltype as _, pcbcoldef as _, pibscale as _, pfnullable as _) }
+    unsafe { SQLDescribeColA(hstmt as _, icol, core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u16]>, pcchcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u32>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    unsafe { SQLDescribeColW(hstmt as _, icol, core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+pub unsafe fn SQLDescribeColW(hstmt: *mut core::ffi::c_void, icol: u16, szcolname: Option<&mut [u16]>, pcchcolname: Option<*mut i16>, pfsqltype: Option<*mut i16>, pcbcoldef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeColW(hstmt : *mut core::ffi::c_void, icol : u16, szcolname : *mut u16, cchcolnamemax : i16, pcchcolname : *mut i16, pfsqltype : *mut i16, pcbcoldef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    unsafe { SQLDescribeColW(hstmt as _, icol, szcolname as _, cchcolnamemax, pcchcolname as _, pfsqltype as _, pcbcoldef as _, pibscale as _, pfnullable as _) }
+    unsafe { SQLDescribeColW(hstmt as _, icol, core::mem::transmute(szcolname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcolname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchcolname.unwrap_or(core::mem::zeroed()) as _, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbcoldef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: Option<*mut i16>, pcbparamdef: Option<*mut u32>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u32, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
+    unsafe { SQLDescribeParam(hstmt as _, ipar, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbparamdef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
+pub unsafe fn SQLDescribeParam(hstmt: *mut core::ffi::c_void, ipar: u16, pfsqltype: Option<*mut i16>, pcbparamdef: Option<*mut u64>, pibscale: Option<*mut i16>, pfnullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDescribeParam(hstmt : *mut core::ffi::c_void, ipar : u16, pfsqltype : *mut i16, pcbparamdef : *mut u64, pibscale : *mut i16, pfnullable : *mut i16) -> i16);
-    unsafe { SQLDescribeParam(hstmt as _, ipar, pfsqltype as _, pcbparamdef as _, pibscale as _, pfnullable as _) }
+    unsafe { SQLDescribeParam(hstmt as _, ipar, pfsqltype.unwrap_or(core::mem::zeroed()) as _, pcbparamdef.unwrap_or(core::mem::zeroed()) as _, pibscale.unwrap_or(core::mem::zeroed()) as _, pfnullable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut core::ffi::c_void) -> i16 {
@@ -229,34 +379,56 @@ pub unsafe fn SQLDisconnect(connectionhandle: *mut core::ffi::c_void) -> i16 {
     unsafe { SQLDisconnect(connectionhandle as _) }
 }
 #[inline]
-pub unsafe fn SQLDriverConnect(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
+pub unsafe fn SQLDriverConnect(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: Option<&mut [u8]>, pcchconnstrout: Option<*mut i16>, fdrivercompletion: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnect(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cchconnstrin : i16, szconnstrout : *mut u8, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-    unsafe { SQLDriverConnect(hdbc as _, hwnd, szconnstrin, cchconnstrin, szconnstrout as _, cchconnstroutmax, pcchconnstrout as _, fdrivercompletion) }
+    unsafe { SQLDriverConnect(hdbc as _, hwnd, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[inline]
-pub unsafe fn SQLDriverConnectA(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
+pub unsafe fn SQLDriverConnectA(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: &[u8], szconnstrout: Option<&mut [u8]>, pcbconnstrout: Option<*mut i16>, fdrivercompletion: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnectA(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u8, cbconnstrin : i16, szconnstrout : *mut u8, cbconnstroutmax : i16, pcbconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-    unsafe { SQLDriverConnectA(hdbc as _, hwnd, szconnstrin, cbconnstrin, szconnstrout as _, cbconnstroutmax, pcbconnstrout as _, fdrivercompletion) }
+    unsafe { SQLDriverConnectA(hdbc as _, hwnd, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[inline]
-pub unsafe fn SQLDriverConnectW(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
+pub unsafe fn SQLDriverConnectW(hdbc: *mut core::ffi::c_void, hwnd: isize, szconnstrin: &[u16], szconnstrout: Option<&mut [u16]>, pcchconnstrout: Option<*mut i16>, fdrivercompletion: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDriverConnectW(hdbc : *mut core::ffi::c_void, hwnd : isize, szconnstrin : *const u16, cchconnstrin : i16, szconnstrout : *mut u16, cchconnstroutmax : i16, pcchconnstrout : *mut i16, fdrivercompletion : u16) -> i16);
-    unsafe { SQLDriverConnectW(hdbc as _, hwnd, szconnstrin, cchconnstrin, szconnstrout as _, cchconnstroutmax, pcchconnstrout as _, fdrivercompletion) }
+    unsafe { SQLDriverConnectW(hdbc as _, hwnd, core::mem::transmute(szconnstrin.as_ptr()), szconnstrin.len().try_into().unwrap(), core::mem::transmute(szconnstrout.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szconnstrout.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchconnstrout.unwrap_or(core::mem::zeroed()) as _, fdrivercompletion) }
 }
 #[inline]
-pub unsafe fn SQLDrivers(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
+pub unsafe fn SQLDrivers(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: Option<&mut [u8]>, pcchdriverdesc: Option<*mut i16>, szdriverattributes: Option<&mut [u8]>, pcchdrvrattr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDrivers(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u8, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
-    unsafe { SQLDrivers(henv as _, fdirection, szdriverdesc as _, cchdriverdescmax, pcchdriverdesc as _, szdriverattributes as _, cchdrvrattrmax, pcchdrvrattr as _) }
+    unsafe {
+        SQLDrivers(
+            henv as _,
+            fdirection,
+            core::mem::transmute(szdriverdesc.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szdriverdesc.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchdriverdesc.unwrap_or(core::mem::zeroed()) as _,
+            core::mem::transmute(szdriverattributes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szdriverattributes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchdrvrattr.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLDriversA(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16 {
+pub unsafe fn SQLDriversA(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: Option<&mut [u8]>, pcbdriverdesc: Option<*mut i16>, szdriverattributes: Option<&mut [u8]>, pcbdrvrattr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDriversA(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u8, cbdriverdescmax : i16, pcbdriverdesc : *mut i16, szdriverattributes : *mut u8, cbdrvrattrmax : i16, pcbdrvrattr : *mut i16) -> i16);
-    unsafe { SQLDriversA(henv as _, fdirection, szdriverdesc as _, cbdriverdescmax, pcbdriverdesc as _, szdriverattributes as _, cbdrvrattrmax, pcbdrvrattr as _) }
+    unsafe { SQLDriversA(henv as _, fdirection, core::mem::transmute(szdriverdesc.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szdriverdesc.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbdriverdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(szdriverattributes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szdriverattributes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbdrvrattr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLDriversW(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
+pub unsafe fn SQLDriversW(henv: *mut core::ffi::c_void, fdirection: u16, szdriverdesc: Option<&mut [u16]>, pcchdriverdesc: Option<*mut i16>, szdriverattributes: Option<&mut [u16]>, pcchdrvrattr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLDriversW(henv : *mut core::ffi::c_void, fdirection : u16, szdriverdesc : *mut u16, cchdriverdescmax : i16, pcchdriverdesc : *mut i16, szdriverattributes : *mut u16, cchdrvrattrmax : i16, pcchdrvrattr : *mut i16) -> i16);
-    unsafe { SQLDriversW(henv as _, fdirection, szdriverdesc as _, cchdriverdescmax, pcchdriverdesc as _, szdriverattributes as _, cchdrvrattrmax, pcchdrvrattr as _) }
+    unsafe {
+        SQLDriversW(
+            henv as _,
+            fdirection,
+            core::mem::transmute(szdriverdesc.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szdriverdesc.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchdriverdesc.unwrap_or(core::mem::zeroed()) as _,
+            core::mem::transmute(szdriverattributes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szdriverattributes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchdrvrattr.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[inline]
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut core::ffi::c_void, completiontype: i16) -> i16 {
@@ -264,50 +436,62 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut core::ffi::c_void, comple
     unsafe { SQLEndTran(handletype, handle as _, completiontype) }
 }
 #[inline]
-pub unsafe fn SQLError(environmenthandle: *mut core::ffi::c_void, connectionhandle: *mut core::ffi::c_void, statementhandle: *mut core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
+pub unsafe fn SQLError(environmenthandle: *mut core::ffi::c_void, connectionhandle: *mut core::ffi::c_void, statementhandle: *mut core::ffi::c_void, sqlstate: &mut [u8; 6], nativeerror: Option<*mut i32>, messagetext: Option<&mut [u8]>, textlength: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLError(environmenthandle : *mut core::ffi::c_void, connectionhandle : *mut core::ffi::c_void, statementhandle : *mut core::ffi::c_void, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
-    unsafe { SQLError(environmenthandle as _, connectionhandle as _, statementhandle as _, sqlstate as _, nativeerror as _, messagetext as _, bufferlength, textlength as _) }
+    unsafe { SQLError(environmenthandle as _, connectionhandle as _, statementhandle as _, core::mem::transmute(sqlstate.as_ptr()), nativeerror.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(messagetext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), messagetext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLErrorA(henv: *mut core::ffi::c_void, hdbc: *mut core::ffi::c_void, hstmt: *mut core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLErrorA(henv: *mut core::ffi::c_void, hdbc: *mut core::ffi::c_void, hstmt: *mut core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: Option<*mut i32>, szerrormsg: Option<&mut [u8]>, pcberrormsg: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLErrorA(henv : *mut core::ffi::c_void, hdbc : *mut core::ffi::c_void, hstmt : *mut core::ffi::c_void, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
-    unsafe { SQLErrorA(henv as _, hdbc as _, hstmt as _, szsqlstate as _, pfnativeerror as _, szerrormsg as _, cberrormsgmax, pcberrormsg as _) }
+    unsafe { SQLErrorA(henv as _, hdbc as _, hstmt as _, szsqlstate as _, pfnativeerror.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(szerrormsg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcberrormsg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLErrorW(henv: *mut core::ffi::c_void, hdbc: *mut core::ffi::c_void, hstmt: *mut core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLErrorW(henv: *mut core::ffi::c_void, hdbc: *mut core::ffi::c_void, hstmt: *mut core::ffi::c_void, wszsqlstate: &mut [u16; 6], pfnativeerror: Option<*mut i32>, wszerrormsg: Option<&mut [u16]>, pccherrormsg: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLErrorW(henv : *mut core::ffi::c_void, hdbc : *mut core::ffi::c_void, hstmt : *mut core::ffi::c_void, wszsqlstate : *mut u16, pfnativeerror : *mut i32, wszerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
-    unsafe { SQLErrorW(henv as _, hdbc as _, hstmt as _, wszsqlstate as _, pfnativeerror as _, wszerrormsg as _, ccherrormsgmax, pccherrormsg as _) }
+    unsafe { SQLErrorW(henv as _, hdbc as _, hstmt as _, core::mem::transmute(wszsqlstate.as_ptr()), pfnativeerror.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(wszerrormsg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), wszerrormsg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pccherrormsg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLExecDirect(statementhandle: *mut core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
+pub unsafe fn SQLExecDirect(statementhandle: *mut core::ffi::c_void, statementtext: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirect(statementhandle : *mut core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
-    unsafe { SQLExecDirect(statementhandle as _, statementtext, textlength) }
+    unsafe { SQLExecDirect(statementhandle as _, core::mem::transmute(statementtext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), statementtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn SQLExecDirectA(hstmt: *mut core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
+pub unsafe fn SQLExecDirectA(hstmt: *mut core::ffi::c_void, szsqlstr: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirectA(hstmt : *mut core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
-    unsafe { SQLExecDirectA(hstmt as _, szsqlstr, cbsqlstr) }
+    unsafe { SQLExecDirectA(hstmt as _, core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn SQLExecDirectW(hstmt: *mut core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16 {
+pub unsafe fn SQLExecDirectW(hstmt: *mut core::ffi::c_void, szsqlstr: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirectW(hstmt : *mut core::ffi::c_void, szsqlstr : *const u16, textlength : i32) -> i16);
-    unsafe { SQLExecDirectW(hstmt as _, szsqlstr, textlength) }
+    unsafe { SQLExecDirectW(hstmt as _, core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut core::ffi::c_void) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecute(statementhandle : *mut core::ffi::c_void) -> i16);
     unsafe { SQLExecute(statementhandle as _) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: Option<*mut u32>, rgfrowstatus: Option<*mut u16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i32, pcrow : *mut u32, rgfrowstatus : *mut u16) -> i16);
+    unsafe { SQLExtendedFetch(hstmt as _, ffetchtype, irow, pcrow.unwrap_or(core::mem::zeroed()) as _, rgfrowstatus.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
+pub unsafe fn SQLExtendedFetch(hstmt: *mut core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: Option<*mut u64>, rgfrowstatus: Option<*mut u16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExtendedFetch(hstmt : *mut core::ffi::c_void, ffetchtype : u16, irow : i64, pcrow : *mut u64, rgfrowstatus : *mut u16) -> i16);
-    unsafe { SQLExtendedFetch(hstmt as _, ffetchtype, irow, pcrow as _, rgfrowstatus as _) }
+    unsafe { SQLExtendedFetch(hstmt as _, ffetchtype, irow, pcrow.unwrap_or(core::mem::zeroed()) as _, rgfrowstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut core::ffi::c_void) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLFetch(statementhandle : *mut core::ffi::c_void) -> i16);
     unsafe { SQLFetch(statementhandle as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLFetchScroll(statementhandle: *mut core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLFetchScroll(statementhandle : *mut core::ffi::c_void, fetchorientation : i16, fetchoffset : i32) -> i16);
+    unsafe { SQLFetchScroll(statementhandle as _, fetchorientation, fetchoffset) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -316,19 +500,67 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut core::ffi::c_void, fetchorien
     unsafe { SQLFetchScroll(statementhandle as _, fetchorientation, fetchoffset) }
 }
 #[inline]
-pub unsafe fn SQLForeignKeys(hstmt: *mut core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16 {
+pub unsafe fn SQLForeignKeys(hstmt: *mut core::ffi::c_void, szpkcatalogname: Option<&[u8]>, szpkschemaname: Option<&[u8]>, szpktablename: Option<&[u8]>, szfkcatalogname: Option<&[u8]>, szfkschemaname: Option<&[u8]>, szfktablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLForeignKeys(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u8, cchpkcatalogname : i16, szpkschemaname : *const u8, cchpkschemaname : i16, szpktablename : *const u8, cchpktablename : i16, szfkcatalogname : *const u8, cchfkcatalogname : i16, szfkschemaname : *const u8, cchfkschemaname : i16, szfktablename : *const u8, cchfktablename : i16) -> i16);
-    unsafe { SQLForeignKeys(hstmt as _, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename) }
+    unsafe {
+        SQLForeignKeys(
+            hstmt as _,
+            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLForeignKeysA(hstmt: *mut core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16 {
+pub unsafe fn SQLForeignKeysA(hstmt: *mut core::ffi::c_void, szpkcatalogname: Option<&[u8]>, szpkschemaname: Option<&[u8]>, szpktablename: Option<&[u8]>, szfkcatalogname: Option<&[u8]>, szfkschemaname: Option<&[u8]>, szfktablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLForeignKeysA(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u8, cbpkcatalogname : i16, szpkschemaname : *const u8, cbpkschemaname : i16, szpktablename : *const u8, cbpktablename : i16, szfkcatalogname : *const u8, cbfkcatalogname : i16, szfkschemaname : *const u8, cbfkschemaname : i16, szfktablename : *const u8, cbfktablename : i16) -> i16);
-    unsafe { SQLForeignKeysA(hstmt as _, szpkcatalogname, cbpkcatalogname, szpkschemaname, cbpkschemaname, szpktablename, cbpktablename, szfkcatalogname, cbfkcatalogname, szfkschemaname, cbfkschemaname, szfktablename, cbfktablename) }
+    unsafe {
+        SQLForeignKeysA(
+            hstmt as _,
+            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLForeignKeysW(hstmt: *mut core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16 {
+pub unsafe fn SQLForeignKeysW(hstmt: *mut core::ffi::c_void, szpkcatalogname: Option<&[u16]>, szpkschemaname: Option<&[u16]>, szpktablename: Option<&[u16]>, szfkcatalogname: Option<&[u16]>, szfkschemaname: Option<&[u16]>, szfktablename: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLForeignKeysW(hstmt : *mut core::ffi::c_void, szpkcatalogname : *const u16, cchpkcatalogname : i16, szpkschemaname : *const u16, cchpkschemaname : i16, szpktablename : *const u16, cchpktablename : i16, szfkcatalogname : *const u16, cchfkcatalogname : i16, szfkschemaname : *const u16, cchfkschemaname : i16, szfktablename : *const u16, cchfktablename : i16) -> i16);
-    unsafe { SQLForeignKeysW(hstmt as _, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename) }
+    unsafe {
+        SQLForeignKeysW(
+            hstmt as _,
+            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut core::ffi::c_void) -> i16 {
@@ -351,19 +583,19 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut core::ffi::c_void, option: u16) 
     unsafe { SQLFreeStmt(statementhandle as _, option) }
 }
 #[inline]
-pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut core::ffi::c_void, attribute: i32, value: *mut core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16 {
+pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut core::ffi::c_void, attribute: i32, value: Option<*mut core::ffi::c_void>, bufferlength: i32, stringlengthptr: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetConnectAttr(connectionhandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlengthptr : *mut i32) -> i16);
-    unsafe { SQLGetConnectAttr(connectionhandle as _, attribute, value as _, bufferlength, stringlengthptr as _) }
+    unsafe { SQLGetConnectAttr(connectionhandle as _, attribute, value.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlengthptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetConnectAttrA(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
+pub unsafe fn SQLGetConnectAttrA(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: Option<*mut core::ffi::c_void>, cbvaluemax: i32, pcbvalue: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetConnectAttrA(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-    unsafe { SQLGetConnectAttrA(hdbc as _, fattribute, rgbvalue as _, cbvaluemax, pcbvalue as _) }
+    unsafe { SQLGetConnectAttrA(hdbc as _, fattribute, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbvaluemax, pcbvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetConnectAttrW(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
+pub unsafe fn SQLGetConnectAttrW(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: Option<*mut core::ffi::c_void>, cbvaluemax: i32, pcbvalue: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetConnectAttrW(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
-    unsafe { SQLGetConnectAttrW(hdbc as _, fattribute, rgbvalue as _, cbvaluemax, pcbvalue as _) }
+    unsafe { SQLGetConnectAttrW(hdbc as _, fattribute, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbvaluemax, pcbvalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut core::ffi::c_void, option: u16, value: *mut core::ffi::c_void) -> i16 {
@@ -381,113 +613,221 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, p
     unsafe { SQLGetConnectOptionW(hdbc as _, foption, pvparam as _) }
 }
 #[inline]
-pub unsafe fn SQLGetCursorName(statementhandle: *mut core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16 {
+pub unsafe fn SQLGetCursorName(statementhandle: *mut core::ffi::c_void, cursorname: Option<&mut [u8]>, namelengthptr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorName(statementhandle : *mut core::ffi::c_void, cursorname : *mut u8, bufferlength : i16, namelengthptr : *mut i16) -> i16);
-    unsafe { SQLGetCursorName(statementhandle as _, cursorname as _, bufferlength, namelengthptr as _) }
+    unsafe { SQLGetCursorName(statementhandle as _, core::mem::transmute(cursorname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cursorname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namelengthptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetCursorNameA(hstmt: *mut core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16 {
+pub unsafe fn SQLGetCursorNameA(hstmt: *mut core::ffi::c_void, szcursor: Option<&mut [u8]>, pcbcursor: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorNameA(hstmt : *mut core::ffi::c_void, szcursor : *mut u8, cbcursormax : i16, pcbcursor : *mut i16) -> i16);
-    unsafe { SQLGetCursorNameA(hstmt as _, szcursor as _, cbcursormax, pcbcursor as _) }
+    unsafe { SQLGetCursorNameA(hstmt as _, core::mem::transmute(szcursor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcursor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbcursor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetCursorNameW(hstmt: *mut core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16 {
+pub unsafe fn SQLGetCursorNameW(hstmt: *mut core::ffi::c_void, szcursor: Option<&mut [u16]>, pcchcursor: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetCursorNameW(hstmt : *mut core::ffi::c_void, szcursor : *mut u16, cchcursormax : i16, pcchcursor : *mut i16) -> i16);
-    unsafe { SQLGetCursorNameW(hstmt as _, szcursor as _, cchcursormax, pcchcursor as _) }
+    unsafe { SQLGetCursorNameW(hstmt as _, core::mem::transmute(szcursor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szcursor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchcursor.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i32, strlen_or_indptr: Option<*mut i32>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i32, strlen_or_indptr : *mut i32) -> i16);
+    unsafe { SQLGetData(statementhandle as _, columnnumber, targettype, targetvalue.unwrap_or(core::mem::zeroed()) as _, bufferlength, strlen_or_indptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
+pub unsafe fn SQLGetData(statementhandle: *mut core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: Option<*mut core::ffi::c_void>, bufferlength: i64, strlen_or_indptr: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetData(statementhandle : *mut core::ffi::c_void, columnnumber : u16, targettype : i16, targetvalue : *mut core::ffi::c_void, bufferlength : i64, strlen_or_indptr : *mut i64) -> i16);
-    unsafe { SQLGetData(statementhandle as _, columnnumber, targettype, targetvalue as _, bufferlength, strlen_or_indptr as _) }
+    unsafe { SQLGetData(statementhandle as _, columnnumber, targettype, targetvalue.unwrap_or(core::mem::zeroed()) as _, bufferlength, strlen_or_indptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDescField(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
+pub unsafe fn SQLGetDescField(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: Option<*mut core::ffi::c_void>, bufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescField(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-    unsafe { SQLGetDescField(descriptorhandle as _, recnumber, fieldidentifier, value as _, bufferlength, stringlength as _) }
+    unsafe { SQLGetDescField(descriptorhandle as _, recnumber, fieldidentifier, value.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDescFieldA(hdesc: *mut core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
+pub unsafe fn SQLGetDescFieldA(hdesc: *mut core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: Option<*mut core::ffi::c_void>, cbbufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescFieldA(hdesc : *mut core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
-    unsafe { SQLGetDescFieldA(hdesc as _, irecord, ifield, rgbvalue as _, cbbufferlength, stringlength as _) }
+    unsafe { SQLGetDescFieldA(hdesc as _, irecord, ifield, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbbufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDescFieldW(hdesc: *mut core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
+pub unsafe fn SQLGetDescFieldW(hdesc: *mut core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: Option<*mut core::ffi::c_void>, cbbufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescFieldW(hdesc : *mut core::ffi::c_void, irecord : i16, ifield : i16, rgbvalue : *mut core::ffi::c_void, cbbufferlength : i32, stringlength : *mut i32) -> i16);
-    unsafe { SQLGetDescFieldW(hdesc as _, irecord, ifield, rgbvalue as _, cbbufferlength, stringlength as _) }
+    unsafe { SQLGetDescFieldW(hdesc as _, irecord, ifield, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbbufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, name: Option<&mut [u8]>, stringlengthptr: Option<*mut i16>, typeptr: Option<*mut i16>, subtypeptr: Option<*mut i16>, lengthptr: Option<*mut i32>, precisionptr: Option<*mut i16>, scaleptr: Option<*mut i16>, nullableptr: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i32, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
+    unsafe {
+        SQLGetDescRec(
+            descriptorhandle as _,
+            recnumber,
+            core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            stringlengthptr.unwrap_or(core::mem::zeroed()) as _,
+            typeptr.unwrap_or(core::mem::zeroed()) as _,
+            subtypeptr.unwrap_or(core::mem::zeroed()) as _,
+            lengthptr.unwrap_or(core::mem::zeroed()) as _,
+            precisionptr.unwrap_or(core::mem::zeroed()) as _,
+            scaleptr.unwrap_or(core::mem::zeroed()) as _,
+            nullableptr.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
+pub unsafe fn SQLGetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, name: Option<&mut [u8]>, stringlengthptr: Option<*mut i16>, typeptr: Option<*mut i16>, subtypeptr: Option<*mut i16>, lengthptr: Option<*mut i64>, precisionptr: Option<*mut i16>, scaleptr: Option<*mut i16>, nullableptr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, name : *mut u8, bufferlength : i16, stringlengthptr : *mut i16, typeptr : *mut i16, subtypeptr : *mut i16, lengthptr : *mut i64, precisionptr : *mut i16, scaleptr : *mut i16, nullableptr : *mut i16) -> i16);
-    unsafe { SQLGetDescRec(descriptorhandle as _, recnumber, name as _, bufferlength, stringlengthptr as _, typeptr as _, subtypeptr as _, lengthptr as _, precisionptr as _, scaleptr as _, nullableptr as _) }
+    unsafe {
+        SQLGetDescRec(
+            descriptorhandle as _,
+            recnumber,
+            core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            stringlengthptr.unwrap_or(core::mem::zeroed()) as _,
+            typeptr.unwrap_or(core::mem::zeroed()) as _,
+            subtypeptr.unwrap_or(core::mem::zeroed()) as _,
+            lengthptr.unwrap_or(core::mem::zeroed()) as _,
+            precisionptr.unwrap_or(core::mem::zeroed()) as _,
+            scaleptr.unwrap_or(core::mem::zeroed()) as _,
+            nullableptr.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u8]>, pcbname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i32>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+    unsafe {
+        SQLGetDescRecA(
+            hdesc as _,
+            irecord,
+            core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcbname.unwrap_or(core::mem::zeroed()) as _,
+            pftype.unwrap_or(core::mem::zeroed()) as _,
+            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
+            plength.unwrap_or(core::mem::zeroed()) as _,
+            pprecision.unwrap_or(core::mem::zeroed()) as _,
+            pscale.unwrap_or(core::mem::zeroed()) as _,
+            pnullable.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
+pub unsafe fn SQLGetDescRecA(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u8]>, pcbname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecA(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u8, cbnamemax : i16, pcbname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
-    unsafe { SQLGetDescRecA(hdesc as _, irecord, szname as _, cbnamemax, pcbname as _, pftype as _, pfsubtype as _, plength as _, pprecision as _, pscale as _, pnullable as _) }
+    unsafe {
+        SQLGetDescRecA(
+            hdesc as _,
+            irecord,
+            core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcbname.unwrap_or(core::mem::zeroed()) as _,
+            pftype.unwrap_or(core::mem::zeroed()) as _,
+            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
+            plength.unwrap_or(core::mem::zeroed()) as _,
+            pprecision.unwrap_or(core::mem::zeroed()) as _,
+            pscale.unwrap_or(core::mem::zeroed()) as _,
+            pnullable.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i32>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i32, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
+    unsafe {
+        SQLGetDescRecW(
+            hdesc as _,
+            irecord,
+            core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchname.unwrap_or(core::mem::zeroed()) as _,
+            pftype.unwrap_or(core::mem::zeroed()) as _,
+            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
+            plength.unwrap_or(core::mem::zeroed()) as _,
+            pprecision.unwrap_or(core::mem::zeroed()) as _,
+            pscale.unwrap_or(core::mem::zeroed()) as _,
+            pnullable.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
+pub unsafe fn SQLGetDescRecW(hdesc: *mut core::ffi::c_void, irecord: i16, szname: Option<&mut [u16]>, pcchname: Option<*mut i16>, pftype: Option<*mut i16>, pfsubtype: Option<*mut i16>, plength: Option<*mut i64>, pprecision: Option<*mut i16>, pscale: Option<*mut i16>, pnullable: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDescRecW(hdesc : *mut core::ffi::c_void, irecord : i16, szname : *mut u16, cchnamemax : i16, pcchname : *mut i16, pftype : *mut i16, pfsubtype : *mut i16, plength : *mut i64, pprecision : *mut i16, pscale : *mut i16, pnullable : *mut i16) -> i16);
-    unsafe { SQLGetDescRecW(hdesc as _, irecord, szname as _, cchnamemax, pcchname as _, pftype as _, pfsubtype as _, plength as _, pprecision as _, pscale as _, pnullable as _) }
+    unsafe {
+        SQLGetDescRecW(
+            hdesc as _,
+            irecord,
+            core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            pcchname.unwrap_or(core::mem::zeroed()) as _,
+            pftype.unwrap_or(core::mem::zeroed()) as _,
+            pfsubtype.unwrap_or(core::mem::zeroed()) as _,
+            plength.unwrap_or(core::mem::zeroed()) as _,
+            pprecision.unwrap_or(core::mem::zeroed()) as _,
+            pscale.unwrap_or(core::mem::zeroed()) as _,
+            pnullable.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlength: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagField(handletype : i16, handle : *mut core::ffi::c_void, recnumber : i16, diagidentifier : i16, diaginfo : *mut core::ffi::c_void, bufferlength : i16, stringlength : *mut i16) -> i16);
-    unsafe { SQLGetDiagField(handletype, handle as _, recnumber, diagidentifier, diaginfo as _, bufferlength, stringlength as _) }
+    unsafe { SQLGetDiagField(handletype, handle as _, recnumber, diagidentifier, diaginfo.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: Option<*mut core::ffi::c_void>, cbdiaginfomax: i16, pcbdiaginfo: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagFieldA(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut core::ffi::c_void, cbdiaginfomax : i16, pcbdiaginfo : *mut i16) -> i16);
-    unsafe { SQLGetDiagFieldA(fhandletype, handle as _, irecord, fdiagfield, rgbdiaginfo as _, cbdiaginfomax, pcbdiaginfo as _) }
+    unsafe { SQLGetDiagFieldA(fhandletype, handle as _, irecord, fdiagfield, rgbdiaginfo.unwrap_or(core::mem::zeroed()) as _, cbdiaginfomax, pcbdiaginfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: Option<*mut core::ffi::c_void>, cbbufferlength: i16, pcbstringlength: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagFieldW(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, fdiagfield : i16, rgbdiaginfo : *mut core::ffi::c_void, cbbufferlength : i16, pcbstringlength : *mut i16) -> i16);
-    unsafe { SQLGetDiagFieldW(fhandletype, handle as _, irecord, fdiagfield, rgbdiaginfo as _, cbbufferlength, pcbstringlength as _) }
+    unsafe { SQLGetDiagFieldW(fhandletype, handle as _, irecord, fdiagfield, rgbdiaginfo.unwrap_or(core::mem::zeroed()) as _, cbbufferlength, pcbstringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut core::ffi::c_void, recnumber: i16, sqlstate: Option<&mut [u8; 6]>, nativeerror: *mut i32, messagetext: Option<&mut [u8]>, textlength: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRec(handletype : i16, handle : *mut core::ffi::c_void, recnumber : i16, sqlstate : *mut u8, nativeerror : *mut i32, messagetext : *mut u8, bufferlength : i16, textlength : *mut i16) -> i16);
-    unsafe { SQLGetDiagRec(handletype, handle as _, recnumber, sqlstate as _, nativeerror as _, messagetext as _, bufferlength, textlength as _) }
+    unsafe { SQLGetDiagRec(handletype, handle as _, recnumber, core::mem::transmute(sqlstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), nativeerror as _, core::mem::transmute(messagetext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), messagetext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, szsqlstate: Option<&mut [u8; 6]>, pfnativeerror: *mut i32, szerrormsg: Option<&mut [u8]>, pcberrormsg: *mut i16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRecA(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, szsqlstate : *mut u8, pfnativeerror : *mut i32, szerrormsg : *mut u8, cberrormsgmax : i16, pcberrormsg : *mut i16) -> i16);
-    unsafe { SQLGetDiagRecA(fhandletype, handle as _, irecord, szsqlstate as _, pfnativeerror as _, szerrormsg as _, cberrormsgmax, pcberrormsg as _) }
+    unsafe { SQLGetDiagRecA(fhandletype, handle as _, irecord, core::mem::transmute(szsqlstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfnativeerror as _, core::mem::transmute(szerrormsg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcberrormsg as _) }
 }
 #[inline]
-pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
+pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut core::ffi::c_void, irecord: i16, szsqlstate: Option<&mut [u16; 6]>, pfnativeerror: *mut i32, szerrormsg: Option<&mut [u16]>, pccherrormsg: *mut i16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetDiagRecW(fhandletype : i16, handle : *mut core::ffi::c_void, irecord : i16, szsqlstate : *mut u16, pfnativeerror : *mut i32, szerrormsg : *mut u16, ccherrormsgmax : i16, pccherrormsg : *mut i16) -> i16);
-    unsafe { SQLGetDiagRecW(fhandletype, handle as _, irecord, szsqlstate as _, pfnativeerror as _, szerrormsg as _, ccherrormsgmax, pccherrormsg as _) }
+    unsafe { SQLGetDiagRecW(fhandletype, handle as _, irecord, core::mem::transmute(szsqlstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfnativeerror as _, core::mem::transmute(szerrormsg.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szerrormsg.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pccherrormsg as _) }
 }
 #[inline]
-pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut core::ffi::c_void, attribute: i32, value: *mut core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
+pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut core::ffi::c_void, attribute: i32, value: *mut core::ffi::c_void, bufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetEnvAttr(environmenthandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-    unsafe { SQLGetEnvAttr(environmenthandle as _, attribute, value as _, bufferlength, stringlength as _) }
+    unsafe { SQLGetEnvAttr(environmenthandle as _, attribute, value as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetFunctions(connectionhandle: *mut core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16 {
+pub unsafe fn SQLGetFunctions(connectionhandle: *mut core::ffi::c_void, functionid: u16, supported: Option<*mut u16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetFunctions(connectionhandle : *mut core::ffi::c_void, functionid : u16, supported : *mut u16) -> i16);
-    unsafe { SQLGetFunctions(connectionhandle as _, functionid, supported as _) }
+    unsafe { SQLGetFunctions(connectionhandle as _, functionid, supported.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetInfo(connectionhandle: *mut core::ffi::c_void, infotype: u16, infovalue: *mut core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16 {
+pub unsafe fn SQLGetInfo(connectionhandle: *mut core::ffi::c_void, infotype: u16, infovalue: Option<*mut core::ffi::c_void>, bufferlength: i16, stringlengthptr: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetInfo(connectionhandle : *mut core::ffi::c_void, infotype : u16, infovalue : *mut core::ffi::c_void, bufferlength : i16, stringlengthptr : *mut i16) -> i16);
-    unsafe { SQLGetInfo(connectionhandle as _, infotype, infovalue as _, bufferlength, stringlengthptr as _) }
+    unsafe { SQLGetInfo(connectionhandle as _, infotype, infovalue.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlengthptr.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetInfoA(hdbc: *mut core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
+pub unsafe fn SQLGetInfoA(hdbc: *mut core::ffi::c_void, finfotype: u16, rgbinfovalue: Option<*mut core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetInfoA(hdbc : *mut core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
-    unsafe { SQLGetInfoA(hdbc as _, finfotype, rgbinfovalue as _, cbinfovaluemax, pcbinfovalue as _) }
+    unsafe { SQLGetInfoA(hdbc as _, finfotype, rgbinfovalue.unwrap_or(core::mem::zeroed()) as _, cbinfovaluemax, pcbinfovalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLGetInfoW(hdbc: *mut core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
+pub unsafe fn SQLGetInfoW(hdbc: *mut core::ffi::c_void, finfotype: u16, rgbinfovalue: Option<*mut core::ffi::c_void>, cbinfovaluemax: i16, pcbinfovalue: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetInfoW(hdbc : *mut core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
-    unsafe { SQLGetInfoW(hdbc as _, finfotype, rgbinfovalue as _, cbinfovaluemax, pcbinfovalue as _) }
+    unsafe { SQLGetInfoW(hdbc as _, finfotype, rgbinfovalue.unwrap_or(core::mem::zeroed()) as _, cbinfovaluemax, pcbinfovalue.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDLE, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16 {
@@ -495,9 +835,9 @@ pub unsafe fn SQLGetNextEnumeration(henumhandle: super::super::Foundation::HANDL
     unsafe { SQLGetNextEnumeration(henumhandle, prgenumdata as _, pienumlength as _) }
 }
 #[inline]
-pub unsafe fn SQLGetStmtAttr(statementhandle: *mut core::ffi::c_void, attribute: i32, value: *mut core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
+pub unsafe fn SQLGetStmtAttr(statementhandle: *mut core::ffi::c_void, attribute: i32, value: Option<*mut core::ffi::c_void>, bufferlength: i32, stringlength: Option<*mut i32>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLGetStmtAttr(statementhandle : *mut core::ffi::c_void, attribute : i32, value : *mut core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
-    unsafe { SQLGetStmtAttr(statementhandle as _, attribute, value as _, bufferlength, stringlength as _) }
+    unsafe { SQLGetStmtAttr(statementhandle as _, attribute, value.unwrap_or(core::mem::zeroed()) as _, bufferlength, stringlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut core::ffi::c_void, fattribute: i32, rgbvalue: *mut core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
@@ -565,24 +905,24 @@ pub unsafe fn SQLMoreResults(hstmt: *mut core::ffi::c_void) -> i16 {
     unsafe { SQLMoreResults(hstmt as _) }
 }
 #[inline]
-pub unsafe fn SQLNativeSql(hdbc: *mut core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
+pub unsafe fn SQLNativeSql(hdbc: *mut core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: Option<&mut [u8]>, pcbsqlstr: *mut i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSql(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u8, cchsqlstrin : i32, szsqlstr : *mut u8, cchsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
-    unsafe { SQLNativeSql(hdbc as _, szsqlstrin, cchsqlstrin, szsqlstr as _, cchsqlstrmax, pcbsqlstr as _) }
+    unsafe { SQLNativeSql(hdbc as _, core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len().try_into().unwrap(), core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsqlstr as _) }
 }
 #[inline]
-pub unsafe fn SQLNativeSqlA(hdbc: *mut core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
+pub unsafe fn SQLNativeSqlA(hdbc: *mut core::ffi::c_void, szsqlstrin: &[u8], szsqlstr: Option<&mut [u8]>, pcbsqlstr: *mut i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSqlA(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u8, cbsqlstrin : i32, szsqlstr : *mut u8, cbsqlstrmax : i32, pcbsqlstr : *mut i32) -> i16);
-    unsafe { SQLNativeSqlA(hdbc as _, szsqlstrin, cbsqlstrin, szsqlstr as _, cbsqlstrmax, pcbsqlstr as _) }
+    unsafe { SQLNativeSqlA(hdbc as _, core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len().try_into().unwrap(), core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsqlstr as _) }
 }
 #[inline]
-pub unsafe fn SQLNativeSqlW(hdbc: *mut core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16 {
+pub unsafe fn SQLNativeSqlW(hdbc: *mut core::ffi::c_void, szsqlstrin: &[u16], szsqlstr: Option<&mut [u16]>, pcchsqlstr: *mut i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLNativeSqlW(hdbc : *mut core::ffi::c_void, szsqlstrin : *const u16, cchsqlstrin : i32, szsqlstr : *mut u16, cchsqlstrmax : i32, pcchsqlstr : *mut i32) -> i16);
-    unsafe { SQLNativeSqlW(hdbc as _, szsqlstrin, cchsqlstrin, szsqlstr as _, cchsqlstrmax, pcchsqlstr as _) }
+    unsafe { SQLNativeSqlW(hdbc as _, core::mem::transmute(szsqlstrin.as_ptr()), szsqlstrin.len().try_into().unwrap(), core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchsqlstr as _) }
 }
 #[inline]
-pub unsafe fn SQLNumParams(hstmt: *mut core::ffi::c_void, pcpar: *mut i16) -> i16 {
+pub unsafe fn SQLNumParams(hstmt: *mut core::ffi::c_void, pcpar: Option<*mut i16>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLNumParams(hstmt : *mut core::ffi::c_void, pcpar : *mut i16) -> i16);
-    unsafe { SQLNumParams(hstmt as _, pcpar as _) }
+    unsafe { SQLNumParams(hstmt as _, pcpar.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SQLNumResultCols(statementhandle: *mut core::ffi::c_void, columncount: *mut i16) -> i16 {
@@ -590,9 +930,15 @@ pub unsafe fn SQLNumResultCols(statementhandle: *mut core::ffi::c_void, columnco
     unsafe { SQLNumResultCols(statementhandle as _, columncount as _) }
 }
 #[inline]
-pub unsafe fn SQLParamData(statementhandle: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> i16 {
+pub unsafe fn SQLParamData(statementhandle: *mut core::ffi::c_void, value: Option<*mut *mut core::ffi::c_void>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLParamData(statementhandle : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> i16);
-    unsafe { SQLParamData(statementhandle as _, value as _) }
+    unsafe { SQLParamData(statementhandle as _, value.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLParamOptions(hstmt: *mut core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLParamOptions(hstmt : *mut core::ffi::c_void, crow : u32, pirow : *mut u32) -> i16);
+    unsafe { SQLParamOptions(hstmt as _, crow, pirow as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -601,70 +947,178 @@ pub unsafe fn SQLParamOptions(hstmt: *mut core::ffi::c_void, crow: u64, pirow: *
     unsafe { SQLParamOptions(hstmt as _, crow, pirow as _) }
 }
 #[inline]
-pub unsafe fn SQLPrepare(statementhandle: *mut core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
+pub unsafe fn SQLPrepare(statementhandle: *mut core::ffi::c_void, statementtext: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrepare(statementhandle : *mut core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
-    unsafe { SQLPrepare(statementhandle as _, statementtext, textlength) }
+    unsafe { SQLPrepare(statementhandle as _, core::mem::transmute(statementtext.as_ptr()), statementtext.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLPrepareA(hstmt: *mut core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
+pub unsafe fn SQLPrepareA(hstmt: *mut core::ffi::c_void, szsqlstr: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrepareA(hstmt : *mut core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
-    unsafe { SQLPrepareA(hstmt as _, szsqlstr, cbsqlstr) }
+    unsafe { SQLPrepareA(hstmt as _, core::mem::transmute(szsqlstr.as_ptr()), szsqlstr.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLPrepareW(hstmt: *mut core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16 {
+pub unsafe fn SQLPrepareW(hstmt: *mut core::ffi::c_void, szsqlstr: &[u16]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrepareW(hstmt : *mut core::ffi::c_void, szsqlstr : *const u16, cchsqlstr : i32) -> i16);
-    unsafe { SQLPrepareW(hstmt as _, szsqlstr, cchsqlstr) }
+    unsafe { SQLPrepareW(hstmt as _, core::mem::transmute(szsqlstr.as_ptr()), szsqlstr.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLPrimaryKeys(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
+pub unsafe fn SQLPrimaryKeys(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-    unsafe { SQLPrimaryKeys(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) }
+    unsafe {
+        SQLPrimaryKeys(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLPrimaryKeysA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
+pub unsafe fn SQLPrimaryKeysA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeysA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-    unsafe { SQLPrimaryKeysA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename) }
+    unsafe {
+        SQLPrimaryKeysA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLPrimaryKeysW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
+pub unsafe fn SQLPrimaryKeysW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeysW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-    unsafe { SQLPrimaryKeysW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) }
+    unsafe {
+        SQLPrimaryKeysW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProcedureColumns(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
+pub unsafe fn SQLProcedureColumns(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedureColumns(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16, szcolumnname : *const u8, cchcolumnname : i16) -> i16);
-    unsafe { SQLProcedureColumns(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname) }
+    unsafe {
+        SQLProcedureColumns(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProcedureColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
+pub unsafe fn SQLProcedureColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedureColumnsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16, szcolumnname : *const u8, cbcolumnname : i16) -> i16);
-    unsafe { SQLProcedureColumnsA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname, szcolumnname, cbcolumnname) }
+    unsafe {
+        SQLProcedureColumnsA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProcedureColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
+pub unsafe fn SQLProcedureColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, szprocname: Option<&[u16]>, szcolumnname: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedureColumnsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16, szcolumnname : *const u16, cchcolumnname : i16) -> i16);
-    unsafe { SQLProcedureColumnsW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname) }
+    unsafe {
+        SQLProcedureColumnsW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProcedures(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16 {
+pub unsafe fn SQLProcedures(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16) -> i16);
-    unsafe { SQLProcedures(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname) }
+    unsafe {
+        SQLProcedures(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProceduresA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16 {
+pub unsafe fn SQLProceduresA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProceduresA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16) -> i16);
-    unsafe { SQLProceduresA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname) }
+    unsafe {
+        SQLProceduresA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLProceduresW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16 {
+pub unsafe fn SQLProceduresW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, szprocname: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProceduresW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16) -> i16);
-    unsafe { SQLProceduresW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname) }
+    unsafe {
+        SQLProceduresW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const core::ffi::c_void, strlen_or_ind: i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i32) -> i16);
+    unsafe { SQLPutData(statementhandle as _, data, strlen_or_ind) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut core::ffi::c_void, data: *const core::ffi::c_void, strlen_or_ind: i64) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPutData(statementhandle : *mut core::ffi::c_void, data : *const core::ffi::c_void, strlen_or_ind : i64) -> i16);
     unsafe { SQLPutData(statementhandle as _, data, strlen_or_ind) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLRowCount(statementhandle: *const core::ffi::c_void, rowcount: *mut i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLRowCount(statementhandle : *const core::ffi::c_void, rowcount : *mut i32) -> i16);
+    unsafe { SQLRowCount(statementhandle, rowcount as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -673,19 +1127,25 @@ pub unsafe fn SQLRowCount(statementhandle: *const core::ffi::c_void, rowcount: *
     unsafe { SQLRowCount(statementhandle, rowcount as _) }
 }
 #[inline]
-pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut core::ffi::c_void, attribute: i32, value: *const core::ffi::c_void, stringlength: i32) -> i16 {
+pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut core::ffi::c_void, attribute: i32, value: Option<*const core::ffi::c_void>, stringlength: i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetConnectAttr(connectionhandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
-    unsafe { SQLSetConnectAttr(connectionhandle as _, attribute, value, stringlength) }
+    unsafe { SQLSetConnectAttr(connectionhandle as _, attribute, value.unwrap_or(core::mem::zeroed()) as _, stringlength) }
 }
 #[inline]
-pub unsafe fn SQLSetConnectAttrA(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: *const core::ffi::c_void, cbvalue: i32) -> i16 {
+pub unsafe fn SQLSetConnectAttrA(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: Option<*const core::ffi::c_void>, cbvalue: i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetConnectAttrA(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *const core::ffi::c_void, cbvalue : i32) -> i16);
-    unsafe { SQLSetConnectAttrA(hdbc as _, fattribute, rgbvalue, cbvalue) }
+    unsafe { SQLSetConnectAttrA(hdbc as _, fattribute, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbvalue) }
 }
 #[inline]
-pub unsafe fn SQLSetConnectAttrW(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: *const core::ffi::c_void, cbvalue: i32) -> i16 {
+pub unsafe fn SQLSetConnectAttrW(hdbc: *mut core::ffi::c_void, fattribute: i32, rgbvalue: Option<*const core::ffi::c_void>, cbvalue: i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetConnectAttrW(hdbc : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *const core::ffi::c_void, cbvalue : i32) -> i16);
-    unsafe { SQLSetConnectAttrW(hdbc as _, fattribute, rgbvalue, cbvalue) }
+    unsafe { SQLSetConnectAttrW(hdbc as _, fattribute, rgbvalue.unwrap_or(core::mem::zeroed()) as _, cbvalue) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, option: u16, value: u32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u32) -> i16);
+    unsafe { SQLSetConnectOption(connectionhandle as _, option, value) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -693,11 +1153,23 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut core::ffi::c_void, opti
     windows_core::link!("odbc32.dll" "system" fn SQLSetConnectOption(connectionhandle : *mut core::ffi::c_void, option : u16, value : u64) -> i16);
     unsafe { SQLSetConnectOption(connectionhandle as _, option, value) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetConnectOptionA(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u32) -> i16);
+    unsafe { SQLSetConnectOptionA(hdbc as _, foption, vparam) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetConnectOptionA(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u64) -> i16);
     unsafe { SQLSetConnectOptionA(hdbc as _, foption, vparam) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetConnectOptionW(hdbc : *mut core::ffi::c_void, foption : u16, vparam : u32) -> i16);
+    unsafe { SQLSetConnectOptionW(hdbc as _, foption, vparam) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -706,19 +1178,19 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut core::ffi::c_void, foption: u16, v
     unsafe { SQLSetConnectOptionW(hdbc as _, foption, vparam) }
 }
 #[inline]
-pub unsafe fn SQLSetCursorName(statementhandle: *mut core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16 {
+pub unsafe fn SQLSetCursorName(statementhandle: *mut core::ffi::c_void, cursorname: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetCursorName(statementhandle : *mut core::ffi::c_void, cursorname : *const u8, namelength : i16) -> i16);
-    unsafe { SQLSetCursorName(statementhandle as _, cursorname, namelength) }
+    unsafe { SQLSetCursorName(statementhandle as _, core::mem::transmute(cursorname.as_ptr()), cursorname.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLSetCursorNameA(hstmt: *mut core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16 {
+pub unsafe fn SQLSetCursorNameA(hstmt: *mut core::ffi::c_void, szcursor: &[u8]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetCursorNameA(hstmt : *mut core::ffi::c_void, szcursor : *const u8, cbcursor : i16) -> i16);
-    unsafe { SQLSetCursorNameA(hstmt as _, szcursor, cbcursor) }
+    unsafe { SQLSetCursorNameA(hstmt as _, core::mem::transmute(szcursor.as_ptr()), szcursor.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn SQLSetCursorNameW(hstmt: *mut core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16 {
+pub unsafe fn SQLSetCursorNameW(hstmt: *mut core::ffi::c_void, szcursor: &[u16]) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetCursorNameW(hstmt : *mut core::ffi::c_void, szcursor : *const u16, cchcursor : i16) -> i16);
-    unsafe { SQLSetCursorNameW(hstmt as _, szcursor, cchcursor) }
+    unsafe { SQLSetCursorNameW(hstmt as _, core::mem::transmute(szcursor.as_ptr()), szcursor.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const core::ffi::c_void, bufferlength: i32) -> i16 {
@@ -730,16 +1202,28 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut core::ffi::c_void, recnumb
     windows_core::link!("odbc32.dll" "system" fn SQLSetDescFieldW(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, fieldidentifier : i16, value : *mut core::ffi::c_void, bufferlength : i32) -> i16);
     unsafe { SQLSetDescFieldW(descriptorhandle as _, recnumber, fieldidentifier, value as _, bufferlength) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: Option<*mut core::ffi::c_void>, stringlength: Option<*mut i32>, indicator: Option<*mut i32>) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i32, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i32, indicator : *mut i32) -> i16);
+    unsafe { SQLSetDescRec(descriptorhandle as _, recnumber, r#type, subtype, length, precision, scale, data.unwrap_or(core::mem::zeroed()) as _, stringlength.unwrap_or(core::mem::zeroed()) as _, indicator.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
+pub unsafe fn SQLSetDescRec(descriptorhandle: *mut core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: Option<*mut core::ffi::c_void>, stringlength: Option<*mut i64>, indicator: Option<*mut i64>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetDescRec(descriptorhandle : *mut core::ffi::c_void, recnumber : i16, r#type : i16, subtype : i16, length : i64, precision : i16, scale : i16, data : *mut core::ffi::c_void, stringlength : *mut i64, indicator : *mut i64) -> i16);
-    unsafe { SQLSetDescRec(descriptorhandle as _, recnumber, r#type, subtype, length, precision, scale, data as _, stringlength as _, indicator as _) }
+    unsafe { SQLSetDescRec(descriptorhandle as _, recnumber, r#type, subtype, length, precision, scale, data.unwrap_or(core::mem::zeroed()) as _, stringlength.unwrap_or(core::mem::zeroed()) as _, indicator.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut core::ffi::c_void, attribute: i32, value: *const core::ffi::c_void, stringlength: i32) -> i16 {
+pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut core::ffi::c_void, attribute: i32, value: Option<*const core::ffi::c_void>, stringlength: i32) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetEnvAttr(environmenthandle : *mut core::ffi::c_void, attribute : i32, value : *const core::ffi::c_void, stringlength : i32) -> i16);
-    unsafe { SQLSetEnvAttr(environmenthandle as _, attribute, value, stringlength) }
+    unsafe { SQLSetEnvAttr(environmenthandle as _, attribute, value.unwrap_or(core::mem::zeroed()) as _, stringlength) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetParam(statementhandle: *mut core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u32, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i32) -> i16);
+    unsafe { SQLSetParam(statementhandle as _, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -747,11 +1231,23 @@ pub unsafe fn SQLSetParam(statementhandle: *mut core::ffi::c_void, parameternumb
     windows_core::link!("odbc32.dll" "system" fn SQLSetParam(statementhandle : *mut core::ffi::c_void, parameternumber : u16, valuetype : i16, parametertype : i16, lengthprecision : u64, parameterscale : i16, parametervalue : *const core::ffi::c_void, strlen_or_ind : *mut i64) -> i16);
     unsafe { SQLSetParam(statementhandle as _, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind as _) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetPos(hstmt: *mut core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u16, foption : u16, flock : u16) -> i16);
+    unsafe { SQLSetPos(hstmt as _, irow, foption, flock) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSetPos(hstmt : *mut core::ffi::c_void, irow : u64, foption : u16, flock : u16) -> i16);
     unsafe { SQLSetPos(hstmt as _, irow, foption, flock) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetScrollOptions(hstmt: *mut core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetScrollOptions(hstmt : *mut core::ffi::c_void, fconcurrency : u16, crowkeyset : i32, crowrowset : u16) -> i16);
+    unsafe { SQLSetScrollOptions(hstmt as _, fconcurrency, crowkeyset, crowrowset) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -769,6 +1265,12 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut core::ffi::c_void, fattribute: i32, rg
     windows_core::link!("odbc32.dll" "system" fn SQLSetStmtAttrW(hstmt : *mut core::ffi::c_void, fattribute : i32, rgbvalue : *mut core::ffi::c_void, cbvaluemax : i32) -> i16);
     unsafe { SQLSetStmtAttrW(hstmt as _, fattribute, rgbvalue as _, cbvaluemax) }
 }
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: u16, value: u32) -> i16 {
+    windows_core::link!("odbc32.dll" "system" fn SQLSetStmtOption(statementhandle : *mut core::ffi::c_void, option : u16, value : u32) -> i16);
+    unsafe { SQLSetStmtOption(statementhandle as _, option, value) }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: u16, value: u64) -> i16 {
@@ -776,64 +1278,205 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut core::ffi::c_void, option: 
     unsafe { SQLSetStmtOption(statementhandle as _, option, value) }
 }
 #[inline]
-pub unsafe fn SQLSpecialColumns(statementhandle: *mut core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16 {
+pub unsafe fn SQLSpecialColumns(statementhandle: *mut core::ffi::c_void, identifiertype: u16, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, scope: u16, nullable: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSpecialColumns(statementhandle : *mut core::ffi::c_void, identifiertype : u16, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, scope : u16, nullable : u16) -> i16);
-    unsafe { SQLSpecialColumns(statementhandle as _, identifiertype, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, scope, nullable) }
+    unsafe {
+        SQLSpecialColumns(
+            statementhandle as _,
+            identifiertype,
+            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            scope,
+            nullable,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLSpecialColumnsA(hstmt: *mut core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16 {
+pub unsafe fn SQLSpecialColumnsA(hstmt: *mut core::ffi::c_void, fcoltype: u16, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, fscope: u16, fnullable: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSpecialColumnsA(hstmt : *mut core::ffi::c_void, fcoltype : u16, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, fscope : u16, fnullable : u16) -> i16);
-    unsafe { SQLSpecialColumnsA(hstmt as _, fcoltype, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, fscope, fnullable) }
+    unsafe {
+        SQLSpecialColumnsA(
+            hstmt as _,
+            fcoltype,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            fscope,
+            fnullable,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLSpecialColumnsW(hstmt: *mut core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16 {
+pub unsafe fn SQLSpecialColumnsW(hstmt: *mut core::ffi::c_void, fcoltype: u16, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>, fscope: u16, fnullable: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLSpecialColumnsW(hstmt : *mut core::ffi::c_void, fcoltype : u16, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, fscope : u16, fnullable : u16) -> i16);
-    unsafe { SQLSpecialColumnsW(hstmt as _, fcoltype, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, fscope, fnullable) }
+    unsafe {
+        SQLSpecialColumnsW(
+            hstmt as _,
+            fcoltype,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            fscope,
+            fnullable,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLStatistics(statementhandle: *mut core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16 {
+pub unsafe fn SQLStatistics(statementhandle: *mut core::ffi::c_void, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, unique: u16, reserved: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLStatistics(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, unique : u16, reserved : u16) -> i16);
-    unsafe { SQLStatistics(statementhandle as _, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, unique, reserved) }
+    unsafe {
+        SQLStatistics(
+            statementhandle as _,
+            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            unique,
+            reserved,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLStatisticsA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16 {
+pub unsafe fn SQLStatisticsA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, funique: u16, faccuracy: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLStatisticsA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, funique : u16, faccuracy : u16) -> i16);
-    unsafe { SQLStatisticsA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, funique, faccuracy) }
+    unsafe {
+        SQLStatisticsA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            funique,
+            faccuracy,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLStatisticsW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16 {
+pub unsafe fn SQLStatisticsW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>, funique: u16, faccuracy: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLStatisticsW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, funique : u16, faccuracy : u16) -> i16);
-    unsafe { SQLStatisticsW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, funique, faccuracy) }
+    unsafe {
+        SQLStatisticsW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            funique,
+            faccuracy,
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTablePrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
+pub unsafe fn SQLTablePrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-    unsafe { SQLTablePrivileges(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) }
+    unsafe {
+        SQLTablePrivileges(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTablePrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
+pub unsafe fn SQLTablePrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivilegesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-    unsafe { SQLTablePrivilegesA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename) }
+    unsafe {
+        SQLTablePrivilegesA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTablePrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
+pub unsafe fn SQLTablePrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivilegesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-    unsafe { SQLTablePrivilegesW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) }
+    unsafe {
+        SQLTablePrivilegesW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTables(statementhandle: *mut core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16 {
+pub unsafe fn SQLTables(statementhandle: *mut core::ffi::c_void, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, tabletype: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTables(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, tabletype : *const u8, namelength4 : i16) -> i16);
-    unsafe { SQLTables(statementhandle as _, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, tabletype, namelength4) }
+    unsafe {
+        SQLTables(
+            statementhandle as _,
+            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTablesA(hstmt: *mut core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16 {
+pub unsafe fn SQLTablesA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, sztabletype: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16, sztabletype : *const u8, cbtabletype : i16) -> i16);
-    unsafe { SQLTablesA(hstmt as _, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, sztabletype, cbtabletype) }
+    unsafe {
+        SQLTablesA(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
-pub unsafe fn SQLTablesW(hstmt: *mut core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16 {
+pub unsafe fn SQLTablesW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>, sztabletype: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16, sztabletype : *const u16, cchtabletype : i16) -> i16);
-    unsafe { SQLTablesW(hstmt as _, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, sztabletype, cchtabletype) }
+    unsafe {
+        SQLTablesW(
+            hstmt as _,
+            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+        )
+    }
 }
 #[inline]
 pub unsafe fn SQLTransact(environmenthandle: *mut core::ffi::c_void, connectionhandle: *mut core::ffi::c_void, completiontype: u16) -> i16 {
@@ -1059,6 +1702,20 @@ impl Default for CATEGORIZATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub union CATEGORIZATION_0 {
+    pub cClusters: u32,
+    pub bucket: BUCKETCATEGORIZE,
+    pub range: RANGECATEGORIZE,
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+impl Default for CATEGORIZATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
@@ -1066,20 +1723,6 @@ pub struct CATEGORIZATIONSET {
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl Default for CATEGORIZATIONSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy)]
-pub union CATEGORIZATION_0 {
-    pub cClusters: u32,
-    pub bucket: BUCKETCATEGORIZE,
-    pub range: RANGECATEGORIZE,
-}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-impl Default for CATEGORIZATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1339,6 +1982,19 @@ pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(3i32);
 pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(2i32);
 pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
 pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBBINDEXT {
+    pub pExtension: *mut u8,
+    pub ulExtension: usize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBBINDEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1356,6 +2012,33 @@ impl Default for DBBINDEXT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBINDFLAGENUM(pub i32);
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+pub struct DBBINDING {
+    pub iOrdinal: usize,
+    pub obValue: usize,
+    pub obLength: usize,
+    pub obStatus: usize,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub pObject: *mut DBOBJECT,
+    pub pBindExt: *mut DBBINDEXT,
+    pub dwPart: u32,
+    pub dwMemOwner: u32,
+    pub eParamIO: u32,
+    pub cbMaxLen: usize,
+    pub dwFlags: u32,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+impl Default for DBBINDING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -1429,6 +2112,28 @@ pub const DBBMK_LAST: DBBOOKMARK = DBBOOKMARK(2i32);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBBOOKMARK(pub i32);
 pub const DBCIDGUID: windows_core::GUID = windows_core::GUID::from_u128(0x0c733a81_2a1c_11ce_ade5_00aa0044773d);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct DBCOLUMNACCESS {
+    pub pData: *mut core::ffi::c_void,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+    pub cbDataLen: usize,
+    pub dwStatus: u32,
+    pub cbMaxLen: usize,
+    pub dwReserved: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -1447,6 +2152,35 @@ pub struct DBCOLUMNACCESS {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl Default for DBCOLUMNACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBCOLUMNDESC {
+    pub pwszTypeName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub rgPropertySets: *mut DBPROPSET,
+    pub pclsid: *mut windows_core::GUID,
+    pub cPropertySets: u32,
+    pub ulColumnSize: usize,
+    pub dbcid: super::super::Storage::IndexServer::DBID,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBCOLUMNDESC {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1532,6 +2266,34 @@ pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSEN
 pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
 pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4i32);
 pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(8i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub struct DBCOLUMNINFO {
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub iOrdinal: usize,
+    pub dwFlags: u32,
+    pub ulColumnSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+    pub columnid: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Clone for DBCOLUMNINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl Default for DBCOLUMNINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
@@ -1600,6 +2362,33 @@ pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = DBCOMPAREENUM(4i32);
 pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
 pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
 pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBCONSTRAINTDESC {
+    pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
+    pub ConstraintType: u32,
+    pub cColumns: usize,
+    pub rgColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pReferencedTableID: *mut super::super::Storage::IndexServer::DBID,
+    pub cForeignKeyColumns: usize,
+    pub rgForeignKeyColumnList: *mut super::super::Storage::IndexServer::DBID,
+    pub pwszConstraintText: windows_core::PWSTR,
+    pub UpdateRule: u32,
+    pub DeleteRule: u32,
+    pub MatchType: u32,
+    pub Deferrability: u32,
+    pub cReserved: usize,
+    pub rgReserved: *mut DBPROPSET,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBCONSTRAINTDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1653,6 +2442,14 @@ pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
 pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(4096i32);
 pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
 pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBCOST {
+    pub eKind: u32,
+    pub dwUnits: u32,
+    pub lValue: i32,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1715,6 +2512,14 @@ pub struct DBEXECLIMITSENUM(pub i32);
 pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
 pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBFAILUREINFO {
+    pub hRow: usize,
+    pub iColumn: usize,
+    pub failure: windows_core::HRESULT,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1727,6 +2532,19 @@ pub const DBGUID_MSSQLXML: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const DBGUID_ROWDEFAULTSTREAM: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab7_2a1c_11ce_ade5_00aa0044773d);
 pub const DBGUID_ROWURL: windows_core::GUID = windows_core::GUID::from_u128(0x0c733ab6_2a1c_11ce_ade5_00aa0044773d);
 pub const DBGUID_XPATH: windows_core::GUID = windows_core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+pub struct DBIMPLICITSESSION {
+    pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub piid: *mut windows_core::GUID,
+    pub pSession: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Debug, PartialEq)]
@@ -1737,6 +2555,21 @@ pub struct DBIMPLICITSESSION {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBIMPLICITSESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct DBINDEXCOLUMNDESC {
+    pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
+    pub eIndexColOrder: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for DBINDEXCOLUMNDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1770,6 +2603,17 @@ pub struct DBLITERALENUM20(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALENUM21(pub i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBLITERALINFO {
+    pub pwszLiteralValue: windows_core::PWSTR,
+    pub pwszInvalidChars: windows_core::PWSTR,
+    pub pwszInvalidStartingChars: windows_core::PWSTR,
+    pub lt: u32,
+    pub fSupported: windows_core::BOOL,
+    pub cchMaxLen: u32,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1838,12 +2682,30 @@ pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(256i32);
 pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(4096i32);
 pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBOBJECT {
+    pub dwFlags: u32,
+    pub iid: windows_core::GUID,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBPARAMBINDINFO {
+    pub pwszDataSourceType: windows_core::PWSTR,
+    pub pwszName: windows_core::PWSTR,
+    pub ulParamSize: usize,
+    pub dwFlags: u32,
+    pub bPrecision: u8,
+    pub bScale: u8,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1868,6 +2730,20 @@ pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(64i32);
 pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(2i32);
 pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(16i32);
 pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Default)]
+pub struct DBPARAMINFO {
+    pub dwFlags: u32,
+    pub iOrdinal: usize,
+    pub pwszName: windows_core::PWSTR,
+    pub pTypeInfo: core::mem::ManuallyDrop<Option<super::Com::ITypeInfo>>,
+    pub ulParamSize: usize,
+    pub wType: u16,
+    pub bPrecision: u8,
+    pub bScale: u8,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
@@ -1888,6 +2764,20 @@ pub struct DBPARAMIOENUM(pub i32);
 pub const DBPARAMIO_INPUT: DBPARAMIOENUM = DBPARAMIOENUM(1i32);
 pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
 pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = DBPARAMIOENUM(2i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBPARAMS {
+    pub pData: *mut core::ffi::c_void,
+    pub cParamSets: usize,
+    pub hAccessor: HACCESSOR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1941,6 +2831,30 @@ pub const DBPROMPT_COMPLETE: u32 = 2u32;
 pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
 pub const DBPROMPT_NOPROMPT: u32 = 4u32;
 pub const DBPROMPT_PROMPT: u32 = 1u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROP {
+    pub dwPropertyID: u32,
+    pub dwOptions: u32,
+    pub dwStatus: u32,
+    pub colid: super::super::Storage::IndexServer::DBID,
+    pub vValue: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROP {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2019,6 +2933,20 @@ pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(128i32);
 pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
 pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
 pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1024i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBPROPIDSET {
+    pub rgPropertyIDs: *mut u32,
+    pub cPropertyIDs: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2029,6 +2957,30 @@ pub struct DBPROPIDSET {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for DBPROPIDSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct DBPROPINFO {
+    pub pwszDescription: windows_core::PWSTR,
+    pub dwPropertyID: u32,
+    pub dwFlags: u32,
+    pub vtType: super::Variant::VARENUM,
+    pub vValues: super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for DBPROPINFO {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2057,6 +3009,22 @@ impl Default for DBPROPINFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBPROPINFOSET {
+    pub rgPropertyInfos: *mut DBPROPINFO,
+    pub cPropertyInfos: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPINFOSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2079,6 +3047,22 @@ pub struct DBPROPOPTIONSENUM(pub i32);
 pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
 pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
 pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[derive(Clone, Copy)]
+pub struct DBPROPSET {
+    pub rgProperties: *mut DBPROP,
+    pub cProperties: u32,
+    pub guidPropertySet: windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for DBPROPSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2670,6 +3654,15 @@ pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(2i32)
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
 pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
 pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(3i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBROWWATCHCHANGE {
+    pub hRegion: usize,
+    pub eChangeKind: u32,
+    pub hRow: usize,
+    pub iRow: usize,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2766,6 +3759,18 @@ pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
     pub second: u16,
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct DBTIMESTAMP {
+    pub year: i16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub minute: u16,
+    pub second: u16,
+    pub fraction: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2870,6 +3875,19 @@ pub struct DBVARYCHAR {
     pub str: [i8; 8001],
 }
 impl Default for DBVARYCHAR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DBVECTOR {
+    pub size: usize,
+    pub ptr: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DBVECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3422,6 +4440,16 @@ impl windows_core::RuntimeName for DataSourceObject {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EBindInfoOptions(pub i32);
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct ERRORINFO {
+    pub hrError: windows_core::HRESULT,
+    pub dwMinor: u32,
+    pub clsid: windows_core::GUID,
+    pub iid: windows_core::GUID,
+    pub dispid: i32,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3933,25 +4961,19 @@ pub struct HITRANGE {
 windows_core::imp::define_interface!(IAccessor, IAccessor_Vtbl, 0x0c733a8c_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IAccessor, windows_core::IUnknown);
 impl IAccessor {
-    pub unsafe fn AddRefAccessor(&self, haccessor: HACCESSOR) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddRefAccessor)(windows_core::Interface::as_raw(self), haccessor, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddRefAccessor)(windows_core::Interface::as_raw(self), haccessor, pcrefcount.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, core::mem::transmute(rgbindings), cbrowsize, phaccessor as _, rgstatus as _).ok() }
+    pub unsafe fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, core::mem::transmute(rgbindings), cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetBindings)(windows_core::Interface::as_raw(self), haccessor, pdwaccessorflags as _, pcbindings as _, prgbindings as _).ok() }
+    pub unsafe fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: Option<*mut usize>, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetBindings)(windows_core::Interface::as_raw(self), haccessor, pdwaccessorflags as _, pcbindings.unwrap_or(core::mem::zeroed()) as _, prgbindings as _).ok() }
     }
-    pub unsafe fn ReleaseAccessor(&self, haccessor: HACCESSOR) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReleaseAccessor)(windows_core::Interface::as_raw(self), haccessor, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ReleaseAccessor(&self, haccessor: HACCESSOR, pcrefcount: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseAccessor)(windows_core::Interface::as_raw(self), haccessor, pcrefcount.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -3971,10 +4993,10 @@ pub struct IAccessor_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessor_Impl: windows_core::IUnknownImpl {
-    fn AddRefAccessor(&self, haccessor: HACCESSOR) -> windows_core::Result<u32>;
+    fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut u32) -> windows_core::Result<()>;
     fn CreateAccessor(&self, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> windows_core::Result<()>;
     fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> windows_core::Result<()>;
-    fn ReleaseAccessor(&self, haccessor: HACCESSOR) -> windows_core::Result<u32>;
+    fn ReleaseAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessor_Vtbl {
@@ -3982,13 +5004,7 @@ impl IAccessor_Vtbl {
         unsafe extern "system" fn AddRefAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessor_Impl::AddRefAccessor(this, core::mem::transmute_copy(&haccessor)) {
-                    Ok(ok__) => {
-                        pcrefcount.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessor_Impl::AddRefAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount)).into()
             }
         }
         unsafe extern "system" fn CreateAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut HACCESSOR, rgstatus: *mut u32) -> windows_core::HRESULT {
@@ -4006,13 +5022,7 @@ impl IAccessor_Vtbl {
         unsafe extern "system" fn ReleaseAccessor<Identity: IAccessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haccessor: HACCESSOR, pcrefcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAccessor_Impl::ReleaseAccessor(this, core::mem::transmute_copy(&haccessor)) {
-                    Ok(ok__) => {
-                        pcrefcount.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IAccessor_Impl::ReleaseAccessor(this, core::mem::transmute_copy(&haccessor), core::mem::transmute_copy(&pcrefcount)).into()
             }
         }
         Self {
@@ -4128,13 +5138,13 @@ windows_core::imp::define_interface!(IBindResource, IBindResource_Vtbl, 0x0c733a
 windows_core::imp::interface_hierarchy!(IBindResource, windows_core::IUnknown);
 impl IBindResource {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Bind<P0, P1, P5>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: P5, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn Bind<P0, P1, P5>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: Option<*mut u32>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<super::Com::IAuthenticate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, riid, pauthenticate.param().abi(), core::mem::transmute(pimplsession), pdwbindstatus as _, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Bind)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, riid, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppunk)).ok() }
     }
 }
 #[repr(C)]
@@ -4170,17 +5180,11 @@ impl windows_core::RuntimeName for IBindResource {}
 windows_core::imp::define_interface!(IChapteredRowset, IChapteredRowset_Vtbl, 0x0c733a93_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IChapteredRowset, windows_core::IUnknown);
 impl IChapteredRowset {
-    pub unsafe fn AddRefChapter(&self, hchapter: usize) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddRefChapter)(windows_core::Interface::as_raw(self), hchapter, &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddRefChapter(&self, hchapter: usize, pcrefcount: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddRefChapter)(windows_core::Interface::as_raw(self), hchapter, pcrefcount.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn ReleaseChapter(&self, hchapter: usize) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReleaseChapter)(windows_core::Interface::as_raw(self), hchapter, &mut result__).map(|| result__)
-        }
+    pub unsafe fn ReleaseChapter(&self, hchapter: usize, pcrefcount: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseChapter)(windows_core::Interface::as_raw(self), hchapter, pcrefcount.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -4191,33 +5195,21 @@ pub struct IChapteredRowset_Vtbl {
     pub ReleaseChapter: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IChapteredRowset_Impl: windows_core::IUnknownImpl {
-    fn AddRefChapter(&self, hchapter: usize) -> windows_core::Result<u32>;
-    fn ReleaseChapter(&self, hchapter: usize) -> windows_core::Result<u32>;
+    fn AddRefChapter(&self, hchapter: usize, pcrefcount: *mut u32) -> windows_core::Result<()>;
+    fn ReleaseChapter(&self, hchapter: usize, pcrefcount: *mut u32) -> windows_core::Result<()>;
 }
 impl IChapteredRowset_Vtbl {
     pub const fn new<Identity: IChapteredRowset_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddRefChapter<Identity: IChapteredRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IChapteredRowset_Impl::AddRefChapter(this, core::mem::transmute_copy(&hchapter)) {
-                    Ok(ok__) => {
-                        pcrefcount.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IChapteredRowset_Impl::AddRefChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount)).into()
             }
         }
         unsafe extern "system" fn ReleaseChapter<Identity: IChapteredRowset_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IChapteredRowset_Impl::ReleaseChapter(this, core::mem::transmute_copy(&hchapter)) {
-                    Ok(ok__) => {
-                        pcrefcount.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IChapteredRowset_Impl::ReleaseChapter(this, core::mem::transmute_copy(&hchapter), core::mem::transmute_copy(&pcrefcount)).into()
             }
         }
         Self {
@@ -4367,12 +5359,12 @@ windows_core::imp::define_interface!(IColumnsInfo, IColumnsInfo_Vtbl, 0x0c733a11
 windows_core::imp::interface_hierarchy!(IColumnsInfo, windows_core::IUnknown);
 impl IColumnsInfo {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), pccolumns as _, prginfo as _, ppstringsbuffer as _).ok() }
+    pub unsafe fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetColumnInfo)(windows_core::Interface::as_raw(self), pccolumns as _, prginfo as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).MapColumnIDs)(windows_core::Interface::as_raw(self), ccolumnids, rgcolumnids, rgcolumns as _).ok() }
+    pub unsafe fn MapColumnIDs(&self, ccolumnids: usize, rgcolumnids: Option<*const super::super::Storage::IndexServer::DBID>, rgcolumns: Option<*mut usize>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).MapColumnIDs)(windows_core::Interface::as_raw(self), ccolumnids, rgcolumnids.unwrap_or(core::mem::zeroed()) as _, rgcolumns.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -4430,8 +5422,8 @@ impl core::ops::Deref for IColumnsInfo2 {
 windows_core::imp::interface_hierarchy!(IColumnsInfo2, windows_core::IUnknown, IColumnsInfo);
 impl IColumnsInfo2 {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[super::super::Storage::IndexServer::DBID], dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), rgcolumnidmasks.len().try_into().unwrap(), core::mem::transmute(rgcolumnidmasks.as_ptr()), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer as _).ok() }
+    pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[super::super::Storage::IndexServer::DBID], dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), rgcolumnidmasks.len().try_into().unwrap(), core::mem::transmute(rgcolumnidmasks.as_ptr()), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -4472,11 +5464,11 @@ impl IColumnsRowset {
         unsafe { (windows_core::Interface::vtable(self).GetAvailableColumns)(windows_core::Interface::as_raw(self), pcoptcolumns as _, prgoptcolumns as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetColumnsRowset<P0>(&self, punkouter: P0, rgoptcolumns: &[super::super::Storage::IndexServer::DBID], riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], ppcolrowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn GetColumnsRowset<P0>(&self, punkouter: P0, rgoptcolumns: &[super::super::Storage::IndexServer::DBID], riid: *const windows_core::GUID, rgpropertysets: Option<&mut [DBPROPSET]>, ppcolrowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rgoptcolumns.len().try_into().unwrap(), core::mem::transmute(rgoptcolumns.as_ptr()), riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), core::mem::transmute(ppcolrowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rgoptcolumns.len().try_into().unwrap(), core::mem::transmute(rgoptcolumns.as_ptr()), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ppcolrowset)).ok() }
     }
 }
 #[repr(C)]
@@ -4530,11 +5522,11 @@ impl ICommand {
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Execute<P0>(&self, punkouter: P0, riid: *const windows_core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn Execute<P0>(&self, punkouter: P0, riid: *const windows_core::GUID, pparams: Option<*mut DBPARAMS>, pcrowsaffected: Option<*mut isize>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, pparams as _, pcrowsaffected as _, core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, pparams.unwrap_or(core::mem::zeroed()) as _, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, pprowset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetDBSession(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -4850,8 +5842,8 @@ windows_core::imp::define_interface!(ICommandProperties, ICommandProperties_Vtbl
 windows_core::imp::interface_hierarchy!(ICommandProperties, windows_core::IUnknown);
 impl ICommandProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertysets as _, prgpropertysets as _).ok() }
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: &[DBPROPSET]) -> windows_core::Result<()> {
@@ -4906,8 +5898,8 @@ impl windows_core::RuntimeName for ICommandProperties {}
 windows_core::imp::define_interface!(ICommandStream, ICommandStream_Vtbl, 0x0c733abf_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ICommandStream, windows_core::IUnknown);
 impl ICommandStream {
-    pub unsafe fn GetCommandStream(&self, piid: *mut windows_core::GUID, pguiddialect: *mut windows_core::GUID, ppcommandstream: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCommandStream)(windows_core::Interface::as_raw(self), piid as _, pguiddialect as _, core::mem::transmute(ppcommandstream)).ok() }
+    pub unsafe fn GetCommandStream(&self, piid: Option<*mut windows_core::GUID>, pguiddialect: Option<*mut windows_core::GUID>, ppcommandstream: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCommandStream)(windows_core::Interface::as_raw(self), piid.unwrap_or(core::mem::zeroed()) as _, pguiddialect.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppcommandstream)).ok() }
     }
     pub unsafe fn SetCommandStream<P2>(&self, riid: *const windows_core::GUID, rguiddialect: *const windows_core::GUID, pcommandstream: P2) -> windows_core::Result<()>
     where
@@ -4961,8 +5953,8 @@ impl core::ops::Deref for ICommandText {
 }
 windows_core::imp::interface_hierarchy!(ICommandText, windows_core::IUnknown, ICommand);
 impl ICommandText {
-    pub unsafe fn GetCommandText(&self, pguiddialect: *mut windows_core::GUID, ppwszcommand: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCommandText)(windows_core::Interface::as_raw(self), pguiddialect as _, ppwszcommand as _).ok() }
+    pub unsafe fn GetCommandText(&self, pguiddialect: Option<*mut windows_core::GUID>, ppwszcommand: *mut windows_core::PWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCommandText)(windows_core::Interface::as_raw(self), pguiddialect.unwrap_or(core::mem::zeroed()) as _, ppwszcommand as _).ok() }
     }
     pub unsafe fn SetCommandText<P1>(&self, rguiddialect: *const windows_core::GUID, pwszcommand: P1) -> windows_core::Result<()>
     where
@@ -5057,14 +6049,14 @@ windows_core::imp::define_interface!(ICommandWithParameters, ICommandWithParamet
 windows_core::imp::interface_hierarchy!(ICommandWithParameters, windows_core::IUnknown);
 impl ICommandWithParameters {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetParameterInfo)(windows_core::Interface::as_raw(self), pcparams as _, prgparaminfo as _, ppnamesbuffer as _).ok() }
+    pub unsafe fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetParameterInfo)(windows_core::Interface::as_raw(self), pcparams as _, prgparaminfo as _, ppnamesbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn MapParameterNames(&self, cparamnames: usize, rgparamnames: *const windows_core::PCWSTR, rgparamordinals: *mut isize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MapParameterNames)(windows_core::Interface::as_raw(self), cparamnames, rgparamnames, rgparamordinals as _).ok() }
     }
-    pub unsafe fn SetParameterInfo(&self, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetParameterInfo)(windows_core::Interface::as_raw(self), cparams, rgparamordinals, rgparambindinfo).ok() }
+    pub unsafe fn SetParameterInfo(&self, cparams: usize, rgparamordinals: Option<*const usize>, rgparambindinfo: Option<*const DBPARAMBINDINFO>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetParameterInfo)(windows_core::Interface::as_raw(self), cparams, rgparamordinals.unwrap_or(core::mem::zeroed()) as _, rgparambindinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -5146,8 +6138,8 @@ impl ICondition {
         unsafe { (windows_core::Interface::vtable(self).GetSubConditions)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetComparisonInfo(&self, ppszpropertyname: *mut windows_core::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetComparisonInfo)(windows_core::Interface::as_raw(self), ppszpropertyname as _, pcop as _, core::mem::transmute(ppropvar)).ok() }
+    pub unsafe fn GetComparisonInfo(&self, ppszpropertyname: Option<*mut windows_core::PWSTR>, pcop: Option<*mut Common::CONDITION_OPERATION>, ppropvar: Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetComparisonInfo)(windows_core::Interface::as_raw(self), ppszpropertyname.unwrap_or(core::mem::zeroed()) as _, pcop.unwrap_or(core::mem::zeroed()) as _, ppropvar.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetValueType(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -5161,8 +6153,8 @@ impl ICondition {
             (windows_core::Interface::vtable(self).GetValueNormalization)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetInputTerms(&self, pppropertyterm: *mut Option<IRichChunk>, ppoperationterm: *mut Option<IRichChunk>, ppvalueterm: *mut Option<IRichChunk>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetInputTerms)(windows_core::Interface::as_raw(self), core::mem::transmute(pppropertyterm), core::mem::transmute(ppoperationterm), core::mem::transmute(ppvalueterm)).ok() }
+    pub unsafe fn GetInputTerms(&self, pppropertyterm: Option<*mut Option<IRichChunk>>, ppoperationterm: Option<*mut Option<IRichChunk>>, ppvalueterm: Option<*mut Option<IRichChunk>>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetInputTerms)(windows_core::Interface::as_raw(self), pppropertyterm.unwrap_or(core::mem::zeroed()) as _, ppoperationterm.unwrap_or(core::mem::zeroed()) as _, ppvalueterm.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<ICondition> {
         unsafe {
@@ -5306,8 +6298,8 @@ impl ICondition2 {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetLeafConditionInfo(&self, ppropkey: *mut super::super::Foundation::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLeafConditionInfo)(windows_core::Interface::as_raw(self), ppropkey as _, pcop as _, core::mem::transmute(ppropvar)).ok() }
+    pub unsafe fn GetLeafConditionInfo(&self, ppropkey: Option<*mut super::super::Foundation::PROPERTYKEY>, pcop: Option<*mut Common::CONDITION_OPERATION>, ppropvar: Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetLeafConditionInfo)(windows_core::Interface::as_raw(self), ppropkey.unwrap_or(core::mem::zeroed()) as _, pcop.unwrap_or(core::mem::zeroed()) as _, ppropvar.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5397,13 +6389,13 @@ impl IConditionFactory {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Resolve<P0>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<ICondition>
+    pub unsafe fn Resolve<P0>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<ICondition>
     where
         P0: windows_core::Param<ICondition>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), pc.param().abi(), sqro, pstreferencetime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), pc.param().abi(), sqro, pstreferencetime.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -5582,13 +6574,13 @@ impl IConditionFactory2 {
         unsafe { (windows_core::Interface::vtable(self).CreateLeaf)(windows_core::Interface::as_raw(self), propkey, cop, core::mem::transmute(propvar), pszsemantictype.param().abi(), pszlocalename.param().abi(), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResolveCondition<P0, T>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<T>
+    pub unsafe fn ResolveCondition<P0, T>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<T>
     where
         P0: windows_core::Param<ICondition>,
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).ResolveCondition)(windows_core::Interface::as_raw(self), pc.param().abi(), sqro, pstreferencetime, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).ResolveCondition)(windows_core::Interface::as_raw(self), pc.param().abi(), sqro, pstreferencetime.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -5752,14 +6744,11 @@ impl IConditionGenerator {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn DefaultPhrase<P0>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: bool) -> windows_core::Result<windows_core::PWSTR>
+    pub unsafe fn DefaultPhrase<P0>(&self, pszvaluetype: P0, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: bool, ppszphrase: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), pszvaluetype.param().abi(), core::mem::transmute(ppropvar), fuseenglish.into(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), pszvaluetype.param().abi(), core::mem::transmute(ppropvar), fuseenglish.into(), ppszphrase.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -5782,7 +6771,7 @@ pub trait IConditionGenerator_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pschemaprovider: windows_core::Ref<ISchemaProvider>) -> windows_core::Result<()>;
     fn RecognizeNamedEntities(&self, pszinputstring: &windows_core::PCWSTR, lciduserlocale: u32, ptokencollection: windows_core::Ref<ITokenCollection>, pnamedentities: windows_core::Ref<INamedEntityCollector>) -> windows_core::Result<()>;
     fn GenerateForLeaf(&self, pconditionfactory: windows_core::Ref<IConditionFactory>, pszpropertyname: &windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: &windows_core::PCWSTR, pszvalue: &windows_core::PCWSTR, pszvalue2: &windows_core::PCWSTR, ppropertynameterm: windows_core::Ref<IRichChunk>, poperationterm: windows_core::Ref<IRichChunk>, pvalueterm: windows_core::Ref<IRichChunk>, automaticwildcard: windows_core::BOOL, pnostringquery: *mut windows_core::BOOL) -> windows_core::Result<ICondition>;
-    fn DefaultPhrase(&self, pszvaluetype: &windows_core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: windows_core::BOOL) -> windows_core::Result<windows_core::PWSTR>;
+    fn DefaultPhrase(&self, pszvaluetype: &windows_core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: windows_core::BOOL, ppszphrase: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 impl IConditionGenerator_Vtbl {
@@ -5814,13 +6803,7 @@ impl IConditionGenerator_Vtbl {
         unsafe extern "system" fn DefaultPhrase<Identity: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszvaluetype: windows_core::PCWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: windows_core::BOOL, ppszphrase: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IConditionGenerator_Impl::DefaultPhrase(this, core::mem::transmute(&pszvaluetype), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&fuseenglish)) {
-                    Ok(ok__) => {
-                        ppszphrase.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IConditionGenerator_Impl::DefaultPhrase(this, core::mem::transmute(&pszvaluetype), core::mem::transmute_copy(&ppropvar), core::mem::transmute_copy(&fuseenglish), core::mem::transmute_copy(&ppszphrase)).into()
             }
         }
         Self {
@@ -5872,13 +6855,13 @@ windows_core::imp::define_interface!(ICreateRow, ICreateRow_Vtbl, 0x0c733ab2_2a1
 windows_core::imp::interface_hierarchy!(ICreateRow, windows_core::IUnknown);
 impl ICreateRow {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateRow<P0, P1, P5>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: P5, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut windows_core::PWSTR, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn CreateRow<P0, P1, P5>(&self, punkouter: P0, pwszurl: P1, dwbindurlflags: u32, rguid: *const windows_core::GUID, riid: *const windows_core::GUID, pauthenticate: P5, pimplsession: Option<*mut DBIMPLICITSESSION>, pdwbindstatus: *mut u32, ppwsznewurl: Option<*mut windows_core::PWSTR>, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<super::Com::IAuthenticate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, riid, pauthenticate.param().abi(), core::mem::transmute(pimplsession), pdwbindstatus as _, ppwsznewurl as _, core::mem::transmute(ppunk)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateRow)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pwszurl.param().abi(), dwbindurlflags, rguid, riid, pauthenticate.param().abi(), pimplsession.unwrap_or(core::mem::zeroed()) as _, pdwbindstatus as _, ppwsznewurl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppunk)).ok() }
     }
 }
 #[repr(C)]
@@ -5981,8 +6964,8 @@ impl IDBAsynchStatus {
     pub unsafe fn Abort(&self, hchapter: usize, eoperation: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self), hchapter, eoperation).ok() }
     }
-    pub unsafe fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), hchapter, eoperation, pulprogress as _, pulprogressmax as _, peasynchphase as _, ppwszstatustext as _).ok() }
+    pub unsafe fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: Option<*mut usize>, pulprogressmax: Option<*mut usize>, peasynchphase: *mut u32, ppwszstatustext: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), hchapter, eoperation, pulprogress.unwrap_or(core::mem::zeroed()) as _, pulprogressmax.unwrap_or(core::mem::zeroed()) as _, peasynchphase as _, ppwszstatustext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -6147,22 +7130,22 @@ windows_core::imp::define_interface!(IDBDataSourceAdmin, IDBDataSourceAdmin_Vtbl
 windows_core::imp::interface_hierarchy!(IDBDataSourceAdmin, windows_core::IUnknown);
 impl IDBDataSourceAdmin {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateDataSource<P2>(&self, rgpropertysets: &mut [DBPROPSET], punkouter: P2, riid: *const windows_core::GUID, ppdbsession: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn CreateDataSource<P2>(&self, rgpropertysets: Option<&mut [DBPROPSET]>, punkouter: P2, riid: *const windows_core::GUID, ppdbsession: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), punkouter.param().abi(), riid, core::mem::transmute(ppdbsession)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), punkouter.param().abi(), riid, ppdbsession.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn DestroyDataSource(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DestroyDataSource)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _).ok() }
+    pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ModifyDataSource(&self, rgpropertysets: &mut [DBPROPSET]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ModifyDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr())).ok() }
+    pub unsafe fn ModifyDataSource(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ModifyDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]
@@ -6240,8 +7223,8 @@ impl IDBInfo {
             (windows_core::Interface::vtable(self).GetKeywords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLiteralInfo(&self, rgliterals: &[u32], pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.len().try_into().unwrap(), core::mem::transmute(rgliterals.as_ptr()), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _).ok() }
+    pub unsafe fn GetLiteralInfo(&self, rgliterals: Option<&[u32]>, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgliterals.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _).ok() }
     }
 }
 #[repr(C)]
@@ -6335,15 +7318,12 @@ impl windows_core::RuntimeName for IDBInitialize {}
 windows_core::imp::define_interface!(IDBPromptInitialize, IDBPromptInitialize_Vtbl, 0x2206ccb0_19c1_11d1_89e0_00c04fd7a829);
 windows_core::imp::interface_hierarchy!(IDBPromptInitialize, windows_core::IUnknown);
 impl IDBPromptInitialize {
-    pub unsafe fn PromptDataSource<P0, P5>(&self, punkouter: P0, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, rgsourcetypefilter: &[u32], pwszszzproviderfilter: P5, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn PromptDataSource<P0, P5>(&self, punkouter: P0, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, rgsourcetypefilter: Option<&[u32]>, pwszszzproviderfilter: P5, riid: *const windows_core::GUID, ppdatasource: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PromptDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hwndparent, dwpromptoptions, rgsourcetypefilter.len().try_into().unwrap(), core::mem::transmute(rgsourcetypefilter.as_ptr()), pwszszzproviderfilter.param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).PromptDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hwndparent, dwpromptoptions, rgsourcetypefilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsourcetypefilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwszszzproviderfilter.param().abi(), riid, core::mem::transmute(ppdatasource)).ok() }
     }
     pub unsafe fn PromptFileName<P2, P3>(&self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: P2, pwszinitialfile: P3) -> windows_core::Result<windows_core::PWSTR>
     where
@@ -6364,7 +7344,7 @@ pub struct IDBPromptInitialize_Vtbl {
     pub PromptFileName: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IDBPromptInitialize_Impl: windows_core::IUnknownImpl {
-    fn PromptDataSource(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: &windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn PromptDataSource(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppdatasource: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn PromptFileName(&self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: &windows_core::PCWSTR, pwszinitialfile: &windows_core::PCWSTR) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IDBPromptInitialize_Vtbl {
@@ -6372,13 +7352,7 @@ impl IDBPromptInitialize_Vtbl {
         unsafe extern "system" fn PromptDataSource<Identity: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: windows_core::PCWSTR, riid: *const windows_core::GUID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDBPromptInitialize_Impl::PromptDataSource(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwpromptoptions), core::mem::transmute_copy(&csourcetypefilter), core::mem::transmute_copy(&rgsourcetypefilter), core::mem::transmute(&pwszszzproviderfilter), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppdatasource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDBPromptInitialize_Impl::PromptDataSource(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&dwpromptoptions), core::mem::transmute_copy(&csourcetypefilter), core::mem::transmute_copy(&rgsourcetypefilter), core::mem::transmute(&pwszszzproviderfilter), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdatasource)).into()
             }
         }
         unsafe extern "system" fn PromptFileName<Identity: IDBPromptInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: windows_core::PCWSTR, pwszinitialfile: windows_core::PCWSTR, ppwszselectedfile: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -6408,16 +7382,16 @@ windows_core::imp::define_interface!(IDBProperties, IDBProperties_Vtbl, 0x0c733a
 windows_core::imp::interface_hierarchy!(IDBProperties, windows_core::IUnknown);
 impl IDBProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertysets as _, prgpropertysets as _).ok() }
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _).ok() }
+    pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperties(&self, rgpropertysets: &mut [DBPROPSET]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr())).ok() }
+    pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]
@@ -6539,11 +7513,11 @@ windows_core::imp::define_interface!(IDBSchemaRowset, IDBSchemaRowset_Vtbl, 0x0c
 windows_core::imp::interface_hierarchy!(IDBSchemaRowset, windows_core::IUnknown);
 impl IDBSchemaRowset {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const windows_core::GUID, rgrestrictions: &[super::Variant::VARIANT], riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn GetRowset<P0>(&self, punkouter: P0, rguidschema: *const windows_core::GUID, rgrestrictions: Option<&[super::Variant::VARIANT]>, riid: *const windows_core::GUID, rgpropertysets: Option<&mut [DBPROPSET]>, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.len().try_into().unwrap(), core::mem::transmute(rgrestrictions.as_ptr()), riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgrestrictions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pprowset)).ok() }
     }
     pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSchemas)(windows_core::Interface::as_raw(self), pcschemas as _, prgschemas as _, prgrestrictionsupport as _).ok() }
@@ -6705,14 +7679,14 @@ pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
 windows_core::imp::define_interface!(IDataConvert, IDataConvert_Vtbl, 0x0c733a8d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IDataConvert, windows_core::IUnknown);
 impl IDataConvert {
-    pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const core::ffi::c_void, pdst: *mut core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DataConvert)(windows_core::Interface::as_raw(self), wsrctype, wdsttype, cbsrclength, pcbdstlength as _, psrc, pdst as _, cbdstmaxlength, dbssrcstatus, pdbsstatus as _, bprecision, bscale, dwflags).ok() }
+    pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: Option<*mut usize>, psrc: *const core::ffi::c_void, pdst: *mut core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: Option<*mut u32>, bprecision: u8, bscale: u8, dwflags: u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DataConvert)(windows_core::Interface::as_raw(self), wsrctype, wdsttype, cbsrclength, pcbdstlength.unwrap_or(core::mem::zeroed()) as _, psrc, pdst as _, cbdstmaxlength, dbssrcstatus, pdbsstatus.unwrap_or(core::mem::zeroed()) as _, bprecision, bscale, dwflags).ok() }
     }
     pub unsafe fn CanConvert(&self, wsrctype: u16, wdsttype: u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CanConvert)(windows_core::Interface::as_raw(self), wsrctype, wdsttype).ok() }
     }
-    pub unsafe fn GetConversionSize(&self, wsrctype: u16, wdsttype: u16, pcbsrclength: *const usize, pcbdstlength: *mut usize, psrc: *const core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetConversionSize)(windows_core::Interface::as_raw(self), wsrctype, wdsttype, pcbsrclength, pcbdstlength as _, psrc).ok() }
+    pub unsafe fn GetConversionSize(&self, wsrctype: u16, wdsttype: u16, pcbsrclength: Option<*const usize>, pcbdstlength: Option<*mut usize>, psrc: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetConversionSize)(windows_core::Interface::as_raw(self), wsrctype, wdsttype, pcbsrclength.unwrap_or(core::mem::zeroed()) as _, pcbdstlength.unwrap_or(core::mem::zeroed()) as _, psrc.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -6763,15 +7737,12 @@ impl windows_core::RuntimeName for IDataConvert {}
 windows_core::imp::define_interface!(IDataInitialize, IDataInitialize_Vtbl, 0x2206ccb1_19c1_11d1_89e0_00c04fd7a829);
 windows_core::imp::interface_hierarchy!(IDataInitialize, windows_core::IUnknown);
 impl IDataInitialize {
-    pub unsafe fn GetDataSource<P0, P2>(&self, punkouter: P0, dwclsctx: u32, pwszinitializationstring: P2, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn GetDataSource<P0, P2>(&self, punkouter: P0, dwclsctx: u32, pwszinitializationstring: P2, riid: *const windows_core::GUID, ppdatasource: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), dwclsctx, pwszinitializationstring.param().abi(), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), dwclsctx, pwszinitializationstring.param().abi(), riid, core::mem::transmute(ppdatasource)).ok() }
     }
     pub unsafe fn GetInitializationString<P0>(&self, pdatasource: P0, fincludepassword: u8) -> windows_core::Result<windows_core::PWSTR>
     where
@@ -6833,7 +7804,7 @@ pub struct IDataInitialize_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataInitialize_Impl: windows_core::IUnknownImpl {
-    fn GetDataSource(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclsctx: u32, pwszinitializationstring: &windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetDataSource(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclsctx: u32, pwszinitializationstring: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppdatasource: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetInitializationString(&self, pdatasource: windows_core::Ref<windows_core::IUnknown>, fincludepassword: u8) -> windows_core::Result<windows_core::PWSTR>;
     fn CreateDBInstance(&self, clsidprovider: *const windows_core::GUID, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclsctx: u32, pwszreserved: &windows_core::PCWSTR, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateDBInstanceEx(&self, clsidprovider: *const windows_core::GUID, punkouter: windows_core::Ref<windows_core::IUnknown>, dwclsctx: u32, pwszreserved: &windows_core::PCWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> windows_core::Result<()>;
@@ -6846,13 +7817,7 @@ impl IDataInitialize_Vtbl {
         unsafe extern "system" fn GetDataSource<Identity: IDataInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, dwclsctx: u32, pwszinitializationstring: windows_core::PCWSTR, riid: *const windows_core::GUID, ppdatasource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDataInitialize_Impl::GetDataSource(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclsctx), core::mem::transmute(&pwszinitializationstring), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppdatasource.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDataInitialize_Impl::GetDataSource(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&dwclsctx), core::mem::transmute(&pwszinitializationstring), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdatasource)).into()
             }
         }
         unsafe extern "system" fn GetInitializationString<Identity: IDataInitialize_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdatasource: *mut core::ffi::c_void, fincludepassword: u8, ppwszinitstring: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -7024,11 +7989,8 @@ impl windows_core::RuntimeName for IDataSourceLocator {}
 windows_core::imp::define_interface!(IEntity, IEntity_Vtbl, 0x24264891_e80b_4fd3_b7ce_4ff2fae8931f);
 windows_core::imp::interface_hierarchy!(IEntity, windows_core::IUnknown);
 impl IEntity {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn Name(&self, ppszname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), ppszname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Base(&self) -> windows_core::Result<IEntity> {
         unsafe {
@@ -7075,11 +8037,8 @@ impl IEntity {
             (windows_core::Interface::vtable(self).GetNamedEntity)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), ppszphrase.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -7096,27 +8055,21 @@ pub struct IEntity_Vtbl {
     pub DefaultPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IEntity_Impl: windows_core::IUnknownImpl {
-    fn Name(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn Name(&self, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn Base(&self) -> windows_core::Result<IEntity>;
     fn Relationships(&self, riid: *const windows_core::GUID, prelationships: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetRelationship(&self, pszrelationname: &windows_core::PCWSTR) -> windows_core::Result<IRelationship>;
     fn MetaData(&self, riid: *const windows_core::GUID, pmetadata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn NamedEntities(&self, riid: *const windows_core::GUID, pnamedentities: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetNamedEntity(&self, pszvalue: &windows_core::PCWSTR) -> windows_core::Result<INamedEntity>;
-    fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn DefaultPhrase(&self, ppszphrase: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IEntity_Vtbl {
     pub const fn new<Identity: IEntity_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEntity_Impl::Name(this) {
-                    Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEntity_Impl::Name(this, core::mem::transmute_copy(&ppszname)).into()
             }
         }
         unsafe extern "system" fn Base<Identity: IEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbaseentity: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7176,13 +8129,7 @@ impl IEntity_Vtbl {
         unsafe extern "system" fn DefaultPhrase<Identity: IEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszphrase: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IEntity_Impl::DefaultPhrase(this) {
-                    Ok(ok__) => {
-                        ppszphrase.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IEntity_Impl::DefaultPhrase(this, core::mem::transmute_copy(&ppszphrase)).into()
             }
         }
         Self {
@@ -7571,8 +8518,8 @@ windows_core::imp::define_interface!(IErrorLookup, IErrorLookup_Vtbl, 0x0c733a66
 windows_core::imp::interface_hierarchy!(IErrorLookup, windows_core::IUnknown);
 impl IErrorLookup {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut windows_core::BSTR, pbstrdescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), hrerror, dwlookupid, pdispparams, lcid, core::mem::transmute(pbstrsource), core::mem::transmute(pbstrdescription)).ok() }
+    pub unsafe fn GetErrorDescription(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: Option<*mut windows_core::BSTR>, pbstrdescription: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetErrorDescription)(windows_core::Interface::as_raw(self), hrerror, dwlookupid, pdispparams, lcid, pbstrsource.unwrap_or(core::mem::zeroed()) as _, pbstrdescription.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetHelpInfo(&self, hrerror: windows_core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut windows_core::BSTR, pdwhelpcontext: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), hrerror, dwlookupid, lcid, core::mem::transmute(pbstrhelpfile), pdwhelpcontext as _).ok() }
@@ -7636,11 +8583,11 @@ windows_core::imp::define_interface!(IErrorRecords, IErrorRecords_Vtbl, 0x0c733a
 windows_core::imp::interface_hierarchy!(IErrorRecords, windows_core::IUnknown);
 impl IErrorRecords {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddErrorRecord<P3>(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: P3, dwdynamicerrorid: u32) -> windows_core::Result<()>
+    pub unsafe fn AddErrorRecord<P3>(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: Option<*const super::Com::DISPPARAMS>, punkcustomerror: P3, dwdynamicerrorid: u32) -> windows_core::Result<()>
     where
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddErrorRecord)(windows_core::Interface::as_raw(self), perrorinfo, dwlookupid, pdispparams, punkcustomerror.param().abi(), dwdynamicerrorid).ok() }
+        unsafe { (windows_core::Interface::vtable(self).AddErrorRecord)(windows_core::Interface::as_raw(self), perrorinfo, dwlookupid, pdispparams.unwrap_or(core::mem::zeroed()) as _, punkcustomerror.param().abi(), dwdynamicerrorid).ok() }
     }
     pub unsafe fn GetBasicErrorInfo(&self, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBasicErrorInfo)(windows_core::Interface::as_raw(self), ulrecordnum, perrorinfo as _).ok() }
@@ -7971,12 +8918,12 @@ windows_core::imp::define_interface!(IIndexDefinition, IIndexDefinition_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IIndexDefinition, windows_core::IUnknown);
 impl IIndexDefinition {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid, rgindexcolumndescs.len().try_into().unwrap(), core::mem::transmute(rgindexcolumndescs.as_ptr()), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), ppindexid as _).ok() }
+    pub unsafe fn CreateIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: Option<*const super::super::Storage::IndexServer::DBID>, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _, rgindexcolumndescs.len().try_into().unwrap(), core::mem::transmute(rgindexcolumndescs.as_ptr()), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), ppindexid.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn DropIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DropIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid).ok() }
+    pub unsafe fn DropIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: Option<*const super::super::Storage::IndexServer::DBID>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DropIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -8404,8 +9351,8 @@ impl windows_core::RuntimeName for IMDRangeRowset {}
 windows_core::imp::define_interface!(IMetaData, IMetaData_Vtbl, 0x780102b0_c43b_4876_bc7b_5e9ba5c88794);
 windows_core::imp::interface_hierarchy!(IMetaData, windows_core::IUnknown);
 impl IMetaData {
-    pub unsafe fn GetData(&self, ppszkey: *mut windows_core::PWSTR, ppszvalue: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), ppszkey as _, ppszvalue as _).ok() }
+    pub unsafe fn GetData(&self, ppszkey: Option<*mut windows_core::PWSTR>, ppszvalue: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), ppszkey.unwrap_or(core::mem::zeroed()) as _, ppszvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -8435,11 +9382,11 @@ impl windows_core::RuntimeName for IMetaData {}
 windows_core::imp::define_interface!(IMultipleResults, IMultipleResults_Vtbl, 0x0c733a90_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IMultipleResults, windows_core::IUnknown);
 impl IMultipleResults {
-    pub unsafe fn GetResult<P0>(&self, punkouter: P0, lresultflag: isize, riid: *const windows_core::GUID, pcrowsaffected: *mut isize, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn GetResult<P0>(&self, punkouter: P0, lresultflag: isize, riid: *const windows_core::GUID, pcrowsaffected: Option<*mut isize>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, riid, pcrowsaffected as _, core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetResult)(windows_core::Interface::as_raw(self), punkouter.param().abi(), lresultflag, riid, pcrowsaffected.unwrap_or(core::mem::zeroed()) as _, pprowset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -8494,11 +9441,8 @@ impl INamedEntity {
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), ppszphrase.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -8510,7 +9454,7 @@ pub struct INamedEntity_Vtbl {
 }
 pub trait INamedEntity_Impl: windows_core::IUnknownImpl {
     fn GetValue(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn DefaultPhrase(&self, ppszphrase: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl INamedEntity_Vtbl {
     pub const fn new<Identity: INamedEntity_Impl, const OFFSET: isize>() -> Self {
@@ -8529,13 +9473,7 @@ impl INamedEntity_Vtbl {
         unsafe extern "system" fn DefaultPhrase<Identity: INamedEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszphrase: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match INamedEntity_Impl::DefaultPhrase(this) {
-                    Ok(ok__) => {
-                        ppszphrase.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                INamedEntity_Impl::DefaultPhrase(this, core::mem::transmute_copy(&ppszphrase)).into()
             }
         }
         Self {
@@ -8796,11 +9734,11 @@ windows_core::imp::define_interface!(IOpenRowset, IOpenRowset_Vtbl, 0x0c733a69_2
 windows_core::imp::interface_hierarchy!(IOpenRowset, windows_core::IUnknown);
 impl IOpenRowset {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const super::super::Storage::IndexServer::DBID>, pindexid: Option<*const super::super::Storage::IndexServer::DBID>, riid: *const windows_core::GUID, rgpropertysets: Option<&mut [DBPROPSET]>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, pindexid, riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pprowset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -9264,8 +10202,8 @@ impl core::ops::Deref for IQuerySolution {
 windows_core::imp::interface_hierarchy!(IQuerySolution, windows_core::IUnknown, IConditionFactory);
 impl IQuerySolution {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetQuery(&self, ppquerynode: *mut Option<ICondition>, ppmaintype: *mut Option<IEntity>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetQuery)(windows_core::Interface::as_raw(self), core::mem::transmute(ppquerynode), core::mem::transmute(ppmaintype)).ok() }
+    pub unsafe fn GetQuery(&self, ppquerynode: Option<*mut Option<ICondition>>, ppmaintype: Option<*mut Option<IEntity>>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetQuery)(windows_core::Interface::as_raw(self), ppquerynode.unwrap_or(core::mem::zeroed()) as _, ppmaintype.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetErrors<T>(&self) -> windows_core::Result<T>
     where
@@ -9274,8 +10212,8 @@ impl IQuerySolution {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetErrors)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetLexicalData(&self, ppszinputstring: *mut windows_core::PWSTR, pptokens: *mut Option<ITokenCollection>, plcid: *mut u32, ppwordbreaker: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLexicalData)(windows_core::Interface::as_raw(self), ppszinputstring as _, core::mem::transmute(pptokens), plcid as _, core::mem::transmute(ppwordbreaker)).ok() }
+    pub unsafe fn GetLexicalData(&self, ppszinputstring: Option<*mut windows_core::PWSTR>, pptokens: Option<*mut Option<ITokenCollection>>, plcid: Option<*mut u32>, ppwordbreaker: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetLexicalData)(windows_core::Interface::as_raw(self), ppszinputstring.unwrap_or(core::mem::zeroed()) as _, pptokens.unwrap_or(core::mem::zeroed()) as _, plcid.unwrap_or(core::mem::zeroed()) as _, ppwordbreaker.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -9454,11 +10392,8 @@ impl windows_core::RuntimeName for IRegisterProvider {}
 windows_core::imp::define_interface!(IRelationship, IRelationship_Vtbl, 0x2769280b_5108_498c_9c7f_a51239b63147);
 windows_core::imp::interface_hierarchy!(IRelationship, windows_core::IUnknown);
 impl IRelationship {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn Name(&self, ppszname: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), ppszname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn IsReal(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -9479,11 +10414,8 @@ impl IRelationship {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).MetaData)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn DefaultPhrase(&self, ppszphrase: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), ppszphrase.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -9497,24 +10429,18 @@ pub struct IRelationship_Vtbl {
     pub DefaultPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IRelationship_Impl: windows_core::IUnknownImpl {
-    fn Name(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn Name(&self, ppszname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn IsReal(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Destination(&self) -> windows_core::Result<IEntity>;
     fn MetaData(&self, riid: *const windows_core::GUID, pmetadata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn DefaultPhrase(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn DefaultPhrase(&self, ppszphrase: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl IRelationship_Vtbl {
     pub const fn new<Identity: IRelationship_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: IRelationship_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszname: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRelationship_Impl::Name(this) {
-                    Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRelationship_Impl::Name(this, core::mem::transmute_copy(&ppszname)).into()
             }
         }
         unsafe extern "system" fn IsReal<Identity: IRelationship_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pisreal: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -9550,13 +10476,7 @@ impl IRelationship_Vtbl {
         unsafe extern "system" fn DefaultPhrase<Identity: IRelationship_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppszphrase: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRelationship_Impl::DefaultPhrase(this) {
-                    Ok(ok__) => {
-                        ppszphrase.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRelationship_Impl::DefaultPhrase(this, core::mem::transmute_copy(&ppszphrase)).into()
             }
         }
         Self {
@@ -9577,8 +10497,8 @@ windows_core::imp::define_interface!(IRichChunk, IRichChunk_Vtbl, 0x4fdef69c_dbc
 windows_core::imp::interface_hierarchy!(IRichChunk, windows_core::IUnknown);
 impl IRichChunk {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetData(&self, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut windows_core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), pfirstpos as _, plength as _, ppsz as _, core::mem::transmute(pvalue)).ok() }
+    pub unsafe fn GetData(&self, pfirstpos: Option<*mut u32>, plength: Option<*mut u32>, ppsz: Option<*mut windows_core::PWSTR>, pvalue: Option<*mut super::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), pfirstpos.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, ppsz.unwrap_or(core::mem::zeroed()) as _, pvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -9618,18 +10538,15 @@ impl IRow {
     pub unsafe fn GetColumns(&self, rgcolumns: &mut [DBCOLUMNACCESS]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetColumns)(windows_core::Interface::as_raw(self), rgcolumns.len().try_into().unwrap(), core::mem::transmute(rgcolumns.as_ptr())).ok() }
     }
-    pub unsafe fn GetSourceRowset(&self, riid: *const windows_core::GUID, pprowset: *mut Option<windows_core::IUnknown>, phrow: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), riid, core::mem::transmute(pprowset), phrow as _).ok() }
+    pub unsafe fn GetSourceRowset(&self, riid: *const windows_core::GUID, pprowset: Option<*mut Option<windows_core::IUnknown>>, phrow: Option<*mut usize>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetSourceRowset)(windows_core::Interface::as_raw(self), riid, pprowset.unwrap_or(core::mem::zeroed()) as _, phrow.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
-    pub unsafe fn Open<P0>(&self, punkouter: P0, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn Open<P0>(&self, punkouter: P0, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID, ppunk: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), punkouter.param().abi(), pcolumnid, rguidcolumntype, dwbindflags, riid, ppunk.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -9650,7 +10567,7 @@ pub struct IRow_Vtbl {
 pub trait IRow_Impl: windows_core::IUnknownImpl {
     fn GetColumns(&self, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::Result<()>;
     fn GetSourceRowset(&self, riid: *const windows_core::GUID, pprowset: windows_core::OutRef<windows_core::IUnknown>, phrow: *mut usize) -> windows_core::Result<()>;
-    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
+    fn Open(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl IRow_Vtbl {
@@ -9670,13 +10587,7 @@ impl IRow_Vtbl {
         unsafe extern "system" fn Open<Identity: IRow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punkouter: *mut core::ffi::c_void, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const windows_core::GUID, dwbindflags: u32, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRow_Impl::Open(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&rguidcolumntype), core::mem::transmute_copy(&dwbindflags), core::mem::transmute_copy(&riid)) {
-                    Ok(ok__) => {
-                        ppunk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRow_Impl::Open(this, core::mem::transmute_copy(&punkouter), core::mem::transmute_copy(&pcolumnid), core::mem::transmute_copy(&rguidcolumntype), core::mem::transmute_copy(&dwbindflags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
         Self {
@@ -9736,8 +10647,8 @@ impl IRowPosition {
     pub unsafe fn ClearRowPosition(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearRowPosition)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetRowPosition(&self, phchapter: *mut usize, phrow: *mut usize, pdwpositionflags: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRowPosition)(windows_core::Interface::as_raw(self), phchapter as _, phrow as _, pdwpositionflags as _).ok() }
+    pub unsafe fn GetRowPosition(&self, phchapter: Option<*mut usize>, phrow: *mut usize, pdwpositionflags: Option<*mut u32>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRowPosition)(windows_core::Interface::as_raw(self), phchapter.unwrap_or(core::mem::zeroed()) as _, phrow as _, pdwpositionflags.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetRowset(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -10139,17 +11050,11 @@ impl windows_core::RuntimeName for IRowsetChange {}
 windows_core::imp::define_interface!(IRowsetChangeExtInfo, IRowsetChangeExtInfo_Vtbl, 0x0c733a8f_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetChangeExtInfo, windows_core::IUnknown);
 impl IRowsetChangeExtInfo {
-    pub unsafe fn GetOriginalRow(&self, hreserved: usize, hrow: usize) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOriginalRow)(windows_core::Interface::as_raw(self), hreserved, hrow, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetOriginalRow)(windows_core::Interface::as_raw(self), hreserved, hrow, phroworiginal as _).ok() }
     }
-    pub unsafe fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPendingColumns)(windows_core::Interface::as_raw(self), hreserved, hrow, ccolumnordinals, rgiordinals, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPendingColumns)(windows_core::Interface::as_raw(self), hreserved, hrow, ccolumnordinals, rgiordinals, rgcolumnstatus as _).ok() }
     }
 }
 #[repr(C)]
@@ -10160,33 +11065,21 @@ pub struct IRowsetChangeExtInfo_Vtbl {
     pub GetPendingColumns: unsafe extern "system" fn(*mut core::ffi::c_void, usize, usize, u32, *const u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IRowsetChangeExtInfo_Impl: windows_core::IUnknownImpl {
-    fn GetOriginalRow(&self, hreserved: usize, hrow: usize) -> windows_core::Result<usize>;
-    fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32) -> windows_core::Result<u32>;
+    fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> windows_core::Result<()>;
+    fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> windows_core::Result<()>;
 }
 impl IRowsetChangeExtInfo_Vtbl {
     pub const fn new<Identity: IRowsetChangeExtInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOriginalRow<Identity: IRowsetChangeExtInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRowsetChangeExtInfo_Impl::GetOriginalRow(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&hrow)) {
-                    Ok(ok__) => {
-                        phroworiginal.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRowsetChangeExtInfo_Impl::GetOriginalRow(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&phroworiginal)).into()
             }
         }
         unsafe extern "system" fn GetPendingColumns<Identity: IRowsetChangeExtInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRowsetChangeExtInfo_Impl::GetPendingColumns(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ccolumnordinals), core::mem::transmute_copy(&rgiordinals)) {
-                    Ok(ok__) => {
-                        rgcolumnstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRowsetChangeExtInfo_Impl::GetPendingColumns(this, core::mem::transmute_copy(&hreserved), core::mem::transmute_copy(&hrow), core::mem::transmute_copy(&ccolumnordinals), core::mem::transmute_copy(&rgiordinals), core::mem::transmute_copy(&rgcolumnstatus)).into()
             }
         }
         Self {
@@ -10689,8 +11582,8 @@ windows_core::imp::define_interface!(IRowsetInfo, IRowsetInfo_Vtbl, 0x0c733a55_2
 windows_core::imp::interface_hierarchy!(IRowsetInfo, windows_core::IUnknown);
 impl IRowsetInfo {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertysets as _, prgpropertysets as _).ok() }
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -11095,11 +11988,8 @@ impl windows_core::RuntimeName for IRowsetPrioritization {}
 windows_core::imp::define_interface!(IRowsetQueryStatus, IRowsetQueryStatus_Vtbl, 0xa7ac77ed_f8d7_11ce_a798_0020f8008024);
 windows_core::imp::interface_hierarchy!(IRowsetQueryStatus, windows_core::IUnknown);
 impl IRowsetQueryStatus {
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetStatus(&self, pdwstatus: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pdwstatus as _).ok() }
     }
     pub unsafe fn GetStatusEx(&self, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStatusEx)(windows_core::Interface::as_raw(self), pdwstatus as _, pcfiltereddocuments as _, pcdocumentstofilter as _, pdwratiofinisheddenominator as _, pdwratiofinishednumerator as _, cbbmk, pbmk, pirowbmk as _, pcrowstotal as _).ok() }
@@ -11113,7 +12003,7 @@ pub struct IRowsetQueryStatus_Vtbl {
     pub GetStatusEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut usize, *mut usize, usize, *const u8, *mut usize, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IRowsetQueryStatus_Impl: windows_core::IUnknownImpl {
-    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn GetStatus(&self, pdwstatus: *mut u32) -> windows_core::Result<()>;
     fn GetStatusEx(&self, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> windows_core::Result<()>;
 }
 impl IRowsetQueryStatus_Vtbl {
@@ -11121,13 +12011,7 @@ impl IRowsetQueryStatus_Vtbl {
         unsafe extern "system" fn GetStatus<Identity: IRowsetQueryStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRowsetQueryStatus_Impl::GetStatus(this) {
-                    Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRowsetQueryStatus_Impl::GetStatus(this, core::mem::transmute_copy(&pdwstatus)).into()
             }
         }
         unsafe extern "system" fn GetStatusEx<Identity: IRowsetQueryStatus_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> windows_core::HRESULT {
@@ -11722,8 +12606,8 @@ windows_core::imp::define_interface!(ISQLGetDiagField, ISQLGetDiagField_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ISQLGetDiagField, windows_core::IUnknown);
 impl ISQLGetDiagField {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetDiagField(&self, pdiaginfo: *mut KAGGETDIAG) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDiagField)(windows_core::Interface::as_raw(self), core::mem::transmute(pdiaginfo)).ok() }
+    pub unsafe fn GetDiagField(&self, pdiaginfo: Option<*mut KAGGETDIAG>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDiagField)(windows_core::Interface::as_raw(self), pdiaginfo.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -12077,28 +12961,28 @@ impl core::ops::Deref for IScopedOperations {
 windows_core::imp::interface_hierarchy!(IScopedOperations, windows_core::IUnknown, IBindResource);
 impl IScopedOperations {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Copy<P4>(&self, crows: usize, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwcopyflags: u32, pauthenticate: P4, rgdwstatus: *mut u32, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()>
+    pub unsafe fn Copy<P4>(&self, crows: usize, rgpwszsourceurls: Option<*const windows_core::PCWSTR>, rgpwszdesturls: *const windows_core::PCWSTR, dwcopyflags: u32, pauthenticate: P4, rgdwstatus: *mut u32, rgpwsznewurls: Option<*mut windows_core::PWSTR>, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()>
     where
         P4: windows_core::Param<super::Com::IAuthenticate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls, rgpwszdesturls, dwcopyflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls as _, ppstringsbuffer as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls.unwrap_or(core::mem::zeroed()) as _, rgpwszdesturls, dwcopyflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls.unwrap_or(core::mem::zeroed()) as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Move<P4>(&self, crows: usize, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwmoveflags: u32, pauthenticate: P4, rgdwstatus: *mut u32, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut u16) -> windows_core::Result<()>
+    pub unsafe fn Move<P4>(&self, crows: usize, rgpwszsourceurls: Option<*const windows_core::PCWSTR>, rgpwszdesturls: *const windows_core::PCWSTR, dwmoveflags: u32, pauthenticate: P4, rgdwstatus: *mut u32, rgpwsznewurls: Option<*mut windows_core::PWSTR>, ppstringsbuffer: Option<*mut *mut u16>) -> windows_core::Result<()>
     where
         P4: windows_core::Param<super::Com::IAuthenticate>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls, rgpwszdesturls, dwmoveflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls as _, ppstringsbuffer as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), crows, rgpwszsourceurls.unwrap_or(core::mem::zeroed()) as _, rgpwszdesturls, dwmoveflags, pauthenticate.param().abi(), rgdwstatus as _, rgpwsznewurls.unwrap_or(core::mem::zeroed()) as _, ppstringsbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Delete(&self, crows: usize, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, rgdwstatus as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const super::super::Storage::IndexServer::DBID>, pindexid: Option<*const super::super::Storage::IndexServer::DBID>, riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, pindexid, riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), pprowset.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -15024,12 +15908,12 @@ windows_core::imp::define_interface!(ISessionProperties, ISessionProperties_Vtbl
 windows_core::imp::interface_hierarchy!(ISessionProperties, windows_core::IUnknown);
 impl ISessionProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperties(&self, rgpropertyidsets: &[DBPROPIDSET], pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.len().try_into().unwrap(), core::mem::transmute(rgpropertyidsets.as_ptr()), pcpropertysets as _, prgpropertysets as _).ok() }
+    pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperties(&self, rgpropertysets: &mut [DBPROPSET]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr())).ok() }
+    pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]
@@ -15093,14 +15977,11 @@ impl ISimpleCommandCreator {
     {
         unsafe { (windows_core::Interface::vtable(self).VerifyCatalog)(windows_core::Interface::as_raw(self), pwszmachine.param().abi(), pwszcatalogname.param().abi()).ok() }
     }
-    pub unsafe fn GetDefaultCatalog<P0>(&self, pwszcatalogname: P0, cwcin: u32) -> windows_core::Result<u32>
+    pub unsafe fn GetDefaultCatalog<P0>(&self, pwszcatalogname: P0, cwcin: u32, pcwcout: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultCatalog)(windows_core::Interface::as_raw(self), pwszcatalogname.param().abi(), cwcin, &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultCatalog)(windows_core::Interface::as_raw(self), pwszcatalogname.param().abi(), cwcin, pcwcout as _).ok() }
     }
 }
 #[repr(C)]
@@ -15114,7 +15995,7 @@ pub struct ISimpleCommandCreator_Vtbl {
 pub trait ISimpleCommandCreator_Impl: windows_core::IUnknownImpl {
     fn CreateICommand(&self, ppiunknown: windows_core::OutRef<windows_core::IUnknown>, pouterunk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn VerifyCatalog(&self, pwszmachine: &windows_core::PCWSTR, pwszcatalogname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetDefaultCatalog(&self, pwszcatalogname: &windows_core::PCWSTR, cwcin: u32) -> windows_core::Result<u32>;
+    fn GetDefaultCatalog(&self, pwszcatalogname: &windows_core::PCWSTR, cwcin: u32, pcwcout: *mut u32) -> windows_core::Result<()>;
 }
 impl ISimpleCommandCreator_Vtbl {
     pub const fn new<Identity: ISimpleCommandCreator_Impl, const OFFSET: isize>() -> Self {
@@ -15133,13 +16014,7 @@ impl ISimpleCommandCreator_Vtbl {
         unsafe extern "system" fn GetDefaultCatalog<Identity: ISimpleCommandCreator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszcatalogname: windows_core::PCWSTR, cwcin: u32, pcwcout: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ISimpleCommandCreator_Impl::GetDefaultCatalog(this, core::mem::transmute(&pwszcatalogname), core::mem::transmute_copy(&cwcin)) {
-                    Ok(ok__) => {
-                        pcwcout.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ISimpleCommandCreator_Impl::GetDefaultCatalog(this, core::mem::transmute(&pwszcatalogname), core::mem::transmute_copy(&cwcin), core::mem::transmute_copy(&pcwcout)).into()
             }
         }
         Self {
@@ -15158,11 +16033,11 @@ windows_core::imp::define_interface!(ISourcesRowset, ISourcesRowset_Vtbl, 0x0c73
 windows_core::imp::interface_hierarchy!(ISourcesRowset, windows_core::IUnknown);
 impl ISourcesRowset {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetSourcesRowset<P0>(&self, punkouter: P0, riid: *const windows_core::GUID, rgproperties: &mut [DBPROPSET], ppsourcesrowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn GetSourcesRowset<P0>(&self, punkouter: P0, riid: *const windows_core::GUID, rgproperties: Option<&mut [DBPROPSET]>, ppsourcesrowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, rgproperties.len().try_into().unwrap(), core::mem::transmute(rgproperties.as_ptr()), core::mem::transmute(ppsourcesrowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), riid, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ppsourcesrowset)).ok() }
     }
 }
 #[repr(C)]
@@ -15198,11 +16073,8 @@ impl windows_core::RuntimeName for ISourcesRowset {}
 windows_core::imp::define_interface!(IStemmer, IStemmer_Vtbl, 0xefbaf140_7f42_11ce_be57_00aa0051fe20);
 windows_core::imp::interface_hierarchy!(IStemmer, windows_core::IUnknown);
 impl IStemmer {
-    pub unsafe fn Init(&self, ulmaxtokensize: u32) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), ulmaxtokensize, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Init(&self, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), ulmaxtokensize, pflicense as _).ok() }
     }
     pub unsafe fn GenerateWordForms<P0, P2>(&self, pwcinbuf: P0, cwc: u32, pstemsink: P2) -> windows_core::Result<()>
     where
@@ -15224,7 +16096,7 @@ pub struct IStemmer_Vtbl {
     pub GetLicenseToUse: unsafe extern "system" fn(*mut core::ffi::c_void, *const *const u16) -> windows_core::HRESULT,
 }
 pub trait IStemmer_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, ulmaxtokensize: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn Init(&self, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GenerateWordForms(&self, pwcinbuf: &windows_core::PCWSTR, cwc: u32, pstemsink: windows_core::Ref<IWordFormSink>) -> windows_core::Result<()>;
     fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> windows_core::Result<()>;
 }
@@ -15233,13 +16105,7 @@ impl IStemmer_Vtbl {
         unsafe extern "system" fn Init<Identity: IStemmer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IStemmer_Impl::Init(this, core::mem::transmute_copy(&ulmaxtokensize)) {
-                    Ok(ok__) => {
-                        pflicense.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IStemmer_Impl::Init(this, core::mem::transmute_copy(&ulmaxtokensize), core::mem::transmute_copy(&pflicense)).into()
             }
         }
         unsafe extern "system" fn GenerateWordForms<Identity: IStemmer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcinbuf: windows_core::PCWSTR, cwc: u32, pstemsink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -15726,8 +16592,8 @@ impl core::ops::Deref for ITableCreation {
 windows_core::imp::interface_hierarchy!(ITableCreation, windows_core::IUnknown, ITableDefinition);
 impl ITableCreation {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetTableDefinition)(windows_core::Interface::as_raw(self), ptableid, pccolumndescs as _, prgcolumndescs as _, pcpropertysets as _, prgpropertysets as _, pcconstraintdescs as _, prgconstraintdescs as _, ppwszstringbuffer as _).ok() }
+    pub unsafe fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: Option<*mut usize>, prgcolumndescs: Option<*mut *mut DBCOLUMNDESC>, pcpropertysets: Option<*mut u32>, prgpropertysets: Option<*mut *mut DBPROPSET>, pcconstraintdescs: Option<*mut u32>, prgconstraintdescs: Option<*mut *mut DBCONSTRAINTDESC>, ppwszstringbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetTableDefinition)(windows_core::Interface::as_raw(self), ptableid, pccolumndescs.unwrap_or(core::mem::zeroed()) as _, prgcolumndescs.unwrap_or(core::mem::zeroed()) as _, pcpropertysets.unwrap_or(core::mem::zeroed()) as _, prgpropertysets.unwrap_or(core::mem::zeroed()) as _, pcconstraintdescs.unwrap_or(core::mem::zeroed()) as _, prgconstraintdescs.unwrap_or(core::mem::zeroed()) as _, ppwszstringbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -15764,22 +16630,33 @@ windows_core::imp::define_interface!(ITableDefinition, ITableDefinition_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(ITableDefinition, windows_core::IUnknown);
 impl ITableDefinition {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: *const super::super::Storage::IndexServer::DBID, rgcolumndescs: &[DBCOLUMNDESC], riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn CreateTable<P0>(&self, punkouter: P0, ptableid: Option<*const super::super::Storage::IndexServer::DBID>, rgcolumndescs: Option<&[DBCOLUMNDESC]>, riid: *const windows_core::GUID, rgpropertysets: Option<&mut [DBPROPSET]>, pptableid: Option<*mut *mut super::super::Storage::IndexServer::DBID>, pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, rgcolumndescs.len().try_into().unwrap(), core::mem::transmute(rgcolumndescs.as_ptr()), riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), pptableid as _, core::mem::transmute(pprowset)).ok() }
+        unsafe {
+            (windows_core::Interface::vtable(self).CreateTable)(
+                windows_core::Interface::as_raw(self),
+                punkouter.param().abi(),
+                ptableid.unwrap_or(core::mem::zeroed()) as _,
+                rgcolumndescs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(rgcolumndescs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                riid,
+                rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pptableid.unwrap_or(core::mem::zeroed()) as _,
+                pprowset.unwrap_or(core::mem::zeroed()) as _,
+            )
+            .ok()
+        }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DropTable)(windows_core::Interface::as_raw(self), ptableid).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<*mut super::super::Storage::IndexServer::DBID> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, core::mem::transmute(pcolumndesc), &mut result__).map(|| result__)
-        }
+    pub unsafe fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: Option<*mut *mut super::super::Storage::IndexServer::DBID>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, core::mem::transmute(pcolumndesc), ppcolumnid.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn DropColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> windows_core::Result<()> {
@@ -15811,7 +16688,7 @@ pub struct ITableDefinition_Vtbl {
 pub trait ITableDefinition_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn DropTable(&self, ptableid: *const super::super::Storage::IndexServer::DBID) -> windows_core::Result<()>;
-    fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<*mut super::super::Storage::IndexServer::DBID>;
+    fn AddColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: *mut *mut super::super::Storage::IndexServer::DBID) -> windows_core::Result<()>;
     fn DropColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -15832,13 +16709,7 @@ impl ITableDefinition_Vtbl {
         unsafe extern "system" fn AddColumn<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: *mut *mut super::super::Storage::IndexServer::DBID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITableDefinition_Impl::AddColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumndesc)) {
-                    Ok(ok__) => {
-                        ppcolumnid.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITableDefinition_Impl::AddColumn(this, core::mem::transmute_copy(&ptableid), core::mem::transmute_copy(&pcolumndesc), core::mem::transmute_copy(&ppcolumnid)).into()
             }
         }
         unsafe extern "system" fn DropColumn<Identity: ITableDefinition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> windows_core::HRESULT {
@@ -16006,8 +16877,8 @@ impl ITokenCollection {
     pub unsafe fn NumberOfTokens(&self, pcount: *const u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NumberOfTokens)(windows_core::Interface::as_raw(self), pcount).ok() }
     }
-    pub unsafe fn GetToken(&self, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetToken)(windows_core::Interface::as_raw(self), i, pbegin as _, plength as _, ppsz as _).ok() }
+    pub unsafe fn GetToken(&self, i: u32, pbegin: Option<*mut u32>, plength: Option<*mut u32>, ppsz: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetToken)(windows_core::Interface::as_raw(self), i, pbegin.unwrap_or(core::mem::zeroed()) as _, plength.unwrap_or(core::mem::zeroed()) as _, ppsz.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -16135,14 +17006,11 @@ impl ITransactionLocal {
             (windows_core::Interface::vtable(self).GetOptionsObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn StartTransaction<P2>(&self, isolevel: i32, isoflags: u32, potheroptions: P2) -> windows_core::Result<u32>
+    pub unsafe fn StartTransaction<P2>(&self, isolevel: i32, isoflags: u32, potheroptions: P2, pultransactionlevel: Option<*mut u32>) -> windows_core::Result<()>
     where
         P2: windows_core::Param<super::DistributedTransactionCoordinator::ITransactionOptions>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartTransaction)(windows_core::Interface::as_raw(self), isolevel, isoflags, potheroptions.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).StartTransaction)(windows_core::Interface::as_raw(self), isolevel, isoflags, potheroptions.param().abi(), pultransactionlevel.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
@@ -16156,7 +17024,7 @@ pub struct ITransactionLocal_Vtbl {
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ITransactionLocal_Impl: super::DistributedTransactionCoordinator::ITransaction_Impl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::DistributedTransactionCoordinator::ITransactionOptions>;
-    fn StartTransaction(&self, isolevel: i32, isoflags: u32, potheroptions: windows_core::Ref<super::DistributedTransactionCoordinator::ITransactionOptions>) -> windows_core::Result<u32>;
+    fn StartTransaction(&self, isolevel: i32, isoflags: u32, potheroptions: windows_core::Ref<super::DistributedTransactionCoordinator::ITransactionOptions>, pultransactionlevel: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ITransactionLocal_Vtbl {
@@ -16176,13 +17044,7 @@ impl ITransactionLocal_Vtbl {
         unsafe extern "system" fn StartTransaction<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isolevel: i32, isoflags: u32, potheroptions: *mut core::ffi::c_void, pultransactionlevel: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITransactionLocal_Impl::StartTransaction(this, core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions)) {
-                    Ok(ok__) => {
-                        pultransactionlevel.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITransactionLocal_Impl::StartTransaction(this, core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&potheroptions), core::mem::transmute_copy(&pultransactionlevel)).into()
             }
         }
         Self {
@@ -17028,11 +17890,8 @@ impl IViewChapter {
             (windows_core::Interface::vtable(self).GetSpecification)(windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OpenViewChapter(&self, hsource: usize) -> windows_core::Result<usize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenViewChapter)(windows_core::Interface::as_raw(self), hsource, &mut result__).map(|| result__)
-        }
+    pub unsafe fn OpenViewChapter(&self, hsource: usize, phviewchapter: Option<*mut usize>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OpenViewChapter)(windows_core::Interface::as_raw(self), hsource, phviewchapter.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -17044,7 +17903,7 @@ pub struct IViewChapter_Vtbl {
 }
 pub trait IViewChapter_Impl: windows_core::IUnknownImpl {
     fn GetSpecification(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
-    fn OpenViewChapter(&self, hsource: usize) -> windows_core::Result<usize>;
+    fn OpenViewChapter(&self, hsource: usize, phviewchapter: *mut usize) -> windows_core::Result<()>;
 }
 impl IViewChapter_Vtbl {
     pub const fn new<Identity: IViewChapter_Impl, const OFFSET: isize>() -> Self {
@@ -17063,13 +17922,7 @@ impl IViewChapter_Vtbl {
         unsafe extern "system" fn OpenViewChapter<Identity: IViewChapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hsource: usize, phviewchapter: *mut usize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IViewChapter_Impl::OpenViewChapter(this, core::mem::transmute_copy(&hsource)) {
-                    Ok(ok__) => {
-                        phviewchapter.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IViewChapter_Impl::OpenViewChapter(this, core::mem::transmute_copy(&hsource), core::mem::transmute_copy(&phviewchapter)).into()
             }
         }
         Self {
@@ -17264,11 +18117,8 @@ impl windows_core::RuntimeName for IViewSort {}
 windows_core::imp::define_interface!(IWordBreaker, IWordBreaker_Vtbl, 0xd53552c8_77e3_101a_b552_08002b33b0e6);
 windows_core::imp::interface_hierarchy!(IWordBreaker, windows_core::IUnknown);
 impl IWordBreaker {
-    pub unsafe fn Init(&self, fquery: bool, ulmaxtokensize: u32) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), fquery.into(), ulmaxtokensize, &mut result__).map(|| result__)
-        }
+    pub unsafe fn Init(&self, fquery: bool, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), fquery.into(), ulmaxtokensize, pflicense as _).ok() }
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn BreakText<P1, P2>(&self, ptextsource: *mut TEXT_SOURCE, pwordsink: P1, pphrasesink: P2) -> windows_core::Result<()>
@@ -17278,16 +18128,13 @@ impl IWordBreaker {
     {
         unsafe { (windows_core::Interface::vtable(self).BreakText)(windows_core::Interface::as_raw(self), ptextsource as _, pwordsink.param().abi(), pphrasesink.param().abi()).ok() }
     }
-    pub unsafe fn ComposePhrase<P0, P2, P5>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: P5) -> windows_core::Result<u32>
+    pub unsafe fn ComposePhrase<P0, P2, P5>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: P5, pcwcphrase: *mut u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComposePhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype, pwcphrase.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).ComposePhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype, pwcphrase.param().abi(), pcwcphrase as _).ok() }
     }
     pub unsafe fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLicenseToUse)(windows_core::Interface::as_raw(self), ppwcslicense).ok() }
@@ -17307,9 +18154,9 @@ pub struct IWordBreaker_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IWordBreaker_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, fquery: windows_core::BOOL, ulmaxtokensize: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn Init(&self, fquery: windows_core::BOOL, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn BreakText(&self, ptextsource: *mut TEXT_SOURCE, pwordsink: windows_core::Ref<IWordSink>, pphrasesink: windows_core::Ref<super::super::Storage::IndexServer::IPhraseSink>) -> windows_core::Result<()>;
-    fn ComposePhrase(&self, pwcnoun: &windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: &windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: &windows_core::PCWSTR) -> windows_core::Result<u32>;
+    fn ComposePhrase(&self, pwcnoun: &windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: &windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: &windows_core::PCWSTR, pcwcphrase: *mut u32) -> windows_core::Result<()>;
     fn GetLicenseToUse(&self, ppwcslicense: *const *const u16) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -17318,13 +18165,7 @@ impl IWordBreaker_Vtbl {
         unsafe extern "system" fn Init<Identity: IWordBreaker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fquery: windows_core::BOOL, ulmaxtokensize: u32, pflicense: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWordBreaker_Impl::Init(this, core::mem::transmute_copy(&fquery), core::mem::transmute_copy(&ulmaxtokensize)) {
-                    Ok(ok__) => {
-                        pflicense.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWordBreaker_Impl::Init(this, core::mem::transmute_copy(&fquery), core::mem::transmute_copy(&ulmaxtokensize), core::mem::transmute_copy(&pflicense)).into()
             }
         }
         unsafe extern "system" fn BreakText<Identity: IWordBreaker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptextsource: *mut TEXT_SOURCE, pwordsink: *mut core::ffi::c_void, pphrasesink: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -17336,13 +18177,7 @@ impl IWordBreaker_Vtbl {
         unsafe extern "system" fn ComposePhrase<Identity: IWordBreaker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcnoun: windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: windows_core::PCWSTR, pcwcphrase: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWordBreaker_Impl::ComposePhrase(this, core::mem::transmute(&pwcnoun), core::mem::transmute_copy(&cwcnoun), core::mem::transmute(&pwcmodifier), core::mem::transmute_copy(&cwcmodifier), core::mem::transmute_copy(&ulattachmenttype), core::mem::transmute(&pwcphrase)) {
-                    Ok(ok__) => {
-                        pcwcphrase.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWordBreaker_Impl::ComposePhrase(this, core::mem::transmute(&pwcnoun), core::mem::transmute_copy(&cwcnoun), core::mem::transmute(&pwcmodifier), core::mem::transmute_copy(&cwcmodifier), core::mem::transmute_copy(&ulattachmenttype), core::mem::transmute(&pwcphrase), core::mem::transmute_copy(&pcwcphrase)).into()
             }
         }
         unsafe extern "system" fn GetLicenseToUse<Identity: IWordBreaker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwcslicense: *const *const u16) -> windows_core::HRESULT {
@@ -17609,6 +18444,23 @@ pub const MAXNAME: u32 = 129u32;
 pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
 pub const MAX_QUERY_RANK: u32 = 1000u32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct MDAXISINFO {
+    pub cbSize: usize,
+    pub iAxis: usize,
+    pub cDimensions: usize,
+    pub cCoordinates: usize,
+    pub rgcColumns: *mut usize,
+    pub rgpwszDimensionNames: *mut windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for MDAXISINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -18700,6 +19552,32 @@ pub const REXSPH_E_UNEXPECTED_DATA_STATUS: i32 = -2147207930i32;
 pub const REXSPH_E_UNEXPECTED_FILTER_STATE: i32 = -2147207928i32;
 pub const REXSPH_E_UNKNOWN_DATA_TYPE: i32 = -2147207929i32;
 pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub struct RMTPACK {
+    pub pISeqStream: core::mem::ManuallyDrop<Option<super::Com::ISequentialStream>>,
+    pub cbData: u32,
+    pub cBSTR: u32,
+    pub rgBSTR: *mut windows_core::BSTR,
+    pub cVARIANT: u32,
+    pub rgVARIANT: *mut super::Variant::VARIANT,
+    pub cIDISPATCH: u32,
+    pub rgIDISPATCH: *mut Option<super::Com::IDispatch>,
+    pub cIUNKNOWN: u32,
+    pub rgIUNKNOWN: *mut Option<windows_core::IUnknown>,
+    pub cPROPVARIANT: u32,
+    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
+    pub cArray: u32,
+    pub rgArray: *mut super::Variant::VARIANT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Default for RMTPACK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18878,6 +19756,21 @@ pub const SEC_E_NOOWNER: windows_core::HRESULT = windows_core::HRESULT(0x80040E6
 pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
 pub const SEC_E_NOTRUSTEEID: windows_core::HRESULT = windows_core::HRESULT(0x80040E6B_u32 as _);
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct SEC_OBJECT {
+    pub cObjects: u32,
+    pub prgObjects: *mut SEC_OBJECT_ELEMENT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
@@ -18889,6 +19782,21 @@ pub struct SEC_OBJECT {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 impl Default for SEC_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+#[derive(Clone, Copy)]
+pub struct SEC_OBJECT_ELEMENT {
+    pub guidObjectType: windows_core::GUID,
+    pub ObjectID: super::super::Storage::IndexServer::DBID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Storage_IndexServer")]
+impl Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -20885,21 +21793,29 @@ impl Default for SSVARIANT_0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Default)]
+pub struct SSVARIANT_0_4 {
+    pub dbobj: DBOBJECT,
+    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_0 {
+pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pwchNCharVal: windows_core::PWSTR,
-    pub rgbReserved: [u8; 5],
+    pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
-    pub pwchReserved: windows_core::PWSTR,
 }
-impl Default for SSVARIANT_0_0 {
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
@@ -20909,41 +21825,42 @@ pub struct SSVARIANT_0_1 {
     pub dwReserved: u32,
     pub pwchReserved: windows_core::PWSTR,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct SSVARIANT_0_2 {
+pub struct SSVARIANT_0_0 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub prgbBinaryVal: *mut u8,
+    pub pwchNCharVal: windows_core::PWSTR,
+    pub rgbReserved: [u8; 5],
     pub dwReserved: u32,
+    pub pwchReserved: windows_core::PWSTR,
 }
-impl Default for SSVARIANT_0_2 {
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SSVARIANT_0_3 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl Default for SSVARIANT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct SSVARIANT_0_4 {
-    pub dbobj: DBOBJECT,
-    pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 pub const STD_BOOKMARKLENGTH: u32 = 1u32;
 pub const STGM_COLLECTION: i32 = 8192i32;

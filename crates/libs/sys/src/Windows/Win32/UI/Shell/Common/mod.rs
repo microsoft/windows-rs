@@ -11,7 +11,7 @@ impl Default for COMDLG_FILTERSPEC {
 }
 pub type DEVICE_SCALE_FACTOR = i32;
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
@@ -77,7 +77,7 @@ pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = 3i32;
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = 2i32;
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = 1i32;
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = 65536i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
@@ -89,7 +89,7 @@ impl Default for SHELLDETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,

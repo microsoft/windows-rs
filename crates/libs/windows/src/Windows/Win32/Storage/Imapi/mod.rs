@@ -3765,8 +3765,8 @@ impl IDiscRecorder {
     pub unsafe fn Init(&self, pbyuniqueid: &[u8], nuldrivenumber: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), nuldrivenumber).ok() }
     }
-    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: &mut [u8], pulreturnsizerequired: *mut u32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRecorderGUID)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_ptr()), pbyuniqueid.len().try_into().unwrap(), pulreturnsizerequired as _).ok() }
+    pub unsafe fn GetRecorderGUID(&self, pbyuniqueid: Option<&mut [u8]>, pulreturnsizerequired: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRecorderGUID)(windows_core::Interface::as_raw(self), core::mem::transmute(pbyuniqueid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbyuniqueid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulreturnsizerequired as _).ok() }
     }
     pub unsafe fn GetRecorderType(&self) -> windows_core::Result<RECORDER_TYPES> {
         unsafe {
@@ -3774,8 +3774,8 @@ impl IDiscRecorder {
             (windows_core::Interface::vtable(self).GetRecorderType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: *mut windows_core::BSTR, pbstrproductid: *mut windows_core::BSTR, pbstrrevision: *mut windows_core::BSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrvendorid), core::mem::transmute(pbstrproductid), core::mem::transmute(pbstrrevision)).ok() }
+    pub unsafe fn GetDisplayNames(&self, pbstrvendorid: Option<*mut windows_core::BSTR>, pbstrproductid: Option<*mut windows_core::BSTR>, pbstrrevision: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), pbstrvendorid.unwrap_or(core::mem::zeroed()) as _, pbstrproductid.unwrap_or(core::mem::zeroed()) as _, pbstrrevision.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetBasePnPID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {

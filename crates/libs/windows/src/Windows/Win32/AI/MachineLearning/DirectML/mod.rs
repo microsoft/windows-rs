@@ -1,20 +1,22 @@
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice<P0>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DMLCreateDevice<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut Option<T>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
+    T: windows_core::Interface,
 {
     windows_core::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DMLCreateDevice(d3d12device.param().abi(), flags, riid, ppv as _).ok() }
+    unsafe { DMLCreateDevice(d3d12device.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice1<P0>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn DMLCreateDevice1<P0, T>(d3d12device: P0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut Option<T>) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Device>,
+    T: windows_core::Interface,
 {
     windows_core::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : * mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DMLCreateDevice1(d3d12device.param().abi(), flags, minimumfeaturelevel, riid, ppv as _).ok() }
+    unsafe { DMLCreateDevice1(d3d12device.param().abi(), flags, minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2683,21 +2685,21 @@ impl core::ops::Deref for IDMLBindingTable {
 }
 windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl IDMLBindingTable {
-    pub unsafe fn BindInputs(&self, bindings: &[DML_BINDING_DESC]) {
-        unsafe { (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.len().try_into().unwrap(), core::mem::transmute(bindings.as_ptr())) }
+    pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
+        unsafe { (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
-    pub unsafe fn BindOutputs(&self, bindings: &[DML_BINDING_DESC]) {
-        unsafe { (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.len().try_into().unwrap(), core::mem::transmute(bindings.as_ptr())) }
+    pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
+        unsafe { (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
-    pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
-        unsafe { (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), binding) }
+    pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
+        unsafe { (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
-        unsafe { (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), binding) }
+    pub unsafe fn BindPersistentResource(&self, binding: Option<*const DML_BINDING_DESC>) {
+        unsafe { (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), core::mem::transmute(desc)).ok() }
+    pub unsafe fn Reset(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), desc.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -2881,30 +2883,28 @@ impl core::ops::Deref for IDMLDevice {
 }
 windows_core::imp::interface_hierarchy!(IDMLDevice, windows_core::IUnknown, IDMLObject);
 impl IDMLDevice {
-    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featurequerydatasize, featurequerydata, featuresupportdatasize, featuresupportdata as _).ok() }
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: Option<*const core::ffi::c_void>, featuresupportdatasize: u32, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, featurequerydatasize, featurequerydata.unwrap_or(core::mem::zeroed()) as _, featuresupportdatasize, featuresupportdata as _).ok() }
     }
-    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateOperator<T>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateOperator)(windows_core::Interface::as_raw(self), desc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateOperator)(windows_core::Interface::as_raw(self), desc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS) -> windows_core::Result<T>
+    pub unsafe fn CompileOperator<P0, T>(&self, op: P0, flags: DML_EXECUTION_FLAGS, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDMLOperator>,
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CompileOperator)(windows_core::Interface::as_raw(self), op.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CompileOperator)(windows_core::Interface::as_raw(self), op.param().abi(), flags, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: &[Option<IDMLCompiledOperator>]) -> windows_core::Result<T>
+    pub unsafe fn CreateOperatorInitializer<T>(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.len().try_into().unwrap(), core::mem::transmute(operators.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateOperatorInitializer)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateCommandRecorder<T>(&self) -> windows_core::Result<T>
     where
@@ -2914,12 +2914,12 @@ impl IDMLDevice {
         unsafe { (windows_core::Interface::vtable(self).CreateCommandRecorder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T>(&self, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateBindingTable<T>(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), core::mem::transmute(desc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateBindingTable)(windows_core::Interface::as_raw(self), desc.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Evict(&self, ppobjects: &[Option<IDMLPageable>]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok() }
@@ -3061,12 +3061,11 @@ impl core::ops::Deref for IDMLDevice1 {
 }
 windows_core::imp::interface_hierarchy!(IDMLDevice1, windows_core::IUnknown, IDMLObject, IDMLDevice);
 impl IDMLDevice1 {
-    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS) -> windows_core::Result<T>
+    pub unsafe fn CompileGraph<T>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
     {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CompileGraph)(windows_core::Interface::as_raw(self), desc, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CompileGraph)(windows_core::Interface::as_raw(self), desc, flags, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
 }
 #[repr(C)]
@@ -3181,11 +3180,11 @@ impl windows_core::RuntimeName for IDMLDispatchable {}
 windows_core::imp::define_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 windows_core::imp::interface_hierarchy!(IDMLObject, windows_core::IUnknown);
 impl IDMLObject {
-    pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut u32, data: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize as _, data as _).ok() }
+    pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, datasize: *mut u32, data: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize as _, data.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, data: *const core::ffi::c_void) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize, data).ok() }
+    pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize, data.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetPrivateDataInterface<P1>(&self, guid: *const windows_core::GUID, data: P1) -> windows_core::Result<()>
     where
@@ -3286,8 +3285,8 @@ impl core::ops::Deref for IDMLOperatorInitializer {
 }
 windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
 impl IDMLOperatorInitializer {
-    pub unsafe fn Reset(&self, operators: &[Option<IDMLCompiledOperator>]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.len().try_into().unwrap(), core::mem::transmute(operators.as_ptr())).ok() }
+    pub unsafe fn Reset(&self, operators: Option<&[Option<IDMLCompiledOperator>]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), operators.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(operators.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]

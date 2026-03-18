@@ -833,6 +833,27 @@ pub struct PERF_COUNTER_DATA {
     pub dwSize: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PERF_COUNTER_DEFINITION {
+    pub ByteLength: u32,
+    pub CounterNameTitleIndex: u32,
+    pub CounterNameTitle: windows_sys::core::PWSTR,
+    pub CounterHelpTitleIndex: u32,
+    pub CounterHelpTitle: windows_sys::core::PWSTR,
+    pub DefaultScale: i32,
+    pub DetailLevel: u32,
+    pub CounterType: u32,
+    pub CounterSize: u32,
+    pub CounterOffset: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PERF_COUNTER_DEFINITION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
 pub struct PERF_COUNTER_DEFINITION {
@@ -1004,6 +1025,31 @@ pub const PERF_NUMBER_DECIMAL: u32 = 65536u32;
 pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
 pub const PERF_NUMBER_HEX: u32 = 0u32;
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PERF_OBJECT_TYPE {
+    pub TotalByteLength: u32,
+    pub DefinitionLength: u32,
+    pub HeaderLength: u32,
+    pub ObjectNameTitleIndex: u32,
+    pub ObjectNameTitle: windows_sys::core::PWSTR,
+    pub ObjectHelpTitleIndex: u32,
+    pub ObjectHelpTitle: windows_sys::core::PWSTR,
+    pub DetailLevel: u32,
+    pub NumCounters: u32,
+    pub DefaultCounter: i32,
+    pub NumInstances: i32,
+    pub CodePage: u32,
+    pub PerfTime: i64,
+    pub PerfFreq: i64,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PERF_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]

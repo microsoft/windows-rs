@@ -144,9 +144,9 @@ windows_link::link!("secur32.dll" "system" fn QuerySecurityPackageInfoA(pszpacka
 windows_link::link!("secur32.dll" "system" fn QuerySecurityPackageInfoW(pszpackagename : windows_sys::core::PCWSTR, pppackageinfo : *mut *mut SecPkgInfoW) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security_Credentials")]
 windows_link::link!("secur32.dll" "system" fn RevertSecurityContext(phcontext : *const super::super::Credentials:: SecHandle) -> windows_sys::core::HRESULT);
-windows_link::link!("advapi32.dll" "system" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::super::super::Foundation:: NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::super::super::Foundation:: NTSTATUS);
-windows_link::link!("advapi32.dll" "system" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
+windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::super::super::Foundation:: NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::super::super::Foundation:: NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
 windows_link::link!("slcext.dll" "system" fn SLAcquireGenuineTicket(ppticketblob : *mut *mut core::ffi::c_void, pcbticketblob : *mut u32, pwsztemplateid : windows_sys::core::PCWSTR, pwszserverurl : windows_sys::core::PCWSTR, pwszclienttoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("slcext.dll" "system" fn SLActivateProduct(hslc : *const core::ffi::c_void, pproductskuid : *const windows_sys::core::GUID, cbappspecificdata : u32, pvappspecificdata : *const core::ffi::c_void, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : u16) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLClose(hslc : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -226,7 +226,7 @@ windows_link::link!("secur32.dll" "system" fn SspiCompareAuthIdentities(authiden
 windows_link::link!("secur32.dll" "system" fn SspiCopyAuthIdentity(authdata : *const core::ffi::c_void, authdatacopy : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("secur32.dll" "system" fn SspiDecryptAuthIdentity(encryptedauthdata : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("sspicli.dll" "system" fn SspiDecryptAuthIdentityEx(options : u32, encryptedauthdata : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("secur32.dll" "system" fn SspiEncodeAuthIdentityAsStrings(pauthidentity : *const core::ffi::c_void, ppszusername : *mut windows_sys::core::PWSTR, ppszdomainname : *mut windows_sys::core::PWSTR, ppszpackedcredentialsstring : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("secur32.dll" "system" fn SspiEncodeAuthIdentityAsStrings(pauthidentity : *const core::ffi::c_void, ppszusername : *mut windows_sys::core::PCWSTR, ppszdomainname : *mut windows_sys::core::PCWSTR, ppszpackedcredentialsstring : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("secur32.dll" "system" fn SspiEncodeStringsAsAuthIdentity(pszusername : windows_sys::core::PCWSTR, pszdomainname : windows_sys::core::PCWSTR, pszpackedcredentialsstring : windows_sys::core::PCWSTR, ppauthidentity : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("secur32.dll" "system" fn SspiEncryptAuthIdentity(authdata : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("sspicli.dll" "system" fn SspiEncryptAuthIdentityEx(options : u32, authdata : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -237,8 +237,8 @@ windows_link::link!("secur32.dll" "system" fn SspiIsAuthIdentityEncrypted(encryp
 windows_link::link!("credui.dll" "system" fn SspiIsPromptingNeeded(errororntstatus : u32) -> bool);
 windows_link::link!("secur32.dll" "system" fn SspiLocalFree(databuffer : *const core::ffi::c_void));
 windows_link::link!("secur32.dll" "system" fn SspiMarshalAuthIdentity(authidentity : *const core::ffi::c_void, authidentitylength : *mut u32, authidentitybytearray : *mut *mut i8) -> windows_sys::core::HRESULT);
-windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredRead(authidentity : *const core::ffi::c_void, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredWrite(authidentity : *const core::ffi::c_void, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PWSTR, ppszcredmanusername : *mut windows_sys::core::PWSTR, ppcredentialblob : *mut *mut u8, pcredentialblobsize : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredRead(authidentity : *const core::ffi::c_void, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("secur32.dll" "system" fn SspiPrepareForCredWrite(authidentity : *const core::ffi::c_void, psztargetname : windows_sys::core::PCWSTR, pcredmancredentialtype : *mut u32, ppszcredmantargetname : *mut windows_sys::core::PCWSTR, ppszcredmanusername : *mut windows_sys::core::PCWSTR, ppcredentialblob : *mut *mut u8, pcredentialblobsize : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("credui.dll" "system" fn SspiPromptForCredentialsA(psztargetname : windows_sys::core::PCSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_sys::core::PCSTR, pinputauthidentity : *const core::ffi::c_void, ppauthidentity : *mut *mut core::ffi::c_void, pfsave : *mut i32, dwflags : u32) -> u32);
 windows_link::link!("credui.dll" "system" fn SspiPromptForCredentialsW(psztargetname : windows_sys::core::PCWSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_sys::core::PCWSTR, pinputauthidentity : *const core::ffi::c_void, ppauthidentity : *mut *mut core::ffi::c_void, pfsave : *mut i32, dwflags : u32) -> u32);
 windows_link::link!("sspicli.dll" "system" fn SspiSetChannelBindingFlags(pbindings : *mut SecPkgContext_Bindings, flags : u32) -> windows_sys::core::HRESULT);
@@ -1794,6 +1794,18 @@ impl Default for LSA_FOREST_TRUST_RECORD {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union LSA_FOREST_TRUST_RECORD_0 {
+    pub TopLevelName: LSA_UNICODE_STRING,
+    pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
+    pub Data: LSA_FOREST_TRUST_BINARY_DATA,
+}
+impl Default for LSA_FOREST_TRUST_RECORD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct LSA_FOREST_TRUST_RECORD2 {
     pub Flags: u32,
     pub ForestTrustType: LSA_FOREST_TRUST_RECORD_TYPE,
@@ -1814,18 +1826,6 @@ pub union LSA_FOREST_TRUST_RECORD2_0 {
     pub ScannerInfo: LSA_FOREST_TRUST_SCANNER_INFO,
 }
 impl Default for LSA_FOREST_TRUST_RECORD2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union LSA_FOREST_TRUST_RECORD_0 {
-    pub TopLevelName: LSA_UNICODE_STRING,
-    pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
-    pub Data: LSA_FOREST_TRUST_BINARY_DATA,
-}
-impl Default for LSA_FOREST_TRUST_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2298,7 +2298,7 @@ impl Default for MSV1_0_PASSTHROUGH_RESPONSE {
 pub const MSV1_0_PASSTHRU: MSV1_0 = 1u32;
 pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
 pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
@@ -6690,7 +6690,7 @@ pub const UNISP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Micro
 pub const UNISP_RPC_ID: u32 = 14u32;
 pub const USER_ACCOUNT_AUTO_LOCKED: u32 = 1024u32;
 pub const USER_ACCOUNT_DISABLED: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct USER_ALL_INFORMATION {
     pub LastLogon: i64,

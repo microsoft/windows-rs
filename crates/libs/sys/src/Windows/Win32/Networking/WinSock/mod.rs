@@ -24,30 +24,30 @@ windows_link::link!("mswsock.dll" "system" fn GetServiceA(dwnamespace : u32, lpg
 windows_link::link!("mswsock.dll" "system" fn GetServiceW(dwnamespace : u32, lpguid : *const windows_sys::core::GUID, lpservicename : windows_sys::core::PCWSTR, dwproperties : u32, lpbuffer : *mut core::ffi::c_void, lpdwbuffersize : *mut u32, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO) -> i32);
 windows_link::link!("mswsock.dll" "system" fn GetTypeByNameA(lpservicename : windows_sys::core::PCSTR, lpservicetype : *mut windows_sys::core::GUID) -> i32);
 windows_link::link!("mswsock.dll" "system" fn GetTypeByNameW(lpservicename : windows_sys::core::PCWSTR, lpservicetype : *mut windows_sys::core::GUID) -> i32);
-windows_link::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PWSTR, stringbufsize : usize) -> windows_sys::core::PWSTR);
+windows_link::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PWSTR, stringbufsize : usize) -> windows_sys::core::PCWSTR);
 windows_link::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : windows_sys::core::PCWSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("ws2_32.dll" "system" fn ProcessSocketNotifications(completionport : super::super::Foundation:: HANDLE, registrationcount : u32, registrationinfos : *mut SOCK_NOTIFY_REGISTRATION, timeoutms : u32, completioncount : u32, completionportentries : *mut super::super::System::IO:: OVERLAPPED_ENTRY, receivedentrycount : *mut u32) -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringA(addr : *const DL_EUI48, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringW(addr : *const DL_EUI48, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PSTR, addr : *mut DL_EUI48) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PWSTR, addr : *mut DL_EUI48) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PCSTR, addr : *mut DL_EUI48) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlEthernetStringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PCWSTR, addr : *mut DL_EUI48) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *const IN_ADDR, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const IN_ADDR, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const IN_ADDR, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const IN_ADDR, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_sys::core::PCSTR, strict : bool, terminator : *mut windows_sys::core::PSTR, addr : *mut IN_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_sys::core::PCSTR, strict : bool, terminator : *mut windows_sys::core::PCSTR, addr : *mut IN_ADDR) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_sys::core::PCSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_sys::core::PCWSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_sys::core::PCWSTR, strict : bool, terminator : *mut windows_sys::core::PWSTR, addr : *mut IN_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_sys::core::PCWSTR, strict : bool, terminator : *mut windows_sys::core::PCWSTR, addr : *mut IN_ADDR) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const IN6_ADDR, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringW(addr : *const IN6_ADDR, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PSTR, addr : *mut IN6_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressA(s : windows_sys::core::PCSTR, terminator : *mut windows_sys::core::PCSTR, addr : *mut IN6_ADDR) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExA(addressstring : windows_sys::core::PCSTR, address : *mut IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressExW(addressstring : windows_sys::core::PCWSTR, address : *mut IN6_ADDR, scopeid : *mut u32, port : *mut u16) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PWSTR, addr : *mut IN6_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : windows_sys::core::PCWSTR, terminator : *mut windows_sys::core::PCWSTR, addr : *mut IN6_ADDR) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 windows_link::link!("ws2_32.dll" "system" fn SetAddrInfoExA(pname : windows_sys::core::PCSTR, pservicename : windows_sys::core::PCSTR, paddresses : *const SOCKET_ADDRESS, dwaddresscount : u32, lpblob : *const super::super::System::Com:: BLOB, dwflags : u32, dwnamespace : u32, lpnspid : *const windows_sys::core::GUID, timeout : *const TIMEVAL, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle : *mut super::super::Foundation:: HANDLE) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
@@ -242,7 +242,7 @@ windows_link::link!("ws2_32.dll" "system" fn htonl(hostlong : u32) -> u32);
 windows_link::link!("ws2_32.dll" "system" fn htons(hostshort : u16) -> u16);
 windows_link::link!("ws2_32.dll" "system" fn inet_addr(cp : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("ws2_32.dll" "system" fn inet_ntoa(r#in : IN_ADDR) -> windows_sys::core::PSTR);
-windows_link::link!("ws2_32.dll" "system" fn inet_ntop(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PSTR, stringbufsize : usize) -> windows_sys::core::PSTR);
+windows_link::link!("ws2_32.dll" "system" fn inet_ntop(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_sys::core::PSTR, stringbufsize : usize) -> windows_sys::core::PCSTR);
 windows_link::link!("ws2_32.dll" "system" fn inet_pton(family : i32, pszaddrstring : windows_sys::core::PCSTR, paddrbuf : *mut core::ffi::c_void) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn ioctlsocket(s : SOCKET, cmd : i32, argp : *mut u32) -> i32);
 windows_link::link!("ws2_32.dll" "system" fn listen(s : SOCKET, backlog : i32) -> i32);
@@ -751,7 +751,7 @@ pub struct ATM_CONNECTION_ID {
 }
 pub const ATM_E164: u32 = 1u32;
 pub const ATM_NSAP: u32 = 2u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct ATM_PVC_PARAMS {
     pub PvcConnectionId: ATM_CONNECTION_ID,
@@ -1037,7 +1037,7 @@ impl Default for DL_OUI {
 pub struct DL_OUI_0 {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DL_TEREDO_ADDRESS {
     pub Reserved: [u8; 6],
@@ -1048,7 +1048,7 @@ impl Default for DL_TEREDO_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DL_TEREDO_ADDRESS_0 {
     pub Eui64: DL_EUI64,
@@ -1059,7 +1059,7 @@ impl Default for DL_TEREDO_ADDRESS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DL_TEREDO_ADDRESS_0_0 {
     pub Flags: u16,
@@ -1071,7 +1071,7 @@ impl Default for DL_TEREDO_ADDRESS_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DL_TEREDO_ADDRESS_PRV {
     pub Reserved: [u8; 6],
@@ -1082,7 +1082,7 @@ impl Default for DL_TEREDO_ADDRESS_PRV {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DL_TEREDO_ADDRESS_PRV_0 {
     pub Eui64: DL_EUI64,
@@ -1093,7 +1093,7 @@ impl Default for DL_TEREDO_ADDRESS_PRV_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
     pub Flags: u16,
@@ -1633,7 +1633,7 @@ pub struct INTERFACE_INFO_EX {
     pub iiBroadcastAddress: SOCKET_ADDRESS,
     pub iiNetmask: SOCKET_ADDRESS,
 }
-pub const INVALID_SOCKET: SOCKET = -1i64 as _;
+pub const INVALID_SOCKET: SOCKET = -1i32 as _;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct IN_ADDR {
@@ -1824,7 +1824,7 @@ pub const IPPROTO_SCTP: IPPROTO = 132i32;
 pub const IPPROTO_ST: IPPROTO = 5i32;
 pub const IPPROTO_TCP: IPPROTO = 6i32;
 pub const IPPROTO_UDP: IPPROTO = 17i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IPTLS_METADATA {
     pub SequenceNumber: u64,
@@ -3055,13 +3055,6 @@ impl Default for NLA_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NLA_BLOB_0 {
-    pub r#type: NLA_BLOB_DATA_TYPE,
-    pub dwSize: u32,
-    pub nextOffset: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union NLA_BLOB_1 {
     pub rawData: [i8; 1],
@@ -3074,6 +3067,31 @@ impl Default for NLA_BLOB_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NLA_BLOB_1_3 {
+    pub remote: NLA_BLOB_1_3_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NLA_BLOB_1_3_0 {
+    pub speed: u32,
+    pub r#type: u32,
+    pub state: u32,
+    pub machineName: [u16; 256],
+    pub sharedAdapterName: [u16; 256],
+}
+impl Default for NLA_BLOB_1_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct NLA_BLOB_1_2 {
+    pub r#type: NLA_CONNECTIVITY_TYPE,
+    pub internet: NLA_INTERNET,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3099,28 +3117,10 @@ impl Default for NLA_BLOB_1_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct NLA_BLOB_1_2 {
-    pub r#type: NLA_CONNECTIVITY_TYPE,
-    pub internet: NLA_INTERNET,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NLA_BLOB_1_3 {
-    pub remote: NLA_BLOB_1_3_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NLA_BLOB_1_3_0 {
-    pub speed: u32,
-    pub r#type: u32,
-    pub state: u32,
-    pub machineName: [u16; 256],
-    pub sharedAdapterName: [u16; 256],
-}
-impl Default for NLA_BLOB_1_3_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+pub struct NLA_BLOB_0 {
+    pub r#type: NLA_BLOB_DATA_TYPE,
+    pub dwSize: u32,
+    pub nextOffset: u32,
 }
 pub type NLA_BLOB_DATA_TYPE = i32;
 pub const NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = 3i32;
@@ -3811,6 +3811,21 @@ pub const SENDER_DEFAULT_RATE_KBITS_PER_SEC: u32 = 56u32;
 pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 pub type SEND_RECV_FLAGS = i32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SERVENT {
+    pub s_name: windows_sys::core::PSTR,
+    pub s_aliases: *mut *mut i8,
+    pub s_port: i16,
+    pub s_proto: windows_sys::core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SERVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -4594,7 +4609,7 @@ pub const TCP_DELAY_FIN_ACK: i32 = 13i32;
 pub const TCP_EXPEDITED_1122: i32 = 2i32;
 pub const TCP_FAIL_CONNECT_ON_ICMP_ERROR: i32 = 18i32;
 pub const TCP_FASTOPEN: i32 = 15i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_HDR {
     pub th_sport: u16,
@@ -4700,7 +4715,7 @@ pub const TCP_OFFLOAD_NOT_PREFERRED: i32 = 1i32;
 pub const TCP_OFFLOAD_NO_PREFERENCE: i32 = 0i32;
 pub const TCP_OFFLOAD_PREFERENCE: i32 = 11i32;
 pub const TCP_OFFLOAD_PREFERRED: i32 = 2i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TCP_OPT_FASTOPEN {
     pub Kind: u8,
@@ -4712,14 +4727,14 @@ impl Default for TCP_OPT_FASTOPEN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_MSS {
     pub Kind: u8,
     pub Length: u8,
     pub Mss: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TCP_OPT_SACK {
     pub Kind: u8,
@@ -4731,19 +4746,19 @@ impl Default for TCP_OPT_SACK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_SACK_0 {
     pub Left: u32,
     pub Right: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_SACK_PERMITTED {
     pub Kind: u8,
     pub Length: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_TS {
     pub Kind: u8,
@@ -4751,13 +4766,13 @@ pub struct TCP_OPT_TS {
     pub Val: u32,
     pub EcR: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_UNKNOWN {
     pub Kind: u8,
     pub Length: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TCP_OPT_WS {
     pub Kind: u8,
@@ -5091,7 +5106,6 @@ impl Default for WSACOMPLETION {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
@@ -5103,30 +5117,6 @@ pub union WSACOMPLETION_0 {
 }
 #[cfg(feature = "Win32_System_IO")]
 impl Default for WSACOMPLETION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WSACOMPLETION_0_0 {
-    pub hWnd: super::super::Foundation::HWND,
-    pub uMsg: u32,
-    pub context: super::super::Foundation::WPARAM,
-}
-impl Default for WSACOMPLETION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy)]
-pub struct WSACOMPLETION_0_1 {
-    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Default for WSACOMPLETION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5147,6 +5137,18 @@ impl Default for WSACOMPLETION_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
+pub struct WSACOMPLETION_0_1 {
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
 pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
@@ -5154,6 +5156,39 @@ pub struct WSACOMPLETION_0_3 {
 }
 #[cfg(feature = "Win32_System_IO")]
 impl Default for WSACOMPLETION_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy)]
+pub struct WSACOMPLETION_0_0 {
+    pub hWnd: super::super::Foundation::HWND,
+    pub uMsg: u32,
+    pub context: super::super::Foundation::WPARAM,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type WSACOMPLETIONTYPE = i32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WSADATA {
+    pub wVersion: u16,
+    pub wHighVersion: u16,
+    pub szDescription: [i8; 257],
+    pub szSystemStatus: [i8; 129],
+    pub iMaxSockets: u16,
+    pub iMaxUdpDg: u16,
+    pub lpVendorInfo: windows_sys::core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WSADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5638,7 +5673,7 @@ pub const WSA_FLAG_NO_HANDLE_INHERIT: u32 = 128u32;
 pub const WSA_FLAG_OVERLAPPED: u32 = 1u32;
 pub const WSA_FLAG_REGISTERED_IO: u32 = 256u32;
 pub const WSA_INFINITE: u32 = 4294967295u32;
-pub const WSA_INVALID_EVENT: WSAEVENT = 0i64 as _;
+pub const WSA_INVALID_EVENT: WSAEVENT = 0i32 as _;
 pub const WSA_INVALID_HANDLE: WSA_ERROR = 6i32;
 pub const WSA_INVALID_PARAMETER: WSA_ERROR = 87i32;
 pub const WSA_IO_INCOMPLETE: WSA_ERROR = 996i32;

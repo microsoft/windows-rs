@@ -213,22 +213,22 @@ impl Default for HTTP_DATA_CHUNK_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_0 {
-    pub pBuffer: *mut core::ffi::c_void,
-    pub BufferLength: u32,
+pub struct HTTP_DATA_CHUNK_0_1 {
+    pub ByteRange: HTTP_BYTE_RANGE,
+    pub FileHandle: super::super::Foundation::HANDLE,
 }
-impl Default for HTTP_DATA_CHUNK_0_0 {
+impl Default for HTTP_DATA_CHUNK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_1 {
+pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
-    pub FileHandle: super::super::Foundation::HANDLE,
+    pub pFragmentName: windows_sys::core::PCWSTR,
 }
-impl Default for HTTP_DATA_CHUNK_0_1 {
+impl Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -246,11 +246,11 @@ impl Default for HTTP_DATA_CHUNK_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_3 {
-    pub ByteRange: HTTP_BYTE_RANGE,
-    pub pFragmentName: windows_sys::core::PCWSTR,
+pub struct HTTP_DATA_CHUNK_0_0 {
+    pub pBuffer: *mut core::ffi::c_void,
+    pub BufferLength: u32,
 }
-impl Default for HTTP_DATA_CHUNK_0_3 {
+impl Default for HTTP_DATA_CHUNK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

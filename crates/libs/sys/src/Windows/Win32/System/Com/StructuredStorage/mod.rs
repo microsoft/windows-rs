@@ -145,7 +145,7 @@ windows_link::link!("propsys.dll" "system" fn PropVariantToStringVector(propvar 
 #[cfg(feature = "Win32_System_Variant")]
 windows_link::link!("propsys.dll" "system" fn PropVariantToStringVectorAlloc(propvar : *const PROPVARIANT, pprgsz : *mut *mut windows_sys::core::PWSTR, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
-windows_link::link!("propsys.dll" "system" fn PropVariantToStringWithDefault(propvarin : *const PROPVARIANT, pszdefault : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+windows_link::link!("propsys.dll" "system" fn PropVariantToStringWithDefault(propvarin : *const PROPVARIANT, pszdefault : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
 #[cfg(feature = "Win32_System_Variant")]
 windows_link::link!("propsys.dll" "system" fn PropVariantToUInt16(propvarin : *const PROPVARIANT, puiret : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]

@@ -20,7 +20,7 @@ windows_link::link!("kernel32.dll" "system" fn FindResourceA(hmodule : super::su
 windows_link::link!("kernel32.dll" "system" fn FindResourceExA(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCSTR, lpname : windows_sys::core::PCSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
 windows_link::link!("kernel32.dll" "system" fn FindResourceExW(hmodule : super::super::Foundation:: HMODULE, lptype : windows_sys::core::PCWSTR, lpname : windows_sys::core::PCWSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
 windows_link::link!("kernel32.dll" "system" fn FindResourceW(hmodule : super::super::Foundation:: HMODULE, lpname : windows_sys::core::PCWSTR, lptype : windows_sys::core::PCWSTR) -> super::super::Foundation:: HRSRC);
-windows_link::link!("kernel32.dll" "system" fn FreeLibraryAndExitThread(hlibmodule : super::super::Foundation:: HMODULE, dwexitcode : u32));
+windows_link::link!("kernel32.dll" "system" fn FreeLibraryAndExitThread(hlibmodule : super::super::Foundation:: HMODULE, dwexitcode : u32) -> !);
 windows_link::link!("kernel32.dll" "system" fn FreeResource(hresdata : super::super::Foundation:: HGLOBAL) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetDllDirectoryA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetDllDirectoryW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);

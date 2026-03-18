@@ -1,12 +1,13 @@
 #[inline]
-pub unsafe fn ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL {
+pub unsafe fn ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL> {
     windows_core::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : HKL, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    unsafe { ActivateKeyboardLayout(hkl, flags) }
+    let result__ = unsafe { ActivateKeyboardLayout(hkl, flags) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn BlockInput(fblockit: bool) -> windows_core::BOOL {
+pub unsafe fn BlockInput(fblockit: bool) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn BlockInput(fblockit : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { BlockInput(fblockit.into()) }
+    unsafe { BlockInput(fblockit.into()).ok() }
 }
 #[inline]
 pub unsafe fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> windows_core::BOOL {
@@ -49,14 +50,14 @@ pub unsafe fn GetKBCodePage() -> u32 {
     unsafe { GetKBCodePage() }
 }
 #[inline]
-pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: windows_core::PSTR, cchsize: i32) -> i32 {
+pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: &mut [u8]) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_core::PSTR, cchsize : i32) -> i32);
-    unsafe { GetKeyNameTextA(lparam, core::mem::transmute(lpstring), cchsize) }
+    unsafe { GetKeyNameTextA(lparam, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: windows_core::PWSTR, cchsize: i32) -> i32 {
+pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: &mut [u16]) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : windows_core::PWSTR, cchsize : i32) -> i32);
-    unsafe { GetKeyNameTextW(lparam, core::mem::transmute(lpstring), cchsize) }
+    unsafe { GetKeyNameTextW(lparam, core::mem::transmute(lpstring.as_ptr()), lpstring.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
@@ -69,24 +70,24 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> HKL {
     unsafe { GetKeyboardLayout(idthread) }
 }
 #[inline]
-pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut HKL) -> i32 {
+pub unsafe fn GetKeyboardLayoutList(lplist: Option<&mut [HKL]>) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut HKL) -> i32);
-    unsafe { GetKeyboardLayoutList(nbuff, lplist as _) }
+    unsafe { GetKeyboardLayoutList(lplist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lplist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameA(pwszklid: windows_core::PSTR) -> windows_core::BOOL {
+pub unsafe fn GetKeyboardLayoutNameA(pwszklid: &mut [u8; 9]) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetKeyboardLayoutNameA(core::mem::transmute(pwszklid)) }
+    unsafe { GetKeyboardLayoutNameA(core::mem::transmute(pwszklid.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameW(pwszklid: windows_core::PWSTR) -> windows_core::BOOL {
+pub unsafe fn GetKeyboardLayoutNameW(pwszklid: &mut [u16; 9]) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { GetKeyboardLayoutNameW(core::mem::transmute(pwszklid)) }
+    unsafe { GetKeyboardLayoutNameW(core::mem::transmute(pwszklid.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> windows_core::BOOL {
+pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : *mut u8) -> windows_core::BOOL);
-    unsafe { GetKeyboardState(lpkeystate as _) }
+    unsafe { GetKeyboardState(core::mem::transmute(lpkeystate.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
@@ -99,9 +100,9 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> windows_core::BOOL {
     unsafe { GetLastInputInfo(plii as _) }
 }
 #[inline]
-pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
+pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: &mut [MOUSEMOVEPOINT], resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : *const MOUSEMOVEPOINT, lpptbuf : *mut MOUSEMOVEPOINT, nbufpoints : i32, resolution : GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32);
-    unsafe { GetMouseMovePointsEx(cbsize, lppt, lpptbuf as _, nbufpoints, resolution) }
+    unsafe { GetMouseMovePointsEx(cbsize, lppt, core::mem::transmute(lpptbuf.as_ptr()), lpptbuf.len().try_into().unwrap(), resolution) }
 }
 #[inline]
 pub unsafe fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> windows_core::BOOL {
@@ -109,20 +110,22 @@ pub unsafe fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> wi
     unsafe { IsWindowEnabled(hwnd) }
 }
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL
+pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_core::PCSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    unsafe { LoadKeyboardLayoutA(pwszklid.param().abi(), flags) }
+    let result__ = unsafe { LoadKeyboardLayoutA(pwszklid.param().abi(), flags) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL
+pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> windows_core::Result<HKL>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_core::PCWSTR, flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> HKL);
-    unsafe { LoadKeyboardLayoutW(pwszklid.param().abi(), flags) }
+    let result__ = unsafe { LoadKeyboardLayoutW(pwszklid.param().abi(), flags) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 {
@@ -130,14 +133,14 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 
     unsafe { MapVirtualKeyA(ucode, umaptype) }
 }
 #[inline]
-pub unsafe fn MapVirtualKeyExA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL) -> u32 {
+pub unsafe fn MapVirtualKeyExA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: Option<HKL>) -> u32 {
     windows_core::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : HKL) -> u32);
-    unsafe { MapVirtualKeyExA(ucode, umaptype, dwhkl) }
+    unsafe { MapVirtualKeyExA(ucode, umaptype, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn MapVirtualKeyExW(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL) -> u32 {
+pub unsafe fn MapVirtualKeyExW(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: Option<HKL>) -> u32 {
     windows_core::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : HKL) -> u32);
-    unsafe { MapVirtualKeyExW(ucode, umaptype, dwhkl) }
+    unsafe { MapVirtualKeyExW(ucode, umaptype, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 {
@@ -150,24 +153,25 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     unsafe { OemKeyScan(woemchar) }
 }
 #[inline]
-pub unsafe fn RegisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> windows_core::BOOL {
+pub unsafe fn RegisterHotKey(hwnd: Option<super::super::super::Foundation::HWND>, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> windows_core::BOOL);
-    unsafe { RegisterHotKey(hwnd, id, fsmodifiers, vk) }
+    unsafe { RegisterHotKey(hwnd.unwrap_or(core::mem::zeroed()) as _, id, fsmodifiers, vk).ok() }
 }
 #[inline]
-pub unsafe fn ReleaseCapture() -> windows_core::BOOL {
+pub unsafe fn ReleaseCapture() -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn ReleaseCapture() -> windows_core::BOOL);
-    unsafe { ReleaseCapture() }
+    unsafe { ReleaseCapture().ok() }
 }
 #[inline]
-pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32 {
+pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
     windows_core::link!("user32.dll" "system" fn SendInput(cinputs : u32, pinputs : *const INPUT, cbsize : i32) -> u32);
-    unsafe { SendInput(cinputs, pinputs, cbsize) }
+    unsafe { SendInput(pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), cbsize) }
 }
 #[inline]
-pub unsafe fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND> {
     windows_core::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
-    unsafe { SetActiveWindow(hwnd) }
+    let result__ = unsafe { SetActiveWindow(hwnd) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
@@ -175,19 +179,20 @@ pub unsafe fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::
     unsafe { SetCapture(hwnd) }
 }
 #[inline]
-pub unsafe fn SetDoubleClickTime(param0: u32) -> windows_core::BOOL {
+pub unsafe fn SetDoubleClickTime(param0: u32) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SetDoubleClickTime(param0 : u32) -> windows_core::BOOL);
-    unsafe { SetDoubleClickTime(param0) }
+    unsafe { SetDoubleClickTime(param0).ok() }
 }
 #[inline]
-pub unsafe fn SetFocus(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetFocus(hwnd: Option<super::super::super::Foundation::HWND>) -> windows_core::Result<super::super::super::Foundation::HWND> {
     windows_core::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
-    unsafe { SetFocus(hwnd) }
+    let result__ = unsafe { SetFocus(hwnd.unwrap_or(core::mem::zeroed()) as _) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> windows_core::BOOL {
+pub unsafe fn SetKeyboardState(lpkeystate: &[u8; 256]) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : *const u8) -> windows_core::BOOL);
-    unsafe { SetKeyboardState(lpkeystate) }
+    unsafe { SetKeyboardState(core::mem::transmute(lpkeystate.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn SwapMouseButton(fswap: bool) -> windows_core::BOOL {
@@ -195,39 +200,39 @@ pub unsafe fn SwapMouseButton(fswap: bool) -> windows_core::BOOL {
     unsafe { SwapMouseButton(fswap.into()) }
 }
 #[inline]
-pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32 {
+pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32) -> i32);
-    unsafe { ToAscii(uvirtkey, uscancode, lpkeystate, lpchar as _, uflags) }
+    unsafe { ToAscii(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags) }
 }
 #[inline]
-pub unsafe fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: HKL) -> i32 {
+pub unsafe fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32, dwhkl: Option<HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32, dwhkl : HKL) -> i32);
-    unsafe { ToAsciiEx(uvirtkey, uscancode, lpkeystate, lpchar as _, uflags, dwhkl) }
+    unsafe { ToAsciiEx(uvirtkey, uscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpchar as _, uflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: windows_core::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
+pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: Option<&[u8; 256]>, pwszbuff: &mut [u16], wflags: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
-    unsafe { ToUnicode(wvirtkey, wscancode, lpkeystate, core::mem::transmute(pwszbuff), cchbuff, wflags) }
+    unsafe { ToUnicode(wvirtkey, wscancode, core::mem::transmute(lpkeystate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags) }
 }
 #[inline]
-pub unsafe fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: windows_core::PWSTR, cchbuff: i32, wflags: u32, dwhkl: HKL) -> i32 {
+pub unsafe fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: Option<HKL>) -> i32 {
     windows_core::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : HKL) -> i32);
-    unsafe { ToUnicodeEx(wvirtkey, wscancode, lpkeystate, core::mem::transmute(pwszbuff), cchbuff, wflags, dwhkl) }
+    unsafe { ToUnicodeEx(wvirtkey, wscancode, core::mem::transmute(lpkeystate.as_ptr()), core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags, dwhkl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> windows_core::BOOL {
+pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> windows_core::BOOL);
-    unsafe { TrackMouseEvent(lpeventtrack as _) }
+    unsafe { TrackMouseEvent(lpeventtrack as _).ok() }
 }
 #[inline]
-pub unsafe fn UnloadKeyboardLayout(hkl: HKL) -> windows_core::BOOL {
+pub unsafe fn UnloadKeyboardLayout(hkl: HKL) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : HKL) -> windows_core::BOOL);
-    unsafe { UnloadKeyboardLayout(hkl) }
+    unsafe { UnloadKeyboardLayout(hkl).ok() }
 }
 #[inline]
-pub unsafe fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> windows_core::BOOL {
+pub unsafe fn UnregisterHotKey(hwnd: Option<super::super::super::Foundation::HWND>, id: i32) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32) -> windows_core::BOOL);
-    unsafe { UnregisterHotKey(hwnd, id) }
+    unsafe { UnregisterHotKey(hwnd.unwrap_or(core::mem::zeroed()) as _, id).ok() }
 }
 #[inline]
 pub unsafe fn VkKeyScanA(ch: i8) -> i16 {

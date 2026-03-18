@@ -289,6 +289,24 @@ pub const PACKAGE_FULL_NAME_MIN_LENGTH: u32 = 30u32;
 pub const PACKAGE_GRAPH_MAX_SIZE: u32 = 641u32;
 pub const PACKAGE_GRAPH_MIN_SIZE: u32 = 1u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_ID {
+    pub reserved: u32,
+    pub processorArchitecture: u32,
+    pub version: PACKAGE_VERSION,
+    pub name: windows_sys::core::PWSTR,
+    pub publisher: windows_sys::core::PWSTR,
+    pub resourceId: windows_sys::core::PWSTR,
+    pub publisherId: windows_sys::core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PACKAGE_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_ID {
@@ -307,6 +325,23 @@ impl Default for PACKAGE_ID {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct PACKAGE_INFO {
+    pub reserved: u32,
+    pub flags: u32,
+    pub path: windows_sys::core::PWSTR,
+    pub packageFullName: windows_sys::core::PWSTR,
+    pub packageFamilyName: windows_sys::core::PWSTR,
+    pub packageId: PACKAGE_ID,
+}
+#[cfg(target_arch = "x86")]
+impl Default for PACKAGE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_INFO {
@@ -356,7 +391,7 @@ impl Default for PACKAGE_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
     pub Version: u64,

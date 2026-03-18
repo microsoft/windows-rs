@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: bool, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::BOOL {
+pub unsafe fn AdjustWindowRectExForDpi(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: bool, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : *mut super::super::Foundation:: RECT, dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE, bmenu : windows_core::BOOL, dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE, dpi : u32) -> windows_core::BOOL);
-    unsafe { AdjustWindowRectExForDpi(lprect as _, dwstyle, bmenu.into(), dwexstyle, dpi) }
+    unsafe { AdjustWindowRectExForDpi(lprect as _, dwstyle, bmenu.into(), dwexstyle, dpi).ok() }
 }
 #[inline]
 pub unsafe fn AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, dpicontextb: DPI_AWARENESS_CONTEXT) -> windows_core::BOOL {
@@ -10,9 +10,9 @@ pub unsafe fn AreDpiAwarenessContextsEqual(dpicontexta: DPI_AWARENESS_CONTEXT, d
     unsafe { AreDpiAwarenessContextsEqual(dpicontexta, dpicontextb) }
 }
 #[inline]
-pub unsafe fn EnableNonClientDpiScaling(hwnd: super::super::Foundation::HWND) -> windows_core::BOOL {
+pub unsafe fn EnableNonClientDpiScaling(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn EnableNonClientDpiScaling(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
-    unsafe { EnableNonClientDpiScaling(hwnd) }
+    unsafe { EnableNonClientDpiScaling(hwnd).ok() }
 }
 #[inline]
 pub unsafe fn GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS {
@@ -56,11 +56,11 @@ pub unsafe fn GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> u32
     unsafe { GetDpiFromDpiAwarenessContext(value) }
 }
 #[inline]
-pub unsafe fn GetProcessDpiAwareness(hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<PROCESS_DPI_AWARENESS> {
+pub unsafe fn GetProcessDpiAwareness(hprocess: Option<super::super::Foundation::HANDLE>) -> windows_core::Result<PROCESS_DPI_AWARENESS> {
     windows_core::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetProcessDpiAwareness(hprocess : super::super::Foundation:: HANDLE, value : *mut PROCESS_DPI_AWARENESS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetProcessDpiAwareness(hprocess, &mut result__).map(|| result__)
+        GetProcessDpiAwareness(hprocess.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -100,33 +100,33 @@ pub unsafe fn IsValidDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> window
     unsafe { IsValidDpiAwarenessContext(value) }
 }
 #[inline]
-pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {
+pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: Option<super::super::Foundation::HWND>, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn LogicalToPhysicalPointForPerMonitorDPI(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> windows_core::BOOL);
-    unsafe { LogicalToPhysicalPointForPerMonitorDPI(hwnd, lppoint as _) }
+    unsafe { LogicalToPhysicalPointForPerMonitorDPI(hwnd.unwrap_or(core::mem::zeroed()) as _, lppoint as _) }
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn OpenThemeDataForDpi<P1>(hwnd: super::super::Foundation::HWND, pszclasslist: P1, dpi: u32) -> super::Controls::HTHEME
+pub unsafe fn OpenThemeDataForDpi<P1>(hwnd: Option<super::super::Foundation::HWND>, pszclasslist: P1, dpi: u32) -> super::Controls::HTHEME
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uxtheme.dll" "system" fn OpenThemeDataForDpi(hwnd : super::super::Foundation:: HWND, pszclasslist : windows_core::PCWSTR, dpi : u32) -> super::Controls:: HTHEME);
-    unsafe { OpenThemeDataForDpi(hwnd, pszclasslist.param().abi(), dpi) }
+    unsafe { OpenThemeDataForDpi(hwnd.unwrap_or(core::mem::zeroed()) as _, pszclasslist.param().abi(), dpi) }
 }
 #[inline]
-pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {
+pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: Option<super::super::Foundation::HWND>, lppoint: *mut super::super::Foundation::POINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn PhysicalToLogicalPointForPerMonitorDPI(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> windows_core::BOOL);
-    unsafe { PhysicalToLogicalPointForPerMonitorDPI(hwnd, lppoint as _) }
+    unsafe { PhysicalToLogicalPointForPerMonitorDPI(hwnd.unwrap_or(core::mem::zeroed()) as _, lppoint as _) }
 }
 #[inline]
-pub unsafe fn SetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> windows_core::BOOL {
+pub unsafe fn SetDialogControlDpiChangeBehavior(hwnd: super::super::Foundation::HWND, mask: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SetDialogControlDpiChangeBehavior(hwnd : super::super::Foundation:: HWND, mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> windows_core::BOOL);
-    unsafe { SetDialogControlDpiChangeBehavior(hwnd, mask, values) }
+    unsafe { SetDialogControlDpiChangeBehavior(hwnd, mask, values).ok() }
 }
 #[inline]
-pub unsafe fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> windows_core::BOOL {
+pub unsafe fn SetDialogDpiChangeBehavior(hdlg: super::super::Foundation::HWND, mask: DIALOG_DPI_CHANGE_BEHAVIORS, values: DIALOG_DPI_CHANGE_BEHAVIORS) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SetDialogDpiChangeBehavior(hdlg : super::super::Foundation:: HWND, mask : DIALOG_DPI_CHANGE_BEHAVIORS, values : DIALOG_DPI_CHANGE_BEHAVIORS) -> windows_core::BOOL);
-    unsafe { SetDialogDpiChangeBehavior(hdlg, mask, values) }
+    unsafe { SetDialogDpiChangeBehavior(hdlg, mask, values).ok() }
 }
 #[inline]
 pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> windows_core::Result<()> {
@@ -134,9 +134,9 @@ pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> windows_co
     unsafe { SetProcessDpiAwareness(value).ok() }
 }
 #[inline]
-pub unsafe fn SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> windows_core::BOOL {
+pub unsafe fn SetProcessDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
-    unsafe { SetProcessDpiAwarenessContext(value) }
+    unsafe { SetProcessDpiAwarenessContext(value).ok() }
 }
 #[inline]
 pub unsafe fn SetThreadDpiAwarenessContext(dpicontext: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS_CONTEXT {
@@ -149,9 +149,9 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
     unsafe { SetThreadDpiHostingBehavior(value) }
 }
 #[inline]
-pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: *mut core::ffi::c_void, fwinini: u32, dpi: u32) -> windows_core::BOOL {
+pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: Option<*mut core::ffi::c_void>, fwinini: u32, dpi: u32) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn SystemParametersInfoForDpi(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32, dpi : u32) -> windows_core::BOOL);
-    unsafe { SystemParametersInfoForDpi(uiaction, uiparam, pvparam as _, fwinini, dpi) }
+    unsafe { SystemParametersInfoForDpi(uiaction, uiparam, pvparam.unwrap_or(core::mem::zeroed()) as _, fwinini, dpi).ok() }
 }
 pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0i32);
 pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1i32);
@@ -248,11 +248,11 @@ impl Default for DPI_AWARENESS_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i64 as _);
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i64 as _);
-pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i64 as _);
-pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i64 as _);
-pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i64 as _);
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
+pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-2i32 as _);
+pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
+pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
 pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = DPI_AWARENESS(-1i32);
 pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = DPI_AWARENESS(2i32);
 pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = DPI_AWARENESS(1i32);

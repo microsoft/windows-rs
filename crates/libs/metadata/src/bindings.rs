@@ -70,7 +70,7 @@ pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64u
 pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
 pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
 pub type IMAGE_DLL_CHARACTERISTICS = u16;
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
@@ -159,7 +159,7 @@ impl Default for IMAGE_OPTIONAL_HEADER32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,

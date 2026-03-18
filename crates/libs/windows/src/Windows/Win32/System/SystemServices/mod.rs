@@ -1054,8 +1054,8 @@ pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
 pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
 pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
 pub const IGP_UI: IGP_ID = IGP_ID(16u32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
     pub EndAddress: u64,
@@ -1164,7 +1164,40 @@ impl Default for IMAGE_AUX_SYMBOL {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_3 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 14],
+}
+impl Default for IMAGE_AUX_SYMBOL_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_AUX_SYMBOL_1 {
+    pub Name: [u8; 18],
+}
+impl Default for IMAGE_AUX_SYMBOL_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_AUX_SYMBOL_2 {
+    pub Length: u32,
+    pub NumberOfRelocations: u16,
+    pub NumberOfLinenumbers: u16,
+    pub CheckSum: u32,
+    pub Number: i16,
+    pub Selection: u8,
+    pub bReserved: u8,
+    pub HighNumber: i16,
+}
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_0 {
     pub TagIndex: u32,
@@ -1178,6 +1211,33 @@ impl Default for IMAGE_AUX_SYMBOL_0 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_AUX_SYMBOL_0_1 {
+    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
+    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
+}
+impl Default for IMAGE_AUX_SYMBOL_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IMAGE_AUX_SYMBOL_0_1_1 {
+    pub Dimension: [u16; 4],
+}
+impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_AUX_SYMBOL_0_1_0 {
+    pub PointerToLinenumber: u32,
+    pub PointerToNextFunction: u32,
+}
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_0_0 {
     pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
@@ -1196,66 +1256,6 @@ pub struct IMAGE_AUX_SYMBOL_0_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_0_1 {
-    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
-    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
-}
-impl Default for IMAGE_AUX_SYMBOL_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_0_1_0 {
-    pub PointerToLinenumber: u32,
-    pub PointerToNextFunction: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_0_1_1 {
-    pub Dimension: [u16; 4],
-}
-impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_1 {
-    pub Name: [u8; 18],
-}
-impl Default for IMAGE_AUX_SYMBOL_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_2 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_3 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 14],
-}
-impl Default for IMAGE_AUX_SYMBOL_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_EX {
     pub Sym: IMAGE_AUX_SYMBOL_EX_0,
     pub File: IMAGE_AUX_SYMBOL_EX_1,
@@ -1269,13 +1269,23 @@ impl Default for IMAGE_AUX_SYMBOL_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_EX_0 {
-    pub WeakDefaultSymIndex: u32,
-    pub WeakSearchType: u32,
-    pub rgbReserved: [u8; 12],
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_3 {
+    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
+    pub rgbReserved: [u8; 2],
 }
-impl Default for IMAGE_AUX_SYMBOL_EX_0 {
+impl Default for IMAGE_AUX_SYMBOL_EX_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_4 {
+    pub crc: u32,
+    pub rgbReserved: [u8; 16],
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1290,8 +1300,8 @@ impl Default for IMAGE_AUX_SYMBOL_EX_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
@@ -1308,30 +1318,20 @@ impl Default for IMAGE_AUX_SYMBOL_EX_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_EX_3 {
-    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub rgbReserved: [u8; 2],
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_0 {
+    pub WeakDefaultSymIndex: u32,
+    pub WeakSearchType: u32,
+    pub rgbReserved: [u8; 12],
 }
-impl Default for IMAGE_AUX_SYMBOL_EX_3 {
+impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_EX_4 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 16],
-}
-impl Default for IMAGE_AUX_SYMBOL_EX_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
     pub bAuxType: u8,
     pub bReserved: u8,
@@ -1353,15 +1353,15 @@ pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
     pub Left: u16,
     pub Right: u16,
     pub Value: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_INFO {
     pub Version: u32,
     pub BDDSize: u32,
@@ -1424,8 +1424,8 @@ pub const IMAGE_DEBUG_TYPE_REPRO: u32 = 16u32;
 pub const IMAGE_DEBUG_TYPE_RESERVED10: u32 = 10u32;
 pub const IMAGE_DEBUG_TYPE_SPGO: u32 = 18u32;
 pub const IMAGE_DEBUG_TYPE_VC_FEATURE: u32 = 12u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
     pub e_magic: u16,
     pub e_cblp: u16,
@@ -1453,14 +1453,14 @@ impl Default for IMAGE_DOS_HEADER {
     }
 }
 pub const IMAGE_DOS_SIGNATURE: u16 = 23117u16;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
     pub Symbol: u32,
     pub BaseRelocSize: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -1468,14 +1468,14 @@ pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
     pub SymbolGroup: u32,
     pub Flags: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
     pub Symbol: u64,
     pub BaseRelocSize: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
     pub HeaderSize: u32,
     pub FixupInfoSize: u32,
@@ -1504,8 +1504,8 @@ pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: u32 = 1u32;
 pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: u32 = 32u32;
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: u32 = 1u32;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: u32 = 16u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub EpilogueCount: u32,
     pub EpilogueByteCount: u8,
@@ -1529,16 +1529,16 @@ pub struct IMAGE_EXPORT_DIRECTORY {
 }
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: u32 = 2u32;
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: u32 = 3u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
     pub OriginalRva: u32,
     pub BDDOffset: u32,
     pub RvaSize: u32,
     pub BaseRelocSize: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
     pub FuncOverrideSize: u32,
 }
@@ -1629,8 +1629,8 @@ impl Default for IMAGE_IMPORT_BY_NAME {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
@@ -1659,8 +1659,8 @@ impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
@@ -1675,7 +1675,7 @@ impl Default for IMAGE_LINENUMBER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_LINENUMBER_0 {
     pub SymbolTableIndex: u32,
@@ -1690,8 +1690,8 @@ pub const IMAGE_NT_SIGNATURE: u32 = 17744u32;
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: u32 = 16u32;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648u32;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808u64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_OS2_HEADER {
     pub ne_magic: u16,
     pub ne_ver: i8,
@@ -1785,7 +1785,7 @@ pub const IMAGE_POLICY_SECTION_NAME: windows_core::PCSTR = windows_core::s!(".tP
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RELOCATION {
     pub Anonymous: IMAGE_RELOCATION_0,
@@ -1797,7 +1797,7 @@ impl Default for IMAGE_RELOCATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_RELOCATION_0 {
     pub VirtualAddress: u32,
@@ -2184,12 +2184,12 @@ pub const IMAGE_SIZEOF_FILE_HEADER: u32 = 20u32;
 pub const IMAGE_SIZEOF_SECTION_HEADER: u32 = 40u32;
 pub const IMAGE_SIZEOF_SHORT_NAME: u32 = 8u32;
 pub const IMAGE_SIZEOF_SYMBOL: u32 = 18u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL {
     pub N: IMAGE_SYMBOL_0,
@@ -2204,7 +2204,7 @@ impl Default for IMAGE_SYMBOL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_0 {
     pub ShortName: [u8; 8],
@@ -2216,13 +2216,13 @@ impl Default for IMAGE_SYMBOL_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_0_0 {
     pub Short: u32,
     pub Long: u32,
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL_EX {
     pub N: IMAGE_SYMBOL_EX_0,
@@ -2237,7 +2237,7 @@ impl Default for IMAGE_SYMBOL_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_EX_0 {
     pub ShortName: [u8; 8],
@@ -2249,8 +2249,8 @@ impl Default for IMAGE_SYMBOL_EX_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_EX_0_0 {
     pub Short: u32,
     pub Long: u32,
@@ -2336,7 +2336,7 @@ impl Default for IMAGE_TLS_DIRECTORY32_0 {
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY64 {
     pub StartAddressOfRawData: u64,
@@ -2367,8 +2367,8 @@ impl Default for IMAGE_TLS_DIRECTORY64_0 {
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
 pub struct IMAGE_VXD_HEADER {
     pub e32_magic: u16,
     pub e32_border: u8,
@@ -2901,8 +2901,8 @@ pub struct NETWORK_APP_INSTANCE_EA {
 pub const NLS_VALID_LOCALE_MASK: u32 = 1048575u32;
 pub const NONVOL_FP_NUMREG_ARM64: u32 = 8u32;
 pub const NONVOL_INT_NUMREG_ARM64: u32 = 11u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
 pub struct NON_PAGED_DEBUG_INFO {
     pub Signature: u16,
     pub Flags: u16,
@@ -3008,7 +3008,7 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PEXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const core::ffi::c_void) -> i32>;
 pub const PF_NON_TEMPORAL_LEVEL_ALL: u32 = 0u32;
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
@@ -3016,6 +3016,9 @@ pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
@@ -3775,6 +3778,8 @@ pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 pub const PRODUCT_XBOX_KEYSTONE: u32 = 198u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
 pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: u64)>;
 pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
@@ -4080,6 +4085,14 @@ impl Default for SCOPE_TABLE_ARM {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SCOPE_TABLE_ARM_0 {
+    pub BeginAddress: u32,
+    pub EndAddress: u32,
+    pub HandlerAddress: u32,
+    pub JumpTarget: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
@@ -4093,14 +4106,6 @@ impl Default for SCOPE_TABLE_ARM64 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SCOPE_TABLE_ARM64_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct SCOPE_TABLE_ARM_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub HandlerAddress: u32,
@@ -5582,6 +5587,20 @@ impl Default for userHMETAFILE {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
+pub union userHMETAFILE_0 {
+    pub hInproc: i32,
+    pub hRemote: *mut super::Com::BYTE_BLOB,
+    pub hInproc64: i64,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for userHMETAFILE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
     pub u: userHMETAFILEPICT_0,
@@ -5602,20 +5621,6 @@ pub union userHMETAFILEPICT_0 {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for userHMETAFILEPICT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub union userHMETAFILE_0 {
-    pub hInproc: i32,
-    pub hRemote: *mut super::Com::BYTE_BLOB,
-    pub hInproc64: i64,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for userHMETAFILE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

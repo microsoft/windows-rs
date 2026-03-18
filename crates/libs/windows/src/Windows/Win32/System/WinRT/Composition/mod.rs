@@ -51,12 +51,12 @@ impl windows_core::RuntimeName for ICompositionCapabilitiesInteropFactory {}
 windows_core::imp::define_interface!(ICompositionDrawingSurfaceInterop, ICompositionDrawingSurfaceInterop_Vtbl, 0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee);
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop, windows_core::IUnknown);
 impl ICompositionDrawingSurfaceInterop {
-    pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::super::super::Foundation::RECT, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<T>
+    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::super::super::Foundation::RECT>, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -64,8 +64,8 @@ impl ICompositionDrawingSurfaceInterop {
     pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), core::mem::transmute(sizepixels)).ok() }
     }
-    pub unsafe fn Scroll(&self, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect, cliprect, offsetx, offsety).ok() }
+    pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::super::Foundation::RECT>, cliprect: Option<*const super::super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollrect.unwrap_or(core::mem::zeroed()) as _, cliprect.unwrap_or(core::mem::zeroed()) as _, offsetx, offsety).ok() }
     }
     pub unsafe fn ResumeDraw(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok() }
@@ -155,11 +155,11 @@ impl core::ops::Deref for ICompositionDrawingSurfaceInterop2 {
 }
 windows_core::imp::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, windows_core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ICompositionDrawingSurfaceInterop2 {
-    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>
+    pub unsafe fn CopySurface<P0>(&self, destinationresource: P0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: Option<*const super::super::super::Foundation::RECT>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle).ok() }
+        unsafe { (windows_core::Interface::vtable(self).CopySurface)(windows_core::Interface::as_raw(self), destinationresource.param().abi(), destinationoffsetx, destinationoffsety, sourcerectangle.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]

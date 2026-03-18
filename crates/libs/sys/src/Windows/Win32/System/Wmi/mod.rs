@@ -682,6 +682,17 @@ impl Default for MI_Datetime {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union MI_Datetime_0 {
+    pub timestamp: MI_Timestamp,
+    pub interval: MI_Interval,
+}
+impl Default for MI_Datetime_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MI_DatetimeA {
     pub data: *mut MI_Datetime,
     pub size: u32,
@@ -706,17 +717,6 @@ pub struct MI_DatetimeField {
     pub flags: u8,
 }
 impl Default for MI_DatetimeField {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union MI_Datetime_0 {
-    pub timestamp: MI_Timestamp,
-    pub interval: MI_Interval,
-}
-impl Default for MI_Datetime_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

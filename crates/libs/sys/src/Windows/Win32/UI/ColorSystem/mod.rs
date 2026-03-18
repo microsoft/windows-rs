@@ -256,6 +256,17 @@ impl Default for COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct COLOR_0 {
+    pub reserved1: u32,
+    pub reserved2: *mut core::ffi::c_void,
+}
+impl Default for COLOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type COLORDATATYPE = i32;
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -320,17 +331,6 @@ impl Default for COLORMATCHSETUPW {
 pub type COLORPROFILESUBTYPE = i32;
 pub type COLORPROFILETYPE = i32;
 pub type COLORTYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct COLOR_0 {
-    pub reserved1: u32,
-    pub reserved2: *mut core::ffi::c_void,
-}
-impl Default for COLOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = 5i32;
 pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = 6i32;
 pub const COLOR_3_CHANNEL: COLORTYPE = 6i32;

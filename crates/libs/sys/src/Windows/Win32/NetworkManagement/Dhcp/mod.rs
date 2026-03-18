@@ -1447,6 +1447,20 @@ impl Default for DHCP_OPTION_SCOPE_INFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union DHCP_OPTION_SCOPE_INFO_0 {
+    pub DefaultScopeInfo: *mut core::ffi::c_void,
+    pub GlobalScopeInfo: *mut core::ffi::c_void,
+    pub SubnetScopeInfo: u32,
+    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
+    pub MScopeInfo: windows_sys::core::PWSTR,
+}
+impl Default for DHCP_OPTION_SCOPE_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct DHCP_OPTION_SCOPE_INFO6 {
     pub ScopeType: DHCP_OPTION_SCOPE_TYPE6,
     pub ScopeInfo: DHCP_OPTION_SCOPE_INFO6_0,
@@ -1464,20 +1478,6 @@ pub union DHCP_OPTION_SCOPE_INFO6_0 {
     pub ReservedScopeInfo: DHCP_RESERVED_SCOPE6,
 }
 impl Default for DHCP_OPTION_SCOPE_INFO6_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union DHCP_OPTION_SCOPE_INFO_0 {
-    pub DefaultScopeInfo: *mut core::ffi::c_void,
-    pub GlobalScopeInfo: *mut core::ffi::c_void,
-    pub SubnetScopeInfo: u32,
-    pub ReservedScopeInfo: DHCP_RESERVED_SCOPE,
-    pub MScopeInfo: windows_sys::core::PWSTR,
-}
-impl Default for DHCP_OPTION_SCOPE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

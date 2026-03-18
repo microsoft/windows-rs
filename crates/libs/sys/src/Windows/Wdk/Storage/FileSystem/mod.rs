@@ -832,7 +832,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationst
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::super::super::Win32::Security:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::super::Win32::Security:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::super::Win32::Foundation:: NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::super::Win32::Security:: PSID, identifierauthority : *const super::super::super::Win32::Security:: SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, ...) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Wdk_Foundation")]
 windows_link::link!("ntoskrnl.exe" "system" fn RtlInitializeUnicodePrefix(prefixtable : *mut UNICODE_PREFIX_TABLE));
 #[cfg(feature = "Wdk_Foundation")]
@@ -2755,11 +2755,13 @@ impl Default for FSRTL_ADVANCED_FCB_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub union FSRTL_ADVANCED_FCB_HEADER_0 {
     pub Oplock: *mut core::ffi::c_void,
     pub ReservedForRemote: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 impl Default for FSRTL_ADVANCED_FCB_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3042,31 +3044,20 @@ impl Default for FS_FILTER_PARAMETERS {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: *mut i64,
     pub ResourceToRelease: *mut *mut super::super::Foundation::ERESOURCE,
 }
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-#[derive(Clone, Copy)]
-pub struct FS_FILTER_PARAMETERS_1 {
-    pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
-}
-#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
-impl Default for FS_FILTER_PARAMETERS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
@@ -3075,7 +3066,24 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub Flags: u32,
     pub AllocationAttributes: u32,
 }
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FS_FILTER_PARAMETERS_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+#[derive(Clone, Copy)]
+pub struct FS_FILTER_PARAMETERS_4 {
+    pub Argument1: *mut core::ffi::c_void,
+    pub Argument2: *mut core::ffi::c_void,
+    pub Argument3: *mut core::ffi::c_void,
+    pub Argument4: *mut core::ffi::c_void,
+    pub Argument5: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl Default for FS_FILTER_PARAMETERS_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3097,15 +3105,13 @@ impl Default for FS_FILTER_PARAMETERS_3 {
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
-pub struct FS_FILTER_PARAMETERS_4 {
-    pub Argument1: *mut core::ffi::c_void,
-    pub Argument2: *mut core::ffi::c_void,
-    pub Argument3: *mut core::ffi::c_void,
-    pub Argument4: *mut core::ffi::c_void,
-    pub Argument5: *mut core::ffi::c_void,
+pub struct FS_FILTER_PARAMETERS_1 {
+    pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
 }
-impl Default for FS_FILTER_PARAMETERS_4 {
+#[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
+impl Default for FS_FILTER_PARAMETERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3510,33 +3516,39 @@ impl Default for KAPC_STATE {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union KAPC_STATE_0 {
     pub InProgressFlags: u8,
     pub Anonymous: KAPC_STATE_0_0,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Default)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]
 pub union KAPC_STATE_1 {
     pub UserApcPendingAll: bool,
     pub Anonymous: KAPC_STATE_1_0,
 }
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for KAPC_STATE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Default)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: u8,
@@ -4539,15 +4551,10 @@ impl Default for REPARSE_DATA_BUFFER_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_0 {
-    pub SubstituteNameOffset: u16,
-    pub SubstituteNameLength: u16,
-    pub PrintNameOffset: u16,
-    pub PrintNameLength: u16,
-    pub Flags: u32,
-    pub PathBuffer: [u16; 1],
+pub struct REPARSE_DATA_BUFFER_0_2 {
+    pub DataBuffer: [u8; 1],
 }
-impl Default for REPARSE_DATA_BUFFER_0_0 {
+impl Default for REPARSE_DATA_BUFFER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4568,10 +4575,15 @@ impl Default for REPARSE_DATA_BUFFER_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_2 {
-    pub DataBuffer: [u8; 1],
+pub struct REPARSE_DATA_BUFFER_0_0 {
+    pub SubstituteNameOffset: u16,
+    pub SubstituteNameLength: u16,
+    pub PrintNameOffset: u16,
+    pub PrintNameLength: u16,
+    pub Flags: u32,
+    pub PathBuffer: [u16; 1],
 }
-impl Default for REPARSE_DATA_BUFFER_0_2 {
+impl Default for REPARSE_DATA_BUFFER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4606,7 +4618,7 @@ impl Default for REPARSE_DATA_BUFFER_EX_0 {
     }
 }
 pub const REPARSE_DATA_EX_FLAG_GIVEN_TAG_OR_NONE: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy, Default)]
 pub struct REPARSE_INDEX_KEY {
     pub FileReparseTag: u32,

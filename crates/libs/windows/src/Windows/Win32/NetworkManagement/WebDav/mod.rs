@@ -1,12 +1,12 @@
 #[inline]
-pub unsafe fn DavAddConnection<P1, P2, P3>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P1, username: P2, password: P3, clientcert: *const u8, certsize: u32) -> u32
+pub unsafe fn DavAddConnection<P1, P2, P3>(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: P1, username: P2, password: P3, clientcert: &[u8]) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
-    unsafe { DavAddConnection(connectionhandle as _, remotename.param().abi(), username.param().abi(), password.param().abi(), clientcert, certsize) }
+    unsafe { DavAddConnection(connectionhandle as _, remotename.param().abi(), username.param().abi(), password.param().abi(), core::mem::transmute(clientcert.as_ptr()), clientcert.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn DavCancelConnectionsToServer<P0>(lpname: P0, fforce: bool) -> u32
@@ -32,28 +32,28 @@ pub unsafe fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exter
     unsafe { DavGetExtendedError(hfile, exterror as _, core::mem::transmute(exterrorstring), cchsize as _) }
 }
 #[inline]
-pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: windows_core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetHTTPFromUNCPath<P0>(uncpath: P0, url: Option<windows_core::PWSTR>, lpsize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : windows_core::PCWSTR, url : windows_core::PWSTR, lpsize : *mut u32) -> u32);
-    unsafe { DavGetHTTPFromUNCPath(uncpath.param().abi(), core::mem::transmute(url), lpsize as _) }
+    unsafe { DavGetHTTPFromUNCPath(uncpath.param().abi(), url.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[inline]
-pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: windows_core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32
+pub unsafe fn DavGetTheLockOwnerOfTheFile<P0>(filename: P0, lockownername: Option<windows_core::PWSTR>, lockownernamelengthinbytes: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : windows_core::PCWSTR, lockownername : windows_core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
-    unsafe { DavGetTheLockOwnerOfTheFile(filename.param().abi(), core::mem::transmute(lockownername), lockownernamelengthinbytes as _) }
+    unsafe { DavGetTheLockOwnerOfTheFile(filename.param().abi(), lockownername.unwrap_or(core::mem::zeroed()) as _, lockownernamelengthinbytes as _) }
 }
 #[inline]
-pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: windows_core::PWSTR, lpsize: *mut u32) -> u32
+pub unsafe fn DavGetUNCFromHTTPPath<P0>(url: P0, uncpath: Option<windows_core::PWSTR>, lpsize: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : windows_core::PCWSTR, uncpath : windows_core::PWSTR, lpsize : *mut u32) -> u32);
-    unsafe { DavGetUNCFromHTTPPath(url.param().abi(), core::mem::transmute(uncpath), lpsize as _) }
+    unsafe { DavGetUNCFromHTTPPath(url.param().abi(), uncpath.unwrap_or(core::mem::zeroed()) as _, lpsize as _) }
 }
 #[inline]
 pub unsafe fn DavInvalidateCache<P0>(urlname: P0) -> u32

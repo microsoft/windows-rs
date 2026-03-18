@@ -29,7 +29,7 @@ windows_link::link!("wsdapi.dll" "system" fn WSDXMLBuildAnyForSingleElement(pele
 windows_link::link!("wsdapi.dll" "system" fn WSDXMLCleanupElement(pany : *mut WSDXML_ELEMENT) -> windows_sys::core::HRESULT);
 windows_link::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("wsdapi.dll" "system" fn WSDXMLGetNameFromBuiltinNamespace(psznamespace : windows_sys::core::PCWSTR, pszname : windows_sys::core::PCWSTR, ppname : *mut *mut WSDXML_NAME) -> windows_sys::core::HRESULT);
-windows_link::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : windows_sys::core::PCWSTR, pszname : windows_sys::core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : windows_sys::core::PCWSTR, pszname : windows_sys::core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 pub type DeviceDiscoveryMechanism = i32;
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = 1i32;
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = 0i32;
@@ -283,8 +283,10 @@ pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
     pub Next: *mut WSDXML_NODE,
-    pub ElementType: i32,
-    pub TextType: i32,
+}
+impl WSDXML_NODE {
+    pub const ElementType: i32 = 0i32;
+    pub const TextType: i32 = 1i32;
 }
 impl Default for WSDXML_NODE {
     fn default() -> Self {

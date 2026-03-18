@@ -1,19 +1,20 @@
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> super::super::super::UI::Controls::HPROPSHEETPAGE
+pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> windows_core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
 where
     P0: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
-    unsafe { CreateSecurityPage(psi.param().abi()) }
+    let result__ = unsafe { CreateSecurityPage(psi.param().abi()) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1) -> windows_core::BOOL
+pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1) -> windows_core::Result<()>
 where
     P1: windows_core::Param<ISecurityInformation>,
 {
     windows_core::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { EditSecurity(hwndowner, psi.param().abi()) }
+    unsafe { EditSecurity(hwndowner, psi.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1, usipage: SI_PAGE_TYPE) -> windows_core::Result<()>
@@ -82,24 +83,43 @@ impl IEffectivePermission2 {
     pub unsafe fn ComputeEffectivePermissionWithSecondarySecurity<P2>(
         &self,
         psid: super::super::PSID,
-        pdevicesid: super::super::PSID,
+        pdevicesid: Option<super::super::PSID>,
         pszservername: P2,
         psecurityobjects: *mut SECURITY_OBJECT,
         dwsecurityobjectcount: u32,
-        pusergroups: *const super::super::TOKEN_GROUPS,
-        pauthzusergroupsoperations: *const super::AUTHZ_SID_OPERATION,
-        pdevicegroups: *const super::super::TOKEN_GROUPS,
-        pauthzdevicegroupsoperations: *const super::AUTHZ_SID_OPERATION,
-        pauthzuserclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
-        pauthzuserclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
-        pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
-        pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
+        pusergroups: Option<*const super::super::TOKEN_GROUPS>,
+        pauthzusergroupsoperations: Option<*const super::AUTHZ_SID_OPERATION>,
+        pdevicegroups: Option<*const super::super::TOKEN_GROUPS>,
+        pauthzdevicegroupsoperations: Option<*const super::AUTHZ_SID_OPERATION>,
+        pauthzuserclaims: Option<*const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>,
+        pauthzuserclaimsoperations: Option<*const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
+        pauthzdeviceclaims: Option<*const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>,
+        pauthzdeviceclaimsoperations: Option<*const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION>,
         peffpermresultlists: *mut EFFPERM_RESULT_LIST,
     ) -> windows_core::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(windows_core::Interface::as_raw(self), psid, pdevicesid, pszservername.param().abi(), psecurityobjects as _, dwsecurityobjectcount, pusergroups, pauthzusergroupsoperations, pdevicegroups, pauthzdevicegroupsoperations, pauthzuserclaims, pauthzuserclaimsoperations, pauthzdeviceclaims, pauthzdeviceclaimsoperations, peffpermresultlists as _).ok() }
+        unsafe {
+            (windows_core::Interface::vtable(self).ComputeEffectivePermissionWithSecondarySecurity)(
+                windows_core::Interface::as_raw(self),
+                psid,
+                pdevicesid.unwrap_or(core::mem::zeroed()) as _,
+                pszservername.param().abi(),
+                psecurityobjects as _,
+                dwsecurityobjectcount,
+                pusergroups.unwrap_or(core::mem::zeroed()) as _,
+                pauthzusergroupsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pdevicegroups.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdevicegroupsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pauthzuserclaims.unwrap_or(core::mem::zeroed()) as _,
+                pauthzuserclaimsoperations.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdeviceclaims.unwrap_or(core::mem::zeroed()) as _,
+                pauthzdeviceclaimsoperations.unwrap_or(core::mem::zeroed()) as _,
+                peffpermresultlists as _,
+            )
+            .ok()
+        }
     }
 }
 #[repr(C)]

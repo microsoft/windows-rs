@@ -86,8 +86,21 @@ impl IWCNDevice {
     pub unsafe fn Unadvise(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: &[u8], pbremotepublickeyhash: &[u8], pbdhkeyblob: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetNFCPasswordParams)(windows_core::Interface::as_raw(self), r#type, dwoobpasswordid, pbpassword.len().try_into().unwrap(), core::mem::transmute(pbpassword.as_ptr()), pbremotepublickeyhash.len().try_into().unwrap(), core::mem::transmute(pbremotepublickeyhash.as_ptr()), pbdhkeyblob.len().try_into().unwrap(), core::mem::transmute(pbdhkeyblob.as_ptr())).ok() }
+    pub unsafe fn SetNFCPasswordParams(&self, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, pbpassword: Option<&[u8]>, pbremotepublickeyhash: Option<&[u8]>, pbdhkeyblob: Option<&[u8]>) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetNFCPasswordParams)(
+                windows_core::Interface::as_raw(self),
+                r#type,
+                dwoobpasswordid,
+                pbpassword.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbpassword.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbremotepublickeyhash.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbremotepublickeyhash.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                pbdhkeyblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(pbdhkeyblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            )
+            .ok()
+        }
     }
 }
 #[repr(C)]
@@ -539,8 +552,8 @@ pub struct WCN_VALUE_TYPE_ENCRYPTION_TYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCN_VALUE_TYPE_MESSAGE_TYPE(pub i32);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     pub Category: u16,
     pub SubCategoryOUI: u32,

@@ -79,22 +79,22 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: *const u32, param1: *const u8, 
     unsafe { CLIPFORMAT_UserUnmarshal64(param0, param1, param2 as _) }
 }
 #[inline]
-pub unsafe fn CoGetMarshalSizeMax<P2>(pulsize: *mut u32, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>
+pub unsafe fn CoGetMarshalSizeMax<P2>(pulsize: *mut u32, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetMarshalSizeMax(pulsize : *mut u32, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32) -> windows_core::HRESULT);
-    unsafe { CoGetMarshalSizeMax(pulsize as _, riid, punk.param().abi(), dwdestcontext, pvdestcontext, mshlflags).ok() }
+    unsafe { CoGetMarshalSizeMax(pulsize as _, riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
 }
 #[inline]
-pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<IMarshal>
+pub unsafe fn CoGetStandardMarshal<P1>(riid: *const windows_core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<IMarshal>
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetStandardMarshal(riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32, ppmarshal : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoGetStandardMarshal(riid, punk.param().abi(), dwdestcontext, pvdestcontext, mshlflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CoGetStandardMarshal(riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -128,13 +128,13 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoMarshalInterface<P0, P2>(pstm: P0, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>
+pub unsafe fn CoMarshalInterface<P0, P2>(pstm: P0, riid: *const windows_core::GUID, punk: P2, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::IStream>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : * mut core::ffi::c_void, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32) -> windows_core::HRESULT);
-    unsafe { CoMarshalInterface(pstm.param().abi(), riid, punk.param().abi(), dwdestcontext, pvdestcontext, mshlflags).ok() }
+    unsafe { CoMarshalInterface(pstm.param().abi(), riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
 }
 #[inline]
 pub unsafe fn CoReleaseMarshalData<P0>(pstm: P0) -> windows_core::Result<()>
@@ -156,12 +156,14 @@ where
     }
 }
 #[inline]
-pub unsafe fn CoUnmarshalInterface<P0>(pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CoUnmarshalInterface<P0, T>(pstm: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::IStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoUnmarshalInterface(pstm.param().abi(), riid, ppv as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoUnmarshalInterface(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -662,23 +664,23 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
 windows_core::imp::define_interface!(IMarshal, IMarshal_Vtbl, 0x00000003_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IMarshal, windows_core::IUnknown);
 impl IMarshal {
-    pub unsafe fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUnmarshalClass)(windows_core::Interface::as_raw(self), riid, pv, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetUnmarshalClass)(windows_core::Interface::as_raw(self), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<u32> {
+    pub unsafe fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMarshalSizeMax)(windows_core::Interface::as_raw(self), riid, pv, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetMarshalSizeMax)(windows_core::Interface::as_raw(self), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
+    pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, pv: Option<*const core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: Option<*const core::ffi::c_void>, mshlflags: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, pv, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
+        unsafe { (windows_core::Interface::vtable(self).MarshalInterface)(windows_core::Interface::as_raw(self), pstm.param().abi(), riid, pv.unwrap_or(core::mem::zeroed()) as _, dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags).ok() }
     }
     pub unsafe fn UnmarshalInterface<P0>(&self, pstm: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where

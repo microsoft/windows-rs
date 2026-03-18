@@ -145,8 +145,8 @@ impl IObjectCollection_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IObjectCollection {}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
@@ -215,7 +215,7 @@ pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = SHCOLSTATE(3i32);
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = SHCOLSTATE(2i32);
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = SHCOLSTATE(1i32);
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = SHCOLSTATE(65536i32);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
@@ -227,8 +227,8 @@ impl Default for SHELLDETAILS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct SHITEMID {
     pub cb: u16,
     pub abID: [u8; 1],

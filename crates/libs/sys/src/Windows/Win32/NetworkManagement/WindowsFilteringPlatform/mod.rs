@@ -718,11 +718,13 @@ impl Default for FWPM_FILTER0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_FILTER0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1317,22 +1319,26 @@ impl Default for FWPM_NET_EVENT_HEADER0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1362,59 +1368,70 @@ impl Default for FWPM_NET_EVENT_HEADER1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER1_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy, Default)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
@@ -1452,22 +1469,26 @@ impl Default for FWPM_NET_EVENT_HEADER2 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1501,22 +1522,26 @@ impl Default for FWPM_NET_EVENT_HEADER3 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for FWPM_NET_EVENT_HEADER3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4386,10 +4411,12 @@ impl Default for IPSEC_SA_DETAILS0 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for IPSEC_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4414,10 +4441,12 @@ impl Default for IPSEC_SA_DETAILS1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Security")]
 #[derive(Clone, Copy)]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Security")]
 impl Default for IPSEC_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -365,6 +365,15 @@ pub struct WINHTTP_CONNECTION_GROUP {
     pub cConnections: u32,
     pub guidGroup: windows_sys::core::GUID,
 }
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Default)]
+pub struct WINHTTP_CONNECTION_INFO {
+    pub cbSize: u32,
+    pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -599,6 +608,13 @@ pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = 1i32;
 pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = 2i32;
 pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = 4i32;
 pub const WINHTTP_LAST_OPTION: u32 = 196u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct WINHTTP_MATCH_CONNECTION_GUID {
+    pub ConnectionGuid: windows_sys::core::GUID,
+    pub ullFlags: u64,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]
@@ -832,6 +848,26 @@ impl Default for WINHTTP_PROXY_SETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_PROXY_SETTINGS_EX {
+    pub ullGenerationId: u64,
+    pub ullFlags: u64,
+    pub pcwszAutoconfigUrl: windows_sys::core::PCWSTR,
+    pub pcwszProxy: windows_sys::core::PCWSTR,
+    pub pcwszSecureProxy: windows_sys::core::PCWSTR,
+    pub cProxyBypasses: u32,
+    pub rgpcwszProxyBypasses: *const windows_sys::core::PCWSTR,
+    pub dwInterfaceIndex: u32,
+    pub pcwszConnectionName: windows_sys::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -848,6 +884,20 @@ pub struct WINHTTP_PROXY_SETTINGS_EX {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for WINHTTP_PROXY_SETTINGS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_PROXY_SETTINGS_PARAM {
+    pub ullFlags: u64,
+    pub pcwszConnectionName: windows_sys::core::PCWSTR,
+    pub pcwszProbeHost: windows_sys::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_PROXY_SETTINGS_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -966,6 +1016,21 @@ pub const WINHTTP_QUERY_VERSION: u32 = 18u32;
 pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_REQUEST_STATS {
+    pub ullFlags: u64,
+    pub ulIndex: u32,
+    pub cStats: u32,
+    pub rgullStats: [u64; 32],
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_REQUEST_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -988,6 +1053,19 @@ pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_SESSION_RESUMPTION: u32 = 8u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct WINHTTP_REQUEST_TIMES {
+    pub cTimes: u32,
+    pub rgullTimes: [u64; 64],
+}
+#[cfg(target_arch = "x86")]
+impl Default for WINHTTP_REQUEST_TIMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1010,6 +1088,17 @@ pub const WINHTTP_RESET_SCRIPT_CACHE: u32 = 8u32;
 pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
+    pub ulMaxResolverCacheEntries: u32,
+    pub ulMaxCacheEntryAge: u32,
+    pub ulMinCacheEntryTtl: u32,
+    pub SecureDnsSetting: WINHTTP_SECURE_DNS_SETTING,
+    pub ullConnResolutionWaitTime: u64,
+    pub ullFlags: u64,
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Default)]

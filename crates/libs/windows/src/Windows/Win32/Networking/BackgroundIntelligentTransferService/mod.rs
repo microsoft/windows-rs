@@ -2407,11 +2407,8 @@ impl IBackgroundCopyJob2 {
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetNotifyCmdLine)(windows_core::Interface::as_raw(self), pprogram as _, pparameters as _).ok() }
     }
-    pub unsafe fn GetReplyProgress(&self) -> windows_core::Result<BG_JOB_REPLY_PROGRESS> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetReplyProgress)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetReplyProgress)(windows_core::Interface::as_raw(self), pprogress as _).ok() }
     }
     pub unsafe fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetReplyData)(windows_core::Interface::as_raw(self), ppbuffer as _, plength as _).ok() }
@@ -2451,7 +2448,7 @@ pub struct IBackgroundCopyJob2_Vtbl {
 pub trait IBackgroundCopyJob2_Impl: IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &windows_core::PCWSTR, parameters: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetNotifyCmdLine(&self, pprogram: *mut windows_core::PWSTR, pparameters: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetReplyProgress(&self) -> windows_core::Result<BG_JOB_REPLY_PROGRESS>;
+    fn GetReplyProgress(&self, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::Result<()>;
     fn GetReplyData(&self, ppbuffer: *mut *mut u8, plength: *mut u64) -> windows_core::Result<()>;
     fn SetReplyFileName(&self, replyfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetReplyFileName(&self) -> windows_core::Result<windows_core::PWSTR>;
@@ -2475,13 +2472,7 @@ impl IBackgroundCopyJob2_Vtbl {
         unsafe extern "system" fn GetReplyProgress<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundCopyJob2_Impl::GetReplyProgress(this) {
-                    Ok(ok__) => {
-                        pprogress.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IBackgroundCopyJob2_Impl::GetReplyProgress(this, core::mem::transmute_copy(&pprogress)).into()
             }
         }
         unsafe extern "system" fn GetReplyData<Identity: IBackgroundCopyJob2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuffer: *mut *mut u8, plength: *mut u64) -> windows_core::HRESULT {

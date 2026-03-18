@@ -569,7 +569,7 @@ pub struct IMECOMPOSITIONSTRINGINFO {
     pub iTargetStart: i32,
     pub iTargetLen: i32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
@@ -582,7 +582,7 @@ impl Default for IMEDLG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
@@ -650,7 +650,7 @@ pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
 pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMS {
     pub cbSize: i32,
@@ -663,7 +663,7 @@ impl Default for IMEKMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
@@ -676,7 +676,7 @@ impl Default for IMEKMSFUNCDESC {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
@@ -687,7 +687,7 @@ impl Default for IMEKMSINIT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
@@ -699,7 +699,7 @@ impl Default for IMEKMSINVK {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
@@ -713,7 +713,7 @@ impl Default for IMEKMSKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
@@ -724,7 +724,7 @@ impl Default for IMEKMSKEY_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
@@ -735,7 +735,7 @@ impl Default for IMEKMSKEY_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
@@ -751,7 +751,7 @@ impl Default for IMEKMSKMP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
@@ -889,7 +889,7 @@ pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
 pub type IMEREG = i32;
 pub type IMEREL = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMESHF {
     pub cbShf: u16,
@@ -943,7 +943,7 @@ impl Default for IMESTRINGINFO {
 pub type IMEUCT = i32;
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct IMEWRD {
     pub pwchReading: windows_sys::core::PWSTR,
@@ -959,7 +959,7 @@ impl Default for IMEWRD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union IMEWRD_0 {
     pub ulPos: u32,
@@ -970,7 +970,7 @@ impl Default for IMEWRD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
@@ -1357,7 +1357,7 @@ pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
 pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct MORRSLT {
     pub dwSize: u32,
@@ -1379,7 +1379,7 @@ impl Default for MORRSLT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_0 {
     pub pwchRead: windows_sys::core::PWSTR,
@@ -1390,7 +1390,7 @@ impl Default for MORRSLT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_1 {
     pub cchRead: u16,
@@ -1401,7 +1401,7 @@ impl Default for MORRSLT_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
@@ -1425,7 +1425,7 @@ pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u32;
 pub type NOTIFY_IME_ACTION = u32;
 pub type NOTIFY_IME_INDEX = u32;
 pub type PFNLOG = Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: windows_sys::core::HRESULT) -> windows_sys::core::BOOL>;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct POSTBL {
     pub nPos: u16,
@@ -1569,7 +1569,7 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WDD {
     pub wDispPos: u16,
@@ -1586,7 +1586,7 @@ impl Default for WDD {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_0 {
     pub wReadPos: u16,
@@ -1597,7 +1597,7 @@ impl Default for WDD_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union WDD_1 {
     pub cchRead: u16,

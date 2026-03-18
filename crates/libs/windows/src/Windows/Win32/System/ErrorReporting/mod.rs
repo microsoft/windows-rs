@@ -1,20 +1,20 @@
 #[inline]
-pub unsafe fn AddERExcludedApplicationA<P0>(szapplication: P0) -> windows_core::BOOL
+pub unsafe fn AddERExcludedApplicationA<P0>(szapplication: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { AddERExcludedApplicationA(szapplication.param().abi()) }
+    unsafe { AddERExcludedApplicationA(szapplication.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> windows_core::BOOL
+pub unsafe fn AddERExcludedApplicationW<P0>(wszapplication: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { AddERExcludedApplicationW(wszapplication.param().abi()) }
+    unsafe { AddERExcludedApplicationW(wszapplication.param().abi()).ok() }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
     windows_core::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
@@ -100,11 +100,11 @@ where
     windows_core::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_core::PCWSTR, ballusers : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WerRemoveExcludedApplication(pwzexename.param().abi(), ballusers.into()).ok() }
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE, dumptype: WER_DUMP_TYPE, pexceptionparam: *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions: *const WER_DUMP_CUSTOM_OPTIONS, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: Option<super::super::Foundation::HANDLE>, dumptype: WER_DUMP_TYPE, pexceptionparam: Option<*const WER_EXCEPTION_INFORMATION>, pdumpcustomoptions: Option<*const WER_DUMP_CUSTOM_OPTIONS>, dwflags: u32) -> windows_core::Result<()> {
     windows_core::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { WerReportAddDump(hreporthandle, hprocess, hthread, dumptype, pexceptionparam, pdumpcustomoptions, dwflags).ok() }
+    unsafe { WerReportAddDump(hreporthandle, hprocess, hthread.unwrap_or(core::mem::zeroed()) as _, dumptype, pexceptionparam.unwrap_or(core::mem::zeroed()) as _, pdumpcustomoptions.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn WerReportAddFile<P1>(hreporthandle: HREPORT, pwzpath: P1, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> windows_core::Result<()>
@@ -120,14 +120,14 @@ pub unsafe fn WerReportCloseHandle(hreporthandle: HREPORT) -> windows_core::Resu
     unsafe { WerReportCloseHandle(hreporthandle).ok() }
 }
 #[inline]
-pub unsafe fn WerReportCreate<P0>(pwzeventtype: P0, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION) -> windows_core::Result<HREPORT>
+pub unsafe fn WerReportCreate<P0>(pwzeventtype: P0, reptype: WER_REPORT_TYPE, preportinformation: Option<*const WER_REPORT_INFORMATION>) -> windows_core::Result<HREPORT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation, &mut result__).map(|| result__)
+        WerReportCreate(pwzeventtype.param().abi(), reptype, preportinformation.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -156,12 +156,9 @@ where
     unsafe { WerReportSetUIOption(hreporthandle, repuitypeid, pwzvalue.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS) -> windows_core::Result<WER_SUBMIT_RESULT> {
+pub unsafe fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: Option<*mut WER_SUBMIT_RESULT>) -> windows_core::Result<()> {
     windows_core::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : WER_SUBMIT_FLAGS, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerReportSubmit(hreporthandle, consent, dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { WerReportSubmit(hreporthandle, consent, dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> windows_core::Result<()> {
@@ -169,25 +166,19 @@ pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> windows_core::Result<
     unsafe { WerSetFlags(dwflags).ok() }
 }
 #[inline]
-pub unsafe fn WerStoreClose(hreportstore: HREPORTSTORE) {
+pub unsafe fn WerStoreClose(hreportstore: Option<HREPORTSTORE>) {
     windows_core::link!("wer.dll" "system" fn WerStoreClose(hreportstore : HREPORTSTORE));
-    unsafe { WerStoreClose(hreportstore) }
+    unsafe { WerStoreClose(hreportstore.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetFirstReportKey(hreportstore, &mut result__).map(|| result__)
-    }
+pub unsafe fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()> {
+    windows_core::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { WerStoreGetFirstReportKey(hreportstore, ppszreportkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreGetNextReportKey(hreportstore, &mut result__).map(|| result__)
-    }
+pub unsafe fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()> {
+    windows_core::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
+    unsafe { WerStoreGetNextReportKey(hreportstore, ppszreportkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WerStoreGetReportCount(hreportstore: HREPORTSTORE) -> windows_core::Result<u32> {
@@ -243,15 +234,12 @@ where
     unsafe { WerStoreQueryReportMetadataV3(hreportstore, pszreportkey.param().abi(), preportmetadata as _).ok() }
 }
 #[inline]
-pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: u32) -> windows_core::Result<WER_SUBMIT_RESULT>
+pub unsafe fn WerStoreUploadReport<P1>(hreportstore: HREPORTSTORE, pszreportkey: P1, dwflags: u32, psubmitresult: Option<*mut WER_SUBMIT_RESULT>) -> windows_core::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WerStoreUploadReport(hreportstore, pszreportkey.param().abi(), dwflags, &mut result__).map(|| result__)
-    }
+    unsafe { WerStoreUploadReport(hreportstore, pszreportkey.param().abi(), dwflags, psubmitresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> windows_core::Result<()> {
@@ -355,11 +343,11 @@ impl Default for HREPORTSTORE {
     }
 }
 pub const PACKAGED_APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("MoAppCrash");
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut windows_core::BOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut windows_core::BOOL) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut windows_core::BOOL, pwszeventname: windows_core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> windows_core::HRESULT>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: windows_core::PWSTR, pchname: *mut u32, pwszvalue: windows_core::PWSTR, pchvalue: *mut u32) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -441,13 +429,13 @@ pub const WER_DUMP_NOHEAP_ONQUEUE: u32 = 1u32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WER_DUMP_TYPE(pub i32);
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
     pub bClientPointers: windows_core::BOOL,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for WER_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -741,7 +729,7 @@ pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: windows_core::PCSTR = windows_c
 pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: windows_core::PCSTR = windows_core::s!("OutOfProcessExceptionEventCallback");
 pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: windows_core::PCSTR = windows_core::s!("OutOfProcessExceptionEventSignatureCallback");
 #[repr(C)]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[derive(Clone, Copy)]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
@@ -753,7 +741,7 @@ pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub bIsFatal: windows_core::BOOL,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl Default for WER_RUNTIME_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -881,5 +869,5 @@ pub const frrvOkManifest: EFaultRepRetVal = EFaultRepRetVal(1i32);
 pub const frrvOkQueued: EFaultRepRetVal = EFaultRepRetVal(2i32);
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR) -> EFaultRepRetVal>;
 pub type pfn_ADDEREXCLUDEDAPPLICATIONW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> EFaultRepRetVal>;
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type pfn_REPORTFAULT = Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;

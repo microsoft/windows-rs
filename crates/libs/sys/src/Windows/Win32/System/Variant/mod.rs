@@ -141,7 +141,7 @@ windows_link::link!("propsys.dll" "system" fn VariantToStringArray(var : *const 
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToStringArrayAlloc(var : *const VARIANT, pprgsz : *mut *mut windows_sys::core::PWSTR, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_link::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+windows_link::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt16(varin : *const VARIANT, puiret : *mut u16) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -276,13 +276,13 @@ impl Default for VARIANT_0_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[derive(Clone, Copy)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: *mut core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Default for VARIANT_0_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

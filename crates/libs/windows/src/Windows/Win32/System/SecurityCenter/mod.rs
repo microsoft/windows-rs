@@ -7,12 +7,9 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
     }
 }
 #[inline]
-pub unsafe fn WscGetSecurityProviderHealth(providers: u32) -> windows_core::Result<WSC_SECURITY_PROVIDER_HEALTH> {
+pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
     windows_core::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        WscGetSecurityProviderHealth(providers, &mut result__).map(|| result__)
-    }
+    unsafe { WscGetSecurityProviderHealth(providers, phealth as _).ok() }
 }
 #[inline]
 pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {

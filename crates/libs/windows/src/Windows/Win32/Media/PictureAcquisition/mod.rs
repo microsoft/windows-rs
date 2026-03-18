@@ -36,13 +36,13 @@ impl IPhotoAcquire {
             (windows_core::Interface::vtable(self).CreatePhotoSource)(windows_core::Interface::as_raw(self), pszdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Acquire<P0, P3, P4>(&self, pphotoacquiresource: P0, fshowprogress: bool, hwndparent: super::super::Foundation::HWND, pszapplicationname: P3, pphotoacquireprogresscb: P4) -> windows_core::Result<()>
+    pub unsafe fn Acquire<P0, P3, P4>(&self, pphotoacquiresource: P0, fshowprogress: bool, hwndparent: Option<super::super::Foundation::HWND>, pszapplicationname: P3, pphotoacquireprogresscb: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IPhotoAcquireSource>,
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<IPhotoAcquireProgressCB>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self), pphotoacquiresource.param().abi(), fshowprogress.into(), hwndparent, pszapplicationname.param().abi(), pphotoacquireprogresscb.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self), pphotoacquiresource.param().abi(), fshowprogress.into(), hwndparent.unwrap_or(core::mem::zeroed()) as _, pszapplicationname.param().abi(), pphotoacquireprogresscb.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumResults(&self) -> windows_core::Result<super::super::System::Com::IEnumString> {
@@ -130,8 +130,8 @@ impl IPhotoAcquireDeviceSelectionDialog {
     {
         unsafe { (windows_core::Interface::vtable(self).SetSubmitButtonText)(windows_core::Interface::as_raw(self), pszsubmitbuttontext.param().abi()).ok() }
     }
-    pub unsafe fn DoModal(&self, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut windows_core::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).DoModal)(windows_core::Interface::as_raw(self), hwndparent, dwdeviceflags, core::mem::transmute(pbstrdeviceid), pndevicetype as _).ok() }
+    pub unsafe fn DoModal(&self, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: Option<*mut windows_core::BSTR>, pndevicetype: Option<*mut DEVICE_SELECTION_DEVICE_TYPE>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DoModal)(windows_core::Interface::as_raw(self), hwndparent, dwdeviceflags, pbstrdeviceid.unwrap_or(core::mem::zeroed()) as _, pndevicetype.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -409,11 +409,8 @@ impl IPhotoAcquireOptionsDialog {
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DoModal(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<isize> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DoModal)(windows_core::Interface::as_raw(self), hwndparent, &mut result__).map(|| result__)
-        }
+    pub unsafe fn DoModal(&self, hwndparent: super::super::Foundation::HWND, ppnreturncode: Option<*mut isize>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).DoModal)(windows_core::Interface::as_raw(self), hwndparent, ppnreturncode.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SaveData(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SaveData)(windows_core::Interface::as_raw(self)).ok() }
@@ -433,7 +430,7 @@ pub trait IPhotoAcquireOptionsDialog_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pszregistryroot: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Create(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<super::super::Foundation::HWND>;
     fn Destroy(&self) -> windows_core::Result<()>;
-    fn DoModal(&self, hwndparent: super::super::Foundation::HWND) -> windows_core::Result<isize>;
+    fn DoModal(&self, hwndparent: super::super::Foundation::HWND, ppnreturncode: *mut isize) -> windows_core::Result<()>;
     fn SaveData(&self) -> windows_core::Result<()>;
 }
 impl IPhotoAcquireOptionsDialog_Vtbl {
@@ -465,13 +462,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
         unsafe extern "system" fn DoModal<Identity: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ppnreturncode: *mut isize) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPhotoAcquireOptionsDialog_Impl::DoModal(this, core::mem::transmute_copy(&hwndparent)) {
-                    Ok(ok__) => {
-                        ppnreturncode.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPhotoAcquireOptionsDialog_Impl::DoModal(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&ppnreturncode)).into()
             }
         }
         unsafe extern "system" fn SaveData<Identity: IPhotoAcquireOptionsDialog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -678,11 +669,11 @@ impl IPhotoAcquireProgressCB {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetUserInput<P1>(&self, riidtype: *const windows_core::GUID, punknown: P1, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
+    pub unsafe fn GetUserInput<P1>(&self, riidtype: *const windows_core::GUID, punknown: P1, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetUserInput)(windows_core::Interface::as_raw(self), riidtype, punknown.param().abi(), core::mem::transmute(ppropvarresult), core::mem::transmute(ppropvardefault)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetUserInput)(windows_core::Interface::as_raw(self), riidtype, punknown.param().abi(), core::mem::transmute(ppropvarresult), ppropvardefault.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -1149,17 +1140,14 @@ impl IPhotoAcquireSource {
         }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetDeviceIcons(&self, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceIcons)(windows_core::Interface::as_raw(self), nsize, phlargeicon as _, phsmallicon as _).ok() }
+    pub unsafe fn GetDeviceIcons(&self, nsize: u32, phlargeicon: Option<*mut super::super::UI::WindowsAndMessaging::HICON>, phsmallicon: Option<*mut super::super::UI::WindowsAndMessaging::HICON>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDeviceIcons)(windows_core::Interface::as_raw(self), nsize, phlargeicon.unwrap_or(core::mem::zeroed()) as _, phsmallicon.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn InitializeItemList<P1>(&self, fforceenumeration: bool, pphotoacquireprogresscb: P1) -> windows_core::Result<u32>
+    pub unsafe fn InitializeItemList<P1>(&self, fforceenumeration: bool, pphotoacquireprogresscb: P1, pnitemcount: Option<*mut u32>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<IPhotoAcquireProgressCB>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeItemList)(windows_core::Interface::as_raw(self), fforceenumeration.into(), pphotoacquireprogresscb.param().abi(), &mut result__).map(|| result__)
-        }
+        unsafe { (windows_core::Interface::vtable(self).InitializeItemList)(windows_core::Interface::as_raw(self), fforceenumeration.into(), pphotoacquireprogresscb.param().abi(), pnitemcount.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn GetItemCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1209,7 +1197,7 @@ pub struct IPhotoAcquireSource_Vtbl {
 pub trait IPhotoAcquireSource_Impl: windows_core::IUnknownImpl {
     fn GetFriendlyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetDeviceIcons(&self, nsize: u32, phlargeicon: *mut super::super::UI::WindowsAndMessaging::HICON, phsmallicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()>;
-    fn InitializeItemList(&self, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>) -> windows_core::Result<u32>;
+    fn InitializeItemList(&self, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: windows_core::Ref<IPhotoAcquireProgressCB>, pnitemcount: *mut u32) -> windows_core::Result<()>;
     fn GetItemCount(&self) -> windows_core::Result<u32>;
     fn GetItemAt(&self, nindex: u32) -> windows_core::Result<IPhotoAcquireItem>;
     fn GetPhotoAcquireSettings(&self) -> windows_core::Result<IPhotoAcquireSettings>;
@@ -1240,13 +1228,7 @@ impl IPhotoAcquireSource_Vtbl {
         unsafe extern "system" fn InitializeItemList<Identity: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fforceenumeration: windows_core::BOOL, pphotoacquireprogresscb: *mut core::ffi::c_void, pnitemcount: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPhotoAcquireSource_Impl::InitializeItemList(this, core::mem::transmute_copy(&fforceenumeration), core::mem::transmute_copy(&pphotoacquireprogresscb)) {
-                    Ok(ok__) => {
-                        pnitemcount.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPhotoAcquireSource_Impl::InitializeItemList(this, core::mem::transmute_copy(&fforceenumeration), core::mem::transmute_copy(&pphotoacquireprogresscb), core::mem::transmute_copy(&pnitemcount)).into()
             }
         }
         unsafe extern "system" fn GetItemCount<Identity: IPhotoAcquireSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnitemcount: *mut u32) -> windows_core::HRESULT {
@@ -1404,8 +1386,8 @@ impl IPhotoProgressDialog {
         unsafe { (windows_core::Interface::vtable(self).SetCaption)(windows_core::Interface::as_raw(self), psztitle.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn SetImage(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: super::super::UI::WindowsAndMessaging::HICON, hbitmap: super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), nimagetype, hicon, hbitmap).ok() }
+    pub unsafe fn SetImage(&self, nimagetype: PROGRESS_DIALOG_IMAGE_TYPE, hicon: Option<super::super::UI::WindowsAndMessaging::HICON>, hbitmap: Option<super::super::Graphics::Gdi::HBITMAP>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetImage)(windows_core::Interface::as_raw(self), nimagetype, hicon.unwrap_or(core::mem::zeroed()) as _, hbitmap.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetPercentComplete(&self, npercent: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPercentComplete)(windows_core::Interface::as_raw(self), npercent).ok() }
@@ -1438,11 +1420,11 @@ impl IPhotoProgressDialog {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetUserInput<P1>(&self, riidtype: *const windows_core::GUID, punknown: P1, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
+    pub unsafe fn GetUserInput<P1>(&self, riidtype: *const windows_core::GUID, punknown: P1, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetUserInput)(windows_core::Interface::as_raw(self), riidtype, punknown.param().abi(), core::mem::transmute(ppropvarresult), core::mem::transmute(ppropvardefault)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetUserInput)(windows_core::Interface::as_raw(self), riidtype, punknown.param().abi(), core::mem::transmute(ppropvarresult), ppropvardefault.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -1710,8 +1692,8 @@ impl IUserInputString {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn GetImage(&self, nsize: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), nsize, phbitmap as _, phicon as _).ok() }
+    pub unsafe fn GetImage(&self, nsize: u32, phbitmap: Option<*mut super::super::Graphics::Gdi::HBITMAP>, phicon: Option<*mut super::super::UI::WindowsAndMessaging::HICON>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), nsize, phbitmap.unwrap_or(core::mem::zeroed()) as _, phicon.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]

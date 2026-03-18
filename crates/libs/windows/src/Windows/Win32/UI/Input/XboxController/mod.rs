@@ -4,9 +4,9 @@ pub unsafe fn XInputEnable(enable: bool) {
     unsafe { XInputEnable(enable.into()) }
 }
 #[inline]
-pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: windows_core::PWSTR, prendercount: *mut u32, pcapturedeviceid: windows_core::PWSTR, pcapturecount: *mut u32) -> u32 {
+pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: Option<windows_core::PWSTR>, prendercount: Option<*mut u32>, pcapturedeviceid: Option<windows_core::PWSTR>, pcapturecount: Option<*mut u32>) -> u32 {
     windows_core::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_core::PWSTR, pcapturecount : *mut u32) -> u32);
-    unsafe { XInputGetAudioDeviceIds(dwuserindex, core::mem::transmute(prenderdeviceid), prendercount as _, core::mem::transmute(pcapturedeviceid), pcapturecount as _) }
+    unsafe { XInputGetAudioDeviceIds(dwuserindex, prenderdeviceid.unwrap_or(core::mem::zeroed()) as _, prendercount.unwrap_or(core::mem::zeroed()) as _, pcapturedeviceid.unwrap_or(core::mem::zeroed()) as _, pcapturecount.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
@@ -19,9 +19,9 @@ pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: XINPUT_FLAG, pcap
     unsafe { XInputGetCapabilities(dwuserindex, dwflags, pcapabilities as _) }
 }
 #[inline]
-pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
+pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: Option<u32>, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     windows_core::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
-    unsafe { XInputGetKeystroke(dwuserindex, dwreserved, pkeystroke as _) }
+    unsafe { XInputGetKeystroke(dwuserindex, dwreserved.unwrap_or(core::mem::zeroed()) as _, pkeystroke as _) }
 }
 #[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {

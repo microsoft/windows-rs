@@ -2130,12 +2130,14 @@ impl Default for DOT11_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2179,11 +2181,13 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
     pub ulFrequency: u32,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2790,7 +2794,7 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
     }
 }
 pub type DOT11_SCAN_TYPE = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SECURITY_PACKET_HEADER {
     pub PeerMac: [u8; 6],

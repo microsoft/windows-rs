@@ -237,11 +237,13 @@ impl Default for CHARFORMAT2A {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -271,11 +273,13 @@ impl Default for CHARFORMAT2W {
     }
 }
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy)]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CHARFORMAT2W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -328,8 +332,15 @@ pub struct CHARRANGE {
     pub cpMax: i32,
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CLIPBOARDFORMAT {
+    pub nmhdr: super::NMHDR,
+    pub cf: u16,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
     pub cf: u16,
@@ -374,8 +385,16 @@ pub const ECO_SELECTIONBAR: u32 = 16777216u32;
 pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default)]
+pub struct EDITSTREAM {
+    pub dwCookie: usize,
+    pub dwError: u32,
+    pub pfnCallback: EDITSTREAMCALLBACK,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
@@ -508,16 +527,31 @@ pub const EM_STOPGROUPTYPING: u32 = 1112u32;
 pub const EM_STREAMIN: u32 = 1097u32;
 pub const EM_STREAMOUT: u32 = 1098u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
     pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct ENCORRECTTEXT {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ENDCOMPOSITIONNOTIFY {
+    pub nmhdr: super::NMHDR,
+    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
     pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
@@ -526,7 +560,7 @@ pub struct ENDCOMPOSITIONNOTIFY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
@@ -534,8 +568,17 @@ pub struct ENDROPFILES {
     pub cp: i32,
     pub fProtected: windows_core::BOOL,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct ENDROPFILES {
+    pub nmhdr: super::NMHDR,
+    pub hDrop: super::super::super::Foundation::HANDLE,
+    pub cp: i32,
+    pub fProtected: windows_core::BOOL,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
@@ -544,9 +587,26 @@ pub struct ENLINK {
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct ENLINK {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ENLOWFIRTF {
+    pub nmhdr: super::NMHDR,
+    pub szControl: windows_core::PSTR,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: windows_core::PSTR,
@@ -577,7 +637,7 @@ pub const ENM_SELCHANGE: u32 = 524288u32;
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
 pub const ENM_UPDATE: u32 = 2u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
@@ -585,8 +645,17 @@ pub struct ENOLEOPFAILED {
     pub lOper: i32,
     pub hr: windows_core::HRESULT,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct ENOLEOPFAILED {
+    pub nmhdr: super::NMHDR,
+    pub iob: i32,
+    pub lOper: i32,
+    pub hr: windows_core::HRESULT,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
@@ -595,9 +664,27 @@ pub struct ENPROTECTED {
     pub lParam: super::super::super::Foundation::LPARAM,
     pub chrg: CHARRANGE,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct ENPROTECTED {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ENSAVECLIPBOARD {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub cch: i32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
@@ -639,39 +726,80 @@ pub const ES_SELFIME: u32 = 262144u32;
 pub const ES_SUNKEN: u32 = 16384u32;
 pub const ES_VERTICAL: u32 = 4194304u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct FINDTEXTA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCSTR,
     pub chrgText: CHARRANGE,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct FINDTEXTEXA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCSTR,
+    pub chrgText: CHARRANGE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct FINDTEXTEXW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+    pub chrgText: CHARRANGE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PCWSTR,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct FINDTEXTW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PCWSTR,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct FORMATRANGE {
+    pub hdc: super::super::super::Graphics::Gdi::HDC,
+    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
+    pub rc: super::super::super::Foundation::RECT,
+    pub rcPage: super::super::super::Foundation::RECT,
+    pub chrg: CHARRANGE,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[derive(Clone, Copy, Default)]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
     pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
@@ -687,8 +815,23 @@ pub const GCM_MOUSEMENU: u32 = 8192u32;
 pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
 pub const GCM_TOUCHMENU: u32 = 16384u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETCONTEXTMENUEX {
+    pub chrg: CHARRANGE,
+    pub dwFlags: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub pvReserved: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: u32,
@@ -702,8 +845,24 @@ impl Default for GETCONTEXTMENUEX {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct GETTEXTEX {
+    pub cb: u32,
+    pub flags: GETTEXTEX_FLAGS,
+    pub codepage: u32,
+    pub lpDefaultChar: windows_core::PCSTR,
+    pub lpUsedDefChar: *mut windows_core::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
@@ -762,8 +921,8 @@ impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
 pub struct GROUPTYPINGCHANGE {
     pub nmhdr: super::NMHDR,
     pub fGroupTyping: windows_core::BOOL,
@@ -780,8 +939,16 @@ pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
 pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
 pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HYPHENATEINFO {
+    pub cbSize: i16,
+    pub dxHyphenateZone: i16,
+    pub pfnHyphenate: isize,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
@@ -1143,11 +1310,8 @@ impl IRichEditOleCallback {
         unsafe { (windows_core::Interface::vtable(self).GetClipboardData)(windows_core::Interface::as_raw(self), lpchrg as _, reco, core::mem::transmute(lplpdataobj)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn GetDragDropEffect(&self, fdrag: bool, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS) -> windows_core::Result<super::super::super::System::Ole::DROPEFFECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.into(), grfkeystate, &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetDragDropEffect(&self, fdrag: bool, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDragDropEffect)(windows_core::Interface::as_raw(self), fdrag.into(), grfkeystate, pdweffect as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetContextMenu<P1>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P1, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>
@@ -1206,7 +1370,7 @@ pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
     fn QueryAcceptData(&self, lpdataobj: windows_core::Ref<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: windows_core::BOOL, hmetapict: super::super::super::Foundation::HGLOBAL) -> windows_core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: windows_core::OutRef<super::super::super::System::Com::IDataObject>) -> windows_core::Result<()>;
-    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS) -> windows_core::Result<super::super::super::System::Ole::DROPEFFECT>;
+    fn GetDragDropEffect(&self, fdrag: windows_core::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::Result<()>;
     fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: windows_core::Ref<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1269,13 +1433,7 @@ impl IRichEditOleCallback_Vtbl {
         unsafe extern "system" fn GetDragDropEffect<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fdrag: windows_core::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate)) {
-                    Ok(ok__) => {
-                        pdweffect.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRichEditOleCallback_Impl::GetDragDropEffect(this, core::mem::transmute_copy(&fdrag), core::mem::transmute_copy(&grfkeystate), core::mem::transmute_copy(&pdweffect)).into()
             }
         }
         unsafe extern "system" fn GetContextMenu<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: *mut core::ffi::c_void, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> windows_core::HRESULT {
@@ -1304,15 +1462,12 @@ impl IRichEditOleCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for IRichEditOleCallback {}
-windows_core::imp::define_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0x2c20284f_0a0c_5464_9a65_c95118de78fc);
+windows_core::imp::define_interface!(IRicheditUiaOverrides, IRicheditUiaOverrides_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IRicheditUiaOverrides, windows_core::IUnknown);
 impl IRicheditUiaOverrides {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPropertyOverrideValue)(windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyOverrideValue)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(pretvalue)).ok() }
     }
 }
 #[repr(C)]
@@ -1326,7 +1481,7 @@ pub struct IRicheditUiaOverrides_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRicheditUiaOverrides_Impl: windows_core::IUnknownImpl {
-    fn GetPropertyOverrideValue(&self, propertyid: i32) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRicheditUiaOverrides_Vtbl {
@@ -1334,13 +1489,7 @@ impl IRicheditUiaOverrides_Vtbl {
         unsafe extern "system" fn GetPropertyOverrideValue<Identity: IRicheditUiaOverrides_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertyid: i32, pretvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRicheditUiaOverrides_Impl::GetPropertyOverrideValue(this, core::mem::transmute_copy(&propertyid)) {
-                    Ok(ok__) => {
-                        pretvalue.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IRicheditUiaOverrides_Impl::GetPropertyOverrideValue(this, core::mem::transmute_copy(&propertyid), core::mem::transmute_copy(&pretvalue)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropertyOverrideValue: GetPropertyOverrideValue::<Identity, OFFSET> }
@@ -4722,7 +4871,7 @@ impl ITextFont2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextFont2 {}
-windows_core::imp::define_interface!(ITextHost, ITextHost_Vtbl, 0x6a0e7992_66fb_5e6c_a816_72caef89c95a);
+windows_core::imp::define_interface!(ITextHost, ITextHost_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(ITextHost, windows_core::IUnknown);
 impl ITextHost {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4788,26 +4937,17 @@ impl ITextHost {
     pub unsafe fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxClientToScreen)(windows_core::Interface::as_raw(self), lppt as _) }
     }
-    pub unsafe fn TxActivate(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxActivate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxActivate(&self, ploldstate: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxActivate)(windows_core::Interface::as_raw(self), ploldstate as _).ok() }
     }
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxDeactivate)(windows_core::Interface::as_raw(self), lnewstate).ok() }
     }
-    pub unsafe fn TxGetClientRect(&self) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetClientRect)(windows_core::Interface::as_raw(self), prc as _).ok() }
     }
-    pub unsafe fn TxGetViewInset(&self) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetViewInset)(windows_core::Interface::as_raw(self), prc as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> windows_core::Result<()> {
@@ -4820,23 +4960,14 @@ impl ITextHost {
     pub unsafe fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF {
         unsafe { (windows_core::Interface::vtable(self).TxGetSysColor)(windows_core::Interface::as_raw(self), nindex) }
     }
-    pub unsafe fn TxGetBackStyle(&self) -> windows_core::Result<TXTBACKSTYLE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetBackStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetBackStyle)(windows_core::Interface::as_raw(self), pstyle as _).ok() }
     }
-    pub unsafe fn TxGetMaxLength(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetMaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetMaxLength(&self, plength: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetMaxLength)(windows_core::Interface::as_raw(self), plength as _).ok() }
     }
-    pub unsafe fn TxGetScrollBars(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetScrollBars)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetScrollBars)(windows_core::Interface::as_raw(self), pdwscrollbar as _).ok() }
     }
     pub unsafe fn TxGetPasswordChar(&self) -> windows_core::Result<i8> {
         unsafe {
@@ -4844,17 +4975,11 @@ impl ITextHost {
             (windows_core::Interface::vtable(self).TxGetPasswordChar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TxGetAcceleratorPos(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetAcceleratorPos)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetAcceleratorPos)(windows_core::Interface::as_raw(self), pcp as _).ok() }
     }
-    pub unsafe fn TxGetExtent(&self) -> windows_core::Result<super::super::super::Foundation::SIZE> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetExtent)(windows_core::Interface::as_raw(self), lpextent as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> windows_core::Result<()> {
@@ -4863,11 +4988,8 @@ impl ITextHost {
     pub unsafe fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnTxParaFormatChange)(windows_core::Interface::as_raw(self), ppf).ok() }
     }
-    pub unsafe fn TxGetPropertyBits(&self, dwmask: u32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetPropertyBits)(windows_core::Interface::as_raw(self), dwmask, &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetPropertyBits)(windows_core::Interface::as_raw(self), dwmask, pdwbits as _).ok() }
     }
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxNotify)(windows_core::Interface::as_raw(self), inotify, pv as _).ok() }
@@ -4880,11 +5002,8 @@ impl ITextHost {
     pub unsafe fn TxImmReleaseContext(&self, himc: super::super::Input::Ime::HIMC) {
         unsafe { (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc) }
     }
-    pub unsafe fn TxGetSelectionBarWidth(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(windows_core::Interface::as_raw(self), lselbarwidth as _).ok() }
     }
 }
 #[repr(C)]
@@ -4985,26 +5104,26 @@ pub trait ITextHost_Impl: windows_core::IUnknownImpl {
     fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: windows_core::BOOL);
     fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL;
     fn TxClientToScreen(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL;
-    fn TxActivate(&self) -> windows_core::Result<i32>;
+    fn TxActivate(&self, ploldstate: *mut i32) -> windows_core::Result<()>;
     fn TxDeactivate(&self, lnewstate: i32) -> windows_core::Result<()>;
-    fn TxGetClientRect(&self) -> windows_core::Result<super::super::super::Foundation::RECT>;
-    fn TxGetViewInset(&self) -> windows_core::Result<super::super::super::Foundation::RECT>;
+    fn TxGetClientRect(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> windows_core::Result<()>;
     fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> windows_core::Result<()>;
     fn TxGetSysColor(&self, nindex: super::super::super::Graphics::Gdi::SYS_COLOR_INDEX) -> super::super::super::Foundation::COLORREF;
-    fn TxGetBackStyle(&self) -> windows_core::Result<TXTBACKSTYLE>;
-    fn TxGetMaxLength(&self) -> windows_core::Result<u32>;
-    fn TxGetScrollBars(&self) -> windows_core::Result<u32>;
+    fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> windows_core::Result<()>;
+    fn TxGetMaxLength(&self, plength: *mut u32) -> windows_core::Result<()>;
+    fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> windows_core::Result<()>;
     fn TxGetPasswordChar(&self) -> windows_core::Result<i8>;
-    fn TxGetAcceleratorPos(&self) -> windows_core::Result<i32>;
-    fn TxGetExtent(&self) -> windows_core::Result<super::super::super::Foundation::SIZE>;
+    fn TxGetAcceleratorPos(&self, pcp: *mut i32) -> windows_core::Result<()>;
+    fn TxGetExtent(&self, lpextent: *mut super::super::super::Foundation::SIZE) -> windows_core::Result<()>;
     fn OnTxCharFormatChange(&self, pcf: *const CHARFORMATW) -> windows_core::Result<()>;
     fn OnTxParaFormatChange(&self, ppf: *const PARAFORMAT) -> windows_core::Result<()>;
-    fn TxGetPropertyBits(&self, dwmask: u32) -> windows_core::Result<u32>;
+    fn TxGetPropertyBits(&self, dwmask: u32, pdwbits: *mut u32) -> windows_core::Result<()>;
     fn TxNotify(&self, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn TxImmGetContext(&self) -> super::super::Input::Ime::HIMC;
     fn TxImmReleaseContext(&self, himc: super::super::Input::Ime::HIMC);
-    fn TxGetSelectionBarWidth(&self) -> windows_core::Result<i32>;
+    fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost_Vtbl {
@@ -5126,13 +5245,7 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxActivate<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ploldstate: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxActivate(this) {
-                    Ok(ok__) => {
-                        ploldstate.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxActivate(this, core::mem::transmute_copy(&ploldstate)).into()
             }
         }
         unsafe extern "system" fn TxDeactivate<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnewstate: i32) -> windows_core::HRESULT {
@@ -5144,25 +5257,13 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxGetClientRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetClientRect(this) {
-                    Ok(ok__) => {
-                        prc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetClientRect(this, core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn TxGetViewInset<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetViewInset(this) {
-                    Ok(ok__) => {
-                        prc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetViewInset(this, core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn TxGetCharFormat<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcf: *const *const CHARFORMATW) -> windows_core::HRESULT {
@@ -5186,37 +5287,19 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxGetBackStyle<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstyle: *mut TXTBACKSTYLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetBackStyle(this) {
-                    Ok(ok__) => {
-                        pstyle.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetBackStyle(this, core::mem::transmute_copy(&pstyle)).into()
             }
         }
         unsafe extern "system" fn TxGetMaxLength<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plength: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetMaxLength(this) {
-                    Ok(ok__) => {
-                        plength.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetMaxLength(this, core::mem::transmute_copy(&plength)).into()
             }
         }
         unsafe extern "system" fn TxGetScrollBars<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwscrollbar: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetScrollBars(this) {
-                    Ok(ok__) => {
-                        pdwscrollbar.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetScrollBars(this, core::mem::transmute_copy(&pdwscrollbar)).into()
             }
         }
         unsafe extern "system" fn TxGetPasswordChar<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pch: *mut i8) -> windows_core::HRESULT {
@@ -5234,25 +5317,13 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxGetAcceleratorPos<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcp: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetAcceleratorPos(this) {
-                    Ok(ok__) => {
-                        pcp.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetAcceleratorPos(this, core::mem::transmute_copy(&pcp)).into()
             }
         }
         unsafe extern "system" fn TxGetExtent<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpextent: *mut super::super::super::Foundation::SIZE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetExtent(this) {
-                    Ok(ok__) => {
-                        lpextent.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetExtent(this, core::mem::transmute_copy(&lpextent)).into()
             }
         }
         unsafe extern "system" fn OnTxCharFormatChange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcf: *const CHARFORMATW) -> windows_core::HRESULT {
@@ -5270,13 +5341,7 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxGetPropertyBits<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmask: u32, pdwbits: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetPropertyBits(this, core::mem::transmute_copy(&dwmask)) {
-                    Ok(ok__) => {
-                        pdwbits.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetPropertyBits(this, core::mem::transmute_copy(&dwmask), core::mem::transmute_copy(&pdwbits)).into()
             }
         }
         unsafe extern "system" fn TxNotify<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inotify: u32, pv: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5300,13 +5365,7 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxGetSelectionBarWidth<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lselbarwidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost_Impl::TxGetSelectionBarWidth(this) {
-                    Ok(ok__) => {
-                        lselbarwidth.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost_Impl::TxGetSelectionBarWidth(this, core::mem::transmute_copy(&lselbarwidth)).into()
             }
         }
         Self {
@@ -5358,7 +5417,7 @@ impl ITextHost_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::RuntimeName for ITextHost {}
-windows_core::imp::define_interface!(ITextHost2, ITextHost2_Vtbl, 0x2c332c5e_ccc9_594b_b080_4a4acf25c3d8);
+windows_core::imp::define_interface!(ITextHost2, ITextHost2_Vtbl, 0);
 impl core::ops::Deref for ITextHost2 {
     type Target = ITextHost;
     fn deref(&self) -> &Self::Target {
@@ -5370,11 +5429,8 @@ impl ITextHost2 {
     pub unsafe fn TxIsDoubleClickPending(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxIsDoubleClickPending)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TxGetWindow(&self) -> windows_core::Result<super::super::super::Foundation::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetWindow)(windows_core::Interface::as_raw(self), phwnd as _).ok() }
     }
     pub unsafe fn TxSetForegroundWindow(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxSetForegroundWindow)(windows_core::Interface::as_raw(self)).ok() }
@@ -5383,11 +5439,8 @@ impl ITextHost2 {
     pub unsafe fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE {
         unsafe { (windows_core::Interface::vtable(self).TxGetPalette)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TxGetEastAsianFlags(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetEastAsianFlags)(windows_core::Interface::as_raw(self), pflags as _).ok() }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: bool) -> super::super::WindowsAndMessaging::HCURSOR {
@@ -5396,30 +5449,21 @@ impl ITextHost2 {
     pub unsafe fn TxFreeTextServicesNotification(&self) {
         unsafe { (windows_core::Interface::vtable(self).TxFreeTextServicesNotification)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TxGetEditStyle(&self, dwitem: u32) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetEditStyle)(windows_core::Interface::as_raw(self), dwitem, &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetEditStyle)(windows_core::Interface::as_raw(self), dwitem, pdwdata as _).ok() }
     }
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxGetWindowStyles)(windows_core::Interface::as_raw(self), pdwstyle as _, pdwexstyle as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::super::super::Graphics::Gdi::HDC) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.into(), hdc, &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxShowDropCaret(&self, fshow: bool, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxShowDropCaret)(windows_core::Interface::as_raw(self), fshow.into(), hdc, prc as _).ok() }
     }
     pub unsafe fn TxDestroyCaret(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxDestroyCaret)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn TxGetHorzExtent(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetHorzExtent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetHorzExtent)(windows_core::Interface::as_raw(self), plhorzextent as _).ok() }
     }
 }
 #[repr(C)]
@@ -5451,17 +5495,17 @@ pub struct ITextHost2_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITextHost2_Impl: ITextHost_Impl {
     fn TxIsDoubleClickPending(&self) -> windows_core::BOOL;
-    fn TxGetWindow(&self) -> windows_core::Result<super::super::super::Foundation::HWND>;
+    fn TxGetWindow(&self, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn TxSetForegroundWindow(&self) -> windows_core::Result<()>;
     fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE;
-    fn TxGetEastAsianFlags(&self) -> windows_core::Result<i32>;
+    fn TxGetEastAsianFlags(&self, pflags: *mut i32) -> windows_core::Result<()>;
     fn TxSetCursor2(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: windows_core::BOOL) -> super::super::WindowsAndMessaging::HCURSOR;
     fn TxFreeTextServicesNotification(&self);
-    fn TxGetEditStyle(&self, dwitem: u32) -> windows_core::Result<u32>;
+    fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> windows_core::Result<()>;
     fn TxGetWindowStyles(&self, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::Result<()>;
-    fn TxShowDropCaret(&self, fshow: windows_core::BOOL, hdc: super::super::super::Graphics::Gdi::HDC) -> windows_core::Result<super::super::super::Foundation::RECT>;
+    fn TxShowDropCaret(&self, fshow: windows_core::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn TxDestroyCaret(&self) -> windows_core::Result<()>;
-    fn TxGetHorzExtent(&self) -> windows_core::Result<i32>;
+    fn TxGetHorzExtent(&self, plhorzextent: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Input_Ime", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ITextHost2_Vtbl {
@@ -5475,13 +5519,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxGetWindow<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phwnd: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost2_Impl::TxGetWindow(this) {
-                    Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost2_Impl::TxGetWindow(this, core::mem::transmute_copy(&phwnd)).into()
             }
         }
         unsafe extern "system" fn TxSetForegroundWindow<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5499,13 +5537,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxGetEastAsianFlags<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost2_Impl::TxGetEastAsianFlags(this) {
-                    Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost2_Impl::TxGetEastAsianFlags(this, core::mem::transmute_copy(&pflags)).into()
             }
         }
         unsafe extern "system" fn TxSetCursor2<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, btext: windows_core::BOOL) -> super::super::WindowsAndMessaging::HCURSOR {
@@ -5523,13 +5555,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxGetEditStyle<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwitem: u32, pdwdata: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost2_Impl::TxGetEditStyle(this, core::mem::transmute_copy(&dwitem)) {
-                    Ok(ok__) => {
-                        pdwdata.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost2_Impl::TxGetEditStyle(this, core::mem::transmute_copy(&dwitem), core::mem::transmute_copy(&pdwdata)).into()
             }
         }
         unsafe extern "system" fn TxGetWindowStyles<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstyle: *mut u32, pdwexstyle: *mut u32) -> windows_core::HRESULT {
@@ -5541,13 +5567,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxShowDropCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fshow: windows_core::BOOL, hdc: super::super::super::Graphics::Gdi::HDC, prc: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost2_Impl::TxShowDropCaret(this, core::mem::transmute_copy(&fshow), core::mem::transmute_copy(&hdc)) {
-                    Ok(ok__) => {
-                        prc.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost2_Impl::TxShowDropCaret(this, core::mem::transmute_copy(&fshow), core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&prc)).into()
             }
         }
         unsafe extern "system" fn TxDestroyCaret<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5559,13 +5579,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxGetHorzExtent<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhorzextent: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextHost2_Impl::TxGetHorzExtent(this) {
-                    Ok(ok__) => {
-                        plhorzextent.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextHost2_Impl::TxGetHorzExtent(this, core::mem::transmute_copy(&plhorzextent)).into()
             }
         }
         Self {
@@ -9473,14 +9487,11 @@ impl ITextSelection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl windows_core::RuntimeName for ITextSelection2 {}
-windows_core::imp::define_interface!(ITextServices, ITextServices_Vtbl, 0x53c26675_79a9_57ee_ad65_18dc9671088f);
+windows_core::imp::define_interface!(ITextServices, ITextServices_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(ITextServices, windows_core::IUnknown);
 impl ITextServices {
-    pub unsafe fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<super::super::super::Foundation::LRESULT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxSendMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxSendMessage)(windows_core::Interface::as_raw(self), msg, wparam, lparam, plresult as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()> {
@@ -9500,11 +9511,8 @@ impl ITextServices {
     pub unsafe fn TxQueryHitPoint(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxQueryHitPoint)(windows_core::Interface::as_raw(self), dwdrawaspect, lindex, pvaspect as _, ptd as _, hdcdraw, hictargetdev, lprcclient as _, x, y, phitresult as _).ok() }
     }
-    pub unsafe fn OnTxInPlaceActivate(&self) -> windows_core::Result<super::super::super::Foundation::RECT> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).OnTxInPlaceActivate)(windows_core::Interface::as_raw(self), prcclient as _).ok() }
     }
     pub unsafe fn OnTxInPlaceDeactivate(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnTxInPlaceDeactivate)(windows_core::Interface::as_raw(self)).ok() }
@@ -9515,11 +9523,8 @@ impl ITextServices {
     pub unsafe fn OnTxUIDeactivate(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnTxUIDeactivate)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn TxGetText(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn TxGetText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetText)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrtext)).ok() }
     }
     pub unsafe fn TxSetText<P0>(&self, psztext: P0) -> windows_core::Result<()>
     where
@@ -9527,17 +9532,11 @@ impl ITextServices {
     {
         unsafe { (windows_core::Interface::vtable(self).TxSetText)(windows_core::Interface::as_raw(self), psztext.param().abi()).ok() }
     }
-    pub unsafe fn TxGetCurTargetX(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetCurTargetX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetCurTargetX(&self, param0: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetCurTargetX)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
-    pub unsafe fn TxGetBaseLinePos(&self) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TxGetBaseLinePos)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn TxGetBaseLinePos(&self, param0: *mut i32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).TxGetBaseLinePos)(windows_core::Interface::as_raw(self), param0 as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxGetNaturalSize(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()> {
@@ -9597,20 +9596,20 @@ pub struct ITextServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextServices_Impl: windows_core::IUnknownImpl {
-    fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<super::super::super::Foundation::LRESULT>;
+    fn TxSendMessage(&self, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>;
     fn TxDraw(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::Result<()>;
     fn TxGetHScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn TxGetVScroll(&self, plmin: *mut i32, plmax: *mut i32, plpos: *mut i32, plpage: *mut i32, pfenabled: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn OnTxSetCursor(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32) -> windows_core::Result<()>;
     fn TxQueryHitPoint(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcclient: *mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: *mut u32) -> windows_core::Result<()>;
-    fn OnTxInPlaceActivate(&self) -> windows_core::Result<super::super::super::Foundation::RECT>;
+    fn OnTxInPlaceActivate(&self, prcclient: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn OnTxInPlaceDeactivate(&self) -> windows_core::Result<()>;
     fn OnTxUIActivate(&self) -> windows_core::Result<()>;
     fn OnTxUIDeactivate(&self) -> windows_core::Result<()>;
-    fn TxGetText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn TxGetText(&self, pbstrtext: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn TxSetText(&self, psztext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn TxGetCurTargetX(&self) -> windows_core::Result<i32>;
-    fn TxGetBaseLinePos(&self) -> windows_core::Result<i32>;
+    fn TxGetCurTargetX(&self, param0: *mut i32) -> windows_core::Result<()>;
+    fn TxGetBaseLinePos(&self, param0: *mut i32) -> windows_core::Result<()>;
     fn TxGetNaturalSize(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
     fn TxGetDropTarget(&self) -> windows_core::Result<super::super::super::System::Ole::IDropTarget>;
     fn OnTxPropertyBitsChange(&self, dwmask: u32, dwbits: u32) -> windows_core::Result<()>;
@@ -9622,13 +9621,7 @@ impl ITextServices_Vtbl {
         unsafe extern "system" fn TxSendMessage<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, msg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, plresult: *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextServices_Impl::TxSendMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
-                    Ok(ok__) => {
-                        plresult.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextServices_Impl::TxSendMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam), core::mem::transmute_copy(&plresult)).into()
             }
         }
         unsafe extern "system" fn TxDraw<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut core::ffi::c_void, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcwbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> windows_core::HRESULT {
@@ -9664,13 +9657,7 @@ impl ITextServices_Vtbl {
         unsafe extern "system" fn OnTxInPlaceActivate<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prcclient: *mut super::super::super::Foundation::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextServices_Impl::OnTxInPlaceActivate(this) {
-                    Ok(ok__) => {
-                        prcclient.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextServices_Impl::OnTxInPlaceActivate(this, core::mem::transmute_copy(&prcclient)).into()
             }
         }
         unsafe extern "system" fn OnTxInPlaceDeactivate<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9694,13 +9681,7 @@ impl ITextServices_Vtbl {
         unsafe extern "system" fn TxGetText<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrtext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextServices_Impl::TxGetText(this) {
-                    Ok(ok__) => {
-                        pbstrtext.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextServices_Impl::TxGetText(this, core::mem::transmute_copy(&pbstrtext)).into()
             }
         }
         unsafe extern "system" fn TxSetText<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psztext: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -9712,25 +9693,13 @@ impl ITextServices_Vtbl {
         unsafe extern "system" fn TxGetCurTargetX<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextServices_Impl::TxGetCurTargetX(this) {
-                    Ok(ok__) => {
-                        param0.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextServices_Impl::TxGetCurTargetX(this, core::mem::transmute_copy(&param0)).into()
             }
         }
         unsafe extern "system" fn TxGetBaseLinePos<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITextServices_Impl::TxGetBaseLinePos(this) {
-                    Ok(ok__) => {
-                        param0.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITextServices_Impl::TxGetBaseLinePos(this, core::mem::transmute_copy(&param0)).into()
             }
         }
         unsafe extern "system" fn TxGetNaturalSize<Identity: ITextServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32) -> windows_core::HRESULT {
@@ -9791,7 +9760,7 @@ impl ITextServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl windows_core::RuntimeName for ITextServices {}
-windows_core::imp::define_interface!(ITextServices2, ITextServices2_Vtbl, 0xf9fd3843_7e93_5614_9dce_e6a2a4b595ad);
+windows_core::imp::define_interface!(ITextServices2, ITextServices2_Vtbl, 0);
 impl core::ops::Deref for ITextServices2 {
     type Target = ITextServices;
     fn deref(&self) -> &Self::Target {
@@ -10556,8 +10525,17 @@ pub const MSANS: MANCODE = MANCODE(4i32);
 pub const MSCRP: MANCODE = MANCODE(1i32);
 pub const MSFTEDIT_CLASS: windows_core::PCWSTR = windows_core::w!("RICHEDIT50W");
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct MSGFILTER {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
     pub msg: u32,
@@ -10567,8 +10545,22 @@ pub struct MSGFILTER {
 pub const MSTRCH: MANCODE = MANCODE(10i32);
 pub const MTAIL: MANCODE = MANCODE(9i32);
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct OBJECTPOSITIONS {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub pcpPositions: *mut i32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: i32,
@@ -10605,6 +10597,17 @@ impl Default for PARAFORMAT {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union PARAFORMAT_0 {
+    pub wReserved: u16,
+    pub wEffects: u16,
+}
+impl Default for PARAFORMAT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct PARAFORMAT2 {
     pub Base: PARAFORMAT,
     pub dySpaceBefore: i32,
@@ -10623,17 +10626,6 @@ pub struct PARAFORMAT2 {
     pub wBorders: PARAFORMAT_BORDERS,
 }
 impl Default for PARAFORMAT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PARAFORMAT_0 {
-    pub wReserved: u16,
-    pub wEffects: u16,
-}
-impl Default for PARAFORMAT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10837,8 +10829,15 @@ pub const PFN_UCLETTER: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(4u16);
 pub const PFN_UCROMAN: PARAFORMAT_NUMBERING = PARAFORMAT_NUMBERING(6u16);
 pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT>;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct PUNCTUATION {
+    pub iSize: u32,
+    pub szPunctuation: windows_core::PSTR,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: windows_core::PSTR,
@@ -10921,16 +10920,31 @@ pub const REO_STATIC: REOBJECT_FLAGS = REOBJECT_FLAGS(1073741824u32);
 pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
 pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
     pub dwParam: usize,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Default)]
+pub struct REPASTESPECIAL {
+    pub dwAspect: super::super::super::System::Com::DVASPECT,
+    pub dwParam: usize,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct REQRESIZE {
+    pub nmhdr: super::NMHDR,
+    pub rc: super::super::super::Foundation::RECT,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
     pub rc: super::super::super::Foundation::RECT,
@@ -10941,9 +10955,21 @@ pub const RICHEDIT_CLASS10A: windows_core::PCSTR = windows_core::s!("RICHEDIT");
 pub const RICHEDIT_CLASSA: windows_core::PCSTR = windows_core::s!("RichEdit20A");
 pub const RICHEDIT_CLASSW: windows_core::PCWSTR = windows_core::w!("RichEdit20W");
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Debug, Default, PartialEq)]
+pub struct RICHEDIT_IMAGE_PARAMETERS {
+    pub xWidth: i32,
+    pub yHeight: i32,
+    pub Ascent: i32,
+    pub Type: i32,
+    pub pwszAlternateText: windows_core::PCWSTR,
+    pub pIStream: core::mem::ManuallyDrop<Option<super::super::super::System::Com::IStream>>,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Default)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
     pub yHeight: i32,
@@ -11038,8 +11064,16 @@ pub const SCF_SMARTFONT: u32 = 128u32;
 pub const SCF_USEUIRULES: u32 = 8u32;
 pub const SCF_WORD: u32 = 2u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct SELCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
     pub chrg: CHARRANGE,
@@ -11157,15 +11191,29 @@ pub struct TABLEROWPARMS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMODE(pub i32);
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PSTR,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct TEXTRANGEA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PSTR,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct TEXTRANGEW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: windows_core::PWSTR,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_core::PWSTR,

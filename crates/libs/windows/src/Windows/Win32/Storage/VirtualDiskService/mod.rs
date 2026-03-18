@@ -24,13 +24,13 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    pub bootIndicator: bool,
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+    pub attributes: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
-    pub attributes: u64,
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+    pub bootIndicator: bool,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -56,13 +56,13 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
-    pub partitionType: u8,
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+    pub partitionType: windows_core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
-    pub partitionType: windows_core::GUID,
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+    pub partitionType: u8,
 }
 pub const CLSID_VdsLoader: windows_core::GUID = windows_core::GUID::from_u128(0x9c38ed61_d565_4728_aeee_c80952f0ecde);
 pub const CLSID_VdsService: windows_core::GUID = windows_core::GUID::from_u128(0x7d1933cb_86f6_4a98_8628_01be94c9a575);
@@ -89,12 +89,6 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_0 {
-    pub partitionType: u8,
-    pub bootIndicator: bool,
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
@@ -106,6 +100,12 @@ impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CREATE_PARTITION_PARAMETERS_0_0 {
+    pub partitionType: u8,
+    pub bootIndicator: bool,
 }
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
@@ -5349,25 +5349,19 @@ impl IVdsVdProvider {
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn CreateVDisk<P1, P2>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, pstringsecuritydescriptor: P2, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateVDisk<P1, P2>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, pstringsecuritydescriptor: P2, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, core::mem::transmute(ppasync)).ok() }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn AddVDisk<P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1) -> windows_core::Result<IVdsVDisk>
+    pub unsafe fn AddVDisk<P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), core::mem::transmute(ppvdisk)).ok() }
     }
     pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> windows_core::Result<IVdsDisk>
     where
@@ -5407,8 +5401,8 @@ pub struct IVdsVdProvider_Vtbl {
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
     fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS) -> windows_core::Result<IVdsAsync>;
-    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR) -> windows_core::Result<IVdsVDisk>;
+    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: windows_core::OutRef<IVdsAsync>) -> windows_core::Result<()>;
+    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: windows_core::OutRef<IVdsVDisk>) -> windows_core::Result<()>;
     fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
     fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
 }
@@ -5430,25 +5424,13 @@ impl IVdsVdProvider_Vtbl {
         unsafe extern "system" fn CreateVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, pstringsecuritydescriptor: windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters)) {
-                    Ok(ok__) => {
-                        ppasync.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVdsVdProvider_Impl::CreateVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute(&pstringsecuritydescriptor), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&providerspecificflags), core::mem::transmute_copy(&reserved), core::mem::transmute_copy(&pcreatediskparameters), core::mem::transmute_copy(&ppasync)).into()
             }
         }
         unsafe extern "system" fn AddVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: windows_core::PCWSTR, ppvdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath)) {
-                    Ok(ok__) => {
-                        ppvdisk.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVdsVdProvider_Impl::AddVDisk(this, core::mem::transmute_copy(&virtualdevicetype), core::mem::transmute(&ppath), core::mem::transmute_copy(&ppvdisk)).into()
             }
         }
         unsafe extern "system" fn GetDiskFromVDisk<Identity: IVdsVdProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdisk: *mut core::ffi::c_void, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6394,25 +6376,9 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub ullOffset: u64,
-    pub volumeId: windows_core::GUID,
-}
-#[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub ullReclaimedBytes: u64,
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -6420,9 +6386,10 @@ pub struct VDS_ASYNC_OUTPUT_0_4 {
     pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_0 {
+    pub ullOffset: u64,
+    pub volumeId: windows_core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -6431,8 +6398,23 @@ pub struct VDS_ASYNC_OUTPUT_0_6 {
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_5 {
+    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_1 {
+    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_7 {
     pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_3 {
+    pub ullReclaimedBytes: u64,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6562,6 +6544,17 @@ impl Default for VDS_DISK_PROP {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union VDS_DISK_PROP_0 {
+    pub dwSignature: u32,
+    pub DiskGuid: windows_core::GUID,
+}
+impl Default for VDS_DISK_PROP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct VDS_DISK_PROP2 {
     pub id: windows_core::GUID,
     pub status: VDS_DISK_STATUS,
@@ -6597,17 +6590,6 @@ pub union VDS_DISK_PROP2_0 {
     pub DiskGuid: windows_core::GUID,
 }
 impl Default for VDS_DISK_PROP2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VDS_DISK_PROP_0 {
-    pub dwSignature: u32,
-    pub DiskGuid: windows_core::GUID,
-}
-impl Default for VDS_DISK_PROP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

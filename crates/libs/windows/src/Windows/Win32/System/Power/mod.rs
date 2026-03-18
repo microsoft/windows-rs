@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32) -> windows_core::NTSTATUS {
+pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> windows_core::NTSTATUS {
     windows_core::link!("powrprof.dll" "system" fn CallNtPowerInformation(informationlevel : POWER_INFORMATION_LEVEL, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core:: NTSTATUS);
-    unsafe { CallNtPowerInformation(informationlevel, inputbuffer, inputbufferlength, outputbuffer as _, outputbufferlength) }
+    unsafe { CallNtPowerInformation(informationlevel, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
 }
 #[inline]
 pub unsafe fn CanUserWritePwrScheme() -> bool {
@@ -19,22 +19,22 @@ pub unsafe fn DevicePowerClose() -> bool {
     unsafe { DevicePowerClose() }
 }
 #[inline]
-pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> bool {
+pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: Option<*mut u8>, pbuffersize: *mut u32) -> bool {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> bool);
-    unsafe { DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer as _, pbuffersize as _) }
+    unsafe { DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
-pub unsafe fn DevicePowerOpen(debugmask: u32) -> bool {
+pub unsafe fn DevicePowerOpen(debugmask: Option<u32>) -> bool {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> bool);
-    unsafe { DevicePowerOpen(debugmask) }
+    unsafe { DevicePowerOpen(debugmask.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: u32, setdata: *const core::ffi::c_void) -> u32
+pub unsafe fn DevicePowerSetDeviceState<P0>(devicedescription: P0, setflags: u32, setdata: Option<*const core::ffi::c_void>) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("powrprof.dll" "system" fn DevicePowerSetDeviceState(devicedescription : windows_core::PCWSTR, setflags : u32, setdata : *const core::ffi::c_void) -> u32);
-    unsafe { DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, setdata) }
+    unsafe { DevicePowerSetDeviceState(devicedescription.param().abi(), setflags, setdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> bool {
@@ -67,9 +67,9 @@ pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> boo
     unsafe { GetPwrDiskSpindownRange(puimax as _, puimin as _) }
 }
 #[inline]
-pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> windows_core::BOOL {
+pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn GetSystemPowerStatus(lpsystempowerstatus : *mut SYSTEM_POWER_STATUS) -> windows_core::BOOL);
-    unsafe { GetSystemPowerStatus(lpsystempowerstatus as _) }
+    unsafe { GetSystemPowerStatus(lpsystempowerstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> bool {
@@ -102,33 +102,34 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const win
     unsafe { PowerCanRestoreIndividualDefaultPowerScheme(schemeguid) }
 }
 #[inline]
-pub unsafe fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::BOOL {
+pub unsafe fn PowerClearRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn PowerClearRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
-    unsafe { PowerClearRequest(powerrequest, requesttype) }
+    unsafe { PowerClearRequest(powerrequest, requesttype).ok() }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerCreatePossibleSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerCreatePossibleSetting(rootsystempowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerCreatePossibleSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerCreatePossibleSetting(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex) }
+    unsafe { PowerCreatePossibleSetting(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex) }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> super::super::Foundation::HANDLE {
+pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_core::link!("kernel32.dll" "system" fn PowerCreateRequest(context : *const super::Threading:: REASON_CONTEXT) -> super::super::Foundation:: HANDLE);
-    unsafe { PowerCreateRequest(context) }
+    let result__ = unsafe { PowerCreateRequest(context) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerCreateSetting(rootsystempowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerCreateSetting(rootsystempowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerCreateSetting(rootsystempowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerCreateSetting(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid) }
+    unsafe { PowerCreateSetting(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid, powersettingguid) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerDeleteScheme(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerDeleteScheme(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerDeleteScheme(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerDeleteScheme(rootpowerkey, schemeguid) }
+    unsafe { PowerDeleteScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid) }
 }
 #[inline]
 pub unsafe fn PowerDeterminePlatformRole() -> POWER_PLATFORM_ROLE {
@@ -142,35 +143,35 @@ pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerDuplicateScheme(rootpowerkey: super::Registry::HKEY, sourceschemeguid: *const windows_core::GUID, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerDuplicateScheme(rootpowerkey: Option<super::Registry::HKEY>, sourceschemeguid: *const windows_core::GUID, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerDuplicateScheme(rootpowerkey : super::Registry:: HKEY, sourceschemeguid : *const windows_core::GUID, destinationschemeguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerDuplicateScheme(rootpowerkey, sourceschemeguid, destinationschemeguid as _) }
+    unsafe { PowerDuplicateScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, sourceschemeguid, destinationschemeguid as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerEnumerate(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerEnumerate(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerEnumerate(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, accessflags : POWER_DATA_ACCESSOR, index : u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerEnumerate(rootpowerkey, schemeguid, subgroupofpowersettingsguid, accessflags, index, buffer as _, buffersize as _) }
+    unsafe { PowerEnumerate(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, accessflags, index, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerGetActiveScheme(userrootpowerkey: super::Registry::HKEY, activepolicyguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerGetActiveScheme(userrootpowerkey: Option<super::Registry::HKEY>, activepolicyguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerGetActiveScheme(userrootpowerkey : super::Registry:: HKEY, activepolicyguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerGetActiveScheme(userrootpowerkey, activepolicyguid as _) }
+    unsafe { PowerGetActiveScheme(userrootpowerkey.unwrap_or(core::mem::zeroed()) as _, activepolicyguid as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: super::Registry::HKEY, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR
+pub unsafe fn PowerImportPowerScheme<P1>(rootpowerkey: Option<super::Registry::HKEY>, importfilenamepath: P1, destinationschemeguid: *mut *mut windows_core::GUID) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("powrprof.dll" "system" fn PowerImportPowerScheme(rootpowerkey : super::Registry:: HKEY, importfilenamepath : windows_core::PCWSTR, destinationschemeguid : *mut *mut windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerImportPowerScheme(rootpowerkey, importfilenamepath.param().abi(), destinationschemeguid as _) }
+    unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, importfilenamepath.param().abi(), destinationschemeguid as _) }
 }
 #[inline]
-pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const windows_core::GUID, settingguid: *const windows_core::GUID) -> bool {
+pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> bool {
     windows_core::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const windows_core::GUID, settingguid : *const windows_core::GUID) -> bool);
-    unsafe { PowerIsSettingRangeDefined(subkeyguid, settingguid) }
+    unsafe { PowerIsSettingRangeDefined(subkeyguid.unwrap_or(core::mem::zeroed()) as _, settingguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -186,109 +187,109 @@ pub unsafe fn PowerOpenUserPowerKey(phuserpowerkey: *mut super::Registry::HKEY, 
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadACDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, acdefaultindex: *mut u32) -> u32 {
+pub unsafe fn PowerReadACDefaultIndex(rootpowerkey: Option<super::Registry::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, acdefaultindex: *mut u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerReadACDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acdefaultindex : *mut u32) -> u32);
-    unsafe { PowerReadACDefaultIndex(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, acdefaultindex as _) }
+    unsafe { PowerReadACDefaultIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, acdefaultindex as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadACValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadACValue(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<*mut u32>, buffer: Option<*mut u8>, buffersize: Option<*mut u32>) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadACValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadACValue(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, r#type as _, buffer as _, buffersize as _) }
+    unsafe { PowerReadACValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, acvalueindex: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadACValueIndex(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadACValueIndex(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex as _) }
+    unsafe { PowerReadACValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, acvalueindex as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDCDefaultIndex(rootpowerkey: super::Registry::HKEY, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, dcdefaultindex: *mut u32) -> u32 {
+pub unsafe fn PowerReadDCDefaultIndex(rootpowerkey: Option<super::Registry::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, dcdefaultindex: *mut u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerReadDCDefaultIndex(rootpowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcdefaultindex : *mut u32) -> u32);
-    unsafe { PowerReadDCDefaultIndex(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, dcdefaultindex as _) }
+    unsafe { PowerReadDCDefaultIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, dcdefaultindex as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDCValue(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadDCValue(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<*mut u32>, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadDCValue(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : *mut u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadDCValue(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, r#type as _, buffer as _, buffersize as _) }
+    unsafe { PowerReadDCValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, dcvalueindex: *mut u32) -> u32 {
+pub unsafe fn PowerReadDCValueIndex(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, dcvalueindex: *mut u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerReadDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcvalueindex : *mut u32) -> u32);
-    unsafe { PowerReadDCValueIndex(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex as _) }
+    unsafe { PowerReadDCValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, dcvalueindex as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadDescription(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadDescription(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer as _, buffersize as _) }
+    unsafe { PowerReadDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadFriendlyName(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadFriendlyName(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer as _, buffersize as _) }
+    unsafe { PowerReadFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadIconResourceSpecifier(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadIconResourceSpecifier(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer as _, buffersize as _) }
+    unsafe { PowerReadIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadPossibleDescription(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadPossibleDescription(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer as _, buffersize as _) }
+    unsafe { PowerReadPossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadPossibleFriendlyName(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadPossibleFriendlyName(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer as _, buffersize as _) }
+    unsafe { PowerReadPossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadPossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadPossibleValue(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: Option<*mut u32>, possiblesettingindex: u32, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadPossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : *mut u32, possiblesettingindex : u32, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadPossibleValue(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, r#type as _, possiblesettingindex, buffer as _, buffersize as _) }
+    unsafe { PowerReadPossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn PowerReadSettingAttributes(subgroupguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID) -> u32 {
+pub unsafe fn PowerReadSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerReadSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID) -> u32);
-    unsafe { PowerReadSettingAttributes(subgroupguid, powersettingguid) }
+    unsafe { PowerReadSettingAttributes(subgroupguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valueincrement: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadValueIncrement(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadValueIncrement(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement as _) }
+    unsafe { PowerReadValueIncrement(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueincrement as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valuemaximum: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadValueMax(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadValueMax(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum as _) }
+    unsafe { PowerReadValueMax(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valuemaximum as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valueminimum: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadValueMin(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadValueMin(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum as _) }
+    unsafe { PowerReadValueMin(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueminimum as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerReadValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *mut u8, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerReadValueUnitsSpecifier(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: Option<*mut u8>, buffersize: *mut u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerReadValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *mut u8, buffersize : *mut u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerReadValueUnitsSpecifier(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer as _, buffersize as _) }
+    unsafe { PowerReadValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize as _) }
 }
 #[inline]
-pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: *const core::ffi::c_void, registrationhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: Option<*const core::ffi::c_void>, registrationhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
     windows_core::link!("powrprof.dll" "system" fn PowerRegisterForEffectivePowerModeNotifications(version : u32, callback : EFFECTIVE_POWER_MODE_CALLBACK, context : *const core::ffi::c_void, registrationhandle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { PowerRegisterForEffectivePowerModeNotifications(version, callback, context, registrationhandle as _).ok() }
+    unsafe { PowerRegisterForEffectivePowerModeNotifications(version, callback, context.unwrap_or(core::mem::zeroed()) as _, registrationhandle as _).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -323,25 +324,25 @@ pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const window
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerSetActiveScheme(userrootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerSetActiveScheme(userrootpowerkey: Option<super::Registry::HKEY>, schemeguid: Option<*const windows_core::GUID>) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerSetActiveScheme(userrootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerSetActiveScheme(userrootpowerkey, schemeguid) }
+    unsafe { PowerSetActiveScheme(userrootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::BOOL {
+pub unsafe fn PowerSetRequest(powerrequest: super::super::Foundation::HANDLE, requesttype: POWER_REQUEST_TYPE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn PowerSetRequest(powerrequest : super::super::Foundation:: HANDLE, requesttype : POWER_REQUEST_TYPE) -> windows_core::BOOL);
-    unsafe { PowerSetRequest(powerrequest, requesttype) }
+    unsafe { PowerSetRequest(powerrequest, requesttype).ok() }
 }
 #[inline]
-pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: *const windows_core::GUID) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheck(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerSettingAccessCheck(accessflags, powerguid) }
+    unsafe { PowerSettingAccessCheck(accessflags, powerguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const windows_core::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: Option<*const windows_core::GUID>, accesstype: super::Registry::REG_SAM_FLAGS) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerSettingAccessCheckEx(accessflags : POWER_DATA_ACCESSOR, powerguid : *const windows_core::GUID, accesstype : super::Registry:: REG_SAM_FLAGS) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerSettingAccessCheckEx(accessflags, powerguid, accesstype) }
+    unsafe { PowerSettingAccessCheckEx(accessflags, powerguid.unwrap_or(core::mem::zeroed()) as _, accesstype) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -366,92 +367,92 @@ pub unsafe fn PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWE
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteACDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, defaultacindex: u32) -> u32 {
+pub unsafe fn PowerWriteACDefaultIndex(rootsystempowerkey: Option<super::Registry::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultacindex: u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteACDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultacindex : u32) -> u32);
-    unsafe { PowerWriteACDefaultIndex(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultacindex) }
+    unsafe { PowerWriteACDefaultIndex(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, defaultacindex) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteACValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, acvalueindex: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteACValueIndex(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, acvalueindex: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteACValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, acvalueindex : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteACValueIndex(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex) }
+    unsafe { PowerWriteACValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, acvalueindex) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteDCDefaultIndex(rootsystempowerkey: super::Registry::HKEY, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, defaultdcindex: u32) -> u32 {
+pub unsafe fn PowerWriteDCDefaultIndex(rootsystempowerkey: Option<super::Registry::HKEY>, schemepersonalityguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: *const windows_core::GUID, defaultdcindex: u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteDCDefaultIndex(rootsystempowerkey : super::Registry:: HKEY, schemepersonalityguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, defaultdcindex : u32) -> u32);
-    unsafe { PowerWriteDCDefaultIndex(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultdcindex) }
+    unsafe { PowerWriteDCDefaultIndex(rootsystempowerkey.unwrap_or(core::mem::zeroed()) as _, schemepersonalityguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid, defaultdcindex) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteDCValueIndex(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, dcvalueindex: u32) -> u32 {
+pub unsafe fn PowerWriteDCValueIndex(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, dcvalueindex: u32) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteDCValueIndex(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, dcvalueindex : u32) -> u32);
-    unsafe { PowerWriteDCValueIndex(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex) }
+    unsafe { PowerWriteDCValueIndex(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, dcvalueindex) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteDescription(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteDescription(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteDescription(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) }
+    unsafe { PowerWriteDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteFriendlyName(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteFriendlyName(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteFriendlyName(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) }
+    unsafe { PowerWriteFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteIconResourceSpecifier(rootpowerkey: super::Registry::HKEY, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteIconResourceSpecifier(rootpowerkey: Option<super::Registry::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::Registry:: HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) }
+    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleDescription(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWritePossibleDescription(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWritePossibleDescription(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) }
+    unsafe { PowerWritePossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleFriendlyName(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWritePossibleFriendlyName(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWritePossibleFriendlyName(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) }
+    unsafe { PowerWritePossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWritePossibleValue(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWritePossibleValue(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: u32, possiblesettingindex: u32, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWritePossibleValue(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, r#type, possiblesettingindex, buffer, buffersize) }
+    unsafe { PowerWritePossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, attributes: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, attributes: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteSettingAttributes(subgroupguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, attributes : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteSettingAttributes(subgroupguid, powersettingguid, attributes) }
+    unsafe { PowerWriteSettingAttributes(subgroupguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, attributes) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteValueIncrement(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valueincrement: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteValueIncrement(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueincrement: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteValueIncrement(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueincrement : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteValueIncrement(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement) }
+    unsafe { PowerWriteValueIncrement(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueincrement) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteValueMax(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valuemaximum: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteValueMax(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valuemaximum: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMax(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valuemaximum : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteValueMax(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum) }
+    unsafe { PowerWriteValueMax(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valuemaximum) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteValueMin(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, valueminimum: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteValueMin(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, valueminimum: u32) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteValueMin(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, valueminimum : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteValueMin(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum) }
+    unsafe { PowerWriteValueMin(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, valueminimum) }
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: super::Registry::HKEY, subgroupofpowersettingsguid: *const windows_core::GUID, powersettingguid: *const windows_core::GUID, buffer: *const u8, buffersize: u32) -> windows_core::WIN32_ERROR {
+pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: Option<super::Registry::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> windows_core::WIN32_ERROR {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::Registry:: HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> windows_core:: WIN32_ERROR);
-    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) }
+    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> bool {
@@ -470,15 +471,17 @@ pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> bool 
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY {
+pub unsafe fn RegisterPowerSettingNotification(hrecipient: super::super::Foundation::HANDLE, powersettingguid: *const windows_core::GUID, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> windows_core::Result<HPOWERNOTIFY> {
     windows_core::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const windows_core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
-    unsafe { RegisterPowerSettingNotification(hrecipient, powersettingguid, flags) }
+    let result__ = unsafe { RegisterPowerSettingNotification(hrecipient, powersettingguid, flags) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY {
+pub unsafe fn RegisterSuspendResumeNotification(hrecipient: super::super::Foundation::HANDLE, flags: super::super::UI::WindowsAndMessaging::REGISTER_NOTIFICATION_FLAGS) -> windows_core::Result<HPOWERNOTIFY> {
     windows_core::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
-    unsafe { RegisterSuspendResumeNotification(hrecipient, flags) }
+    let result__ = unsafe { RegisterSuspendResumeNotification(hrecipient, flags) };
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> windows_core::BOOL {
@@ -486,9 +489,9 @@ pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> windows_core::BOOL 
     unsafe { RequestWakeupLatency(latency) }
 }
 #[inline]
-pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> bool {
+pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: Option<*const GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*const POWER_POLICY>) -> bool {
     windows_core::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : *const GLOBAL_POWER_POLICY, ppowerpolicy : *const POWER_POLICY) -> bool);
-    unsafe { SetActivePwrScheme(uiid, pglobalpowerpolicy, ppowerpolicy) }
+    unsafe { SetActivePwrScheme(uiid, pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisabled: bool) -> bool {
@@ -496,9 +499,9 @@ pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisab
     unsafe { SetSuspendState(bhibernate, bforce, bwakeupeventsdisabled) }
 }
 #[inline]
-pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> windows_core::BOOL {
+pub unsafe fn SetSystemPowerState(fsuspend: bool, fforce: bool) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn SetSystemPowerState(fsuspend : windows_core::BOOL, fforce : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetSystemPowerState(fsuspend.into(), fforce.into()) }
+    unsafe { SetSystemPowerState(fsuspend.into(), fforce.into()).ok() }
 }
 #[inline]
 pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STATE {
@@ -506,19 +509,19 @@ pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STA
     unsafe { SetThreadExecutionState(esflags) }
 }
 #[inline]
-pub unsafe fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> windows_core::BOOL {
+pub unsafe fn UnregisterPowerSettingNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
-    unsafe { UnregisterPowerSettingNotification(handle) }
+    unsafe { UnregisterPowerSettingNotification(handle).ok() }
 }
 #[inline]
-pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> windows_core::BOOL {
+pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> windows_core::Result<()> {
     windows_core::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> windows_core::BOOL);
-    unsafe { UnregisterSuspendResumeNotification(handle) }
+    unsafe { UnregisterSuspendResumeNotification(handle).ok() }
 }
 #[inline]
-pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> bool {
+pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: Option<*mut GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*mut POWER_POLICY>) -> bool {
     windows_core::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> bool);
-    unsafe { ValidatePowerPolicies(pglobalpowerpolicy as _, ppowerpolicy as _) }
+    unsafe { ValidatePowerPolicies(pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> bool {

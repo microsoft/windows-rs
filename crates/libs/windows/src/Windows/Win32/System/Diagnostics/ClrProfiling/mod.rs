@@ -1330,11 +1330,8 @@ impl core::ops::Deref for ICorProfilerCallback11 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
 impl ICorProfilerCallback11 {
-    pub unsafe fn LoadAsNotificationOnly(&self) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).LoadAsNotificationOnly)(windows_core::Interface::as_raw(self), pbnotificationonly as _).ok() }
     }
 }
 #[repr(C)]
@@ -1344,20 +1341,14 @@ pub struct ICorProfilerCallback11_Vtbl {
     pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ICorProfilerCallback11_Impl: ICorProfilerCallback10_Impl {
-    fn LoadAsNotificationOnly(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICorProfilerCallback11_Vtbl {
     pub const fn new<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadAsNotificationOnly<Identity: ICorProfilerCallback11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbnotificationonly: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this) {
-                    Ok(ok__) => {
-                        pbnotificationonly.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerCallback11_Impl::LoadAsNotificationOnly(this, core::mem::transmute_copy(&pbnotificationonly)).into()
             }
         }
         Self { base__: ICorProfilerCallback10_Vtbl::new::<Identity, OFFSET>(), LoadAsNotificationOnly: LoadAsNotificationOnly::<Identity, OFFSET> }
@@ -1376,8 +1367,8 @@ impl core::ops::Deref for ICorProfilerCallback2 {
 }
 windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, windows_core::IUnknown, ICorProfilerCallback);
 impl ICorProfilerCallback2 {
-    pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: &[u16]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.len().try_into().unwrap(), core::mem::transmute(name.as_ptr())).ok() }
+    pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: Option<&[u16]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ThreadNameChanged)(windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(name.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[windows_core::BOOL], reason: COR_PRF_GC_REASON) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GarbageCollectionStarted)(windows_core::Interface::as_raw(self), generationcollected.len().try_into().unwrap(), core::mem::transmute(generationcollected.as_ptr()), reason).ok() }
@@ -2598,17 +2589,11 @@ impl ICorProfilerInfo10 {
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumerateObjectReferences)(windows_core::Interface::as_raw(self), objectid, callback, clientdata as _).ok() }
     }
-    pub unsafe fn IsFrozenObject(&self, objectid: usize) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).IsFrozenObject)(windows_core::Interface::as_raw(self), objectid, pbfrozen as _).ok() }
     }
-    pub unsafe fn GetLOHObjectSizeThreshold(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetLOHObjectSizeThreshold(&self, pthreshold: *mut u32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetLOHObjectSizeThreshold)(windows_core::Interface::as_raw(self), pthreshold as _).ok() }
     }
     pub unsafe fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RequestReJITWithInliners)(windows_core::Interface::as_raw(self), dwrejitflags, cfunctions, moduleids, methodids).ok() }
@@ -2634,8 +2619,8 @@ pub struct ICorProfilerInfo10_Vtbl {
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerInfo10_Impl: ICorProfilerInfo9_Impl {
     fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn IsFrozenObject(&self, objectid: usize) -> windows_core::Result<windows_core::BOOL>;
-    fn GetLOHObjectSizeThreshold(&self) -> windows_core::Result<u32>;
+    fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetLOHObjectSizeThreshold(&self, pthreshold: *mut u32) -> windows_core::Result<()>;
     fn RequestReJITWithInliners(&self, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::Result<()>;
     fn SuspendRuntime(&self) -> windows_core::Result<()>;
     fn ResumeRuntime(&self) -> windows_core::Result<()>;
@@ -2652,25 +2637,13 @@ impl ICorProfilerInfo10_Vtbl {
         unsafe extern "system" fn IsFrozenObject<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, objectid: usize, pbfrozen: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid)) {
-                    Ok(ok__) => {
-                        pbfrozen.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo10_Impl::IsFrozenObject(this, core::mem::transmute_copy(&objectid), core::mem::transmute_copy(&pbfrozen)).into()
             }
         }
         unsafe extern "system" fn GetLOHObjectSizeThreshold<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pthreshold: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this) {
-                    Ok(ok__) => {
-                        pthreshold.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ICorProfilerInfo10_Impl::GetLOHObjectSizeThreshold(this, core::mem::transmute_copy(&pthreshold)).into()
             }
         }
         unsafe extern "system" fn RequestReJITWithInliners<Identity: ICorProfilerInfo10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> windows_core::HRESULT {

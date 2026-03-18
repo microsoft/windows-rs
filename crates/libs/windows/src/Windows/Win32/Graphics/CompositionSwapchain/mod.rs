@@ -1,10 +1,12 @@
 #[inline]
-pub unsafe fn CreatePresentationFactory<P0>(d3ddevice: P0, riid: *const windows_core::GUID, presentationfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CreatePresentationFactory<P0, T>(d3ddevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), riid, presentationfactory as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]

@@ -243,17 +243,17 @@ windows_core::imp::define_interface!(IUICommandHandler, IUICommandHandler_Vtbl, 
 windows_core::imp::interface_hierarchy!(IUICommandHandler, windows_core::IUnknown);
 impl IUICommandHandler {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: P4) -> windows_core::Result<()>
+    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::super::Foundation::PROPERTYKEY>, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P4) -> windows_core::Result<()>
     where
         P4: windows_core::Param<IUISimplePropertySet>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, key, core::mem::transmute(currentvalue), commandexecutionproperties.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, key.unwrap_or(core::mem::zeroed()) as _, currentvalue.unwrap_or(core::mem::zeroed()) as _, commandexecutionproperties.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(currentvalue), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), commandid, key, currentvalue.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -436,8 +436,8 @@ impl IUIFramework {
     pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(value)).ok() }
     }
-    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, key).ok() }
+    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, key.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn FlushPendingInvalidations(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FlushPendingInvalidations)(windows_core::Interface::as_raw(self)).ok() }

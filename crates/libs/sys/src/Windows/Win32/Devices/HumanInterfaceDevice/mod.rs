@@ -2694,7 +2694,7 @@ pub struct HIDD_ATTRIBUTES {
     pub ProductID: u16,
     pub VersionNumber: u16,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
@@ -2749,18 +2749,6 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct HIDP_BUTTON_CAPS_0_0 {
-    pub UsageMin: u16,
-    pub UsageMax: u16,
-    pub StringMin: u16,
-    pub StringMax: u16,
-    pub DesignatorMin: u16,
-    pub DesignatorMax: u16,
-    pub DataIndexMin: u16,
-    pub DataIndexMax: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -2770,6 +2758,18 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Reserved3: u16,
     pub DataIndex: u16,
     pub Reserved4: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIDP_BUTTON_CAPS_0_0 {
+    pub UsageMin: u16,
+    pub UsageMax: u16,
+    pub StringMin: u16,
+    pub StringMax: u16,
+    pub DesignatorMin: u16,
+    pub DesignatorMax: u16,
+    pub DataIndexMin: u16,
+    pub DataIndexMax: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2819,7 +2819,7 @@ impl Default for HIDP_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
@@ -2859,7 +2859,7 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,
@@ -2955,18 +2955,6 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct HIDP_VALUE_CAPS_0_0 {
-    pub UsageMin: u16,
-    pub UsageMax: u16,
-    pub StringMin: u16,
-    pub StringMax: u16,
-    pub DesignatorMin: u16,
-    pub DesignatorMax: u16,
-    pub DataIndexMin: u16,
-    pub DataIndexMax: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -2976,6 +2964,18 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub Reserved3: u16,
     pub DataIndex: u16,
     pub Reserved4: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct HIDP_VALUE_CAPS_0_0 {
+    pub UsageMin: u16,
+    pub UsageMax: u16,
+    pub StringMin: u16,
+    pub StringMax: u16,
+    pub DesignatorMin: u16,
+    pub DesignatorMax: u16,
+    pub DataIndexMin: u16,
+    pub DataIndexMax: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

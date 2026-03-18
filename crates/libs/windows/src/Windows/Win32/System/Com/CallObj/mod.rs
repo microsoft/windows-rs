@@ -482,8 +482,8 @@ impl ICallIndirect {
             (windows_core::Interface::vtable(self).GetStackSize)(windows_core::Interface::as_raw(self), imethod, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetIID(&self, piid: *mut windows_core::GUID, pfderivesfromidispatch: *mut windows_core::BOOL, pcmethod: *mut u32, pwszinterface: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), piid as _, pfderivesfromidispatch as _, pcmethod as _, pwszinterface as _).ok() }
+    pub unsafe fn GetIID(&self, piid: Option<*mut windows_core::GUID>, pfderivesfromidispatch: Option<*mut windows_core::BOOL>, pcmethod: Option<*mut u32>, pwszinterface: *mut windows_core::PWSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), piid.unwrap_or(core::mem::zeroed()) as _, pfderivesfromidispatch.unwrap_or(core::mem::zeroed()) as _, pcmethod.unwrap_or(core::mem::zeroed()) as _, pwszinterface as _).ok() }
     }
 }
 #[repr(C)]

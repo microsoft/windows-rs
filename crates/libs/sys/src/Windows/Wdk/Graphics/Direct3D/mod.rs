@@ -515,6 +515,22 @@ impl Default for D3DDDI_ALLOCATIONINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DDDI_ALLOCATIONINFO_0 {
+    pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
+    pub Value: u32,
+}
+impl Default for D3DDDI_ALLOCATIONINFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_ALLOCATIONINFO_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: u32,
     pub Anonymous1: D3DDDI_ALLOCATIONINFO2_0,
@@ -544,6 +560,17 @@ impl Default for D3DDDI_ALLOCATIONINFO2_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DDDI_ALLOCATIONINFO2_2 {
+    pub Priority: u32,
+    pub Unused: usize,
+}
+impl Default for D3DDDI_ALLOCATIONINFO2_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
     pub Value: u32,
@@ -556,33 +583,6 @@ impl Default for D3DDDI_ALLOCATIONINFO2_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DDDI_ALLOCATIONINFO2_2 {
-    pub Priority: u32,
-    pub Unused: usize,
-}
-impl Default for D3DDDI_ALLOCATIONINFO2_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DDDI_ALLOCATIONINFO_0 {
-    pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
-    pub Value: u32,
-}
-impl Default for D3DDDI_ALLOCATIONINFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -1277,6 +1277,22 @@ impl Default for D3DDDI_RESOURCEFLAGS {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DDDI_RESOURCEFLAGS_0 {
+    pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
+    pub Value: u32,
+}
+impl Default for D3DDDI_RESOURCEFLAGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_RESOURCEFLAGS_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
@@ -1299,22 +1315,6 @@ impl Default for D3DDDI_RESOURCEFLAGS2_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DDDI_RESOURCEFLAGS_0 {
-    pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
-    pub Value: u32,
-}
-impl Default for D3DDDI_RESOURCEFLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub type D3DDDI_ROTATION = i32;
@@ -1381,6 +1381,39 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
+    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
+    pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
+    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+    pub Reserved: [u32; 16],
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
+    pub MaxCount: u32,
+    pub InitialCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+    pub InitialState: windows_sys::core::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
@@ -1409,22 +1442,6 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    pub InitialState: windows_sys::core::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    pub FenceValue: u64,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::super::super::Win32::Foundation::HANDLE,
@@ -1433,6 +1450,11 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    pub FenceValue: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1475,37 +1497,15 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
-    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
-    pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
-    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
-    pub InitialState: windows_sys::core::BOOL,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    pub Reserved: [u32; 16],
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+    pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1651,12 +1651,10 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
-    pub BaseAddress: u64,
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+    pub SourceAddress: u64,
     pub SizeInBytes: u64,
-    pub hAllocation: u32,
-    pub AllocationOffsetInBytes: u64,
-    pub AllocationSizeInBytes: u64,
+    pub DestAddress: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1675,6 +1673,15 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+    pub BaseAddress: u64,
+    pub SizeInBytes: u64,
+    pub hAllocation: u32,
+    pub AllocationOffsetInBytes: u64,
+    pub AllocationSizeInBytes: u64,
+}
+#[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: u64,
@@ -1685,13 +1692,6 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
-    pub SourceAddress: u64,
-    pub SizeInBytes: u64,
-    pub DestAddress: u64,
 }
 pub type D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = i32;
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 1i32;
@@ -1866,17 +1866,6 @@ pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
     pub PrimitiveCount: u32,
 }
 pub const D3DHAL_COL_WEIGHTS: u32 = 2u32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DHAL_CONTEXTCREATEDATA_3 {
-    pub dwPID: u32,
-    pub dwrstates: usize,
-}
-impl Default for D3DHAL_CONTEXTCREATEDATA_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DHAL_CONTEXTDESTROYALLDATA {
@@ -2145,17 +2134,6 @@ pub struct D3DHAL_DP2POINTS {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DHAL_DP2RENDERSTATE_0 {
-    pub dvState: f32,
-    pub dwState: u32,
-}
-impl Default for D3DHAL_DP2RENDERSTATE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DHAL_DP2RESPONSE {
     pub bCommand: u8,
@@ -2365,17 +2343,6 @@ pub struct D3DHAL_DRAWPRIMCOUNTS {
     pub wPrimitiveType: u16,
     pub wVertexType: u16,
     pub wNumVertices: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
-    pub dwVertexSize: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-impl Default for D3DHAL_DRAWPRIMITIVES2DATA_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3708,11 +3675,6 @@ impl Default for D3DKMT_CREATEALLOCATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_CREATEALLOCATIONFLAGS {
-    pub _bitfield: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEALLOCATION_0 {
     pub pStandardAllocation: *mut D3DKMT_CREATESTANDARDALLOCATION,
@@ -3733,6 +3695,11 @@ impl Default for D3DKMT_CREATEALLOCATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_CREATEALLOCATIONFLAGS {
+    pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3814,11 +3781,6 @@ impl Default for D3DKMT_CREATEDEVICE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_CREATEDEVICEFLAGS {
-    pub _bitfield: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_CREATEDEVICE_0 {
     pub hAdapter: u32,
@@ -3828,6 +3790,11 @@ impl Default for D3DKMT_CREATEDEVICE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_CREATEDEVICEFLAGS {
+    pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3974,6 +3941,16 @@ impl Default for D3DKMT_CREATESTANDARDALLOCATION {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
+    pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
+}
+impl Default for D3DKMT_CREATESTANDARDALLOCATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
     pub Anonymous: D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0,
 }
@@ -3997,16 +3974,6 @@ impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_CREATESTANDARDALLOCATION_0 {
-    pub ExistingHeapData: D3DKMT_STANDARDALLOCATION_EXISTINGHEAP,
-}
-impl Default for D3DKMT_CREATESTANDARDALLOCATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4397,7 +4364,7 @@ impl Default for D3DKMT_DISPLAY_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DISPLAY_CAPS_0 {
     pub Anonymous: D3DKMT_DISPLAY_CAPS_0_0,
@@ -4408,7 +4375,7 @@ impl Default for D3DKMT_DISPLAY_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
@@ -4478,7 +4445,7 @@ impl Default for D3DKMT_DRIVERCAPS_EXT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_DRIVERCAPS_EXT_0 {
     pub Anonymous: D3DKMT_DRIVERCAPS_EXT_0_0,
@@ -4489,7 +4456,7 @@ impl Default for D3DKMT_DRIVERCAPS_EXT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
@@ -4794,32 +4761,6 @@ impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
-    pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
-}
-impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
-    pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
-    pub Value: u32,
-}
-impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
 pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0 {
     pub ScatterBlts: D3DKMT_SCATTERBLTS,
     pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0,
@@ -4851,6 +4792,32 @@ impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
+    pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0,
+}
+impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
+    pub Anonymous: D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0,
+    pub Value: u32,
+}
+impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
+    pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5617,7 +5584,7 @@ pub struct D3DKMT_MULTISAMPLEMETHOD {
 }
 pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 5i32;
 pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 3i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_NODEMETADATA {
     pub NodeOrdinalAndAdapterIndex: u32,
@@ -5876,6 +5843,17 @@ impl Default for D3DKMT_OPENRESOURCE {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DKMT_OPENRESOURCE_0 {
+    pub pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
+    pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
+}
+impl Default for D3DKMT_OPENRESOURCE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: u32,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
@@ -5894,17 +5872,6 @@ pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hSyncObject: u32,
 }
 impl Default for D3DKMT_OPENRESOURCEFROMNTHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_OPENRESOURCE_0 {
-    pub pOpenAllocationInfo: *mut D3DDDI_OPENALLOCATIONINFO,
-    pub pOpenAllocationInfo2: *mut D3DDDI_OPENALLOCATIONINFO2,
-}
-impl Default for D3DKMT_OPENRESOURCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6321,6 +6288,28 @@ impl Default for D3DKMT_PRESENT {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DKMT_PRESENT_0 {
+    pub hDevice: u32,
+    pub hContext: u32,
+}
+impl Default for D3DKMT_PRESENT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_PRESENT_1 {
+    pub hAdapter: u32,
+    pub hIndirectContext: u32,
+}
+impl Default for D3DKMT_PRESENT_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_PRESENTFLAGS {
     pub Anonymous: D3DKMT_PRESENTFLAGS_0,
 }
@@ -6376,28 +6365,6 @@ impl Default for D3DKMT_PRESENTHISTORYTOKEN_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_PRESENT_0 {
-    pub hDevice: u32,
-    pub hContext: u32,
-}
-impl Default for D3DKMT_PRESENT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_PRESENT_1 {
-    pub hAdapter: u32,
-    pub hIndirectContext: u32,
-}
-impl Default for D3DKMT_PRESENT_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type D3DKMT_PRESENT_MODEL = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6414,6 +6381,17 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
     pub Duration: u32,
 }
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
+    pub hDevice: u32,
+    pub hContext: u32,
+}
+impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6468,17 +6446,6 @@ pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
     pub BoostRefreshRateMultiplier: u32,
 }
 impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
-    pub hDevice: u32,
-    pub hContext: u32,
-}
-impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6693,7 +6660,7 @@ impl Default for D3DKMT_QUERYALLOCATIONRESIDENCY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_QUERYCLOCKCALIBRATION {
     pub hAdapter: u32,
@@ -7613,11 +7580,6 @@ impl Default for D3DKMT_RENDER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_RENDERFLAGS {
-    pub _bitfield: u32,
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_RENDER_0 {
     pub hDevice: u32,
@@ -7627,6 +7589,11 @@ impl Default for D3DKMT_RENDER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_RENDERFLAGS {
+    pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -8005,6 +7972,17 @@ impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
+    pub MonitoredFenceValueArray: *const u64,
+    pub Reserved: [u64; 8],
+}
+impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 {
     pub ObjectCount: u32,
     pub ObjectHandleArray: *const u32,
@@ -8027,17 +8005,6 @@ pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
     pub Reserved: [u64; 8],
 }
 impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
-    pub MonitoredFenceValueArray: *const u64,
-    pub Reserved: [u64; 8],
-}
-impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8188,7 +8155,7 @@ impl Default for D3DKMT_TDRDBGCTRL_ESCAPE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_TRACKEDWORKLOAD_SUPPORT {
     pub PhysicalAdapterIndex: u32,
@@ -8445,44 +8412,6 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
-    pub Value: u32,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
-    pub _bitfield: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
-    pub ResourceHandle: u32,
-    pub AllocationHandle: u32,
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
@@ -8502,11 +8431,6 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
-    pub SegmentId: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub TimerValue: i64,
 }
@@ -8514,6 +8438,23 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub NtHandle: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
+    pub ResourceHandle: u32,
+    pub AllocationHandle: u32,
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
+    pub NumBytesToTrim: u64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8548,10 +8489,53 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
     pub NumVads: u32,
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
+    pub Value: u32,
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
+    pub MinTrimInterval: u32,
+    pub MaxTrimInterval: u32,
+    pub IdleTrimInterval: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8565,26 +8549,9 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
-    pub NumBytesToTrim: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
-    pub MinTrimInterval: u32,
-    pub MaxTrimInterval: u32,
-    pub IdleTrimInterval: u32,
+pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
+    pub SegmentId: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -8843,7 +8810,7 @@ impl Default for D3DKMT_WDDM_1_3_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_1_3_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_1_3_CAPS_0_0,
@@ -8854,7 +8821,7 @@ impl Default for D3DKMT_WDDM_1_3_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
@@ -8869,7 +8836,7 @@ impl Default for D3DKMT_WDDM_2_0_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_0_CAPS_0_0,
@@ -8880,7 +8847,7 @@ impl Default for D3DKMT_WDDM_2_0_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
@@ -8895,7 +8862,7 @@ impl Default for D3DKMT_WDDM_2_7_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_7_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_7_CAPS_0_0,
@@ -8906,7 +8873,7 @@ impl Default for D3DKMT_WDDM_2_7_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
@@ -8921,7 +8888,7 @@ impl Default for D3DKMT_WDDM_2_9_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_2_9_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_2_9_CAPS_0_0,
@@ -8932,7 +8899,7 @@ impl Default for D3DKMT_WDDM_2_9_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
     pub _bitfield: u32,
@@ -8947,7 +8914,7 @@ impl Default for D3DKMT_WDDM_3_0_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_3_0_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_0_CAPS_0_0,
@@ -8958,7 +8925,7 @@ impl Default for D3DKMT_WDDM_3_0_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
     pub _bitfield: u32,
@@ -8973,7 +8940,7 @@ impl Default for D3DKMT_WDDM_3_1_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_WDDM_3_1_CAPS_0 {
     pub Anonymous: D3DKMT_WDDM_3_1_CAPS_0_0,
@@ -8984,7 +8951,7 @@ impl Default for D3DKMT_WDDM_3_1_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
@@ -9395,17 +9362,6 @@ pub struct D3DNTHAL_DP2POINTS {
     pub wVStart: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DNTHAL_DP2RENDERSTATE_0 {
-    pub fState: f32,
-    pub dwState: u32,
-}
-impl Default for D3DNTHAL_DP2RENDERSTATE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3DNTHAL_DP2RESPONSE {
     pub bCommand: u8,
@@ -9623,17 +9579,6 @@ pub struct D3DNTHAL_DP2WINFO {
 pub struct D3DNTHAL_DP2ZRANGE {
     pub dvMinZ: f32,
     pub dvMaxZ: f32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
-    pub dwVertexSize: u32,
-    pub ddrval: windows_sys::core::HRESULT,
-}
-impl Default for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const D3DNTHAL_NUMCLIPVERTICES: u32 = 20u32;
 pub const D3DNTHAL_OUTOFCONTEXTS: i64 = 513i64;
@@ -10042,7 +9987,7 @@ pub const DIDDT1_Progressive: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = 0
 pub const DIDDT1_Stereo: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = 1i32;
 pub const DIDDT1_Sync_Negative: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = 1i32;
 pub const DIDDT1_Sync_Positive: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous1: DISPLAYID_DETAILED_TIMING_TYPE_I_0,
@@ -10055,17 +10000,17 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
     pub Anonymous3: DISPLAYID_DETAILED_TIMING_TYPE_I_2,
     pub VerticalSyncWidth: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
@@ -10119,7 +10064,7 @@ pub const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1u32;
 pub const DXGKMDT_I2C_NO_FLAGS: u32 = 0u32;
 pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 3i32;
 pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10146,7 +10091,7 @@ pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 3i32;
 pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2i32;
 pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 0i32;
 pub type DXGKMDT_OPM_ACP_PROTECTION_LEVEL = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10185,7 +10130,7 @@ pub const DXGKMDT_OPM_CGMSA_COPY_NEVER: DXGKMDT_OPM_CGMSA = 4i32;
 pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = 2i32;
 pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = 3i32;
 pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
@@ -10200,7 +10145,7 @@ impl Default for DXGKMDT_OPM_CONFIGURE_PARAMETERS {
     }
 }
 pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10237,7 +10182,7 @@ pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = 
 pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = 12i32;
 pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = -2147483648i32;
 pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = -2147483648i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10251,7 +10196,7 @@ impl Default for DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_CREATE_VIDEO_OUTPUT_FOR_TARGET_PARAMETERS {
     pub AdapterLuid: super::super::super::Win32::Foundation::LUID,
@@ -10284,7 +10229,7 @@ pub const DXGKMDT_OPM_GET_CONNECTOR_TYPE: windows_sys::core::GUID = windows_sys:
 pub const DXGKMDT_OPM_GET_CURRENT_HDCP_SRM_VERSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
 pub const DXGKMDT_OPM_GET_DVI_CHARACTERISTICS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
 pub const DXGKMDT_OPM_GET_INFORMATION_PARAMETERS_SIZE: u32 = 4056u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_GET_INFO_PARAMETERS {
     pub omac: DXGKMDT_OPM_OMAC,
@@ -10340,7 +10285,7 @@ pub const DXGKMDT_OPM_OMAC_SIZE: u32 = 16u32;
 pub type DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = i32;
 pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = 0i32;
 pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = 1i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_OUTPUT_ID {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10387,7 +10332,7 @@ impl Default for DXGKMDT_OPM_RANDOM_NUMBER {
     }
 }
 pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = 8i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_REQUESTED_INFORMATION {
     pub omac: DXGKMDT_OPM_OMAC,
@@ -10401,7 +10346,7 @@ impl Default for DXGKMDT_OPM_REQUESTED_INFORMATION {
 }
 pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076u32;
 pub const DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
@@ -10421,14 +10366,14 @@ impl Default for DXGKMDT_OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     }
 }
 pub const DXGKMDT_OPM_SET_HDCP_SRM: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
@@ -10436,7 +10381,7 @@ pub struct DXGKMDT_OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub Reserved: u32,
     pub Reserved2: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKMDT_OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: DXGKMDT_OPM_RANDOM_NUMBER,
@@ -10561,7 +10506,7 @@ pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Offset: u32,
     pub Size: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_ADAPTER_PERFDATA {
     pub MemoryFrequency: u64,
@@ -10574,7 +10519,7 @@ pub struct DXGK_ADAPTER_PERFDATA {
     pub Temperature: u32,
     pub PowerStateOverride: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub MaxMemoryBandwidth: u64,
@@ -10583,7 +10528,7 @@ pub struct DXGK_ADAPTER_PERFDATACAPS {
     pub TemperatureMax: u32,
     pub TemperatureWarning: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BACKLIGHT_INFO {
     pub BacklightUsersetting: u16,
@@ -10601,7 +10546,7 @@ impl Default for DXGK_BRIGHTNESS_CAPS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_CAPS_0 {
     pub Anonymous: DXGK_BRIGHTNESS_CAPS_0_0,
@@ -10612,12 +10557,12 @@ impl Default for DXGK_BRIGHTNESS_CAPS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
     pub NormalRangeCount: u32,
@@ -10630,21 +10575,21 @@ impl Default for DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_GET_OUT {
     pub CurrentBrightnessMillinits: u32,
     pub TargetBrightnessMillinits: u32,
 }
 pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_NIT_RANGE {
     pub MinimumLevelMillinit: u32,
     pub MaximumLevelMillinit: u32,
     pub StepSizeMillinit: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA {
     pub Size: u32,
@@ -10658,7 +10603,7 @@ impl Default for DXGK_BRIGHTNESS_SENSOR_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_SENSOR_DATA_0 {
     pub Flags: DXGK_BRIGHTNESS_SENSOR_DATA_0_0,
@@ -10669,18 +10614,18 @@ impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
     pub ChromaticityX: f32,
     pub ChromaticityY: f32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_SET_IN {
     pub BrightnessMillinits: u32,
@@ -10702,7 +10647,7 @@ impl Default for DXGK_BRIGHTNESS_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_BRIGHTNESS_STATE_0 {
     pub Anonymous: DXGK_BRIGHTNESS_STATE_0_0,
@@ -10713,7 +10658,7 @@ impl Default for DXGK_BRIGHTNESS_STATE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
@@ -10801,12 +10746,12 @@ impl Default for DXGK_FAULT_ERROR_CODE_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
@@ -10814,7 +10759,7 @@ pub struct DXGK_FAULT_ERROR_CODE_0_1 {
 pub type DXGK_GENERAL_ERROR_CODE = i32;
 pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = 1i32;
 pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUCLOCKDATA {
     pub GpuFrequency: u64,
@@ -10837,7 +10782,7 @@ impl Default for DXGK_GPUCLOCKDATA_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_GPUCLOCKDATA_FLAGS_0 {
     pub Anonymous: DXGK_GPUCLOCKDATA_FLAGS_0_0,
@@ -10848,12 +10793,12 @@ impl Default for DXGK_GPUCLOCKDATA_FLAGS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUVERSION {
     pub BiosVersion: [u16; 32],
@@ -10941,7 +10886,7 @@ pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DXGK_MIRACAST_CHUNK_
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = 4i32;
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = 3i32;
 pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = 0i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_CAPABILITIES {
     pub Anonymous: DXGK_MONITORLINKINFO_CAPABILITIES_0,
@@ -10952,12 +10897,12 @@ impl Default for DXGK_MONITORLINKINFO_CAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_USAGEHINTS {
     pub Anonymous: DXGK_MONITORLINKINFO_USAGEHINTS_0,
@@ -10968,12 +10913,12 @@ impl Default for DXGK_MONITORLINKINFO_USAGEHINTS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NODEMETADATA {
     pub EngineType: DXGK_ENGINE_TYPE,
@@ -10997,7 +10942,7 @@ impl Default for DXGK_NODEMETADATA_FLAGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_NODEMETADATA_FLAGS_0 {
     pub Anonymous: DXGK_NODEMETADATA_FLAGS_0_0,
@@ -11008,12 +10953,12 @@ impl Default for DXGK_NODEMETADATA_FLAGS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NODE_PERFDATA {
     pub Frequency: u64,

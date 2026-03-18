@@ -30,6 +30,18 @@ impl Default for GNSS_AGNSS_INJECT {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy)]
+pub union GNSS_AGNSS_INJECT_0 {
+    pub Time: GNSS_AGNSS_INJECTTIME,
+    pub Position: GNSS_AGNSS_INJECTPOSITION,
+    pub BlobData: GNSS_AGNSS_INJECTBLOB,
+}
+impl Default for GNSS_AGNSS_INJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GNSS_AGNSS_INJECTBLOB {
     pub Size: u32,
@@ -61,18 +73,6 @@ pub struct GNSS_AGNSS_INJECTTIME {
     pub Version: u32,
     pub UtcTime: super::super::Foundation::FILETIME,
     pub TimeUncertainty: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union GNSS_AGNSS_INJECT_0 {
-    pub Time: GNSS_AGNSS_INJECTTIME,
-    pub Position: GNSS_AGNSS_INJECTPOSITION,
-    pub BlobData: GNSS_AGNSS_INJECTBLOB,
-}
-impl Default for GNSS_AGNSS_INJECT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
 #[repr(C)]
@@ -622,9 +622,6 @@ impl Default for GNSS_GEOREGION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct GNSS_GEOREGIONTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GNSS_GEOREGION_0 {
@@ -636,6 +633,9 @@ impl Default for GNSS_GEOREGION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct GNSS_GEOREGIONTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct GNSS_GEOREGION_CIRCLE {
@@ -1809,8 +1809,8 @@ impl ILocation {
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredAccuracy)(windows_core::Interface::as_raw(self), reporttype, desiredaccuracy).ok() }
     }
-    pub unsafe fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, preporttypes: &[windows_core::GUID], fmodal: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent, core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok() }
+    pub unsafe fn RequestPermissions(&self, hparent: Option<super::super::Foundation::HWND>, preporttypes: &[windows_core::GUID], fmodal: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RequestPermissions)(windows_core::Interface::as_raw(self), hparent.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(preporttypes.as_ptr()), preporttypes.len().try_into().unwrap(), fmodal.into()).ok() }
     }
 }
 #[repr(C)]

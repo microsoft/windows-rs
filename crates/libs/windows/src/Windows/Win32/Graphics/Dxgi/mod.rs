@@ -1,19 +1,31 @@
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub mod Common;
 #[inline]
-pub unsafe fn CreateDXGIFactory(riid: *const windows_core::GUID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CreateDXGIFactory<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDXGIFactory(riid, ppfactory as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateDXGIFactory(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CreateDXGIFactory1(riid: *const windows_core::GUID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CreateDXGIFactory1<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDXGIFactory1(riid, ppfactory as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateDXGIFactory1(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CreateDXGIFactory2(flags: DXGI_CREATE_FACTORY_FLAGS, riid: *const windows_core::GUID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn CreateDXGIFactory2<T>(flags: DXGI_CREATE_FACTORY_FLAGS) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : DXGI_CREATE_FACTORY_FLAGS, riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDXGIFactory2(flags, riid, ppfactory as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateDXGIFactory2(flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> windows_core::Result<()> {
@@ -26,9 +38,13 @@ pub unsafe fn DXGIDisableVBlankVirtualization() -> windows_core::Result<()> {
     unsafe { DXGIDisableVBlankVirtualization().ok() }
 }
 #[inline]
-pub unsafe fn DXGIGetDebugInterface1(flags: u32, riid: *const windows_core::GUID, pdebug: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : u32, riid : *const windows_core::GUID, pdebug : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DXGIGetDebugInterface1(flags, riid, pdebug as _).ok() }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DXGIGetDebugInterface1(flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2230,8 +2246,8 @@ impl IDXGIDevice {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: &mut [Option<IDXGISurface>]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), pdesc, ppsurface.len().try_into().unwrap(), usage, psharedresource, core::mem::transmute(ppsurface.as_ptr())).ok() }
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [Option<IDXGISurface>]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), pdesc, ppsurface.len().try_into().unwrap(), usage, psharedresource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppsurface.as_ptr())).ok() }
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QueryResourceResidency)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources), presidencystatus as _, numresources).ok() }
@@ -2407,8 +2423,8 @@ impl IDXGIDevice2 {
     pub unsafe fn OfferResources(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority).ok() }
     }
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: *mut windows_core::BOOL) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReclaimResources)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), pdiscarded as _).ok() }
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReclaimResources)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), pdiscarded.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnqueueSetEvent)(windows_core::Interface::as_raw(self), hevent).ok() }
@@ -2856,14 +2872,14 @@ impl IDXGIFactory2 {
         unsafe { (windows_core::Interface::vtable(self).IsWindowedStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSwapChainForHwnd<P0, P4>(&self, pdevice: P0, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: P4) -> windows_core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForHwnd<P0, P4>(&self, pdevice: P0, hwnd: super::super::Foundation::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P4) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<IDXGIOutput>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hwnd, pdesc, pfullscreendesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hwnd, pdesc, pfullscreendesc.unwrap_or(core::mem::zeroed()) as _, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -3370,17 +3386,17 @@ windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 
 windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, windows_core::IUnknown);
 impl IDXGIFactoryMedia {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<P0, P3>(&self, pdevice: P0, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P3) -> windows_core::Result<IDXGISwapChain1>
+    pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<P0, P3>(&self, pdevice: P0, hsurface: Option<super::super::Foundation::HANDLE>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P3) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<IDXGIOutput>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface, pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P3, P4>(&self, pdevice: P0, hsurface: super::super::Foundation::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P3, prestricttooutput: P4) -> windows_core::Result<IDXGIDecodeSwapChain>
+    pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P3, P4>(&self, pdevice: P0, hsurface: Option<super::super::Foundation::HANDLE>, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P3, prestricttooutput: P4) -> windows_core::Result<IDXGIDecodeSwapChain>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P3: windows_core::Param<IDXGIResource>,
@@ -3388,7 +3404,7 @@ impl IDXGIFactoryMedia {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface, pdesc, pyuvdecodebuffers.param().abi(), prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, pyuvdecodebuffers.param().abi(), prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3457,8 +3473,8 @@ impl IDXGIInfoQueue {
     pub unsafe fn ClearStoredMessages(&self, producer: windows_core::GUID) {
         unsafe { (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
     }
-    pub unsafe fn GetMessage(&self, producer: windows_core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messageindex, pmessage as _, pmessagebytelength as _).ok() }
+    pub unsafe fn GetMessage(&self, producer: windows_core::GUID, messageindex: u64, pmessage: Option<*mut DXGI_INFO_QUEUE_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _).ok() }
     }
     pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: windows_core::GUID) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilters)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -3481,8 +3497,8 @@ impl IDXGIInfoQueue {
     pub unsafe fn AddStorageFilterEntries(&self, producer: windows_core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter).ok() }
     }
-    pub unsafe fn GetStorageFilter(&self, producer: windows_core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter as _, pfilterbytelength as _).ok() }
+    pub unsafe fn GetStorageFilter(&self, producer: windows_core::GUID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearStorageFilter(&self, producer: windows_core::GUID) {
         unsafe { (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -3508,8 +3524,8 @@ impl IDXGIInfoQueue {
     pub unsafe fn AddRetrievalFilterEntries(&self, producer: windows_core::GUID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter).ok() }
     }
-    pub unsafe fn GetRetrievalFilter(&self, producer: windows_core::GUID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter as _, pfilterbytelength as _).ok() }
+    pub unsafe fn GetRetrievalFilter(&self, producer: windows_core::GUID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearRetrievalFilter(&self, producer: windows_core::GUID) {
         unsafe { (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -4072,8 +4088,8 @@ impl IDXGIOutput {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc as _).ok() }
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: Option<*mut Common::DXGI_MODE_DESC>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn FindClosestMatchingMode<P2>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: P2) -> windows_core::Result<()>
@@ -4287,8 +4303,8 @@ impl core::ops::Deref for IDXGIOutput1 {
 windows_core::imp::interface_hierarchy!(IDXGIOutput1, windows_core::IUnknown, IDXGIObject, IDXGIOutput);
 impl IDXGIOutput1 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList1)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc as _).ok() }
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: DXGI_ENUM_MODES, pnummodes: *mut u32, pdesc: Option<*mut DXGI_MODE_DESC1>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList1)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn FindClosestMatchingMode1<P2>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P2) -> windows_core::Result<()>
@@ -4946,13 +4962,13 @@ impl IDXGIResource1 {
         }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn CreateSharedHandle<P2>(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn CreateSharedHandle<P2>(&self, pattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P2) -> windows_core::Result<super::super::Foundation::HANDLE>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pattributes, dwaccess, lpname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pattributes.unwrap_or(core::mem::zeroed()) as _, dwaccess, lpname.param().abi(), &mut result__).map(|| result__)
         }
     }
 }
@@ -5110,8 +5126,8 @@ impl IDXGISurface1 {
             (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), discard.into(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), pdirtyrect).ok() }
+    pub unsafe fn ReleaseDC(&self, pdirtyrect: Option<*const super::super::Foundation::RECT>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), pdirtyrect.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
 #[repr(C)]
@@ -5231,8 +5247,8 @@ impl IDXGISwapChain {
     {
         unsafe { (windows_core::Interface::vtable(self).SetFullscreenState)(windows_core::Interface::as_raw(self), fullscreen.into(), ptarget.param().abi()).ok() }
     }
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut windows_core::BOOL, pptarget: *mut Option<IDXGIOutput>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), pfullscreen as _, core::mem::transmute(pptarget)).ok() }
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut windows_core::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), pfullscreen.unwrap_or(core::mem::zeroed()) as _, pptarget.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> windows_core::Result<DXGI_SWAP_CHAIN_DESC> {
@@ -5881,8 +5897,8 @@ impl core::ops::Deref for IDXGISwapChain4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain4, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl IDXGISwapChain4 {
-    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.len().try_into().unwrap(), core::mem::transmute(pmetadata.as_ptr())).ok() }
+    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: Option<&[u8]>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmetadata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
 #[repr(C)]

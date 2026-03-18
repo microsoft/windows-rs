@@ -61,7 +61,7 @@ windows_link::link!("snmpapi.dll" "system" fn SnmpSvcSetLogLevel(nloglevel : SNM
 windows_link::link!("snmpapi.dll" "system" fn SnmpSvcSetLogType(nlogtype : i32));
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyCpy(panydst : *mut AsnAny, panysrc : *mut AsnAny) -> i32);
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilAsnAnyFree(pany : *mut AsnAny));
-windows_link::link!("snmpapi.dll" "C" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_sys::core::PCSTR));
+windows_link::link!("snmpapi.dll" "C" fn SnmpUtilDbgPrint(nloglevel : SNMP_LOG, szformat : windows_sys::core::PCSTR, ...));
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilIdsToA(ids : *mut u32, idlength : u32) -> windows_sys::core::PSTR);
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilMemAlloc(nbytes : u32) -> *mut core::ffi::c_void);
 windows_link::link!("snmpapi.dll" "system" fn SnmpUtilMemFree(pmem : *mut core::ffi::c_void));
@@ -90,7 +90,7 @@ pub const ASN_PRIMATIVE: u32 = 0u32;
 pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 pub const ASN_UNIVERSAL: u32 = 0u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct AsnAny {
     pub asnType: u8,
@@ -101,7 +101,7 @@ impl Default for AsnAny {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union AsnAny_0 {
     pub number: i32,
@@ -123,6 +123,19 @@ impl Default for AsnAny_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnObjectIdentifier {
+    pub idLength: u32,
+    pub ids: *mut u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for AsnObjectIdentifier {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct AsnObjectIdentifier {
@@ -136,6 +149,20 @@ impl Default for AsnObjectIdentifier {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct AsnOctetString {
+    pub stream: *mut u8,
+    pub length: u32,
+    pub dynamic: windows_sys::core::BOOL,
+}
+#[cfg(target_arch = "x86")]
+impl Default for AsnOctetString {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct AsnOctetString {
@@ -323,7 +350,7 @@ pub const SNMP_TRAP_ENTERPRISESPECIFIC: u32 = 6u32;
 pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBind {
     pub name: AsnObjectIdentifier,
@@ -335,6 +362,19 @@ impl Default for SnmpVarBind {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct SnmpVarBindList {
+    pub list: *mut SnmpVarBind,
+    pub len: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for SnmpVarBindList {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct SnmpVarBindList {

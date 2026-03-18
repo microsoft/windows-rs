@@ -10896,11 +10896,8 @@ windows_core::imp::define_interface!(ITfMenu, ITfMenu_Vtbl, 0x6f8a98e4_aaa0_4f15
 windows_core::imp::interface_hierarchy!(ITfMenu, windows_core::IUnknown);
 impl ITfMenu {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &[u16]) -> windows_core::Result<ITfMenu> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
+    pub unsafe fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &[u16], ppmenu: *mut Option<ITfMenu>) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).AddMenuItem)(windows_core::Interface::as_raw(self), uid, dwflags, hbmp, hbmpmask, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap(), core::mem::transmute(ppmenu)).ok() }
     }
 }
 #[repr(C)]
@@ -10914,7 +10911,7 @@ pub struct ITfMenu_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ITfMenu_Impl: windows_core::IUnknownImpl {
-    fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &windows_core::PCWSTR, cch: u32) -> windows_core::Result<ITfMenu>;
+    fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &windows_core::PCWSTR, cch: u32, ppmenu: windows_core::OutRef<ITfMenu>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ITfMenu_Vtbl {
@@ -10922,13 +10919,7 @@ impl ITfMenu_Vtbl {
         unsafe extern "system" fn AddMenuItem<Identity: ITfMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: windows_core::PCWSTR, cch: u32, ppmenu: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITfMenu_Impl::AddMenuItem(this, core::mem::transmute_copy(&uid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&hbmp), core::mem::transmute_copy(&hbmpmask), core::mem::transmute(&pch), core::mem::transmute_copy(&cch)) {
-                    Ok(ok__) => {
-                        ppmenu.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITfMenu_Impl::AddMenuItem(this, core::mem::transmute_copy(&uid), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&hbmp), core::mem::transmute_copy(&hbmpmask), core::mem::transmute(&pch), core::mem::transmute_copy(&cch), core::mem::transmute_copy(&ppmenu)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AddMenuItem: AddMenuItem::<Identity, OFFSET> }
@@ -14194,11 +14185,8 @@ impl windows_core::RuntimeName for ITfUIElementMgr {}
 windows_core::imp::define_interface!(ITfUIElementSink, ITfUIElementSink_Vtbl, 0xea1ea136_19df_11d7_a6d2_00065b84435c);
 windows_core::imp::interface_hierarchy!(ITfUIElementSink, windows_core::IUnknown);
 impl ITfUIElementSink {
-    pub unsafe fn BeginUIElement(&self, dwuielementid: u32) -> windows_core::Result<windows_core::BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginUIElement)(windows_core::Interface::as_raw(self), dwuielementid, &mut result__).map(|| result__)
-        }
+    pub unsafe fn BeginUIElement(&self, dwuielementid: u32, pbshow: *mut windows_core::BOOL) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).BeginUIElement)(windows_core::Interface::as_raw(self), dwuielementid, pbshow as _).ok() }
     }
     pub unsafe fn UpdateUIElement(&self, dwuielementid: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateUIElement)(windows_core::Interface::as_raw(self), dwuielementid).ok() }
@@ -14216,7 +14204,7 @@ pub struct ITfUIElementSink_Vtbl {
     pub EndUIElement: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ITfUIElementSink_Impl: windows_core::IUnknownImpl {
-    fn BeginUIElement(&self, dwuielementid: u32) -> windows_core::Result<windows_core::BOOL>;
+    fn BeginUIElement(&self, dwuielementid: u32, pbshow: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn UpdateUIElement(&self, dwuielementid: u32) -> windows_core::Result<()>;
     fn EndUIElement(&self, dwuielementid: u32) -> windows_core::Result<()>;
 }
@@ -14225,13 +14213,7 @@ impl ITfUIElementSink_Vtbl {
         unsafe extern "system" fn BeginUIElement<Identity: ITfUIElementSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwuielementid: u32, pbshow: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ITfUIElementSink_Impl::BeginUIElement(this, core::mem::transmute_copy(&dwuielementid)) {
-                    Ok(ok__) => {
-                        pbshow.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                ITfUIElementSink_Impl::BeginUIElement(this, core::mem::transmute_copy(&dwuielementid), core::mem::transmute_copy(&pbshow)).into()
             }
         }
         unsafe extern "system" fn UpdateUIElement<Identity: ITfUIElementSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwuielementid: u32) -> windows_core::HRESULT {
@@ -14640,9 +14622,6 @@ impl Default for TF_DA_COLOR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TF_DA_COLORTYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union TF_DA_COLOR_0 {
@@ -14654,6 +14633,9 @@ impl Default for TF_DA_COLOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TF_DA_COLORTYPE(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_DA_LINESTYLE(pub i32);

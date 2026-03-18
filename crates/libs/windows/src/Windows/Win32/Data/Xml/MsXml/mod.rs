@@ -5871,11 +5871,8 @@ impl IVBSAXContentHandler {
     pub unsafe fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix), core::mem::transmute(struri)).ok() }
     }
-    pub unsafe fn endPrefixMapping(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)).ok() }
     }
     pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::Result<()>
     where
@@ -5886,26 +5883,17 @@ impl IVBSAXContentHandler {
     pub unsafe fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname)).ok() }
     }
-    pub unsafe fn characters(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).characters)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
     }
-    pub unsafe fn ignorableWhitespace(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
     }
     pub unsafe fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), core::mem::transmute(strtarget), core::mem::transmute(strdata)).ok() }
     }
-    pub unsafe fn skippedEntity(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).skippedEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5931,13 +5919,13 @@ pub trait IVBSAXContentHandler_Impl: super::super::super::System::Com::IDispatch
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
     fn startPrefixMapping(&self, strprefix: *mut windows_core::BSTR, struri: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn endPrefixMapping(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn startElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: windows_core::Ref<IVBSAXAttributes>) -> windows_core::Result<()>;
     fn endElement(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn characters(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ignorableWhitespace(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn characters(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn ignorableWhitespace(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn processingInstruction(&self, strtarget: *mut windows_core::BSTR, strdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn skippedEntity(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXContentHandler_Vtbl {
@@ -5969,13 +5957,7 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn endPrefixMapping<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXContentHandler_Impl::endPrefixMapping(this) {
-                    Ok(ok__) => {
-                        strprefix.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXContentHandler_Impl::endPrefixMapping(this, core::mem::transmute_copy(&strprefix)).into()
             }
         }
         unsafe extern "system" fn startElement<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void, oattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5993,25 +5975,13 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn characters<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXContentHandler_Impl::characters(this) {
-                    Ok(ok__) => {
-                        strchars.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXContentHandler_Impl::characters(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
         unsafe extern "system" fn ignorableWhitespace<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXContentHandler_Impl::ignorableWhitespace(this) {
-                    Ok(ok__) => {
-                        strchars.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXContentHandler_Impl::ignorableWhitespace(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
         unsafe extern "system" fn processingInstruction<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtarget: *mut *mut core::ffi::c_void, strdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6023,13 +5993,7 @@ impl IVBSAXContentHandler_Vtbl {
         unsafe extern "system" fn skippedEntity<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXContentHandler_Impl::skippedEntity(this) {
-                    Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXContentHandler_Impl::skippedEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
         Self {
@@ -6355,17 +6319,11 @@ impl IVBSAXLexicalHandler {
     pub unsafe fn endDTD(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endDTD)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn startEntity(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).startEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
     }
-    pub unsafe fn endEntity(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).endEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strname)).ok() }
     }
     pub unsafe fn startCDATA(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).startCDATA)(windows_core::Interface::as_raw(self)).ok() }
@@ -6373,11 +6331,8 @@ impl IVBSAXLexicalHandler {
     pub unsafe fn endCDATA(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).endCDATA)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn comment(&self) -> windows_core::Result<windows_core::BSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
-        }
+    pub unsafe fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).comment)(windows_core::Interface::as_raw(self), core::mem::transmute(strchars)).ok() }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6397,11 +6352,11 @@ pub struct IVBSAXLexicalHandler_Vtbl {
 pub trait IVBSAXLexicalHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn endDTD(&self) -> windows_core::Result<()>;
-    fn startEntity(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn endEntity(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn endEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn startCDATA(&self) -> windows_core::Result<()>;
     fn endCDATA(&self) -> windows_core::Result<()>;
-    fn comment(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLexicalHandler_Vtbl {
@@ -6421,25 +6376,13 @@ impl IVBSAXLexicalHandler_Vtbl {
         unsafe extern "system" fn startEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXLexicalHandler_Impl::startEntity(this) {
-                    Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXLexicalHandler_Impl::startEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
         unsafe extern "system" fn endEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXLexicalHandler_Impl::endEntity(this) {
-                    Ok(ok__) => {
-                        strname.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXLexicalHandler_Impl::endEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
         unsafe extern "system" fn startCDATA<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6457,13 +6400,7 @@ impl IVBSAXLexicalHandler_Vtbl {
         unsafe extern "system" fn comment<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVBSAXLexicalHandler_Impl::comment(this) {
-                    Ok(ok__) => {
-                        strchars.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IVBSAXLexicalHandler_Impl::comment(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
         Self {

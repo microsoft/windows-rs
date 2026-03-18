@@ -136,7 +136,7 @@ pub struct BITMAP_RENDERER_STATISTICS {
 }
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct CHANNEL_DEF {
     pub name: [i8; 8],
@@ -384,7 +384,7 @@ pub const RESERVED_FOR_LEGACY: u32 = 4u32;
 pub const RESOURCE_PLUGIN: PLUGIN_TYPE = 2i32;
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
@@ -401,7 +401,7 @@ pub struct RFX_GFX_MONITOR_INFO {
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub channelHdr: RFX_GFX_MSG_HEADER,
@@ -420,7 +420,7 @@ impl Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
     pub channelHdr: RFX_GFX_MSG_HEADER,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
@@ -429,7 +429,7 @@ pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
     pub ulBpp: u32,
     pub Reserved: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
     pub channelHdr: RFX_GFX_MSG_HEADER,
@@ -442,13 +442,13 @@ pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub RedrawRect: RFX_GFX_RECT,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
     pub channelHdr: RFX_GFX_MSG_HEADER,
     pub DisconnectReason: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_MSG_HEADER {
     pub uMSGType: u16,
@@ -467,7 +467,7 @@ impl Default for RFX_GFX_MSG_RDP_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct RFX_GFX_RECT {
     pub left: i32,
@@ -1545,8 +1545,8 @@ pub const WTS_COMMENT_LENGTH: u32 = 60u32;
 pub type WTS_CONFIG_CLASS = i32;
 pub type WTS_CONFIG_SOURCE = i32;
 pub type WTS_CONNECTSTATE_CLASS = i32;
-pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = 0i64 as _;
-pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = 0i64 as _;
+pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = 0i32 as _;
+pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = 0i32 as _;
 pub const WTS_CURRENT_SERVER_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("");
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
@@ -1746,22 +1746,22 @@ impl Default for WTS_PROPERTY_VALUE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_0 {
+pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
-    pub pstrVal: windows_sys::core::PWSTR,
+    pub pbVal: windows_sys::core::PSTR,
 }
-impl Default for WTS_PROPERTY_VALUE_0_0 {
+impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
+pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
-    pub pbVal: windows_sys::core::PSTR,
+    pub pstrVal: windows_sys::core::PWSTR,
 }
-impl Default for WTS_PROPERTY_VALUE_0_1 {
+impl Default for WTS_PROPERTY_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

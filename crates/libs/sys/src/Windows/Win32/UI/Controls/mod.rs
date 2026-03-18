@@ -3763,7 +3763,7 @@ impl Default for NMLVGETINFOTIPW {
     }
 }
 pub type NMLVGETINFOTIP_FLAGS = u32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NMLVKEYDOWN {
     pub hdr: NMHDR,
@@ -3835,7 +3835,7 @@ pub struct NMPGHOTITEM {
     pub idNew: i32,
     pub dwFlags: u32,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NMPGSCROLL {
     pub hdr: NMHDR,
@@ -4046,7 +4046,7 @@ impl Default for NMTBSAVE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTCKEYDOWN {
     pub hdr: NMHDR,
@@ -4245,7 +4245,7 @@ pub struct NMTVITEMCHANGE {
     pub uStateOld: u32,
     pub lParam: super::super::Foundation::LPARAM,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct NMTVKEYDOWN {
     pub hdr: NMHDR,
@@ -4587,24 +4587,26 @@ impl Default for PROPSHEETHEADERA_V1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4648,24 +4650,26 @@ impl Default for PROPSHEETHEADERA_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4685,26 +4689,26 @@ impl Default for PROPSHEETHEADERA_V2_2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERA_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4732,24 +4736,26 @@ impl Default for PROPSHEETHEADERW_V1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4793,24 +4799,26 @@ impl Default for PROPSHEETHEADERW_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: windows_sys::core::PCWSTR,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4830,26 +4838,26 @@ impl Default for PROPSHEETHEADERW_V2_2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETHEADERW_V2_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4881,39 +4889,39 @@ impl Default for PROPSHEETPAGEA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4941,26 +4949,26 @@ impl Default for PROPSHEETPAGEA_V1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4990,26 +4998,26 @@ impl Default for PROPSHEETPAGEA_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5040,26 +5048,26 @@ impl Default for PROPSHEETPAGEA_V3 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: windows_sys::core::PCSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEA_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5091,39 +5099,39 @@ impl Default for PROPSHEETPAGEW {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5151,26 +5159,26 @@ impl Default for PROPSHEETPAGEW_V1 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5200,26 +5208,26 @@ impl Default for PROPSHEETPAGEW_V2 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5250,26 +5258,26 @@ impl Default for PROPSHEETPAGEW_V3 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: windows_sys::core::PCWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: windows_sys::core::PCWSTR,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl Default for PROPSHEETPAGEW_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5863,7 +5871,7 @@ pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = 1i32;
 pub const TAP_ZORDER: TA_PROPERTY = 5i32;
 pub type TASKBANDPARTS = i32;
 pub type TASKBARPARTS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub struct TASKDIALOGCONFIG {
@@ -5898,7 +5906,7 @@ impl Default for TASKDIALOGCONFIG {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_0 {
@@ -5911,7 +5919,7 @@ impl Default for TASKDIALOGCONFIG_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[derive(Clone, Copy)]
 pub union TASKDIALOGCONFIG_1 {
@@ -5925,7 +5933,7 @@ impl Default for TASKDIALOGCONFIG_1 {
     }
 }
 pub type TASKDIALOGPARTS = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
@@ -6022,6 +6030,24 @@ impl Default for TBADDBITMAP {
     }
 }
 pub const TBBF_LARGE: u32 = 1u32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct TBBUTTON {
+    pub iBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsStyle: u8,
+    pub bReserved: [u8; 2],
+    pub dwData: usize,
+    pub iString: isize,
+}
+#[cfg(target_arch = "x86")]
+impl Default for TBBUTTON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -6659,10 +6685,10 @@ pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = 8i32;
 pub const TDP_FLASHBUTTON: TASKBANDPARTS = 2i32;
 pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = 3i32;
 pub const TDP_GROUPCOUNT: TASKBANDPARTS = 1i32;
-pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534i64 as _;
-pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533i64 as _;
-pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532i64 as _;
-pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535i64 as _;
+pub const TD_ERROR_ICON: windows_sys::core::PCWSTR = 65534u16 as _;
+pub const TD_INFORMATION_ICON: windows_sys::core::PCWSTR = 65533u16 as _;
+pub const TD_SHIELD_ICON: windows_sys::core::PCWSTR = 65532u16 as _;
+pub const TD_WARNING_ICON: windows_sys::core::PCWSTR = 65535u16 as _;
 pub type TEXTSELECTIONGRIPPERPARTS = i32;
 pub type TEXTSHADOWTYPE = i32;
 pub type TEXTSTYLEPARTS = i32;
@@ -7525,10 +7551,10 @@ impl Default for TVITEMW {
     }
 }
 pub type TVITEM_MASK = u32;
-pub const TVI_FIRST: HTREEITEM = -65535i64 as _;
-pub const TVI_LAST: HTREEITEM = -65534i64 as _;
-pub const TVI_ROOT: HTREEITEM = -65536i64 as _;
-pub const TVI_SORT: HTREEITEM = -65533i64 as _;
+pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
+pub const TVI_LAST: HTREEITEM = -65534i32 as _;
+pub const TVI_ROOT: HTREEITEM = -65536i32 as _;
+pub const TVI_SORT: HTREEITEM = -65533i32 as _;
 pub const TVM_CREATEDRAGIMAGE: u32 = 4370u32;
 pub const TVM_DELETEITEM: u32 = 4353u32;
 pub const TVM_EDITLABEL: u32 = 4417u32;
