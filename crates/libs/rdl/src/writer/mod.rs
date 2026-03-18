@@ -202,31 +202,6 @@ fn namespace_included(namespace: &str, filter: &[String]) -> bool {
     included
 }
 
-/// Returns the explicit `#[out]` or `#[input]` attribute token for a parameter.
-///
-/// The rdl reader infers `Out` for `*mut`/`&mut` parameters by default.  When
-/// a `*mut`/`&mut` parameter is actually an *input* parameter we must emit an
-/// explicit `#[input]` so the reader preserves the correct `In` flag.  When an
-/// output parameter has a non-pointer type we must emit `#[out]` because the
-/// reader would otherwise default to `In`.
-fn param_out_attr(is_out: bool, ty: &metadata::Type) -> TokenStream {
-    let is_ptr_mut = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-
-    if is_out {
-        if is_ptr_mut {
-            // Heuristic in the reader already infers Out for *mut/*&mut; no annotation needed.
-            quote! {}
-        } else {
-            quote! { #[out] }
-        }
-    } else if is_ptr_mut {
-        // Reader would incorrectly infer Out; emit #[input] to override.
-        quote! { #[input] }
-    } else {
-        quote! {}
-    }
-}
-
 fn item_arches(item: &metadata::reader::Item) -> i32 {
     match item {
         metadata::reader::Item::Type(ty) => ty.arches(),
