@@ -3,7 +3,7 @@ use windows_rdl::*;
 fn roundtrip(winmd: &str, rdl: &str) {
     writer()
         .input(winmd)
-        .reference("crates/libs/bindgen/default/Windows.winmd") // for Windows.Foundation.HRESULT
+        .reference("crates/libs/bindgen/default")
         .output(rdl)
         .namespace("Windows")
         .split()
@@ -14,15 +14,15 @@ fn roundtrip(winmd: &str, rdl: &str) {
 }
 
 fn main() {
-    roundtrip("crates/libs/bindgen/default/Windows.winmd", "rdl/Windows");
+    roundtrip("crates/libs/bindgen/default/Windows.winmd", "target/rdl/Windows");
 
     roundtrip(
         "crates/libs/bindgen/default/Windows.Win32.winmd",
-        "rdl/Windows.Win32",
+        "target/rdl/Windows.Win32",
     );
 
     roundtrip(
         "crates/libs/bindgen/default/Windows.Wdk.winmd",
-        "rdl/Windows.Wdk",
+        "target/rdl/Windows.Wdk",
     );
 }
