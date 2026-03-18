@@ -1,6 +1,5 @@
 #[winrt]
 mod Sample {
-    #[Windows::Foundation::Metadata::Guid(1067391944, 59582, 22841, 176, 212, 101, 37, 100, 5, 42, 35)]
     interface ICompareWithMidl {
         fn Bool(&self, a: bool, b: [bool]) -> bool;
         fn U8(&self, a: u8, b: [u8]) -> u8;
@@ -13,7 +12,7 @@ mod Sample {
         fn F32(&self, a: f32, b: [f32]) -> f32;
         fn F64(&self, a: f64, b: [f64]) -> f64;
         fn String(&self, a: String, b: [String]) -> String;
-        fn Object(&self, a: *mut Object, b: *mut Object) -> *mut Object;
+        fn Object(&self, a: *mut Object, b: [*mut Object]) -> *mut Object;
     }
 }
 #[winrt]
